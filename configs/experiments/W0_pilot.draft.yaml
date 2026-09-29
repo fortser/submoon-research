@@ -1,0 +1,18 @@
+schema_version: '0.1'
+status: draft
+experiment_id: W0-pilot-v0
+executable: false
+hosts:
+- iapetus
+- ganymede
+- himalia
+physics_level: L1
+gate_requirements:
+- W0_source_audit
+- host_passports
+- W1_measure
+- W2_numerics
+horizon_years: null
+epoch: null
+event_protocol: null
+note: Не содержит достаточных данных для научного запуска.

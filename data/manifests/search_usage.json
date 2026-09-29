@@ -1,0 +1,10 @@
+{
+  "schema_version": "0.1",
+  "scope": "research_workspace_since_bootstrap",
+  "web_search_calls": 1,
+  "page_fetch_calls": 3,
+  "scientific_api_calls": 0,
+  "downloads": 0,
+  "paid_calls": 0,
+  "paid_credits": 0
+}

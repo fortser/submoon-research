@@ -1,0 +1,19 @@
+schema_version: '0.1'
+experiment_id: L0-circular-v1
+status: ready
+data_kind: synthetic
+physics_level: L0
+units: dimensionless
+gm: 1.0
+radius: 1.0
+periods: 10
+samples: 257
+integrator: ias15
+control_integrator: DOP853
+rtol: 1.0e-12
+atol: 1.0e-14
+tolerances:
+  position_max: 1.0e-08
+  relative_energy_max: 1.0e-09
+  relative_angular_momentum_max: 1.0e-09
+  independent_position_max: 1.0e-08

@@ -1,0 +1,17 @@
+* text=auto
+*.md text eol=lf
+*.py text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.jsonl text eol=lf
+*.csv text eol=lf
+*.toml text eol=lf
+*.bib text eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.pdf binary
+*.parquet binary
+# Preserve exact bytes of the original source documents for the source manifest.
+Научная_программа_субспутники.md -text
+Организация_исследования_и_инструменты.md -text
+vastai_cli_cheatsheet.md -text

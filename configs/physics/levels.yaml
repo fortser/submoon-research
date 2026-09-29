@@ -1,0 +1,10 @@
+schema_version: '0.1'
+status: design
+levels:
+  L0: analytical_controls
+  L1: baseline_reproduction_pending_audit
+  L2: expanded_perturbers_pending_verification
+  L3: shape_and_orientation
+  L4: spin_and_dissipation
+  L5: population_and_observation
+production_ready: false

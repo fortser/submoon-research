@@ -1,0 +1,19 @@
+schema_version: '0.1'
+default_provider: available_web_tool
+cache_first: true
+max_retries: 1
+honor_retry_after: true
+tavily:
+  enabled: false
+  key_env: TAVILY_API_KEY
+  search_calls_limit: 0
+  extract_calls_limit: 0
+  credits_limit: 0
+planning_only:
+  initial_unique_queries:
+  - 30
+  - 60
+  paper_cumulative:
+  - 100
+  - 200
+stop_rule: Первичные данные достаточны, существенные противоречия разобраны.

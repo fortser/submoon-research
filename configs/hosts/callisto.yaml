@@ -1,0 +1,57 @@
+schema_version: '0.1'
+status: draft
+host_id: callisto
+name_ru: Каллисто
+parent: jupiter
+cohort: main
+pilot: false
+identifiers:
+  naif: null
+  horizons: null
+parameters:
+  gm:
+    value: null
+    unit: km3 / s2
+    source_id: null
+    source_locator: null
+    uncertainty: null
+    uncertainty_status: not_audited
+    covariance_ref: null
+    status: missing
+  radius:
+    value: null
+    unit: km
+    source_id: null
+    source_locator: null
+    uncertainty: null
+    uncertainty_status: not_audited
+    covariance_ref: null
+    status: missing
+  rotation_period:
+    value: null
+    unit: s
+    source_id: null
+    source_locator: null
+    uncertainty: null
+    uncertainty_status: not_audited
+    covariance_ref: null
+    status: missing
+radius_definition: null
+state:
+  epoch: null
+  time_scale: null
+  origin: null
+  frame: null
+  position: null
+  velocity: null
+  source_id: null
+gravity:
+  j2: null
+  c22: null
+  s22: null
+  normalization: null
+  reference_radius: null
+  source_id: null
+pole: null
+open_questions:
+- Проверить первичные источники, единицы и неопределённости.

@@ -1,0 +1,21 @@
+schema_version: '0.1'
+status: draft
+measures:
+- baseline_grid
+- uniform_a_e_cos_i_phases
+- uniform_log_a
+- canonical_volume
+domain:
+  hill_definition: a_host*(mass_host/(3*mass_planet))**(1/3)
+  eccentricity_max: 0.3
+  contact_buffer: 0.02
+  buffer_sensitivity:
+  - 0
+  - 0.05
+pilot:
+  randomizations: 8
+  points_per_randomization: 256
+  seeds: null
+  sampling_method: randomized_sobol_candidate
+freeze_utc: null
+normalization_implemented: false

@@ -1,0 +1,202 @@
+{
+  "measured_utc": "2026-09-23T18:04:24+00:00",
+  "method": "Actual characters; heuristic 2–4 characters per token, no tokenizer used.",
+  "excludes": "Task-specific source papers, actual predecessor data and reports, conversation and system/tool prompts.",
+  "stages": {
+    "W0": {
+      "dossier_characters": 5469,
+      "full_entry_characters": 37254,
+      "approximate_tokens_range": [
+        9314,
+        18627
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W0/SUMMARY.md": 925,
+        "docs/stages/W0.md": 5469,
+        "docs/context/input_contract.md": 3795,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/data_dictionary.md": 3626
+      }
+    },
+    "W1": {
+      "dossier_characters": 5857,
+      "full_entry_characters": 38439,
+      "approximate_tokens_range": [
+        9610,
+        19220
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W1/SUMMARY.md": 1264,
+        "docs/stages/W1.md": 5857,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/validation_protocol.md": 3332
+      }
+    },
+    "W2": {
+      "dossier_characters": 6491,
+      "full_entry_characters": 37488,
+      "approximate_tokens_range": [
+        9372,
+        18744
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W2/SUMMARY.md": 624,
+        "docs/stages/W2.md": 6491,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/reproducibility.md": 3602,
+        "docs/validation_protocol.md": 3332
+      }
+    },
+    "W3": {
+      "dossier_characters": 5928,
+      "full_entry_characters": 38031,
+      "approximate_tokens_range": [
+        9508,
+        19016
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W3/SUMMARY.md": 515,
+        "docs/stages/W3.md": 5928,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/context/reproducibility.md": 3602
+      }
+    },
+    "W4": {
+      "dossier_characters": 8779,
+      "full_entry_characters": 40599,
+      "approximate_tokens_range": [
+        10150,
+        20300
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W4/SUMMARY.md": 502,
+        "docs/stages/W4.md": 8779,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/validation_protocol.md": 3332
+      }
+    },
+    "W5": {
+      "dossier_characters": 8013,
+      "full_entry_characters": 40114,
+      "approximate_tokens_range": [
+        10029,
+        20057
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W5/SUMMARY.md": 513,
+        "docs/stages/W5.md": 8013,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/context/reproducibility.md": 3602
+      }
+    },
+    "W6": {
+      "dossier_characters": 6703,
+      "full_entry_characters": 28076,
+      "approximate_tokens_range": [
+        7019,
+        14038
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W6/SUMMARY.md": 517,
+        "docs/stages/W6.md": 6703,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/context/reproducibility.md": 3602
+      }
+    },
+    "W7": {
+      "dossier_characters": 9133,
+      "full_entry_characters": 34034,
+      "approximate_tokens_range": [
+        8509,
+        17017
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W7/SUMMARY.md": 520,
+        "docs/stages/W7.md": 9133,
+        "docs/context/input_contract.md": 3795,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/validation_protocol.md": 3332
+      }
+    },
+    "W8": {
+      "dossier_characters": 7059,
+      "full_entry_characters": 28152,
+      "approximate_tokens_range": [
+        7038,
+        14076
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W8/SUMMARY.md": 507,
+        "docs/stages/W8.md": 7059,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/validation_protocol.md": 3332
+      }
+    },
+    "W9": {
+      "dossier_characters": 5282,
+      "full_entry_characters": 26628,
+      "approximate_tokens_range": [
+        6657,
+        13314
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W9/SUMMARY.md": 490,
+        "docs/stages/W9.md": 5282,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/context/reproducibility.md": 3602
+      }
+    },
+    "W10": {
+      "dossier_characters": 4976,
+      "full_entry_characters": 36788,
+      "approximate_tokens_range": [
+        9197,
+        18394
+      ],
+      "files": {
+        "AGENTS.md": 8225,
+        "STATE.md": 1624,
+        "docs/context/project_overview.md": 2858,
+        "tracking/stages/W10/SUMMARY.md": 494,
+        "docs/stages/W10.md": 4976,
+        "docs/context/mathematical_core.md": 10732,
+        "docs/context/scientific_rules.md": 4547,
+        "docs/validation_protocol.md": 3332
+      }
+    }
+  }
+}

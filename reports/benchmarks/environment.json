@@ -1,0 +1,23 @@
+{
+  "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "logical_cpus": 6,
+  "packages": {
+    "numpy": "2.2.6",
+    "astropy": "6.1.7",
+    "scipy": "1.15.3",
+    "sympy": "1.14.0",
+    "rebound": "5.1.1",
+    "matplotlib": "3.10.9",
+    "pandas": "2.3.3",
+    "pyarrow": "25.0.1",
+    "PyYAML": "6.0.3",
+    "pydantic": "2.13.5",
+    "pytest": "9.1.1",
+    "ruff": "0.16.8"
+  },
+  "failures": {},
+  "disk_free_gib": 72.56,
+  "checked_utc": "2026-09-23T17:24:49+00:00",
+  "network_checked": false
+}

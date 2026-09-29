@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1",
+  "created_utc": "2026-09-23T17:19:46+00:00",
+  "sources": [
+    {
+      "source_id": "programme",
+      "path": "Научная_программа_субспутники.md",
+      "kind": "user_supplied_design",
+      "status": "read",
+      "sha256": "341cf86923f45c56724ac52bf299774a34f5652ab866a8f20c8682888bdc2301"
+    },
+    {
+      "source_id": "organization",
+      "path": "Организация_исследования_и_инструменты.md",
+      "kind": "user_supplied_design",
+      "status": "read",
+      "sha256": "0545d5f8d8dd04c8db17a0ac5f07b334144c87c658242cc4a538da36897c1602"
+    },
+    {
+      "source_id": "baseline_2609_03564v1",
+      "url": "https://arxiv.org/abs/2609.03564v1",
+      "status": "cited_in_programme_not_acquired",
+      "path": null,
+      "sha256": null
+    },
+    {
+      "source_id": "rebound_integrators",
+      "url": "https://rebound.hanno-rein.de/integrators/",
+      "status": "web_read",
+      "path": null,
+      "sha256": null
+    },
+    {
+      "source_id": "vastai_local_cheatsheet",
+      "path": "vastai_cli_cheatsheet.md",
+      "kind": "local_operational_reference",
+      "status": "read",
+      "sha256": "460778f63e4d22aa3fa29c429a0eb4d5cef60c2fc764004ccae5d2fc4f1ee7fb",
+      "limitations": "Historical commands and tests; current help and offers must be checked before use."
+    }
+  ]
+}

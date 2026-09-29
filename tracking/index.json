@@ -1,0 +1,685 @@
+{
+  "schema_version": "1.0",
+  "stages": {
+    "S0": {
+      "revision": 28,
+      "status": "complete",
+      "records": [
+        {
+          "id": "S0-D001",
+          "kind": "decision",
+          "title": "Сохранить оригинальные документы",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/bootstrap_decisions.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D002",
+          "kind": "decision",
+          "title": "Сохранить среду и использовать pip",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/bootstrap_decisions.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D003",
+          "kind": "decision",
+          "title": "Паспорта draft и кандидатный split",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/bootstrap_decisions.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D004",
+          "kind": "decision",
+          "title": "Начальные локальные ресурсы",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/bootstrap_decisions.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D005",
+          "kind": "decision",
+          "title": "Ограниченный проверочный L0 продукт",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/bootstrap_decisions.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D006",
+          "kind": "decision",
+          "title": "Журнал событий и производные сводки",
+          "status": "accepted",
+          "summary": "Основания, ограничения и условия пересмотра сохранены в связанном протоколе.",
+          "refs": [
+            "docs/tracking_protocol.md"
+          ],
+          "next_action": "Пересматривать при новых требованиях или провале проверки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-C001",
+          "kind": "check",
+          "title": "Окружение и зависимости",
+          "status": "passed",
+          "summary": "Импорты успешны; pip check не нашёл нарушенных зависимостей.",
+          "refs": [
+            "reports/benchmarks/environment.json",
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Повторить при изменении соответствующего кода.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-C002",
+          "kind": "check",
+          "title": "Круговая орбита L0 и файловые форматы",
+          "status": "passed",
+          "summary": "IAS15, аналитическое решение и DOP853 согласуются в допусках; ECSV/Parquet восстанавливаются.",
+          "refs": [
+            "runs/L0-20260923T172841Z-f10e06b5/validation.json",
+            "runs/L0-20260923T172841Z-f10e06b5/manifest.json"
+          ],
+          "next_action": "Повторить при изменении соответствующего кода.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-C003",
+          "kind": "check",
+          "title": "Журнал, конфликты и неизменяемость",
+          "status": "passed",
+          "summary": "11 тестов прошли: история, lock, stale revision, ownership, refs, отрицательный исход, L0 и уникальные запуски.",
+          "refs": [
+            "reports/benchmarks/bootstrap-tests.xml"
+          ],
+          "next_action": "Повторить при изменении соответствующего кода.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-C004",
+          "kind": "check",
+          "title": "Проверка качества кода",
+          "status": "passed",
+          "summary": "Ruff прошёл после исправления двух замечаний.",
+          "refs": [
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Повторить при изменении соответствующего кода.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-B001",
+          "kind": "issue",
+          "title": "Замечания первого запуска Ruff",
+          "status": "verified",
+          "summary": "E402 в launcher отмечен как намеренный src-bootstrap; неиспользуемый импорт удалён. Повторная проверка прошла; научные исходы не затронуты.",
+          "refs": [
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Закрыто; сохранять как историю проверки каркаса.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-C004"
+          ],
+          "affected_runs": []
+        },
+        {
+          "id": "S0-D007",
+          "kind": "decision",
+          "title": "Ручное дублирование статусов в нескольких файлах",
+          "status": "rejected",
+          "summary": "Отклонено: статусы расходятся между агентами. Принят единый JSONL-журнал и восстановимые представления. Полные доказательства остаются по ссылкам.",
+          "refs": [
+            "docs/tracking_protocol.md"
+          ],
+          "next_action": "Пересмотреть только при смене механизма совместной работы.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-D006"
+          ]
+        },
+        {
+          "id": "S0-R001",
+          "kind": "result",
+          "title": "Готовое рабочее пространство исследования",
+          "status": "validated",
+          "summary": "Созданы и проверены каркас, воспроизводимый L0 запуск и универсальный трекинг. Научные W0–W10 ещё не выполнены.",
+          "refs": [
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Перейти к аудиту источников W0.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-C001",
+            "S0-C002",
+            "S0-C003",
+            "S0-C004"
+          ]
+        },
+        {
+          "id": "S0-STAGE",
+          "kind": "stage",
+          "title": "Рабочее пространство и трекинг",
+          "status": "complete",
+          "summary": "Каркас, паспорта draft, протоколы, универсальный трекинг и синтетическая L0 цепочка созданы; проверки прошли. Это инфраструктурный результат, не закрытие W2.",
+          "refs": [
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Начать W0-T001; продолжить по научным воротам.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-R001"
+          ]
+        },
+        {
+          "owner": "codex-main",
+          "next_action": "Обновлять документацию при изменении системы; карту — по отдельному запросу.",
+          "id": "S0-C005",
+          "kind": "check",
+          "title": "Ссылки, схемы и завершение оформления",
+          "status": "passed",
+          "summary": "Проверены 155 локальных ссылок, схемы 34 событий и структура проекта; ошибок нет.",
+          "refs": [
+            "reports/benchmarks/documentation-check.json"
+          ]
+        },
+        {
+          "id": "S0-B002",
+          "kind": "issue",
+          "title": "Отсутствовал каталог отчётов в одноразовом оформлении",
+          "status": "verified",
+          "summary": "Каталог отчёта создаётся явно; оформление завершено. Повторная проверка структуры, ссылок и журналов прошла.",
+          "refs": [
+            "reports/progress/2026-09-23-bootstrap.md"
+          ],
+          "next_action": "Закрыто; одноразовый скрипт не используется в научных расчётах.",
+          "owner": "codex-main",
+          "affected_runs": [],
+          "related_ids": [
+            "S0-C005"
+          ]
+        },
+        {
+          "owner": "codex-main",
+          "next_action": "Обновлять документацию при изменении системы; карту — по отдельному запросу.",
+          "id": "S0-T002",
+          "kind": "task",
+          "title": "Пользовательская карта и описание системы трекинга",
+          "status": "done",
+          "summary": "Созданы отдельные документы с иерархией, навигацией, алгоритмами обновления/чтения, блок-схемами и оценкой контекста. Связаны с README.",
+          "refs": [
+            "PROJECT_MAP.md",
+            "TRACKING_SYSTEM.md",
+            "reports/benchmarks/documentation-check.json"
+          ],
+          "related_ids": [
+            "S0-C005"
+          ]
+        },
+        {
+          "id": "S0-D008",
+          "kind": "decision",
+          "title": "Предлагать Vast.ai при локальной серии свыше 5–6 часов",
+          "status": "accepted",
+          "summary": "По прямому указанию пользователя: сначала бенчмарк и конкретный план; перед арендой и тратой денег — явное разрешение. Текущий бюджет остаётся нулевым.",
+          "refs": [
+            "AGENTS.md",
+            "docs/compute_policy.md",
+            "reports/progress/2026-09-23-compute-policy.md"
+          ],
+          "next_action": "Применить при обосновании ресурсоёмкой серии; сейчас аренда не разрешена.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-B003",
+          "kind": "issue",
+          "title": "Vast.ai CLI требует запись кэша вне разрешённой папки",
+          "status": "open",
+          "summary": "Глобальный CLI 0.3.1 найден; --version упал с PermissionError на gpu_names_cache.json. Это препятствие только будущему вызову CLI, не W0 и не подготовке правил.",
+          "refs": [
+            "reports/progress/2026-09-23-compute-policy.md"
+          ],
+          "next_action": "Перед использованием CLI разрешить доступ к кэшу предусмотренным механизмом; не обходить sandbox.",
+          "owner": "codex-main",
+          "affected_runs": []
+        },
+        {
+          "id": "S0-C006",
+          "kind": "check",
+          "title": "Проверка политики и запрета несогласованных расходов",
+          "status": "passed",
+          "summary": "Проверены пороги 5/6 часов, cloud_approval_required=true, нулевой платный бюджет, локальные ссылки и структура проекта.",
+          "refs": [
+            "reports/progress/2026-09-23-compute-policy.md",
+            "configs/resources.yaml"
+          ],
+          "next_action": "Сверять бюджет с прямым разрешением перед каждой арендуемой серией.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-T003",
+          "kind": "task",
+          "title": "Изучить памятку и закрепить порядок аренды в AGENTS",
+          "status": "done",
+          "summary": "Памятка изучена; правила, подробная политика и шаблон предложения созданы. Фактическая аренда не выполнялась.",
+          "refs": [
+            "AGENTS.md",
+            "docs/compute_policy.md",
+            "reports/progress/2026-09-23-compute-policy.md"
+          ],
+          "next_action": "Следующий научный шаг — W0-T001.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-D008",
+            "S0-C006",
+            "S0-B003"
+          ]
+        },
+        {
+          "id": "S0-D009",
+          "kind": "decision",
+          "title": "Научный контекст: общая картина и полное досье выбранного этапа",
+          "status": "accepted",
+          "summary": "Рутинное полное перечитывание программы заменено проверяемыми несокращёнными выдержками, рабочими планами и общими тематическими блоками. Источник остаётся каноническим.",
+          "refs": [
+            "AGENTS.md",
+            "docs/stages/README.md",
+            "reports/progress/2026-09-23-stage-context-and-roadmap.md"
+          ],
+          "next_action": "Перед работой проверять актуальность досье и читать обязательные блоки.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-D010",
+          "kind": "decision",
+          "title": "Последовательность определяется проверенными продуктами",
+          "status": "accepted",
+          "summary": "Подготовка W1/W2/W7 может пересекаться с W0. Основной атлас требует ворот W0–W2. Следующие задачи адаптируются решениями и передачей версий; расширения не задерживают обязательное ядро.",
+          "refs": [
+            "RESEARCH_ROADMAP.md",
+            "docs/templates/stage_handoff.md"
+          ],
+          "next_action": "Применять маршрут при выборе следующей задачи и приёмке межэтапных входов.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-C007",
+          "kind": "check",
+          "title": "Полнота выдержек, ссылки и трекинг этапов",
+          "status": "passed",
+          "summary": "Проверка build_stage_briefs --check, существование локальных ссылок, схемы, Ruff и 9 тестов трекинга прошли; размеры контекста измерены в символах.",
+          "refs": [
+            "reports/progress/2026-09-23-stage-context-and-roadmap.md",
+            "docs/stages/source_index.json",
+            "reports/benchmarks/stage-context-sizes.json"
+          ],
+          "next_action": "Повторить проверку выдержек при изменении программы или каталога.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "S0-T004",
+          "kind": "task",
+          "title": "Детальный контекст этапов и адаптивная дорожная карта",
+          "status": "done",
+          "summary": "Созданы 11 досье, общая картина, пять полных контекстных выдержек, маршрут с параллельностью и шаблон передачи результатов. Научные этапы не объявлены выполненными.",
+          "refs": [
+            "docs/stages/README.md",
+            "RESEARCH_ROADMAP.md",
+            "reports/progress/2026-09-23-stage-context-and-roadmap.md"
+          ],
+          "next_action": "Начать W0-T001 по сформированной системе чтения и передачи.",
+          "owner": "codex-main",
+          "related_ids": [
+            "S0-D009",
+            "S0-D010",
+            "S0-C007"
+          ]
+        },
+        {
+          "id": "S0-T005",
+          "kind": "task",
+          "title": "Проверить и обновить карту файлов проекта",
+          "status": "active",
+          "summary": "Сверить PROJECT_MAP.md с фактическим деревом файлов и назначением текущих компонентов.",
+          "refs": [
+            "PROJECT_MAP.md"
+          ],
+          "detail_path": "PROJECT_MAP.md",
+          "next_action": "Сверить ссылки и обновить карту по фактической структуре.",
+          "owner": "codex-map-audit-20260929",
+          "related_ids": []
+        }
+      ]
+    },
+    "W0": {
+      "revision": 5,
+      "status": "ready",
+      "records": [
+        {
+          "id": "W0-STAGE",
+          "kind": "stage",
+          "title": "Аудит данных и базовой постановки",
+          "status": "ready",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Начать W0-001: полный текст и приложения статьи",
+          "owner": "unassigned"
+        },
+        {
+          "id": "W0-P001",
+          "kind": "plan",
+          "title": "Последовательность аудита и запуска пилота",
+          "status": "active",
+          "summary": "Статья/приложения → паспорта Япета, Ганимеда, Гималии → малый геометрический запрос → спецификация L1. W1 можно разрабатывать параллельно; freeze после входов.",
+          "refs": [
+            "docs/tasks/W0-001.md",
+            "docs/roadmap.md"
+          ],
+          "next_action": "Начать W0-T001; не подменять отсутствующие данные модельными.",
+          "owner": "codex-main",
+          "related_ids": [
+            "W0-T001"
+          ]
+        },
+        {
+          "id": "W0-T001",
+          "kind": "task",
+          "title": "W0-001",
+          "status": "active",
+          "summary": "Начат аудит исходной статьи; проверяется конкретная версия и доступность приложений, данных и кода.",
+          "refs": [
+            "docs/tasks/W0-001.md"
+          ],
+          "detail_path": "docs/tasks/W0-001.md",
+          "next_action": "Получить и зарегистрировать полный текст статьи и доступные приложения; зафиксировать SHA-256.",
+          "owner": "codex-w0-audit-20260924",
+          "related_ids": []
+        },
+        {
+          "id": "W0-D001",
+          "kind": "decision",
+          "title": "Локальный комплект статьи — первая точка аудита W0",
+          "status": "accepted",
+          "summary": "В arXiv-2609.03564v1 уже хранится исходник статьи, библиография, LaTeX-класс и стиль, а также все PDF, подключённые статьёй. W0 сначала проверяет и хеширует этот комплект; повторный поиск уже имеющихся материалов в интернете не нужен. Комплект публикации не является кодом динамического интегратора проекта, который отдельно проверяется в src/submoon_research.",
+          "refs": [
+            "docs/stages/W0.md",
+            "docs/tasks/W0-001.md",
+            "arXiv-2609.03564v1/00README.json",
+            "arXiv-2609.03564v1/aa57101-25.tex"
+          ],
+          "next_action": "Выполнить W0-T001 с инвентаризации и SHA-256 локального комплекта; искать в сети только конкретно отсутствующие материалы.",
+          "owner": "codex-main-2026-09-24",
+          "detail_path": "docs/tasks/W0-001.md",
+          "related_ids": [
+            "W0-T001",
+            "W0-P001"
+          ]
+        }
+      ]
+    },
+    "W1": {
+      "revision": 5,
+      "status": "ready",
+      "records": [
+        {
+          "id": "W1-STAGE",
+          "kind": "stage",
+          "title": "Мера и статистический дизайн",
+          "status": "ready",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Разработать протокол W1-001; freeze после W0",
+          "owner": "unassigned"
+        },
+        {
+          "id": "W1-T001",
+          "kind": "task",
+          "title": "W1-001",
+          "status": "ready",
+          "summary": "Критерии и входы заданы в карточке задачи.",
+          "refs": [
+            "docs/tasks/W1-001.md"
+          ],
+          "detail_path": "docs/tasks/W1-001.md",
+          "next_action": "Разработать протокол W1-001; freeze после W0",
+          "owner": "unassigned"
+        },
+        {
+          "id": "W1-H001",
+          "kind": "hypothesis",
+          "title": "H1: благоприятная группа отделяется от контроля",
+          "status": "proposed",
+          "summary": "Проверить разность при каждой основной мере; 3 п.п. — проектный практически значимый масштаб, не измеренный эффект.",
+          "refs": [
+            "docs/tasks/W1-001.md"
+          ],
+          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "W1-H002",
+          "kind": "hypothesis",
+          "title": "H2: внутренний порядок устойчив к мере",
+          "status": "proposed",
+          "summary": "Альтернатива — перестановки ранга при смене меры и фаз. До анализа зафиксировать семейство сравнений и интервалы.",
+          "refs": [
+            "docs/tasks/W1-001.md"
+          ],
+          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "W1-H003",
+          "kind": "hypothesis",
+          "title": "H3: геометрия объясняет часть различий",
+          "status": "proposed",
+          "summary": "Простой геометрический предсказатель сравнить с физическим остатком на отложенных хозяевах; независимая проверка ещё не заморожена.",
+          "refs": [
+            "docs/tasks/W1-001.md"
+          ],
+          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
+          "owner": "codex-main"
+        }
+      ]
+    },
+    "W2": {
+      "revision": 2,
+      "status": "blocked",
+      "records": [
+        {
+          "id": "W2-STAGE",
+          "kind": "stage",
+          "title": "Численная верификация и стоимость",
+          "status": "blocked",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Выполнить W2-001 по V02–V10",
+          "owner": "unassigned"
+        },
+        {
+          "id": "W2-T001",
+          "kind": "task",
+          "title": "W2-001",
+          "status": "blocked",
+          "summary": "Критерии и входы заданы в карточке задачи.",
+          "refs": [
+            "docs/tasks/W2-001.md"
+          ],
+          "detail_path": "docs/tasks/W2-001.md",
+          "next_action": "Выполнить W2-001 по V02–V10",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W3": {
+      "revision": 1,
+      "status": "blocked",
+      "records": [
+        {
+          "id": "W3-STAGE",
+          "kind": "stage",
+          "title": "Сопоставимый атлас",
+          "status": "blocked",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "После ворот W2 утвердить объём по бенчмарку",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W4": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W4-STAGE",
+          "kind": "stage",
+          "title": "Механизмы и фигура",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Выбрать ограниченный пилот по качеству данных",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W5": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W5-STAGE",
+          "kind": "stage",
+          "title": "Орбитально-вращательная эволюция",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Выбрать физически значимые механизмы",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W6": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W6-STAGE",
+          "kind": "stage",
+          "title": "Источники и столкновения",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Проверить доступность ограничений источника",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W7": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W7-STAGE",
+          "kind": "stage",
+          "title": "Наблюдения и полнота",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Инвентаризация одного инструмента/хозяина параллельно ядру",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W8": {
+      "revision": 1,
+      "status": "blocked",
+      "records": [
+        {
+          "id": "W8-STAGE",
+          "kind": "stage",
+          "title": "Популяционный вывод",
+          "status": "blocked",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Начинать после эволюции, источников и полноты",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W9": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W9-STAGE",
+          "kind": "stage",
+          "title": "Хребет Япета",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Отдельное расширение при наличии данных",
+          "owner": "unassigned"
+        }
+      ]
+    },
+    "W10": {
+      "revision": 1,
+      "status": "planned",
+      "records": [
+        {
+          "id": "W10-STAGE",
+          "kind": "stage",
+          "title": "Безразмерный перенос",
+          "status": "planned",
+          "summary": "Научные результаты этапа ещё не получены.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Отложить до механистического результата",
+          "owner": "unassigned"
+        }
+      ]
+    }
+  }
+}

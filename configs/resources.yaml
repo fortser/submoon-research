@@ -1,0 +1,22 @@
+schema_version: '0.1'
+profile: local_bootstrap
+policy_status: provisional
+max_workers: 1
+threads_per_worker: 1
+memory_gib: 2
+smoke_wall_seconds: 120
+smoke_output_mib: 64
+pilot_wall_seconds: 600
+pilot_output_mib: 256
+minimum_free_disk_gib: 5
+max_retries: 1
+paid_compute_enabled: false
+paid_budget: 0
+local_batch_target_hours: 5
+local_batch_review_threshold_hours: 6
+cloud_approval_required: true
+cloud_policy: docs/compute_policy.md
+cloud_cli_reference: vastai_cli_cheatsheet.md
+gpu_enabled: false
+enforcement: Smoke checks time and output between bounded steps; no OS memory quota.
+  Production runner must implement all quotas before use.

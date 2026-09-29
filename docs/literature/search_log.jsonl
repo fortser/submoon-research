@@ -1,0 +1,4 @@
+{"utc": "2026-09-23T17:19:46+00:00", "operation": "page_fetch", "provider": "web", "url": "https://rebound.hanno-rein.de/integrators/", "purpose": "Проверка документации интеграторов для инфраструктурного L0 smoke", "status": "read", "source_ids": ["rebound_integrators"]}
+{"utc": "2026-09-23T17:52:34+00:00", "operation": "web_search", "provider": "web", "url": null, "purpose": "Уточнить жизненный цикл и расходы для политики аренды", "status": "no_results_for_vastai_lifecycle_query"}
+{"utc": "2026-09-23T17:52:34+00:00", "operation": "page_fetch", "provider": "web", "url": "https://docs.vast.ai/guides/instances/manage-instances", "purpose": "Уточнить жизненный цикл и расходы для политики аренды", "status": "read"}
+{"utc": "2026-09-23T17:52:34+00:00", "operation": "page_fetch", "provider": "web", "url": "https://docs.vast.ai/documentation/instances/interruptible-instances", "purpose": "Уточнить жизненный цикл и расходы для политики аренды", "status": "unavailable"}

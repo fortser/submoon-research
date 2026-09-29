@@ -1,0 +1,39 @@
+schema_version: '0.1'
+record_status: template
+run_id: null
+orbit_id: null
+host_id: null
+model_version: null
+inputs_sha256: null
+initial_state:
+  epoch: null
+  time_scale: null
+  origin: null
+  frame: null
+  units: {position: km, velocity: km/s, elapsed_time: s}
+  position: null
+  velocity: null
+  orientation: null
+  spin: null
+sampling:
+  measure_id: null
+  domain_id: null
+  proposal_density: null
+  target_density: null
+  weight: null
+  inclusion_probability: null
+  stratum: null
+  randomization: null
+  seed: null
+physics: {config_sha256: null, scenario_id: null}
+numerics: {integrator: null, tolerances: null, event_protocol: null}
+outcome:
+  run_status: planned
+  physical_outcome: null
+  terminal_event: null
+  event_time: null
+  last_valid_time: null
+  uncertainty_status: unresolved
+  censoring_reason: null
+diagnostics: {min_pericenter: null, max_eccentricity: null, balances: null}
+cost: {cpu_seconds: null, gpu_seconds: null, force_evaluations: null, bytes_written: null}

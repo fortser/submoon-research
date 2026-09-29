@@ -1,0 +1,11 @@
+audit_id,question,source_locator,implementation,status,affected_results
+AUD-001,Hill radius factor 3,,,pending,
+AUD-002,Hyperion mass,,,pending,
+AUD-003,100 m body mass and density,,,pending,
+AUD-004,epoch frame time scale,,,pending,
+AUD-005,actual perturbers and planet J2,,,pending,
+AUD-006,one independent test body per run,,,pending,
+AUD-007,initial grid and phases,,,pending,
+AUD-008,integrator tolerances,,,pending,
+AUD-009,loss criterion,,,pending,
+AUD-010,public inputs and code,,,pending,

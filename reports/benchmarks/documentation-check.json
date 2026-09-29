@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "local_links_checked": 155,
+  "journal_events_schema_checked": 34,
+  "structure_check": {
+    "status": "passed",
+    "errors": [],
+    "host_passports": 11,
+    "tracking_records": 33,
+    "limitations": "Structural checks only; draft physics and scientific gates are not certified."
+  },
+  "scope": "Existing local links and JSON Schema; no external URLs fetched."
+}

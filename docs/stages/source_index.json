@@ -1,0 +1,72 @@
+{
+  "schema_version": "1.0",
+  "source": "Научная_программа_субспутники.md",
+  "source_sha256": "341cf86923f45c56724ac52bf299774a34f5652ab866a8f20c8682888bdc2301",
+  "catalog_sha256": "1451fea4c6072cd0abf66f26c6f7ce4bccd6c9ce7392c32e92dc47dd53486b04",
+  "outputs": {
+    "docs/context/input_contract.md": {
+      "sha256_utf8_lf": "19c55b80b3ea4d9312497c9378b593e987d6c1ddcb9af0c739bbe09199e9a5e3",
+      "characters": 3795
+    },
+    "docs/context/mathematical_core.md": {
+      "sha256_utf8_lf": "661530b6d0e5276f11c526cb1da543b9f22fefe6959e3ffdc6af92a07a6539ef",
+      "characters": 10732
+    },
+    "docs/context/scientific_rules.md": {
+      "sha256_utf8_lf": "9c01543910ecaaa6b2c5e6d49eb9bbab841b812567b40fe0675db9f351a3aeb7",
+      "characters": 4547
+    },
+    "docs/context/reproducibility.md": {
+      "sha256_utf8_lf": "218e88ebebd36792ae08d362960f46b9191e5bcd1af0d4d917fbadf03366bd44",
+      "characters": 3602
+    },
+    "docs/context/resources_and_publication.md": {
+      "sha256_utf8_lf": "72a2b25d8dc2c73524b779143f4201067ad30ebeda73e4d3b75680da9efbff66",
+      "characters": 8654
+    },
+    "docs/stages/W0.md": {
+      "sha256_utf8_lf": "c03c51b7930cec2f66beb4a9fe3d20675182cf61b6d6fd91ba50ffcddb1c5c29",
+      "characters": 6173
+    },
+    "docs/stages/W1.md": {
+      "sha256_utf8_lf": "b1d1ce4faa594394fc49c3540d064fce5f3a185aedd44564b54cf2f077067eeb",
+      "characters": 5857
+    },
+    "docs/stages/W2.md": {
+      "sha256_utf8_lf": "9b78b9e8f252309ceeb284b239b9bc878f3f48ffc1b3d590068101841058cf7a",
+      "characters": 6491
+    },
+    "docs/stages/W3.md": {
+      "sha256_utf8_lf": "30b726283a4fcce05d46be69f4851da8f99a4c9a3b2aa180db28b86ac073711c",
+      "characters": 5928
+    },
+    "docs/stages/W4.md": {
+      "sha256_utf8_lf": "1fe67772f86f8369eac29db8539614c39f8f1923f9afb64eb9da9131f8e96406",
+      "characters": 8779
+    },
+    "docs/stages/W5.md": {
+      "sha256_utf8_lf": "0e6b62dac30a40c02f05ff0c25b2d108b7fd45a2a19ebcfa64bc2aa6b5e84b83",
+      "characters": 8013
+    },
+    "docs/stages/W6.md": {
+      "sha256_utf8_lf": "afc71a29805f3cb734e04b25436329331aacecf106fed1653790a0c912b5485f",
+      "characters": 6703
+    },
+    "docs/stages/W7.md": {
+      "sha256_utf8_lf": "7034fddca4b76154ef2f853485f4600ef652ad7903ae601d3e3eaaf701a83a3a",
+      "characters": 9133
+    },
+    "docs/stages/W8.md": {
+      "sha256_utf8_lf": "0187755c6a4be312cf39ba41aa1a88c4ace3047fd698a31d5cb640c631e5ca93",
+      "characters": 7059
+    },
+    "docs/stages/W9.md": {
+      "sha256_utf8_lf": "81e08558694cd7f82f2546753e1f85dbf6c03b2f5d7faf989baeda91c52c2c9e",
+      "characters": 5282
+    },
+    "docs/stages/W10.md": {
+      "sha256_utf8_lf": "d62be8abb44425e82e90542f00b2075fe8999dae4797bfcf038306a05fee13e8",
+      "characters": 4976
+    }
+  }
+}

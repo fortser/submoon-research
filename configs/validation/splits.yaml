@@ -1,0 +1,25 @@
+schema_version: '0.1'
+status: candidate_not_frozen
+development:
+- iapetus
+- ganymede
+- himalia
+holdout_candidates:
+- europa
+- dione
+- hyperion
+unassigned:
+- titan
+- callisto
+- rhea
+- phoebe
+method_control:
+- moon
+observational_development: []
+observational_holdout: []
+freeze_utc: null
+prediction_ids: []
+prior_exposure: Все объекты названы в программе/литературе. Новизну каждого предсказания
+  проверить отдельно.
+himalia_policy: Если физические исходы участвуют в выборе модели, считать разработкой.
+contamination_log: []

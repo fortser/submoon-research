@@ -1,0 +1,14 @@
+{
+  "id": "W0-T001",
+  "kind": "task",
+  "title": "Аудит исходной статьи",
+  "status": "ready",
+  "summary": "Требуется полный текст конкретной версии и таблица неоднозначностей.",
+  "refs": [
+    "docs/tasks/W0-001.md"
+  ],
+  "next_action": "Получить статью и зарегистрировать SHA.",
+  "owner": "unassigned",
+  "detail_path": "docs/tasks/W0-001.md",
+  "related_ids": []
+}
