@@ -13,13 +13,14 @@ ROOTS=('data/raw','data/processed','data/interim','data/kernels','data/acquisiti
 
 
 def release_files(root):
-    result=subprocess.run(['git','ls-files','--cached','--others','--exclude-standard'],cwd=root,
+    result=subprocess.run(['git','ls-files','-z','--cached','--others','--exclude-standard'],cwd=root,
         check=True,capture_output=True,text=True,encoding='utf-8',timeout=30)
-    names=set(result.stdout.splitlines())
+    names=set(result.stdout.split('\0'))- {''}
     for folder in ROOTS:
         names.update(p.relative_to(root).as_posix() for p in (root/folder).rglob('*') if p.is_file())
     return sorted(name for name in names if not name.startswith(('scratch/','build/','.git/','.venv/','temp_scripts/'))
-        and name!='configs/paths.local.yaml' and not Path(name).name.startswith('.env')
+        and name!='configs/paths.local.yaml'
+        and (not Path(name).name.startswith('.env') or Path(name).name=='.env.example')
         and Path(name).suffix not in ('.key','.pem','.pyc') and (root/name).is_file())
 
 
