@@ -372,7 +372,7 @@
       ]
     },
     "W0": {
-      "revision": 96,
+      "revision": 119,
       "status": "active",
       "records": [
         {
@@ -425,38 +425,6 @@
           "owner": "codex-w0-audit-20261004-root",
           "related_ids": [
             "W0-T001"
-          ]
-        },
-        {
-          "id": "W0-I001",
-          "kind": "issue",
-          "title": "Завышенная масса Гипериона в опубликованных входах",
-          "status": "open",
-          "summary": "Во всех 130 файлах Hyperion масса 2.7915935367393023e-9 солнечных единиц, согласующаяся с завышенной табличной пропорцией порядка 1000 относительно JPL SAT441. Это не только несогласованность записи таблицы. Использование именно этих файлов авторским кодом и влияние на исходы не удостоверены.",
-          "refs": [
-            "reports/scientific/W0_baseline_audit.md",
-            "results/evidence/W0_baseline_audit_v1.json"
-          ],
-          "next_action": "Оформить первичный паспорт и отдельную исправленную версию перед зависимым расчётом Гипериона.",
-          "owner": "codex-w0-audit-20261004-root",
-          "related_ids": [
-            "W0-D003"
-          ]
-        },
-        {
-          "id": "W0-I003",
-          "kind": "issue",
-          "title": "Неполный контракт эпохи, осей, единиц и авторского кода",
-          "status": "open",
-          "summary": "В тексте календарная эпоха 2000-01-01 12:00; в архиве au/солнечная масса/сутки/rad и спутникоцентрические векторы. Шкала времени, название глобальных осей, G, солнечная единица в кг и определение года не объявлены. Авторского кода/версий/исходов в опубликованном архиве нет; отсутствие в других местах не утверждается.",
-          "refs": [
-            "reports/scientific/W0_baseline_audit.md",
-            "results/evidence/W0_baseline_audit_v1.json"
-          ],
-          "next_action": "Задать собственный явный контракт W0-002 и проверить численный аппарат по W2.",
-          "owner": "codex-w0-audit-20261004-root",
-          "related_ids": [
-            "W0-D003"
           ]
         },
         {
@@ -570,23 +538,6 @@
           ]
         },
         {
-          "id": "W0-I004",
-          "kind": "issue",
-          "title": "Разные пометки sigma для радиуса Япета в Thomas и Jacobson",
-          "status": "open",
-          "summary": "Thomas 2010 Table 1/§1: 734.3±2.8 km — 2sigma оценённой точности; Jacobson 2022 Table 5 повторяет число и ставит общую пометку 1sigma. Таблицы/сноски проверены в первичных PDF. W0-D004 сохраняет первичную трактовку; совместный статистический ансамбль не разрешён.",
-          "refs": [
-            "reports/scientific/W0_iapetus_passport_v1.md",
-            "runs/W0-iapetus-20261004T084620Z-6c6961d1/results/passport_audit.json"
-          ],
-          "next_action": "При подготовке параметрического ансамбля получить уточнение/совместные ограничения; не считать 2.8 km стандартным Gaussian sigma.",
-          "owner": "codex-w0-iapetus-20261004-root",
-          "related_ids": [
-            "W0-D004",
-            "W0-T002"
-          ]
-        },
-        {
           "id": "W0-C004",
           "kind": "check",
           "title": "Япет: первичные параметры, происхождение и инженерные проверки",
@@ -643,26 +594,6 @@
             "W0-T002",
             "W0-D003",
             "W0-R001"
-          ]
-        },
-        {
-          "id": "W0-I005",
-          "kind": "issue",
-          "title": "Гималия: неполная первичная ошибка GM и неопределённая объёмная форма",
-          "status": "open",
-          "summary": "Номинал GM JUP344 получен. Погрешность 0.05763 из JPL не прослежена до первичного документа, sigma/ковариация неизвестны. 85±10 км IAU — компиляция; WISE и Cassini дают разные ограничения размера. Первичный Cruikshank1977 и полный Brozovic2017 не получены; третья ось, объём и контактная поверхность null.",
-          "refs": [
-            "reports/scientific/W0_himalia_passport_v1.md",
-            "data/processed/host_passports/himalia_v1.yaml",
-            "references/manifests/himalia_sources_v1.json",
-            "runs/W0-himalia-20261004T092718Z-6c436957/validation.json",
-            "reports/scientific/W0_himalia_verification_v1.json"
-          ],
-          "next_action": "Перед uncertainty/contact ансамблем получить первичный error budget JUP344 и обосновать форму/поверхность; до этого сохранять ограничения.",
-          "owner": "codex-w0-himalia-20261004-root",
-          "related_ids": [
-            "W0-D005",
-            "W0-T002"
           ]
         },
         {
@@ -770,45 +701,6 @@
             "W0-I003"
           ],
           "owner": "codex-w0-ganymede-20261004-root"
-        },
-        {
-          "id": "W0-I006",
-          "kind": "issue",
-          "title": "Ганимед: первичные ошибки GM и численные размер/форма не приняты",
-          "status": "open",
-          "summary": "Sigma/covariance JUP365 не получены; сводка JPL не подменяет внутренний IOM. Радиус IAU известен, оригинал Anderson2001/DPS35.09 и полный Zubarev2015 не получены; DLR предоставляет только метаданные. Schenk2025 предварительный и не даёт принятой таблицы осей с ошибками. Нормировка/ориентация спутникового поля, контакт и вращение требуют аудита.",
-          "refs": [
-            "reports/scientific/W0_ganymede_passport_v1.md",
-            "references/manifests/ganymede_sources_v1.json",
-            "data/processed/host_passports/ganymede_v1.yaml"
-          ],
-          "next_action": "Получить проверяемый первичный полный размер/форму и модель ошибки до контактной модели/параметрического ансамбля; геометрический запрос допустим.",
-          "related_ids": [
-            "W0-R004",
-            "W0-D006",
-            "W0-T002"
-          ],
-          "owner": "codex-w0-ganymede-20261004-root"
-        },
-        {
-          "id": "W0-I002",
-          "kind": "issue",
-          "title": "Неодинаковые массивные старты галилеевых сеток",
-          "status": "open",
-          "summary": "У Каллисто/Европы/Ганимеда/Ио соответственно 4/8/6/18 файлов вне наиболее частых массивных состояний; всего 36. Происхождение отличий неизвестно. Ганимед в пилоте имеет также отклонения части стартов от заявленной круговой сетки. Критерий единых массивных состояний не ослаблен. Ганимед отдельно проверен W0-C006: точные файлы1,11,21,101,111,121; изменены расстояния, общим поворотом не объяснить. Все исходники сохранены.",
-          "refs": [
-            "reports/scientific/W0_baseline_audit.md",
-            "results/evidence/W0_baseline_audit_v1.json",
-            "reports/scientific/W0_ganymede_passport_v1.md",
-            "reports/scientific/W0_ganymede_verification_v1.json"
-          ],
-          "next_action": "Установить происхождение файлов или создать собственный явный набор; не менять исходный ZIP.",
-          "owner": "codex-w0-ganymede-20261004-root",
-          "related_ids": [
-            "W0-D003",
-            "W0-D006",
-            "W0-C006"
-          ]
         },
         {
           "id": "W0-D007",
@@ -942,32 +834,6 @@
           ]
         },
         {
-          "id": "W0-I007",
-          "kind": "issue",
-          "title": "Гималия: разные версии эфемерид и принятого GM",
-          "status": "investigating",
-          "summary": "GM Гималии одинаков в JUP344/JUP347; паспорт сохранён. Другие константы различаются. Совместимость DE441/DE442 и сил, Δсостояний и динамический эффект не проверены.",
-          "refs": [
-            "reports/scientific/W0_geometric_states_v1.md",
-            "references/manifests/geometric_states_v1.json",
-            "data/processed/host_passports/himalia_v1.yaml",
-            "reports/scientific/W0_L1_specification_v0_2.md",
-            "reports/scientific/W0_L1_verification_v0_2.json",
-            "docs/decisions/W0-D008_L1_v0_2.md"
-          ],
-          "next_action": "До реального пилота получить согласованный маршрут состояний либо измерить влияние смешения; проверить роль внешних GM/поля.",
-          "owner": "codex-w0-l1-20261004-root",
-          "related_ids": [
-            "W0-D005",
-            "W0-D007",
-            "W0-R003",
-            "W0-T002",
-            "W0-C008",
-            "W0-D008",
-            "W0-R006"
-          ]
-        },
-        {
           "id": "W0-C009",
           "kind": "check",
           "title": "Повторная проверка сохранности и штатных маршрутов W0",
@@ -1048,26 +914,6 @@
           ]
         },
         {
-          "id": "W0-P002",
-          "kind": "plan",
-          "title": "План исправлений качества W0 и допуска дальнейших этапов",
-          "status": "active",
-          "summary": "Приоритет: SHA фактических входов → строгий контракт L1 → lifecycle/архивирование → внешние GM/J2/полюса и совместимость состояний → генератор/IC → аналитические W2 → малый реальный пилот → handoff. W1-подготовка и синтетическая W2 доступны раньше; W3 ждёт проверенных W0–W2.",
-          "next_action": "W0-T004; затем устранить научные блокеры по разделам 7–9 полного отчёта.",
-          "owner": "codex-w0-review-20261004",
-          "refs": [
-            "reports/scientific/W0_quality_review_20261004.md",
-            "results/evidence/W0_quality_review_v1.json"
-          ],
-          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
-          "related_ids": [
-            "W0-T004",
-            "W0-D009",
-            "W2-T002",
-            "W0-P001"
-          ]
-        },
-        {
           "id": "W0-R007",
           "kind": "result",
           "title": "Подробный аудит качества W0: подтверждённые входы и два дефекта приёмки",
@@ -1136,62 +982,6 @@
             "W0-C007",
             "W0-I007",
             "W0-T002",
-            "W0-R006",
-            "W0-C008",
-            "W0-D008",
-            "W2-T002",
-            "W0-R007",
-            "W0-D009",
-            "W0-T004",
-            "W0-P002"
-          ]
-        },
-        {
-          "id": "W0-T002",
-          "kind": "task",
-          "title": "W0-002 — паспорта пилотных хозяев и контракт состояний",
-          "status": "ready",
-          "summary": "Паспорта и геометрия v1 повторно проверены. Каноническая L1 v0.2 сохраняет ограниченную роль; найдены дефекты приёмки новых входов/контракта W0-I008/I009. Совместимость сил/состояний и реальный пилот не готовы.",
-          "refs": [
-            "docs/tasks/W0-002.md",
-            "data/processed/host_passports/iapetus_v1.yaml",
-            "reports/scientific/W0_iapetus_passport_v1.md",
-            "docs/handoffs/W0_iapetus_to_remaining_passports_v1.md",
-            "data/processed/host_passports/himalia_v1.yaml",
-            "reports/scientific/W0_himalia_passport_v1.md",
-            "docs/handoffs/W0_himalia_to_ganymede_v1.md",
-            "data/processed/host_passports/ganymede_v1.yaml",
-            "reports/scientific/W0_ganymede_passport_v1.md",
-            "docs/handoffs/W0_ganymede_to_state_contract_v1.md",
-            "reports/scientific/W0_geometric_states_v1.md",
-            "reports/scientific/W0_geometric_states_verification_v1.json",
-            "docs/handoffs/W0_states_to_L1_v1.md",
-            "configs/acquisition/W0_geometric_states_v1.yaml",
-            "configs/experiments/L1_baseline_spec_v0_2.yaml",
-            "reports/scientific/W0_L1_specification_v0_2.md",
-            "reports/scientific/W0_L1_verification_v0_2.json",
-            "docs/handoffs/W0_L1_to_W2_v0_2.md",
-            "reports/scientific/W0_quality_review_20261004.md"
-          ],
-          "next_action": "Сначала W0-T004; затем внешние GM/J2/полюса, совместимость снимка и генератор субспутников по W0-P002.",
-          "owner": "codex-w0-l1-20261004-root",
-          "related_ids": [
-            "W0-R002",
-            "W0-D004",
-            "W0-I002",
-            "W0-I003",
-            "W0-I004",
-            "W0-R003",
-            "W0-D005",
-            "W0-I005",
-            "W0-R004",
-            "W0-D006",
-            "W0-C006",
-            "W0-I006",
-            "W0-D007",
-            "W0-C007",
-            "W0-R005",
-            "W0-I007",
             "W0-R006",
             "W0-C008",
             "W0-D008",
@@ -1289,24 +1079,6 @@
           "detail_path": "reports/scientific/W0_quality_review_20261004.md",
           "related_ids": [
             "W0-C010",
-            "W0-T003"
-          ]
-        },
-        {
-          "id": "W0-I010",
-          "kind": "issue",
-          "title": "Неполные снимки ранних runs и неоднородный жизненный цикл исполнения",
-          "status": "investigating",
-          "summary": "Текущие W0 runner/L0 мигрированы на общий lifecycle; сбои, прерывания, дисковый бюджет и внешний timeout проверены. Невосстановленные ранние версии кода остаются историческим ограничением; индекс опубликован.",
-          "next_action": "Для длительного production нужны надзор процесса, checkpoint и полные ресурсные гарантии.",
-          "owner": "codex-w0-review-20261004",
-          "refs": [
-            "results/evidence/run_history_limitations_v1.json",
-            "reports/scientific/W0_remediation_20261005.md"
-          ],
-          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
-          "related_ids": [
-            "W0-C009",
             "W0-T003"
           ]
         },
@@ -1424,11 +1196,357 @@
             "W0-D010",
             "W1-T001"
           ]
+        },
+        {
+          "id": "W0-T006",
+          "kind": "task",
+          "title": "Полная приёмка W0 и устранение пробелов перехода W1",
+          "status": "active",
+          "summary": "Проверить каждое требование W0 по фактическим продуктам; завершить физические входы, базовый расчёт и независимые проверки, обновить документацию/журнал/backup и push.",
+          "refs": [
+            "docs/stages/W0.md",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "related_ids": [
+            "W0-T002",
+            "W0-P002",
+            "W2-T002"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Проверить каждое требование W0 по фактическим продуктам; завершить физические входы, базовый расчёт и независимые проверки, обновить документацию/журнал/backup и push."
+        },
+        {
+          "id": "W0-D011",
+          "kind": "decision",
+          "title": "Принятие номинальной L1 и завершение W0 по проверенным продуктам",
+          "status": "accepted",
+          "summary": "Проверить физические центры GM, J2/R/полюса и состояния; разрешить условную номинальную контактную сферу без выдуманных ковариаций. V02 v2 решает фактически округлённый старт, допуски сохранены; DOP853 high-e остаётся непринятым.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "docs/decisions/W0-D011_nominal_completion.md"
+          ],
+          "detail_path": "docs/decisions/W0-D011_nominal_completion.md",
+          "next_action": "Аудировать источники, проверить V02 v2, затем малый базовый ансамбль и матрицу приёмки W0.",
+          "related_ids": [
+            "W0-T006",
+            "W0-T002",
+            "W2-T002",
+            "W0-D010"
+          ]
+        },
+        {
+          "id": "W0-C016",
+          "kind": "check",
+          "status": "passed",
+          "title": "Полный базовый ансамбль трёх реальных хозяев",
+          "summary": "36/36 орбит, 122 проверки прошли: 30 сохранились, 2 контакта, 4 unresolved. Уточнение, IAS15, энергия, события и 34 state restart проверены; общий wall 264.37 s. Разные T исключают сравнительную долю.",
+          "refs": [
+            "runs/W0-baseline-20261005T112343Z-e6690074/validation.json",
+            "reports/scientific/W0_completion_20261005.md"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Завершить выпуск/восстановление W0-T006; перейти к W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W0-R011",
+          "kind": "result",
+          "status": "validated",
+          "title": "Завершённый номинальный базовый продукт W0",
+          "summary": "Аудит статьи, паспорта/внешние номиналы, явная L1 v0.4.1, aligned-v3, области, старты и малый реальный ансамбль воспроизводимы. Каждая неоднозначность имеет статус и предел использования; W1 freeze и полный W2 не объявляются закрытыми.",
+          "refs": [
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Завершить выпуск/восстановление W0-T006; перейти к W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W0-T002",
+          "kind": "task",
+          "status": "done",
+          "title": "W0-002 — паспорта пилотных хозяев и контракт состояний",
+          "summary": "Паспорта, физические GM/J2/R/полюса, геометрия, номинальная постановка и базовые старты/ансамбль проверены. Неизвестные ковариации/поверхности явно исключены из разрешённых выводов.",
+          "refs": [
+            "reports/scientific/W0_completion_20261005.md",
+            "results/evidence/W0_completion_v1.json",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "docs/tasks/W0-002.md"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Завершить выпуск/восстановление W0-T006; перейти к W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W0-P002",
+          "kind": "plan",
+          "status": "completed",
+          "title": "План исправлений качества W0 и допуска дальнейших этапов",
+          "summary": "Часть W0 выполнена по всем рекомендациям QW0-01–06: SHA/схемы, lifecycle, номиналы/геометрия, IC/меры, аналитические контроли, базовый ансамбль и handoff. Freeze W1/основной W2/W3 переданы отдельным будущим задачам; выпуск/backup завершаются W0-T006.",
+          "refs": [
+            "reports/scientific/W0_completion_20261005.md",
+            "results/evidence/W0_completion_v1.json",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Завершить выпуск/восстановление W0-T006; перейти к W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W0-I001",
+          "kind": "issue",
+          "title": "Завышенная масса Гипериона в опубликованных входах",
+          "status": "open",
+          "summary": "Архивная масса Гипериона/пробного тела не исправлялась. Гиперион исключён из трёх пилотов; собственная L1 имеет один безмассовый объект и явные нормировки. Не блокирует номинальный W0; перед включением Гипериона нужен паспорт и новая исправленная серия.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-I002",
+          "kind": "issue",
+          "title": "Неодинаковые массивные старты галилеевых сеток",
+          "status": "open",
+          "summary": "Разные авторские массивные старты сохранены и подтверждены. Собственный общий геометрический набор используется одинаково во всех пробных орбитах; 36 новых стартов/390 сеточных векторов повторяются. Происхождение архивных различий не установлено; не блокирует собственный W0.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "reports/scientific/W0_ganymede_verification_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D003",
+            "W0-D006",
+            "W0-C006"
+          ]
+        },
+        {
+          "id": "W0-I003",
+          "kind": "issue",
+          "title": "Неполный контракт эпохи, осей, единиц и авторского кода",
+          "status": "open",
+          "summary": "Точный авторский frame/time scale/G/LL/код не восстановлены. Предел буквального повторения признан; собственный контракт TDB/ICRF/km/s и численные допуски явны, проверены и версионированы. Неизвестные архивные соглашения не переходят в собственный ансамбль.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-I004",
+          "kind": "issue",
+          "title": "Разные пометки sigma для радиуса Япета в Thomas и Jacobson",
+          "status": "open",
+          "summary": "Первичная трактовка размера Япета 2σ сохранена. Операционная сфера 734.3 km принята условно; совместная модель ошибок и истинная поверхность не приобретены. Параметрические/поверхностные выводы запрещены, номинальный W0 проверен.",
+          "refs": [
+            "reports/scientific/W0_iapetus_passport_v1.md",
+            "runs/W0-iapetus-20261004T084620Z-6c6961d1/results/passport_audit.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D004",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-I005",
+          "kind": "issue",
+          "title": "Гималия: неполная первичная ошибка GM и неопределённая объёмная форма",
+          "status": "open",
+          "summary": "Номинальный GM Гималии и условная сфера 85 km приняты по паспортным источникам. Первичные sigma/ковариация/объём/форма остаются неизвестными; термальный и проекционный размеры не подменяют выбранный Rref. Номинальный W0 не требует выдуманных распределений.",
+          "refs": [
+            "reports/scientific/W0_himalia_passport_v1.md",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "references/manifests/himalia_sources_v1.json",
+            "runs/W0-himalia-20261004T092718Z-6c436957/validation.json",
+            "reports/scientific/W0_himalia_verification_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D005",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-I006",
+          "kind": "issue",
+          "title": "Ганимед: первичные ошибки GM и численные размер/форма не приняты",
+          "status": "open",
+          "summary": "GM Ганимеда принят по первичным блокам JUP365, Rref 2631.2 km сохраняет компиляционный статус. Форма/ковариация и первичная трактовка GM-error не получены; параметрическая/поверхностная интерпретация исключена из номинального W0.",
+          "refs": [
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "references/manifests/ganymede_sources_v1.json",
+            "data/processed/host_passports/ganymede_v1.yaml",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "related_ids": [
+            "W0-R004",
+            "W0-D006",
+            "W0-T002"
+          ],
+          "owner": "codex-w0-completion-20261005"
+        },
+        {
+          "id": "W0-I007",
+          "kind": "issue",
+          "title": "Гималия: разные версии эфемерид и принятого GM",
+          "status": "investigating",
+          "summary": "Измерена DE441/DE442-привязка, опубликован aligned-v3, четыре парных траектории Гималии прошли. Физические GM/J2/R выбраны явно. Совместный эфемеридный fit/длительная точность не утверждаются; первоначальный неаудированный вход больше не используется для текущего базового маршрута.",
+          "refs": [
+            "reports/scientific/W0_geometric_states_v1.md",
+            "references/manifests/geometric_states_v1.json",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md",
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "docs/decisions/W0-D008_L1_v0_2.md",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "related_ids": [
+            "W0-D005",
+            "W0-D007",
+            "W0-R003",
+            "W0-T002",
+            "W0-C008",
+            "W0-D008",
+            "W0-R006"
+          ]
+        },
+        {
+          "id": "W0-I010",
+          "kind": "issue",
+          "title": "Неполные снимки ранних runs и неоднородный жизненный цикл исполнения",
+          "status": "investigating",
+          "summary": "Текущий общий lifecycle и source/code/config snapshots, выпуск и backup проверяются. Недостающий код ранних runs не восстановлен; внешний индекс ограничений сохранён. Ранние исполнения не являются точным эталоном нынешнего W0.",
+          "next_action": "При расширении модели соблюдать ограничения матрицы W0 и создать новую версию/проверку.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "results/evidence/run_history_limitations_v1.json",
+            "reports/scientific/W0_remediation_20261005.md",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C009",
+            "W0-T003"
+          ]
+        },
+        {
+          "id": "W0-C014",
+          "kind": "check",
+          "title": "Номинальные GM, J2/R и полюса L1 v0.4.1",
+          "status": "passed",
+          "summary": "W0-nominal-20261005T110014Z-d605ac09: GM физических центров сверены с первичными блоками и PCK; J2/R из одного решения, независимые полюса совпали со SPICE. Радиусы и их статусы взяты из проверенных паспортов; неизвестные ковариации не выдуманы.",
+          "refs": [
+            "runs/W0-nominal-20261005T110014Z-d605ac09/validation.json",
+            "references/manifests/nominal_model_v0_4_1.json"
+          ],
+          "related_ids": [
+            "W0-T002",
+            "W0-D011"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W0-C015",
+          "kind": "check",
+          "title": "Измерение DE441/DE442 и отдельные выровненные IC",
+          "status": "passed",
+          "summary": "W0-alignment-20261005T105444Z-a0e2f61e: барицентр Юпитера Δr=3.48756 km, Δv=2.51576e-7 km/s на начальной эпохе. Гималия переведена к начальной привязке DE441 отдельным продуктом v3; точный календарный шаг TDB 60 s, исходники сохранены.",
+          "refs": [
+            "runs/W0-alignment-20261005T105444Z-a0e2f61e/validation.json",
+            "references/manifests/aligned_states_v3.json"
+          ],
+          "related_ids": [
+            "W0-I007",
+            "W0-D011"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W0-R010",
+          "kind": "result",
+          "title": "Физические номиналы и воспроизводимая привязка состояний",
+          "status": "validated",
+          "summary": "L1-nominal-v0.4.1 содержит принятые GM/J2/радиусы/полюса, источники и статусы неизвестных ошибок. Состояния aligned-v3 сохраняют исходный v1, устраняют известное смешение начальной привязки Гималии; это не совместное эфемеридное решение.",
+          "refs": [
+            "references/manifests/nominal_model_v0_4_1.json",
+            "references/manifests/aligned_states_v3.json"
+          ],
+          "related_ids": [
+            "W0-C014",
+            "W0-C015",
+            "W0-D011"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W0-C017",
+          "kind": "check",
+          "status": "passed",
+          "title": "Сквозная приёмка продуктов W0",
+          "summary": "W0-completion-20261005T115044Z-913191df passed: 132 pytest, Ruff, validate/досье/L0, повтор каталога и alignment, точные сетки и 1152 real-domain старта. SHA кода/входов/артефактов/checkpoint окончательного ансамбля сверены. Дополнительные проверки отвергают пустые ворота/чужой passed; offline replay не зависит от приватных путей.",
+          "refs": [
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
         }
       ]
     },
     "W1": {
-      "revision": 9,
+      "revision": 13,
       "status": "active",
       "records": [
         {
@@ -1484,50 +1602,80 @@
           ]
         },
         {
+          "id": "W1-C002",
+          "kind": "check",
+          "status": "passed",
+          "title": "Генератор и нормировки на реальных номинальных областях",
+          "summary": "Три хозяина × три меры × две независимые рандомизации ×64 старта: нормировки, ограничения контакта, повторяемость и независимые E/L прошли. Не оценка выживаемости и не полный V06.",
+          "refs": [
+            "results/evidence/W0_completion_v1.json",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "owner": "unassigned",
+          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W1-R001",
+          "kind": "result",
+          "status": "validated",
+          "title": "Принят вход W0 для статистического дизайна",
+          "summary": "L1-nominal-v0.4.1, aligned-v3, реальные домены/базисы и короткая стоимость приняты с SHA. Разработочная сетка 36 не даёт общей доли; общий T, H1–H3, дисперсия, интервалы и freeze предстоит определить.",
+          "refs": [
+            "results/evidence/W0_completion_v1.json",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "owner": "unassigned",
+          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
           "id": "W1-T001",
           "kind": "task",
-          "title": "W1-001",
           "status": "ready",
-          "summary": "Генератор/нормировки трёх мер, статистические функции, контракт орбиты и guard freeze реализованы. Протокол v0.1 остаётся draft: реальные области, пилотная дисперсия/стоимость, H1–H3 и окончательная статистика не frozen.",
+          "title": "W1-001 — мера и статистический дизайн",
+          "summary": "Входы W0 и генератор реальных областей приняты. Следующая работа: общий физический T, H1–H3, меры/область/split, разработочный пилот дисперсии/стоимости, интервалы/остановка и freeze.",
           "refs": [
-            "docs/tasks/W1_implementation_protocol_v0_1.md",
-            "reports/scientific/W0_remediation_20261005.md"
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "docs/tasks/W1-001.md",
+            "results/evidence/W0_completion_v1.json"
           ],
-          "detail_path": "docs/tasks/W1-001.md",
-          "next_action": "После проверенных реальных входов/пилота завершить зарегистрированный дизайн и V06; freeze пока запрещён.",
-          "owner": "codex-w0-remediation-20261005"
+          "owner": "unassigned",
+          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
         },
         {
           "id": "W1-STAGE",
           "kind": "stage",
-          "title": "Мера и статистический дизайн",
           "status": "active",
-          "summary": "Подготовка выполнена: три условные меры, генератор/нормировки, запись орбиты и guard freeze. Синтетические проверки проходят; реальные области и пилотные стоимость/дисперсия ещё не приняты. Freeze запрещён.",
+          "title": "Мера и статистический дизайн",
+          "summary": "W0-вход принят: физические номиналы, состояния, реальные области/меры и короткий benchmark проверены. Генератор воспроизводим; окончательные H1–H3, общий T, статистический бюджет и freeze ещё открыты.",
           "refs": [
-            "docs/roadmap.md"
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "results/evidence/W0_completion_v1.json"
           ],
-          "next_action": "Продолжить W1-T001 после научных входов W0 и допустимого режима W2.",
-          "owner": "unassigned"
+          "owner": "unassigned",
+          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
         }
       ]
     },
     "W2": {
-      "revision": 10,
+      "revision": 21,
       "status": "active",
       "records": [
-        {
-          "id": "W2-T001",
-          "kind": "task",
-          "title": "W2-001",
-          "status": "blocked",
-          "summary": "Критерии и входы заданы в карточке задачи.",
-          "refs": [
-            "docs/tasks/W2-001.md"
-          ],
-          "detail_path": "docs/tasks/W2-001.md",
-          "next_action": "Выполнить W2-001 по V02–V10",
-          "owner": "unassigned"
-        },
         {
           "id": "W2-C001",
           "kind": "check",
@@ -1545,56 +1693,126 @@
           ]
         },
         {
+          "id": "W2-C005",
+          "kind": "check",
+          "status": "passed",
+          "title": "Численный допуск ограниченного реального базового ансамбля",
+          "summary": "Окончательные 36 орбит прошли уточнение DOP853, 12 сравнений IAS15, контакты, энергию и 34 restart. Это допуск короткого W0, не длительного production/постоянного ухода.",
+          "refs": [
+            "runs/W0-baseline-20261005T112343Z-e6690074/validation.json",
+            "results/evidence/W0_completion_v1.json"
+          ],
+          "owner": "unassigned",
+          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
           "id": "W2-T002",
           "kind": "task",
-          "title": "Аналитическая подготовка: V02/монопольные силы, затем V03–V05",
           "status": "ready",
-          "summary": "Интерфейсы монополей/J2/событий и независимые unit-контроли реализованы. V02 выполнен, строгий режим для e=0.9/0.99 не прошёл. Полные V03–V05, рестарт и реальный пилот не закрыты.",
+          "title": "Аналитическая подготовка: V02/монопольные силы, затем V03–V05",
+          "summary": "V02 v2, CR3BP и J2-прецессия, градиент/реакция и короткие контакты прошли. DOP853 high-e не допущен; остаются полный протокол ухода/возврата и расширенная V05 для выбранного общего T.",
           "refs": [
             "docs/tasks/W2-002.md",
-            "reports/scientific/W0_remediation_20261005.md",
-            "runs/W2-analytic-20261005T085951Z-103e3d09/validation.json"
+            "reports/scientific/W0_completion_20261005.md",
+            "results/evidence/W0_completion_v1.json"
           ],
-          "next_action": "Довести строгий V02 новой серией, затем CR3BP/J2-прецессию и полный протокол событий.",
-          "owner": "codex-w0-remediation-20261005",
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
           "related_ids": [
-            "W0-R006",
-            "W0-D008",
-            "W0-C008",
-            "W2-T001",
-            "W0-R007",
-            "W0-D009",
-            "W0-I008",
-            "W0-I009"
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W2-T001",
+          "kind": "task",
+          "status": "ready",
+          "title": "W2-001 — длительный численный режим и бюджет",
+          "summary": "Номинальные входы W0, базовые силы/контакты/state restart и короткая стоимость приняты. Продолжить V05–V11 совместно с показателями W1; полный production и основной W3 пока не разрешены.",
+          "refs": [
+            "docs/tasks/W2-001.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "results/evidence/W0_completion_v1.json"
           ],
-          "detail_path": "docs/tasks/W2-002.md"
+          "owner": "unassigned",
+          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
         },
         {
           "id": "W2-STAGE",
           "kind": "stage",
-          "title": "Численная верификация и стоимость",
           "status": "active",
-          "summary": "Строгая приёмка W0 исправлена. Синтетические силы/градиент/контакт проверены; полный V02 сохраняет failed для высоких e. Реальный пилот, checkpoint/стоимость и W3 не разрешены.",
+          "title": "Численная верификация и стоимость",
+          "summary": "IAS15 высокие e и DOP853 низкие e прошли V02 v2; CR3BP/J2 и 36 реальных базовых орбит проверены. Измерен короткий бюджет и state restart. Длительный T, уход/возврат, интервалы, supervisor и production остаются будущими продуктами.",
           "refs": [
-            "docs/roadmap.md",
-            "docs/tasks/W2-002.md",
-            "docs/handoffs/W0_L1_to_W2_v0_2.md",
-            "configs/experiments/L1_baseline_spec_v0_2.yaml",
-            "reports/scientific/W0_quality_review_20261004.md"
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "results/evidence/W0_completion_v1.json"
           ],
-          "next_action": "W2-T002: исправить численный режим высокоэксцентрических контролей; затем полные V03–V05.",
           "owner": "unassigned",
+          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
           "related_ids": [
-            "W0-R006",
-            "W0-D008",
-            "W0-C008",
-            "W2-T002",
-            "W2-T001",
-            "W0-R007",
-            "W0-D009",
-            "W0-T004",
-            "W0-P002"
+            "W0-D011",
+            "W0-R010"
           ]
+        },
+        {
+          "id": "W2-C002",
+          "kind": "check",
+          "title": "V02 v2: эталон фактического старта и допустимые области методов",
+          "status": "passed",
+          "summary": "W2-analytic-20261005T103304Z-f4311c42: эталон Кеплера при 60/80 знаках; прежние допуски сохранены. IAS15 epsilon1e-12 проходит e=0/0.5/0.9/0.99; DOP8531e-13 проходит до e=0.5. DOP853 high-e остаётся failed вне допуска; прошлые runs сохранены.",
+          "refs": [
+            "runs/W2-analytic-20261005T103304Z-f4311c42/validation.json",
+            "configs/validation/W2_analytic_v2.yaml"
+          ],
+          "related_ids": [
+            "W2-C001",
+            "W2-T002",
+            "W0-D011"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W2-C003",
+          "kind": "check",
+          "title": "V03 CR3BP и V04 аналитическая прецессия J2",
+          "status": "passed",
+          "summary": "W2-nominal-controls-20261005T110233Z-98ede168: L4/L5, Якоби и доступная энергия; прецессия узла/перицентра двух синтетических J2 совпадает с независимой формулой в предобъявленных допусках. Не полный допуск production W2.",
+          "refs": [
+            "runs/W2-nominal-controls-20261005T110233Z-98ede168/validation.json"
+          ],
+          "related_ids": [
+            "W2-T002",
+            "W0-D011"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W2-C004",
+          "kind": "check",
+          "title": "Бенчмарк W0: реальные орбиты, IAS15 и state checkpoint",
+          "status": "passed",
+          "summary": "W0-baseline-20261005T110911Z-8d4a6ef8: шесть контрастных орбит, уточнение DOP853, IAS15 и точное продолжение из сохранённого состояния прошли. Измерены CPU/wall/nfev. Это короткий benchmark, не длительные ворота W2.",
+          "refs": [
+            "runs/W0-baseline-20261005T110911Z-8d4a6ef8/validation.json",
+            "runs/W0-baseline-20261005T110911Z-8d4a6ef8/results/costs.json"
+          ],
+          "related_ids": [
+            "W2-T002",
+            "W0-T006"
+          ],
+          "owner": "codex-w0-completion-20261005",
+          "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
         }
       ]
     },

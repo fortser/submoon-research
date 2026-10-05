@@ -1,0 +1,27 @@
+schema_version: '0.2'
+experiment_id: W2-analytic-controls-v2
+supersedes: W2-analytic-controls-v1
+decision_id: W0-D011
+data_kind: synthetic_analytic_control
+production_allowed: false
+integration_scope: synthetic_two_body_only
+units: dimensionless_GM_a_n_equal_one
+eccentricities: [0.0, 0.5, 0.9, 0.99]
+periods: 10
+output_samples: 513
+dop853_rtols: [1.0e-9, 1.0e-11, 1.0e-13]
+dop853_atol_factor: 0.001
+ias15_epsilon: 1.0e-12
+ias15_adaptive_mode: PRS23
+ias15_initial_dt: 1.0e-5
+reference_digits: 60
+admission:
+  IAS15: [0.0, 0.5, 0.9, 0.99]
+  DOP853: [0.0, 0.5]
+tolerances:
+  position: 1.0e-8
+  velocity: 1.0e-8
+  energy: 1.0e-9
+  angular_momentum: 1.0e-9
+resource_limits: {wall_seconds: 120, output_mib: 16}
+scope: DOP853 high-e remains unaccepted; baseline starts e<=0.3; no production admission

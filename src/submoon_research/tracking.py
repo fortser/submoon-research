@@ -201,7 +201,7 @@ def render_unlocked(root):
             recent = list(reversed(rows))
             recent.sort(key=lambda r: r["status"] not in priority)
             for r in recent[:3]:
-                head += [f"- `{r['id']}` [{r['status']}] {r['title']}. {r['summary'][:180]}"]
+                head += [f"- `{r['id']}` [{r['status']}] {r['title']}. {r['summary'][:180].rstrip()}"]
             full += ["", f"## {label}", "", "| ID | Статус | Запись | Следующий шаг | Детали/доказательства |",
                      "|---|---|---|---|---|"]
             for r in rows:

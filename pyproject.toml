@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "submoon-research"
-version = "0.2.0"
+version = "0.3.0"
 description = "Reproducible research workspace for submoon dynamics"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
   "numpy", "astropy", "scipy", "sympy", "rebound", "matplotlib",
-  "pandas", "pyarrow", "PyYAML", "pydantic>=2",
+  "pandas", "pyarrow", "PyYAML", "pydantic>=2", "mpmath>=1.3",
 ]
 
 [project.optional-dependencies]

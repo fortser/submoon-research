@@ -1,0 +1,26 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-alignment-20261005T105116Z-afdac2eb",
+  "files": [
+    {
+      "path": "data/processed/W0-geometric-states-aligned-v2/geometric_states.json",
+      "sha256": "d83e79619cb712365fe2477673561f29f96b80a6d6c01c15949eb7655842dba3"
+    },
+    {
+      "path": "configs/resources.yaml",
+      "sha256": "ebb9d16e0b860dc41a1da2f86835c93f98711bc873aff57972a01321eba692c1"
+    },
+    {
+      "path": "configs/acquisition/W0_alignment_v1.yaml",
+      "sha256": "64c4ec68ea602134f74bae4dc7c00444f22d88823dd94a84a9f8d898d09747b2"
+    },
+    {
+      "path": "data/processed/W0-geometric-states-v1/geometric_states.json",
+      "sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6"
+    },
+    {
+      "path": "data/kernels/W0-completion-20261005/de442s.bsp",
+      "sha256": "54d97562a5b094d298b1b8eafa5a2e17e3e010ce85e1a366d07f003ad159323c"
+    }
+  ]
+}

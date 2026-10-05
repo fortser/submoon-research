@@ -1,0 +1,31 @@
+schema_version: '0.1'
+experiment_id: W0-nominal-audit-v2
+data_kind: real_primary_constants_nominal_model
+decision_id: W0-D011
+production_allowed: false
+sources:
+  gm: data/raw/W0-completion-sources-20261005/gm_de440.tpc
+  pck: data/raw/W0-completion-sources-20261005/pck00011.tpc
+  sat: data/raw/W0-iapetus-sources-20261004/sat441.tpc
+  jov: data/raw/W0-ganymede-sources-20261004/jup365.cmt
+  sat_paper: data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf
+  passport_iapetus: data/processed/host_passports/iapetus_v1.yaml
+  passport_ganymede: data/processed/host_passports/ganymede_v1_0_1.yaml
+  passport_himalia: data/processed/host_passports/himalia_v1.yaml
+  radius_primary: data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf
+  radius_compilation: data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf
+inputs_sha256:
+  data/raw/W0-completion-sources-20261005/gm_de440.tpc: 924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140
+  data/raw/W0-completion-sources-20261005/pck00011.tpc: 3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1
+  data/raw/W0-iapetus-sources-20261004/sat441.tpc: 33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f
+  data/raw/W0-ganymede-sources-20261004/jup365.cmt: 3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a
+  data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf: 235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff
+  data/processed/host_passports/iapetus_v1.yaml: e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92
+  data/processed/host_passports/ganymede_v1_0_1.yaml: 2ade82b04d398ad193012afc6a00260747ed7fb73708f5334098bd762006cdd2
+  data/processed/host_passports/himalia_v1.yaml: 00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4
+  data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf: d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec
+  data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf: 4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980
+model_id: L1-nominal-v0.4.1
+supersedes: L1-nominal-v0.4
+output_model: data/processed/L1-nominal-v0_4_1/model.json
+output_manifest: references/manifests/nominal_model_v0_4_1.json

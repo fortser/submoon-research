@@ -1,0 +1,38 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-nominal-20261005T104824Z-349c542b",
+  "files": [
+    {
+      "path": "data/processed/L1-nominal-v0_4/model.json",
+      "sha256": "d78a89f6cb597310fdffd55ce3d753ff369ce48a19176cbfdd314cc84a0e7d95"
+    },
+    {
+      "path": "configs/resources.yaml",
+      "sha256": "ebb9d16e0b860dc41a1da2f86835c93f98711bc873aff57972a01321eba692c1"
+    },
+    {
+      "path": "configs/audits/W0_nominal_v1.yaml",
+      "sha256": "95b0df68f5860cb5180537a9949754ff7d27ffa90e34bf2890a38bdd328957c1"
+    },
+    {
+      "path": "data/raw/W0-completion-sources-20261005/gm_de440.tpc",
+      "sha256": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140"
+    },
+    {
+      "path": "data/raw/W0-completion-sources-20261005/pck00011.tpc",
+      "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/sat441.tpc",
+      "sha256": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f"
+    },
+    {
+      "path": "data/raw/W0-ganymede-sources-20261004/jup365.cmt",
+      "sha256": "3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf",
+      "sha256": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff"
+    }
+  ]
+}

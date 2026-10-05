@@ -298,7 +298,77 @@
       "status": "himalia_blocks_constants_and_merge_provenance_read",
       "read_scope": "Himalia 506 backward/forward, scoped 500GM/GM10/503GM/J502; JUP365 merge; DE442 provenance",
       "limitations": "Не является SPK или ковариацией; разность состояний/динамический эффект не измерены."
+    },
+    {
+      "source_id": "gm_de440_pck_20261005",
+      "path": "data/raw/W0-completion-sources-20261005/gm_de440.tpc",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/gm_de440.tpc",
+      "sha256": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140",
+      "bytes": 12406,
+      "kind": "primary_naif_constant_or_ephemeris",
+      "status": "retrieved_and_read",
+      "version": "NAIF gm_de440 2022-12-14",
+      "checked_utc": "2026-10-05T10:24:12.561750+00:00",
+      "audit_run_id": "W0-nominal-20261005T110014Z-d605ac09"
+    },
+    {
+      "source_id": "pck00011_20261005",
+      "path": "data/raw/W0-completion-sources-20261005/pck00011.tpc",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/pck/pck00011.tpc",
+      "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+      "bytes": 131226,
+      "kind": "primary_naif_constant_or_ephemeris",
+      "status": "retrieved_and_read",
+      "version": "NAIF generic PCK version 00011",
+      "checked_utc": "2026-10-05T10:24:12.561750+00:00",
+      "audit_run_id": "W0-nominal-20261005T110014Z-d605ac09"
+    },
+    {
+      "source_id": "de442s_20261005",
+      "path": "data/kernels/W0-completion-20261005/de442s.bsp",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de442s.bsp",
+      "sha256": "54d97562a5b094d298b1b8eafa5a2e17e3e010ce85e1a366d07f003ad159323c",
+      "bytes": 32701440,
+      "kind": "primary_naif_constant_or_ephemeris",
+      "status": "retrieved_and_read",
+      "version": "DE442 short 1850-2150",
+      "checked_utc": "2026-10-05T10:34:25.035134+00:00",
+      "audit_run_id": "W0-alignment-20261005T105444Z-a0e2f61e"
+    },
+    {
+      "source_id": "de442_technical_comments_20261005",
+      "path": "data/kernels/W0-completion-20261005/de442_tech-comments.txt",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/de442_tech-comments.txt",
+      "sha256": "1722f24a198fe54f8c25ae089ccfd06efd4bf22092e71da5d9d410040af5f666",
+      "bytes": 31841,
+      "kind": "primary_naif_constant_or_ephemeris",
+      "status": "retrieved_and_read",
+      "version": "DE442 primary technical comments",
+      "checked_utc": "2026-10-05T10:34:25.035134+00:00",
+      "audit_run_id": "W0-alignment-20261005T105444Z-a0e2f61e"
+    },
+    {
+      "source_id": "horizons_jupiter_barycenter_20261005",
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/jupiter_barycenter.raw.txt",
+      "sha256": "5d135747e78b007293e60ca5ccc1ede4f4475b5c44c21092d3f85d8dfdd94d73",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api",
+      "kind": "primary_geometric_api_snapshot",
+      "status": "retrieved_and_read",
+      "version": "DE441",
+      "audit_run_id": "W0-alignment-20261005T105116Z-afdac2eb",
+      "limitations": "Две эпохи TDB, ICRF, NONE; ковариация не предоставлена."
+    },
+    {
+      "source_id": "horizons_saturn_barycenter_20261005",
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/saturn_barycenter.raw.txt",
+      "sha256": "a588eb31d99619575390986a9f19b2f2dc697964ff38d7da3b4621e53a09377a",
+      "url": "https://ssd.jpl.nasa.gov/api/horizons.api",
+      "kind": "primary_geometric_api_snapshot",
+      "status": "retrieved_and_read",
+      "version": "DE441",
+      "audit_run_id": "W0-alignment-20261005T105116Z-afdac2eb",
+      "limitations": "Две эпохи TDB, ICRF, NONE; ковариация не предоставлена."
     }
   ],
-  "updated_utc": "2026-10-04T10:11:00.382794+00:00"
+  "updated_utc": "2026-10-05T11:30:00+00:00"
 }

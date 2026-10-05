@@ -24,3 +24,4 @@
 | W0-D008 | W0 | accepted | Рабочая L1 v0.2: неизменный GM Гималии и явные пределы совместимости | [Запись](tracking/stages/W0/RECORDS.md) |
 | W0-D009 | W0 | accepted | Аудит W0: сохранить проверенные входы, ограничить приёмку новых L1 | [Запись](tracking/stages/W0/RECORDS.md) |
 | W0-D010 | W0 | accepted | Строгая приёмка L1 v0.3 и patch паспорта Ганимеда | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D011 | W0 | accepted | Принятие номинальной L1 и завершение W0 по проверенным продуктам | [Запись](tracking/stages/W0/RECORDS.md) |

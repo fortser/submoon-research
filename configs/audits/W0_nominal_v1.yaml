@@ -1,0 +1,17 @@
+schema_version: '0.1'
+experiment_id: W0-nominal-audit-v1
+data_kind: real_primary_constants_nominal_model
+decision_id: W0-D011
+production_allowed: false
+sources:
+  gm: data/raw/W0-completion-sources-20261005/gm_de440.tpc
+  pck: data/raw/W0-completion-sources-20261005/pck00011.tpc
+  sat: data/raw/W0-iapetus-sources-20261004/sat441.tpc
+  jov: data/raw/W0-ganymede-sources-20261004/jup365.cmt
+  sat_paper: data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf
+inputs_sha256:
+  data/raw/W0-completion-sources-20261005/gm_de440.tpc: 924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140
+  data/raw/W0-completion-sources-20261005/pck00011.tpc: 3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1
+  data/raw/W0-iapetus-sources-20261004/sat441.tpc: 33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f
+  data/raw/W0-ganymede-sources-20261004/jup365.cmt: 3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a
+  data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf: 235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff

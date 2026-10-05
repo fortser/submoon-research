@@ -19,7 +19,7 @@ CORE = {
     "numpy": "numpy", "astropy": "astropy", "scipy": "scipy", "sympy": "sympy",
     "rebound": "rebound", "matplotlib": "matplotlib", "pandas": "pandas",
     "pyarrow": "pyarrow", "PyYAML": "yaml", "pydantic": "pydantic",
-    "pytest": "pytest", "ruff": "ruff",
+    "pytest": "pytest", "ruff": "ruff", "mpmath": "mpmath",
 }
 
 
@@ -50,9 +50,15 @@ def environment(check_imports=False):
             build_tools[name]=metadata.version(name)
         except metadata.PackageNotFoundError:
             build_tools[name]=None
+    optional_science={}
+    for name in ('spiceypy',):
+        try:
+            optional_science[name]=metadata.version(name)
+        except metadata.PackageNotFoundError:
+            optional_science[name]=None
     return {"python": sys.version, "platform": platform.platform(),
             "logical_cpus": os.cpu_count(), "packages": versions, "failures": failures,
-            "build_tools": build_tools}
+            "build_tools": build_tools,"optional_science":optional_science}
 
 
 def validate_smoke_config(config):

@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-nominal-20261005T110014Z-d605ac09",
+  "files": [
+    {
+      "path": "data/processed/L1-nominal-v0_4_1/model.json",
+      "sha256": "aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5"
+    },
+    {
+      "path": "configs/resources.yaml",
+      "sha256": "ebb9d16e0b860dc41a1da2f86835c93f98711bc873aff57972a01321eba692c1"
+    },
+    {
+      "path": "configs/audits/W0_nominal_v2.yaml",
+      "sha256": "bd40073064a7083ef1722c4fd5287d8fbe7662427436e6dd469a95b43ccf9432"
+    },
+    {
+      "path": "data/raw/W0-completion-sources-20261005/gm_de440.tpc",
+      "sha256": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140"
+    },
+    {
+      "path": "data/raw/W0-completion-sources-20261005/pck00011.tpc",
+      "sha256": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/sat441.tpc",
+      "sha256": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f"
+    },
+    {
+      "path": "data/raw/W0-ganymede-sources-20261004/jup365.cmt",
+      "sha256": "3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf",
+      "sha256": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff"
+    },
+    {
+      "path": "data/processed/host_passports/iapetus_v1.yaml",
+      "sha256": "e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92"
+    },
+    {
+      "path": "data/processed/host_passports/ganymede_v1_0_1.yaml",
+      "sha256": "2ade82b04d398ad193012afc6a00260747ed7fb73708f5334098bd762006cdd2"
+    },
+    {
+      "path": "data/processed/host_passports/himalia_v1.yaml",
+      "sha256": "00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf",
+      "sha256": "d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf",
+      "sha256": "4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980"
+    }
+  ]
+}

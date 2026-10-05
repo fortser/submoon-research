@@ -1,0 +1,51 @@
+schema_version: '0.2'
+experiment_id: W0-planetary-alignment-v2
+data_kind: real_geometric_ephemeris_snapshot
+production_allowed: false
+source_id: jpl_horizons_geometric_states_v1
+epoch_calendar: 2000-01-01 12:00
+epoch_jd_tdb: 2451545.0
+stop_calendar: 2000-01-01 12:01
+step: 1m
+rows_per_query: 2
+origin: solar_system_barycenter
+center: 500@0
+frame: ICRF
+ref_plane: FRAME
+time_scale: TDB
+corrections: NONE
+raw_units:
+  position: au
+  velocity: au/day
+processed_units:
+  position: km
+  velocity: km/s
+au_km: 149597870.7
+day_seconds: 86400
+au_source_path: data/raw/W0-source-check-20261004T074951Z/jpl-constants.html
+targets:
+  jupiter_barycenter: '5'
+  saturn_barycenter: '6'
+host_bodies: {}
+parents: {}
+validation_tolerances:
+  direct_relative_position_km: 0.001
+  direct_relative_velocity_km_s: 1.0e-08
+  epoch_jd_days: 1.0e-09
+  conversion_roundtrip_relative: 1.0e-15
+  source_range_relative: 1.0e-12
+limits:
+  request_timeout_seconds: 20
+  subprocess_timeout_seconds: 35
+  wall_seconds: 600
+  output_mib: 32
+  response_mib: 1
+  queries: 2
+  retries: 0
+states_path: data/processed/W0-geometric-states-v1/geometric_states.json
+de442_kernel: data/kernels/W0-completion-20261005/de442s.bsp
+inputs_sha256:
+  data/processed/W0-geometric-states-v1/geometric_states.json: bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6
+  data/kernels/W0-completion-20261005/de442s.bsp: 54d97562a5b094d298b1b8eafa5a2e17e3e010ce85e1a366d07f003ad159323c
+  data/raw/W0-source-check-20261004T074951Z/jpl-constants.html: 168f48b94ae3a65f31c96f081d08e7ca91ecc9e65678fdc57353821b492b313e
+cadence_seconds: 60

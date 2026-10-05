@@ -1,0 +1,142 @@
+{
+  "schema_version": "0.1",
+  "stage": "W0",
+  "status": "passed_nominal_stage_product",
+  "decision_id": "W0-D011",
+  "release_version": "0.3.0",
+  "baseline_run_id": "W0-baseline-20261005T112343Z-e6690074",
+  "acceptance_run_id": "W0-completion-20261005T115044Z-913191df",
+  "model_id": "L1-nominal-v0.4.1",
+  "states_version": "W0-geometric-states-aligned-v3",
+  "closure_matrix": {
+    "article_and_archive_audit": {
+      "status": "passed_with_documented_source_anomalies",
+      "evidence": "docs/literature/baseline_audit.csv"
+    },
+    "nominal_physical_inputs": {
+      "status": "passed",
+      "run_id": "W0-nominal-20261005T110014Z-d605ac09"
+    },
+    "geometric_alignment": {
+      "status": "passed_scoped_initial_alignment",
+      "run_id": "W0-alignment-20261005T105444Z-a0e2f61e"
+    },
+    "V02": {
+      "status": "passed_declared_admission_domains",
+      "run_id": "W2-analytic-20261005T103304Z-f4311c42",
+      "not_admitted": "DOP853 high-e"
+    },
+    "CR3BP_J2": {
+      "status": "passed_scoped",
+      "run_id": "W2-nominal-controls-20261005T110233Z-98ede168"
+    },
+    "real_baseline": {
+      "status": "passed",
+      "run_id": "W0-baseline-20261005T112343Z-e6690074",
+      "orbits": 36,
+      "checks": 122
+    },
+    "real_domains_and_reproducibility": {
+      "status": "passed",
+      "run_id": "W0-completion-20261005T115044Z-913191df",
+      "own_grid_count": 390,
+      "real_sobol_states": 1152
+    },
+    "software_regressions": {
+      "status": "passed",
+      "run_id": "W0-completion-20261005T115044Z-913191df",
+      "pytest_count": 132
+    },
+    "unknowns_and_handoff": {
+      "status": "documented",
+      "evidence": "reports/scientific/W0_completion_20261005.md"
+    }
+  },
+  "files": [
+    {
+      "path": "data/processed/L1-nominal-v0_4_1/model.json",
+      "sha256": "aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5"
+    },
+    {
+      "path": "data/processed/W0-geometric-states-aligned-v3/geometric_states.json",
+      "sha256": "8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330"
+    },
+    {
+      "path": "runs/W0-baseline-20261005T112343Z-e6690074/manifest.json",
+      "sha256": "17a4546486f5e234514d42659d2e09055f84d5f25bb260976d2e6f8eaea93f9c"
+    },
+    {
+      "path": "runs/W0-baseline-20261005T112343Z-e6690074/validation.json",
+      "sha256": "43e3cb154bb79cc8ecf37d8ee618f15705d8a6647a803d32c346e4482bb36a22"
+    },
+    {
+      "path": "runs/W0-baseline-20261005T112343Z-e6690074/results/domains.json",
+      "sha256": "f9da1df7a07c444a556b552954451d0d9aff1282ef3e4e9b8a759585448885e9"
+    },
+    {
+      "path": "runs/W0-baseline-20261005T112343Z-e6690074/results/summary.json",
+      "sha256": "60cb7addb5cdf3fa24a78589cd8de45554c883352600d6a2981a8af58d26a083"
+    },
+    {
+      "path": "runs/W0-completion-20261005T115044Z-913191df/manifest.json",
+      "sha256": "449da4e988d70bb28f5b0d5249e5a1b5425946ea3032d97e20b7063db851540a"
+    },
+    {
+      "path": "runs/W0-completion-20261005T115044Z-913191df/validation.json",
+      "sha256": "1add973a005a278bd1b84a9da1190386c8351bdec59822a147809a83612cb493"
+    },
+    {
+      "path": "references/manifests/nominal_model_v0_4_1.json",
+      "sha256": "8b56e7f5582e65bfb158a73233eb3ad892e62e1f550f2f84b78018e3b9664fb7"
+    },
+    {
+      "path": "references/manifests/aligned_states_v3.json",
+      "sha256": "4b8b9bc7ad785cecc958df88ee7ad2d248021ee137f760da529a4cd85e61e6c3"
+    }
+  ],
+  "outcomes": {
+    "survived": 30,
+    "host_contact": 2,
+    "other_contact": 0,
+    "unresolved": 4
+  },
+  "full_baseline_wall_seconds": 264.3735489999999,
+  "baseline_input_hashes": {
+    "configs/resources.yaml": "ebb9d16e0b860dc41a1da2f86835c93f98711bc873aff57972a01321eba692c1",
+    "configs/experiments/W0_nominal_baseline_v1.yaml": "e57437b4bd88a67e8fc6dcccd75233b8548791a117b160e1c55f9b44ddde879e",
+    "references/manifests/nominal_model_v0_4_1.json": "8b56e7f5582e65bfb158a73233eb3ad892e62e1f550f2f84b78018e3b9664fb7",
+    "references/manifests/aligned_states_v3.json": "4b8b9bc7ad785cecc958df88ee7ad2d248021ee137f760da529a4cd85e61e6c3",
+    "data/processed/L1-nominal-v0_4_1/model.json": "aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5",
+    "data/processed/W0-geometric-states-aligned-v3/geometric_states.json": "8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330",
+    "data/processed/W0-geometric-states-v1/geometric_states.json": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6",
+    "runs/W2-analytic-20261005T103304Z-f4311c42/validation.json": "b39848937094ad75eb1ee74974ce5b7c1968dcd90897eb810121edade5c2435c",
+    "runs/W2-nominal-controls-20261005T110233Z-98ede168/validation.json": "1a617f52c40b3c5bf7006444b4b294ce8f9eadc9bc5ee4c9d2548263aa5ccd3d",
+    "configs/audits/W0_nominal_v2.yaml": "bd40073064a7083ef1722c4fd5287d8fbe7662427436e6dd469a95b43ccf9432",
+    "data/raw/W0-completion-sources-20261005/gm_de440.tpc": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140",
+    "data/raw/W0-completion-sources-20261005/pck00011.tpc": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+    "data/raw/W0-iapetus-sources-20261004/sat441.tpc": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f",
+    "data/raw/W0-ganymede-sources-20261004/jup365.cmt": "3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a",
+    "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff",
+    "data/processed/host_passports/iapetus_v1.yaml": "e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92",
+    "data/processed/host_passports/ganymede_v1_0_1.yaml": "2ade82b04d398ad193012afc6a00260747ed7fb73708f5334098bd762006cdd2",
+    "data/processed/host_passports/himalia_v1.yaml": "00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4",
+    "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf": "d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec",
+    "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf": "4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980",
+    "configs/acquisition/W0_alignment_v2.yaml": "f19bb20251b2723c79812778d178de1c17dbea5f00b8c0765bfcacc718e78570",
+    "data/kernels/W0-completion-20261005/de442s.bsp": "54d97562a5b094d298b1b8eafa5a2e17e3e010ce85e1a366d07f003ad159323c",
+    "runs/W0-alignment-20261005T105116Z-afdac2eb/manifest.json": "837ab55e161ea0af008eed47bc7a4a054c2dc3da4620a058e531c2902dde6793",
+    "runs/W0-alignment-20261005T105116Z-afdac2eb/results/jupiter_barycenter.response.json": "b4b67781ac8dddbf03ff27da40a367d867ada13e9104bc2fac8c77021a18ec2b",
+    "runs/W0-alignment-20261005T105116Z-afdac2eb/results/jupiter_barycenter.raw.txt": "5d135747e78b007293e60ca5ccc1ede4f4475b5c44c21092d3f85d8dfdd94d73",
+    "runs/W0-alignment-20261005T105116Z-afdac2eb/results/saturn_barycenter.response.json": "f8044c7670bafe35b92292f07e646283beca5f66d8fa6673e720f9e85be26c37",
+    "runs/W0-alignment-20261005T105116Z-afdac2eb/results/saturn_barycenter.raw.txt": "a588eb31d99619575390986a9f19b2f2dc697964ff38d7da3b4621e53a09377a"
+  },
+  "production_allowed": false,
+  "W1_freeze_passed": false,
+  "parameter_sampling_allowed": false,
+  "physical_surface_verified": false,
+  "author_code_recovered": false,
+  "limitation_report": "reports/scientific/W0_completion_20261005.md",
+  "backup_attestation": "results/evidence/backup_restore_v2.json",
+  "offline_alignment_run_id": "W0-alignment-20261005T114737Z-eeb57d36",
+  "additional_acceptance": "Empty/missing prerequisite gates and fake passed markers rejected; replay does not read private paths."
+}

@@ -11,9 +11,9 @@ W0-T004/T005 завершены: строгие SHA/схемы, lifecycle, по�
 | Этап | Статус | Revision |
 |---|---|---|
 | [S0](tracking/stages/S0/SUMMARY.md) | complete | 28 |
-| [W0](tracking/stages/W0/SUMMARY.md) | active | 96 |
-| [W1](tracking/stages/W1/SUMMARY.md) | active | 9 |
-| [W2](tracking/stages/W2/SUMMARY.md) | active | 10 |
+| [W0](tracking/stages/W0/SUMMARY.md) | active | 119 |
+| [W1](tracking/stages/W1/SUMMARY.md) | active | 13 |
+| [W2](tracking/stages/W2/SUMMARY.md) | active | 21 |
 | [W3](tracking/stages/W3/SUMMARY.md) | blocked | 1 |
 | [W4](tracking/stages/W4/SUMMARY.md) | planned | 1 |
 | [W5](tracking/stages/W5/SUMMARY.md) | planned | 1 |

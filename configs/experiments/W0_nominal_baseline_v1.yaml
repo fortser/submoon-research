@@ -1,0 +1,51 @@
+schema_version: '0.4'
+experiment_id: W0-nominal-baseline-v1
+decision_id: W0-D011
+data_kind: real_nominal_development_baseline
+production_allowed: false
+population_interpretation: false
+model_path: data/processed/L1-nominal-v0_4_1/model.json
+model_manifest: references/manifests/nominal_model_v0_4_1.json
+states_path: data/processed/W0-geometric-states-aligned-v3/geometric_states.json
+states_manifest: references/manifests/aligned_states_v3.json
+original_states_path: data/processed/W0-geometric-states-v1/geometric_states.json
+prerequisites:
+  V02: runs/W2-analytic-20261005T103304Z-f4311c42/validation.json
+  V03_V04: runs/W2-nominal-controls-20261005T110233Z-98ede168/validation.json
+hosts:
+- iapetus
+- ganymede
+- himalia
+a_count: 4
+inclination_degrees:
+- 0.0
+- 90.0
+- 180.0
+outer_hill_fraction: 0.8
+contact_buffer: 0.02
+eccentricity: 0.0
+periods_per_orbit: 5.0
+horizon_kind: per_orbit_initial_periods_not_host_comparison
+rtol: 1.0e-11
+tighter_rtol: 1.0e-13
+atol_position_km: 1.0e-08
+atol_velocity_km_s: 1.0e-11
+max_step_period_fraction: 0.025
+trajectory_position_tolerance_a: 1.0e-06
+trajectory_velocity_tolerance_na: 1.0e-06
+energy_relative_tolerance: 1.0e-08
+event_time_tolerance_period: 1.0e-06
+checkpoint_fraction: 0.5
+ias15_epsilon: 1.0e-12
+reference_every: 3
+orbit_indices: null
+wall_seconds: 600
+output_mib: 128
+inputs_sha256:
+  data/processed/L1-nominal-v0_4_1/model.json: aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5
+  references/manifests/nominal_model_v0_4_1.json: 8b56e7f5582e65bfb158a73233eb3ad892e62e1f550f2f84b78018e3b9664fb7
+  data/processed/W0-geometric-states-aligned-v3/geometric_states.json: 8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330
+  references/manifests/aligned_states_v3.json: 4b8b9bc7ad785cecc958df88ee7ad2d248021ee137f760da529a4cd85e61e6c3
+  data/processed/W0-geometric-states-v1/geometric_states.json: bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6
+  runs/W2-analytic-20261005T103304Z-f4311c42/validation.json: b39848937094ad75eb1ee74974ce5b7c1968dcd90897eb810121edade5c2435c
+  runs/W2-nominal-controls-20261005T110233Z-98ede168/validation.json: 1a617f52c40b3c5bf7006444b4b294ce8f9eadc9bc5ee4c9d2548263aa5ccd3d

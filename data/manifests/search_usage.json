@@ -2,11 +2,11 @@
   "schema_version": "0.1",
   "scope": "research_workspace_since_bootstrap",
   "web_search_calls": 66,
-  "page_fetch_calls": 134,
-  "scientific_api_calls": 14,
-  "downloads": 43,
+  "page_fetch_calls": 140,
+  "scientific_api_calls": 16,
+  "downloads": 49,
   "paid_calls": 0,
   "paid_credits": 0,
-  "updated_utc": "2026-10-04T11:11:54.401598+00:00",
-  "counting_note": "page_fetch_calls считает URL-операции: 5 web и 3 прямых HTML; API отдельно; downloads включает 4 снимка и ZIP. Платных операций не было. W0-002: поштучно query/page URL-операции, включая find/click и неудачи; сохранённые HTML-заглушки входят в downloads, но не в научные источники. W0 states v1: +4 web open/find URL-операции, +13 API и +13 полученных HTTP-ответов; replay без сети; платных действий нет. L1 v0.2: +7 web open/find URL-операций (включая 2 неудачи), +1 прямая загрузка комментариев; 0 API/платных вызовов."
+  "updated_utc": "2026-10-05T11:25:33.246485+00:00",
+  "counting_note": "page_fetch_calls считает URL-операции: 5 web и 3 прямых HTML; API отдельно; downloads включает 4 снимка и ZIP. Платных операций не было. W0-002: поштучно query/page URL-операции, включая find/click и неудачи; сохранённые HTML-заглушки входят в downloads, но не в научные источники. W0 states v1: +4 web open/find URL-операции, +13 API и +13 полученных HTTP-ответов; replay без сети; платных действий нет. L1 v0.2: +7 web open/find URL-операций (включая 2 неудачи), +1 прямая загрузка комментариев; 0 API/платных вызовов. W0 completion: +6 web open URL-операций, +2 научных API запроса AstroBridge/Horizons, +6 загрузок (4 NAIF файла и 2 API ответа); offline replay не считается; 0 поиска и платных действий."
 }

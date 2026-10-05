@@ -1,0 +1,46 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-alignment-20261005T105444Z-a0e2f61e",
+  "files": [
+    {
+      "path": "data/processed/W0-geometric-states-aligned-v3/geometric_states.json",
+      "sha256": "8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330"
+    },
+    {
+      "path": "configs/resources.yaml",
+      "sha256": "ebb9d16e0b860dc41a1da2f86835c93f98711bc873aff57972a01321eba692c1"
+    },
+    {
+      "path": "configs/acquisition/W0_alignment_v2.yaml",
+      "sha256": "f19bb20251b2723c79812778d178de1c17dbea5f00b8c0765bfcacc718e78570"
+    },
+    {
+      "path": "data/processed/W0-geometric-states-v1/geometric_states.json",
+      "sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6"
+    },
+    {
+      "path": "data/kernels/W0-completion-20261005/de442s.bsp",
+      "sha256": "54d97562a5b094d298b1b8eafa5a2e17e3e010ce85e1a366d07f003ad159323c"
+    },
+    {
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/manifest.json",
+      "sha256": "837ab55e161ea0af008eed47bc7a4a054c2dc3da4620a058e531c2902dde6793"
+    },
+    {
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/jupiter_barycenter.response.json",
+      "sha256": "b4b67781ac8dddbf03ff27da40a367d867ada13e9104bc2fac8c77021a18ec2b"
+    },
+    {
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/jupiter_barycenter.raw.txt",
+      "sha256": "5d135747e78b007293e60ca5ccc1ede4f4475b5c44c21092d3f85d8dfdd94d73"
+    },
+    {
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/saturn_barycenter.response.json",
+      "sha256": "f8044c7670bafe35b92292f07e646283beca5f66d8fa6673e720f9e85be26c37"
+    },
+    {
+      "path": "runs/W0-alignment-20261005T105116Z-afdac2eb/results/saturn_barycenter.raw.txt",
+      "sha256": "a588eb31d99619575390986a9f19b2f2dc697964ff38d7da3b4621e53a09377a"
+    }
+  ]
+}
