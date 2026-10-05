@@ -1,6 +1,6 @@
 # Все записи W0
 
-Revision: 119.
+Revision: 120.
 
 ## Задачи
 
@@ -50,6 +50,7 @@ Revision: 119.
 | W0-C014 | passed | Номинальные GM, J2/R и полюса L1 v0.4.1: W0-nominal-20261005T110014Z-d605ac09: GM физических центров сверены с первичными блоками и PCK; J2/R из одного решения, независимые полюса совпали со SPICE. Радиусы и их статусы взяты из проверенных паспортов; неизвестные ковариации не выдуманы. | Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота. | [runs/W0-nominal-20261005T110014Z-d605ac09/validation.json](../../../runs/W0-nominal-20261005T110014Z-d605ac09/validation.json), [references/manifests/nominal_model_v0_4_1.json](../../../references/manifests/nominal_model_v0_4_1.json) |
 | W0-C015 | passed | Измерение DE441/DE442 и отдельные выровненные IC: W0-alignment-20261005T105444Z-a0e2f61e: барицентр Юпитера Δr=3.48756 km, Δv=2.51576e-7 km/s на начальной эпохе. Гималия переведена к начальной привязке DE441 отдельным продуктом v3; точный календарный шаг TDB 60 s, исходники сохранены. | Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота. | [runs/W0-alignment-20261005T105444Z-a0e2f61e/validation.json](../../../runs/W0-alignment-20261005T105444Z-a0e2f61e/validation.json), [references/manifests/aligned_states_v3.json](../../../references/manifests/aligned_states_v3.json) |
 | W0-C017 | passed | Сквозная приёмка продуктов W0: W0-completion-20261005T115044Z-913191df passed: 132 pytest, Ruff, validate/досье/L0, повтор каталога и alignment, точные сетки и 1152 real-domain старта. SHA кода/входов/артефактов/checkpoint окончательного ансамбля сверены. Дополнительные проверки отвергают пустые ворота/чужой passed; offline replay не зависит от приватных путей. | Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота. | [results/evidence/W0_completion_v1.json](../../../results/evidence/W0_completion_v1.json), [reports/scientific/W0_completion_20261005.md](../../../reports/scientific/W0_completion_20261005.md) |
+| W0-C018 | passed | Выпуск 0.3.0, восстановление на C и чистый checkout: 11 603 файла восстановлены и сверены по SHA; чистый checkout проходит 132 pytest, Ruff, validate/досье/L0, приёмку W0 и offline alignment без приватных путей. Wheel совпадает с 45 исходными файлами и устанавливается в изолированный target; текущая научная среда переиспользована. | Отправить финальные изменения Git и сохранить bundle; затем продолжить W1 по handoff. | [results/evidence/backup_restore_v2.json](../../../results/evidence/backup_restore_v2.json), [results/evidence/W0_completion_v1.json](../../../results/evidence/W0_completion_v1.json), [reports/scientific/W0_completion_20261005.md](../../../reports/scientific/W0_completion_20261005.md), [docs/handoffs/W0_completion_to_W1_W2_v1.md](../../../docs/handoffs/W0_completion_to_W1_W2_v1.md) |
 
 ## Результаты
 

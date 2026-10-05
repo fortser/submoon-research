@@ -1,0 +1,126 @@
+{
+  "schema_version": "0.2",
+  "status": "passed",
+  "release_version": "0.3.0",
+  "release_commit": "cb3529ef82dab60421e20c83c959c9052892fc30",
+  "package": {
+    "path": "build/releases/submoon-research-v0.3.0-20261005.zip",
+    "sha256": "f6a02a7ed1a0bd9a0d63a74b5dde65407870dc82e939716cd39d2b1ee62861a4",
+    "bytes": 113138852
+  },
+  "backup": {
+    "root": "C:/submoon-research-backup/v0.3.0-20261005",
+    "package": "C:/submoon-research-backup/v0.3.0-20261005/submoon-research-v0.3.0-20261005.zip",
+    "same_sha": true,
+    "sha256": "f6a02a7ed1a0bd9a0d63a74b5dde65407870dc82e939716cd39d2b1ee62861a4"
+  },
+  "wheel": {
+    "path": "build/completion-wheel-v0_3_0-r3/submoon_research-0.3.0-py3-none-any.whl",
+    "sha256": "3cbae53e25d4be01ca4b25fbe027e637cdd0453ab2a3e1c07134141a6722c630",
+    "backup_sha256": "3cbae53e25d4be01ca4b25fbe027e637cdd0453ab2a3e1c07134141a6722c630",
+    "source_files_verified": 45,
+    "isolated_target_install_passed": true
+  },
+  "restore": {
+    "status": "passed",
+    "package_sha256": "f6a02a7ed1a0bd9a0d63a74b5dde65407870dc82e939716cd39d2b1ee62861a4",
+    "checked_files": 11603,
+    "utc": "2026-10-05T11:59:48+00:00"
+  },
+  "clean_checkout": {
+    "path": "C:/submoon-research-backup/v0.3.0-20261005/clean-checkout",
+    "status": "passed",
+    "commit": "cb3529ef82dab60421e20c83c959c9052892fc30",
+    "checked_files": 11603,
+    "newline_only_differences": [
+      "Router.md",
+      "reports/progress/2026-09-23-bootstrap.md",
+      "reports/progress/2026-09-23-compute-policy.md",
+      "reports/progress/2026-09-23-stage-context-and-roadmap.md",
+      "tracking/project.yaml"
+    ],
+    "private_paths_absent": true,
+    "commands": [
+      {
+        "name": "validate",
+        "command": [
+          "scripts/project.py",
+          "validate"
+        ],
+        "exit_code": 0,
+        "log_sha256": "4d7a0bffe44cc97006022fceb161daccfa0a298edb79ffd0cd47af4c1c373cd1"
+      },
+      {
+        "name": "briefs",
+        "command": [
+          "scripts/build_stage_briefs.py",
+          "--check"
+        ],
+        "exit_code": 0,
+        "log_sha256": "96a6d5a3af45606a2cc6ddb62a3a04d1d364c157ca404ff5f54f566066c15fcd"
+      },
+      {
+        "name": "pytest",
+        "command": [
+          "-m",
+          "pytest",
+          "-q"
+        ],
+        "exit_code": 0,
+        "log_sha256": "39f7ed3de25719214b21d0918c6f1721b96c1ae176f3c0e710fce68ef599cdc2",
+        "output": "........................................................................ [ 54%]\n............................................................             [100%]\n132 passed in 17.14s"
+      },
+      {
+        "name": "ruff",
+        "command": [
+          "-m",
+          "ruff",
+          "check",
+          "src",
+          "scripts",
+          "tests"
+        ],
+        "exit_code": 0,
+        "log_sha256": "1b84792025dcf7d5355004df032e098833f5aa74a9d368f2a897eb09f065ecbd"
+      },
+      {
+        "name": "smoke",
+        "command": [
+          "scripts/project.py",
+          "smoke"
+        ],
+        "exit_code": 0,
+        "log_sha256": "262215fba8e690c0d6b48bfb3203a96d05ec4c4779a1890e45271f782fd7bf70",
+        "run_id": "L0-20261005T120852Z-5fdf5024"
+      },
+      {
+        "name": "completion",
+        "command": [
+          "scripts/verify_w0_completion.py",
+          "--baseline-run",
+          "runs/W0-baseline-20261005T112343Z-e6690074",
+          "--checks-only"
+        ],
+        "exit_code": 0,
+        "log_sha256": "e126c9979797401b5160b540ee66e571f697e9fea023a22babb877e9aae029a3",
+        "run_id": "W0-completion-20261005T120855Z-a4223c47"
+      },
+      {
+        "name": "offline_alignment",
+        "command": [
+          "scripts/acquire_planetary_alignment.py",
+          "--replay",
+          "runs/W0-alignment-20261005T105116Z-afdac2eb"
+        ],
+        "exit_code": 0,
+        "log_sha256": "42c5d9a6d293896d9b2ea4691a4b40ebfc4cc331daf3a85d78e03dcae7c4b127",
+        "run_id": "W0-alignment-20261005T120857Z-d9b081a2"
+      }
+    ]
+  },
+  "limitations": [
+    "Existing project venv reused; no clean installation of all dependencies",
+    "C is a separate volume; physical device independence not established",
+    "One-time backup; automatic scheduled backup not configured"
+  ]
+}
