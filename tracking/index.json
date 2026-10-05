@@ -372,8 +372,8 @@
       ]
     },
     "W0": {
-      "revision": 119,
-      "status": "active",
+      "revision": 124,
+      "status": "complete",
       "records": [
         {
           "id": "W0-D001",
@@ -1160,62 +1160,6 @@
           ]
         },
         {
-          "id": "W0-STAGE",
-          "kind": "stage",
-          "title": "Аудит данных и базовой постановки",
-          "status": "active",
-          "summary": "W0-T004/T005 завершены: строгие SHA/схемы, lifecycle, подготовка W1, выпуск и проверенная копия на C. В чистом checkout проходят 102 теста. Научный W0 и реальный пилот открыты: параметры/состояния и строгий V02 ещё не приняты.",
-          "refs": [
-            "results/evidence/backup_restore_v1.json",
-            "reports/scientific/W0_remediation_20261005.md",
-            "docs/handoffs/W0_remediation_to_W1_W2_v1.md"
-          ],
-          "next_action": "W2-T002: пройти строгий V02 без ослабления допусков; W0-T002: принять внешние параметры и совместимость состояний. Затем малый разработочный пилот W1 с измерением стоимости.",
-          "owner": "codex-w0-review-20261004",
-          "related_ids": [
-            "W0-R001",
-            "W0-R002",
-            "W0-R003",
-            "W0-R004",
-            "W0-T002",
-            "W0-I006",
-            "W0-R005",
-            "W0-C007",
-            "W0-I007",
-            "W0-R006",
-            "W0-C008",
-            "W0-D008",
-            "W2-T002",
-            "W0-R007",
-            "W0-I008",
-            "W0-I009",
-            "W0-I010",
-            "W0-T004",
-            "W0-D009",
-            "W0-C013",
-            "W0-D010",
-            "W1-T001"
-          ]
-        },
-        {
-          "id": "W0-T006",
-          "kind": "task",
-          "title": "Полная приёмка W0 и устранение пробелов перехода W1",
-          "status": "active",
-          "summary": "Проверить каждое требование W0 по фактическим продуктам; завершить физические входы, базовый расчёт и независимые проверки, обновить документацию/журнал/backup и push.",
-          "refs": [
-            "docs/stages/W0.md",
-            "reports/scientific/W0_remediation_20261005.md"
-          ],
-          "related_ids": [
-            "W0-T002",
-            "W0-P002",
-            "W2-T002"
-          ],
-          "owner": "codex-w0-completion-20261005",
-          "next_action": "Проверить каждое требование W0 по фактическим продуктам; завершить физические входы, базовый расчёт и независимые проверки, обновить документацию/журнал/backup и push."
-        },
-        {
           "id": "W0-D011",
           "kind": "decision",
           "title": "Принятие номинальной L1 и завершение W0 по проверенным продуктам",
@@ -1541,6 +1485,90 @@
           "related_ids": [
             "W0-D011",
             "W0-R010"
+          ]
+        },
+        {
+          "id": "W0-C018",
+          "kind": "check",
+          "status": "passed",
+          "title": "Выпуск 0.3.0, восстановление на C и чистый checkout",
+          "summary": "11 603 файла восстановлены и сверены по SHA; чистый checkout проходит 132 pytest, Ruff, validate/досье/L0, приёмку W0 и offline alignment без приватных путей. Wheel совпадает с 45 исходными файлами и устанавливается в изолированный target; текущая научная среда переиспользована.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "results/evidence/backup_restore_v2.json",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "Отправить финальные изменения Git и сохранить bundle; затем продолжить W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R011",
+            "W1-T001",
+            "W2-T001"
+          ]
+        },
+        {
+          "id": "W0-R012",
+          "kind": "result",
+          "status": "validated",
+          "title": "Восстанавливаемый научный выпуск W0 0.3.0",
+          "summary": "Пакет 113138852 bytes, wheel, lock и проверенное восстановление находятся на C. Все номинальные продукты W0 и неоднозначности прослеживаемы; physical device independence и автоматический backup не подтверждены.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "results/evidence/backup_restore_v2.json",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "Отправить финальные изменения Git и сохранить bundle; затем продолжить W1 по handoff.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R011",
+            "W1-T001",
+            "W2-T001"
+          ]
+        },
+        {
+          "id": "W0-STAGE",
+          "kind": "stage",
+          "status": "complete",
+          "title": "Аудит данных и базовой постановки",
+          "summary": "W0 завершён для собственной номинальной постановки: источники/неоднозначности, физические GM/J2/R/полюса, геометрия aligned-v3, области/старты и 36 реальных орбит проверены. 132 теста и 11 603 SHA восстановления прошли. Неизвестные ошибки/формы и авторский код имеют явные ограничения; freeze W1 и полный W2 открыты.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "results/evidence/backup_restore_v2.json",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "W1-T001: общий T, H1–H3, меры/split и разработочный пилот дисперсии/стоимости.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R011",
+            "W1-T001",
+            "W2-T001"
+          ]
+        },
+        {
+          "id": "W0-T006",
+          "kind": "task",
+          "status": "done",
+          "title": "Полная приёмка W0 и устранение пробелов перехода W1",
+          "summary": "Реализации и матрица W0, 132 регрессии, отчёты/журналы, выпуск 0.3.0 и восстановление 11 603 SHA завершены. Код/отчёты отправлены в origin/main до 639980e; Git bundle создан и проверен. Финальные записи завершения синхронизируются отдельным коммитом.",
+          "owner": "codex-w0-completion-20261005",
+          "refs": [
+            "results/evidence/backup_restore_v2.json",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md"
+          ],
+          "next_action": "W1-T001: общий физический T, H1–H3, меры/split и пилот дисперсии/стоимости.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R011",
+            "W1-T001",
+            "W2-T001"
           ]
         }
       ]
