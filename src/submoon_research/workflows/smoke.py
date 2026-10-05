@@ -9,14 +9,9 @@ import json
 import math
 import os
 import platform
-import shutil
-import subprocess
 import sys
 import time
-import uuid
-from pathlib import Path
 
-import yaml
 
 from submoon_research.tracking import atomic_text, utc_now
 
@@ -49,8 +44,15 @@ def environment(check_imports=False):
                 importlib.import_module(module)
         except Exception as exc:
             failures[name] = f"{type(exc).__name__}: {exc}"
+    build_tools={}
+    for name in ('setuptools','wheel'):
+        try:
+            build_tools[name]=metadata.version(name)
+        except metadata.PackageNotFoundError:
+            build_tools[name]=None
     return {"python": sys.version, "platform": platform.platform(),
-            "logical_cpus": os.cpu_count(), "packages": versions, "failures": failures}
+            "logical_cpus": os.cpu_count(), "packages": versions, "failures": failures,
+            "build_tools": build_tools}
 
 
 def validate_smoke_config(config):
@@ -80,45 +82,20 @@ def validate_smoke_config(config):
 
 
 def run_smoke(root):
-    # Configure library thread limits before numerical imports.
-    for key in ["OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"]:
-        os.environ[key] = "1"
-    import numpy as np
-    import pandas as pd
-    import rebound
-    from astropy.table import Table
-    from scipy.integrate import solve_ivp
-
-    config_path = root / "configs/experiments/L0_smoke.yaml"
-    resource_path = root / "configs/resources.yaml"
-    config = yaml.safe_load(config_path.read_text(encoding="utf-8"))
-    resources = yaml.safe_load(resource_path.read_text(encoding="utf-8"))
-    validate_smoke_config(config)
-    if shutil.disk_usage(root).free < resources["minimum_free_disk_gib"] * 2**30:
-        raise ValueError("Insufficient free disk for the configured reserve")
-    inputs = {p.relative_to(root).as_posix(): sha256(p) for p in [config_path, resource_path]}
-    source_root = Path(__file__).resolve().parents[1]
-    code = {p.relative_to(source_root).as_posix(): sha256(p) for p in sorted(source_root.rglob("*.py"))}
-    env = environment()
-    science = {"config": config, "inputs": inputs, "code": code, "environment": env}
-    scientific_id = hashlib.sha256(json.dumps(science, sort_keys=True).encode()).hexdigest()
-    run_id = "L0-" + time.strftime("%Y%m%dT%H%M%SZ", time.gmtime()) + "-" + uuid.uuid4().hex[:8]
-    folder = root / "runs" / run_id
-    folder.mkdir(parents=True, exist_ok=False)
-    for name in ["initial_conditions", "results", "logs", "checkpoints"]:
-        (folder / name).mkdir()
-    git = subprocess.run(["git", "rev-parse", "HEAD"], cwd=root, capture_output=True, text=True, check=False)
-    git_status = subprocess.run(["git", "status", "--porcelain"], cwd=root, capture_output=True, text=True, check=False)
-    manifest = {"schema_version": "0.1", "run_id": run_id, "experiment_id": config["experiment_id"],
-                "scientific_id": scientific_id, "data_kind": "synthetic", "status": "running",
-                "started_utc": utc_now(), "finished_utc": None, "inputs_sha256": inputs,
-                "code_sha256": code, "environment": env, "git_commit": git.stdout.strip() if git.returncode == 0 else None,
-                "git_dirty": bool(git_status.stdout.strip()) if git_status.returncode == 0 else None,
-                "resources": resources, "artifacts_sha256": {}}
-    write_json(folder / "manifest.json", manifest)
-    atomic_text(folder / "config.resolved.yaml", yaml.safe_dump(config, sort_keys=False))
-    start_wall, start_cpu = time.perf_counter(), time.process_time()
-    try:
+    from submoon_research.execution import RunContext
+    run = RunContext(root, 'L0', wall_seconds=120, output_mib=64)
+    with run:
+        config = run.ledger.yaml('configs/experiments/L0_smoke.yaml', registered=True)
+        run.save_config(config)
+        validate_smoke_config(config)
+        resources = run.resources
+        folder, run_id = run.folder, run.run_id
+        start_wall = run.started_wall
+        import numpy as np
+        import pandas as pd
+        import rebound
+        from astropy.table import Table
+        from scipy.integrate import solve_ivp
         gm, radius = config["gm"], config["radius"]
         speed = math.sqrt(gm / radius)
         frequency = math.sqrt(gm / radius**3)
@@ -176,21 +153,6 @@ def run_smoke(root):
                             "Not a W2 completion or a physical host result"],
             "integrator_parameters": {"ias15": "installed-library defaults", "DOP853": {"rtol": config["rtol"], "atol": config["atol"]}}})
         atomic_text(folder / "logs/execution.log", f"{utc_now()} completed L0; validation={all(checks.values())}\n")
-        manifest["status"] = "completed"
-        manifest["validation_status"] = "passed" if all(checks.values()) else "failed"
-        size = sum(p.stat().st_size for p in folder.rglob("*") if p.is_file())
-        if size > resources["smoke_output_mib"] * 2**20:
-            raise RuntimeError("Smoke output budget exceeded")
-    except BaseException as exc:
-        manifest["status"] = "cancelled" if isinstance(exc, KeyboardInterrupt) else "failed"
-        manifest["error"] = f"{type(exc).__name__}: {exc}"
-        atomic_text(folder / "logs/execution.log", f"{utc_now()} {manifest['error']}\n")
-        raise
-    finally:
-        manifest["finished_utc"] = utc_now()
-        manifest["wall_seconds"] = time.perf_counter() - start_wall
-        manifest["cpu_seconds"] = time.process_time() - start_cpu
-        manifest["artifacts_sha256"] = {p.relative_to(folder).as_posix(): sha256(p)
-                                         for p in sorted(folder.rglob("*")) if p.is_file() and p.name != "manifest.json"}
-        write_json(folder / "manifest.json", manifest)
-    return folder, manifest["validation_status"] == "passed"
+        run.manifest['validation_status'] = 'passed' if all(checks.values()) else 'failed'
+        run.manifest['validation'] = dict(status=run.manifest['validation_status'],scope='L0_synthetic_circular_only')
+    return run.folder, run.manifest['validation']['status'] == 'passed'

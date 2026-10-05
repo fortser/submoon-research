@@ -1,0 +1,59 @@
+{
+  "schema_version": "0.1",
+  "entries": [
+    {
+      "run_id": "W0-audit-20261004T075652Z-255b2a51",
+      "missing_code_snapshots": [
+        "scripts/audit_baseline.py",
+        "src/submoon_research/workflows/baseline_audit.py",
+        "src/submoon_research/workflows/smoke.py",
+        "src/submoon_research/tracking.py"
+      ],
+      "exact_code_replay_available": false,
+      "timestamps_complete": true,
+      "catalogue_disposition": "historical_limitations_preserved"
+    },
+    {
+      "run_id": "W0-audit-20261004T080043Z-55c457e6",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": false,
+      "timestamps_complete": false,
+      "catalogue_disposition": "historical_limitations_preserved"
+    },
+    {
+      "run_id": "W0-audit-20261004T080110Z-3d35fd57",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": false,
+      "timestamps_complete": false,
+      "catalogue_disposition": "historical_limitations_preserved"
+    },
+    {
+      "run_id": "W0-L1-20261004T132650Z-0c522648",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": true,
+      "timestamps_complete": true,
+      "catalogue_disposition": "synthetic_negative_probe_exclude_scientific_catalogue"
+    },
+    {
+      "run_id": "W0-L1-20261004T132657Z-893a3b6a",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": true,
+      "timestamps_complete": true,
+      "catalogue_disposition": "synthetic_negative_probe_exclude_scientific_catalogue"
+    },
+    {
+      "run_id": "W0-quality-20261004T125701Z-38e442e9",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": false,
+      "timestamps_complete": false,
+      "catalogue_disposition": "historical_limitations_preserved"
+    },
+    {
+      "run_id": "W0-quality-20261004T125716Z-dfd1b70c",
+      "missing_code_snapshots": [],
+      "exact_code_replay_available": false,
+      "timestamps_complete": false,
+      "catalogue_disposition": "historical_limitations_preserved"
+    }
+  ]
+}

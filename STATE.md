@@ -4,16 +4,16 @@
 
 Текущий фокус: **W0 — Аудит данных и базовой постановки**.
 
-Научные результаты этапа ещё не получены.
+W0-T004 выполнена: SHA фактических входов, закрытые схемы L1 v0.2/v0.3, отрицательные CLI-пробы и общий lifecycle проверены; 101 pytest проходит. Генератор W1 проверен на синтетике. W0/реальный пилот не завершены: научные входы и строгий V02 остаются открыты.
 
-Следующий шаг: Начать W0-001: полный текст и приложения статьи
+Следующий шаг: Проверить резервную копию выпуска на C; следующий научный шаг — строгий V02 и внешние GM/J2/полюса/совместимость состояний.
 
 | Этап | Статус | Revision |
 |---|---|---|
 | [S0](tracking/stages/S0/SUMMARY.md) | complete | 28 |
-| [W0](tracking/stages/W0/SUMMARY.md) | ready | 5 |
-| [W1](tracking/stages/W1/SUMMARY.md) | ready | 5 |
-| [W2](tracking/stages/W2/SUMMARY.md) | blocked | 2 |
+| [W0](tracking/stages/W0/SUMMARY.md) | active | 92 |
+| [W1](tracking/stages/W1/SUMMARY.md) | active | 9 |
+| [W2](tracking/stages/W2/SUMMARY.md) | active | 10 |
 | [W3](tracking/stages/W3/SUMMARY.md) | blocked | 1 |
 | [W4](tracking/stages/W4/SUMMARY.md) | planned | 1 |
 | [W5](tracking/stages/W5/SUMMARY.md) | planned | 1 |

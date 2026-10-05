@@ -1,50 +1,128 @@
-schema_version: '0.1'
-status: draft
+schema_version: '0.2'
+passport_version: himalia-v1
+status: audited_parameters_and_size_constraints_with_limits
 host_id: himalia
 name_ru: Гималия
 parent: jupiter
 cohort: control
 pilot: true
 identifiers:
-  naif: null
-  horizons: null
+  naif: 506
+  horizons: '506'
+provenance:
+  manifest: references/manifests/himalia_sources_v1.json
+  report: reports/scientific/W0_himalia_passport_v1.md
+  decision_id: W0-D005
+  supersedes: bootstrap_draft_0_1
+  data_kind: ephemeris_constants_compiled_radius_and_measured_effective_sizes
 parameters:
   gm:
-    value: null
+    value: 0.1515524299611265
     unit: km3 / s2
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    source_id: jup344_comments_20261004
+    source_locator: Satellite Ephemeris File Summary JUP344; Himalia 506, local line 146
+    source_version: JUP344_20210107_NAIF_merge_20210314
+    uncertainty: 0.05763
+    uncertainty_unit: km3 / s2
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_aggregator_sigma_unverified
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: audited_nominal
+    uncertainty_source_id: jpl_satellite_parameters_20261004
+    uncertainty_source_locator: Himalia row, GM, JUP344
+    uncertainty_primary_source_id: null
+    notes: Точный номинал из комментариев первичного решения; погрешность сводки не объявлена первично проверенной.
   radius:
-    value: null
+    value: 85.0
     unit: km
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    source_id: archinal2018_wgccre
+    source_locator: Table 5 p.29; section 7 p.36
+    source_version: published_2018_USGS_reprint
+    uncertainty: 10.0
+    uncertainty_unit: km
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_sigma_not_established
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: compiled_reference_only
+    definition: iau_compiled_mean_radius
+    primary_measurement_source_id: null
+    primary_measurement_status: Cruikshank1977_not_acquired
+    notes: Число компиляции сохранено; объёмный радиус и контактная поверхность не удостоверены. Общая подпись JPL equivalent
+      volume не заменяет метод измерения.
   rotation_period:
     value: null
     unit: s
     source_id: null
     source_locator: null
+    source_version: null
     uncertainty: null
     uncertainty_status: not_audited
     covariance_ref: null
     status: missing
-radius_definition: null
+radius_definition: iau_compiled_mean_radius
+size_constraints:
+  thermal_effective_radius:
+    value: 69.8
+    unit: km
+    source_id: grav2015_neowise
+    source_locator: Table 3 and section 4.1 p.4; R=D/2
+    source_version: published_ApJ_809_3_2015
+    uncertainty: 0.85
+    uncertainty_unit: km
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_sigma_not_established
+    uncertainty_distribution: null
+    covariance_ref: null
+    covariance_status: not_available_in_acquired_sources
+    status: audited_effective_size
+    definition: thermal_model_effective_diameter_divided_by_two
+    parent_diameter_km: 139.6
+    parent_diameter_uncertainty_km: 1.7
+    notes: Эффективный размер из тепловой модели; quoted fit error не принят как полная систематическая ошибка объёма. Статья
+      ссылается на методику теплового моделирования; полная оценка систематик здесь не получена.
+  cassini_visible_semiaxes:
+    value:
+    - 75.0
+    - 60.0
+    unit: km
+    source_id: porco2003_himalia_extract
+    source_locator: Himalia paragraph p.1546, Fig.7 and notes 54/55
+    source_version: author_hosted_extract_Science_299_1546
+    uncertainty:
+    - 10.0
+    - 10.0
+    uncertainty_unit: km
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_sigma_not_established
+    uncertainty_distribution: null
+    covariance_ref: null
+    covariance_status: not_available_in_acquired_sources
+    status: audited_two_visible_dimensions
+    definition: two_visible_semiaxes_conditional_on_principal_axis_identification
+    notes: Две видимые полуоси при фазовом угле 70 градусов; третью ось и ориентацию не восстанавливать. Условие отождествления
+      с главными осями сохранено.
+shape:
+  model: null
+  axes: null
+  volume_equivalent_radius: null
+  contact_surface: null
+  status: not_reconstructed_from_projected_or_thermal_sizes
+  joint_sampling: disabled_pending_joint_model
 state:
   epoch: null
   time_scale: null
   origin: null
   frame: null
+  position_unit: km
+  velocity_unit: km / s
   position: null
   velocity: null
   source_id: null
+  status: not_acquired
 gravity:
   j2: null
   c22: null
@@ -52,6 +130,23 @@ gravity:
   normalization: null
   reference_radius: null
   source_id: null
+  status: not_adopted
 pole: null
+covariance:
+  matrix: null
+  source_id: null
+  status: not_available_in_acquired_sources
+  independent_sampling_authorized: false
+usage:
+  nominal_input_preparation: gm_and_explicit_reference_size_only
+  production_integration: false
+  uncertainty_ensemble: false
+  full_W0_handoff: false
+  physical_contact_model: false
 open_questions:
-- Проверить первичные источники, единицы и неопределённости.
+- Sigma и совместная ковариация JUP344 не получены; большая ошибка GM ~38% из сводки не является назначенным распределением.
+- 85 км — компиляция IAU; первичный Cruikshank 1977 не получен. Тепловой размер и Cassini не определяют объём и контактную
+  границу.
+- Предварительные покрытия звёзд 2018 обсуждаются в EPSC-DPS2019-1909; размеры проекции не приняты как глобальная форма без
+  первичного полного анализа.
+- Период вращения, полюс, поле и геометрические состояния требуют отдельного аудита.

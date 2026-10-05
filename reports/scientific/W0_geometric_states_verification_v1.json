@@ -1,0 +1,122 @@
+{
+  "run_id": "W0-states-20261004T104417Z-eacbd97e",
+  "replay_run_id": "W0-states-20261004T104637Z-9b627c86",
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "iapetus_direct_position": true,
+      "iapetus_direct_velocity": true,
+      "iapetus_origin_zero": true,
+      "ganymede_direct_position": true,
+      "ganymede_direct_velocity": true,
+      "ganymede_origin_zero": true,
+      "himalia_direct_position": true,
+      "himalia_direct_velocity": true,
+      "himalia_origin_zero": true,
+      "source_artifacts_sha256": true,
+      "headers_units_epochs_finite": true,
+      "au_exact_source": true,
+      "thirteen_queries": true,
+      "wall_limit": true,
+      "output_limit": true
+    },
+    "metrics": {
+      "iapetus": {
+        "position_max_km": 2.131554051894557e-07,
+        "velocity_max_km_s": 2.928969502107952e-15
+      },
+      "ganymede": {
+        "position_max_km": 1.5122069122510522e-07,
+        "velocity_max_km_s": 1.2560739669470201e-15
+      },
+      "himalia": {
+        "position_max_km": 1.6401857109927622e-07,
+        "velocity_max_km_s": 2.560743305106871e-15
+      }
+    },
+    "tolerances": {
+      "direct_relative_position_km": 0.001,
+      "direct_relative_velocity_km_s": 1e-08,
+      "epoch_jd_days": 1e-09,
+      "conversion_roundtrip_relative": 1e-15,
+      "source_range_relative": 1e-12
+    },
+    "limitations": [
+      "Собственная выбранная эпоха TDB/ICRF; эпоха/оси/шкала архивной статьи не установлены.",
+      "Прямой контроль проверяет смену центра в том же Horizons, не независимую физическую точность эфемерид.",
+      "Точность эфемерид и ковариации неизвестны; версии Horizons могут отличаться от решений GM паспортов.",
+      "Не закрывает W0/W2; нет генератора субспутника, сил, событий, контакта, сходимости или динамических исходов."
+    ],
+    "parser_metrics": {
+      "sun": {
+        "max_range_relative_error": 2.2622650475281455e-16,
+        "conversion_relative_error": 1.3964260525115207e-16
+      },
+      "jupiter": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 1.6494223484472589e-16
+      },
+      "saturn": {
+        "max_range_relative_error": 1.9356911348952429e-16,
+        "conversion_relative_error": 0.0
+      },
+      "titan": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 1.8294517811107244e-16
+      },
+      "iapetus": {
+        "max_range_relative_error": 1.9406066035924037e-16,
+        "conversion_relative_error": 1.3650258588006338e-16
+      },
+      "io": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 1.1293737868451808e-16
+      },
+      "europa": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 1.1129250965851404e-16
+      },
+      "ganymede": {
+        "max_range_relative_error": 1.7939953273433727e-16,
+        "conversion_relative_error": 1.113410290052163e-16
+      },
+      "callisto": {
+        "max_range_relative_error": 1.788140702016403e-16,
+        "conversion_relative_error": 1.2998474030251426e-16
+      },
+      "himalia": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 0.0
+      },
+      "direct_iapetus": {
+        "max_range_relative_error": 1.4216734128521173e-16,
+        "conversion_relative_error": 1.560935831834418e-16
+      },
+      "direct_ganymede": {
+        "max_range_relative_error": 1.212318637062409e-16,
+        "conversion_relative_error": 0.0
+      },
+      "direct_himalia": {
+        "max_range_relative_error": 0.0,
+        "conversion_relative_error": 0.0
+      }
+    }
+  },
+  "replay_exact_equality": true,
+  "publication_sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6",
+  "source_manifest_sha256": "ac84d92c62e8ad7ad5b46e11e63f12e919909268065ead930dfe6ffdf9012964",
+  "checks": {
+    "all_run_hashes": true,
+    "replay_hashes": true,
+    "replay_zero_network": true,
+    "publication_equals_original": true
+  },
+  "general_checks": {
+    "pytest": "57 passed",
+    "ruff": "passed",
+    "validate": "passed",
+    "stage_briefs": "current",
+    "smoke_run_id": "L0-20261004T104644Z-b68dbb3e",
+    "smoke": "passed"
+  }
+}

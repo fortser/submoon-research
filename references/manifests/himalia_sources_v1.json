@@ -1,0 +1,150 @@
+{
+  "schema_version": "0.1",
+  "created_utc": "2026-10-04T09:15:56.247402+00:00",
+  "sources": [
+    {
+      "source_id": "jup344_comments_20261004",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/a_old_versions/jup344.cmt",
+      "path": "data/raw/W0-himalia-sources-20261004/jup344.cmt",
+      "sha256": "e493a3878c7ca5fa0b6dfb9fa77a59b3457b7530f1674359f5435a2255dcb29d",
+      "bytes": 77102,
+      "version": "JUP344_20210107_NAIF_merge_20210314",
+      "kind": "primary_ephemeris_comments",
+      "retrieved_utc": "2026-10-04T09:08:25Z",
+      "retrieval_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/a_old_versions/jup344.cmt",
+      "status": "relevant_sections_read_and_tables_verified",
+      "read_scope": "Himalia 506 GM; 500GM; provenance; no covariance/sigma"
+    },
+    {
+      "source_id": "archinal2018_wgccre",
+      "url": "https://doi.org/10.1007/s10569-017-9805-5",
+      "path": "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf",
+      "sha256": "4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980",
+      "bytes": 727935,
+      "version": "published_2018_USGS_reprint",
+      "kind": "official_compilation_report",
+      "retrieved_utc": "2026-10-04T09:10:05Z",
+      "retrieval_url": "https://d9-wret.s3.us-west-2.amazonaws.com/assets/palladium/production/s3fs-public/atoms/files/WGCCRE2015reprint.pdf",
+      "status": "relevant_sections_read_and_tables_verified",
+      "read_scope": "Table 5 p.29 and uncertainty discussion p.36"
+    },
+    {
+      "source_id": "grav2015_neowise",
+      "url": "https://doi.org/10.1088/0004-637X/809/1/3",
+      "path": "data/raw/W0-himalia-sources-20261004/grav2015-published.pdf",
+      "sha256": "01a8b5bda56aec1201e2d7a8f64440a2e4ee08cf26080f169a8b98f5a55cc2fe",
+      "bytes": 561099,
+      "version": "published_ApJ_809_3_2015",
+      "kind": "primary_thermal_measurement_article",
+      "retrieved_utc": "2026-10-04T09:10:02Z",
+      "retrieval_url": "https://authors.library.caltech.edu/records/atxcf-qdt69/files/Grav_2015.pdf?download=1",
+      "status": "relevant_sections_read_and_tables_verified",
+      "read_scope": "Table 3 p.4; sections 3/4/4.1"
+    },
+    {
+      "source_id": "porco2003_himalia_extract",
+      "url": "https://tilmanndenk.de/wp-content/uploads/2017/05/2003_Science_PorcoEtAl_Jupiter_HimaliaPartExtracted.pdf",
+      "path": "data/raw/W0-himalia-sources-20261004/porco2003-himalia.pdf",
+      "sha256": "d109299c453de0ac873f0bef873cb562f093f687e22eb03b2b79f88459d9dd7c",
+      "bytes": 30271,
+      "version": "author_hosted_extract_Science_299_1546",
+      "kind": "author_hosted_primary_article_extract",
+      "retrieved_utc": "2026-10-04T09:08:27Z",
+      "retrieval_url": "https://tilmanndenk.de/wp-content/uploads/2017/05/2003_Science_PorcoEtAl_Jupiter_HimaliaPartExtracted.pdf",
+      "status": "relevant_sections_read_and_tables_verified",
+      "read_scope": "Himalia paragraph, Fig.7, notes 54/55; only extract, not full article"
+    },
+    {
+      "source_id": "jpl_ephemerides_20261004_himalia",
+      "url": "https://ssd.jpl.nasa.gov/sats/ephem/",
+      "path": "data/raw/W0-himalia-sources-20261004/jpl-ephemerides.html",
+      "sha256": "2f3026abf9e51f39a85fff9d6f3a5ce1571acc61d9906ba22ef253c39656fb48",
+      "bytes": 146944,
+      "version": "snapshot_20261004",
+      "kind": "official_ephemeris_reference_index",
+      "retrieved_utc": "2026-10-04T08:58:52Z",
+      "retrieval_url": "https://ssd.jpl.nasa.gov/sats/ephem/",
+      "status": "relevant_sections_read_and_tables_verified",
+      "read_scope": "JUP344 reference M. Brozovic 2021"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/jup344.cmt",
+      "sha256": "e493a3878c7ca5fa0b6dfb9fa77a59b3457b7530f1674359f5435a2255dcb29d",
+      "source_id": "jup344_comments_20261004",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf",
+      "sha256": "4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980",
+      "source_id": "archinal2018_wgccre",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/grav2015-published.pdf",
+      "sha256": "01a8b5bda56aec1201e2d7a8f64440a2e4ee08cf26080f169a8b98f5a55cc2fe",
+      "source_id": "grav2015_neowise",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/porco2003-himalia.pdf",
+      "sha256": "d109299c453de0ac873f0bef873cb562f093f687e22eb03b2b79f88459d9dd7c",
+      "source_id": "porco2003_himalia_extract",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/jpl-ephemerides.html",
+      "sha256": "2f3026abf9e51f39a85fff9d6f3a5ce1571acc61d9906ba22ef253c39656fb48",
+      "source_id": "jpl_ephemerides_20261004_himalia",
+      "kind": "original"
+    },
+    {
+      "path": "data/interim/W0-himalia-v1/archinal2018.txt",
+      "sha256": "349587bd06df278347030843860899b213d536c644ecee8cce58c3ac98ae9974",
+      "source_id": "archinal2018_wgccre",
+      "kind": "derived_text",
+      "derived_from": "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf",
+      "generator": "pdftotext -layout",
+      "visual_qa_pages": [
+        29,
+        36
+      ]
+    },
+    {
+      "path": "data/interim/W0-himalia-v1/grav2015-published.txt",
+      "sha256": "5888a461b771135edc7acfb3bf5bc1870ba58f2c4bec767a105a987fbcf0d274",
+      "source_id": "grav2015_neowise",
+      "kind": "derived_text",
+      "derived_from": "data/raw/W0-himalia-sources-20261004/grav2015-published.pdf",
+      "generator": "pdftotext -layout",
+      "visual_qa_pages": [
+        4
+      ]
+    },
+    {
+      "path": "data/interim/W0-himalia-v1/porco2003-himalia.txt",
+      "sha256": "8dccdfd737d1a3da6bb1b7bd9ff552d2edbba3ddf713a1762867bb6b67c2b83a",
+      "source_id": "porco2003_himalia_extract",
+      "kind": "derived_text",
+      "derived_from": "data/raw/W0-himalia-sources-20261004/porco2003-himalia.pdf",
+      "generator": "pdftotext -layout",
+      "visual_qa_pages": [
+        1
+      ]
+    },
+    {
+      "path": "data/raw/W0-source-check-20261004T074951Z/jpl-satellites.html",
+      "sha256": "d48a005e6869b199796877492c894abb4c0fd49fe4819d27dfeb280f483aa440",
+      "source_id": "jpl_satellite_parameters_20261004",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-source-check-20261004T074951Z/jpl-constants.html",
+      "sha256": "168f48b94ae3a65f31c96f081d08e7ca91ecc9e65678fdc57353821b492b313e",
+      "source_id": "jpl_astrodynamic_parameters_20261004",
+      "kind": "original"
+    }
+  ],
+  "limitations": "Погрешность GM получена лишь из JPL сводки, sigma/ковариация неизвестны. IAU радиус — компиляция; первичный Cruikshank 1977 не получен. Porco — извлечение автора. Статья Brozovic 2017 не получена: две HTML-заглушки и отказ ADS не являются научными источниками. WISE радиус модельный эффективный, не объёмный."
+}

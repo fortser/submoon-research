@@ -1,0 +1,1021 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-remediation-20261005T093547Z-f47ccf88",
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "pytest": true,
+      "ruff": true,
+      "validate": true,
+      "briefs": true,
+      "iapetus": true,
+      "himalia": true,
+      "ganymede": true,
+      "l1_v02": true,
+      "l1_v03": true,
+      "geometry": true,
+      "baseline": true,
+      "smoke": true
+    },
+    "scope": "W0_architecture_remediation_only",
+    "limitations": [
+      "V02/физические входы/реальный пилот/freeze W1 не закрыты.",
+      "baseline exit=1 ожидаем из-за сохранённой неоднородности источника."
+    ]
+  },
+  "executions": [
+    {
+      "name": "pytest",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "ruff",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "validate",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "status": "passed",
+        "errors": [],
+        "host_passports": 11,
+        "tracking_records": 88,
+        "limitations": "Structural checks only; draft physics and scientific gates are not certified."
+      }
+    },
+    {
+      "name": "briefs",
+      "exit_code": 0,
+      "expected_exit_code": 0
+    },
+    {
+      "name": "iapetus",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-iapetus-20261005T093705Z-a42a0cee",
+        "validation": "passed",
+        "checks": {
+          "source_hashes": true,
+          "active_equals_versioned_passport": true,
+          "identity": true,
+          "gm_kernel_exact": true,
+          "gm_article_rounding": true,
+          "gm_uncertainty_primary": true,
+          "gm_unit": true,
+          "radius_primary": true,
+          "radius_definition": true,
+          "axes_primary_and_kernel": true,
+          "oblate_axes_dependency": true,
+          "radius_jpl_nominal": true,
+          "gm_jpl_rounding": true,
+          "radius_conflict_preserved": true,
+          "unknown_covariance_not_zero": true,
+          "unknown_state_not_fabricated": true,
+          "no_unverified_usage": true,
+          "traceable_parameters": true,
+          "source_roles": true,
+          "ellipsoid_volume_rounding": true,
+          "au_exact_definition_source": true,
+          "archival_radius_718_km": true
+        },
+        "metrics": {
+          "ellipsoid_volume_radius_km": 734.3274404996201,
+          "tabulated_radius_difference_km": 0.0274404996201838,
+          "archive_member": "Saturn/IAPETUS/sim_1.txt",
+          "archive_member_sha256": "d31685c38882006787124b5641dab494f6615406bffdc2a4607dcdca66145b9d",
+          "archive_radius_km": 718.0,
+          "primary_minus_archive_radius_km": 16.299999999999955,
+          "primary_minus_archive_fraction_of_primary": 0.022198011711834338,
+          "gm_1sigma_arithmetic_equivalent_km3_s2": 0.0024233333333333333,
+          "independence_or_probability_distribution_assumed": false
+        }
+      }
+    },
+    {
+      "name": "himalia",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-himalia-20261005T093708Z-b172b6d6",
+        "validation": "passed",
+        "checks": {
+          "source_hashes": true,
+          "active_equals_versioned_passport": true,
+          "identity": true,
+          "gm_primary_exact": true,
+          "gm_jpl_rounding": true,
+          "gm_error_role_preserved": true,
+          "radius_compilation_exact": true,
+          "radius_definition_not_promoted": true,
+          "thermal_diameter_halved": true,
+          "visible_axes_primary": true,
+          "unknown_size_sigma_preserved": true,
+          "units": true,
+          "source_roles": true,
+          "traceable_parameters": true,
+          "unknown_volume_and_third_axis": true,
+          "unknown_covariance_not_zero": true,
+          "unknown_state_not_fabricated": true,
+          "no_unverified_usage": true,
+          "au_and_g_source": true,
+          "all_130_archive_mass_radius_rows_equal": true,
+          "archive_radius_80_km": true,
+          "paper_mass_and_radius_documented": true
+        },
+        "metrics": {
+          "relative_reported_gm_error": 0.38026444059512743,
+          "iau_minus_thermal_radius_km": 15.200000000000003,
+          "independence_or_probability_distribution_assumed": false,
+          "archive_host_mass_solar_unit": 4.777542532701022e-12,
+          "archive_parent_mass_solar_unit": 0.0009545027081122673,
+          "archive_radius_km": 80.0,
+          "archive_host_to_parent_mass_ratio": 5.005268703898841e-09,
+          "primary_host_to_parent_gm_ratio": 1.1962789385182862e-09,
+          "archive_to_primary_relative_mass_factor": 4.184031451810377,
+          "hill_scale_factor_at_fixed_a_and_parent": 1.6113812782268324,
+          "nominal_gm_equivalent_mass_kg": 2.2706865133591017e+18,
+          "equivalent_mass_uncertainty_kg": null,
+          "equivalent_mass_status": "diagnostic_conversion_not_independent_measurement",
+          "archive_members_checked": 130,
+          "archive_member_hashes": [
+            {
+              "member": "Jupiter/HIMALIA/sim_1.txt",
+              "sha256": "2a2229a393275ce9da7146b812e09582f97294c5ead31886acc32044d7424429"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_2.txt",
+              "sha256": "18e6c784a76a8c05b4502876e69401693effcb1ad6717e323debeada43952e3c"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_3.txt",
+              "sha256": "a2be35d94e6ccaf5f439f05ba60c68b72cab4781a60cbf508940893bcbff60b0"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_4.txt",
+              "sha256": "306df0152d4b13f44a6137a80e942adebe9b6892db0f45a028f380d312d9b24f"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_5.txt",
+              "sha256": "a00f9a761955a1255109623829130fcf6846327b1d1a526a319d6d3f6084098f"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_6.txt",
+              "sha256": "90cb840d57861fe3f7453459e336868307fed2a5ae1ed4373ca5db6ec1880f1a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_7.txt",
+              "sha256": "ae104672ac800ec45eae9ae512bcf1edbd7c98c3117fc957160ec2668cf22820"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_8.txt",
+              "sha256": "7d5efb2236ae107957722ece0d8a949dabcc08e5e2733cf52cc17b06c3e33d34"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_9.txt",
+              "sha256": "b8ba7cc2a1ad44f6712f74f5d90166b5d0fef285c0947e03cbd1ff99cf6a87d0"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_10.txt",
+              "sha256": "49598fea631dd312c17e3287dfda0a982e0bc2eda0e9d199d16c4f11e01f99f0"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_11.txt",
+              "sha256": "2b7156439114a6032e275692f56928c4f8489479ec385267d87cee7fd3ff8e52"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_12.txt",
+              "sha256": "5d730f2c2d588460aa178769d9938bc9a783c3337127e70b4ac4907f2a4c45b3"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_13.txt",
+              "sha256": "0ab35c0ebe136f4fe543e027c69bb787df4a93dc4addd34af9ebe5832bb3ad74"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_14.txt",
+              "sha256": "e241c7f951c47c5f7f59eaf98a957e5c3730457cf9429817bd4282572afe4c08"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_15.txt",
+              "sha256": "59848019b401e0c174e02a49e08e0a8bcc1863c34071d85c9c979cfce0cf7cbe"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_16.txt",
+              "sha256": "505cebf4d7dd5b8b6d89e78e33057f1c044a820fc67a0ec83317a3890e23a3fa"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_17.txt",
+              "sha256": "b2ba1bc11c2039cf40000ce787c1bb7ca1f1fcc561fff950209f70f2d826e24d"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_18.txt",
+              "sha256": "0880cb956904dbc352fb45315cacea0f9eafbdc184d9f6daba4770571c372cbb"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_19.txt",
+              "sha256": "28fd6fedd50e055da6a6698d1727cb0197bed5388e5ef550d9e4db01b98c2182"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_20.txt",
+              "sha256": "e7232cd82c26336a584802426e3cc6b69660013a2b12994a2f86d24bf9bbad64"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_21.txt",
+              "sha256": "4951f0fa35910bacafcd6acccef3d8c34c393f3daa858ee5a54dec8880f7a35f"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_22.txt",
+              "sha256": "9f95876d493e78a85cada5b021fecfc82ea80b4bf7ed8a06881e90661e823df2"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_23.txt",
+              "sha256": "a7ac47cde56656070e15d5bf27b7c0a1afe943d877990f18129d53e5554524fc"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_24.txt",
+              "sha256": "0253eb7eb9638f5a3c16fbdcf5baf0787a3867ca81aa36027acea325b4b9ea4a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_25.txt",
+              "sha256": "05427547a45a1880bb12df6dc11d678e07daa63b16ddafd17079b89c3a4973a6"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_26.txt",
+              "sha256": "72003e46329a6eacae43b08b84268d6e7ce82d1ccf4941c791b7851bea2a2fe5"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_27.txt",
+              "sha256": "65ee1703980efcbc5d734604989bca0893a1768e5bbc8e5a250be65c0d9f8f61"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_28.txt",
+              "sha256": "d5a72c5eecf53812116c11cb72b1f42e07f6480b64900c9dcc3b2beae5372643"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_29.txt",
+              "sha256": "f7f462371796a260c8c36f7b35715f33242c75b83b00fd89ee48e2ae6dba02fb"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_30.txt",
+              "sha256": "2cba17e751866333f7b0483b3ecfab14aba8c37d2e727ba57c3d9f2ff8aa1aa2"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_31.txt",
+              "sha256": "dc20d0779f4cbcddac24f9714aebcd98b8d7dea1e902a0241271aa7909309e32"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_32.txt",
+              "sha256": "37a324113532ec4e50134d551c64d9637ed701910e9597a42d3bc7d56cbbd56c"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_33.txt",
+              "sha256": "fb793c14218e5d1279890e8e4fdb1fd451827b3374352c91202cbff6a135ea05"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_34.txt",
+              "sha256": "4993df7e7bfbf5907d678f88f696a5c9411665a068c1021881bada5c68872386"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_35.txt",
+              "sha256": "49ece20160eb974ad82441d7bf88d0e688ac3b4c11b5de4ed4eeb9a92c831cfb"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_36.txt",
+              "sha256": "429b5cb923467cf835bd9e891b6dc38af1b9080a3553cc98552d875d910db2dd"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_37.txt",
+              "sha256": "8365b6aee1a5f65906678e5275888f7564fd27efb4c594bfdf0266b60aae3474"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_38.txt",
+              "sha256": "2f38c9f74bdb99dfc037e94ee1f939c28826ee89101d65617a3bf45db54e7a3f"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_39.txt",
+              "sha256": "e03cf27617faf9ff88633b421b7d410350d68c346755d1500480eb3aeaa24270"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_40.txt",
+              "sha256": "8e33fcc1e81bb86f1deccc2abdd573f4b2b54aad4808aa6689fd9fe882623496"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_41.txt",
+              "sha256": "2f529343b8a7509a63c4124b44aee743c38f20badf7db915b48973a760ac2396"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_42.txt",
+              "sha256": "a3e4b1b4defcd4ced7f92ab13ab8c2af7e0c22a12fbb3c3ae925b0363404ae64"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_43.txt",
+              "sha256": "98ddf406e817b7bddca4c6d936e4424dfce11bf077ee77f554bef0244f29c2d3"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_44.txt",
+              "sha256": "511ef0d9e10819a5b97b25744c71a92bec58f0382f457624fb7a00ee3148e1db"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_45.txt",
+              "sha256": "af061b13f387d14c4cea1474eb47c86a6cd8d67f04b5dd9790d8973a7bbbdeec"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_46.txt",
+              "sha256": "f7db5d7b0fd43b7b1e295011408e1fb9c8ba9083a33626183859759acc68ac93"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_47.txt",
+              "sha256": "0135df7231d8dbbaa9b9b3374b497410bcfd0a3a425e065b50d585060b5d354d"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_48.txt",
+              "sha256": "be319d6bbf7a1548c7500b2ef4e83cd4484379f0b6544342b2532d8ac5d7e70c"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_49.txt",
+              "sha256": "00b05ab392c6b0dca639ae43839c0c4a9043525b724e7286beec0fd0edd414fc"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_50.txt",
+              "sha256": "b8972510ecbd6df6930b45ff5790bced0e77e40b0914795afe4e82201de2129c"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_51.txt",
+              "sha256": "d62e86312db8cad136c5b515e9e350cf15cb8c36b998c9bf4ec89e26a22255f2"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_52.txt",
+              "sha256": "8675840cb3ea51aa93c358442247c7e2e14630de31e66c01ba7ca4f21fe4d370"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_53.txt",
+              "sha256": "fbfaf47512b6684f22c92f16b42572fd7db4a3ecb221c76bde49f3f65318bd4e"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_54.txt",
+              "sha256": "d8747f0b1650b387e282284c8d4a342b38f4b2168d93f96695a144a526c2e026"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_55.txt",
+              "sha256": "f0afe2479eac43a98b19084038ad9ab50650ff2abc0cecfe0778825c7f6e4c92"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_56.txt",
+              "sha256": "f0b2158133474b82e27b75308418708d045820f441b7d44bc5c5fac7f85794fb"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_57.txt",
+              "sha256": "8f891ca008b361921f52ad3cdaf8436efac724af19c38bb41d282a290a121814"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_58.txt",
+              "sha256": "9c4146365fdc915e0aae4c8a15d905ebafd27e2e4f539a7a2fde10e97358322b"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_59.txt",
+              "sha256": "7adbcbc69be7da70b938b573b1ccf807c3984b044006da8a7cc635d71959284d"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_60.txt",
+              "sha256": "7febfd399492b948288e7f1d32aa3146820d94e0ce4cf6a807cea46c8a483915"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_61.txt",
+              "sha256": "8c022554f2e866db0dc85c699694a4308513f65cd9a33ed7602ad23b479e4f38"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_62.txt",
+              "sha256": "6728687e1f41289a84bbba670b84be56688c4c97e5e5563e2360c4f33d5ae812"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_63.txt",
+              "sha256": "ae6ca9f1c7dc6f21baa5fac8e8e7d37fb6aa62039b794376585a1d9624ee9102"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_64.txt",
+              "sha256": "474f8458e4b704cb43c940bc8ec928d95ec84f743f318e096d0e9521bdf691bf"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_65.txt",
+              "sha256": "6c4e4d33a0524d7ca523ac101a782e5f8fda9117b8e049c83ba697d617ae47ce"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_66.txt",
+              "sha256": "5fbdc3f6aa4aa4c8befb82b64bca93f2ac43210c169a48f28589718ec70f8ac8"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_67.txt",
+              "sha256": "f17b3f6568d552ce5168422908318c4a9e0a01b0356e5f6322efde2b7ac5532b"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_68.txt",
+              "sha256": "665255342f368cd882847c5ad1d2f1adc38154a46f0b770054be8058aadbb004"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_69.txt",
+              "sha256": "b21ba442bbfbb55dba1494f8c4aaaa8fdc9390a4b134079b04d94efa23a826d1"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_70.txt",
+              "sha256": "5283d69dcf2c2b720e477b34ed2adea5631d7563bee0ab26839186411bceeec9"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_71.txt",
+              "sha256": "0470657de8a32d5d46be0bbd0264564df317a16d31b09e3144b4deedd8b01393"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_72.txt",
+              "sha256": "f085143b7b1822e02a783645b6043d757219136debe3b3822262f13606e4fc24"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_73.txt",
+              "sha256": "6f7343958b1d4c8e81360ac2d673e5406fdb4727fdede354157ff2e236c4ad91"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_74.txt",
+              "sha256": "1c27ace2fd3ddb420f34478d10c41c6f73af40ea96afc2356feff26ba2e3a1ec"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_75.txt",
+              "sha256": "afe714a3345c64dcb2bf8044a35ca6afc0967372a58443ad5be97475f82f8b42"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_76.txt",
+              "sha256": "e361b041faa1780aa4bb80c9cca70095b3a931d94323faf607d79e781c7fe2e4"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_77.txt",
+              "sha256": "8de3d424f0c0dc49bbac931a87771d9c10a62b176b6725924e4502494459562c"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_78.txt",
+              "sha256": "1505fc5588fabbb8b202a1a777dc9b40416048cbf296f77ded2b5b15a58e7f3b"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_79.txt",
+              "sha256": "9db6c698936144a140f0564f0cc5803e906eb50f83bf44774323896de9eefe40"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_80.txt",
+              "sha256": "65b012146ddf4bec3286c5ae1b77fc81c7a93467a4d3118d097ef18b1801ebe0"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_81.txt",
+              "sha256": "c093c3fc45e7ea62b2bef97f5944ccad7f6f2330965c86a62e9457b74b74d1e2"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_82.txt",
+              "sha256": "a0f5373c4d286ca19bd863d3eb8c75ac4057f6b02326181606a73341c41e315e"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_83.txt",
+              "sha256": "694cbcad982cf42db0c6daa9673d592ac350135674b074ce818a16d89a13e0a6"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_84.txt",
+              "sha256": "88ffd3cc0a54da4f84400fdf0bb8cdee757db9eec995be3966a1844861dd9e00"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_85.txt",
+              "sha256": "67cadb1d89440fee09ccede92d061a1ceb7a012203e5a410e20b65958c41738e"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_86.txt",
+              "sha256": "5db55df875333d65f7e6f9ae8015a79ba913d686d164e4584658cd8cde413845"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_87.txt",
+              "sha256": "8b6e8021dd3d46a35c56dd589fa905926e7e2c8414bce9c3dca526f454ffca5e"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_88.txt",
+              "sha256": "9ae8e548cd4b4e7de6ccd937b2bacb337531be2705696df33bd31a2e77b369e6"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_89.txt",
+              "sha256": "49f47fd5c7a549689ff7542a6e7a20350bdd4426603e360588c761a9c704ec3d"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_90.txt",
+              "sha256": "489ddbe5854be9b10bd7af143f6a48f0de4b8dd75b69f3f26fae6736dce67267"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_91.txt",
+              "sha256": "79ffa6bb653dca4181fcf18a655ad83282990274b195ab8560ed84e31837f08a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_92.txt",
+              "sha256": "af2516b485fddeefa730c8db060fc6b05a9af762f3418abc05e283be5dde9ace"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_93.txt",
+              "sha256": "0167af6475f095c04ecf14e3506337745ea414f72d009f9b8ec14e80bd60bc44"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_94.txt",
+              "sha256": "ffdeb7ef8de8b197bc25bd1894b2bb50a682637f96ff70acb651b014297c3553"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_95.txt",
+              "sha256": "9b5797befa54934e870000d9dce0083458029cbf66372e05d229c9f329db726a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_96.txt",
+              "sha256": "659054b2bd60c5b9ee1ab4ccc970df20adf147af404030e3f9272eab63bb78e9"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_97.txt",
+              "sha256": "e8f75c12a8a8071e1e45224b35307d1a941f73ae82b707dc3d8b5a9431986574"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_98.txt",
+              "sha256": "1f675ec91c2b2eeb20454e27a657dbfc911e7bc2560f64a99093626503683b89"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_99.txt",
+              "sha256": "18896f312c498a82b25cb8f97a8dc02fb1b65e0a5a8c88f5e9e62cbf63643816"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_100.txt",
+              "sha256": "2655a08023741d58e1d72bf5ca80599064dbd74210df3fad068b41eacd1af300"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_101.txt",
+              "sha256": "35a908d7680d90daf826f523c4c076f21f5d1ce9794e8702682125d00e07a608"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_102.txt",
+              "sha256": "24a170025def771acd37f560cbb4e271e2aafcf9d725a4f9ef600fc19caaf25a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_103.txt",
+              "sha256": "05b70309e1536bc5b8492e6f459abeb93b27c4c3758b41b05a4149b79677ab34"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_104.txt",
+              "sha256": "04b36d219102a8ab1bbd2f9cbefa73dd48c4a02bca92c415afd6a896ca832308"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_105.txt",
+              "sha256": "4a19a1059f48e7e3c32e93854feb7a311212da3f62d73909c503862dfd9abb38"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_106.txt",
+              "sha256": "4c95eb509fc054755c58aa1c4e6e56090026f3fe6c103fca428e1c3bb4c69dfd"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_107.txt",
+              "sha256": "03f0e0d3421ddeb89ea411227d9125cdfa2b79bc537271b8cb4fef768c9bfc89"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_108.txt",
+              "sha256": "15637b6bfca32631f695a7412dc15884ecd66ee8363a9ef21d2da4b4a89d9bff"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_109.txt",
+              "sha256": "7641be818408bd68d9b9204f0ed46c9386a569851ca289d573106c8d415e8a20"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_110.txt",
+              "sha256": "6b81ebfc31da2a856754581d42c69034a05884d2021d461cfcd4e6d34b238f38"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_111.txt",
+              "sha256": "52fca66edac1d5affe51027d908215f2cfbee4dacc50bc7eef7698b07750645e"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_112.txt",
+              "sha256": "2579af6858c723d39859dd146b6e08f82d2c67fa2484899aaaa55b6c97bf613d"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_113.txt",
+              "sha256": "6b2548ec1de28bcae324dad18fc96848f3336512a03fc302604859cfe1a05ca9"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_114.txt",
+              "sha256": "14683adc0db647ea76178281ff4f24ea03f1aab892fbd32febe4bee449f81d8b"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_115.txt",
+              "sha256": "02e095e0583a3ee7da2399ad6228879b6f2d046ee49040a57400ff6a414b9017"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_116.txt",
+              "sha256": "144661f5f31a3993cf75bd9ecf79561c8a5aec188ac2e82dc02a7ab25015f69a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_117.txt",
+              "sha256": "f92c6f3f450b0b38099f70dd795e11feadd1cab4a7797c9e9f6696aa96b8b28b"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_118.txt",
+              "sha256": "a014ee9ca0fb68e492abef9e8d9153758a1f1e182170040d7735e7b9efb36798"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_119.txt",
+              "sha256": "340fee2dc1a337bddc02150d1b14dfdb7e86797d64e37851e3762caf269ed72a"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_120.txt",
+              "sha256": "0c2c061ddd542f34fee6ec972eb6dcc51128b8860bc03f15b3ac2a67e36a9246"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_121.txt",
+              "sha256": "1a4c7725b2f716b1d660f7a7ecc3a6fbf6dd7059e23b2d40b82d1954e65fa5d6"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_122.txt",
+              "sha256": "5eace7d21a2d53bf9b44c21dbfc2389c962871d17efb9eb9f1027731a152c8e8"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_123.txt",
+              "sha256": "00d8c92d836c16bd1e1f3b349e02bc34207a6a660cffdcf9432cf1a29730fcdd"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_124.txt",
+              "sha256": "3fafbe99db85353edca412a89e3cf664b5b06367af11a8c882c38d261d1b306f"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_125.txt",
+              "sha256": "4387325f2f1162a7c98a7221e246db619691b53c2ca78ec8115513c037759c94"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_126.txt",
+              "sha256": "1409c7e1911c5010640b378223b2faf33eafea3b2b02ad045269cbdcf0fcda22"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_127.txt",
+              "sha256": "31f1b7683f02e86ff2f151f3ab0c8866549e866d007b4d775603ec7c1d7e5f91"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_128.txt",
+              "sha256": "aebe31ccc046ea53fb0560fb289b97a08b0f700e9ecffdcd65b587b5b1a97aa3"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_129.txt",
+              "sha256": "7902cb5993b1a610040d7b2c5f22c4a2395b4705c52d18efd4d8d4f6d0b535de"
+            },
+            {
+              "member": "Jupiter/HIMALIA/sim_130.txt",
+              "sha256": "0e3374abb6dbef43eea6bad037b345ba6b05b6e03373ef96b089cd6b3f5ce8a3"
+            }
+          ],
+          "paper_mass_kg": 9.5e+18,
+          "paper_mass_to_nominal_gm_equivalent_ratio": 4.183756737933118,
+          "iau_minus_archive_radius_km": 5.0,
+          "thermal_minus_archive_radius_km": -10.200000000000003
+        }
+      }
+    },
+    {
+      "name": "ganymede",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-ganymede-20261005T093713Z-436d5e61",
+        "validation": "passed",
+        "checks": {
+          "source_hashes": true,
+          "active_equals_versioned_passport": true,
+          "identity": true,
+          "gm_primary_exact": true,
+          "gm_jpl_rounding": true,
+          "gm_error_role_preserved": true,
+          "radius_compilation_exact": true,
+          "radius_role_preserved": true,
+          "unknown_sigma_and_distribution": true,
+          "units": true,
+          "source_roles": true,
+          "traceable_parameters": true,
+          "reference_field_constants": true,
+          "unknown_shape_not_fabricated": true,
+          "reference_sphere_not_measured_axes": true,
+          "unknown_covariance_not_zero": true,
+          "unknown_state_not_fabricated": true,
+          "gravity_not_adopted": true,
+          "no_unverified_usage": true,
+          "au_exact_conversion_source": true,
+          "all_130_inputs_read": true,
+          "one_submoon_per_input": true,
+          "host_origin_zero": true,
+          "known_heterogeneity_reproduced": true,
+          "exact_six_nonmodal_members": true,
+          "nonmodal_not_only_rotation": true,
+          "archive_radius_2631_km": true,
+          "all_host_parent_mass_ratios_match_with_roundoff": true,
+          "archive_disposition_preserves_originals": true
+        },
+        "metrics": {
+          "archive_radius_km": 2630.9999999999995,
+          "compiled_minus_archive_radius_km": 0.20000000000027285,
+          "archive_to_primary_mass_factor": 1.000350112449747,
+          "modal_count": 124,
+          "nonmodal_members": [
+            "Jupiter/GANYMEDE/sim_1.txt",
+            "Jupiter/GANYMEDE/sim_101.txt",
+            "Jupiter/GANYMEDE/sim_11.txt",
+            "Jupiter/GANYMEDE/sim_111.txt",
+            "Jupiter/GANYMEDE/sim_121.txt",
+            "Jupiter/GANYMEDE/sim_21.txt"
+          ],
+          "massive_state_versions": 7,
+          "field_versions": 1,
+          "archive_members_checked": 130
+        }
+      }
+    },
+    {
+      "name": "l1_v02",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-L1-20261005T093717Z-89633e29",
+        "validation": "passed",
+        "checks": {
+          "spec_identity": true,
+          "no_runtime_authorized": true,
+          "archive_unknowns_preserved": true,
+          "archive_anomalies_preserved": true,
+          "independent_units": true,
+          "epoch_axes_geometry": true,
+          "initial_conditions_not_forcing": true,
+          "mixed_solutions_visible": true,
+          "himalia_gm_exact_in_both_solutions": true,
+          "new_solution_covers_epoch": true,
+          "new_solution_scoped_twice": true,
+          "no_dynamics_inferred_from_equal_gm": true,
+          "passport_parameters_not_overridden": true,
+          "host_sets_available_in_snapshot": true,
+          "massless_limit_labeled": true,
+          "self_consistent_massive_dynamics": true,
+          "external_effective_constants_not_adopted": true,
+          "J2_not_fabricated": true,
+          "reference_contact_role": true,
+          "energy_is_operational_only": true,
+          "numerical_failure_separate": true,
+          "numeric_mode_and_pilot_pending": true,
+          "measure_not_population": true,
+          "strict_spec_schema": true,
+          "scientific_states": true,
+          "archive_contract_unchanged": true,
+          "source_hashes": true
+        }
+      }
+    },
+    {
+      "name": "l1_v03",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-L1-20261005T093722Z-e6ccb5f0",
+        "validation": "passed",
+        "checks": {
+          "spec_identity": true,
+          "no_runtime_authorized": true,
+          "archive_unknowns_preserved": true,
+          "archive_anomalies_preserved": true,
+          "independent_units": true,
+          "epoch_axes_geometry": true,
+          "initial_conditions_not_forcing": true,
+          "mixed_solutions_visible": true,
+          "himalia_gm_exact_in_both_solutions": true,
+          "new_solution_covers_epoch": true,
+          "new_solution_scoped_twice": true,
+          "no_dynamics_inferred_from_equal_gm": true,
+          "passport_parameters_not_overridden": true,
+          "host_sets_available_in_snapshot": true,
+          "massless_limit_labeled": true,
+          "self_consistent_massive_dynamics": true,
+          "external_effective_constants_not_adopted": true,
+          "J2_not_fabricated": true,
+          "reference_contact_role": true,
+          "energy_is_operational_only": true,
+          "numerical_failure_separate": true,
+          "numeric_mode_and_pilot_pending": true,
+          "measure_not_population": true,
+          "strict_spec_schema": true,
+          "scientific_states": true,
+          "archive_contract_unchanged": true,
+          "source_hashes": true
+        }
+      }
+    },
+    {
+      "name": "geometry",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "W0-states-20261005T093726Z-738ecd98",
+        "status": "completed",
+        "validation": "passed",
+        "metrics": {
+          "iapetus": {
+            "position_max_km": 2.131554051894557e-07,
+            "velocity_max_km_s": 2.928969502107952e-15
+          },
+          "ganymede": {
+            "position_max_km": 1.5122069122510522e-07,
+            "velocity_max_km_s": 1.2560739669470201e-15
+          },
+          "himalia": {
+            "position_max_km": 1.6401857109927622e-07,
+            "velocity_max_km_s": 2.560743305106871e-15
+          }
+        }
+      }
+    },
+    {
+      "name": "baseline",
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "result": {
+        "run_id": "W0-audit-20261005T093735Z-9aefa344",
+        "validation": "failed",
+        "checks": {
+          "explicit_bundle_files_present": true,
+          "referenced_pdf_headers": true,
+          "bibliography_keys_present": true,
+          "complete_document_and_appendix": true,
+          "source_receipt_hashes": true,
+          "bundle_file_count": true,
+          "figure_count": true,
+          "pilot_rows_present": true,
+          "explicit_required_text": true,
+          "zenodo_title_matches": true,
+          "zenodo_record_id": true,
+          "archive_sha256": true,
+          "archive_declared_size": true,
+          "archive_publisher_md5": true,
+          "archive_zip_crc": true,
+          "archive_hosts_present": true,
+          "archive_each_host_has_130_unique_indices": true,
+          "archive_one_submoon_per_input": true,
+          "archive_host_origin_zero": true,
+          "archive_fixed_massive_states_per_host": false,
+          "archive_normalized_planet_axes": true,
+          "archive_host_count": true,
+          "archive_input_count": true
+        },
+        "metrics": {
+          "submoon": {
+            "radius_m": 100.0,
+            "density_kg_m3": 1000.0,
+            "derived_mass_kg": 4188790204.786391,
+            "paper_appendix_mass_kg": 4900000000.0,
+            "relative_appendix_mass_difference": 0.1697888317254308,
+            "uncertainty": null,
+            "uncertainty_status": "deterministic_model_assumption"
+          },
+          "hill_radius_ratio_without_to_with_factor3": 1.4422495703074083,
+          "comparisons": {
+            "Ganymede": {
+              "paper_mass_kg": 1.48e+23,
+              "paper_radius_km": 2631.0,
+              "paper_implied_density_kg_m3": 1940.0394526548241,
+              "reference_mass_kg": 1.4814786194806948e+23,
+              "mass_ratio_paper_to_reference": 0.9990019299224088,
+              "reference_gm_km3_s2": {
+                "value": 9887.83275,
+                "uncertainty": 0.00247,
+                "source_text": "9887.83275 ±0.00247 [JUP365]"
+              },
+              "reference_radius_km": {
+                "value": 2631.2,
+                "uncertainty": 1.7,
+                "source_text": "2631.20 ±1.70 [1]"
+              },
+              "reference_density_g_cm3": {
+                "value": 1.9416,
+                "uncertainty": 0.0038,
+                "source_text": "1.9416 ±0.0038 [*]"
+              },
+              "status": "table_comparison_not_actual_integrator_input",
+              "mass_uncertainty": null,
+              "mass_uncertainty_status": "not_propagated_use_primary_GM_and_covariance_in_passports"
+            },
+            "Himalia": {
+              "paper_mass_kg": 9.5e+18,
+              "paper_radius_km": 80.0,
+              "paper_implied_density_kg_m3": 4429.6053497256025,
+              "reference_mass_kg": 2.270650105629055e+18,
+              "mass_ratio_paper_to_reference": 4.18382382052128,
+              "reference_gm_km3_s2": {
+                "value": 0.15155,
+                "uncertainty": 0.05763,
+                "source_text": "0.15155 ±0.05763 [JUP344]"
+              },
+              "reference_radius_km": {
+                "value": 85.0,
+                "uncertainty": 10.0,
+                "source_text": "85.00 ±10.00 [1]"
+              },
+              "reference_density_g_cm3": {
+                "value": 0.8827,
+                "uncertainty": 0.458,
+                "source_text": "0.8827 ±0.4580 [*]"
+              },
+              "status": "table_comparison_not_actual_integrator_input",
+              "mass_uncertainty": null,
+              "mass_uncertainty_status": "not_propagated_use_primary_GM_and_covariance_in_passports"
+            },
+            "Hyperion": {
+              "paper_mass_kg": 5.55e+21,
+              "paper_radius_km": 133.0,
+              "paper_implied_density_kg_m3": 563182.8884949224,
+              "reference_mass_kg": 5.550994111742055e+18,
+              "mass_ratio_paper_to_reference": 999.820912845151,
+              "reference_gm_km3_s2": {
+                "value": 0.37049,
+                "uncertainty": 5e-05,
+                "source_text": "0.37049 ±0.00005 [SAT441]"
+              },
+              "reference_radius_km": {
+                "value": 135.0,
+                "uncertainty": 4.0,
+                "source_text": "135.00 ±4.00 [1]"
+              },
+              "reference_density_g_cm3": {
+                "value": 0.5386,
+                "uncertainty": 0.0479,
+                "source_text": "0.5386 ±0.0479 [*]"
+              },
+              "status": "table_comparison_not_actual_integrator_input",
+              "mass_uncertainty": null,
+              "mass_uncertainty_status": "not_propagated_use_primary_GM_and_covariance_in_passports"
+            },
+            "Iapetus": {
+              "paper_mass_kg": 1.81e+21,
+              "paper_radius_km": 718.0,
+              "paper_implied_density_kg_m3": 1167.3917850242926,
+              "reference_mass_kg": 1.805659170250064e+21,
+              "mass_ratio_paper_to_reference": 1.0024040139033188,
+              "reference_gm_km3_s2": {
+                "value": 120.51511,
+                "uncertainty": 0.00242,
+                "source_text": "120.51511 ±0.00242 [SAT441]"
+              },
+              "reference_radius_km": {
+                "value": 734.3,
+                "uncertainty": 2.8,
+                "source_text": "734.30 ±2.80 [1]"
+              },
+              "reference_density_g_cm3": {
+                "value": 1.0887,
+                "uncertainty": 0.0125,
+                "source_text": "1.0887 ±0.0125 [*]"
+              },
+              "status": "table_comparison_not_actual_integrator_input",
+              "mass_uncertainty": null,
+              "mass_uncertainty_status": "not_propagated_use_primary_GM_and_covariance_in_passports"
+            },
+            "Phoebe": {
+              "paper_mass_kg": 8.3e+18,
+              "paper_radius_km": 120.0,
+              "paper_implied_density_kg_m3": 1146.6892601238987,
+              "reference_mass_kg": 8.312332379425559e+18,
+              "mass_ratio_paper_to_reference": 0.9985163755655292,
+              "reference_gm_km3_s2": {
+                "value": 0.55479,
+                "uncertainty": 0.00108,
+                "source_text": "0.55479 ±0.00108 [SAT441]"
+              },
+              "reference_radius_km": {
+                "value": 106.5,
+                "uncertainty": 0.7,
+                "source_text": "106.50 ±0.70 [1]"
+              },
+              "reference_density_g_cm3": {
+                "value": 1.6428,
+                "uncertainty": 0.0326,
+                "source_text": "1.6428 ±0.0326 [*]"
+              },
+              "status": "table_comparison_not_actual_integrator_input",
+              "mass_uncertainty": null,
+              "mass_uncertainty_status": "not_propagated_use_primary_GM_and_covariance_in_passports"
+            }
+          },
+          "limitations": "Сопоставление таблиц не устанавливает использованные в интеграторе входы."
+        }
+      }
+    },
+    {
+      "name": "smoke",
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "result": {
+        "run_id": "L0-20261005T093744Z-e6326a68",
+        "path": "T:\\test_python\\submoon-research\\runs\\L0-20261005T093744Z-e6326a68",
+        "passed": true
+      }
+    }
+  ],
+  "sampling_run_id": "W1-sampling-20261005T093441Z-e7b1dbac",
+  "numeric_control_run_id": "W2-analytic-20261005T085951Z-103e3d09",
+  "W0_complete": false,
+  "W1_freeze": false,
+  "W2_complete": false,
+  "production_allowed": false
+}

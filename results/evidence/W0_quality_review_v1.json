@@ -1,0 +1,578 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-10-04T13:30:31+00:00",
+  "actor": "codex-w0-review-20261004",
+  "task_id": "W0-T003",
+  "audit_status": "completed_with_findings",
+  "scientific_stage_status": "active",
+  "report": "reports/scientific/W0_quality_review_20261004.md",
+  "report_sha256": "5e9078c61b1a3637d7a23ee280c922504dc15e33f63cb061ccb857fd9e0e9342",
+  "run_ids": [
+    "W0-quality-20261004T132629Z-2a4eec19",
+    "W0-review-independent-20261004T132656Z-937b6079"
+  ],
+  "supersedes_audit_runs": [
+    "W0-quality-20261004T125753Z-8f2ec13e",
+    "W0-review-independent-20261004T130227Z-e140a18d"
+  ],
+  "execution": [
+    {
+      "name": "pytest",
+      "args": [
+        "-m",
+        "pytest"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 3.883498499999405,
+      "run_ids": [],
+      "log": "logs/pytest.txt"
+    },
+    {
+      "name": "ruff",
+      "args": [
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.2286811999983911,
+      "run_ids": [],
+      "log": "logs/ruff.txt"
+    },
+    {
+      "name": "validate",
+      "args": [
+        "scripts/project.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.5285315000000992,
+      "run_ids": [],
+      "log": "logs/validate.txt"
+    },
+    {
+      "name": "stage_briefs",
+      "args": [
+        "scripts/build_stage_briefs.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.11579730000084965,
+      "run_ids": [],
+      "log": "logs/stage_briefs.txt"
+    },
+    {
+      "name": "baseline",
+      "args": [
+        "scripts/audit_baseline.py",
+        "--config",
+        "configs/audits/W0_baseline_v3.yaml"
+      ],
+      "exit_code": 1,
+      "expected_exit_code": 1,
+      "met_expectation": true,
+      "wall_seconds": 5.272775900000852,
+      "run_ids": [
+        "W0-audit-20261004T132640Z-9b65c493"
+      ],
+      "log": "logs/baseline.txt"
+    },
+    {
+      "name": "iapetus",
+      "args": [
+        "scripts/verify_iapetus_passport.py",
+        "--config",
+        "configs/audits/Iapetus_passport_v1.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.747389000000112,
+      "run_ids": [
+        "W0-iapetus-20261004T132641Z-affa0f7f"
+      ],
+      "log": "logs/iapetus.txt"
+    },
+    {
+      "name": "himalia",
+      "args": [
+        "scripts/verify_himalia_passport.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.8543686999983038,
+      "run_ids": [
+        "W0-himalia-20261004T132642Z-4abe92fc"
+      ],
+      "log": "logs/himalia.txt"
+    },
+    {
+      "name": "ganymede",
+      "args": [
+        "scripts/verify_ganymede_passport.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 0.9280892000024323,
+      "run_ids": [
+        "W0-ganymede-20261004T132643Z-84c10985"
+      ],
+      "log": "logs/ganymede.txt"
+    },
+    {
+      "name": "states_replay",
+      "args": [
+        "scripts/acquire_geometric_states.py",
+        "--replay",
+        "runs/W0-states-20261004T104417Z-eacbd97e"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 4.33669000000009,
+      "run_ids": [
+        "W0-states-20261004T132644Z-e74bbf32"
+      ],
+      "log": "logs/states_replay.txt"
+    },
+    {
+      "name": "l1",
+      "args": [
+        "scripts/verify_l1_specification.py"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 1.9051268000002892,
+      "run_ids": [
+        "W0-L1-20261004T132648Z-1648a640"
+      ],
+      "log": "logs/l1.txt"
+    },
+    {
+      "name": "l1_invalid_probe",
+      "args": [
+        "scripts/verify_l1_specification.py",
+        "--config",
+        "runs/W0-quality-20261004T132629Z-2a4eec19/inputs/synthetic_invalid_L1.yaml"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 1,
+      "met_expectation": false,
+      "wall_seconds": 0.8222606000017549,
+      "run_ids": [
+        "W0-L1-20261004T132650Z-0c522648"
+      ],
+      "log": "logs/l1_invalid_probe.txt"
+    },
+    {
+      "name": "smoke",
+      "args": [
+        "scripts/project.py",
+        "smoke"
+      ],
+      "exit_code": 0,
+      "expected_exit_code": 0,
+      "met_expectation": true,
+      "wall_seconds": 2.5144313999990118,
+      "run_ids": [
+        "L0-20261004T132652Z-0d985b0d"
+      ],
+      "log": "logs/smoke.txt"
+    }
+  ],
+  "validation": {
+    "status": "failed",
+    "audit_execution": "completed_with_findings",
+    "scope": "W0_quality_review_no_scientific_gate_release",
+    "routine_commands_ok": true,
+    "invalid_config_cli_rejected": false,
+    "unhandled_l1_mutations": [
+      "rotating_frame",
+      "wrong_output_origin",
+      "epoch_index_conflict",
+      "tides_without_parameters",
+      "disable_monopoles",
+      "remove_iapetus_host_and_parent",
+      "remove_external_parameters",
+      "wrong_energy_formula",
+      "negative_contact_radius",
+      "grid_denominator"
+    ],
+    "replay_exact": true,
+    "historical_runs": 12,
+    "bad_historical_artifacts": 0,
+    "bad_source_hashes": 0
+  },
+  "original_runs": 12,
+  "original_artifact_hash_checks": 334,
+  "source_hash_checks": 147,
+  "claims_checked": 20,
+  "issues": [
+    {
+      "id": "W0-I008",
+      "finding": "QW0-01",
+      "severity": "high",
+      "status": "open",
+      "evidence": "runs/W0-review-independent-20261004T132656Z-937b6079/results/unbound_input_probe.json"
+    },
+    {
+      "id": "W0-I009",
+      "finding": "QW0-02",
+      "severity": "high",
+      "status": "open",
+      "evidence": "runs/W0-quality-20261004T132629Z-2a4eec19/results/l1_mutations.json"
+    },
+    {
+      "id": "W0-I010",
+      "finding": "QW0-03",
+      "severity": "medium",
+      "status": "open",
+      "evidence": "runs/W0-quality-20261004T132629Z-2a4eec19/results/provenance.json"
+    }
+  ],
+  "unbound_input_probe": {
+    "data_kind": "synthetic_invalid_input_probe",
+    "cli_exit_code": 0,
+    "probe_run_id": "W0-L1-20261004T132657Z-893a3b6a",
+    "validation": "passed",
+    "checks": {
+      "spec_identity": true,
+      "no_runtime_authorized": true,
+      "archive_unknowns_preserved": true,
+      "archive_anomalies_preserved": true,
+      "independent_units": true,
+      "epoch_axes_geometry": true,
+      "initial_conditions_not_forcing": true,
+      "mixed_solutions_visible": true,
+      "himalia_gm_exact_in_both_solutions": true,
+      "new_solution_covers_epoch": true,
+      "new_solution_scoped_twice": true,
+      "no_dynamics_inferred_from_equal_gm": true,
+      "passport_parameters_not_overridden": true,
+      "host_sets_available_in_snapshot": true,
+      "massless_limit_labeled": true,
+      "self_consistent_massive_dynamics": true,
+      "external_effective_constants_not_adopted": true,
+      "J2_not_fabricated": true,
+      "reference_contact_role": true,
+      "energy_is_operational_only": true,
+      "numerical_failure_separate": true,
+      "numeric_mode_and_pilot_pending": true,
+      "measure_not_population": true,
+      "source_hashes": true,
+      "archive_contract_unchanged": true,
+      "passport_hash_bindings": true,
+      "wall_limit": true,
+      "output_limit": true
+    },
+    "input_is_hash_bound": false,
+    "modified_position_component_km": 1000000,
+    "actual_input_path": "runs/W0-review-independent-20261004T132656Z-937b6079/inputs/synthetic_inconsistent_states.json",
+    "actual_input_sha256": "e17793be05dcc7394cefe3ccdd599356c1ae40ed0f8f8b72c468bf765eb84ed9",
+    "actual_input_copied": false
+  },
+  "l1_mutations": [
+    {
+      "probe": "rotating_frame",
+      "path": "routes.independent_reproduction.frame.rotating_frame",
+      "injected_value": true,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "wrong_output_origin",
+      "path": "routes.independent_reproduction.frame.output_origin",
+      "injected_value": "jupiter",
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "epoch_index_conflict",
+      "path": "routes.independent_reproduction.epoch.initial_epoch_index",
+      "injected_value": 1,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "tides_without_parameters",
+      "path": "routes.independent_reproduction.physics.tides",
+      "injected_value": true,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "disable_monopoles",
+      "path": "routes.independent_reproduction.physics.pairwise_monopoles",
+      "injected_value": false,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "remove_iapetus_host_and_parent",
+      "path": "routes.independent_reproduction.massive_body_sets.iapetus",
+      "injected_value": [
+        "sun"
+      ],
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "remove_external_parameters",
+      "path": "routes.independent_reproduction.external_parameters",
+      "injected_value": {},
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "wrong_energy_formula",
+      "path": "routes.independent_reproduction.events.article_energy_crossing.formula",
+      "injected_value": "specific_E2=v_rel^2/2+GM_host/r",
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "negative_contact_radius",
+      "path": "routes.independent_reproduction.events.reference_contact.submoon_radius_km",
+      "injected_value": -0.1,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    },
+    {
+      "probe": "grid_denominator",
+      "path": "routes.independent_reproduction.initial_measure.count_per_host",
+      "injected_value": 1,
+      "rejected": false,
+      "failed_checks": [],
+      "checks_count": 23,
+      "data_kind": "synthetic_invalid_configuration_probe"
+    }
+  ],
+  "independent_geometry": {
+    "iapetus": {
+      "decimal_direct_position_max_km": "1.40422924207647874995187253079785919932016706E-7",
+      "decimal_direct_velocity_max_km_s": "2.73219280368800905865935462199438852152101704E-15",
+      "saved_float_vs_decimal_position_component_max_km": "5.17170097E-8",
+      "passed": true
+    },
+    "ganymede": {
+      "decimal_direct_position_max_km": "1.70341860608255737725249617223600674571108794E-7",
+      "decimal_direct_velocity_max_km_s": "1.05320407697495127485551964821696578424620795E-15",
+      "saved_float_vs_decimal_position_component_max_km": "9.52690338E-8",
+      "passed": true
+    },
+    "himalia": {
+      "decimal_direct_position_max_km": "8.61585036539745667090470809231337820290682633E-8",
+      "decimal_direct_velocity_max_km_s": "8.65728418402777777777777777780000000000000000E-16",
+      "saved_float_vs_decimal_position_component_max_km": "1.053500368E-7",
+      "passed": true
+    }
+  },
+  "independent_archive": {
+    "input_files": 13000,
+    "pilots_and_hyperion": {
+      "IAPETUS": {
+        "files": 130,
+        "groups": 1,
+        "nonmodal": [],
+        "min_radius_au": 6.367590433464301e-06,
+        "max_radius_au": 0.00022615302195840416,
+        "roche_au": 6.367191447802293e-06,
+        "lower_to_rigid_roche": 1.000062662739966,
+        "upper_to_09309_circular_hill": 0.9999999999999986,
+        "inferred_g_median": 0.00029591220828559115,
+        "inferred_g_relative_span": 7.327863752340477e-16,
+        "max_abs_radial_velocity_au_day": 0.0,
+        "distinct_inclinations_deg": [
+          0.0,
+          15.0,
+          30.0,
+          45.0,
+          60.0,
+          75.0,
+          90.0,
+          105.0,
+          120.0,
+          135.0,
+          150.0,
+          165.0,
+          180.0
+        ],
+        "host_mass_solar_range": [
+          9.102475772830367e-10,
+          9.102475772830367e-10
+        ],
+        "assumption": "Диагностика кругового старта; неизвестный авторский G не подтверждается."
+      },
+      "GANYMEDE": {
+        "files": 130,
+        "groups": 7,
+        "nonmodal": [
+          1,
+          11,
+          21,
+          101,
+          111,
+          121
+        ],
+        "min_radius_au": 2.76394374089384e-05,
+        "max_radius_au": 0.00019741705976301094,
+        "roche_au": 2.7647849033958395e-05,
+        "lower_to_rigid_roche": 0.999695758429176,
+        "upper_to_09309_circular_hill": 1.0000000000000207,
+        "inferred_g_median": 0.00029591220828559115,
+        "inferred_g_relative_span": 0.004727605823920923,
+        "max_abs_radial_velocity_au_day": 1.4560356368972082e-06,
+        "distinct_inclinations_deg": [
+          0.0,
+          0.00361,
+          15.0,
+          15.10748,
+          29.83993,
+          30.0,
+          45.0,
+          60.0,
+          75.0,
+          90.0,
+          105.0,
+          120.0,
+          135.0,
+          149.95868,
+          150.0,
+          164.92103,
+          165.0,
+          179.99799,
+          180.0
+        ],
+        "host_mass_solar_range": [
+          7.452463451799625e-08,
+          7.452463451799625e-08
+        ],
+        "assumption": "Диагностика кругового старта; неизвестный авторский G не подтверждается."
+      },
+      "HIMALIA": {
+        "files": 130,
+        "groups": 1,
+        "nonmodal": [],
+        "min_radius_au": 1.1065986389799206e-06,
+        "max_radius_au": 8.393053064000225e-05,
+        "roche_au": 1.1065293008220782e-06,
+        "lower_to_rigid_roche": 1.0000626627399662,
+        "upper_to_09309_circular_hill": 1.0000000000000033,
+        "inferred_g_median": 0.00029591220828559115,
+        "inferred_g_relative_span": 9.159829690425597e-16,
+        "max_abs_radial_velocity_au_day": 0.0,
+        "distinct_inclinations_deg": [
+          0.0,
+          15.0,
+          30.0,
+          45.0,
+          60.0,
+          75.0,
+          90.0,
+          105.0,
+          120.0,
+          135.0,
+          150.0,
+          165.0,
+          180.0
+        ],
+        "host_mass_solar_range": [
+          4.777542532701022e-12,
+          4.777542532701022e-12
+        ],
+        "assumption": "Диагностика кругового старта; неизвестный авторский G не подтверждается."
+      },
+      "HYPERION": {
+        "files": 130,
+        "groups": 1,
+        "nonmodal": [],
+        "min_radius_au": 9.251369046479597e-06,
+        "max_radius_au": 0.0001369660688581504,
+        "roche_au": 9.250789366671033e-06,
+        "lower_to_rigid_roche": 1.000062662739966,
+        "upper_to_09309_circular_hill": 0.9999999999999618,
+        "inferred_g_median": 0.00029591220828559115,
+        "inferred_g_relative_span": 5.495897814255358e-16,
+        "max_abs_radial_velocity_au_day": 0.0,
+        "distinct_inclinations_deg": [
+          0.0,
+          15.0,
+          30.0,
+          45.0,
+          60.0,
+          75.0,
+          90.0,
+          105.0,
+          120.0,
+          135.0,
+          150.0,
+          165.0,
+          180.0
+        ],
+        "host_mass_solar_range": [
+          2.7915935367393023e-09,
+          2.7915935367393023e-09
+        ],
+        "assumption": "Диагностика кругового старта; неизвестный авторский G не подтверждается."
+      }
+    },
+    "sphere_mass_kg": 4188790204.786391,
+    "appendix_relative_error": 0.1697888317254308
+  },
+  "readiness": {
+    "W0_complete": false,
+    "W1_preparation": true,
+    "W1_freeze": false,
+    "W2_analytic": true,
+    "W2_real_pilot": false,
+    "W3_atlas": false
+  },
+  "limitations": [
+    "Локальный аудит; внешняя доступность сайтов/AstroBridge не проверялась.",
+    "Нет новых реальных динамических интеграций; L0 синтетический.",
+    "PDF не рендерились повторно; проверены хеши и сохранённые текстовые извлечения.",
+    "Исправления научного кода по QW0-01/02 ещё не выполнены."
+  ],
+  "resources": {
+    "network_calls": 0,
+    "paid_calls": 0,
+    "workers": 1,
+    "backup_root": null
+  },
+  "scripts_sha256": {
+    "scripts/review_w0_quality.py": "a077042186b6fc14fd94f2dfeea091a2d8890313c3f7bbdcd1cf43c81332bdfd",
+    "scripts/review_w0_independent.py": "0a324c1e1d41b38041470b93c88ec38bfe2a7ea28cebc45e39a527bd287a8142"
+  }
+}

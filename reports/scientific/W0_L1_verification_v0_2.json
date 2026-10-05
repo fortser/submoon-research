@@ -1,0 +1,72 @@
+{
+  "run_id": "W0-L1-20261004T113500Z-051c42bc",
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "spec_identity": true,
+      "no_runtime_authorized": true,
+      "archive_unknowns_preserved": true,
+      "archive_anomalies_preserved": true,
+      "independent_units": true,
+      "epoch_axes_geometry": true,
+      "initial_conditions_not_forcing": true,
+      "mixed_solutions_visible": true,
+      "himalia_gm_exact_in_both_solutions": true,
+      "new_solution_covers_epoch": true,
+      "new_solution_scoped_twice": true,
+      "no_dynamics_inferred_from_equal_gm": true,
+      "passport_parameters_not_overridden": true,
+      "host_sets_available_in_snapshot": true,
+      "massless_limit_labeled": true,
+      "self_consistent_massive_dynamics": true,
+      "external_effective_constants_not_adopted": true,
+      "J2_not_fabricated": true,
+      "reference_contact_role": true,
+      "energy_is_operational_only": true,
+      "numerical_failure_separate": true,
+      "numeric_mode_and_pilot_pending": true,
+      "measure_not_population": true,
+      "source_hashes": true,
+      "archive_contract_unchanged": true,
+      "passport_hash_bindings": true,
+      "wall_limit": true,
+      "output_limit": true
+    },
+    "scope": "L1_contract_and_primary_constants_only",
+    "tolerances": {
+      "gm_comparison": "exact_decimal",
+      "hash_comparison": "exact_SHA256",
+      "units_epoch_and_roles": "exact_contract"
+    },
+    "limitations": [
+      "Не проверяет силы, события, генератор стартов, интегратор или динамический эффект.",
+      "GM Гималии совпадает; совместная согласованность состояний/сил не доказана.",
+      "Внешние GM/J2/полюса и численные режимы ещё не приняты. Production запрещён."
+    ]
+  },
+  "integrity": {
+    "all_artifacts_sha256": true,
+    "current_inputs_sha256": true,
+    "config_snapshot_exact": true
+  },
+  "general_checks": {
+    "pytest": "64 passed",
+    "ruff": "passed",
+    "validate": "passed",
+    "stage_briefs": "current",
+    "smoke": "passed",
+    "smoke_run_id": "L0-20261004T113838Z-b7ada94d"
+  },
+  "provenance": {
+    "source_http_downloads": 1,
+    "source_bytes": 157508,
+    "web_url_operations": 7,
+    "paid_calls": 0,
+    "dynamic_integrations": 0
+  },
+  "limitations": [
+    "Не проверяет силы, события, генератор стартов, интегратор или динамический эффект.",
+    "GM Гималии совпадает; совместная согласованность состояний/сил не доказана.",
+    "Внешние GM/J2/полюса и численные режимы ещё не приняты. Production запрещён."
+  ]
+}

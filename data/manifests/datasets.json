@@ -1,5 +1,165 @@
 {
   "schema_version": "0.1",
-  "datasets": [],
-  "status": "not_acquired"
+  "datasets": [
+    {
+      "dataset_id": "baseline_initial_conditions_19820511",
+      "source_id": "baseline_initial_conditions_zip_19820511",
+      "version": "zenodo_record_19820511_snapshot_20261004",
+      "data_kind": "published_real_initial_conditions",
+      "synthetic": false,
+      "path": "data/raw/W0-baseline-inputs-20261004T075626Z/public_files.zip",
+      "sha256": "534066c632ee4c2daad431ea3ee91e17893f16b3362fb8a33c69cfc13e8682d1",
+      "receipt_path": "data/raw/W0-baseline-inputs-20261004T075626Z/receipt.json",
+      "bytes": 10836884,
+      "hosts": 100,
+      "initial_condition_files": 13000,
+      "units": {
+        "length": "au",
+        "velocity": "au/day",
+        "mass": "solar_mass",
+        "time": "day",
+        "angle": "rad"
+      },
+      "solar_mass_unit_kg": null,
+      "epoch": null,
+      "time_scale": null,
+      "frame_name": null,
+      "origin": "host_satellite",
+      "axes": "fixed_per_host",
+      "status": "integrity_checked_source_consistency_failed_not_accepted_for_production",
+      "audit_run_id": "W0-audit-20261004T080424Z-6939c733",
+      "validation_path": "runs/W0-audit-20261004T080424Z-6939c733/validation.json",
+      "limitations": "Завышенная масса Гипериона и немодальные галилеевы состояния; кода/исходов нет.",
+      "backup_status": "unconfigured_restore_not_verified"
+    },
+    {
+      "dataset_id": "iapetus_parameters_v1",
+      "version": "iapetus-v1",
+      "data_kind": "measured_parameters_and_ephemeris_constants",
+      "synthetic": false,
+      "path": "data/processed/host_passports/iapetus_v1.yaml",
+      "sha256": "e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92",
+      "source_ids": [
+        "sat441_pck_20261004",
+        "jacobson2022_sat441",
+        "thomas2010_shapes"
+      ],
+      "source_manifest": "references/manifests/iapetus_sources_v1.json",
+      "run_id": "W0-iapetus-20261004T084620Z-6c6961d1",
+      "status": "nominal_parameters_audited_with_explicit_limits",
+      "units": {
+        "gm": "km3/s2",
+        "radius": "km"
+      },
+      "covariance_status": "not_available_in_acquired_sources",
+      "production_allowed": false,
+      "backup_status": "unconfigured_restore_not_verified"
+    },
+    {
+      "dataset_id": "himalia_parameters_v1",
+      "version": "himalia-v1",
+      "data_kind": "ephemeris_constants_compiled_radius_and_measured_effective_sizes",
+      "synthetic": false,
+      "path": "data/processed/host_passports/himalia_v1.yaml",
+      "sha256": "00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4",
+      "source_ids": [
+        "jup344_comments_20261004",
+        "archinal2018_wgccre",
+        "grav2015_neowise",
+        "porco2003_himalia_extract"
+      ],
+      "source_manifest": "references/manifests/himalia_sources_v1.json",
+      "run_id": "W0-himalia-20261004T092718Z-6c436957",
+      "status": "nominal_gm_and_size_constraints_audited_with_explicit_limits",
+      "units": {
+        "gm": "km3/s2",
+        "sizes": "km"
+      },
+      "covariance_status": "not_available_in_acquired_sources",
+      "production_allowed": false,
+      "backup_status": "unconfigured_restore_not_verified"
+    },
+    {
+      "dataset_id": "ganymede_parameters_v1",
+      "version": "ganymede-v1",
+      "data_kind": "primary_nominal_gm_compiled_reference_radius_and_archive_audit",
+      "synthetic": false,
+      "path": "data/processed/host_passports/ganymede_v1.yaml",
+      "sha256": "19c23a8395e665b527d4cb5629bda058a00f756a925406274b94cc93ab30ebe8",
+      "source_ids": [
+        "jup365_comments_20261004",
+        "archinal2018_wgccre",
+        "jpl_satellite_parameters_20261004",
+        "zubarev2015_dlr_metadata",
+        "schenk2025_shapes_lpsc"
+      ],
+      "units": {
+        "gm": "km3 / s2",
+        "reference_radius": "km"
+      },
+      "uncertainty_sigma_level": null,
+      "covariance": null,
+      "status": "validated_limited_scope_not_accepted_for_production",
+      "audit_run_id": "W0-ganymede-20261004T101524Z-e214b267",
+      "validation_path": "runs/W0-ganymede-20261004T101524Z-e214b267/validation.json",
+      "limitations": "Первичные ошибки GM и численные размер/форма не приняты; 6 разных архивных стартов сохранены; состояния/эпоха/шкала/контакт неизвестны.",
+      "backup_status": "unconfigured_restore_not_verified"
+    },
+    {
+      "dataset_id": "W0_geometric_states_v1",
+      "source_id": "jpl_horizons_geometric_states_v1",
+      "version": "W0-geometric-states-v1",
+      "data_kind": "real_geometric_ephemeris_snapshot",
+      "synthetic": false,
+      "path": "data/processed/W0-geometric-states-v1/geometric_states.json",
+      "sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6",
+      "receipt_path": "references/manifests/geometric_states_v1.json",
+      "run_id": "W0-states-20261004T104417Z-eacbd97e",
+      "status": "validated_geometric_snapshot_only",
+      "production_allowed": false,
+      "epoch": 2451545.0,
+      "time_scale": "TDB",
+      "frame_name": "ICRF",
+      "origin": "solar_system_barycenter",
+      "units": {
+        "length": "km",
+        "velocity": "km/s",
+        "time": "TDB_day"
+      },
+      "uncertainty": null,
+      "covariance_ref": null,
+      "validation_path": "runs/W0-states-20261004T104417Z-eacbd97e/validation.json",
+      "replay_run_id": "W0-states-20261004T104637Z-9b627c86",
+      "limitations": "Гималия: эфемерида JUP347/DE442, GM JUP344; совместимость не принята. W0/W2 открыты.",
+      "backup_status": "unconfigured_restore_not_verified"
+    },
+    {
+      "dataset_id": "L1_working_specification_v0_2",
+      "version": "L1-baseline-spec-v0.2",
+      "data_kind": "real_input_model_contract_not_dynamical_results",
+      "synthetic": false,
+      "path": "configs/experiments/L1_baseline_spec_v0_2.yaml",
+      "sha256": "01f452948ba6f381b572f828f148655f333dbe19ee8602f73498b67625023431",
+      "source_manifest": "references/manifests/L1_sources_v0_2.json",
+      "run_id": "W0-L1-20261004T113500Z-051c42bc",
+      "source_ids": [
+        "jup344_comments_20261004",
+        "jup347_comments_20261004",
+        "jpl_horizons_geometric_states_v1"
+      ],
+      "status": "configuration_contract_verified_physics_and_dynamics_pending",
+      "production_allowed": false,
+      "validation_path": "runs/W0-L1-20261004T113500Z-051c42bc/validation.json",
+      "units": {
+        "length": "km",
+        "velocity": "km/s",
+        "time": "s",
+        "gm": "km3/s2"
+      },
+      "limitations": "GM Гималии одинаков; DE441/DE442 и согласованность сил не подтверждены; интеграции запрещены.",
+      "backup_status": "unconfigured_restore_not_verified"
+    }
+  ],
+  "status": "acquired_with_explicit_limitations",
+  "updated_utc": "2026-10-04T10:20:34.234091+00:00"
 }

@@ -1,0 +1,58 @@
+{
+  "schema_version": "0.1",
+  "audit_run_id": "W0-audit-20261004T080424Z-6939c733",
+  "verification_date": "2026-10-04",
+  "actor": "codex-w0-audit-20261004-root",
+  "checks": {
+    "pytest": {
+      "command": ".venv/Scripts/python.exe -m pytest -q",
+      "status": "passed",
+      "passed_tests": 23
+    },
+    "ruff": {
+      "command": ".venv/Scripts/python.exe -m ruff check src scripts tests",
+      "status": "passed"
+    },
+    "project_validate": {
+      "command": ".venv/Scripts/python.exe scripts/project.py validate",
+      "status": "passed",
+      "scope": "structural_only",
+      "tracking_records_after_registration": 55
+    },
+    "L0_smoke": {
+      "command": ".venv/Scripts/python.exe scripts/project.py smoke",
+      "status": "passed",
+      "run_id": "L0-20261004T081401Z-4610d0d2",
+      "scope": "synthetic_installation_and_two_body_control_only"
+    },
+    "stage_briefs": {
+      "command": ".venv/Scripts/python.exe scripts/build_stage_briefs.py --check",
+      "status": "passed"
+    },
+    "documentary_audit": {
+      "status": "completed",
+      "checks_passed": 22,
+      "checks_total": 23
+    },
+    "published_source_consistency": {
+      "status": "failed",
+      "check": "archive_fixed_massive_states_per_host",
+      "record_id": "W0-C002"
+    },
+    "final_artifacts": {
+      "run_id": "W0-audit-20261004T080424Z-6939c733",
+      "input_hashes_verified": 20,
+      "artifact_hashes_verified": 7,
+      "local_links_checked": true,
+      "claim_check_ids_registered": true,
+      "status": "passed",
+      "errors": [],
+      "scientific_source_consistency": "failed_retained"
+    }
+  },
+  "limitations": [
+    "Инженерные проверки не закрывают научные ворота W0/W2.",
+    "Научная проверка одинаковых массивных исходных состояний не прошла; её критерий не ослаблялся.",
+    "Нет воспроизведения траекторий, оценки долей, стоимости основного ансамбля или проверки авторского интегратора."
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": "0.1",
+  "checked_utc": "2026-10-04T08:51:50.497853+00:00",
+  "run_id": "W0-iapetus-20261004T084620Z-6c6961d1",
+  "passport_validation": "passed",
+  "passport_checks": 23,
+  "pytest": {
+    "command": ".venv/Scripts/python.exe -m pytest",
+    "exit_code": 0,
+    "passed": 29
+  },
+  "ruff": {
+    "command": ".venv/Scripts/python.exe -m ruff check src scripts tests",
+    "exit_code": 0
+  },
+  "project_validate": {
+    "command": ".venv/Scripts/python.exe scripts/project.py validate",
+    "status": "passed",
+    "exit_code": 0
+  },
+  "smoke": {
+    "run_id": "L0-20261004T084650Z-dd49cecf",
+    "status": "passed",
+    "limitations": "L0 не закрывает W2"
+  },
+  "stage_briefs_check": "passed",
+  "code_sha256": {
+    "scripts/verify_iapetus_passport.py": "8d510d1ddb28d7b6ee4b1fc3ca1882c095fb15c369c895362634eebb739eb45c",
+    "src/submoon_research/catalog/passports.py": "f49a8ab49dd73f780686737c77988ea86c62d2ac389cbea2277a305033b764d6",
+    "src/submoon_research/workflows/baseline_audit.py": "2919d95e780f5513ae8c4dee30cde4b8bcd6c6c81ac8075b68b8087d670e9723",
+    "src/submoon_research/workflows/smoke.py": "8c1fc53ac99494ca520b03ec889e572004aa741ad5fd75e5454c890776b95b69",
+    "src/submoon_research/tracking.py": "32280a52a14b524cc7c5cd9ef51f810fe5cdcfb042cbc9b515580a733afaf647"
+  },
+  "limitations": "Проверка номинальных параметров, без динамики/ковариаций/production."
+}

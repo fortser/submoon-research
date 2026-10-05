@@ -1,0 +1,652 @@
+{
+  "schema_version": "0.1",
+  "source_id": "jpl_horizons_geometric_states_v1",
+  "run_id": "W0-states-20261004T104417Z-eacbd97e",
+  "replay_run_id": "W0-states-20261004T104637Z-9b627c86",
+  "acquired_utc": "2026-10-04T10:45:03+00:00",
+  "publication_utc": "2026-10-04T10:50:40+00:00",
+  "version": "W0-geometric-states-v1",
+  "data_kind": "real_geometric_ephemeris_snapshot",
+  "synthetic": false,
+  "production_allowed": false,
+  "files": [
+    {
+      "path": "data/processed/W0-geometric-states-v1/geometric_states.json",
+      "sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6",
+      "bytes": 14425
+    },
+    {
+      "path": "data/acquisition/requests/W0_geometric_states_v1.jsonl",
+      "sha256": "6ed4adb542663b82cdf4033ec052ca06da7b40c592aa0b36202b6e9f80386f7b",
+      "bytes": 3749
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/manifest.json",
+      "sha256": "e94986f165095091da1558883fe9d79e0f8b707c4ff9cb7f8f95a7c81f967984",
+      "bytes": 16483
+    },
+    {
+      "path": "runs/W0-states-20261004T104637Z-9b627c86/manifest.json",
+      "sha256": "b0bbc4b78e38d90bfe989df69268d6f5db05cf62b2985e6f60722f4353ec4a0b",
+      "bytes": 15016
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/request.json",
+      "sha256": "685f1f9636d33b79449a258e876b8b1bc9c764093557aed1b0088bb999002f3a",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/response.json",
+      "sha256": "b8d3ba85fc3fe415ccfed97962b497b5614572afeb0c137f2b13585ea232f131",
+      "bytes": 6066
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/astrobridge/horizons.txt",
+      "sha256": "f462e588c53f0496d03d0015a79966a0d720e4f3525b64fecb962a31d47d96e7",
+      "bytes": 6473
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/astrobridge/manifest.json",
+      "sha256": "69c3d356044ef0c92c8a34712ffd9b77da13b3a98d8dd37ddb55717127bdd126",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/astrobridge/raw-0001.bin",
+      "sha256": "23167ecc708cc629622b290bcc0a090176488a57f72fe46ceb6e7f878914b544",
+      "bytes": 6554
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/astrobridge/request.json",
+      "sha256": "d4a544627a34f9eb97e6d77e7e8a72c10ff923b1fdf35edecabbb2cd5a7d72b6",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/callisto/astrobridge/table.ecsv",
+      "sha256": "463d95ac7aad6444e7cc5f16e367c57e35be89f1471e3f4f75defe9512c6001f",
+      "bytes": 1061
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/request.json",
+      "sha256": "0e557781206581ed1a35ce647cb55f95e396d9f0d7713c1957e99feb52117801",
+      "bytes": 341
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/response.json",
+      "sha256": "4e5e354ef25c3c3d1d6f42717c23e828f0a79c9374a3d52debe95fd1ec31c49c",
+      "bytes": 6072
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/astrobridge/horizons.txt",
+      "sha256": "37f6b79392c2a80abcb98eaf36c0c2bb5c0cbc84c1ffb1791fa1b33fcb947e12",
+      "bytes": 7332
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/astrobridge/manifest.json",
+      "sha256": "d04b24fe4ff4bcd6a3a8a9342c932e8bc8e6db3dbdf635200f087f3609953332",
+      "bytes": 5241
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/astrobridge/raw-0001.bin",
+      "sha256": "d73568bef3ca43c59d3649fd634d286ef412cb3c1a1174f96bd9f2abaeac3df3",
+      "bytes": 7413
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/astrobridge/request.json",
+      "sha256": "786f7f6b00cee9a015c028357b2bd385d4083bd332b52b96d3c9ec4ca2da3607",
+      "bytes": 356
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_ganymede/astrobridge/table.ecsv",
+      "sha256": "140ea566bedb2c810029a4a5766e8b88962e18dcd1cc4afb33bb890ecd2cb087",
+      "bytes": 1061
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/request.json",
+      "sha256": "7d1abcf0a99ec1dd5a781c66d0ce4a80af81f856d27cfa194eab550588a123c2",
+      "bytes": 341
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/response.json",
+      "sha256": "a67edb00ec5d073d58be36503aef128536dc5257fff9e111756b0385116b00e8",
+      "bytes": 6074
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/astrobridge/horizons.txt",
+      "sha256": "09656849d899867e14632e995a81f33e259fc02c1499c9fba1030332b69f6f50",
+      "bytes": 7338
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/astrobridge/manifest.json",
+      "sha256": "c7a8eff151294670a605d9391bfdb50197ef627706d61c583c88b0814de22d38",
+      "bytes": 5241
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/astrobridge/raw-0001.bin",
+      "sha256": "d1fa9051ddb27a75aa3999f62bef45d89d3878eced0309d333f623b27f79137a",
+      "bytes": 7419
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/astrobridge/request.json",
+      "sha256": "135640bf36d590e6b1c2111f7436d65981b62137098483bfbb2d0a733546386e",
+      "bytes": 356
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_himalia/astrobridge/table.ecsv",
+      "sha256": "e9e76d3a757e66199db196961cbda10a93a379928b8155d88a8688c1a5edc900",
+      "bytes": 1063
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/request.json",
+      "sha256": "c21d44e69d4698d42655ab5e5aeb0b5a9cfb1ea1b6703f3fe0066cc89899432c",
+      "bytes": 341
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/response.json",
+      "sha256": "faf316f86d0325f9fc740404ee776cc8db656ecb0af44369190778e7d915f7fa",
+      "bytes": 6074
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/astrobridge/horizons.txt",
+      "sha256": "ff7779cc886d8ca07910b59b7d1dce94254937f713b9e25cd56821a671ae77c2",
+      "bytes": 7298
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/astrobridge/manifest.json",
+      "sha256": "9877687c5468c00839dd3a4fdb19b1857ba287c660a9a259a3107598beb1318c",
+      "bytes": 5241
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/astrobridge/raw-0001.bin",
+      "sha256": "09cb19f9891509eec3f61f6846fc4277d4f730630fdcf3be51e7d79928c11370",
+      "bytes": 7379
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/astrobridge/request.json",
+      "sha256": "70e89feea52fbcd53ffbaef10e66461878a9220ec80bb96dc701320abb86e836",
+      "bytes": 356
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/direct_iapetus/astrobridge/table.ecsv",
+      "sha256": "8fbbe228f436ad0a91d426fc093b16a07d031aaab80f2c215dd8677e51684cc0",
+      "bytes": 1063
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/request.json",
+      "sha256": "7924077c9faa3c8d62f92d76abd6036b33fbe32a99c5315e149772af6eac0553",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/response.json",
+      "sha256": "98ab4cef14ae3d2feb55313a6951e09d27114853113472a47378183a45940bcd",
+      "bytes": 6070
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/astrobridge/horizons.txt",
+      "sha256": "148763df473a0f09d2f5b7382e6b75f1fb00e52fddd5a9bd011595ed17669e6d",
+      "bytes": 6470
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/astrobridge/manifest.json",
+      "sha256": "5b7a6e80a1a136a3a47867c97666ec98cb69cd8c381211dcac49b7c956c789fc",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/astrobridge/raw-0001.bin",
+      "sha256": "6802f315322f532736077ee3fce6f5d04044d628e65463209723c1c9149b48b6",
+      "bytes": 6551
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/astrobridge/request.json",
+      "sha256": "106344415afa46c4802877a606bd6eeaf325c9eaf160dcc8746746fb906ba679",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/europa/astrobridge/table.ecsv",
+      "sha256": "94ad71e7eb61a5f661d48ee6c11bb2d7b4e610ec70fc1f30357209d680d4677a",
+      "bytes": 1065
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/request.json",
+      "sha256": "6bffe041d28bd2d4ad45f8a309a5778cbd029730764341c71c7c130ce0023727",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/response.json",
+      "sha256": "702688365e8bb1047468eabe5081493c7b1a8469b19852afc0f3ffc30fbc8b87",
+      "bytes": 6064
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/astrobridge/horizons.txt",
+      "sha256": "ab1f4b17f6878efc000635a1099989b618b9f6b460cecec6acbd5331cf8a4eb9",
+      "bytes": 6470
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/astrobridge/manifest.json",
+      "sha256": "8559810a97d9d5c2baad8de02697cabcb92b18044687afeb2f15563781118492",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/astrobridge/raw-0001.bin",
+      "sha256": "455ee653c1ce3292ab70ef080ae7105908fcdc9a944e5eb06d854ab3b5bc65d2",
+      "bytes": 6551
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/astrobridge/request.json",
+      "sha256": "bd9761c208c02471e32b4edee8003ff3f2c7360c01b231233bc686ec75507831",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/ganymede/astrobridge/table.ecsv",
+      "sha256": "c760387a6cd73fffcd2c86859dd9822a08af80aeedbddb69220a3cc4b949dbae",
+      "bytes": 1059
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/request.json",
+      "sha256": "8fa5dc254ab8c37f70b56ab06add1fc3bbaff97adf677da620dd27b97ea67935",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/response.json",
+      "sha256": "ffb6bca3b3f49176cb14ca81db109f7ec77b05594ee4c05d2d82f3a74e69df16",
+      "bytes": 6066
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/astrobridge/horizons.txt",
+      "sha256": "4a55735da1e93ccf3ca191b0d29dd362f36d1cdd216aa73ccf9a7db76a22f554",
+      "bytes": 6458
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/astrobridge/manifest.json",
+      "sha256": "edddc8d6ae5e150a035f61919cd3cd5a97cdb4f0662b9f8b30526ee8a2370295",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/astrobridge/raw-0001.bin",
+      "sha256": "512fc661168c8919ad994f3f9b1256cefd8540073de47c8ac02d3a0d3fba702d",
+      "bytes": 6539
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/astrobridge/request.json",
+      "sha256": "2b9980984ec58c7b53209931a5bf326b1aa5697dd9840e7145f175ab2b235a6b",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/himalia/astrobridge/table.ecsv",
+      "sha256": "8247e6ab56098be3ef87fbece43a20633abfbd6f6f2ab208967692ab49b38008",
+      "bytes": 1061
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/request.json",
+      "sha256": "6aeb737d968e3bbb3effd30e6b4ce68de4195fab88f2e364378a24506451a2fe",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/response.json",
+      "sha256": "7c08afef67db99639589cd63eaa9845ac5676b57b344ed86af126bcd73ca6ee5",
+      "bytes": 6066
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/astrobridge/horizons.txt",
+      "sha256": "d60a353af63577be2b90d7d2b9c91e93a5b63fee11bd55c16bfb9b2016e48d61",
+      "bytes": 6620
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/astrobridge/manifest.json",
+      "sha256": "acadaed1b1390dd5f0dd94a3ed0a1f124e261574688bdfe47ce1230430d64e9d",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/astrobridge/raw-0001.bin",
+      "sha256": "0df638843aa98fc58570864df115170b215acad02bce65f40da60f470a793bcc",
+      "bytes": 6701
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/astrobridge/request.json",
+      "sha256": "0a473c3e0c9dc6412cded01bc1f9cd8e173828e682e6f39e791fc82d84fc1818",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/iapetus/astrobridge/table.ecsv",
+      "sha256": "8bfd2debafd9c264f66b39cd18bc41a770a72288f1fd1bf47de0ab6789fe249e",
+      "bytes": 1061
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/request.json",
+      "sha256": "e2d0fcddd5037e3d3eeea6f53b4da3415bb0538d9585148e352ae8fd00ffeaf3",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/response.json",
+      "sha256": "d9e659a7b461e9e01f6311eaa89c78c5b0a36c6e6f394f0969a8d2ce2060fd37",
+      "bytes": 6064
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/astrobridge/horizons.txt",
+      "sha256": "20bf614aab0de4fca1a2c46e71b6c3e300a4b8ddcf271693fd41602dcc0f5205",
+      "bytes": 6468
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/astrobridge/manifest.json",
+      "sha256": "d46f2978d801808153ef28d0753e6376be84e9f6c1bbf21a1c01ee5e4e7737da",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/astrobridge/raw-0001.bin",
+      "sha256": "e9b4820cfbaec8a98c79c500423802aac2d206b0ff7ba06fd376bee5173ebe48",
+      "bytes": 6549
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/astrobridge/request.json",
+      "sha256": "b4ab41c97de7077f7b6c5fb58316204c34aac0b5dea6f5af8e270a09275d6379",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/io/astrobridge/table.ecsv",
+      "sha256": "3d2ac15965e93cf87c3dc027049aa7a243f7ef761006395eaaeecd160f1a8746",
+      "bytes": 1059
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/request.json",
+      "sha256": "6d9110a4b2ff38ec5b77c638b7428e258dff7dfb654df1d827592316742868c4",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/response.json",
+      "sha256": "963b4994c546bfc11c9ab4e2818c75f63f48b0949864d4ea96206dfccd6ab252",
+      "bytes": 6064
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/astrobridge/horizons.txt",
+      "sha256": "b701064b4d61b11ac89041b732a389814bab26f009d657433f6545e3484cbf0e",
+      "bytes": 7281
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/astrobridge/manifest.json",
+      "sha256": "9f787ec634044129d7ce29022baf27813b3ade5c52275af6a831197396c80ebb",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/astrobridge/raw-0001.bin",
+      "sha256": "be153f5b5a1f6503ea39ec564ea826e321fcb5ed978b9d116e0711eba00f0874",
+      "bytes": 7362
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/astrobridge/request.json",
+      "sha256": "43490274185e68f8b70caabf493077c2e1f74ec619a0be094b7772e0064a0540",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/jupiter/astrobridge/table.ecsv",
+      "sha256": "18b2f376c8acb87cc7cc920007466de3de3faf02629cc873c37820fffb79ec65",
+      "bytes": 1059
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/request.json",
+      "sha256": "e1402b8133421e8edb6ebafd9f7d5792e19cbeac5d412eb6337d7a4465bb21fc",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/response.json",
+      "sha256": "6c42332d689696aaff17eeb4e5d0d670b2806c2cee9031313fbfaf1227a7b08e",
+      "bytes": 6066
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/astrobridge/horizons.txt",
+      "sha256": "0e6da79090116628be4274d46290184d434ebba61c83fcd64e793f8fabf4ff2c",
+      "bytes": 7253
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/astrobridge/manifest.json",
+      "sha256": "64fa20123d9550c8b4fb5a70584950d0841d63da1b12896538fae97186318a2f",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/astrobridge/raw-0001.bin",
+      "sha256": "758b95aaf65ee7246b56a6deb7a9c0b5bb4653abcaa7042cf9964d153aa1e30c",
+      "bytes": 7334
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/astrobridge/request.json",
+      "sha256": "03433b169fcfb31a188edf86f9e579cb60719097a8ab5d0bfc8100823a751e99",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/saturn/astrobridge/table.ecsv",
+      "sha256": "6d6a3759e8956ad392a754f987f94be7119ec65d0b9c95bf90454a060a3b59e9",
+      "bytes": 1061
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/request.json",
+      "sha256": "487893cbf9deef90a16258cb9d1ae4697906f57127425d9b887a7336fe23a97d",
+      "bytes": 338
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/response.json",
+      "sha256": "8a3786ff2afca63948a8a528667d7a66e655e4958d855d2ac79ee80f3d469dc1",
+      "bytes": 6071
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/astrobridge/horizons.txt",
+      "sha256": "a22431c1cabd4c9df7c9d3971dd7fbcc7dcccc15ef27c0817055b3f65f55a26d",
+      "bytes": 7233
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/astrobridge/manifest.json",
+      "sha256": "552978721b709aef76138a98d7638479ad8d1a3700ec555ef57787f242252c8f",
+      "bytes": 5232
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/astrobridge/raw-0001.bin",
+      "sha256": "5a6e0a12b502e4373ef7325bf2b582de1d52c09a322c06c2c033107f0116ecca",
+      "bytes": 7315
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/astrobridge/request.json",
+      "sha256": "70ab30f0cb305817ac0a4afc6aa7b08faded9dcac304aede0b1d959ec335371e",
+      "bytes": 353
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/sun/astrobridge/table.ecsv",
+      "sha256": "5c7bb3ffa424ced6fd6f42f1cdadda789d4cdb45f8c076589203a0eb3efc39e1",
+      "bytes": 1069
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/request.json",
+      "sha256": "e179a48db9bbd68df0035117bbaf0f9e5299fd79b610671bfe6810d90edabc14",
+      "bytes": 339
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/response.json",
+      "sha256": "7d304ff32a601e97997a0c402734694f833b8387d92ebc525645532e5c664d65",
+      "bytes": 6066
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/astrobridge/horizons.txt",
+      "sha256": "437d427611c26323a88107ba016208571ebcc27c8187bd1a9fd4eb3ee3928dfd",
+      "bytes": 6543
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/astrobridge/manifest.json",
+      "sha256": "a82a46e4456415ceaad5ddad6aee7b2f05b1a5f8bc50ffda4f031227c40f745a",
+      "bytes": 5235
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/astrobridge/raw-0001.bin",
+      "sha256": "ab9a27655a12a3d805388e491a9ca4ad6b3af50c2fc3c028c9068491c9813982",
+      "bytes": 6624
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/astrobridge/request.json",
+      "sha256": "651afd85aa807c93e1aad74553bcbd43e614ba5173bdee861382a65422e70741",
+      "bytes": 354
+    },
+    {
+      "path": "runs/W0-states-20261004T104417Z-eacbd97e/acquisition/titan/astrobridge/table.ecsv",
+      "sha256": "25f354f1e6b954840cbae1fdc1c2d6e3dbc8159e914b0867976207ccb67d6cb3",
+      "bytes": 1061
+    }
+  ],
+  "source_versions": {
+    "sun": {
+      "target": {
+        "name": "Sun",
+        "id": "10",
+        "ephemeris_source": "DE441"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "jupiter": {
+      "target": {
+        "name": "Jupiter",
+        "id": "599",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "saturn": {
+      "target": {
+        "name": "Saturn",
+        "id": "699",
+        "ephemeris_source": "sat441l"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "titan": {
+      "target": {
+        "name": "Titan",
+        "id": "606",
+        "ephemeris_source": "sat441l"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "iapetus": {
+      "target": {
+        "name": "Iapetus",
+        "id": "608",
+        "ephemeris_source": "sat441l"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "io": {
+      "target": {
+        "name": "Io",
+        "id": "501",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "europa": {
+      "target": {
+        "name": "Europa",
+        "id": "502",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "ganymede": {
+      "target": {
+        "name": "Ganymede",
+        "id": "503",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "callisto": {
+      "target": {
+        "name": "Callisto",
+        "id": "504",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "himalia": {
+      "target": {
+        "name": "Himalia",
+        "id": "506",
+        "ephemeris_source": "jup347_merged_DE442"
+      },
+      "center": {
+        "name": "Solar System Barycenter",
+        "id": "0",
+        "ephemeris_source": "DE441"
+      }
+    },
+    "direct_iapetus": {
+      "target": {
+        "name": "Saturn",
+        "id": "699",
+        "ephemeris_source": "sat441l"
+      },
+      "center": {
+        "name": "Iapetus",
+        "id": "608",
+        "ephemeris_source": "sat441l"
+      }
+    },
+    "direct_ganymede": {
+      "target": {
+        "name": "Jupiter",
+        "id": "599",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Ganymede",
+        "id": "503",
+        "ephemeris_source": "jup365_merged"
+      }
+    },
+    "direct_himalia": {
+      "target": {
+        "name": "Jupiter",
+        "id": "599",
+        "ephemeris_source": "jup365_merged"
+      },
+      "center": {
+        "name": "Himalia",
+        "id": "506",
+        "ephemeris_source": "jup347_merged_DE442"
+      }
+    }
+  },
+  "uncertainty": null,
+  "covariance_ref": null,
+  "replay_exact_equality": true,
+  "replay_network_calls": 0,
+  "limitation": "Гималия: эфемерида JUP347/DE442, GM JUP344; совместимость не принята. W0/W2 открыты."
+}

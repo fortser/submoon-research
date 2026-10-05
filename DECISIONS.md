@@ -15,3 +15,12 @@
 | S0-D009 | S0 | accepted | Научный контекст: общая картина и полное досье выбранного этапа | [Запись](tracking/stages/S0/RECORDS.md) |
 | S0-D010 | S0 | accepted | Последовательность определяется проверенными продуктами | [Запись](tracking/stages/S0/RECORDS.md) |
 | W0-D001 | W0 | accepted | Локальный комплект статьи — первая точка аудита W0 | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D002 | W0 | accepted | Разовое исключение для загрузки исходных условий до 12 МиБ | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D003 | W0 | accepted | Разделить архивные входы и независимую постановку L1 | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D004 | W0 | accepted | Япет v1: GM SAT441, форма Thomas и разные уровни ошибок | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D005 | W0 | accepted | Гималия v1: GM JUP344 и раздельные ограничения размера | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D006 | W0 | accepted | Ганимед v1: GM JUP365, сводочный радиус и сохранение всех архивных стартов | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D007 | W0 | accepted | Геометрические состояния v1: новая эпоха TDB и общие оси ICRF | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D008 | W0 | accepted | Рабочая L1 v0.2: неизменный GM Гималии и явные пределы совместимости | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D009 | W0 | accepted | Аудит W0: сохранить проверенные входы, ограничить приёмку новых L1 | [Запись](tracking/stages/W0/RECORDS.md) |
+| W0-D010 | W0 | accepted | Строгая приёмка L1 v0.3 и patch паспорта Ганимеда | [Запись](tracking/stages/W0/RECORDS.md) |

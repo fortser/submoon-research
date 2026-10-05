@@ -1,0 +1,96 @@
+{
+  "schema_version": "0.1",
+  "source_id": "baseline_2609_03564v1",
+  "registered_utc": "2026-10-04T08:04:25+00:00",
+  "run_id": "W0-audit-20261004T080424Z-6939c733",
+  "files": [
+    {
+      "path": "arXiv-2609.03564v1/00README.json",
+      "bytes": 219,
+      "sha256": "890784be2a976089c98cccd32898bd58108414705eb19077dc2e7a2a09c9e096"
+    },
+    {
+      "path": "arXiv-2609.03564v1/aa.bst",
+      "bytes": 32101,
+      "sha256": "3e879dfac656cd03037f3b0684ba4d54be6b435d28536911df16c1f2b36da5ed"
+    },
+    {
+      "path": "arXiv-2609.03564v1/aa.cls",
+      "bytes": 63263,
+      "sha256": "37ed0efa655cbd3aaf007db3981d4934c1f19a568dc27c12df918c2645f30c68"
+    },
+    {
+      "path": "arXiv-2609.03564v1/aa57101-25.tex",
+      "bytes": 63329,
+      "sha256": "3080ec6ada61d17c40cc255162e7232b098ade2d47b058a373e27a1f92668dbb"
+    },
+    {
+      "path": "arXiv-2609.03564v1/compare_radau.pdf",
+      "bytes": 30958,
+      "sha256": "f9a74e410fae4e2ffce2a31886ece1bf60b15ff4fc781d3cbe1f42ffb667bc76"
+    },
+    {
+      "path": "arXiv-2609.03564v1/compare_radau_ias.pdf",
+      "bytes": 26085,
+      "sha256": "d4f564035ad198e821beccf8b4e82033447dea555c484daab99e2ae989d266c0"
+    },
+    {
+      "path": "arXiv-2609.03564v1/grapge_sucerquia.pdf",
+      "bytes": 337447,
+      "sha256": "f4b7d6dd2dce9a87252df58ec9e646470521f3d496c6d765beda822e33d43c20"
+    },
+    {
+      "path": "arXiv-2609.03564v1/Long_term.pdf",
+      "bytes": 41728,
+      "sha256": "b673beab0dc87f9dc91f9c747c193ab1a50c0d532116af04e8b128ae184d1630"
+    },
+    {
+      "path": "arXiv-2609.03564v1/sources.bib",
+      "bytes": 35331,
+      "sha256": "38c74f1b6161ac455304e9d4414e8affbf446ce4e765cd99ec871730d38b3da6"
+    },
+    {
+      "path": "arXiv-2609.03564v1/subplots_1_5Myr.pdf",
+      "bytes": 217599,
+      "sha256": "8d559d895fa888f671f344fceed2e0a5bf5f72287f756b551757d0725d9b0cc5"
+    },
+    {
+      "path": "arXiv-2609.03564v1/survie_vrai_sat.pdf",
+      "bytes": 182822,
+      "sha256": "3a9ce5177eda38d5bb13394c08ae194890bd443831f3e30fb569b6a74915e470"
+    },
+    {
+      "path": "arXiv-2609.03564v1/survie_vrai_sat_2.pdf",
+      "bytes": 99476,
+      "sha256": "4e82959ec0466a34dcba889107dc19122d4ae6177de506e4d3d5ed20f5babf3d"
+    }
+  ],
+  "referenced_figures": [
+    "grapge_sucerquia.pdf",
+    "survie_vrai_sat.pdf",
+    "survie_vrai_sat_2.pdf",
+    "Long_term.pdf",
+    "compare_radau.pdf",
+    "compare_radau_ias.pdf",
+    "subplots_1_5Myr.pdf"
+  ],
+  "missing_files": [],
+  "missing_citation_keys": [],
+  "checks": {
+    "explicit_bundle_files_present": true,
+    "referenced_pdf_headers": true,
+    "bibliography_keys_present": true,
+    "complete_document_and_appendix": true
+  },
+  "identity": {
+    "title": "Dynamically favorable hosts for submoons around Jupiter and Saturn",
+    "authors": [
+      "R. Dahoumane",
+      "V. Lainey",
+      "K. Baillié"
+    ],
+    "version_label": "arXiv:2609.03564v1",
+    "version_basis": "user_supplied_directory_name",
+    "external_version_identity_verified": false
+  }
+}

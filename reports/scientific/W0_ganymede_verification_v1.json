@@ -1,0 +1,68 @@
+{
+  "run_id": "W0-ganymede-20261004T101524Z-e214b267",
+  "validation": {
+    "status": "passed",
+    "checks": {
+      "source_hashes": true,
+      "active_equals_versioned_passport": true,
+      "identity": true,
+      "gm_primary_exact": true,
+      "gm_jpl_rounding": true,
+      "gm_error_role_preserved": true,
+      "radius_compilation_exact": true,
+      "radius_role_preserved": true,
+      "unknown_sigma_and_distribution": true,
+      "units": true,
+      "source_roles": true,
+      "traceable_parameters": true,
+      "reference_field_constants": true,
+      "unknown_shape_not_fabricated": true,
+      "reference_sphere_not_measured_axes": true,
+      "unknown_covariance_not_zero": true,
+      "unknown_state_not_fabricated": true,
+      "gravity_not_adopted": true,
+      "no_unverified_usage": true,
+      "au_exact_conversion_source": true,
+      "all_130_inputs_read": true,
+      "one_submoon_per_input": true,
+      "host_origin_zero": true,
+      "known_heterogeneity_reproduced": true,
+      "exact_six_nonmodal_members": true,
+      "nonmodal_not_only_rotation": true,
+      "archive_radius_2631_km": true,
+      "all_host_parent_mass_ratios_match_with_roundoff": true,
+      "archive_disposition_preserves_originals": true,
+      "wall_limit": true
+    },
+    "scope": "Номинальный GM, роли сводочного радиуса/поля, 130 архивных стартов и известная неоднородность; не первичная форма/ошибки, состояния, силы, события или динамика.",
+    "metrics": {
+      "archive_radius_km": 2630.9999999999995,
+      "compiled_minus_archive_radius_km": 0.20000000000027285,
+      "archive_to_primary_mass_factor": 1.000350112449747,
+      "modal_count": 124,
+      "nonmodal_members": [
+        "Jupiter/GANYMEDE/sim_1.txt",
+        "Jupiter/GANYMEDE/sim_101.txt",
+        "Jupiter/GANYMEDE/sim_11.txt",
+        "Jupiter/GANYMEDE/sim_111.txt",
+        "Jupiter/GANYMEDE/sim_121.txt",
+        "Jupiter/GANYMEDE/sim_21.txt"
+      ],
+      "massive_state_versions": 7,
+      "field_versions": 1,
+      "archive_members_checked": 130
+    },
+    "limitations": [
+      "Первичный номинал GM проверен; sigma/ковариация ошибки JUP365 не получены.",
+      "Радиус IAU сводочный; полный Anderson2001/Zubarev2015 не получен, полуоси/объём/контакт не приняты.",
+      "Проверка воспроизводит известную неоднородность источника; не исправляет W0-C002 и не удостоверяет модальные состояния.",
+      "Не закрывает W0/W2; нет эпохи/шкалы/глобальных осей/геометрических состояний или динамических результатов."
+    ]
+  },
+  "provenance": {
+    "manifest_path": "runs/W0-ganymede-20261004T101524Z-e214b267/manifest.json",
+    "manifest_sha256": "8dfb880d37a3e03c4c7e7ae87b860c4b68f122fe97fce9084fbf11bcfdd64424",
+    "supersedes_validation_run_id": "W0-ganymede-20261004T101325Z-95d062c9",
+    "supersedes_reason": "Исправлен locator GM 79/154 → 77/144; численные значения и область проверки не менялись."
+  }
+}

@@ -1,50 +1,94 @@
-schema_version: '0.1'
-status: draft
+schema_version: '0.2'
+passport_version: ganymede-v1.0.1
+status: audited_nominal_gm_compiled_radius_and_archive_with_limits
 host_id: ganymede
 name_ru: Ганимед
 parent: jupiter
 cohort: main
 pilot: true
 identifiers:
-  naif: null
-  horizons: null
+  naif: 503
+  horizons: '503'
+provenance:
+  manifest: references/manifests/ganymede_sources_v1.json
+  report: reports/scientific/W0_ganymede_passport_v1.md
+  decision_id: W0-D006
+  supersedes: bootstrap_draft_0_1
+  data_kind: ephemeris_constants_compiled_radius_and_published_archive_audit
 parameters:
   gm:
-    value: null
+    value: 9887.832752719638
     unit: km3 / s2
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    source_id: jup365_comments_20261004
+    source_locator: Satellite Ephemeris JUP365.26; Ganymede503 in both segments, lines
+      77/144
+    source_version: JUP365.26_20210114_NAIF_merge_20210314
+    uncertainty: 0.00247
+    uncertainty_unit: km3 / s2
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_aggregator_sigma_unverified
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: audited_nominal
+    uncertainty_source_id: jpl_satellite_parameters_20261004
+    uncertainty_source_locator: Ganymede row, GM, JUP365
+    uncertainty_primary_source_id: null
+    notes: Первичный номинал из комментария решения; ошибка 0.00247 из сводки JPL,
+      её первичный sigma неизвестен.
   radius:
-    value: null
+    value: 2631.2
     unit: km
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    source_id: archinal2018_wgccre
+    source_locator: Table 5 p.29; section 7 p.36
+    source_version: published_2018_USGS_reprint
+    uncertainty: 1.7
+    uncertainty_unit: km
+    uncertainty_sigma_level: null
+    uncertainty_status: reported_sigma_not_established
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: compiled_reference_only
+    definition: iau_compiled_mean_radius
+    primary_measurement_source_id: null
+    primary_measurement_status: Anderson2001_DPS35_09_not_acquired
+    notes: IAU Table5 Same задаёт сводочную сферу; не три независимые измеренные полуоси.
+      JPL equivalent volume не устанавливает метод первичного измерения.
   rotation_period:
     value: null
     unit: s
     source_id: null
     source_locator: null
+    source_version: null
     uncertainty: null
     uncertainty_status: not_audited
     covariance_ref: null
     status: missing
-radius_definition: null
+radius_definition: iau_compiled_mean_radius
+shape:
+  model: null
+  axes: null
+  volume_equivalent_radius: null
+  contact_surface: null
+  iau_reference_axes_km:
+  - 2631.2
+  - 2631.2
+  - 2631.2
+  reference_axes_status: compiled_same_not_independent_measurements
+  status: primary_numeric_shape_not_adopted
+  joint_sampling: disabled_pending_joint_model
 state:
   epoch: null
   time_scale: null
   origin: null
   frame: null
+  position_unit: km
+  velocity_unit: km / s
   position: null
   velocity: null
   source_id: null
+  status: not_acquired
 gravity:
   j2: null
   c22: null
@@ -52,6 +96,79 @@ gravity:
   normalization: null
   reference_radius: null
   source_id: null
+  status: not_adopted
 pole: null
+covariance:
+  matrix: null
+  source_id: null
+  status: not_available_in_acquired_sources
+  independent_sampling_authorized: false
+usage:
+  nominal_input_preparation: gm_and_explicit_reference_size_only
+  production_integration: false
+  uncertainty_ensemble: false
+  full_W0_handoff: false
+  physical_contact_model: false
 open_questions:
-- Проверить первичные источники, единицы и неопределённости.
+- Первичный документ об ошибке GM JUP365 и совместная ковариация не получены; sigma/распределение
+  остаются null.
+- 2631.2±1.7 км остаётся компиляцией IAU. Anderson2001 и полный Zubarev2015 недоступны
+  в полученном комплекте; первичный объём/полуоси и контактная поверхность не приняты.
+- Предварительная форма Schenk2025 не является глобальным доказанным допуском контакта
+  или sigma размера.
+- Нормировка/ориентация спутникового поля JUP365 не приняты. Период вращения, полюс
+  и явные состояния требуют отдельного аудита.
+- Шесть немодальных стартов отличаются от остальных 124; модальность не подтверждает
+  эпоху или правильность. Не заменять, не исключать без новой версии постановки.
+ephemeris_field_reference:
+  source_id: jup365_comments_20261004
+  source_version: JUP365.26_20210114_NAIF_merge_20210314
+  j2:
+    value: 0.0001335
+    unit: dimensionless
+    source_id: jup365_comments_20261004
+    source_locator: Additional Constants S3J2
+    source_version: JUP365.26_20210114_NAIF_merge_20210314
+    uncertainty: null
+    uncertainty_status: not_reported_in_comments
+    covariance_ref: null
+    status: reference_only
+  c22:
+    value: 4.0e-05
+    unit: dimensionless
+    source_id: jup365_comments_20261004
+    source_locator: Additional Constants S3C22
+    source_version: JUP365.26_20210114_NAIF_merge_20210314
+    uncertainty: null
+    uncertainty_status: not_reported_in_comments
+    covariance_ref: null
+    status: reference_only
+  reference_radius:
+    value: 2631.2
+    unit: km
+    source_id: jup365_comments_20261004
+    source_locator: Additional Constants S3RADEQ
+    source_version: JUP365.26_20210114_NAIF_merge_20210314
+    uncertainty: null
+    uncertainty_status: not_reported_in_comments
+    covariance_ref: null
+    status: reference_only
+  normalization: null
+  normalization_status: planet_unnormalized_statement_not_promoted_to_satellite
+  dynamical_usage_authorized: false
+archive_disposition:
+  source_id: baseline_initial_conditions_zip_19820511
+  source_version: zenodo_record_19820511_snapshot_20261004
+  members_checked: 130
+  expected_modal_count: 124
+  expected_nonmodal_indices:
+  - 1
+  - 11
+  - 21
+  - 101
+  - 111
+  - 121
+  action: preserve_all_originals_new_explicit_states_required_no_silent_repair
+  use_modal_subset_as_original_complete_grid: false
+supersedes: ganymede-v1
+patch_scope: source_locator_and_explicit_product_identity_no_numeric_change

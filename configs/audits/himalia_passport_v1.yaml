@@ -1,0 +1,27 @@
+schema_version: '0.1'
+experiment_id: W0-himalia-passport-v1
+passport: data/processed/host_passports/himalia_v1.yaml
+active_passport: configs/hosts/himalia.yaml
+source_manifest: references/manifests/himalia_sources_v1.json
+source_paths:
+  cmt: data/raw/W0-himalia-sources-20261004/jup344.cmt
+  archinal: data/interim/W0-himalia-v1/archinal2018.txt
+  grav: data/interim/W0-himalia-v1/grav2015-published.txt
+  porco: data/interim/W0-himalia-v1/porco2003-himalia.txt
+  jpl: data/raw/W0-source-check-20261004T074951Z/jpl-satellites.html
+baseline_archive: data/raw/W0-baseline-inputs-20261004T075626Z/public_files.zip
+baseline_archive_sha256: 534066c632ee4c2daad431ea3ee91e17893f16b3362fb8a33c69cfc13e8682d1
+baseline_host: HIMALIA
+baseline_parent: JUPITER
+baseline_prefix: Jupiter/HIMALIA/
+au_km: 149597870.7
+au_source_path: data/raw/W0-source-check-20261004T074951Z/jpl-constants.html
+g_si: 6.6743e-11
+g_source_path: data/raw/W0-source-check-20261004T074951Z/jpl-constants.html
+baseline_paper_mass_kg: 9.5e+18
+paper_path: arXiv-2609.03564v1/aa57101-25.tex
+validation_limits:
+  max_wall_seconds: 120
+  max_output_mib: 16
+  scope: GM, происхождение/разные определения размеров и архивные отношения; не ковариации,
+    физическая контактная модель, события или динамика.

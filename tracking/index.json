@@ -372,51 +372,9 @@
       ]
     },
     "W0": {
-      "revision": 5,
-      "status": "ready",
+      "revision": 92,
+      "status": "active",
       "records": [
-        {
-          "id": "W0-STAGE",
-          "kind": "stage",
-          "title": "Аудит данных и базовой постановки",
-          "status": "ready",
-          "summary": "Научные результаты этапа ещё не получены.",
-          "refs": [
-            "docs/roadmap.md"
-          ],
-          "next_action": "Начать W0-001: полный текст и приложения статьи",
-          "owner": "unassigned"
-        },
-        {
-          "id": "W0-P001",
-          "kind": "plan",
-          "title": "Последовательность аудита и запуска пилота",
-          "status": "active",
-          "summary": "Статья/приложения → паспорта Япета, Ганимеда, Гималии → малый геометрический запрос → спецификация L1. W1 можно разрабатывать параллельно; freeze после входов.",
-          "refs": [
-            "docs/tasks/W0-001.md",
-            "docs/roadmap.md"
-          ],
-          "next_action": "Начать W0-T001; не подменять отсутствующие данные модельными.",
-          "owner": "codex-main",
-          "related_ids": [
-            "W0-T001"
-          ]
-        },
-        {
-          "id": "W0-T001",
-          "kind": "task",
-          "title": "W0-001",
-          "status": "active",
-          "summary": "Начат аудит исходной статьи; проверяется конкретная версия и доступность приложений, данных и кода.",
-          "refs": [
-            "docs/tasks/W0-001.md"
-          ],
-          "detail_path": "docs/tasks/W0-001.md",
-          "next_action": "Получить и зарегистрировать полный текст статьи и доступные приложения; зафиксировать SHA-256.",
-          "owner": "codex-w0-audit-20260924",
-          "related_ids": []
-        },
         {
           "id": "W0-D001",
           "kind": "decision",
@@ -436,38 +394,1006 @@
             "W0-T001",
             "W0-P001"
           ]
+        },
+        {
+          "id": "W0-D002",
+          "kind": "decision",
+          "title": "Разовое исключение для загрузки исходных условий до 12 МиБ",
+          "status": "accepted",
+          "summary": "На T свободно 3,23 ГиБ при резерве 5 ГиБ. Пользователь 2026-10-04 явно разрешил только загрузку архива Zenodo public_files.zip (10 836 884 байта), общий объём новых файлов этой загрузки не более 12 МиБ, чтение без распаковки. Исключение не разрешает массовые расчёты, платные действия или изменение общего лимита ресурсов.",
+          "refs": [
+            "configs/resources.yaml",
+            "data/raw/W0-source-check-20261004T074951Z/zenodo-record.json"
+          ],
+          "next_action": "Скачать ровно объявленный архив, проверить размер, MD5 издателя и SHA-256, затем прочитать входы внутри ZIP.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-T001"
+          ]
+        },
+        {
+          "id": "W0-D003",
+          "kind": "decision",
+          "title": "Разделить архивные входы и независимую постановку L1",
+          "status": "accepted",
+          "summary": "Сохраняем исходную статью и ZIP. Пилотные границы сетки диагностически согласуются с круговым Hill с 3; масса Гипериона завышена и в опубликованных входах, J2 Юпитера отличается от таблицы, есть немодальные галилеевы состояния. Независимый базовый уровень получает новую версию только после паспортов, явного контракта состояний и W2; точное повторение пока недоопределено.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "configs/experiments/L1_baseline_spec_v0_1.yaml"
+          ],
+          "next_action": "Выполнить W0-002; неизвестные метаданные не заменять числами, исходники не исправлять.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-T001"
+          ]
+        },
+        {
+          "id": "W0-I001",
+          "kind": "issue",
+          "title": "Завышенная масса Гипериона в опубликованных входах",
+          "status": "open",
+          "summary": "Во всех 130 файлах Hyperion масса 2.7915935367393023e-9 солнечных единиц, согласующаяся с завышенной табличной пропорцией порядка 1000 относительно JPL SAT441. Это не только несогласованность записи таблицы. Использование именно этих файлов авторским кодом и влияние на исходы не удостоверены.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json"
+          ],
+          "next_action": "Оформить первичный паспорт и отдельную исправленную версию перед зависимым расчётом Гипериона.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-I003",
+          "kind": "issue",
+          "title": "Неполный контракт эпохи, осей, единиц и авторского кода",
+          "status": "open",
+          "summary": "В тексте календарная эпоха 2000-01-01 12:00; в архиве au/солнечная масса/сутки/rad и спутникоцентрические векторы. Шкала времени, название глобальных осей, G, солнечная единица в кг и определение года не объявлены. Авторского кода/версий/исходов в опубликованном архиве нет; отсутствие в других местах не утверждается.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json"
+          ],
+          "next_action": "Задать собственный явный контракт W0-002 и проверить численный аппарат по W2.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-C001",
+          "kind": "check",
+          "title": "Целостность комплекта, опубликованных входов и арифметика",
+          "status": "passed",
+          "summary": "W0-audit-20261004T080424Z-6939c733: 12 локальных файлов, семь PDF, все явные подключения и цитирования найдены. ZIP 100 хозяев × 130 стартов; SHA/MD5 издателя/CRC проверены, в каждом входе один субспутник. Проверены единицы и документальная арифметика; нет проверки динамических исходов или всего W0.",
+          "refs": [
+            "results/evidence/W0_baseline_audit_v1.json",
+            "runs/W0-audit-20261004T080424Z-6939c733/validation.json",
+            "runs/W0-audit-20261004T080424Z-6939c733/manifest.json"
+          ],
+          "next_action": "Использовать аудированные источники для паспортов с явными ограничениями.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-T001"
+          ]
+        },
+        {
+          "id": "W0-C002",
+          "kind": "check",
+          "title": "Единые массивные исходные состояния внутри сетки хозяина",
+          "status": "failed",
+          "summary": "W0-audit-20261004T080424Z-6939c733: archive_fixed_massive_states_per_host=false для четырёх галилеевых хозяев. Остальные 96 имеют одинаковые массивные состояния. Статус общей проверки источника failed сохранён, принятая численная постановка и production-допуск отсутствуют.",
+          "refs": [
+            "results/evidence/W0_baseline_audit_v1.json",
+            "runs/W0-audit-20261004T080424Z-6939c733/validation.json"
+          ],
+          "next_action": "Разрешить W0-I002 перед точным повторением соответствующих сеток.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-I002"
+          ]
+        },
+        {
+          "id": "W0-R001",
+          "kind": "result",
+          "title": "Аудит публикации и входов: 14 вопросов и ограниченная L1-спецификация",
+          "status": "preliminary",
+          "summary": "Задача W0-001 выполнена: зарегистрированы источники, заполнены 14 строк аудита, созданы отчёт, claims и черновая L1 v0.1. W0-audit-20261004T080424Z-6939c733 completed с validation=failed по согласованности массивных стартов; результат не принят как проверенный динамический базовый уровень. W0-I001–I003 открыты.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "docs/literature/baseline_audit.csv",
+            "results/evidence/claims.csv",
+            "docs/handoffs/W0_audit_to_passports_v1.md"
+          ],
+          "next_action": "Выполнить W0-002: паспорта пилота и контракт малых геометрических состояний.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-C001",
+            "W0-C002",
+            "W0-C003",
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-T001",
+          "kind": "task",
+          "title": "W0-001 — аудит исходной статьи",
+          "status": "done",
+          "summary": "Полный локальный комплект и приложения зарегистрированы; конкретно отсутствующие начальные условия получены и проверены без распаковки. Все вопросы имеют источник и статус; неизвестная реализация отделена от текста и опубликованных входов. Точное повторение и этап W0 не объявлены завершёнными.",
+          "refs": [
+            "docs/tasks/W0-001.md",
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "configs/experiments/L1_baseline_spec_v0_1.yaml"
+          ],
+          "next_action": "Перейти к паспортам W0-002; сохранять ограничения аудита.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-R001",
+            "W0-D003"
+          ]
+        },
+        {
+          "id": "W0-C003",
+          "kind": "check",
+          "title": "Инженерные проверки аудита и среды",
+          "status": "passed",
+          "summary": "23 pytest, ruff, project validate и L0-20261004T081401Z-4610d0d2 smoke прошли; досье актуальны. Финально проверены 20 хешей входов, 7 хешей артефактов, ссылки и зарегистрированные check IDs утверждений. Проверка источника W0-C002 остаётся failed; эти проверки не закрывают W0/W2.",
+          "refs": [
+            "reports/scientific/W0_baseline_verification.json",
+            "tests/unit/test_baseline_audit.py",
+            "runs/L0-20261004T081401Z-4610d0d2/manifest.json"
+          ],
+          "next_action": "Передать паспортной задаче инженерные результаты отдельно от научных ограничений.",
+          "owner": "codex-w0-audit-20261004-root",
+          "related_ids": [
+            "W0-C001",
+            "W0-C002"
+          ]
+        },
+        {
+          "id": "W0-D004",
+          "kind": "decision",
+          "title": "Япет v1: GM SAT441, форма Thomas и разные уровни ошибок",
+          "status": "accepted",
+          "summary": "Номинальное GM из официального PCK SAT441; его погрешность ±0.00727 km3/s2 как 3sigma из Jacobson Table 4. Rvol/осесимметричные полуоси и 2sigma оценённой точности — из Thomas 2010. Пометка 1sigma в Jacobson Table 5 сохранена как конфликт. Ковариации null, ансамбль ошибок и production не разрешены; архивный радиус 718 km сохраняется.",
+          "refs": [
+            "data/processed/host_passports/iapetus_v1.yaml",
+            "reports/scientific/W0_iapetus_passport_v1.md",
+            "references/manifests/iapetus_sources_v1.json"
+          ],
+          "next_action": "Для следующих паспортов отдельно проследить первичное решение и уровень ошибки; пересмотреть при уточнении первичных источников.",
+          "owner": "codex-w0-iapetus-20261004-root",
+          "related_ids": [
+            "W0-D003",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-I004",
+          "kind": "issue",
+          "title": "Разные пометки sigma для радиуса Япета в Thomas и Jacobson",
+          "status": "open",
+          "summary": "Thomas 2010 Table 1/§1: 734.3±2.8 km — 2sigma оценённой точности; Jacobson 2022 Table 5 повторяет число и ставит общую пометку 1sigma. Таблицы/сноски проверены в первичных PDF. W0-D004 сохраняет первичную трактовку; совместный статистический ансамбль не разрешён.",
+          "refs": [
+            "reports/scientific/W0_iapetus_passport_v1.md",
+            "runs/W0-iapetus-20261004T084620Z-6c6961d1/results/passport_audit.json"
+          ],
+          "next_action": "При подготовке параметрического ансамбля получить уточнение/совместные ограничения; не считать 2.8 km стандартным Gaussian sigma.",
+          "owner": "codex-w0-iapetus-20261004-root",
+          "related_ids": [
+            "W0-D004",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-C004",
+          "kind": "check",
+          "title": "Япет: первичные параметры, происхождение и инженерные проверки",
+          "status": "passed",
+          "summary": "W0-iapetus-20261004T084620Z-6c6961d1: 23/23 passed. Проверены 7 хешей источников/производного текста, GM/PCK/округления, Rvol и оси Thomas, единицы, sigma, запрет неподтверждённых состояний/ковариаций и сравнение 718 km. 29 pytest, ruff, validate и L0-20261004T084650Z-dd49cecf smoke passed; досье актуальны. Область проверки не включает динамику и ворота W0/W2.",
+          "refs": [
+            "runs/W0-iapetus-20261004T084620Z-6c6961d1/validation.json",
+            "runs/W0-iapetus-20261004T084620Z-6c6961d1/manifest.json",
+            "reports/scientific/W0_iapetus_verification_v1.json",
+            "runs/L0-20261004T084650Z-dd49cecf/validation.json"
+          ],
+          "next_action": "Передать проверенные номинальные параметры в подготовку L1; продолжить паспорта Гималии/Ганимеда.",
+          "owner": "codex-w0-iapetus-20261004-root",
+          "related_ids": [
+            "W0-D004",
+            "W0-I004"
+          ]
+        },
+        {
+          "id": "W0-R002",
+          "kind": "result",
+          "title": "Паспорт Япета v1: проверены GM, радиус и осесимметричная форма",
+          "status": "validated",
+          "summary": "W0-iapetus-20261004T084620Z-6c6961d1: номинальное GM 120.5151060137642 km3/s2, Rvol 734.3 km и полуоси 745.7/745.7/712.1 km прослежены до первичных источников. Архивный радиус отличается на 16.3 km; влияние на орбиты не измерено. Ошибки GM 3sigma и формы 2sigma сохранены; ковариации/вращение/поле/состояния не приняты. Валидирован только паспорт параметров, не весь W0-002.",
+          "refs": [
+            "data/processed/host_passports/iapetus_v1.yaml",
+            "reports/scientific/W0_iapetus_passport_v1.md",
+            "docs/handoffs/W0_iapetus_to_remaining_passports_v1.md",
+            "results/evidence/claims.csv"
+          ],
+          "next_action": "Начать паспорт Гималии по первичному динамическому решению; затем Ганимед и контракт состояний.",
+          "owner": "codex-w0-iapetus-20261004-root",
+          "related_ids": [
+            "W0-C004",
+            "W0-D004",
+            "W0-I004",
+            "W0-R001"
+          ]
+        },
+        {
+          "id": "W0-D005",
+          "kind": "decision",
+          "title": "Гималия v1: GM JUP344 и раздельные ограничения размера",
+          "status": "accepted",
+          "summary": "Принимаем номинальный GM из официальных комментариев JUP344. Ошибка GM из сводки JPL сохраняется с неизвестным sigma и без ковариации. 85±10 км IAU хранится как компиляция; тепловой эффективный радиус WISE и две видимые полуоси Cassini отдельно. Объёмный радиус, третья ось и контактная поверхность неизвестны; ни Gaussian-выборка, ни production не разрешены. Первичный Cruikshank 1977 и полный текст Brozovic 2017 не получены; значения иных решений не подменяют JUP344.",
+          "refs": [
+            "docs/tasks/W0_himalia_passport_v1.md",
+            "references/manifests/himalia_sources_v1.json",
+            "data/processed/host_passports/himalia_v1.yaml"
+          ],
+          "next_action": "Проверить паспорт и 130 архивных строк, сопоставить отношения масс без назначения солнечной единицы.",
+          "owner": "codex-w0-himalia-20261004-root",
+          "related_ids": [
+            "W0-T002",
+            "W0-D003",
+            "W0-R001"
+          ]
+        },
+        {
+          "id": "W0-I005",
+          "kind": "issue",
+          "title": "Гималия: неполная первичная ошибка GM и неопределённая объёмная форма",
+          "status": "open",
+          "summary": "Номинал GM JUP344 получен. Погрешность 0.05763 из JPL не прослежена до первичного документа, sigma/ковариация неизвестны. 85±10 км IAU — компиляция; WISE и Cassini дают разные ограничения размера. Первичный Cruikshank1977 и полный Brozovic2017 не получены; третья ось, объём и контактная поверхность null.",
+          "refs": [
+            "reports/scientific/W0_himalia_passport_v1.md",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "references/manifests/himalia_sources_v1.json",
+            "runs/W0-himalia-20261004T092718Z-6c436957/validation.json",
+            "reports/scientific/W0_himalia_verification_v1.json"
+          ],
+          "next_action": "Перед uncertainty/contact ансамблем получить первичный error budget JUP344 и обосновать форму/поверхность; до этого сохранять ограничения.",
+          "owner": "codex-w0-himalia-20261004-root",
+          "related_ids": [
+            "W0-D005",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-C005",
+          "kind": "check",
+          "title": "Гималия: первичный номинал, роли размеров и 130 архивных отношений",
+          "status": "passed",
+          "summary": "W0-himalia-20261004T092718Z-6c436957: 23/23 passed. 10 хешей источников/текстов, единицы, округление GM, раздельные определения размеров, неизвестные sigma/ковариации, копии паспорта и все 130 архивных строк проверены. 36 pytest, ruff, validate, актуальность досье и L0 smoke прошли; динамика/события не проверялись.",
+          "refs": [
+            "reports/scientific/W0_himalia_passport_v1.md",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "references/manifests/himalia_sources_v1.json",
+            "runs/W0-himalia-20261004T092718Z-6c436957/validation.json",
+            "reports/scientific/W0_himalia_verification_v1.json"
+          ],
+          "next_action": "Передать проверенный ограниченный продукт к паспорту Ганимеда.",
+          "owner": "codex-w0-himalia-20261004-root",
+          "related_ids": [
+            "W0-D005",
+            "W0-I005",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-R003",
+          "kind": "result",
+          "title": "Паспорт Гималии v1: GM JUP344 и раздельные ограничения размера",
+          "status": "validated",
+          "summary": "W0-himalia-20261004T092718Z-6c436957: GM=0.1515524299611265 km3/s2 прослежен до JUP344. IAU 85±10 km подтверждён как компиляция, WISE эффективный 69.8±0.85 km и Cassini две видимые полуоси раздельны. Архивное m_Himalia/m_Jupiter выше номинала JUP344 в 4.18403145 раза во всех 130 входах. Sigma/ковариации/объём/контакт неизвестны; динамического эффекта нет.",
+          "refs": [
+            "reports/scientific/W0_himalia_passport_v1.md",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "references/manifests/himalia_sources_v1.json",
+            "runs/W0-himalia-20261004T092718Z-6c436957/validation.json",
+            "reports/scientific/W0_himalia_verification_v1.json",
+            "docs/handoffs/W0_himalia_to_ganymede_v1.md",
+            "results/evidence/claims.csv"
+          ],
+          "next_action": "Паспорт Ганимеда по первичным источникам и разбор ограничения шести немодальных стартов.",
+          "owner": "codex-w0-himalia-20261004-root",
+          "related_ids": [
+            "W0-C005",
+            "W0-D005",
+            "W0-I005",
+            "W0-R001",
+            "W0-R002"
+          ]
+        },
+        {
+          "id": "W0-D006",
+          "kind": "decision",
+          "title": "Ганимед v1: GM JUP365, сводочный радиус и сохранение всех архивных стартов",
+          "status": "accepted",
+          "summary": "Принимаем первичный номинал GM JUP365.26. Ошибка GM JPL и радиус IAU сохраняются с неизвестным sigma; первичные численные размер/форма не получены. S3J2/C22 только справочные, нормировка/ориентация не приняты. Все 130 архивных входов сохраняются; шесть немодальных не исключаются и не заменяются. Модальность не подтверждает эпоху/правильность. Для собственной L1 требуется новый явный общий набор.",
+          "refs": [
+            "data/processed/host_passports/ganymede_v1.yaml",
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "references/manifests/ganymede_sources_v1.json"
+          ],
+          "next_action": "Контракт малого геометрического запроса; первичные ошибки/поверхность закрыть до зависимых выводов.",
+          "related_ids": [
+            "W0-T002",
+            "W0-D003",
+            "W0-I002",
+            "W0-I003"
+          ],
+          "owner": "codex-w0-ganymede-20261004-root"
+        },
+        {
+          "id": "W0-C006",
+          "kind": "check",
+          "title": "Ганимед: номинал, роли параметров и воспроизведение шести немодальных стартов",
+          "status": "passed",
+          "summary": "W0-ganymede-20261004T101524Z-e214b267: 30/30 scoped checks passed. Восемь хешей источников/текстов; номинал GM, сводочный статус радиуса/ошибок, 130 входов и точные шесть исключений. 45 pytest, ruff, validate и briefs check прошли; L0-20261004T101526Z-d0aa6d3b passed. Это проверка обнаружения проблемы, не исправление W0-C002 и не допуск динамики.",
+          "refs": [
+            "reports/scientific/W0_ganymede_verification_v1.json",
+            "runs/W0-ganymede-20261004T101524Z-e214b267/manifest.json",
+            "runs/W0-ganymede-20261004T101524Z-e214b267/validation.json",
+            "reports/scientific/W0_ganymede_passport_v1.md"
+          ],
+          "next_action": "Перед геометрией принять ограниченный продукт по handoff; не переносить неизвестные поля в расчёт.",
+          "related_ids": [
+            "W0-D006",
+            "W0-C002"
+          ],
+          "owner": "codex-w0-ganymede-20261004-root"
+        },
+        {
+          "id": "W0-R004",
+          "kind": "result",
+          "title": "Паспорт Ганимеда v1: первичный номинал GM, сводочный размер, семь архивных вариантов",
+          "status": "validated",
+          "summary": "W0-ganymede-20261004T101524Z-e214b267: GM=9887.832752719638 km3/s2 прослежен до двух частей JUP365.26. Радиус2631.2±1.7km только компиляция IAU; измеренные полуоси/объём/контакт неизвестны. В 130 входах 124 общих массивных состояния и шесть уникальных иных с изменёнными расстояниями. Сопоставление архивных отношений масс даёт 1.00035011245 номинала JUP365; динамический эффект не измерен.",
+          "refs": [
+            "data/processed/host_passports/ganymede_v1.yaml",
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "reports/scientific/W0_ganymede_verification_v1.json",
+            "docs/handoffs/W0_ganymede_to_state_contract_v1.md"
+          ],
+          "next_action": "Явный контракт малого геометрического запроса и проверка фактической доступности AstroBridge.",
+          "related_ids": [
+            "W0-D006",
+            "W0-C006",
+            "W0-I002",
+            "W0-I003"
+          ],
+          "owner": "codex-w0-ganymede-20261004-root"
+        },
+        {
+          "id": "W0-I006",
+          "kind": "issue",
+          "title": "Ганимед: первичные ошибки GM и численные размер/форма не приняты",
+          "status": "open",
+          "summary": "Sigma/covariance JUP365 не получены; сводка JPL не подменяет внутренний IOM. Радиус IAU известен, оригинал Anderson2001/DPS35.09 и полный Zubarev2015 не получены; DLR предоставляет только метаданные. Schenk2025 предварительный и не даёт принятой таблицы осей с ошибками. Нормировка/ориентация спутникового поля, контакт и вращение требуют аудита.",
+          "refs": [
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "references/manifests/ganymede_sources_v1.json",
+            "data/processed/host_passports/ganymede_v1.yaml"
+          ],
+          "next_action": "Получить проверяемый первичный полный размер/форму и модель ошибки до контактной модели/параметрического ансамбля; геометрический запрос допустим.",
+          "related_ids": [
+            "W0-R004",
+            "W0-D006",
+            "W0-T002"
+          ],
+          "owner": "codex-w0-ganymede-20261004-root"
+        },
+        {
+          "id": "W0-I002",
+          "kind": "issue",
+          "title": "Неодинаковые массивные старты галилеевых сеток",
+          "status": "open",
+          "summary": "У Каллисто/Европы/Ганимеда/Ио соответственно 4/8/6/18 файлов вне наиболее частых массивных состояний; всего 36. Происхождение отличий неизвестно. Ганимед в пилоте имеет также отклонения части стартов от заявленной круговой сетки. Критерий единых массивных состояний не ослаблен. Ганимед отдельно проверен W0-C006: точные файлы1,11,21,101,111,121; изменены расстояния, общим поворотом не объяснить. Все исходники сохранены.",
+          "refs": [
+            "reports/scientific/W0_baseline_audit.md",
+            "results/evidence/W0_baseline_audit_v1.json",
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "reports/scientific/W0_ganymede_verification_v1.json"
+          ],
+          "next_action": "Установить происхождение файлов или создать собственный явный набор; не менять исходный ZIP.",
+          "owner": "codex-w0-ganymede-20261004-root",
+          "related_ids": [
+            "W0-D003",
+            "W0-D006",
+            "W0-C006"
+          ]
+        },
+        {
+          "id": "W0-D007",
+          "kind": "decision",
+          "title": "Геометрические состояния v1: новая эпоха TDB и общие оси ICRF",
+          "status": "accepted",
+          "summary": "Для независимого маршрута выбираем JD2451545.0 TDB, геометрические векторы NONE, ICRF/FRAME и общий центр SSB. Десять физических центров и три прямых проверки планет из хозяев; два момента. Это новый набор, не установление эпохи архивной статьи. Допуски и лимиты зафиксированы до запроса; production запрещён.",
+          "refs": [
+            "docs/tasks/W0_geometric_states_v1.md",
+            "configs/acquisition/W0_geometric_states_v1.yaml"
+          ],
+          "next_action": "Проверить схему и окружение AstroBridge; получить 13 малых запросов и проверить преобразования.",
+          "owner": "codex-w0-states-20261004-root",
+          "related_ids": [
+            "W0-T002",
+            "W0-D003",
+            "W0-D006",
+            "W0-R004"
+          ]
+        },
+        {
+          "id": "W0-C007",
+          "kind": "check",
+          "title": "Геометрические состояния v1: заголовки, SHA, преобразования и offline replay",
+          "status": "passed",
+          "summary": "W0-states-20261004T104417Z-eacbd97e: 15/15 scoped checks passed. 13 запросов/26 векторов, JD2451545.0 TDB, ICRF/NONE. Max Δr=2.132e-7 km, Δv=2.929e-15 km/s. W0-states-20261004T104637Z-9b627c86: хеши и точное повторение численных массивов, 0 HTTP. 57 pytest, Ruff, validate, L0 passed; W0/W2 не закрыты.",
+          "refs": [
+            "reports/scientific/W0_geometric_states_v1.md",
+            "reports/scientific/W0_geometric_states_verification_v1.json",
+            "runs/W0-states-20261004T104417Z-eacbd97e/validation.json",
+            "runs/W0-states-20261004T104637Z-9b627c86/validation.json"
+          ],
+          "next_action": "Использовать только для спецификации собственных стартов; перед динамикой проверить W0-I007 и силы/события W2.",
+          "owner": "codex-w0-states-20261004-root",
+          "related_ids": [
+            "W0-D007",
+            "W0-I007",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-R005",
+          "kind": "result",
+          "title": "Геометрические состояния v1 трёх пилотных хозяев",
+          "status": "validated",
+          "summary": "W0-states-20261004T104417Z-eacbd97e: 10 тел × 2 момента из SSB плюс 3 прямых контроля; собственные относительные наборы Япета/Ганимеда/Гималии в км и км/с. Исходные ответы/SHA/схема/код/среда сохранены. 46.44 с, 13 HTTP, 0 интеграций/расходов. Геометрическая приёмка scoped; неизвестные ковариации null, совместимость GM/эфемерид не принята.",
+          "refs": [
+            "reports/scientific/W0_geometric_states_v1.md",
+            "reports/scientific/W0_geometric_states_verification_v1.json",
+            "docs/handoffs/W0_states_to_L1_v1.md",
+            "data/processed/W0-geometric-states-v1/geometric_states.json",
+            "references/manifests/geometric_states_v1.json",
+            "runs/W0-states-20261004T104417Z-eacbd97e/manifest.json"
+          ],
+          "next_action": "Принять рабочую спецификацию L1 после решения по версиям входов; подготовить аналитические контроли W2.",
+          "owner": "codex-w0-states-20261004-root",
+          "related_ids": [
+            "W0-C007",
+            "W0-D007",
+            "W0-I007",
+            "W0-R002",
+            "W0-R003",
+            "W0-R004"
+          ]
+        },
+        {
+          "id": "W0-D008",
+          "kind": "decision",
+          "title": "Рабочая L1 v0.2: неизменный GM Гималии и явные пределы совместимости",
+          "status": "accepted",
+          "summary": "GM v1 сохранить: точное равенство JUP344/JUP347 подтверждено. Смешанный снимок v1 — явно заданные IC для разработки; не совместное решение/эфемеридное принуждение. Собственный маршрут безмассовый; внешние GM/J2 и численные режимы ещё не приняты. Разрешены аналитические контроли W2, не реальный пилот/production.",
+          "refs": [
+            "docs/decisions/W0-D008_L1_v0_2.md",
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md"
+          ],
+          "next_action": "Реализовать аналитические контроли W2; до пилота закрыть внешние параметры и чувствительность смешанного снимка.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-D005",
+            "W0-D007",
+            "W0-I007",
+            "W0-R005",
+            "W0-T002"
+          ]
+        },
+        {
+          "id": "W0-C008",
+          "kind": "check",
+          "title": "L1 v0.2: привязки SHA, роли контракта и первичные константы JUP347",
+          "status": "passed",
+          "summary": "W0-L1-20261004T113500Z-051c42bc: 28/28 contract checks и SHA passed; 64 pytest, ruff/validate/smoke passed. Проверка конфигурации/источников, без динамики.",
+          "refs": [
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "runs/W0-L1-20261004T113500Z-051c42bc/validation.json",
+            "runs/W0-L1-20261004T113500Z-051c42bc/manifest.json",
+            "reports/scientific/W0_L1_specification_v0_2.md"
+          ],
+          "next_action": "Использовать как проверку контракта и источников; отдельно выполнить V02–V05.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-D008",
+            "W0-I007",
+            "W0-R005"
+          ]
+        },
+        {
+          "id": "W0-R006",
+          "kind": "result",
+          "title": "Рабочая постановка L1 v0.2 и scoped-аудит JUP344/JUP347",
+          "status": "validated",
+          "summary": "L1 v0.2 с SHA входов и явными маршрутами принята по W0-C008. GM Гималии совпадает. Приёмка только контракта/источников; W0/W2 и динамический пилот открыты.",
+          "refs": [
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md",
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "docs/handoffs/W0_L1_to_W2_v0_2.md",
+            "references/manifests/L1_sources_v0_2.json",
+            "runs/W0-L1-20261004T113500Z-051c42bc/manifest.json"
+          ],
+          "next_action": "Взять W2-T002 active: V02 и независимая монопольная относительная сила; затем V03–V05.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-C008",
+            "W0-D008",
+            "W0-I007",
+            "W0-R002",
+            "W0-R003",
+            "W0-R004",
+            "W0-R005"
+          ]
+        },
+        {
+          "id": "W0-I007",
+          "kind": "issue",
+          "title": "Гималия: разные версии эфемерид и принятого GM",
+          "status": "investigating",
+          "summary": "GM Гималии одинаков в JUP344/JUP347; паспорт сохранён. Другие константы различаются. Совместимость DE441/DE442 и сил, Δсостояний и динамический эффект не проверены.",
+          "refs": [
+            "reports/scientific/W0_geometric_states_v1.md",
+            "references/manifests/geometric_states_v1.json",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md",
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "docs/decisions/W0-D008_L1_v0_2.md"
+          ],
+          "next_action": "До реального пилота получить согласованный маршрут состояний либо измерить влияние смешения; проверить роль внешних GM/поля.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-D005",
+            "W0-D007",
+            "W0-R003",
+            "W0-T002",
+            "W0-C008",
+            "W0-D008",
+            "W0-R006"
+          ]
+        },
+        {
+          "id": "W0-C009",
+          "kind": "check",
+          "title": "Повторная проверка сохранности и штатных маршрутов W0",
+          "status": "passed",
+          "summary": "12 исторических runs: 334 хеша артефактов и 147 записей SHA источников совпали; 20 claims имеют ссылки. 64 pytest, ruff, validate, briefs, L0 passed. Паспорта, replay и штатная L1 повторились; архив ожидаемо failed только по W0-C002. Это не приёмка динамики или произвольного конфига.",
+          "next_action": "Использовать сохранённые данные в пределах их ограничений; исправить отрицательные контроли L1.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json",
+            "runs/W0-quality-20261004T132629Z-2a4eec19/manifest.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-T003",
+            "W0-C008"
+          ]
+        },
+        {
+          "id": "W0-C010",
+          "kind": "check",
+          "title": "Отрицательные пробы приёмки L1: поля и непривязанный вход",
+          "status": "failed",
+          "summary": "Десять недопустимых изменений полей не отклонены. CLI принял сочетание вращающихся осей/приливов/неполного состава. Другой файл состояний со сдвигом 1e6 km тоже получил 28/28 passed и не включён в inputs SHA/snapshot. Канонические файлы не менялись.",
+          "next_action": "Закрыть W0-I008/I009 строгой привязкой зависимостей, схемой и регрессионными CLI-пробами.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json",
+            "runs/W0-quality-20261004T132629Z-2a4eec19/results/l1_mutations.json",
+            "runs/W0-review-independent-20261004T132656Z-937b6079/results/unbound_input_probe.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-T003",
+            "W0-C008"
+          ]
+        },
+        {
+          "id": "W0-C011",
+          "kind": "check",
+          "title": "Независимая арифметика архива и Decimal-геометрии",
+          "status": "passed",
+          "summary": "Независимо прочитаны 520 входов пилотов/Гипериона, подтверждены Hill-нормировка и шесть немодальных стартов Ганимеда. Decimal-смена центра проходит прежние допуски. Нижняя граница трёх хозяев согласуется с округлённым коэффициентом Roche 1.26; это условная диагностика, не проверка авторского генератора.",
+          "next_action": "Зафиксировать коэффициент и endpoint policy при разработке собственного генератора.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json",
+            "runs/W0-review-independent-20261004T132656Z-937b6079/results/independent_archive.json",
+            "runs/W0-review-independent-20261004T132656Z-937b6079/results/independent_decimal_geometry.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-T003",
+            "W0-C007"
+          ]
+        },
+        {
+          "id": "W0-D009",
+          "kind": "decision",
+          "title": "Аудит W0: сохранить проверенные входы, ограничить приёмку новых L1",
+          "status": "accepted",
+          "summary": "Штатные результаты повторены; целостность канонических данных подтверждена. QW0-01/02 ограничивают гарантию валидатора: до исправления не принимать новые L1 по одному passed. Исторические W0-C008/R006 сохраняют только область конкретного проверенного набора. Синтетические W2 и подготовка W1 допустимы; реальный пилот/production не допущены.",
+          "next_action": "Выполнить W0-T004; аналитическая W2-T002 может идти с собственными синтетическими входами и критериями.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C009",
+            "W0-C010",
+            "W0-I008",
+            "W0-I009",
+            "W0-R006"
+          ]
+        },
+        {
+          "id": "W0-P002",
+          "kind": "plan",
+          "title": "План исправлений качества W0 и допуска дальнейших этапов",
+          "status": "active",
+          "summary": "Приоритет: SHA фактических входов → строгий контракт L1 → lifecycle/архивирование → внешние GM/J2/полюса и совместимость состояний → генератор/IC → аналитические W2 → малый реальный пилот → handoff. W1-подготовка и синтетическая W2 доступны раньше; W3 ждёт проверенных W0–W2.",
+          "next_action": "W0-T004; затем устранить научные блокеры по разделам 7–9 полного отчёта.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-T004",
+            "W0-D009",
+            "W2-T002",
+            "W0-P001"
+          ]
+        },
+        {
+          "id": "W0-R007",
+          "kind": "result",
+          "title": "Подробный аудит качества W0: подтверждённые входы и два дефекта приёмки",
+          "status": "validated",
+          "summary": "Отчёт содержит выполненные работы, историю проблем, текущие ограничения, повторные проверки и план устранения. Найдены два воспроизводимых серьёзных дефекта валидатора; исправления ещё не выполнены. W0 остаётся active; доступны W1-подготовка и W2-аналитика, реальный пилот/атлас не готовы.",
+          "next_action": "Передать W0-T004 точные отрицательные примеры и критерии исправления.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C009",
+            "W0-C010",
+            "W0-C011",
+            "W0-D009",
+            "W0-T004"
+          ]
+        },
+        {
+          "related_ids": [
+            "W0-R007",
+            "W0-C009",
+            "W0-C010",
+            "W0-C011",
+            "W0-T004"
+          ],
+          "summary": "Полный отчёт и машинные доказательства подготовлены. Повторены маршруты W0, проверены источники/история, найдены два серьёзных дефекта приёмки; даны план и критерии исправления, оценена готовность дальнейших этапов.",
+          "id": "W0-T003",
+          "kind": "task",
+          "next_action": "Выполнить W0-T004 по сохранённым отрицательным примерам; W0 целиком остаётся active.",
+          "status": "done",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json"
+          ],
+          "title": "Комплексный аудит качества реализации W0",
+          "owner": "codex-w0-review-20261004",
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md"
+        },
+        {
+          "id": "W0-P001",
+          "kind": "plan",
+          "title": "После L1 v0.2: аналитические контроли W2 и подготовка реального пилота",
+          "status": "superseded",
+          "summary": "План после L1 v0.2 расширен результатом аудита качества: перед реальным пилотом необходимы исправления приёмки W0-I008/I009. Прежние научные шаги сохранены в новом плане W0-P002.",
+          "refs": [
+            "reports/scientific/W0_geometric_states_v1.md",
+            "docs/handoffs/W0_states_to_L1_v1.md",
+            "docs/tasks/W0-002.md",
+            "configs/experiments/L1_baseline_spec_v0_1.yaml",
+            "RESEARCH_ROADMAP.md",
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "docs/handoffs/W0_L1_to_W2_v0_2.md",
+            "docs/tasks/W2-002.md",
+            "reports/scientific/W0_quality_review_20261004.md"
+          ],
+          "next_action": "Следовать W0-P002; начать W0-T004. Синтетическая W2-T002 остаётся доступной.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-R002",
+            "W0-R003",
+            "W0-R004",
+            "W0-R005",
+            "W0-C007",
+            "W0-I007",
+            "W0-T002",
+            "W0-R006",
+            "W0-C008",
+            "W0-D008",
+            "W2-T002",
+            "W0-R007",
+            "W0-D009",
+            "W0-T004",
+            "W0-P002"
+          ]
+        },
+        {
+          "id": "W0-T002",
+          "kind": "task",
+          "title": "W0-002 — паспорта пилотных хозяев и контракт состояний",
+          "status": "ready",
+          "summary": "Паспорта и геометрия v1 повторно проверены. Каноническая L1 v0.2 сохраняет ограниченную роль; найдены дефекты приёмки новых входов/контракта W0-I008/I009. Совместимость сил/состояний и реальный пилот не готовы.",
+          "refs": [
+            "docs/tasks/W0-002.md",
+            "data/processed/host_passports/iapetus_v1.yaml",
+            "reports/scientific/W0_iapetus_passport_v1.md",
+            "docs/handoffs/W0_iapetus_to_remaining_passports_v1.md",
+            "data/processed/host_passports/himalia_v1.yaml",
+            "reports/scientific/W0_himalia_passport_v1.md",
+            "docs/handoffs/W0_himalia_to_ganymede_v1.md",
+            "data/processed/host_passports/ganymede_v1.yaml",
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "docs/handoffs/W0_ganymede_to_state_contract_v1.md",
+            "reports/scientific/W0_geometric_states_v1.md",
+            "reports/scientific/W0_geometric_states_verification_v1.json",
+            "docs/handoffs/W0_states_to_L1_v1.md",
+            "configs/acquisition/W0_geometric_states_v1.yaml",
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md",
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "docs/handoffs/W0_L1_to_W2_v0_2.md",
+            "reports/scientific/W0_quality_review_20261004.md"
+          ],
+          "next_action": "Сначала W0-T004; затем внешние GM/J2/полюса, совместимость снимка и генератор субспутников по W0-P002.",
+          "owner": "codex-w0-l1-20261004-root",
+          "related_ids": [
+            "W0-R002",
+            "W0-D004",
+            "W0-I002",
+            "W0-I003",
+            "W0-I004",
+            "W0-R003",
+            "W0-D005",
+            "W0-I005",
+            "W0-R004",
+            "W0-D006",
+            "W0-C006",
+            "W0-I006",
+            "W0-D007",
+            "W0-C007",
+            "W0-R005",
+            "W0-I007",
+            "W0-R006",
+            "W0-C008",
+            "W0-D008",
+            "W2-T002",
+            "W0-R007",
+            "W0-D009",
+            "W0-T004",
+            "W0-P002"
+          ]
+        },
+        {
+          "id": "W0-D010",
+          "kind": "decision",
+          "title": "Строгая приёмка L1 v0.3 и patch паспорта Ганимеда",
+          "status": "accepted",
+          "summary": "Сохранить v0.2 и прежние runs. Ввести схемы и SHA реальных входов, машинные идентификаторы; Ганимед v1.0.1 без численного изменения. Научные неизвестные и запрет интеграций сохраняются.",
+          "refs": [
+            "docs/decisions/W0-D010_remediation.md"
+          ],
+          "detail_path": "docs/decisions/W0-D010_remediation.md",
+          "next_action": "Проверить v0.2/v0.3 и отрицательные примеры реальным CLI.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W0-T004",
+            "W0-D009"
+          ]
+        },
+        {
+          "id": "W0-T005",
+          "kind": "task",
+          "title": "Общий lifecycle, воспроизводимый выпуск и восстановление",
+          "status": "active",
+          "summary": "Реализовать QW0-03/04/05: ранние снимки, аварийную финализацию и лимиты; подготовить версионированный пакет и восстановление из копии на C.",
+          "refs": [
+            "reports/scientific/W0_quality_review_20261004.md"
+          ],
+          "next_action": "Мигрировать runner и проверить ресурсы; собрать пакет, затем backup/restore.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W0-I010",
+            "W0-T004"
+          ]
+        },
+        {
+          "id": "W0-C012",
+          "kind": "check",
+          "title": "Сквозная приёмка исправлений W0",
+          "status": "passed",
+          "summary": "W0-remediation-20261005T093547Z-f47ccf88: 101 pytest, Ruff, validate, досье, паспорта, L1 v0.2/v0.3, replay и L0 проходят. Все отрицательные L1-пробы отвергнуты; архив сохраняет ожидаемый failed. Физические ворота не закрыты.",
+          "refs": [
+            "results/evidence/W0_remediation_v1.json",
+            "runs/W0-remediation-20261005T093547Z-f47ccf88/validation.json"
+          ],
+          "next_action": "Использовать строгую приёмку; научный пилот требует отдельных входов и V02–V05.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W0-T004",
+            "W0-D010"
+          ]
+        },
+        {
+          "id": "W0-T004",
+          "kind": "task",
+          "title": "Исправить приёмку входов и научного контракта L1",
+          "status": "done",
+          "summary": "SHA реальных входов и строгие схемы L1 реализованы; все десять мутаций, комбинированная и непривязанная пробы отвергнуты CLI. v0.2 сохранена, v0.3 и patch Ганимеда отдельные. Приёмка не разрешает динамику.",
+          "next_action": "Принять внешние GM/J2/полюса и совместимость состояний; сначала довести строгий V02.",
+          "owner": "codex-w0-remediation-20261005",
+          "refs": [
+            "reports/scientific/W0_remediation_20261005.md",
+            "results/evidence/W0_remediation_v1.json"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C012",
+            "W0-D010",
+            "W0-I008",
+            "W0-I009"
+          ]
+        },
+        {
+          "id": "W0-I008",
+          "kind": "issue",
+          "title": "L1 читает состояния вне проверенных SHA и не сохраняет этот вход",
+          "status": "verified",
+          "summary": "Общий InputLedger связывает фактически читаемые состояния и source_paths с SHA до разбора; байты снимка совпадают с прочитанными. CLI отклоняет непривязанные/изменённые данные; канонические входы проходят.",
+          "next_action": "Сохранять отрицательные примеры в регрессии; новые продукты получать отдельной версией.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "results/evidence/W0_remediation_v1.json",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C010",
+            "W0-T003"
+          ]
+        },
+        {
+          "id": "W0-I009",
+          "kind": "issue",
+          "title": "L1 пропускает противоречия физики, координат, событий и сетки",
+          "status": "verified",
+          "summary": "Закрытые схемы/межполевые ограничения L1 v0.2/v0.3 отклоняют все десять мутаций, combined, missing/extra/empty/wrong type/NaN/Inf. Неизвестные null сохранены; успех контракта не разрешает интеграции.",
+          "next_action": "Новые физические варианты вводить новой схемой и критериями; сохранить регрессию.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "results/evidence/W0_remediation_v1.json",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C010",
+            "W0-T003"
+          ]
+        },
+        {
+          "id": "W0-I010",
+          "kind": "issue",
+          "title": "Неполные снимки ранних runs и неоднородный жизненный цикл исполнения",
+          "status": "investigating",
+          "summary": "Текущие W0 runner/L0 мигрированы на общий lifecycle; сбои, прерывания, дисковый бюджет и внешний timeout проверены. Невосстановленные ранние версии кода остаются историческим ограничением; индекс опубликован.",
+          "next_action": "Для длительного production нужны надзор процесса, checkpoint и полные ресурсные гарантии.",
+          "owner": "codex-w0-review-20261004",
+          "refs": [
+            "results/evidence/run_history_limitations_v1.json",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "detail_path": "reports/scientific/W0_quality_review_20261004.md",
+          "related_ids": [
+            "W0-C009",
+            "W0-T003"
+          ]
+        },
+        {
+          "id": "W0-R008",
+          "kind": "result",
+          "title": "Исправленная архитектура W0 и подготовка W1",
+          "status": "validated",
+          "summary": "Строгая L1, SHA фактических байтов, общий lifecycle, условный генератор, запись орбиты, статистические функции/guard freeze и выпуск реализованы. 101 тест прошёл; реальный пилот и freeze остаются закрыты.",
+          "refs": [
+            "reports/scientific/W0_remediation_20261005.md",
+            "results/evidence/W0_remediation_v1.json"
+          ],
+          "next_action": "Проверить выпуск/backup, затем довести V02 и научные входы W0.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W0-C012",
+            "W0-D010",
+            "W0-T005"
+          ]
+        },
+        {
+          "id": "W0-STAGE",
+          "kind": "stage",
+          "title": "Аудит данных и базовой постановки",
+          "status": "active",
+          "summary": "W0-T004 выполнена: SHA фактических входов, закрытые схемы L1 v0.2/v0.3, отрицательные CLI-пробы и общий lifecycle проверены; 101 pytest проходит. Генератор W1 проверен на синтетике. W0/реальный пилот не завершены: научные входы и строгий V02 остаются открыты.",
+          "refs": [
+            "reports/scientific/W0_ganymede_passport_v1.md",
+            "docs/handoffs/W0_ganymede_to_state_contract_v1.md",
+            "docs/tasks/W0-002.md",
+            "reports/scientific/W0_geometric_states_v1.md",
+            "docs/handoffs/W0_states_to_L1_v1.md",
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "reports/scientific/W0_L1_specification_v0_2.md",
+            "reports/scientific/W0_L1_verification_v0_2.json",
+            "docs/handoffs/W0_L1_to_W2_v0_2.md",
+            "docs/tasks/W2-002.md",
+            "reports/scientific/W0_quality_review_20261004.md",
+            "results/evidence/W0_quality_review_v1.json"
+          ],
+          "next_action": "Проверить резервную копию выпуска на C; следующий научный шаг — строгий V02 и внешние GM/J2/полюса/совместимость состояний.",
+          "owner": "codex-w0-review-20261004",
+          "related_ids": [
+            "W0-R001",
+            "W0-R002",
+            "W0-R003",
+            "W0-R004",
+            "W0-T002",
+            "W0-I006",
+            "W0-R005",
+            "W0-C007",
+            "W0-I007",
+            "W0-R006",
+            "W0-C008",
+            "W0-D008",
+            "W2-T002",
+            "W0-R007",
+            "W0-I008",
+            "W0-I009",
+            "W0-I010",
+            "W0-T004",
+            "W0-D009"
+          ]
         }
       ]
     },
     "W1": {
-      "revision": 5,
-      "status": "ready",
+      "revision": 9,
+      "status": "active",
       "records": [
-        {
-          "id": "W1-STAGE",
-          "kind": "stage",
-          "title": "Мера и статистический дизайн",
-          "status": "ready",
-          "summary": "Научные результаты этапа ещё не получены.",
-          "refs": [
-            "docs/roadmap.md"
-          ],
-          "next_action": "Разработать протокол W1-001; freeze после W0",
-          "owner": "unassigned"
-        },
-        {
-          "id": "W1-T001",
-          "kind": "task",
-          "title": "W1-001",
-          "status": "ready",
-          "summary": "Критерии и входы заданы в карточке задачи.",
-          "refs": [
-            "docs/tasks/W1-001.md"
-          ],
-          "detail_path": "docs/tasks/W1-001.md",
-          "next_action": "Разработать протокол W1-001; freeze после W0",
-          "owner": "unassigned"
-        },
         {
           "id": "W1-H001",
           "kind": "hypothesis",
@@ -503,25 +1429,55 @@
           ],
           "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
           "owner": "codex-main"
+        },
+        {
+          "id": "W1-C001",
+          "kind": "check",
+          "title": "Условные меры и генератор на синтетике",
+          "status": "passed",
+          "summary": "W1-sampling-20261005T093441Z-e7b1dbac: три меры × восемь рандомизаций ×64 старта. Нормировки, изотропность, энергия/момент, вырождения, знаменатель и повторяемость проверены. Это не реальный пилот и не полное V06.",
+          "refs": [
+            "runs/W1-sampling-20261005T093441Z-e7b1dbac/validation.json",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "next_action": "Принять реальные domain/GM и завершить дизайн/проверку покрытия после пилота.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W1-T001"
+          ]
+        },
+        {
+          "id": "W1-T001",
+          "kind": "task",
+          "title": "W1-001",
+          "status": "ready",
+          "summary": "Генератор/нормировки трёх мер, статистические функции, контракт орбиты и guard freeze реализованы. Протокол v0.1 остаётся draft: реальные области, пилотная дисперсия/стоимость, H1–H3 и окончательная статистика не frozen.",
+          "refs": [
+            "docs/tasks/W1_implementation_protocol_v0_1.md",
+            "reports/scientific/W0_remediation_20261005.md"
+          ],
+          "detail_path": "docs/tasks/W1-001.md",
+          "next_action": "После проверенных реальных входов/пилота завершить зарегистрированный дизайн и V06; freeze пока запрещён.",
+          "owner": "codex-w0-remediation-20261005"
+        },
+        {
+          "id": "W1-STAGE",
+          "kind": "stage",
+          "title": "Мера и статистический дизайн",
+          "status": "active",
+          "summary": "Подготовка выполнена: три условные меры, генератор/нормировки, запись орбиты и guard freeze. Синтетические проверки проходят; реальные области и пилотные стоимость/дисперсия ещё не приняты. Freeze запрещён.",
+          "refs": [
+            "docs/roadmap.md"
+          ],
+          "next_action": "Продолжить W1-T001 после научных входов W0 и допустимого режима W2.",
+          "owner": "unassigned"
         }
       ]
     },
     "W2": {
-      "revision": 2,
-      "status": "blocked",
+      "revision": 10,
+      "status": "active",
       "records": [
-        {
-          "id": "W2-STAGE",
-          "kind": "stage",
-          "title": "Численная верификация и стоимость",
-          "status": "blocked",
-          "summary": "Научные результаты этапа ещё не получены.",
-          "refs": [
-            "docs/roadmap.md"
-          ],
-          "next_action": "Выполнить W2-001 по V02–V10",
-          "owner": "unassigned"
-        },
         {
           "id": "W2-T001",
           "kind": "task",
@@ -534,6 +1490,74 @@
           "detail_path": "docs/tasks/W2-001.md",
           "next_action": "Выполнить W2-001 по V02–V10",
           "owner": "unassigned"
+        },
+        {
+          "id": "W2-C001",
+          "kind": "check",
+          "title": "V02: два интегратора против независимого Кеплера",
+          "status": "failed",
+          "summary": "W2-analytic-20261005T085951Z-103e3d09 completed за8.33s: e=0/0.5 проходят; DOP853 при e=0.9 не проходит скорость, при e=0.99 положение/скорость, IAS15 e=0.99 скорость. Исходные допуски сохранены; режим реального пилота не принят.",
+          "refs": [
+            "runs/W2-analytic-20261005T085951Z-103e3d09/validation.json",
+            "runs/W2-analytic-20261005T085951Z-103e3d09/results/convergence.json"
+          ],
+          "next_action": "Разобрать фазовую/перицентрическую чувствительность и испытать уточнённый режим новой версией без ослабления старых критериев.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W2-T002"
+          ]
+        },
+        {
+          "id": "W2-T002",
+          "kind": "task",
+          "title": "Аналитическая подготовка: V02/монопольные силы, затем V03–V05",
+          "status": "ready",
+          "summary": "Интерфейсы монополей/J2/событий и независимые unit-контроли реализованы. V02 выполнен, строгий режим для e=0.9/0.99 не прошёл. Полные V03–V05, рестарт и реальный пилот не закрыты.",
+          "refs": [
+            "docs/tasks/W2-002.md",
+            "reports/scientific/W0_remediation_20261005.md",
+            "runs/W2-analytic-20261005T085951Z-103e3d09/validation.json"
+          ],
+          "next_action": "Довести строгий V02 новой серией, затем CR3BP/J2-прецессию и полный протокол событий.",
+          "owner": "codex-w0-remediation-20261005",
+          "related_ids": [
+            "W0-R006",
+            "W0-D008",
+            "W0-C008",
+            "W2-T001",
+            "W0-R007",
+            "W0-D009",
+            "W0-I008",
+            "W0-I009"
+          ],
+          "detail_path": "docs/tasks/W2-002.md"
+        },
+        {
+          "id": "W2-STAGE",
+          "kind": "stage",
+          "title": "Численная верификация и стоимость",
+          "status": "active",
+          "summary": "Строгая приёмка W0 исправлена. Синтетические силы/градиент/контакт проверены; полный V02 сохраняет failed для высоких e. Реальный пилот, checkpoint/стоимость и W3 не разрешены.",
+          "refs": [
+            "docs/roadmap.md",
+            "docs/tasks/W2-002.md",
+            "docs/handoffs/W0_L1_to_W2_v0_2.md",
+            "configs/experiments/L1_baseline_spec_v0_2.yaml",
+            "reports/scientific/W0_quality_review_20261004.md"
+          ],
+          "next_action": "W2-T002: исправить численный режим высокоэксцентрических контролей; затем полные V03–V05.",
+          "owner": "unassigned",
+          "related_ids": [
+            "W0-R006",
+            "W0-D008",
+            "W0-C008",
+            "W2-T002",
+            "W2-T001",
+            "W0-R007",
+            "W0-D009",
+            "W0-T004",
+            "W0-P002"
+          ]
         }
       ]
     },

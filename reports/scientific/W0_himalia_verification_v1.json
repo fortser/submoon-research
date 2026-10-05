@@ -1,0 +1,42 @@
+{
+  "schema_version": "0.1",
+  "run_id": "W0-himalia-20261004T092718Z-6c436957",
+  "checked_utc": "2026-10-04T09:42:35.260516+00:00",
+  "status": "passed",
+  "passport_checks": {
+    "passed": 23,
+    "total": 23
+  },
+  "tests": {
+    "command": ".venv/Scripts/python.exe -m pytest",
+    "passed": 36,
+    "failed": 0
+  },
+  "ruff": {
+    "command": ".venv/Scripts/python.exe -m ruff check src scripts tests",
+    "status": "passed"
+  },
+  "project_validate": {
+    "status": "passed",
+    "scope": "structural"
+  },
+  "stage_briefs": {
+    "status": "current"
+  },
+  "smoke": {
+    "run_id": "L0-20261004T093616Z-56edfdd1",
+    "status": "passed",
+    "scope": "L0_installation_and_two_body"
+  },
+  "integrity": {
+    "source_files_verified": 10,
+    "run_inputs_verified": 17,
+    "run_artifacts_verified": 22
+  },
+  "scientific_limitations": [
+    "GM: sigma и ковариация первичного решения не получены; ошибка сводки не назначает распределение.",
+    "Сводочный, эффективный тепловой и видимые размеры не определяют объём/контактную поверхность.",
+    "Различие масс и условный Hill-множитель не являются измеренным эффектом на динамику.",
+    "Не закрывает W0/W2; не разрешает production или независимую выборку параметров."
+  ]
+}

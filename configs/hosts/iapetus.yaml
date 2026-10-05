@@ -1,50 +1,97 @@
-schema_version: '0.1'
-status: draft
+schema_version: '0.2'
+passport_version: iapetus-v1
+status: audited_parameters_with_limits
 host_id: iapetus
 name_ru: Япет
 parent: saturn
 cohort: main
 pilot: true
 identifiers:
-  naif: null
-  horizons: null
+  naif: 608
+  horizons: '608'
+provenance:
+  manifest: references/manifests/iapetus_sources_v1.json
+  report: reports/scientific/W0_iapetus_passport_v1.md
+  decision_id: W0-D004
+  supersedes: bootstrap_draft_0_1
+  data_kind: measured_parameters_and_ephemeris_constants
 parameters:
   gm:
-    value: null
+    value: 120.5151060137642
     unit: km3 / s2
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    source_id: sat441_pck_20261004
+    source_locator: BODY608_GM
+    source_version: SAT441_sha256_33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f
+    uncertainty: 0.00727
+    uncertainty_unit: km3 / s2
+    uncertainty_sigma_level: 3
+    uncertainty_status: reported_3sigma
+    uncertainty_source_id: jacobson2022_sat441
+    uncertainty_source_locator: Table 4, p.6, Current, GMIapetus and note
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: audited_nominal
+    notes: Точное номинальное GM взято из PCK; статья округляет его до 120.51511. Число знаков файла не означает точность измерения.
   radius:
-    value: null
+    value: 734.3
     unit: km
-    source_id: null
-    source_locator: null
-    uncertainty: null
-    uncertainty_status: not_audited
+    definition: volume_equivalent_mean
+    source_id: thomas2010_shapes
+    source_locator: Table 1 and notes, p.396; uncertainty method, section 1
+    source_version: published_2010_archived_20110927185355
+    uncertainty: 2.8
+    uncertainty_unit: km
+    uncertainty_sigma_level: 2
+    uncertainty_status: reported_2sigma_estimated_accuracy
+    uncertainty_distribution: null
     covariance_ref: null
-    status: missing
+    covariance_status: not_available_in_acquired_sources
+    status: audited_nominal
+    notes: Погрешность получена поиском допустимых форм при покрытии и разрешении изображений; не назначать автоматически Gaussian sigma=1.4 km.
   rotation_period:
     value: null
     unit: s
     source_id: null
     source_locator: null
+    source_version: null
     uncertainty: null
     uncertainty_status: not_audited
     covariance_ref: null
     status: missing
-radius_definition: null
+radius_definition: volume_equivalent_mean
+shape:
+  model: oblate_spheroid_fit
+  axis_order: [subplanetary, along_orbit, polar]
+  axes:
+    value: [745.7, 745.7, 712.1]
+    unit: km
+    source_id: thomas2010_shapes
+    source_locator: Table 1, Iapetus, footnote a, p.396
+    source_version: published_2010_archived_20110927185355
+    uncertainty: [2.9, 2.9, 1.6]
+    uncertainty_unit: km
+    uncertainty_sigma_level: 2
+    uncertainty_status: reported_2sigma_estimated_accuracy
+    uncertainty_distribution: null
+    covariance_ref: null
+    covariance_status: not_available_in_acquired_sources
+    status: audited_nominal
+    notes: a=b — общий параметр осесимметричной модели; его две записи нельзя варьировать независимо. Сфера среднего радиуса не является поверхностью контакта.
+  joint_sampling: disabled_pending_joint_model
+  contact_surface: null
+  contact_surface_status: pending_L1_decision_and_W2_event_verification
 state:
   epoch: null
   time_scale: null
   origin: null
   frame: null
+  position_unit: km
+  velocity_unit: km / s
   position: null
   velocity: null
   source_id: null
+  status: not_acquired
 gravity:
   j2: null
   c22: null
@@ -52,6 +99,21 @@ gravity:
   normalization: null
   reference_radius: null
   source_id: null
+  status: not_adopted
 pole: null
+covariance:
+  matrix: null
+  source_id: null
+  status: not_available_in_acquired_sources
+  independent_sampling_authorized: false
+usage:
+  nominal_input_preparation: allowed
+  production_integration: false
+  uncertainty_ensemble: false
+  full_W0_handoff: false
 open_questions:
-- Проверить первичные источники, единицы и неопределённости.
+- Погрешность радиуса в Thomas (2010) дана как 2sigma; Table 5 Jacobson (2022) воспроизводит то же число с общей пометкой 1sigma. Приоритет у первичного измерения; конфликт зарегистрирован отдельно.
+- Совместная ковариация GM, формы и состояний не получена; независимое варьирование не разрешено.
+- Эпоха, шкала времени и оси независимых геометрических состояний задаются отдельным контрактом W0-002.
+- Коэффициенты фигуры в SAT441 включают модельные допущения; не считать их измеренным полем Япета без отдельного аудита L3/W4.
+- Контактная поверхность и топография требуют решения; 718 km из архивного входа не приняты как средний объёмный радиус нового пилота.

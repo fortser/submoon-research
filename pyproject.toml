@@ -4,13 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "submoon-research"
-version = "0.1.0"
+version = "0.2.0"
 description = "Reproducible research workspace for submoon dynamics"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
   "numpy", "astropy", "scipy", "sympy", "rebound", "matplotlib",
-  "pandas", "pyarrow", "PyYAML", "pydantic",
+  "pandas", "pyarrow", "PyYAML", "pydantic>=2",
 ]
 
 [project.optional-dependencies]
@@ -25,6 +25,9 @@ submoon = "submoon_research.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"submoon_research.contracts" = ["*.json"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

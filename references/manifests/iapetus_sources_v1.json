@@ -1,0 +1,101 @@
+{
+  "schema_version": "0.1",
+  "created_utc": "2026-10-04T08:44:41.886471+00:00",
+  "sources": [
+    {
+      "source_id": "sat441_pck_20261004",
+      "url": "https://ssd.jpl.nasa.gov/ftp/misc/pck/pck.sat441.tpc",
+      "path": "data/raw/W0-iapetus-sources-20261004/sat441.tpc",
+      "sha256": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f",
+      "bytes": 19711,
+      "version": "SAT441",
+      "kind": "primary_ephemeris_constants",
+      "retrieved_utc": "2026-10-04T08:30:03.762292+00:00",
+      "retrieval_url": "https://ssd.jpl.nasa.gov/ftp/misc/pck/pck.sat441.tpc",
+      "status": "relevant_primary_sections_read_and_tables_verified",
+      "read_scope": "BODY608_GM/RADII; source identification and references"
+    },
+    {
+      "source_id": "thomas2010_shapes",
+      "url": "https://doi.org/10.1016/j.icarus.2010.01.025",
+      "path": "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf",
+      "sha256": "d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec",
+      "bytes": 665044,
+      "version": "published_2010_archived_20110927185355",
+      "kind": "primary_measurement_article_archived_copy",
+      "retrieved_utc": "2026-10-04T08:36:12.748573+00:00",
+      "retrieval_url": "https://web.archive.org/web/20110927185355id_/http://www.ciclops.org/media/sp/2011/6794_16344_0.pdf",
+      "status": "relevant_primary_sections_read_and_tables_verified",
+      "read_scope": "Table 1 and section 1, shape methods"
+    },
+    {
+      "source_id": "jacobson2022_sat441",
+      "url": "https://doi.org/10.3847/1538-3881/ac90c9",
+      "path": "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf",
+      "sha256": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff",
+      "bytes": 1189774,
+      "version": "published_2022_archived_20221029120609",
+      "kind": "primary_dynamic_solution_article_archived_copy",
+      "retrieved_utc": "2026-10-04T08:37:15.246397+00:00",
+      "retrieval_url": "https://web.archive.org/web/20221029120609id_/https://iopscience.iop.org/article/10.3847/1538-3881/ac90c9/pdf",
+      "status": "relevant_primary_sections_read_and_tables_verified",
+      "read_scope": "GM and sigma: Table 4/5 and section 4.2"
+    }
+  ],
+  "files": [
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/sat441.tpc",
+      "sha256": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f",
+      "source_id": "sat441_pck_20261004",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf",
+      "sha256": "d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec",
+      "source_id": "thomas2010_shapes",
+      "kind": "original"
+    },
+    {
+      "path": "data/interim/W0-iapetus-v1/thomas2010.txt",
+      "sha256": "97736d1938cbee72d0ba387f1cb8e056c8f5b43756f93d1f89b74769ca6b6f7a",
+      "source_id": "thomas2010_shapes",
+      "kind": "derived_text",
+      "derived_from": "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf",
+      "generator": "pdftotext -layout",
+      "visual_qa_pages": [
+        2
+      ]
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf",
+      "sha256": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff",
+      "source_id": "jacobson2022_sat441",
+      "kind": "original"
+    },
+    {
+      "path": "data/interim/W0-iapetus-v1/jacobson2022.txt",
+      "sha256": "27a1baf66fcde65ce88ef1930da8e74159a1a42f88f1ea41dec37fb2802521bd",
+      "source_id": "jacobson2022_sat441",
+      "kind": "derived_text",
+      "derived_from": "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf",
+      "generator": "pdftotext -layout",
+      "visual_qa_pages": [
+        6,
+        7
+      ]
+    },
+    {
+      "path": "data/raw/W0-source-check-20261004T074951Z/jpl-satellites.html",
+      "sha256": "d48a005e6869b199796877492c894abb4c0fd49fe4819d27dfeb280f483aa440",
+      "source_id": "jpl_satellite_parameters_20261004",
+      "kind": "original"
+    },
+    {
+      "path": "data/raw/W0-source-check-20261004T074951Z/jpl-constants.html",
+      "sha256": "168f48b94ae3a65f31c96f081d08e7ca91ecc9e65678fdc57353821b492b313e",
+      "source_id": "jpl_astrodynamic_parameters_20261004",
+      "kind": "original"
+    }
+  ],
+  "limitations": "PDF сохранены из Internet Archive; тождество байтов текущему сайту издателя не объявляется. Числа и уровни ошибки проверены по страницам оригинальных статей; публичная совместная ковариация не получена."
+}

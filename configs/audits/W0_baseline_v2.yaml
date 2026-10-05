@@ -1,0 +1,32 @@
+schema_version: '0.1'
+experiment_id: W0-baseline-audit-v2
+supersedes_run_id: W0-audit-20261004T075652Z-255b2a51
+data_kind: source_audit
+status: ready_for_documentary_audit_only
+bundle: arXiv-2609.03564v1
+source_receipts: data/raw/W0-source-check-20261004T074951Z/receipts.json
+archive_receipt: data/raw/W0-baseline-inputs-20261004T075626Z/receipt.json
+jpl_comparison_hosts: [Hyperion, Iapetus, Ganymede, Himalia, Phoebe]
+g_si: 6.67430e-11
+g_unit: m3 kg-1 s-2
+g_uncertainty: 0.00015e-11
+g_source_id: jpl_astrodynamic_parameters_20261004
+g_source_locator: Newtonian constant of gravitation; 2018 CODATA
+documentary_checks:
+  required_text_fragments:
+    - 'R_H = a_1'
+    - '130 separate'
+    - 'LL coefficient set to 13'
+    - '12PM on 1 January 2000'
+    - '4.9\times 10^9'
+    - '10.5281/zenodo.19820511'
+validation_limits:
+  scope: bundle_and_published_input_integrity_and_explicit_arithmetic
+  expected_bundle_files: 12
+  expected_figures: 7
+  expected_grid_size: 130
+  expected_pilot_hosts: [Iapetus, Ganymede, Himalia]
+  expected_archive_hosts: 100
+  expected_archive_inputs: 13000
+resource_scope: Документальный аудит; численное интегрирование и распаковка архива не выполняются.
+archive_download_approval: W0-D002

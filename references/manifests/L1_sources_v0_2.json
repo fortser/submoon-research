@@ -1,0 +1,84 @@
+{
+  "schema_version": "0.1",
+  "created_utc": "2026-10-04T11:32:33.396228+00:00",
+  "sources": [
+    {
+      "source_id": "jup347_comments_20261004",
+      "kind": "primary_ephemeris_comments",
+      "path": "data/raw/W0-l1-sources-20261004/jup347.cmt",
+      "version": "JUP347_20250509_NAIF_merge_20250515",
+      "url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup347.cmt",
+      "retrieval_url": "https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/satellites/jup347.cmt",
+      "retrieved_utc": "2026-10-04T11:11:54.401598+00:00",
+      "http_status": 200,
+      "bytes": 157508,
+      "sha256": "227f9dccfae4e90ad41a8a82ebc3a5586eac2e7b89ca1ddf0b2d38117ebca71b",
+      "status": "himalia_blocks_constants_and_merge_provenance_read",
+      "read_scope": "Himalia 506 backward/forward, scoped 500GM/GM10/503GM/J502; JUP365 merge; DE442 provenance",
+      "limitations": "Не является SPK или ковариацией; разность состояний/динамический эффект не измерены."
+    }
+  ],
+  "files": [
+    {
+      "path": "data/processed/W0-geometric-states-v1/geometric_states.json",
+      "sha256": "bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6"
+    },
+    {
+      "path": "data/processed/host_passports/iapetus_v1.yaml",
+      "sha256": "e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92"
+    },
+    {
+      "path": "data/processed/host_passports/ganymede_v1.yaml",
+      "sha256": "19c23a8395e665b527d4cb5629bda058a00f756a925406274b94cc93ab30ebe8"
+    },
+    {
+      "path": "data/processed/host_passports/himalia_v1.yaml",
+      "sha256": "00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4"
+    },
+    {
+      "path": "references/manifests/geometric_states_v1.json",
+      "sha256": "ac84d92c62e8ad7ad5b46e11e63f12e919909268065ead930dfe6ffdf9012964"
+    },
+    {
+      "path": "references/manifests/himalia_sources_v1.json",
+      "sha256": "61c6f8822cdaa9a8776fd2bc67090908b1e97e29e598488db83818bba7fb14b1"
+    },
+    {
+      "path": "references/manifests/ganymede_sources_v1.json",
+      "sha256": "e6460275b55af922571adc2e810a45222c2707a2c7c83dbb1cdf5b497c0c097a"
+    },
+    {
+      "path": "references/manifests/iapetus_sources_v1.json",
+      "sha256": "c51187fa472783343cc033bb48e8ef0204f9c1049243c03655722c8be219e91c"
+    },
+    {
+      "path": "data/raw/W0-himalia-sources-20261004/jup344.cmt",
+      "sha256": "e493a3878c7ca5fa0b6dfb9fa77a59b3457b7530f1674359f5435a2255dcb29d"
+    },
+    {
+      "path": "data/raw/W0-l1-sources-20261004/jup347.cmt",
+      "sha256": "227f9dccfae4e90ad41a8a82ebc3a5586eac2e7b89ca1ddf0b2d38117ebca71b"
+    },
+    {
+      "path": "data/raw/W0-l1-sources-20261004/receipt.json",
+      "sha256": "d43bf44d92269e1a03c981d96f086096fea9eedb661f7454087396fffcb4a4e3"
+    },
+    {
+      "path": "data/raw/W0-ganymede-sources-20261004/jup365.cmt",
+      "sha256": "3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a"
+    },
+    {
+      "path": "data/raw/W0-iapetus-sources-20261004/sat441.tpc",
+      "sha256": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f"
+    },
+    {
+      "path": "configs/experiments/L1_baseline_spec_v0_1.yaml",
+      "sha256": "7f52c3a9f6dbf710fb0b03963d56e31cb9e5abce7a0f1168d8b7f29027972b13"
+    },
+    {
+      "path": "data/raw/W0-baseline-inputs-20261004T075626Z/public_files.zip",
+      "sha256": "534066c632ee4c2daad431ea3ee91e17893f16b3362fb8a33c69cfc13e8682d1"
+    }
+  ],
+  "scope": "L1_v02_contract_and_scoped_ephemeris_constants_not_force_or_dynamics_validation"
+}
