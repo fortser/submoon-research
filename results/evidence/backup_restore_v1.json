@@ -1,0 +1,157 @@
+{
+  "schema_version": "0.1",
+  "status": "passed",
+  "release_commit": "ec206498246cbcad314876d7e3c38a29466aa18d",
+  "package": {
+    "path": "build/releases/submoon-research-v0.2.0-20261005-r2.zip",
+    "sha256": "ca2857fb52d6b22d177d929379a0502eb627b4d73dfbb1616f08e498dd9aa926",
+    "bytes": 45379828
+  },
+  "backup": {
+    "root": "C:/submoon-research-backup",
+    "package": "C:\\submoon-research-backup\\v0.2.0-20261005-r2\\submoon-research-v0.2.0-20261005-r2.zip",
+    "sha256": "ca2857fb52d6b22d177d929379a0502eb627b4d73dfbb1616f08e498dd9aa926",
+    "same_sha": true
+  },
+  "wheel": {
+    "path": "build/remediation-wheel-v0_2_0-r2/submoon_research-0.2.0-py3-none-any.whl",
+    "sha256": "523b150d0cd27dbb8d80a2099fc33239eeba3ca68a2ac51c7f8ba1650be0b34e",
+    "backup_sha256": "523b150d0cd27dbb8d80a2099fc33239eeba3ca68a2ac51c7f8ba1650be0b34e"
+  },
+  "restore": {
+    "status": "passed",
+    "package_sha256": "ca2857fb52d6b22d177d929379a0502eb627b4d73dfbb1616f08e498dd9aa926",
+    "checked_files": 6312,
+    "utc": "2026-10-05T09:54:26+00:00"
+  },
+  "restored_l1": {
+    "exit_code": 0,
+    "output": "{\"run_id\": \"W0-L1-20261005T095621Z-8e6173ca\", \"validation\": \"passed\", \"checks\": {\"spec_identity\": true, \"no_runtime_authorized\": true, \"archive_unknowns_preserved\": true, \"archive_anomalies_preserved\": true, \"independent_units\": true, \"epoch_axes_geometry\": true, \"initial_conditions_not_forcing\": true, \"mixed_solutions_visible\": true, \"himalia_gm_exact_in_both_solutions\": true, \"new_solution_covers_epoch\": true, \"new_solution_scoped_twice\": true, \"no_dynamics_inferred_from_equal_gm\": true, \"passport_parameters_not_overridden\": true, \"host_sets_available_in_snapshot\": true, \"massless_limit_labeled\": true, \"self_consistent_massive_dynamics\": true, \"external_effective_constants_not_adopted\": true, \"J2_not_fabricated\": true, \"reference_contact_role\": true, \"energy_is_operational_only\": true, \"numerical_failure_separate\": true, \"numeric_mode_and_pilot_pending\": true, \"measure_not_population\": true, \"strict_spec_schema\": true, \"scientific_states\": true, \"archive_contract_unchanged\": true, \"source_hashes\": true}}\n",
+    "stderr": ""
+  },
+  "limitations": [
+    "existing project venv reused; no clean dependency installation",
+    "C is a separate volume; physical device independence not established",
+    "earlier first package omits Unicode documents; r2 supersedes it"
+  ],
+  "clean_checkout": {
+    "status": "passed_text_equivalence",
+    "files": 6312,
+    "tracked_files": 294,
+    "commit": "ec206498246cbcad314876d7e3c38a29466aa18d",
+    "newline_differences": [
+      {
+        "path": "Router.md",
+        "newline_only": true
+      },
+      {
+        "path": "reports/progress/2026-09-23-bootstrap.md",
+        "newline_only": true
+      },
+      {
+        "path": "reports/progress/2026-09-23-compute-policy.md",
+        "newline_only": true
+      },
+      {
+        "path": "reports/progress/2026-09-23-stage-context-and-roadmap.md",
+        "newline_only": true
+      },
+      {
+        "path": "tracking/project.yaml",
+        "newline_only": true
+      }
+    ],
+    "omitted_tracked": [
+      "scratch/README.md"
+    ],
+    "commands": {
+      "status": "passed",
+      "commands": [
+        {
+          "command": [
+            "scripts/project.py",
+            "validate"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/0.log",
+          "output": "{\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"host_passports\": 11,\n  \"tracking_records\": 92,\n  \"limitations\": \"Structural checks only; draft physics and scientific gates are not certified.\"\n}\n"
+        },
+        {
+          "command": [
+            "scripts/build_stage_briefs.py",
+            "--check"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/1.log",
+          "output": "Stage context is current.\n"
+        },
+        {
+          "command": [
+            "scripts/verify_l1_specification.py"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/2.log",
+          "output": "{\"run_id\": \"W0-L1-20261005T095819Z-4f7c0538\", \"validation\": \"passed\", \"checks\": {\"spec_identity\": true, \"no_runtime_authorized\": true, \"archive_unknowns_preserved\": true, \"archive_anomalies_preserved\": true, \"independent_units\": true, \"epoch_axes_geometry\": true, \"initial_conditions_not_forcing\": true, \"mixed_solutions_visible\": true, \"himalia_gm_exact_in_both_solutions\": true, \"new_solution_covers_epoch\": true, \"new_solution_scoped_twice\": true, \"no_dynamics_inferred_from_equal_gm\": true, \"passport_parameters_not_overridden\": true, \"host_sets_available_in_snapshot\": true, \"massless_limit_labeled\": true, \"self_consistent_massive_dynamics\": true, \"external_effective_constants_not_adopted\": true, \"J2_not_fabricated\": true, \"reference_contact_role\": true, \"energy_is_operational_only\": true, \"numerical_failure_separate\": true, \"numeric_mode_and_pilot_pending\": true, \"measure_not_population\": true, \"strict_spec_schema\": true, \"scientific_states\": true, \"archive_contract_unchanged\": true, \"source_hashes\": true}}\n"
+        },
+        {
+          "command": [
+            "scripts/project.py",
+            "smoke"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/3.log",
+          "output": "{\"run_id\": \"L0-20261005T095822Z-2775a923\", \"path\": \"T:\\\\test_python\\\\submoon-research\\\\build\\\\clean-checkout-v0_2_0\\\\runs\\\\L0-20261005T095822Z-2775a923\", \"passed\": true}\n"
+        },
+        {
+          "command": [
+            "-m",
+            "pytest",
+            "-q"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/4.log",
+          "output": "........................................................................ [ 70%]\n..............................                                           [100%]\n102 passed in 68.58s (0:01:08)\n"
+        },
+        {
+          "command": [
+            "-m",
+            "ruff",
+            "check",
+            "src",
+            "scripts",
+            "tests"
+          ],
+          "exit_code": 0,
+          "log": "build/releases/clean-checkout-logs/5.log",
+          "output": "All checks passed!\n"
+        }
+      ]
+    }
+  },
+  "logs": [
+    {
+      "path": "build/releases/clean-checkout-logs/0.log",
+      "sha256": "e9e03f9b7d714cd2b7541e65ef3dc26e6ed2c26431b60b3396e9a82967f4e135"
+    },
+    {
+      "path": "build/releases/clean-checkout-logs/1.log",
+      "sha256": "a06b15a8d081146df767a6e134c49528276d0cb25ca9b96689f612e69cdaca70"
+    },
+    {
+      "path": "build/releases/clean-checkout-logs/2.log",
+      "sha256": "d7ea0891f27d1d15a8c2b0f775d26b26ce75a574e7cc78376e73d2f36088b42e"
+    },
+    {
+      "path": "build/releases/clean-checkout-logs/3.log",
+      "sha256": "a1d12bc4b5a49bbc383710db22a5ae2270f4203f86d1490712ea5184f93c18e3"
+    },
+    {
+      "path": "build/releases/clean-checkout-logs/4.log",
+      "sha256": "b12075403d359d3152500f36f6d14835d56bcecc09e8fae61d09315bd2b200d4"
+    },
+    {
+      "path": "build/releases/clean-checkout-logs/5.log",
+      "sha256": "a4443afdcfb6d7363adb285762515ccf7cf50473b1a05c20c1a50f6bed4d26b0"
+    }
+  ]
+}
