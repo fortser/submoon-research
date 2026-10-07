@@ -2,7 +2,7 @@
 
 Производная сводка; источник — journal.jsonl.
 
-Revision: 53. Статус: **active**.
+Revision: 54. Статус: **active**.
 
 Состояние: Созданы непроверенные прототипы A/B/C и удалённое сравнение. Фильтр disk исправлен; лёгкие проверки passed. Численная приёмка и стоимость не измерены, сервер не создан. Состояние передано в новый чат.
 
@@ -48,8 +48,8 @@ Revision: 53. Статус: **active**.
 
 ## Ошибки и проблемы
 
-Всего: 4. Последние/действующие записи:
+Всего: 5. Последние/действующие записи:
 
+- `W2-I005` [open] Дневная квота поисковых строк Vast.ai исчерпана, подбор оффера недоступен. Vast API отвечает `429: Daily search row quota exhausted` на все поисковые запросы: num_gpus>=1, запрос по id=54254159 и даже limit 1. Поэтому проверить наличие доступной станции н
 - `W2-I004` [open] reboundx не собирается локально на Windows: движок B не проверен перед арендой. E0 плана W2_remote_failure_and_fixes_v1 не выполнен: reboundx 5.1.0 не имеет wheel и падает при сборке MSVC на gr_full.c (C2057: variable length array не поддерживается). WSL Ubunt
 - `W2-I002` [open] Провал удалённого прогона A/B/C: pytest 83 failed/16 errors, научная серия не запускалась. Аренда оффера 54254159 (instance 54515060, deploy 17:57 UTC) дошла до удалённого pytest: /workspace/w2_execution.log оборвался на 83 failed, 144 passed, 16 errors. Из-за set -euo p
-- `W2-I003` [fixed] Монитор рынка падал на tracking/runtime.json с UTF-8 BOM. runtime_entry читал tracking/runtime.json строгим utf-8, а файл содержал BOM (EF BB BF) и CRLF: json.loads падал с JSONDecodeError до старта первого цикла. Падение происходило до б

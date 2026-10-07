@@ -1,32 +1,7 @@
 {
-  "schema_version": "1.0",
-  "updated_utc": "2026-10-07T08:41:26+00:00",
-  "processes": [
-    {
-      "market_session_id": "20261007T083514Z-df6c76eb",
-      "run_id": "vast-market-20261007T083514Z-df6c76eb",
-      "kind": "read_only_market_monitor",
-      "task_id": "W2-T004",
-      "pid": 4924,
-      "folder": "data/interim/vast_market/20261007T083514Z-df6c76eb",
-      "deadline_epoch": 1791621314.9560974,
-      "heartbeat": "data/interim/vast_market/20261007T083514Z-df6c76eb/heartbeat.json",
-      "stop_file": "data/interim/vast_market/20261007T083514Z-df6c76eb/stop.requested",
-      "paid_actions": 0
-    },
-    {
-      "market_session_id": "20261007T084124Z-cf51ae08",
-      "run_id": "vast-market-20261007T084124Z-cf51ae08",
-      "kind": "read_only_market_monitor",
-      "task_id": "W2-T004",
-      "pid": 8908,
-      "folder": "data/interim/vast_market/20261007T084124Z-cf51ae08",
-      "deadline_epoch": 1791621684.4633884,
-      "heartbeat": "data/interim/vast_market/20261007T084124Z-cf51ae08/heartbeat.json",
-      "stop_file": "data/interim/vast_market/20261007T084124Z-cf51ae08/stop.requested",
-      "paid_actions": 0
-    }
-  ],
-  "note": "Активных внешних процессов нет; W2-T003 instance 54515060 удалён пользователем, watchdog 16520 мёртв.",
-  "verification_run_id": "W2-T003-54254159-20261006"
+    "schema_version": "1.0",
+    "updated_utc": "2026-10-07T09:33:42.939Z",
+    "processes": [],
+    "note": "Активных внешних процессов нет; старые market-сессии завершились/были прерваны.",
+    "verification_run_id": "W2-T003-54254159-20261006"
 }
