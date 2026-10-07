@@ -48,10 +48,16 @@ def test_compiled_forces_against_independent_vectorized_and_potential():
         d = np.linalg.norm(x)
         return 120*0.01*4*(3*(np.dot(x, pole)/d)**2-1)/(2*d**3)
 
-    h = 1e-4
-    grad = np.array([(potential(r+np.eye(3)[i]*h)-potential(r-np.eye(3)[i]*h))/(2*h)
-                     for i in range(3)])
-    np.testing.assert_allclose(j2_vector(r, 120., 0.01, 2., pole), -grad, rtol=1e-8)
+    def finite_difference(step):
+        return np.array([(potential(r+np.eye(3)[i]*step)-potential(r-np.eye(3)[i]*step))/(2*step)
+                         for i in range(3)])
+
+    # Центральная разность O(h^2): при h=1e-4 её погрешность ~4.3e-8 и
+    # маскирует аналитику. Экстраполяция Ричардсона даёт O(h^4) и позволяет
+    # проверять j2_vector, не ослабляя допуск.
+    h = 1e-3
+    grad = (4*finite_difference(h/2) - finite_difference(h))/3
+    np.testing.assert_allclose(j2_vector(r, 120., 0.01, 2., pole), -grad, rtol=1e-10)
 
 
 def test_degree_nine_hidden_contact_and_crossings():

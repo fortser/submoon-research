@@ -111,12 +111,12 @@ def package():
     WORK.mkdir(parents=True, exist_ok=True)
     paths = []
     for name in ('src', 'scripts', 'tests', 'configs', 'docs', 'tracking', 'results/evidence',
-                 'references', 'data/raw', 'data/processed', 'runs'):
+                 'references', 'data/raw', 'data/processed', 'data/interim', 'runs'):
         paths += [p for p in (ROOT/name).rglob('*') if p.is_file()
                   and '__pycache__' not in p.parts and p.suffix not in ('.pyc', '.pem', '.key')
                   and p.name != '.write.lock']
     paths += [p for p in ROOT.iterdir() if p.is_file() and p.suffix in ('.md', '.toml')]
-    paths += [ROOT/'requirements-w2.txt', ROOT/'math.txt']
+    paths += [ROOT/'requirements-w2.txt', ROOT/'math.txt', ROOT/'good_cpu.txt']
     paths += list((ROOT/'VastAI_logs').glob('*.md'))
     paths = sorted(set(paths))
     index = {p.relative_to(ROOT).as_posix(): digest(p) for p in paths}
@@ -310,11 +310,19 @@ def deploy():
             f'export W2_INSTANCE_ID={int(rental["instance_id"])}\n'
             f'export W2_EFFECTIVE_CPUS={effective}\n'
             'export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMBA_NUM_THREADS=1\n'
+            'echo "=== GATE preflight ==="\n'
             '.venv/bin/python scripts/w2_remote_preflight.py\n'
+            # Полный pytest оставлен обязательным гейтом; после E1 (data/interim,
+            # good_cpu.txt) он должен быть полностью зелёным, включая движок B.
+            'echo "=== GATE pytest (mandatory, full) ==="\n'
             '.venv/bin/python -m pytest\n'
+            'echo "=== GATE ruff ==="\n'
             '.venv/bin/python -m ruff check src scripts tests\n'
+            'echo "=== GATE validate ==="\n'
             '.venv/bin/python scripts/project.py validate\n'
+            'echo "=== GATE smoke ==="\n'
             '.venv/bin/python scripts/project.py smoke\n'
+            'echo "=== SCIENCE campaign ==="\n'
             '.venv/bin/python -u scripts/run_w2_comparison.py campaign --workers 16 --seconds 3600\n')
         start_file = WORK/('w2_start_'+str(rental['instance_id'])+'.sh')
         start_file.write_text(script, encoding='utf-8')

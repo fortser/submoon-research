@@ -26,7 +26,12 @@ def radius_crossings(dense, t0, t1, radius):
     squared[0] -= radius**2
     roots = cheb.chebroots(squared)
     events = []
-    for root in sorted(float(z.real) for z in roots if abs(z.imag) < 1e-7 and -1 < z.real <= 1):
+    # Корень ровно на границе t0/t1 численно может выйти чуть за [-1,1].
+    # Включаем его с допуском и клипуем: иначе возврат на самой границе окна
+    # ухода теряется и уход подтверждается ошибочно.
+    for raw in sorted(float(z.real) for z in roots
+                      if abs(z.imag) < 1e-7 and -1-1e-9 <= z.real <= 1+1e-9):
+        root = min(max(raw, -1.0), 1.0)
         time = t0+(root+1)*(t1-t0)/2
         state = np.asarray(dense(time))[-6:]
         residual = abs(np.linalg.norm(state[:3])-radius)

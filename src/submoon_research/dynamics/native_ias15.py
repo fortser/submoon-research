@@ -60,7 +60,9 @@ class NativeIAS15:
             raise ValueError('Граница IAS15 должна быть впереди')
         start = self.absolute_state()
         self.sim.dt = min(float(self.sim.dt), bound-left, max_step)
-        self.sim.step()
+        # REBOUND 5.1.1 не имеет Simulation.step(); steps(1) выполняет ровно один
+        # шаг текущим sim.dt и оставляет br последнего шага для dense ABI.
+        self.sim.steps(1)
         right = float(self.sim.t)
         dt = right-left
         if not dt > 0 or right > bound+8*np.spacing(bound):
