@@ -2,7 +2,8 @@
 """Отчёт по сессии мониторинга Vast.ai: частота моделей и цены.
 
 Только чтение market.sqlite3; сетевых запросов и аренды нет.
-Считает по полным опросам (complete=1), цена дедуплицируется до
+Считает по циклам с наблюдениями, включая частичные (анонимный транспорт
+штатно даёт complete=false из-за лимита 64 строк). Цена дедуплицируется до
 (цикл, machine, allocation), как в MarketStore.statistics().
 
 Примеры:
@@ -31,13 +32,27 @@ def connect(folder):
     return con
 
 
+def _observation_count(folder):
+    try:
+        con = sqlite3.connect('file:'+(folder/'market.sqlite3').as_posix()+'?mode=ro', uri=True)
+        try:
+            return con.execute('SELECT count(*) FROM observations').fetchone()[0]
+        finally:
+            con.close()
+    except sqlite3.Error:
+        return 0
+
+
 def latest_session():
     if not SESSIONS.is_dir():
         raise SystemExit('Нет папки сессий '+str(SESSIONS))
     folders = [p for p in SESSIONS.iterdir() if (p/'market.sqlite3').is_file()]
     if not folders:
         raise SystemExit('Нет ни одной сессии с market.sqlite3')
-    return max(folders, key=lambda p: (p/'market.sqlite3').stat().st_mtime)
+    # Оборванная сессия без наблюдений не должна перекрывать данные.
+    with_data = [p for p in folders if _observation_count(p) > 0]
+    pool = with_data or folders
+    return max(pool, key=lambda p: (p/'market.sqlite3').stat().st_mtime)
 
 
 def _round(value, digits=5):
@@ -54,9 +69,9 @@ def report(folder):
         rows = con.execute('''
             SELECT o.cpu_key, o.cycle_id, o.machine_key, o.configuration_key, o.price,
                    json_extract(o.configuration_key, '$[0]') AS effective
-            FROM observations o JOIN cycles c ON c.id = o.cycle_id
-            WHERE c.complete = 1
+            FROM observations o
         ''').fetchall()
+        data_polls = len({row['cycle_id'] for row in rows})
         # Дедупликация до (цикл, machine, allocation) — как знаменатель статистики.
         best = {}
         for row in rows:
@@ -75,8 +90,7 @@ def report(folder):
                 entry['per_cpu'].append(row['price']/effective)
         never_seen = [row[0] for row in con.execute('''
             SELECT label FROM targets WHERE label NOT IN (
-                SELECT DISTINCT t.target FROM target_sightings t
-                JOIN cycles c ON c.id = t.cycle_id WHERE c.complete = 1)
+                SELECT DISTINCT target FROM target_sightings)
             ORDER BY label''')]
     finally:
         con.close()
@@ -87,7 +101,7 @@ def report(folder):
         result.append(dict(
             model=cpu_key,
             polls_seen=len(entry['polls']),
-            availability_fraction_of_complete_polls=_round(len(entry['polls'])/complete, 4) if complete else None,
+            availability_fraction_of_polls_with_data=_round(len(entry['polls'])/data_polls, 4) if data_polls else None,
             unique_machines=len(entry['machines']),
             samples=len(prices),
             min_usd_h=_round(min(prices)),
@@ -102,6 +116,7 @@ def report(folder):
         session=Path(folder).name,
         total_polls=total,
         complete_polls=complete,
+        data_polls=data_polls,
         request_status_counts=statuses,
         seen_models=len(result),
         never_seen_targets=never_seen,
@@ -111,8 +126,8 @@ def report(folder):
 
 def print_table(data, limit=None):
     models = data['models'] if limit is None else data['models'][:limit]
-    print('Сессия: {} | полных опросов: {} из {} | моделей замечено: {}'.format(
-        data['session'], data['complete_polls'], data['total_polls'], data['seen_models']))
+    print('Сессия: {} | циклов с данными: {} (полных {} из {}) | моделей замечено: {}'.format(
+        data['session'], data['data_polls'], data['complete_polls'], data['total_polls'], data['seen_models']))
     if data['request_status_counts']:
         print('Статусы запросов:', json.dumps(data['request_status_counts'], ensure_ascii=False))
     print()
@@ -121,7 +136,7 @@ def print_table(data, limit=None):
     print('{:<34}{:>8}{:>10}{:>7}{:>11}{:>11}{:>12}{:>11}{:>12}{:>12}'.format(*header))
     for row in models:
         print('{:<34}{:>8}{:>9.0%}{:>7}{:>11}{:>11}{:>12}{:>11}{:>12}{:>12}'.format(
-            row['model'][:33], row['polls_seen'], row['availability_fraction_of_complete_polls'] or 0,
+            row['model'][:33], row['polls_seen'], row['availability_fraction_of_polls_with_data'] or 0,
             row['unique_machines'], row['min_usd_h'], row['avg_usd_h'], row['median_usd_h'],
             row['max_usd_h'], row['min_usd_per_effective_cpu'] if row['min_usd_per_effective_cpu'] is not None else '-',
             row['avg_usd_per_effective_cpu'] if row['avg_usd_per_effective_cpu'] is not None else '-'))

@@ -48,7 +48,8 @@ def test_report_frequency_and_prices(tmp_path):
     assert models == ['epyc 9654', 'ryzen 9 9950x']
     top = data['models'][0]
     assert top['polls_seen'] == 2
-    assert top['availability_fraction_of_complete_polls'] == 1.0
+    assert data['data_polls'] == 2
+    assert top['availability_fraction_of_polls_with_data'] == 1.0
     assert top['min_usd_h'] == 0.1 and top['avg_usd_h'] == 0.2
     assert top['median_usd_h'] == 0.2
     assert top['unique_machines'] == 1
