@@ -23,6 +23,8 @@ def integrate(
     t0=0.0,
     checkpoint_time=None,
     checkpoint=None,
+    escape_tracker=None,
+    progress=None,
 ):
     state = np.asarray(initial, dtype=float).ravel()
     if not 0 <= t0 < horizon or max_step <= 0 or not np.isfinite(state).all():
@@ -59,6 +61,11 @@ def integrate(
                 raise RuntimeError("DOP853 не завершил допустимый шаг")
             dense = solver.dense_output()
             event = polynomial_contact(dense, left, solver.t, count, radii)
+            if escape_tracker is not None:
+                end = event['time'] if event else solver.t
+                departure = escape_tracker.advance(dense, left, end) if end > left else None
+                if departure and (event is None or departure['time'] < event['time']):
+                    event = departure
             selected = dense(event["time"]) if event else solver.y
             sample_time = event["time"] if event else solver.t
             drift = abs(massive_energy(selected, gms, figures) - initial_energy) / max(
@@ -70,6 +77,11 @@ def integrate(
             if positive != last_positive:
                 crossing_times.append(dict(time=float(sample_time), positive=bool(positive)))
             last_positive = positive
+            if progress is not None:
+                progress(dict(time=float(sample_time), state=selected.tolist(), steps=steps,
+                    nfev=nfev+solver.nfev, wall_seconds=time.perf_counter()-started,
+                    cpu_seconds=time.process_time()-cpu,
+                    escape=escape_tracker.snapshot() if escape_tracker is not None else None))
             if len(samples) < 256 or steps % 20 == 0 or event or solver.status == "finished":
                 samples.append(dict(time=float(sample_time), probe_state=selected[-6:].tolist()))
             if event:
@@ -92,6 +104,8 @@ def integrate(
             gms=list(map(float, gms)),
         )
         if checkpoint:
+            if escape_tracker is not None:
+                saved['escape'] = escape_tracker.snapshot()
             checkpoint(saved)
         checkpoints += 1
         solver = DOP853(rhs, solver.t, solver.y, horizon, rtol=rtol, atol=atol, max_step=max_step)
@@ -99,10 +113,12 @@ def integrate(
         last_valid_time=float(solver.t),
         final_state=solver.y.tolist(),
         event=event,
-        physical_outcome="host_contact"
+        physical_outcome="operational_escape" if event and event['event'] == 'operational_escape'
+        else "host_contact"
         if event and event["body_index"] == 0
         else "other_contact"
         if event
+        else escape_tracker.outcome() if escape_tracker is not None
         else "unresolved" if last_positive else "survived",
         samples=samples,
         energy_crossings=crossing_times,
@@ -116,4 +132,5 @@ def integrate(
         cpu_seconds=time.process_time() - cpu,
         physical_surface_verified=False,
         permanent_escape_assessed=False,
+        operational_escape_assessed=escape_tracker is not None,
     )

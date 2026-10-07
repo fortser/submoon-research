@@ -1,0 +1,20 @@
+========================================================================================================================
+VAST.AI — CPU-only станции по списку good_cpu.txt (доступность + цена + параметры)
+Снимок: 2026-10-06 13:28:15 | num_gpus=0 | только доступные | паттернов: 45
+Найдено: 12 станций (CPU-only, диск>=4.0 GiB, эфф. ядра == физ. ядра) | изменений: 0
+Паттерны (из good_cpu.txt): EPYC 7543, EPYC 75F3, EPYC 9555, EPYC 9554, EPYC 7443, EPYC 73F3, EPYC 9654, EPYC 7343, EPYC 9375F, EPYC 9374F, EPYC 9174F, EPYC 9575F, EPYC 4564P, EPYC 9274F, EPYC 9474F, EPYC 9475F, EPYC 4 4004, EPYC 4484PX, EPYC 4 4005, EPYC 4584PX, Ryzen 9 7900, Ryzen 9 5900X, Ryzen 9 7950X, Ryzen 9 9950X, Ryzen 9 9900X, Ryzen 7 9700X, Ryzen 7 7700X, Ryzen 9 5950X, Xeon W-34 3400, Core i7-13700K, Core i9-13900K, Xeon W-24 2400, Ryzen 7 9800X3D, Threadripper 7970X, Threadripper 7980X, Threadripper 7960X, Core Core Ultra 9 285K, Core Core Ultra 7 265K, Threadripper PRO 5975WX, Threadripper PRO 7975WX, Threadripper PRO 5955WX, Threadripper PRO 7995WX, Threadripper PRO 5965WX, Threadripper PRO 7985WX, Threadripper PRO 7955WX
+------------------------------------------------------------------------------------------------------------------------
+  # |         ID |   $/час | эфф.яд | физ.яд | RAM GiB |     диск | Локация | CPU
+------------------------------------------------------------------------------------------------------------------------
+  1 |   46868217 |  0.0106 |   32.0 |     32 |       0 |      500 | Austria, AT                         | AMD Ryzen 9 5950X 16-Core Processor
+  2 |   48905163 |  0.0111 |  256.0 |    256 |       0 |     2733 | Bulgaria, BG                        | AMD EPYC 9555 64-Core Processor
+  3 |   48082181 |  0.0114 |   10.0 |     10 |       0 |      571 | Taiwan, TW                          | AMD Ryzen 7 9700X 8-Core Processor
+  4 |   43580385 |  0.0114 |   16.0 |     16 |       0 |      678 | Israel, IL                          | AMD Ryzen 7 9700X 8-Core Processor
+  5 |   46699714 |  0.0114 |   16.0 |     16 |       0 |      754 | Thailand, TH                        | AMD Ryzen 7 9800X3D 8-Core Processor
+  6 |   53346884 |  0.0114 |   96.0 |     96 |       0 |      353 | Taiwan, TW                          | AMD EPYC 9575F 64-Core Processor
+  7 |   40179480 |  0.0114 |  256.0 |    256 |       0 |       92 | Washington, US                      | AMD EPYC 9554 64-Core Processor
+  8 |   45824068 |  0.0114 |  192.0 |    192 |       0 |     5446 | Alberta, CA                         | AMD EPYC 9654 96-Core Processor
+  9 |   49922769 |  0.0123 |  384.0 |    384 |       0 |     3162 | Taiwan, TW                          | AMD EPYC 9654 96-Core Processor
+ 10 |   49155153 |  0.0123 |  384.0 |    384 |       0 |     3975 | Hungary, HU                         | AMD EPYC 9654 96-Core Processor
+ 11 |   51932582 |  0.0123 |  384.0 |    384 |       0 |     4517 | Hungary, HU                         | AMD EPYC 9654 96-Core Processor
+ 12 |   54441247 |  0.0378 |  384.0 |    384 |       0 |     2799 | India, IN                           | AMD EPYC 9654 96-Core Processor

@@ -1,0 +1,12 @@
+========================================================================================================================
+VAST.AI — CPU-only станции по списку good_cpu.txt (доступность + цена + параметры)
+Снимок: 2026-10-06 13:36:09 | num_gpus=0 | только доступные | паттернов: 41
+Найдено: 4 станций (CPU-only, диск>=4.0 GiB, эфф. ядра == физ. ядра) | изменений: 3
+Паттерны (из good_cpu.txt): EPYC 4, EPYC 7343, EPYC 9654, EPYC 9554, EPYC 75F3, Xeon W-34, Xeon W-24, EPYC 7543, EPYC 9555, EPYC 73F3, EPYC 7443, EPYC 9575F, EPYC 9375F, EPYC 9374F, EPYC 9174F, EPYC 9274F, EPYC 9474F, EPYC 9475F, Ryzen 9 7900, Ryzen 9 9900X, Ryzen 9 5900X, Ryzen 7 7700X, Ryzen 9 9950X, Ryzen 7 9700X, Ryzen 9 7950X, Ryzen 9 5950X, Core i9-13900K, Core i7-13700K, Ryzen 7 9800X3D, Core Ultra 9 285K, Core Ultra 7 265K, Threadripper 7970X, Threadripper 7980X, Threadripper 7960X, Threadripper PRO 7955WX, Threadripper PRO 5955WX, Threadripper PRO 5965WX, Threadripper PRO 7995WX, Threadripper PRO 5975WX, Threadripper PRO 7975WX, Threadripper PRO 7985WX
+------------------------------------------------------------------------------------------------------------------------
+  # |         ID |   $/час | эфф.яд | физ.яд | RAM GiB |     диск | Локация | CPU
+------------------------------------------------------------------------------------------------------------------------
+  1 |   53881181 |  0.0114 |   32.0 |     32 |       0 |      362 | Jiangsu, CN                         | AMD Ryzen 9 9950X 16-Core Processor
+  2 |   53922866 |  0.0114 |  384.0 |    384 |       0 |     1533 | Arizona, US                         | AMD EPYC 9654 96-Core Processor
+  3 |   49155153 |  0.0123 |  384.0 |    384 |       0 |     3975 | Hungary, HU                         | AMD EPYC 9654 96-Core Processor
+  4 |   36880088 |  0.0123 |  384.0 |    384 |       0 |     6232 | Hungary, HU                         | AMD EPYC 9654 96-Core Processor

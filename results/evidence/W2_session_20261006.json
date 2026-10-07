@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "utc": "2026-10-06T16:21:51+00:00",
+  "run_id": "W2-session-handoff-20261006T162141Z-28db4669",
+  "data_kind": "operational_handoff_not_simulation",
+  "checks": {
+    "ruff": true,
+    "offer_classification_regression": true,
+    "validate": true,
+    "stage_briefs": true,
+    "vast_inventory": true,
+    "no_vast_instances": true,
+    "no_rental_created": true
+  },
+  "commands": [
+    {
+      "name": "ruff",
+      "command": [
+        "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests"
+      ],
+      "exit_code": 0,
+      "log": "runs/W2-session-handoff-20261006T162141Z-28db4669/logs/ruff.txt"
+    },
+    {
+      "name": "offer_classification_regression",
+      "command": [
+        "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tests/unit/test_vast_offer_classification.py",
+        "-q"
+      ],
+      "exit_code": 0,
+      "log": "runs/W2-session-handoff-20261006T162141Z-28db4669/logs/offer_classification_regression.txt"
+    },
+    {
+      "name": "validate",
+      "command": [
+        "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+        "scripts/project.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "log": "runs/W2-session-handoff-20261006T162141Z-28db4669/logs/validate.txt"
+    },
+    {
+      "name": "stage_briefs",
+      "command": [
+        "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+        "scripts/build_stage_briefs.py",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "runs/W2-session-handoff-20261006T162141Z-28db4669/logs/stage_briefs.txt"
+    },
+    {
+      "name": "vast_inventory",
+      "command": [
+        "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.EXE",
+        "-X",
+        "utf8",
+        "scripts/vast_w2.py",
+        "inventory"
+      ],
+      "exit_code": 0,
+      "log": "runs/W2-session-handoff-20261006T162141Z-28db4669/logs/vast_inventory.txt"
+    }
+  ],
+  "scientific_runs_started": false,
+  "rental_created": false,
+  "paid_actions": 0,
+  "full_pytest_run": false,
+  "numerical_engine_tests_run": false,
+  "smoke_run": false,
+  "handoff": "docs/handoffs/W2_three_engines_session_20261006.md",
+  "remote_approval": "docs/compute/W2_test_rental_v2.md",
+  "limitations": [
+    "A/B/C — непроверенные прототипы; скорость/точность не измерены",
+    "Vast transport/deadline/SSH lifecycle не испытан",
+    "Системные сторонние процессы не инвентаризованы"
+  ],
+  "artifacts_sha256": {
+    "docs/handoffs/W2_three_engines_session_20261006.md": "dfc4fcf2d2f46aa9e4dfdb1e422708e516ede0b3067702b4d73a9fba064bf10b",
+    "VastAI_logs/RUN_LOG.md": "3d0bc7b353518eea65b1b3fa8ed9763ef7d1afebf169b773ed23de3a0307ff25",
+    "results/evidence/W2_cpu_resource_audit_20261006.json": "2762aba4b1832183e62a84dcbbfdea2661b7fc61d52ebb2d5fff7353e8b55643",
+    "results/evidence/W2_cpu_monitor_20261006.json": "6d9be4baed1b4d1b8480e5e06f67729be637c9b99a014081a4f783ee52d1e038",
+    "configs/experiments/W2_three_engines_v1.yaml": "413d33f22ec2c2fbee6b1a41debea33137c4ada736cf13d4dbabcb633dedc8ef",
+    "requirements-w2.txt": "488e7c2f13d1daec2f350394de8ac850b79f8bcdd1c8892cac1dc4a888a68695"
+  }
+}

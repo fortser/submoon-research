@@ -18,6 +18,7 @@ dev = ["pytest", "ruff"]
 geometry = ["spiceypy"]
 observations = ["photutils", "reproject", "scikit-image", "pvl", "pds4_tools"]
 extended_physics = ["reboundx"]
+numerical_comparison = ["numba==0.67.0", "rebound==5.1.1", "reboundx==5.1.0", "psutil>=6,<8"]
 inference = ["emcee", "arviz"]
 
 [project.scripts]

@@ -1,0 +1,17 @@
+# Закреплённый удалённый численный стек; installation не запускает исследования.
+numpy==2.2.6
+scipy==1.15.3
+numba==0.67.0
+rebound==5.1.1
+reboundx==5.1.0
+mpmath==1.3.0
+PyYAML>=6,<7
+pydantic>=2,<3
+psutil>=6,<8
+pytest>=8,<10
+ruff>=0.11
+astropy
+sympy
+matplotlib
+pandas
+pyarrow

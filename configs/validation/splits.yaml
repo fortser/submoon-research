@@ -1,5 +1,6 @@
 schema_version: '0.1'
-status: candidate_not_frozen
+status: registered_rules_not_frozen
+design_id: W1-nominal-design-v1
 development:
 - iapetus
 - ganymede
@@ -8,7 +9,7 @@ holdout_candidates:
 - europa
 - dione
 - hyperion
-unassigned:
+comparison_only_not_fit:
 - titan
 - callisto
 - rhea
@@ -18,7 +19,7 @@ method_control:
 observational_development: []
 observational_holdout: []
 freeze_utc: null
-prediction_ids: []
+prediction_ids: [W1-PRED-V1]
 prior_exposure: Все объекты названы в программе/литературе. Новизну каждого предсказания
   проверить отдельно.
 himalia_policy: Если физические исходы участвуют в выборе модели, считать разработкой.

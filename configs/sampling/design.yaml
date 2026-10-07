@@ -1,5 +1,6 @@
 schema_version: '0.1'
 status: draft
+superseded_for_implementation_by: configs/sampling/W1_design_v1.yaml
 measures:
 - baseline_grid
 - uniform_a_e_cos_i_phases
@@ -18,4 +19,5 @@ pilot:
   seeds: null
   sampling_method: randomized_sobol_candidate
 freeze_utc: null
-normalization_implemented: false
+normalization_implemented: true
+normalization_evidence: results/evidence/W0_completion_v1.json

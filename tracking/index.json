@@ -1574,45 +1574,9 @@
       ]
     },
     "W1": {
-      "revision": 13,
+      "revision": 25,
       "status": "active",
       "records": [
-        {
-          "id": "W1-H001",
-          "kind": "hypothesis",
-          "title": "H1: благоприятная группа отделяется от контроля",
-          "status": "proposed",
-          "summary": "Проверить разность при каждой основной мере; 3 п.п. — проектный практически значимый масштаб, не измеренный эффект.",
-          "refs": [
-            "docs/tasks/W1-001.md"
-          ],
-          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
-          "owner": "codex-main"
-        },
-        {
-          "id": "W1-H002",
-          "kind": "hypothesis",
-          "title": "H2: внутренний порядок устойчив к мере",
-          "status": "proposed",
-          "summary": "Альтернатива — перестановки ранга при смене меры и фаз. До анализа зафиксировать семейство сравнений и интервалы.",
-          "refs": [
-            "docs/tasks/W1-001.md"
-          ],
-          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
-          "owner": "codex-main"
-        },
-        {
-          "id": "W1-H003",
-          "kind": "hypothesis",
-          "title": "H3: геометрия объясняет часть различий",
-          "status": "proposed",
-          "summary": "Простой геометрический предсказатель сравнить с физическим остатком на отложенных хозяевах; независимая проверка ещё не заморожена.",
-          "refs": [
-            "docs/tasks/W1-001.md"
-          ],
-          "next_action": "Определить количественное предсказание, альтернативу и критерии до рейтинга.",
-          "owner": "codex-main"
-        },
         {
           "id": "W1-C001",
           "kind": "check",
@@ -1664,35 +1628,157 @@
           ]
         },
         {
+          "id": "W1-D001",
+          "kind": "decision",
+          "status": "accepted",
+          "title": "Общий T=10000 лет, полный состав групп, пилот трёх хозяев и правила H1–H3",
+          "summary": "Пользователь согласовал W1 с необходимыми проверками W2, T=10000 юлианских лет и полный протокол с пилотом на Япете/Ганимеде/Гималии. Зарегистрированы H1/H2/H3, прямые меры, split, seeds, консервативные интервалы и обработка unresolved. Протокол development: ни короткий benchmark, ни synthetic coverage не открывают freeze или production.",
+          "refs": [
+            "docs/tasks/W1_implementation_protocol_v1.md",
+            "configs/sampling/W1_design_v1.yaml"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Измерить ограниченную стоимость общего T и проверить события/рестарт.",
+          "related_ids": [
+            "W1-T001",
+            "W1-H001",
+            "W1-H002",
+            "W1-H003"
+          ]
+        },
+        {
+          "id": "W1-C003",
+          "kind": "check",
+          "status": "passed",
+          "title": "V06: консервативные интервалы на независимых synthetic-контролях",
+          "summary": "Пять функций ×256 повторов отдельно development/validation; Hoeffding прошёл объявленный критерий покрытия. Student-t для восьми scrambles не прошёл ряд контролей и не допущен. Это ограниченный V06: не гарантия покрытия всех физических индикаторов и не измерение динамической дисперсии.",
+          "refs": [
+            "runs/W1-coverage-20261005T164953Z-ddaa0340/validation.json",
+            "runs/W1-coverage-20261005T164953Z-ddaa0340/results/coverage.json",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Сохранить консервативный метод; реальную дисперсию получить после допуска пилота.",
+          "related_ids": [
+            "W1-T001",
+            "W1-D001"
+          ]
+        },
+        {
+          "id": "W1-I001",
+          "kind": "issue",
+          "status": "open",
+          "title": "Нет пригодного полного пилота на T=10000 лет и окончательного бюджета точности",
+          "summary": "Код и правила H1–H3 реализованы, но текущий DOP853 слишком дорог для масштабирования. Реальная дисперсия, количественные прогнозы H3 и freeze отсутствуют. Гарантированные интервалы консервативны; 8 scrambles не обеспечивают автоматически 1 п.п.",
+          "refs": [
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Сначала быстрый проверенный W2-режим, затем реальный пилот и окончательный дизайн.",
+          "related_ids": [
+            "W1-T001",
+            "W2-C006",
+            "W1-C003"
+          ]
+        },
+        {
+          "id": "W1-R002",
+          "kind": "result",
+          "status": "validated",
+          "title": "Разработочный комплект W1: контракт, анализ, события и защищённый пилотный маршрут",
+          "summary": "Реализованы T/меры/split/seeds, знаменатели, unknown-bounds, H1/H2/H3 и усиленный freeze guard. Проверки: 144 pytest, Ruff, validate, smoke; coverage и single-worker restart passed. Принята реализация в ограниченной области; полный научный W1 не завершён.",
+          "refs": [
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Продолжить W2 ускорением и длительными контролями; W1 freeze после пригодного пилота.",
+          "related_ids": [
+            "W1-D001",
+            "W1-C003",
+            "W2-C006",
+            "W2-C007"
+          ]
+        },
+        {
           "id": "W1-T001",
           "kind": "task",
           "status": "ready",
           "title": "W1-001 — мера и статистический дизайн",
-          "summary": "Входы W0 и генератор реальных областей приняты. Следующая работа: общий физический T, H1–H3, меры/область/split, разработочный пилот дисперсии/стоимости, интервалы/остановка и freeze.",
+          "summary": "Разработочный комплект W1 и ограниченные проверки W2 реализованы. Полный пилот, длинный численный допуск и freeze остаются открыты; см. итоговый отчёт.",
           "refs": [
             "docs/handoffs/W0_completion_to_W1_W2_v1.md",
             "docs/tasks/W1-001.md",
-            "results/evidence/W0_completion_v1.json"
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json"
           ],
           "owner": "unassigned",
-          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "next_action": "W2-T003: быстрый проверенный режим; затем реальный пилот на T=10000 лет и freeze W1.",
           "related_ids": [
             "W0-D011",
             "W0-R010"
           ]
         },
         {
+          "id": "W1-H001",
+          "kind": "hypothesis",
+          "title": "H1: благоприятная группа отделяется от контроля",
+          "status": "proposed",
+          "summary": "Проверить разность при каждой основной мере; 3 п.п. — проектный практически значимый масштаб, не измеренный эффект. Правила решения зарегистрированы в W1-D001; проверка гипотезы ещё не выполнена.",
+          "refs": [
+            "docs/tasks/W1-001.md",
+            "docs/predictions/W1_H1_H2_H3_v1.md",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "next_action": "Получить пригодный реальный пилот; заполнить количественные прогнозы и freeze до основных/отложенных исходов.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "W1-H002",
+          "kind": "hypothesis",
+          "title": "H2: внутренний порядок устойчив к мере",
+          "status": "proposed",
+          "summary": "Альтернатива — перестановки ранга при смене меры и фаз. До анализа зафиксировать семейство сравнений и интервалы. Правила решения зарегистрированы в W1-D001; проверка гипотезы ещё не выполнена.",
+          "refs": [
+            "docs/tasks/W1-001.md",
+            "docs/predictions/W1_H1_H2_H3_v1.md",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "next_action": "Получить пригодный реальный пилот; заполнить количественные прогнозы и freeze до основных/отложенных исходов.",
+          "owner": "codex-main"
+        },
+        {
+          "id": "W1-H003",
+          "kind": "hypothesis",
+          "title": "H3: геометрия объясняет часть различий",
+          "status": "proposed",
+          "summary": "Простой геометрический предсказатель сравнить с физическим остатком на отложенных хозяевах; независимая проверка ещё не заморожена. Правила решения зарегистрированы в W1-D001; проверка гипотезы ещё не выполнена.",
+          "refs": [
+            "docs/tasks/W1-001.md",
+            "docs/predictions/W1_H1_H2_H3_v1.md",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "next_action": "Получить пригодный реальный пилот; заполнить количественные прогнозы и freeze до основных/отложенных исходов.",
+          "owner": "codex-main"
+        },
+        {
           "id": "W1-STAGE",
           "kind": "stage",
           "status": "active",
           "title": "Мера и статистический дизайн",
-          "summary": "W0-вход принят: физические номиналы, состояния, реальные области/меры и короткий benchmark проверены. Генератор воспроизводим; окончательные H1–H3, общий T, статистический бюджет и freeze ещё открыты.",
+          "summary": "Статистический протокол T=10000 лет и разработочный комплект сохранены. Для завершения W1 созданы прототипы ускорения A/B/C, но численная приёмка/замеры ещё не выполнены; реальный пилот, дисперсия, прогнозы H3 и freeze открыты.",
           "refs": [
             "docs/handoffs/W0_completion_to_W1_W2_v1.md",
-            "results/evidence/W0_completion_v1.json"
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json",
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "results/evidence/W2_session_20261006.json"
           ],
           "owner": "unassigned",
-          "next_action": "Зафиксировать общий T и H1–H3; затем разработочный пилот стоимости/дисперсии.",
+          "next_action": "W2-T003: удалённо проверить и сравнить A/B/C; затем допуск реального пилота W1. Передача 2026-10-06 содержит файлы и разрешённый бюджет.",
           "related_ids": [
             "W0-D011",
             "W0-R010"
@@ -1701,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 21,
+      "revision": 46,
       "status": "active",
       "records": [
         {
@@ -1749,42 +1835,6 @@
             "results/evidence/W0_completion_v1.json"
           ],
           "owner": "codex-w0-completion-20261005",
-          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
-          "related_ids": [
-            "W0-D011",
-            "W0-R010"
-          ]
-        },
-        {
-          "id": "W2-T001",
-          "kind": "task",
-          "status": "ready",
-          "title": "W2-001 — длительный численный режим и бюджет",
-          "summary": "Номинальные входы W0, базовые силы/контакты/state restart и короткая стоимость приняты. Продолжить V05–V11 совместно с показателями W1; полный production и основной W3 пока не разрешены.",
-          "refs": [
-            "docs/tasks/W2-001.md",
-            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
-            "results/evidence/W0_completion_v1.json"
-          ],
-          "owner": "unassigned",
-          "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
-          "related_ids": [
-            "W0-D011",
-            "W0-R010"
-          ]
-        },
-        {
-          "id": "W2-STAGE",
-          "kind": "stage",
-          "status": "active",
-          "title": "Численная верификация и стоимость",
-          "summary": "IAS15 высокие e и DOP853 низкие e прошли V02 v2; CR3BP/J2 и 36 реальных базовых орбит проверены. Измерен короткий бюджет и state restart. Длительный T, уход/возврат, интервалы, supervisor и production остаются будущими продуктами.",
-          "refs": [
-            "reports/scientific/W0_completion_20261005.md",
-            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
-            "results/evidence/W0_completion_v1.json"
-          ],
-          "owner": "unassigned",
           "next_action": "Проверить длительный режим и полный протокол событий для показателей W1.",
           "related_ids": [
             "W0-D011",
@@ -1841,6 +1891,260 @@
           ],
           "owner": "codex-w0-completion-20261005",
           "next_action": "Передать проверенные входы W1; определить общий T, показатели и бюджет следующего пилота."
+        },
+        {
+          "id": "W2-C006",
+          "kind": "check",
+          "status": "passed",
+          "title": "Ограниченный benchmark 36 реальных контрастных случаев для T=10000 лет",
+          "summary": "135.17 s wall/118.88 s CPU; 14 ранних терминальных исходов, 22 partial. Стоимость и промежуточные состояния сохранены. Условная экстраполяция внутренних орбит 48–168 CPU-суток/орбиту, не прогноз общей серии. Длинный режим не допущен; full pilot не запускался.",
+          "refs": [
+            "runs/W1-cost-20261005T165056Z-2a523e1a/manifest.json",
+            "runs/W1-cost-20261005T165056Z-2a523e1a/results/costs.json",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Профилировать и проверить более быстрый численный режим до масштабирования.",
+          "related_ids": [
+            "W2-T001",
+            "W1-D001"
+          ]
+        },
+        {
+          "id": "W2-C007",
+          "kind": "check",
+          "status": "passed",
+          "title": "Принудительное прерывание и отдельный state restart одного worker",
+          "summary": "Synthetic worker убит после атомарного checkpoint; другой процесс восстановил то же конечное состояние, время и исход с новой адаптивной историей. Проверка не закрывает supervisor, ансамблевые дубликаты или production-квоты.",
+          "refs": [
+            "runs/W1-restart-20261005T165306Z-ec3d6f59/validation.json",
+            "reports/scientific/W1_implementation_20261005.md"
+          ],
+          "owner": "codex-w1-implementation-20261005",
+          "next_action": "Расширить V08 на ансамбль и подтверждённый численный режим.",
+          "related_ids": [
+            "W2-T001"
+          ]
+        },
+        {
+          "id": "W2-T001",
+          "kind": "task",
+          "status": "ready",
+          "title": "W2-001 — длительный численный режим и бюджет",
+          "summary": "Разработочный комплект W1 и ограниченные проверки W2 реализованы. Полный пилот, длинный численный допуск и freeze остаются открыты; см. итоговый отчёт.",
+          "refs": [
+            "docs/tasks/W2-001.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json"
+          ],
+          "owner": "unassigned",
+          "next_action": "W2-T003: быстрый проверенный режим; затем реальный пилот на T=10000 лет и freeze W1.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W2-D001",
+          "kind": "decision",
+          "status": "accepted",
+          "title": "Три движка W2 и удалённый сравнительный пилот",
+          "summary": "Пользователь принял сравнение A DOP853+Numba, B IAS15+REBOUNDx, C кеш массивной подсистемы+6D DOP853; до часа научной серии. Затем прямо поручил перенести прогоны на Vast.ai и проверить multiprocessing. Бюджет подбора до $3; конкретная аренда ожидает согласования подготовленного плана. Пороги качества и входы закреплены до результатов.",
+          "refs": [
+            "docs/tasks/W2_three_engines_v1.md",
+            "docs/compute/W2_test_rental_v1.md",
+            "configs/experiments/W2_three_engines_v1.yaml"
+          ],
+          "owner": "codex-w2-three-engines-20261006",
+          "next_action": "Согласовать одну подготовленную аренду; выполнить проверки и сравнение удалённо.",
+          "related_ids": [
+            "W2-T003",
+            "W2-C006",
+            "W1-I001"
+          ]
+        },
+        {
+          "id": "W2-D002",
+          "kind": "decision",
+          "status": "accepted",
+          "title": "Одна тестовая аренда: CPU-only до $0.02/h либо CPU на GPU-сервере до $0.12/h",
+          "summary": "Пользователь поручил мониторить CPU-only 15–20 минут, арендовать сразу подходящий сервер; после доказанного обнаружения disk-контрактов в num_gpus=0 явно разрешил fallback с GPU до $0.12/h, считать только на CPU, общий предел $3 и до 3 часов. Один on-demand instance, без пополнения и новых томов. План включает SHA-выгрузку, deadline watchdog и destroy.",
+          "refs": [
+            "docs/compute/W2_test_rental_v2.md",
+            "reports/operations/W2_cpu_market_20261006.md"
+          ],
+          "owner": "codex-w2-three-engines-20261006",
+          "next_action": "Завершить окно мониторинга и арендовать один подходящий вычислительный сервер в одобренных пределах.",
+          "related_ids": [
+            "W2-D001",
+            "W2-T003"
+          ]
+        },
+        {
+          "id": "W2-C008",
+          "kind": "check",
+          "status": "passed",
+          "title": "Передача сессии: структура, SHA источника, фильтр disk и отсутствие аренды",
+          "summary": "Ruff, одна регрессия классификации, validate и briefs проверены. Vast show instances пуст; rental.json отсутствует. Историческая памятка сохранена с прежним SHA, новая зарегистрирована отдельно. Не численные тесты движков и не научная приёмка.",
+          "refs": [
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "results/evidence/W2_session_20261006.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/manifest.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/validation.json"
+          ],
+          "owner": "codex-w2-three-engines-20261006",
+          "related_ids": [
+            "W2-T003",
+            "W2-D002"
+          ],
+          "next_action": "Удалённые full pytest/smoke и V01–V10 до сравнительного пилота."
+        },
+        {
+          "id": "W2-R001",
+          "kind": "result",
+          "status": "preliminary",
+          "title": "Созданы прототипы трёх движков, сравнительная серия и транспорт Vast.ai",
+          "summary": "A DOP853/Numba; B IAS15/REBOUNDx; C кеш массивных тел+6D DOP853. Обобщены dense-события, созданы проверки/restart, CPU scaling и SHA-транспорт. Только статическая/инфраструктурная приёмка; Linux install, численная точность, стоимость и жизненный цикл аренды не проверены. Научных запусков нет.",
+          "refs": [
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "results/evidence/W2_session_20261006.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/manifest.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/validation.json",
+            "docs/tasks/W2_three_engines_v1.md",
+            "scripts/run_w2_comparison.py",
+            "scripts/vast_w2.py"
+          ],
+          "owner": "codex-w2-three-engines-20261006",
+          "related_ids": [
+            "W2-T003",
+            "W2-C008",
+            "W2-D001",
+            "W2-D002"
+          ],
+          "next_action": "Пересобрать пакет, проверить транспорт и выполнить удалённую приёмку в одобренных пределах."
+        },
+        {
+          "id": "W2-I001",
+          "kind": "issue",
+          "status": "verified",
+          "title": "Исправлена ложная классификация дисковых предложений как CPU-only серверов",
+          "summary": "87/87 стандартных и 222/222 расширенных num_gpus=0 записей имеют resource_type=disk; offer 47225763 найден также в volumes. Исправлены фильтры обоих трекеров и транспорта, regression passed. Старые CPU-only каталоги/записи журнала не доказательство вычислительной аренды.",
+          "refs": [
+            "reports/operations/W2_cpu_market_20261006.md",
+            "results/evidence/W2_cpu_resource_audit_20261006.json",
+            "VastAI_logs/RUN_LOG.md",
+            "results/evidence/W2_session_20261006.json",
+            "tests/unit/test_vast_offer_classification.py"
+          ],
+          "owner": "codex-w2-three-engines-20261006",
+          "related_ids": [
+            "W2-C008",
+            "W2-D002"
+          ],
+          "next_action": "Отбирать compute по виду контракта, потом по CPU/effective quota/RAM/цене."
+        },
+        {
+          "id": "W2-STAGE",
+          "kind": "stage",
+          "status": "active",
+          "title": "Численная верификация и стоимость",
+          "summary": "Созданы непроверенные прототипы A/B/C и удалённое сравнение. Фильтр disk исправлен; лёгкие проверки passed. Численная приёмка и стоимость не измерены, сервер не создан. Состояние передано в новый чат.",
+          "refs": [
+            "reports/scientific/W0_completion_20261005.md",
+            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
+            "results/evidence/W0_completion_v1.json",
+            "reports/scientific/W1_implementation_20261005.md",
+            "results/evidence/W1_implementation_v1.json",
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "results/evidence/W2_session_20261006.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/manifest.json",
+            "runs/W2-session-handoff-20261006T162141Z-28db4669/validation.json"
+          ],
+          "owner": "unassigned",
+          "next_action": "W2-T003: готовность транспорта/пакета и разрешённая аренда; затем remote tests и сравнение A/B/C. W1-пилот после численного допуска.",
+          "related_ids": [
+            "W0-D011",
+            "W0-R010"
+          ]
+        },
+        {
+          "id": "W2-T004",
+          "kind": "task",
+          "status": "active",
+          "title": "Глубокий аудит и мониторинг цен/доступности CPU-конфигураций Vast.ai",
+          "summary": "По поручению пользователя проверить охват good_cpu.txt, корректность логов конфигурации/цены, поднять поисковый предел до $1/h и подготовить 48–72h мониторинг. Исправить пропуски моделей, CPU-only/disk, неполную выдачу и статистику пропусков сети. Выполнить короткий read-only live audit; долгий сбор пользователь планирует позже, аренду не создавать.",
+          "refs": [
+            "docs/tasks/W2_market_monitor_v2.md",
+            "good_cpu.txt",
+            "scripts/vast_track_cpu.py"
+          ],
+          "owner": "codex-vast-market-audit-20261006",
+          "next_action": "Создать единый collector, проверить все целевые CPU и устойчивость/полноту снимков, затем live audit.",
+          "related_ids": [
+            "W2-I001",
+            "W2-C008",
+            "W2-D002"
+          ]
+        },
+        {
+          "related_ids": [
+            "W2-T003",
+            "W2-D002"
+          ],
+          "summary": "2026-10-06 16:49 UTC оффер доступен: rentable=true, rented=false; machine 138965, host 568890. Core i9-14900KF, 32 effective vCPU, RAM 31926 MiB, RTX 4060 Ti. On-demand $0.16/h + $0.005556/h за 20 GiB диска; трафик отдельно. Аренда не создавалась; CPU quota не измерена. run_id W2-offer-check-20261006T164917Z.",
+          "id": "W2-T005",
+          "kind": "task",
+          "detail_path": "reports/operations/W2_offer_54254159_20261006.md",
+          "title": "Проверка доступности оффера Vast.ai 54254159",
+          "owner": "codex-offer-check-20261006",
+          "refs": [
+            "reports/operations/W2_offer_54254159_20261006.md",
+            "scratch/offer_54254159/snapshot.json"
+          ],
+          "status": "done",
+          "next_action": "Для выбора этого сервера подготовить план W2-T003 и согласовать увеличение прежнего предела $0.12/h."
+        },
+        {
+          "related_ids": [
+            "W2-T005",
+            "W2-D002",
+            "W2-R001"
+          ],
+          "summary": "Подготовлены A/B/C и удалённый runner; по поручению пользователя проверяем численную приёмку на оффере Vast.ai 54254159. Одобрен один инстанс, не более $0.20/h, 3 часов и $3 суммарно; считать только на CPU. Научная серия до 3600 s; один child run <=600 s. Тестовый результат не является production-допуском.",
+          "id": "W2-T003",
+          "kind": "task",
+          "title": "Быстрый проверяемый численный режим для общего T=10000 лет",
+          "owner": "codex-w2-three-engines-20261006b",
+          "refs": [
+            "docs/tasks/W2_three_engines_v1.md",
+            "docs/compute/W2_test_rental_v2.md",
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "reports/operations/W2_offer_54254159_20261006.md"
+          ],
+          "status": "active",
+          "next_action": "Закрепить явные пределы разрешения, адаптировать runner к точному offer_id 54254159, пересобрать пакет и начать удалённую приёмку с watchdog."
+        },
+        {
+          "related_ids": [
+            "W2-T003",
+            "W2-T005",
+            "W2-D002"
+          ],
+          "summary": "Пользователь явно поручил арендовать ранее проверенный Vast.ai offer 54254159 и проверить на нём три движка. Цена снимка $0.16555556/h с 20 GiB, ниже названного пользователем предела $0.20/h. Один on-demand instance, точный offer_id без замен, максимум 3 часа и $3 суммарно по прежнему W2-D002; workload CPU-only. План W2_test_rental_v3.",
+          "id": "W2-D003",
+          "kind": "decision",
+          "detail_path": "docs/compute/W2_test_rental_v3.md",
+          "title": "Тестовая аренда точного оффера 54254159 для W2-T003",
+          "owner": "codex-w2-three-engines-20261006b",
+          "refs": [
+            "docs/compute/W2_test_rental_v3.md",
+            "reports/operations/W2_offer_54254159_20261006.md",
+            "scratch/offer_54254159/snapshot.json"
+          ],
+          "status": "accepted",
+          "next_action": "Создать один согласованный instance после пересборки пакета; контролировать срок/сумму; выгрузить SHA-проверенные результаты и уничтожить сервер."
         }
       ]
     },

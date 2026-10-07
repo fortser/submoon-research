@@ -39,11 +39,11 @@
     },
     {
       "source_id": "vastai_local_cheatsheet",
-      "path": "vastai_cli_cheatsheet.md",
+      "path": "references/archives/vastai_cli_cheatsheet_20260923.md",
       "kind": "local_operational_reference",
-      "status": "read",
+      "status": "historical_version_preserved",
       "sha256": "460778f63e4d22aa3fa29c429a0eb4d5cef60c2fc764004ccae5d2fc4f1ee7fb",
-      "limitations": "Historical commands and tests; current help and offers must be checked before use."
+      "limitations": "Historical commands and tests; current help and offers must be checked before use. Historical CPU-only interpretation corrected by version 20261006."
     },
     {
       "source_id": "baseline_initial_conditions_doi",
@@ -368,7 +368,27 @@
       "version": "DE441",
       "audit_run_id": "W0-alignment-20261005T105116Z-afdac2eb",
       "limitations": "Две эпохи TDB, ICRF, NONE; ковариация не предоставлена."
+    },
+    {
+      "source_id": "vastai_local_cheatsheet_20261006",
+      "path": "vastai_cli_cheatsheet.md",
+      "kind": "local_operational_reference",
+      "status": "read_and_corrected",
+      "sha256": "69959aa3eb83fdf94d33e0a5f5e2be7a2050f01c20a2654059b142bb323f98a5",
+      "supersedes": "vastai_local_cheatsheet",
+      "registered_utc": "2026-10-06T16:16:39+00:00",
+      "limitations": "Resource type must be checked; current prices and hardware need live verification."
+    },
+    {
+      "source_id": "vastai_cpu_resource_audit_20261006",
+      "path": "results/evidence/W2_cpu_resource_audit_20261006.json",
+      "sha256": "2762aba4b1832183e62a84dcbbfdea2661b7fc61d52ebb2d5fff7353e8b55643",
+      "kind": "primary_cli_response_snapshot",
+      "status": "retrieved_and_read",
+      "registered_utc": "2026-10-06T16:21:41+00:00",
+      "version": "Vast CLI 0.3.1 / 2026-10-06 snapshots",
+      "limitations": "Offer classification only, not a CPU rental or numerical benchmark."
     }
   ],
-  "updated_utc": "2026-10-05T11:30:00+00:00"
+  "updated_utc": "2026-10-06T16:21:41+00:00"
 }

@@ -1,0 +1,51 @@
+schema_version: '1.0'
+experiment_id: W2-three-engines-v1
+data_kind: development_numerical_comparison
+production_allowed: false
+hosts:
+- iapetus
+- ganymede
+- himalia
+engines:
+- dop853_jit
+- ias15_reboundx
+- hierarchical_cached
+model_path: data/processed/L1-nominal-v0_4_1/model.json
+states_path: data/processed/W0-geometric-states-aligned-v3/geometric_states.json
+contrasts_path: runs/W1-cost-20261005T165056Z-2a523e1a/initial_conditions/contrasts.json
+inputs_sha256:
+  data/processed/L1-nominal-v0_4_1/model.json: aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5
+  data/processed/W0-geometric-states-aligned-v3/geometric_states.json: 8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330
+  runs/W1-cost-20261005T165056Z-2a523e1a/initial_conditions/contrasts.json: 4c66db61aa60461b31da08d2328da25c05d164e0a50e39e30b7771d2e52dc866
+periods: 5
+extended_periods: 20
+diagnostic_samples: 65
+phase_angles_rad:
+- 1.5707963267948966
+- 1.0471975511965976
+- 0.6283185307179586
+repeats: 3
+case_wall_seconds: 10
+campaign_wall_seconds: 3600
+stage_wall_seconds: 600
+output_mib: 256
+cache_mib: 128
+thresholds:
+  position_a: 1.0e-06
+  velocity_na: 1.0e-06
+  massive_energy: 1.0e-08
+  event_time_period: 1.0e-06
+  interpolation_state: 1.0e-07
+  meaningful_speedup: 1.2
+remote:
+  required: true
+  max_workers: 16
+  worker_threads: 1
+  scaling_workers:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  budget_preference_usd: 3
+  rental_approved: false

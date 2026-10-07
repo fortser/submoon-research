@@ -1,6 +1,24 @@
-{
-  "schema_version": "1.0",
-  "updated_utc": "2026-09-23T17:19:47+00:00",
-  "processes": [],
-  "note": "Нет зарегистрированных фоновых запусков исследования; системные процессы не инвентаризировались."
+﻿{
+    "schema_version":  "1.0",
+    "updated_utc":  "2026-10-06T17:13:42.4502599Z",
+    "processes":  [
+                      {
+                          "last_checked_utc":  "2026-10-06T17:13:42.4362605Z",
+                          "limits":  {
+                                         "max_hours":  3,
+                                         "dph_total":  0.16555555555555557,
+                                         "budget_usd":  3,
+                                         "offer_id":  54254159
+                                     },
+                          "command":  "python scripts/vast_w2.py status; stop via python scripts/vast_w2.py finish",
+                          "job_id":  54515060,
+                          "pid":  16520,
+                          "host":  "local-watchdog + Vast.ai",
+                          "run_id":  "W2-T003-54254159-20261006",
+                          "status":  "running",
+                          "log":  "scratch/w2_remote/watchdog.log"
+                      }
+                  ],
+    "note":  "W2-T003 аренда активна по разрешению пользователя; один instance, watchdog зарегистрирован.",
+    "verification_run_id":  "W2-T003-54254159-20261006"
 }

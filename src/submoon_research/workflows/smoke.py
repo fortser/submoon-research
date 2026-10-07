@@ -51,7 +51,7 @@ def environment(check_imports=False):
         except metadata.PackageNotFoundError:
             build_tools[name]=None
     optional_science={}
-    for name in ('spiceypy',):
+    for name in ('spiceypy', 'reboundx', 'numba', 'llvmlite', 'psutil'):
         try:
             optional_science[name]=metadata.version(name)
         except metadata.PackageNotFoundError:

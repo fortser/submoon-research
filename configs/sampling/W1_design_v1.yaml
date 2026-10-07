@@ -1,0 +1,23 @@
+schema_version: '1.0'
+design_id: W1-nominal-design-v1
+status: development
+horizon_seconds: 315576000000.0
+year_seconds: 31557600.0
+measures: [uniform_a_e_cos_i_phases, uniform_log_a, canonical_volume]
+main_hosts: [iapetus, titan, callisto, rhea, ganymede, phoebe]
+control_hosts: [europa, dione, hyperion, himalia]
+development: [iapetus, ganymede, himalia]
+holdout: [europa, dione, hyperion]
+scenario_id: nominal_J2000_TDB_fixed_J2
+eccentricity_max: 0.3
+contact_buffer: 0.02
+submoon_radius_km: 0.1
+randomizations: 8
+power: 8
+seed_base: 202610051
+effect: 0.03
+target_half_width: 0.01
+numeric_sensitivity: 0.005
+alpha: 0.05
+interval_method: hoeffding
+production_allowed: false

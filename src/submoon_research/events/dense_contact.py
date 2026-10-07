@@ -3,6 +3,7 @@
 import numpy as np
 from numpy.polynomial import chebyshev as cheb
 from scipy.optimize import brentq
+from submoon_research.dynamics.dense_segments import chebyshev_samples
 
 NODES = np.cos(np.arange(8) * np.pi / 7)
 INVERSE = np.linalg.inv(cheb.chebvander(NODES, 7))
@@ -13,19 +14,20 @@ def polynomial_contact(
 ):
     if not t0 < t1 or len(radii) != body_count or np.any(np.asarray(radii) <= 0):
         raise ValueError("Неверная контактная постановка")
-    times = t0 + (NODES + 1) * (t1 - t0) / 2
-    samples = np.asarray(dense(times)).T.reshape(8, body_count + 1, 6)
+    samples, inverse = chebyshev_samples(dense, t0, t1)
+    if samples.shape[1] != body_count + 1:
+        raise ValueError('Число тел не совпало с dense-сегментом')
     if not np.isfinite(samples).all():
         raise ValueError("Неконечный dense output")
     found = []
     for index, radius in enumerate(radii):
         positions = samples[:, -1, :3] - samples[:, index, :3]
-        coefficients = INVERSE @ positions
+        coefficients = inverse @ positions
         # |Tk(x)|<=1 на [-1,1]: нижняя граница нормы всего полинома.
         lower = np.linalg.norm(coefficients[0]) - np.sum(np.linalg.norm(coefficients[1:], axis=1))
         if lower > radius + distance_tolerance:
             continue
-        squared = np.zeros(15)
+        squared = np.zeros(2*len(coefficients)-1)
         for axis in range(3):
             part = cheb.chebmul(coefficients[:, axis], coefficients[:, axis])
             squared[: len(part)] += part

@@ -1,0 +1,115 @@
+======================================================================================================================
+VAST.AI — доступные станции (снимок рынка), критерии:
+  - без требования по видеокарте (обычная выдача + CPU-only num_gpus=0, объединено)
+  - активных (реально доступных, cpu_cores_effective) ядер > 20
+  - цена <= 0.20 $/час (dph_total, с учётом 5 GiB storage по умолчанию)
+  - топ-100 по цене, в файле отсортированы ПО УБЫВАНИЮ цены (дорогие -> дешёвые)
+Снимок: 2026-10-06 12:40 (клиент vastai 0.3.1, сортировка поиска по dph).
+======================================================================================================================
+
+  # |         ID |   $/час | эфф.яд | физ.яд | RAM GiB |     диск |                    GPU | Локация | CPU
+----------------------------------------------------------------------------------------------------------------------
+  1 |   47543120 |  0.1890 |   32.0 |     64 |      47 |      660 |         RTX 4060 Ti x2 | United States, US | AMD EPYC 7532 32-Core Processor
+  2 |   50606623 |  0.1885 |   28.0 |     56 |      63 |      316 |          Q RTX 5000 x2 | New York, US | Xeon® E5-2680 v4 
+  3 |   29430973 |  0.1881 |   24.0 |     24 |      31 |      776 |            RTX 3080 x1 | Argentina, AR | AMD Ryzen 9 5900X 12-Core Processor
+  4 |   53323515 |  0.1881 |   24.0 |     24 |      15 |     1216 |            RTX 3080 x1 | Switzerland, CH | 13th Gen Core™ i7-13700K
+  5 |   49992673 |  0.1881 |   32.0 |    128 |      63 |     1650 |         RTX 4060 Ti x1 | Utah, US | AMD Ryzen Threadripper PRO 3995WX 64-Cores
+  6 |   51327253 |  0.1814 |   64.0 |    128 |     126 |      234 |            RTX 5060 x1 | Denmark, DK | AMD EPYC 7B12 64-Core Processor
+  7 |   49987564 |  0.1747 |   32.0 |    128 |      63 |      621 |            RTX 3090 x1 | Indiana, US | AMD EPYC 7T83 64-Core Processor
+  8 |   34858364 |  0.1747 |   24.0 |     48 |      31 |      304 |            RTX 3090 x1 | North Macedonia, MK | Xeon® E5-2673 v3 
+  9 |   41364912 |  0.1675 |   48.0 |    192 |     126 |     3000 |            Tesla T4 x1 | Norway, NO | Xeon® E7-8890 v4 
+ 10 |   53038581 |  0.1623 |   24.0 |    192 |      63 |      361 |         RTX 3060 Ti x1 | Norway, NO | AMD EPYC 7K62 48-Core Processor
+ 11 |   31011000 |  0.1623 |   24.0 |    192 |      63 |       91 |         RTX 4060 Ti x1 | Norway, NO | AMD EPYC 7K62 48-Core Processor
+ 12 |   46743381 |  0.1605 |   28.0 |     28 |      63 |     1320 |         RTX 5060 Ti x1 | Thailand, TH | Core™ i7-14700
+ 13 |   53153487 |  0.1556 |   25.6 |    128 |      50 |      602 |         RTX 5060 Ti x1 | Ontario, CA | AMD EPYC 7C13 64-Core Processor
+ 14 |   47065425 |  0.1547 |   32.0 |     64 |      63 |      664 |         RTX 5060 Ti x1 | Ukraine, UA | AMD EPYC 7532 32-Core Processor
+ 15 |   46881314 |  0.1543 |   24.0 |     48 |      24 |       70 |         RTX 5060 Ti x1 | Bulgaria, BG | Xeon® E5-2680 v4 
+ 16 |   52384153 |  0.1536 |   24.0 |     24 |      63 |      674 |            RTX 3060 x2 | Norway, NO | Xeon® E5-2650 v4 
+ 17 |   54182246 |  0.1527 |   24.0 |     24 |      31 |      730 |            RTX 3090 x1 | California, US | Xeon® E5-2696 v2 
+ 18 |   28195553 |  0.1490 |   24.0 |     96 |      27 |      159 |            RTX 3090 x1 | United States, US | AMD EPYC 7R32 48-Core Processor
+ 19 |   51648677 |  0.1481 |   24.0 |     48 |      63 |      312 |           RTX A4000 x1 | Massachusetts, US | Xeon® E5-2690 v3 
+ 20 |   46460414 |  0.1481 |   24.0 |     48 |     110 |      106 |         RTX 3060 Ti x1 | Massachusetts, US | Xeon® E5-2690 v3 
+ 21 |   44685307 |  0.1481 |   32.0 |    256 |      28 |      370 |            RTX 3080 x1 | Norway, NO | AMD EPYC 7B13 64-Core Processor
+ 22 |   48540473 |  0.1388 |   32.0 |    256 |     126 |     1246 |         RTX 5060 Ti x1 | Italy, IT | AMD EPYC 7763 64-Core Processor
+ 23 |   53259696 |  0.1361 |   32.0 |     64 |      63 |      722 |            RTX 3080 x1 | United States, US | Xeon® E5-2682 v4 
+ 24 |   54326512 |  0.1361 |   32.0 |     64 |     126 |      769 |         RTX 5060 Ti x1 | Florida, US | AMD EPYC 7502 32-Core Processor
+ 25 |   54254850 |  0.1352 |   25.6 |    256 |      25 |      296 |         RTX 5060 Ti x1 | Ohio, US | AMD EPYC 7B13 64-Core Processor
+ 26 |   54080768 |  0.1349 |   32.0 |     32 |      31 |      719 |            RTX 3060 x2 | Norway, NO | Xeon® E5-2682 v4 
+ 27 |   54074105 |  0.1349 |   32.0 |     32 |      63 |      683 |            RTX 3060 x2 | Norway, NO | Xeon® E5-2682 v4 
+ 28 |   45779430 |  0.1347 |   24.0 |     24 |      31 |      271 |         GTX 1080 Ti x2 | South Korea, KR | Xeon® E5-2673 v3 
+ 29 |   40404575 |  0.1347 |   48.0 |     48 |      31 |      531 |         GTX 1080 Ti x2 | South Korea, KR | Xeon® E5-2673 v3 
+ 30 |   50006709 |  0.1347 |   36.0 |     72 |     126 |      566 |            Tesla T4 x1 | Pennsylvania, US | Xeon® E5-2697 v4 
+ 31 |   46831472 |  0.1347 |   40.0 |     80 |     126 |      630 |         GTX 1660 Ti x2 | United Kingdom, GB | Xeon® E5-2673 v4 
+ 32 |   50701343 |  0.1347 |   28.0 |     56 |      16 |      796 |            RTX 2070 x2 | South Korea, KR | Xeon® E5-2680 v4 
+ 33 |   46441870 |  0.1347 |   24.0 |     24 |      15 |      293 |            RTX 3080 x1 | Spain, ES | Xeon® E5-2670 v3 
+ 34 |   53830014 |  0.1347 |   32.0 |     64 |      16 |      184 |         RTX 5060 Ti x1 | Denmark, DK | AMD Ryzen Threadripper PRO 3975WX 32-Cores
+ 35 |   50020018 |  0.1267 |   24.0 |     24 |      31 |      373 |         GTX 1080 Ti x2 | South Korea, KR | Xeon® E5-2673 v3 
+ 36 |   27833262 |  0.1223 |   24.0 |     96 |      31 |      301 |         RTX 5060 Ti x1 | United States, US | AMD EPYC 7R32 48-Core Processor
+ 37 |   51877650 |  0.1214 |   32.0 |     64 |     126 |      571 |            RTX 3070 x1 | Quebec, CA | AMD EPYC 7D12 32-Core Processor
+ 38 |   53543655 |  0.1165 |   32.0 |    128 |      31 |      382 |         RTX 5060 Ti x1 | Poland, PL | AMD EPYC 7V12 64-Core Processor
+ 39 |   54182337 |  0.1127 |   40.0 |     80 |      47 |       76 |            RTX 3060 x2 | California, US | Xeon® E5-2673 v4 
+ 40 |   52494641 |  0.1090 |   36.0 |     72 |      47 |      691 |        Quadro P4000 x2 | United States, US | Xeon® E5-2686 v4 
+ 41 |   51941431 |  0.1090 |   32.0 |    256 |      31 |      164 |            RTX 3060 x1 | Norway, NO | AMD EPYC 7702 64-Core Processor
+ 42 |   34190998 |  0.1085 |   24.0 |     48 |     126 |      328 |            RTX 3080 x1 | Washington, US | Xeon® E5-2680 v3 
+ 43 |   51680484 |  0.1076 |   32.0 |     32 |      63 |     1479 |            RTX 3060 x1 | Oklahoma, US | AMD Ryzen 9 5900XT 16-Core Processor
+ 44 |   32096985 |  0.0947 |   25.6 |    128 |      76 |      586 |           RTX A4000 x1 | Australia, AU | AMD EPYC 7713 64-Core Processor
+ 45 |   53157040 |  0.0947 |   28.0 |     56 |     126 |      372 |           RTX A4000 x1 | France, FR | Xeon® E5-2680 v4 
+ 46 |   47927849 |  0.0941 |   24.0 |     48 |     126 |      853 |          GTX 1660 S x1 | Quebec, CA | Xeon® E5-2697 v2 
+ 47 |   52971262 |  0.0814 |   24.0 |     72 |      21 |      139 |          Tesla P100 x1 | Missouri, US | Xeon® E5-2697 v4 
+ 48 |   47674542 |  0.0681 |   24.0 |     48 |      16 |      370 |         GTX 1080 Ti x1 | South Korea, KR | Xeon® E5-2673 v3 
+ 49 |   52613126 |  0.0641 |   24.0 |     24 |      16 |      156 |         GTX 1080 Ti x1 | South Korea, KR | Xeon® E5-2673 v3 
+ 50 |   50029639 |  0.0641 |   24.0 |     24 |      16 |      143 |         GTX 1080 Ti x1 | South Korea, KR | Xeon® E5-2673 v3 
+ 51 |   24964764 |  0.0123 |  128.0 |    128 |       0 |     2143 |                 N/A x0 | Japan, JP | Xeon® Gold 6430
+ 52 |   46046377 |  0.0123 |   36.0 |     36 |       0 |      589 |                 N/A x0 | Alberta, CA | Xeon® Gold 6240 
+ 53 |   54462411 |  0.0123 |  384.0 |    384 |       0 |     6598 |                 N/A x0 | Vietnam, VN | AMD EPYC 9K84 96-Core Processor
+ 54 |   50833956 |  0.0123 |   64.0 |     64 |       0 |     1199 |                 N/A x0 | Maryland, US | AMD EPYC 7532 32-Core Processor
+ 55 |   49155153 |  0.0123 |  384.0 |    384 |       0 |     3975 |                 N/A x0 | Hungary, HU | AMD EPYC 9654 96-Core Processor
+ 56 |   49846921 |  0.0123 |  256.0 |    256 |       0 |     1531 |                 N/A x0 | Hungary, HU | AMD EPYC 7763 64-Core Processor
+ 57 |   43620838 |  0.0120 |  384.0 |    384 |       0 |     4301 |                 N/A x0 | Hungary, HU | AMD EPYC 9654 96-Core Processor
+ 58 |   31202349 |  0.0119 |  256.0 |    256 |       0 |     2768 |                 N/A x0 | The Netherlands, NL | AMD EPYC 7742 64-Core Processor
+ 59 |   20404246 |  0.0119 |   32.0 |     32 |       0 |      200 |                 N/A x0 | Texas, US | AMD EPYC 7282 16-Core Processor
+ 60 |   50360042 |  0.0119 |   64.0 |     64 |       0 |     2148 |                 N/A x0 | Hungary, HU | AMD EPYC 7532 32-Core Processor
+ 61 |   28705790 |  0.0119 |  256.0 |    256 |       0 |     4065 |                 N/A x0 | Texas, US | Xeon® 6767P
+ 62 |   28705871 |  0.0119 |  256.0 |    256 |       0 |     4538 |                 N/A x0 | Texas, US | Xeon® 6767P
+ 63 |   45272957 |  0.0114 |   80.0 |     80 |       0 |      680 |                 N/A x0 | Henan, CN | Xeon® E5-2673 v4 
+ 64 |   33276322 |  0.0114 |   32.0 |     32 |       0 |      694 |                 N/A x0 | Vietnam, VN | AMD Ryzen Threadripper PRO 5955WX 16-Cores
+ 65 |   32240913 |  0.0114 |   32.0 |     32 |       0 |      657 |                 N/A x0 | Türkiye, TR | AMD Ryzen 9 7950X3D 16-Core Processor
+ 66 |   48372902 |  0.0114 |   96.0 |     96 |       0 |     1124 |                 N/A x0 | Hebei, CN | AMD EPYC 7K62 48-Core Processor
+ 67 |   50875990 |  0.0114 |   24.0 |     24 |       0 |      100 |                 N/A x0 | South Korea, KR | Xeon® E5-2650 v4 
+ 68 |   42515618 |  0.0114 |   64.0 |     64 |       0 |      179 |                 N/A x0 | New York, US | AMD Ryzen Threadripper PRO 7975WX 32-Cores
+ 69 |   54042511 |  0.0114 |  128.0 |    128 |       0 |      507 |                 N/A x0 | Taiwan, TW | AMD EPYC 7742 64-Core Processor
+ 70 |   54278086 |  0.0114 |  256.0 |    256 |       0 |      478 |                 N/A x0 | Norway, NO | AMD EPYC 7B13 64-Core Processor
+ 71 |   35971322 |  0.0114 |  256.0 |    256 |       0 |      375 |                 N/A x0 | Thailand, TH | AMD EPYC 7B12 64-Core Processor
+ 72 |   53258832 |  0.0114 |  384.0 |    384 |       0 |     2823 |                 N/A x0 | Poland, PL | AMD EPYC 9654 96-Core Processor
+ 73 |   43211259 |  0.0114 |  512.0 |    512 |       0 |     6808 |                 N/A x0 | United Kingdom, GB | AMD EPYC 9754 128-Core Processor
+ 74 |   54425586 |  0.0114 |  512.0 |    512 |       0 |     5144 |                 N/A x0 | New York, US | AMD EPYC 9754 128-Core Emb Processor
+ 75 |   45026553 |  0.0114 |  192.0 |    192 |       0 |     2957 |                 N/A x0 | Alberta, CA | AMD EPYC 9654 96-Core Processor
+ 76 |   53167279 |  0.0114 |   32.0 |     32 |       0 |      662 |                 N/A x0 | Iceland, IS | AMD Ryzen Threadripper PRO 3955WX 16-Cores
+ 77 |   24992304 |  0.0114 |   96.0 |     96 |       0 |     2048 |                 N/A x0 | Germany, DE | AMD EPYC 7K62 48-Core Processor
+ 78 |   50069471 |  0.0114 |   24.0 |     24 |       0 |     4131 |                 N/A x0 | Texas, US | AMD EPYC 7402 24-Core Processor
+ 79 |   29150573 |  0.0114 |  256.0 |    256 |       0 |     5826 |                 N/A x0 | Slovenia, SI | AMD EPYC 7T83 64-Core Processor
+ 80 |   36878343 |  0.0114 |  256.0 |    256 |       0 |    10859 |                 N/A x0 | Slovenia, SI | AMD EPYC 7713 64-Core Processor
+ 81 |   31632920 |  0.0114 |  256.0 |    256 |       0 |     1762 |                 N/A x0 | Slovenia, SI | AMD EPYC 7713 64-Core Processor
+ 82 |   30193815 |  0.0114 |  256.0 |    256 |       0 |     3012 |                 N/A x0 | Ireland, IE | AMD EPYC 9554 64-Core Processor
+ 83 |   45026332 |  0.0114 |  256.0 |    256 |       0 |     2095 |                 N/A x0 | Alberta, CA | AMD EPYC 7B13 64-Core Processor
+ 84 |   45028530 |  0.0114 |  256.0 |    256 |       0 |     1608 |                 N/A x0 | Alberta, CA | AMD EPYC 7B13 64-Core Processor
+ 85 |   54391572 |  0.0114 |  192.0 |    192 |       0 |     1024 |                 N/A x0 | Iceland, IS | XEON® PLATINUM 8568Y+
+ 86 |   51056502 |  0.0113 |  256.0 |    256 |       0 |     4604 |                 N/A x0 | Bulgaria, BG | AMD EPYC 9555 64-Core Processor
+ 87 |   31831725 |  0.0111 |   24.0 |     24 |       0 |     1959 |                 N/A x0 | Lithuania, LT | AMD Ryzen 9 7900 12-Core Processor
+ 88 |   48544091 |  0.0111 |  384.0 |    384 |       0 |     3193 |                 N/A x0 | British Columbia, CA | AMD EPYC 9654 96-Core Processor
+ 89 |   54055159 |  0.0109 |   32.0 |     32 |       0 |      460 |                 N/A x0 | California, US | AMD EPYC 9684X 96-Core Processor
+ 90 |   54042977 |  0.0109 |   48.0 |     48 |       0 |      921 |                 N/A x0 | California, US | AMD EPYC 9655 96-Core Processor
+ 91 |   54013407 |  0.0109 |  256.0 |    256 |       0 |      928 |                 N/A x0 | Norway, NO | AMD EPYC 7B13 64-Core Processor
+ 92 |   53770093 |  0.0109 |  256.0 |    256 |       0 |     1510 |                 N/A x0 | Quebec, CA | AMD EPYC 7B13 64-Core Processor
+ 93 |   50491383 |  0.0109 |   64.0 |     64 |       0 |     1439 |                 N/A x0 | Czechia, CZ | Xeon® Gold 6438N
+ 94 |   49824507 |  0.0109 |  128.0 |    128 |       0 |        5 |                 N/A x0 | Czechia, CZ | AMD EPYC 75F3 32-Core Processor
+ 95 |   33877204 |  0.0109 |   32.0 |     32 |       0 |      283 |                 N/A x0 | Czechia, CZ | AMD Ryzen Threadripper PRO 5955WX 16-Cores
+ 96 |   45028329 |  0.0109 |  192.0 |    192 |       0 |        5 |                 N/A x0 | Alberta, CA | AMD EPYC 9B14 96-Core Processor
+ 97 |   39942883 |  0.0107 |   40.0 |     40 |       0 |      732 |                 N/A x0 | Quebec, CA | Xeon® E5-2673 v4 
+ 98 |   49724148 |  0.0106 |   32.0 |     32 |       0 |      378 |                 N/A x0 | United Kingdom, GB | Core™ i9-14900KF
+ 99 |   30720264 |  0.0105 |  256.0 |    256 |       0 |     1519 |                 N/A x0 | Nebraska, US | AMD EPYC 7B13 64-Core Processor
+100 |   47744582 |  0.0102 |   48.0 |     48 |       0 |        8 |                 N/A x0 | Utah, US | AMD Ryzen Threadripper 7960X 24-Cores
+
+Всего станций в снимке: 100 (найдено до обрезки топ-100: 100 после строгого порога, с учётом допуска API отсечено 6 шт с ценой 0.2006–0.2019).
+Примечания: цена dph_total с дефолтным storage 5 GiB; эффективные ядра = гарантированная доля CPU, физические — в колонке "физ.яд";
+CPU-only (num_gpus=0) в обычный поиск НЕ попадают — собирались отдельным запросом.

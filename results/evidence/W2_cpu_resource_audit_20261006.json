@@ -1,0 +1,59 @@
+{
+  "standard": {
+    "utc": "2026-10-06T10:51:43.986022+00:00",
+    "total": 87,
+    "resource_types": {
+      "disk": 87
+    },
+    "volume_matches": [],
+    "non_disk": []
+  },
+  "expanded": {
+    "utc": "2026-10-06T10:52:41.874346+00:00",
+    "expanded_count": 222,
+    "types": {
+      "disk": 222
+    },
+    "non_disk": [],
+    "same_machine_volumes": [
+      {
+        "ask_contract_id": 47225763,
+        "bundle_id": 4389799,
+        "cpu_arch": "amd64",
+        "cpu_ghz": 3.7093569000000004,
+        "cpu_name": "AMD EPYC 9654 96-Core Processor",
+        "cuda_max_good": 13.2,
+        "disk_bw": 4434.0,
+        "disk_name": "SAMSUNG MZWLJ7T6HALA-0007C",
+        "disk_space": 7168.0,
+        "driver_vers": 595058003,
+        "driver_version": "595.58.03",
+        "duration": 7463229.328148365,
+        "end_date": 1798747200.0,
+        "external": null,
+        "geolocation": "British Columbia, CA",
+        "geolocode": 513588759,
+        "gpu_arch": "nvidia",
+        "host_id": 632264,
+        "hosting_type": 0,
+        "id": 47225763,
+        "inet_down": 1643.6,
+        "inet_up": 167.9,
+        "machine_id": 146217,
+        "mobo_name": "T1DMGEP",
+        "reliability": 0.9842289,
+        "reliability2": 0.9842289,
+        "reliability_mult": 0.8638428,
+        "start_date": 1791208539.885644,
+        "static_ip": false,
+        "storage_cost": 0.10666666666666667,
+        "storage_total_cost": 0.002962962962962963,
+        "vericode": 1,
+        "verification": "verified",
+        "vms_enabled": false
+      }
+    ]
+  },
+  "scope": "live_offer_classification_not_compute_benchmark",
+  "paid_actions": 0
+}

@@ -25,3 +25,7 @@
 | W0-D009 | W0 | accepted | Аудит W0: сохранить проверенные входы, ограничить приёмку новых L1 | [Запись](tracking/stages/W0/RECORDS.md) |
 | W0-D010 | W0 | accepted | Строгая приёмка L1 v0.3 и patch паспорта Ганимеда | [Запись](tracking/stages/W0/RECORDS.md) |
 | W0-D011 | W0 | accepted | Принятие номинальной L1 и завершение W0 по проверенным продуктам | [Запись](tracking/stages/W0/RECORDS.md) |
+| W1-D001 | W1 | accepted | Общий T=10000 лет, полный состав групп, пилот трёх хозяев и правила H1–H3 | [Запись](tracking/stages/W1/RECORDS.md) |
+| W2-D001 | W2 | accepted | Три движка W2 и удалённый сравнительный пилот | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D002 | W2 | accepted | Одна тестовая аренда: CPU-only до $0.02/h либо CPU на GPU-сервере до $0.12/h | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D003 | W2 | accepted | Тестовая аренда точного оффера 54254159 для W2-T003 | [Запись](tracking/stages/W2/RECORDS.md) |
