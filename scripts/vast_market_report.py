@@ -59,7 +59,40 @@ def _round(value, digits=5):
     return None if value is None else round(value, digits)
 
 
-def report(folder):
+# Колонки сортировки: имя в CLI -> поле модели. Префикс '-' даёт убывание.
+SORT_FIELDS = {
+    'polls': 'polls_seen',
+    'machines': 'unique_machines',
+    'min': 'min_usd_h',
+    'avg': 'avg_usd_h',
+    'median': 'median_usd_h',
+    'max': 'max_usd_h',
+    'min_per_cpu': 'min_usd_per_effective_cpu',
+    'avg_per_cpu': 'avg_usd_per_effective_cpu',
+}
+SORT_CHOICES = ['model', 'polls', 'machines', 'min', 'avg', 'median', 'max',
+                'min_per_cpu', 'avg_per_cpu']
+
+
+def sort_models(models, spec):
+    """Сортировка по возрастанию колонки; '-' впереди — по убыванию."""
+    descending = spec.startswith('-')
+    name = spec[1:] if descending else spec
+    if name != 'model' and name not in SORT_FIELDS:
+        raise SystemExit('Неизвестная колонка сортировки: {}. Доступно: {}'
+                         .format(spec, ', '.join(['model'] + list(SORT_FIELDS))))
+    def key(row):
+        if name == 'model':
+            return (0, row['model'])
+        value = row[SORT_FIELDS[name]]
+        if value is None:
+            return (1, 0.0, row['model'])  # None всегда в конце
+        return (0, -value if descending else value, row['model'])
+    models.sort(key=key)
+    return models
+
+
+def report(folder, sort='min_per_cpu'):
     con = connect(folder)
     try:
         total, complete = con.execute(
@@ -111,9 +144,10 @@ def report(folder):
             min_usd_per_effective_cpu=_round(min(per_cpu)) if per_cpu else None,
             avg_usd_per_effective_cpu=_round(statistics.fmean(per_cpu)) if per_cpu else None,
         ))
-    result.sort(key=lambda r: (-r['polls_seen'], r['min_usd_h']))
+    sort_models(result, sort)
     return dict(
         session=Path(folder).name,
+        sort=sort,
         total_polls=total,
         complete_polls=complete,
         data_polls=data_polls,
@@ -126,8 +160,9 @@ def report(folder):
 
 def print_table(data, limit=None):
     models = data['models'] if limit is None else data['models'][:limit]
-    print('Сессия: {} | циклов с данными: {} (полных {} из {}) | моделей замечено: {}'.format(
-        data['session'], data['data_polls'], data['complete_polls'], data['total_polls'], data['seen_models']))
+    print('Сессия: {} | циклов с данными: {} (полных {} из {}) | моделей замечено: {} | сортировка: {}'.format(
+        data['session'], data['data_polls'], data['complete_polls'], data['total_polls'],
+        data['seen_models'], data.get('sort', 'min_per_cpu')))
     if data['request_status_counts']:
         print('Статусы запросов:', json.dumps(data['request_status_counts'], ensure_ascii=False))
     print()
@@ -150,12 +185,15 @@ def main(argv=None):
     parser.add_argument('folder', nargs='?', type=Path, help='Папка сессии с market.sqlite3')
     parser.add_argument('--latest', action='store_true', help='Взять самую свежую сессию')
     parser.add_argument('--json', action='store_true', help='Вывести JSON')
-    parser.add_argument('--top', type=int, help='Показать только N самых частых моделей')
+    parser.add_argument('--top', type=int, help='Показать только N моделей')
+    parser.add_argument('--sort', default='min_per_cpu',
+                        help='Колонка сортировки по возрастанию (префикс - для убывания): '
+                             + ', '.join(SORT_CHOICES))
     args = parser.parse_args(argv)
     if bool(args.folder) == bool(args.latest):
         parser.error('Укажите папку сессии или --latest')
     folder = args.folder if args.folder else latest_session()
-    data = report(folder)
+    data = report(folder, sort=args.sort)
     if args.json:
         print(json.dumps(data, ensure_ascii=False, indent=2))
     else:

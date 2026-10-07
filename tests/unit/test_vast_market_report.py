@@ -30,6 +30,21 @@ def collection():
     return dict(complete=True, incomplete=[], queries=[], offers=[], elapsed_seconds=.1)
 
 
+def test_sort_models_ascending_none_last_and_descending():
+    module = load_report()
+    rows = [
+        dict(model='b', polls_seen=1, min_usd_per_effective_cpu=0.2),
+        dict(model='a', polls_seen=2, min_usd_per_effective_cpu=None),
+        dict(model='c', polls_seen=1, min_usd_per_effective_cpu=0.1),
+    ]
+    module.sort_models(rows, 'min_per_cpu')
+    assert [r['model'] for r in rows] == ['c', 'b', 'a']
+    module.sort_models(rows, '-min_per_cpu')
+    assert [r['model'] for r in rows] == ['b', 'c', 'a']
+    module.sort_models(rows, 'polls')
+    assert [r['model'] for r in rows] == ['b', 'c', 'a']
+
+
 def test_report_frequency_and_prices(tmp_path):
     rules, cfg = parse_targets((ROOT/'good_cpu.txt').read_text(encoding='utf-8')), MarketConfig()
     store = MarketStore(tmp_path)

@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-07T17:34:14+00:00",
+  "updated_utc": "2026-10-07T17:40:26+00:00",
   "processes": [
     {
       "market_session_id": "20261007T170113Z-77147931",
@@ -12,6 +12,18 @@
       "deadline_epoch": 1791651673.9895191,
       "heartbeat": "data/interim/vast_market/20261007T170113Z-77147931/heartbeat.json",
       "stop_file": "data/interim/vast_market/20261007T170113Z-77147931/stop.requested",
+      "paid_actions": 0
+    },
+    {
+      "market_session_id": "20261007T174026Z-21a4b3ac",
+      "run_id": "vast-market-20261007T174026Z-21a4b3ac",
+      "kind": "read_only_market_monitor",
+      "task_id": "W2-T004",
+      "pid": 832,
+      "folder": "data/interim/vast_market/20261007T174026Z-21a4b3ac",
+      "deadline_epoch": 1791654026.138037,
+      "heartbeat": "data/interim/vast_market/20261007T174026Z-21a4b3ac/heartbeat.json",
+      "stop_file": "data/interim/vast_market/20261007T174026Z-21a4b3ac/stop.requested",
       "paid_actions": 0
     }
   ],
