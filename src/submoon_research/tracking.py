@@ -95,6 +95,13 @@ def writer_lock(root):
         path.unlink(missing_ok=True)
 
 
+def owner_transfer_allowed():
+    # Временный явный override: штатно владелец active-задачи должен сам её
+    # освободить. При "1" разрешён перенос owner без участия прежнего владельца
+    # (например, когда прежний harness недоступен). По умолчанию правило строгое.
+    return os.environ.get("SUBMOON_ALLOW_OWNER_TRANSFER") == "1"
+
+
 def validate_record(root, stage, record, old=None):
     required = {"id", "kind", "title", "status", "summary", "refs", "next_action", "owner"}
     optional = {"detail_path", "related_ids", "supersedes", "affected_runs"}
@@ -129,7 +136,7 @@ def validate_record(root, stage, record, old=None):
     if old and old["kind"] != kind:
         raise ValueError("Cannot change the kind of an existing record")
     if old and old["kind"] == "task" and old["status"] == "active":
-        if record["owner"] != old["owner"]:
+        if record["owner"] != old["owner"] and not owner_transfer_allowed():
             raise ValueError("Release the active task before transferring ownership")
 
 
@@ -145,7 +152,8 @@ def add_record(root, stage, record, actor, expected_revision):
             raise ValueError("Record must be a JSON object")
         old = current_records(events).get(record.get("id"))
         validate_record(root, stage, record, old)
-        if old and old["kind"] == "task" and old["status"] == "active" and old["owner"] != actor:
+        if (old and old["kind"] == "task" and old["status"] == "active"
+                and old["owner"] != actor and not owner_transfer_allowed()):
             raise ValueError("Active task is owned by another actor; coordinate a release first")
         if record["kind"] == "task" and record["status"] == "active" and record["owner"] != actor:
             raise ValueError("An active task must be owned by the writing actor")

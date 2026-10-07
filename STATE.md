@@ -13,7 +13,7 @@
 | [S0](tracking/stages/S0/SUMMARY.md) | complete | 28 |
 | [W0](tracking/stages/W0/SUMMARY.md) | complete | 124 |
 | [W1](tracking/stages/W1/SUMMARY.md) | active | 25 |
-| [W2](tracking/stages/W2/SUMMARY.md) | active | 51 |
+| [W2](tracking/stages/W2/SUMMARY.md) | active | 53 |
 | [W3](tracking/stages/W3/SUMMARY.md) | blocked | 1 |
 | [W4](tracking/stages/W4/SUMMARY.md) | planned | 1 |
 | [W5](tracking/stages/W5/SUMMARY.md) | planned | 1 |

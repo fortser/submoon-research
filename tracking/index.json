@@ -1787,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 51,
+      "revision": 53,
       "status": "active",
       "records": [
         {
@@ -2070,25 +2070,6 @@
           ]
         },
         {
-          "id": "W2-T004",
-          "kind": "task",
-          "status": "active",
-          "title": "Глубокий аудит и мониторинг цен/доступности CPU-конфигураций Vast.ai",
-          "summary": "По поручению пользователя проверить охват good_cpu.txt, корректность логов конфигурации/цены, поднять поисковый предел до $1/h и подготовить 48–72h мониторинг. Исправить пропуски моделей, CPU-only/disk, неполную выдачу и статистику пропусков сети. Выполнить короткий read-only live audit; долгий сбор пользователь планирует позже, аренду не создавать.",
-          "refs": [
-            "docs/tasks/W2_market_monitor_v2.md",
-            "good_cpu.txt",
-            "scripts/vast_track_cpu.py"
-          ],
-          "owner": "codex-vast-market-audit-20261006",
-          "next_action": "Создать единый collector, проверить все целевые CPU и устойчивость/полноту снимков, затем live audit.",
-          "related_ids": [
-            "W2-I001",
-            "W2-C008",
-            "W2-D002"
-          ]
-        },
-        {
           "related_ids": [
             "W2-T003",
             "W2-D002"
@@ -2105,26 +2086,6 @@
           ],
           "status": "done",
           "next_action": "Для выбора этого сервера подготовить план W2-T003 и согласовать увеличение прежнего предела $0.12/h."
-        },
-        {
-          "related_ids": [
-            "W2-T005",
-            "W2-D002",
-            "W2-R001"
-          ],
-          "summary": "Подготовлены A/B/C и удалённый runner; по поручению пользователя проверяем численную приёмку на оффере Vast.ai 54254159. Одобрен один инстанс, не более $0.20/h, 3 часов и $3 суммарно; считать только на CPU. Научная серия до 3600 s; один child run <=600 s. Тестовый результат не является production-допуском.",
-          "id": "W2-T003",
-          "kind": "task",
-          "title": "Быстрый проверяемый численный режим для общего T=10000 лет",
-          "owner": "codex-w2-three-engines-20261006b",
-          "refs": [
-            "docs/tasks/W2_three_engines_v1.md",
-            "docs/compute/W2_test_rental_v2.md",
-            "docs/handoffs/W2_three_engines_session_20261006.md",
-            "reports/operations/W2_offer_54254159_20261006.md"
-          ],
-          "status": "active",
-          "next_action": "Закрепить явные пределы разрешения, адаптировать runner к точному offer_id 54254159, пересобрать пакет и начать удалённую приёмку с watchdog."
         },
         {
           "related_ids": [
@@ -2248,6 +2209,49 @@
           "related_ids": [
             "W2-T006",
             "W2-I004"
+          ]
+        },
+        {
+          "related_ids": [
+            "W2-T005",
+            "W2-D002",
+            "W2-R001"
+          ],
+          "summary": "Прототипы A/B/C, событийный слой, сравнение и транспорт Vast.ai созданы. Удалённый прогон 2026-10-06 провалился: pytest 83 failed/16 errors, научная серия не запускалась. Локально внесены E3 (Simulation.steps(1)), E4 (J2-градиент через Ричардсона), E5 (граница окна ухода), E1 (bundle включает data/interim и good_cpu.txt), E2 (полный pytest как обязательный гейт). E0 (reboundx локально) заблокирован. Владелец временно переведён на pi-main-20261007, т.к. Codex недоступен по лимитам. Численная приёмка W2, включая движок B, не пройдена; нового инстанса нет.",
+          "id": "W2-T003",
+          "kind": "task",
+          "title": "Быстрый проверяемый численный режим для общего T=10000 лет",
+          "owner": "pi-main-20261007",
+          "refs": [
+            "docs/compute/W2_test_rental_v2.md",
+            "docs/compute/vast_market_monitor_guide.md",
+            "docs/handoffs/W2_three_engines_session_20261006.md",
+            "docs/tasks/W2_remote_failure_and_fixes_v1.md",
+            "docs/tasks/W2_three_engines_v1.md",
+            "reports/operations/W2_offer_54254159_20261006.md"
+          ],
+          "status": "active",
+          "next_action": "Запросить новое явное разрешение на аренду; развернуть bundle и прогнать удалённый полный pytest (с reboundx) и кампанию; затем сравнить A/B/C."
+        },
+        {
+          "id": "W2-T004",
+          "kind": "task",
+          "status": "active",
+          "title": "Глубокий аудит и мониторинг цен/доступности CPU-конфигураций Vast.ai",
+          "summary": "Аудит и монитор рынка Vast.ai: классификация disk/compute исправлена, единый collector и сессии сохранены. Добавлены docs/compute/vast_market_monitor_guide.md (полная инструкция) и scripts/vast_market_report.py (отчёт: частота моделей, min/avg/median цены, $/ядро, невстреченные цели). Исправлен BOM-сбой runtime.json (W2-I003). Длительный сбор 48-72 ч не запускался; аренды и платных действий нет. Владелец временно pi-main-20261007.",
+          "refs": [
+            "docs/compute/vast_market_monitor_guide.md",
+            "docs/tasks/W2_market_monitor_v2.md",
+            "good_cpu.txt",
+            "scripts/vast_market_report.py",
+            "scripts/vast_track_cpu.py"
+          ],
+          "owner": "pi-main-20261007",
+          "next_action": "По отдельному поручению запустить короткий live audit или 48-72 h сбор, затем отчёт vast_market_report.py; длительный сбор готов, но требует явного разрешения.",
+          "related_ids": [
+            "W2-I001",
+            "W2-C008",
+            "W2-D002"
           ]
         }
       ]
