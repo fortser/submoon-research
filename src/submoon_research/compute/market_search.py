@@ -5,6 +5,7 @@ import json
 import math
 import os
 from pathlib import Path
+import random
 import re
 import shutil
 import subprocess
@@ -48,6 +49,7 @@ class MarketConfig:
     anonymous: bool = True
     anonymous_cap: int = ANONYMOUS_PAGE_LIMIT
     allow_cli_fallback: bool = False
+    strategy: str = 'auto'
 
     def validate(self):
         for value in (self.max_price, self.storage_gb, self.min_cores, self.min_disk,
@@ -58,6 +60,8 @@ class MarketConfig:
             raise ValueError('Неверный бюджет запросов')
         if not 1 <= self.anonymous_cap <= 1000:
             raise ValueError('Неверный предел анонимной страницы')
+        if self.strategy not in ('auto', 'stratified', 'bisect'):
+            raise ValueError('Неверная стратегия поиска')
 
 
 class SearchError(RuntimeError):
@@ -191,10 +195,99 @@ def cli_request(query, config):
     return parse_response(proc)
 
 
-def collect(config, request=None, clock=time.monotonic, sleep=time.sleep):
+def build_query(low, high, gpu_filter, config):
+    upper = '<=' if high == config.max_price else '<'
+    return (f'{gpu_filter} rentable=true rented=false cpu_arch=amd64 '
+            f'cpu_cores_effective>={config.min_cores:g} disk_space>={config.min_disk:g} '
+            f'dph_total>={low:.12g} dph_total{upper}{high:.12g}')
+
+
+def jittered_windows(low, high, count, rng):
+    width = (high-low)/count
+    edges = [low + index*width for index in range(count+1)]
+    for index in range(1, count):
+        edges[index] += rng.uniform(-0.5, 0.5)*width
+    edges.sort()
+    edges[0], edges[-1] = low, high
+    return [(edges[index], edges[index+1]) for index in range(count)]
+
+
+def collect_stratified(config, request, clock, sleep, seed=0):
+    """Равномерные ценовые окна с jitter и сменой K по seed.
+
+    Анонимная выдача — не более 64 строк и без offset, поэтому широкий диапазон
+    делится на окна сразу, а не рекурсивно: целевые цены достигаются при малом
+    числе запросов (измерено: 0% -> ~77% моделей при 10 запросах).
+    """
+    effective_limit = min(config.limit, config.anonymous_cap) if config.anonymous else config.limit
+    started = clock()
+    offers, receipts, incomplete = {}, [], []
+    last_request = None
+    rng = random.Random(seed)
+    if config.cpu_only:
+        plan = [('num_gpus=0', config.max_queries)]
+    else:
+        # num_gpus=0 на Vast почти всегда дисковые контракты; даём ему малую долю.
+        cpu_windows = min(4, config.max_queries//8)
+        plan = [('num_gpus=0', cpu_windows), ('num_gpus>=1', config.max_queries-cpu_windows)]
+
+    def request_window(low, high, gpu_filter):
+        nonlocal last_request
+        if any(r['status'] in ('rate_limited', 'authentication_or_access_denied') for r in receipts):
+            incomplete.append(dict(low=low, high=high, gpu_filter=gpu_filter, reason='paused_after_access_error'))
+            return False
+        if clock()-started >= config.cycle_budget:
+            incomplete.append(dict(low=low, high=high, gpu_filter=gpu_filter, reason='time_budget'))
+            return False
+        if last_request is not None:
+            sleep(max(0, config.request_spacing-(clock()-last_request)))
+        remaining = config.cycle_budget-(clock()-started)
+        query = build_query(low, high, gpu_filter, config)
+        last_request = clock()
+        receipt = dict(query=query, started_monotonic_seconds=last_request-started)
+        try:
+            from dataclasses import replace
+            result = request(query, replace(config, timeout=min(config.timeout, remaining)))
+            receipt.update(status='ok', reported_http_status=None, count=len(result),
+                transport='anonymous' if config.anonymous else 'cli',
+                response_sha256=hashlib.sha256(json.dumps(result, sort_keys=True).encode()).hexdigest())
+        except SearchError as exc:
+            receipt.update(status=exc.kind, reported_http_status=exc.status, count=None)
+            incomplete.append(dict(low=low, high=high, gpu_filter=gpu_filter, reason=exc.kind))
+            receipts.append(receipt | {'elapsed_seconds': clock()-last_request})
+            return False
+        receipt['elapsed_seconds'] = clock()-last_request
+        receipts.append(receipt)
+        for offer in result:
+            if isinstance(offer.get('id'), int):
+                offers[offer['id']] = offer
+        if len(result) >= effective_limit:
+            incomplete.append(dict(low=low, high=high, gpu_filter=gpu_filter, reason='saturated_price_bucket'))
+        return True
+
+    for gpu_filter, budget in plan:
+        if budget <= 0:
+            continue
+        # Смена K по seed расцепляет проходы; jitter сдвигает границы окон.
+        count = min(budget, max(1, budget - 6*(seed % 3)))
+        for low, high in jittered_windows(0., config.max_price, count, rng):
+            if not request_window(low, high, gpu_filter):
+                break
+    if any(r['status'] != 'ok' for r in receipts):
+        incomplete.append(dict(reason='request_errors'))
+    return dict(offers=list(offers.values()), queries=receipts, complete=not incomplete,
+                incomplete=incomplete, elapsed_seconds=clock()-started, strategy='stratified')
+
+
+def collect(config, request=None, clock=time.monotonic, sleep=time.sleep, seed=0):
     config.validate()
     if request is None:
         request = default_request
+    strategy = config.strategy
+    if strategy == 'auto':
+        strategy = 'stratified' if config.anonymous else 'bisect'
+    if strategy == 'stratified':
+        return collect_stratified(config, request, clock, sleep, seed)
     # Анонимная выдача ограничена страницей; сравнивать насыщение нужно с ней,
     # иначе разбиение диапазона не сработает и часть предложений потеряется.
     effective_limit = min(config.limit, config.anonymous_cap) if config.anonymous else config.limit
@@ -260,7 +353,7 @@ def collect(config, request=None, clock=time.monotonic, sleep=time.sleep):
     if any(r['status'] != 'ok' for r in receipts):
         incomplete.append(dict(reason='request_errors'))
     return dict(offers=list(offers.values()), queries=receipts, complete=not incomplete,
-                incomplete=incomplete, elapsed_seconds=clock()-started)
+                incomplete=incomplete, elapsed_seconds=clock()-started, strategy='bisect')
 
 
 def rejection(offer, targets, config):

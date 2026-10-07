@@ -33,3 +33,4 @@
 | W2-D005 | W2 | accepted | Подтверждать удалённый хост через verify; SSH через шлюз Vast | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D006 | W2 | accepted | Порог целостности dense IAS15 понижен 2e-13 -> 1e-9 с обоснованием | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D007 | W2 | accepted | Монитор рынка переведён на анонимный публичный endpoint | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D008 | W2 | accepted | Анонимный монитор: стратегия stratified (окна+jitter+смена K) | [Запись](tracking/stages/W2/RECORDS.md) |

@@ -139,6 +139,31 @@ def test_anonymous_request_parses_offers_without_secret(monkeypatch):
     assert data[0]['id'] == 1 and 'instance_api_key' not in data[0]
 
 
+def test_default_strategy_is_stratified_for_anonymous(monkeypatch):
+    monkeypatch.setattr('submoon_research.compute.market_search.anonymous_request',
+                        lambda query, config: [])
+    result = collect(MarketConfig(request_spacing=0, max_queries=8), sleep=lambda seconds: None)
+    assert result['strategy'] == 'stratified'
+
+
+def test_cli_default_strategy_is_bisect(monkeypatch):
+    monkeypatch.setattr('submoon_research.compute.market_search.cli_request',
+                        lambda query, config: [])
+    result = collect(MarketConfig(anonymous=False, request_spacing=0, max_queries=4),
+                     sleep=lambda seconds: None)
+    assert result['strategy'] == 'bisect'
+
+
+def test_stratified_seed_changes_windows(monkeypatch):
+    monkeypatch.setattr('submoon_research.compute.market_search.anonymous_request',
+                        lambda query, config: [])
+    cfg = MarketConfig(request_spacing=0, max_queries=16, strategy='stratified')
+    first = collect(cfg, sleep=lambda seconds: None, seed=0)
+    second = collect(cfg, sleep=lambda seconds: None, seed=1)
+    assert first['strategy'] == 'stratified' and 1 <= len(first['queries']) <= cfg.max_queries
+    assert [r['query'] for r in first['queries']] != [r['query'] for r in second['queries']]
+
+
 def test_collect_prefers_anonymous_and_never_calls_cli(monkeypatch):
     calls = {'anonymous': 0, 'cli': 0}
 
@@ -174,10 +199,10 @@ def test_truncated_search_is_split():
     def request(q, c):
         queries.append(q)
         return [offer(id=1), offer(id=2)] if len(queries) == 1 else []
-    result = collect(MarketConfig(limit=2, request_spacing=0), request=request)
+    result = collect(MarketConfig(limit=2, request_spacing=0, strategy='bisect'), request=request)
     assert result['complete'] and len(queries) == 4
     assert 'dph_total<0.5' in queries[1] and 'dph_total>=0.5' in queries[2]
-    limited = collect(MarketConfig(limit=2, max_queries=1, request_spacing=0),
+    limited = collect(MarketConfig(limit=2, max_queries=1, request_spacing=0, strategy='bisect'),
         request=lambda q,c:[offer(id=1),offer(id=2)])
     assert not limited['complete'] and limited['incomplete']
 
@@ -187,7 +212,7 @@ def test_rate_limit_stops_subsequent_calls():
     def request(q, c):
         called.append(q)
         raise SearchError('rate_limited', 429)
-    result = collect(MarketConfig(request_spacing=0), request=request)
+    result = collect(MarketConfig(request_spacing=0, strategy='bisect'), request=request)
     assert not result['complete'] and len(called) == 1
 
 
@@ -247,7 +272,7 @@ def test_monitor_session_lifecycle_and_runtime_without_network(tmp_path, monkeyp
     root.mkdir()
     (root/'good_cpu.txt').write_text((ROOT/'good_cpu.txt').read_text(encoding='utf-8'), encoding='utf-8')
     data = collection() | {'queries':[dict(status='ok')], 'offers':[offer()]}
-    monkeypatch.setattr('submoon_research.compute.market_monitor.collect', lambda cfg:data)
+    monkeypatch.setattr('submoon_research.compute.market_monitor.collect', lambda cfg, **kwargs:data)
     folder = monitor(root, MarketConfig(), cycles=1, folder=root/'session', duration_hours=.1)
     manifest = json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
     assert manifest['status'] == 'completed' and manifest['paid_actions'] == 0
@@ -267,7 +292,7 @@ def test_runtime_json_with_bom_does_not_break_session(tmp_path, monkeypatch):
     (root/'tracking/runtime.json').write_text(
         json.dumps(bom_runtime, ensure_ascii=False), encoding='utf-8-sig')
     data = collection() | {'queries':[dict(status='ok')], 'offers':[offer()]}
-    monkeypatch.setattr('submoon_research.compute.market_monitor.collect', lambda cfg:data)
+    monkeypatch.setattr('submoon_research.compute.market_monitor.collect', lambda cfg, **kwargs:data)
     folder = monitor(root, MarketConfig(), cycles=1, folder=root/'session', duration_hours=.1)
     assert json.loads((folder/'manifest.json').read_text(encoding='utf-8'))['status'] == 'completed'
     written = (root/'tracking/runtime.json').read_bytes()

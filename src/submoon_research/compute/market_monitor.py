@@ -111,7 +111,8 @@ def monitor(root, cfg, *, interval=300., duration_hours=72., cycles=None, folder
                 break
             started = time.monotonic()
             bounded = replace(cfg, cycle_budget=min(cfg.cycle_budget, manifest['deadline_epoch']-time.time()))
-            data = collect(bounded)
+            # seed меняется каждый цикл: смена K и jitter границ окон расцепляют проходы.
+            data = collect(bounded, seed=done)
             rejects = Counter()
             selected = []
             for o in data['offers']:
@@ -193,6 +194,8 @@ def main(argv=None):
     parser.add_argument('--request-spacing', type=float, default=1.)
     parser.add_argument('--transport', choices=('anonymous', 'cli'), default='anonymous',
                         help='anonymous (по умолчанию) не тратит суточную квоту аккаунта')
+    parser.add_argument('--strategy', choices=('auto', 'stratified', 'bisect'), default='auto',
+                        help='auto: stratified для anonymous, bisect для cli')
     parser.add_argument('--allow-cli-fallback', action='store_true',
                         help='при недоступности анонимного endpoint падать на CLI (тратит квоту)')
     parser.add_argument('--interval', type=float, default=300.)
@@ -230,7 +233,8 @@ def main(argv=None):
         whole_machine_only=args.whole_machine_only, limit=args.limit,
         max_queries=args.max_queries, request_spacing=args.request_spacing,
         anonymous=args.transport == 'anonymous',
-        allow_cli_fallback=args.allow_cli_fallback)
+        allow_cli_fallback=args.allow_cli_fallback,
+        strategy=args.strategy)
     monitor(root, cfg, interval=args.interval, duration_hours=args.duration_hours,
             cycles=1 if args.once else args.cycles, folder=args.output, resume=args.resume)
     return 0
