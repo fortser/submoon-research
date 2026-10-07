@@ -29,3 +29,5 @@
 | W2-D001 | W2 | accepted | Три движка W2 и удалённый сравнительный пилот | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D002 | W2 | accepted | Одна тестовая аренда: CPU-only до $0.02/h либо CPU на GPU-сервере до $0.12/h | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D003 | W2 | accepted | Тестовая аренда точного оффера 54254159 для W2-T003 | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D004 | W2 | accepted | Аренда оффера 33051665 (Core i9-14900K) до 6 ч, не дороже $0.20/ч | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D005 | W2 | accepted | Подтверждать удалённый хост через verify; SSH через шлюз Vast | [Запись](tracking/stages/W2/RECORDS.md) |

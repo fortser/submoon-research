@@ -1,0 +1,20 @@
+{
+  "approved": true,
+  "user_message": "Проверь, есть ли сейчас доступной рабочей станции на процессоре core i9 14900k по цене до 20 центов в час . если есть, то разрешаю тебе его арендовать на необходимой тебе срок вплоть до 6 часов",
+  "budget_usd": 1.5,
+  "max_hours": 6,
+  "max_instances": 1,
+  "max_hourly_usd": 0.2,
+  "gpu_fallback": true,
+  "allow_equivalent": false,
+  "allow_unverified": true,
+  "offer_ids": [33051665],
+  "machine_ids": [55801],
+  "plan": "docs/compute/W2_test_rental_v4.md",
+  "condition": "Только точный offer 33051665 (Core i9-14900K); научный расчёт использует CPU; GPU не используется.",
+  "disk_gib": 20,
+  "transfer_price_max_usd_gb": 0.02,
+  "cpu_only_workload": true,
+  "recorded_utc": "2026-10-07T10:00:00Z",
+  "source": "explicit_user_instruction_in_current_conversation"
+}

@@ -14,12 +14,14 @@ import subprocess
 import sys
 import tarfile
 import time
+import urllib.request
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 WORK = ROOT/'scratch/w2_remote'
 CLI = shutil.which('vastai')
+VAST_BUNDLES = 'https://console.vast.ai/api/v0/bundles/'
 SAFE_OFFER_FIELDS = ('id', 'machine_id', 'cpu_name', 'cpu_cores_effective', 'cpu_cores',
     'cpu_ram', 'cpu_arch', 'gpu_name', 'num_gpus', 'dph_total', 'dph_base', 'storage_total_cost',
     'storage_cost', 'inet_down_cost', 'inet_up_cost', 'reliability', 'verification', 'disk_space',
@@ -51,8 +53,20 @@ def digest(path):
 def cli(*arguments):
     env = {k: v for k, v in os.environ.items() if k.upper() not in ('HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY')}
     env['PYTHONIOENCODING'] = 'utf-8'
-    result = subprocess.run([CLI, *map(str, arguments), '--raw'], capture_output=True,
-                            text=True, encoding='utf-8', timeout=60, env=env)
+    command = [CLI, *map(str, arguments), '--raw']
+    # Vast API бывает медленным; повторяем только идемпотентные чтения, не create.
+    safe = bool(arguments) and str(arguments[0]) in ('show', 'ssh-url')
+    attempts = 3 if safe else 1
+    result = None
+    for attempt in range(attempts):
+        try:
+            result = subprocess.run(command, capture_output=True, text=True,
+                                    encoding='utf-8', timeout=120, env=env)
+            break
+        except subprocess.TimeoutExpired:
+            if attempt == attempts-1:
+                raise
+            time.sleep(5)
     if result.returncode:
         raise RuntimeError('Vast CLI failed: '+str(result.returncode))
     text = result.stdout.strip()
@@ -71,6 +85,28 @@ def cli(*arguments):
     return value
 
 
+def anonymous_offers(gpu=False, max_hourly_usd=None, machine_ids=None):
+    """Прямой POST к публичному endpoint без ключа: не тратит дневную квоту аккаунта."""
+    hourly = max_hourly_usd if max_hourly_usd is not None else (0.12 if gpu else 0.02)
+    body = {'rentable': {'eq': True}, 'rented': {'eq': False}, 'type': 'on-demand',
+            'allocated_storage': 20, 'order': [['dph_total', 'asc']], 'limit': 1000,
+            'cpu_arch': {'eq': 'amd64'}, 'disk_space': {'gte': 20},
+            'cpu_cores_effective': {'gte': 16}, 'dph_total': {'lte': hourly}}
+    if gpu:
+        body.update(num_gpus={'gte': 1}, cpu_ram={'gte': 30000}, direct_port_count={'gte': 1},
+                    inet_down_cost={'lte': 0.02}, inet_up_cost={'lte': 0.02}, reliability={'gte': 0.98})
+    else:
+        body['num_gpus'] = {'eq': 0}
+    if machine_ids:
+        body['machine_id'] = {'in': [int(x) for x in machine_ids]}
+    request = urllib.request.Request(VAST_BUNDLES, data=json.dumps(body).encode(),
+        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
+    opened = urllib.request.build_opener(urllib.request.ProxyHandler({})).open(request, timeout=120)
+    with opened as response:
+        data = json.loads(response.read().decode('utf-8', 'replace'))
+    return data.get('offers', []) if isinstance(data, dict) else []
+
+
 def offers(gpu=False, max_hourly_usd=None, offer_ids=None, machine_ids=None):
     hourly = max_hourly_usd if max_hourly_usd is not None else (0.12 if gpu else 0.02)
     query = ('cpu_cores_effective>=16 disk_space>=20 reliability>=0.98 '
@@ -79,14 +115,29 @@ def offers(gpu=False, max_hourly_usd=None, offer_ids=None, machine_ids=None):
                 'inet_down_cost<=0.02 inet_up_cost<=0.02' if gpu else 'num_gpus=0 dph_total<=0.02'))
     if machine_ids:
         query = f"machine_id in [{','.join(map(str, machine_ids))}] " + query
-    result = cli('search', 'offers', query, '--type', 'on-demand', '--storage', 20,
-                 '--limit', max(200, len(offer_ids or [])), '--order', 'dph_total')
-    clean = [{k: r.get(k) for k in SAFE_OFFER_FIELDS} for r in result]
-    save(WORK/'offers_classification.json', dict(utc=now(), all_offers=clean))
+    try:
+        # Предпочтительный путь: публичный endpoint без ключа, квота аккаунта не тратится.
+        result = anonymous_offers(gpu=gpu, max_hourly_usd=hourly, machine_ids=machine_ids)
+        source = 'anonymous_direct'
+    except Exception:
+        # Резервный путь через CLI; расходует дневную поисковую квоту аккаунта.
+        result = cli('search', 'offers', query, '--type', 'on-demand', '--storage', 20,
+                     '--limit', max(200, len(offer_ids or [])), '--order', 'dph_total')
+        source = 'cli'
+    clean = [{k: r.get(k) for k in SAFE_OFFER_FIELDS} for r in result if isinstance(r, dict)]
+    clean = [o for o in clean if o.get('id') is not None]
+    save(WORK/'offers_classification.json', dict(utc=now(), source=source, all_offers=clean))
     clean = [o for o in clean if (True if gpu else CPU_PATTERN.search(o['cpu_name'] or ''))]
     # num_gpus=0 включает дисковые контракты! Имя CPU не даёт права вычислений.
     clean = [o for o in clean if o['resource_type'] in (('gpu',) if gpu else ('cpu', 'compute'))]
-    save(WORK/'offers.json', dict(utc=now(), query=query, offers=clean))
+    if offer_ids:
+        wanted = {int(x) for x in offer_ids}
+        clean = [o for o in clean if o['id'] in wanted]
+    if machine_ids:
+        allowed_machines = {int(x) for x in machine_ids}
+        clean = [o for o in clean if o['machine_id'] in allowed_machines]
+    clean = [o for o in clean if isinstance(o.get('dph_total'), (int, float)) and o['dph_total'] <= hourly]
+    save(WORK/'offers.json', dict(utc=now(), source=source, query=query, offers=clean))
     print(json.dumps(clean, ensure_ascii=False), flush=True)
     return clean
 
@@ -111,7 +162,8 @@ def package():
     WORK.mkdir(parents=True, exist_ok=True)
     paths = []
     for name in ('src', 'scripts', 'tests', 'configs', 'docs', 'tracking', 'results/evidence',
-                 'references', 'data/raw', 'data/processed', 'data/interim', 'runs'):
+                 'references', 'reports', 'arXiv-2609.03564v1', 'data/raw', 'data/processed',
+                 'data/interim', 'data/kernels', 'runs'):
         paths += [p for p in (ROOT/name).rglob('*') if p.is_file()
                   and '__pycache__' not in p.parts and p.suffix not in ('.pyc', '.pem', '.key')
                   and p.name != '.write.lock']
@@ -148,31 +200,41 @@ def instance(instance_id):
 
 def connection(info):
     import paramiko
-    client = paramiko.SSHClient()
     known = WORK/'known_hosts'
-    if known.exists():
-        client.load_host_keys(str(known))
-    # TOFU применяется только к endpoint, возвращённому авторизованным API Vast.
-    client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     key = Path.home()/'.ssh/vast_agent'
+    endpoints = []
     endpoint = cli('ssh-url', info['id'])
     parsed = urlparse(endpoint)
-    if parsed.scheme != 'ssh' or not parsed.hostname or not parsed.port:
+    if parsed.scheme == 'ssh' and parsed.hostname and parsed.port:
+        endpoints.append((parsed.hostname, parsed.port))
+    # Прямой IP из ssh-url может не открываться снаружи; шлюз ssh_host/ssh_port
+    # Vast проксирует тот же контейнер. Пробуем оба, свежий клиент на попытку.
+    if info.get('ssh_host') and info.get('ssh_port'):
+        gateway = (str(info['ssh_host']), int(info['ssh_port']))
+        if gateway not in endpoints:
+            endpoints.append(gateway)
+    if not endpoints:
         raise RuntimeError('CLI не вернул проверяемый SSH endpoint')
     error = None
-    for attempt in range(3):
-        try:
-            client.connect(parsed.hostname, port=parsed.port, username='root',
-                           key_filename=str(key), timeout=20, auth_timeout=20, banner_timeout=20,
-                           allow_agent=False, look_for_keys=False)
-            break
-        except Exception as exc:
-            error = exc
-            if attempt == 2:
-                raise RuntimeError('SSH не подключился: '+type(error).__name__) from None
-            time.sleep(3)
-    client.save_host_keys(str(known))
-    return client
+    for host, port in endpoints:
+        for _ in range(2):
+            client = paramiko.SSHClient()
+            if known.exists():
+                client.load_host_keys(str(known))
+            # TOFU применяется только к endpoint, возвращённому авторизованным API Vast.
+            client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+            try:
+                client.connect(host, port=port, username='root', key_filename=str(key),
+                               timeout=20, auth_timeout=20, banner_timeout=20,
+                               allow_agent=False, look_for_keys=False)
+            except Exception as exc:
+                error = exc
+                client.close()
+                time.sleep(2)
+                continue
+            client.save_host_keys(str(known))
+            return client
+    raise RuntimeError('SSH не подключился: '+type(error).__name__) from None
 
 
 def remote_command(client, command, timeout=120):
@@ -201,12 +263,51 @@ def put_if_missing_or_identical(client, sftp, source, destination):
     return expected
 
 
+def local_identity():
+    import platform
+    return dict(host=platform.node(), cwd=str(ROOT))
+
+
+def verify():
+    """Подтверждает, что команды идут на арендованном Linux-сервере с нашим bundle."""
+    import platform
+    rental = json.loads((WORK/'rental.json').read_text(encoding='utf-8'))
+    iid = int(rental['instance_id'])
+    expected_manifest = digest(WORK/'bundle_manifest.json')
+    info = instance(iid)
+    with connection(info) as client:
+        remote = remote_command(client,
+            'echo HOST=$(hostname); echo OS=$(uname -s); echo ARCH=$(uname -m); '
+            'echo ID=$(cat /workspace/.w2_instance_id 2>/dev/null); '
+            'echo MANIFEST=$(sha256sum /workspace/submoon-research/bundle_manifest.json 2>/dev/null | cut -d" " -f1); '
+            'echo IP=$(hostname -I 2>/dev/null | cut -d" " -f1)', timeout=30)
+    values = dict(line.split('=', 1) for line in remote.strip().splitlines() if '=' in line)
+    local_host = platform.node()
+    print('LOCAL  host=%s cwd=%s' % (local_host, ROOT))
+    print('REMOTE host=%s os=%s arch=%s ip=%s sentinel_id=%s manifest=%s' % (
+        values.get('HOST'), values.get('OS'), values.get('ARCH'), values.get('IP'),
+        values.get('ID'), values.get('MANIFEST')))
+    problems = []
+    if values.get('OS') != 'Linux':
+        problems.append('remote OS is not Linux')
+    if values.get('ID') != str(iid):
+        problems.append('instance sentinel mismatch')
+    if values.get('MANIFEST') != expected_manifest:
+        problems.append('remote bundle manifest SHA mismatch')
+    if values.get('HOST', '').lower() == local_host.lower():
+        problems.append('remote host equals local host')
+    if problems:
+        raise RuntimeError('Remote verification failed: '+'; '.join(problems))
+    print('REMOTE VERIFIED: instance %d runs exactly the local bundle %s' % (iid, expected_manifest))
+    return values
+
+
 def rent(approval_path):
     approval = json.loads(Path(approval_path).read_text(encoding='utf-8'))
     if approval.get('approved') is not True or not approval.get('user_message'):
         raise ValueError('Нет явного пользовательского разрешения')
     price_limit = .20 if approval.get('gpu_fallback') else .02
-    if (approval['budget_usd'] > 3 or approval['max_hours'] > 3
+    if (approval['budget_usd'] > 3 or approval['max_hours'] > 6
             or approval['max_instances'] != 1 or approval['max_hourly_usd'] > price_limit):
         raise ValueError('План превышает подготовленные пределы')
     if (WORK/'rental.json').exists():
@@ -220,7 +321,7 @@ def rent(approval_path):
                and o['cpu_cores_effective'] >= 16
                and (o['resource_type'] == 'gpu' and o['num_gpus'] >= 1 and o['cpu_ram'] >= 30000
                     if approval.get('gpu_fallback') else o['resource_type'] in ('cpu', 'compute') and o['num_gpus'] == 0)
-               and o['verification'] == 'verified']
+               and (o['verification'] == 'verified' or approval.get('allow_unverified'))]
     if approved_ids and len(allowed) != 1:
         raise RuntimeError('Точный offer_id не найден или неоднозначен')
     if not allowed:
@@ -290,6 +391,8 @@ def deploy():
                 raise RuntimeError('Existing remote project failed manifest preflight; not overwriting')
         else:
             archive = '/workspace/w2_bundle_'+digest(WORK/'bundle.tar.gz')+'.tar.gz'
+            # Базовый образ ubuntu:22.04 не содержит /workspace.
+            remote_command(client, 'mkdir -p /workspace')
             put_if_missing_or_identical(client, sftp, WORK/'bundle.tar.gz', archive)
             remote_command(client, 'mkdir -p '+project_root)
             remote_command(client, 'tar -xzf '+archive+' -C '+project_root)
@@ -299,6 +402,8 @@ def deploy():
             ).split()[0]
             if actual_manifest != expected_manifest:
                 raise RuntimeError('SHA of extracted bundle manifest does not match')
+        remote_command(client, 'echo %d > /workspace/.w2_instance_id && hostname > /workspace/.w2_hostname'
+                       % int(rental['instance_id']))
         effective = min(16, int(rental['offer']['cpu_cores_effective']))
         # Команда фиксированная, входной offer не подставляется как shell-код.
         script = ('#!/bin/bash\nset -euo pipefail\nexport DEBIAN_FRONTEND=noninteractive\n'
@@ -325,7 +430,8 @@ def deploy():
             'echo "=== SCIENCE campaign ==="\n'
             '.venv/bin/python -u scripts/run_w2_comparison.py campaign --workers 16 --seconds 3600\n')
         start_file = WORK/('w2_start_'+str(rental['instance_id'])+'.sh')
-        start_file.write_text(script, encoding='utf-8')
+        # Явный LF: Windows write_text иначе добавит CRLF и bash отвергнет pipefail.
+        start_file.write_text(script, encoding='utf-8', newline='\n')
         remote_start = '/workspace/w2_start_'+str(rental['instance_id'])+'.sh'
         remote_log = '/workspace/w2_execution_'+str(rental['instance_id'])+'.log'
         if remote_command(client, 'test ! -e '+remote_log+' && echo absent').strip() != 'absent':
@@ -363,6 +469,7 @@ def status():
 
 
 def download(client, rental):
+    log_path = rental.get('remote_log_path', '/workspace/w2_execution.log')
     script = '''import pathlib, tarfile, hashlib, json
 root=pathlib.Path('/workspace/submoon-research')
 folders=[p for p in (root/'runs').iterdir() if p.name.startswith('W2-') and p.stat().st_mtime >= START]
@@ -372,9 +479,10 @@ pathlib.Path('/workspace/w2_results_manifest.json').write_text(json.dumps(hashes
 with tarfile.open('/workspace/w2_results.tar.gz','w:gz',compresslevel=1) as tar:
  for p in files: tar.add(p,arcname=p.relative_to(root).as_posix())
  tar.add('/workspace/w2_results_manifest.json',arcname='w2_results_manifest.json')
- tar.add('/workspace/w2_execution.log',arcname='w2_execution.log')
+ log=pathlib.Path('__LOG__')
+ if log.exists(): tar.add(str(log),arcname='w2_execution.log')
 print(len(files))
-'''.replace('START', str(rental['created_epoch']-5))
+'''.replace('START', str(rental['created_epoch']-5)).replace('__LOG__', log_path)
     sftp = client.open_sftp()
     with sftp.open('/workspace/w2_pack_results.py', 'w') as f:
         f.write(script)
@@ -402,7 +510,10 @@ print(len(files))
             else:
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 destination.write_bytes(data)
-        (WORK/'execution.log').write_bytes(tar.extractfile('w2_execution.log').read())
+        try:
+            (WORK/'execution.log').write_bytes(tar.extractfile('w2_execution.log').read())
+        except KeyError:
+            pass
     rental.update(downloaded_bytes=target.stat().st_size, result_archive_sha256=remote_hash,
                   verified_result_files=len(entries), downloaded_utc=now())
     save(WORK/'rental.json', rental)
@@ -455,7 +566,7 @@ def watchdog():
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('action', choices=('offers', 'cpu_monitor', 'package', 'rent', 'deploy', 'status', 'finish', 'watchdog', 'inventory'))
+    parser.add_argument('action', choices=('offers', 'cpu_monitor', 'package', 'rent', 'deploy', 'status', 'finish', 'watchdog', 'inventory', 'verify'))
     parser.add_argument('--approval')
     args = parser.parse_args()
     WORK.mkdir(parents=True, exist_ok=True)

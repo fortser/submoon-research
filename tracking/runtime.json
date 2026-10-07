@@ -1,7 +1,28 @@
 {
     "schema_version": "1.0",
-    "updated_utc": "2026-10-07T09:33:42.939Z",
-    "processes": [],
-    "note": "Активных внешних процессов нет; старые market-сессии завершились/были прерваны.",
+    "updated_utc": "2026-10-07T09:44:57+00:00",
+    "processes": [
+        {
+            "run_id": "W2-T003-54619810-20261007",
+            "kind": "vast_rental_watchdog",
+            "task_id": "W2-T003",
+            "pid": 17328,
+            "host": "local-watchdog + Vast.ai",
+            "instance_id": 54619810,
+            "status": "deployed",
+            "last_checked_utc": "2026-10-07T09:54:06+00:00",
+            "deadline_epoch": 1791387883.5479622,
+            "command": "python scripts/vast_w2.py status; stop via python scripts/vast_w2.py finish",
+            "limits": {
+                "max_hours": 6,
+                "dph_total": 0.13962962962962963,
+                "budget_usd": 1.5,
+                "offer_id": 33051665,
+                "max_hourly_usd": 0.2
+            },
+            "log": "scratch/w2_remote/watchdog.log"
+        }
+    ],
+    "note": "W2-T003 аренда 54619810 (i9-14900K) активна по разрешению пользователя.",
     "verification_run_id": "W2-T003-54254159-20261006"
 }
