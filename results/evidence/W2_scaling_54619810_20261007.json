@@ -1,0 +1,96 @@
+{
+  "machine": {
+    "platform": "Linux-6.17.0-19-generic-x86_64-with-glibc2.35",
+    "logical_cpus": 32,
+    "affinity": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "memory_total": 33349718016,
+    "processor": "x86_64",
+    "cpu.max": "3072000 100000",
+    "memory.max": "32014073856",
+    "cpuset.cpus.effective": "0-31"
+  },
+  "jobs": 36,
+  "results": [
+    {
+      "workers": 1,
+      "wall_seconds": 2.4798067731317133,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 1.0,
+      "efficiency": 1.0
+    },
+    {
+      "workers": 2,
+      "wall_seconds": 1.5578278158791363,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 1.5918362400868238,
+      "efficiency": 0.7959181200434119
+    },
+    {
+      "workers": 4,
+      "wall_seconds": 1.1239988110028207,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 2.206236117740422,
+      "efficiency": 0.5515590294351055
+    },
+    {
+      "workers": 8,
+      "wall_seconds": 0.9332250170409679,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 2.6572442099704787,
+      "efficiency": 0.33215552624630984
+    },
+    {
+      "workers": 16,
+      "wall_seconds": 1.1139704370871186,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 2.226097471326143,
+      "efficiency": 0.13913109195788395
+    },
+    {
+      "workers": 32,
+      "wall_seconds": 1.6407050308771431,
+      "jobs": 36,
+      "completed": 36,
+      "speedup": 1.5114275427106938,
+      "efficiency": 0.04723211070970918
+    }
+  ]
+}

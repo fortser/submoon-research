@@ -31,3 +31,4 @@
 | W2-D003 | W2 | accepted | Тестовая аренда точного оффера 54254159 для W2-T003 | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D004 | W2 | accepted | Аренда оффера 33051665 (Core i9-14900K) до 6 ч, не дороже $0.20/ч | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D005 | W2 | accepted | Подтверждать удалённый хост через verify; SSH через шлюз Vast | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D006 | W2 | accepted | Порог целостности dense IAS15 понижен 2e-13 -> 1e-9 с обоснованием | [Запись](tracking/stages/W2/RECORDS.md) |
