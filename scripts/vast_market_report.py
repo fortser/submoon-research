@@ -230,6 +230,9 @@ def main(argv=None):
     data = report(folder, sort=args.sort)
     if args.json:
         print(json.dumps(data, ensure_ascii=False, indent=2))
+    else:
+        # Таблица в терминал печатается всегда (и вместе с --csv).
+        print_table(data, limit=args.top)
     if args.csv:
         path = write_csv(args.csv, data)
         print('CSV: {} ({} строк)'.format(path, len(data['models'])))
@@ -237,8 +240,6 @@ def main(argv=None):
             never = args.csv.with_name(args.csv.stem+'_never_seen.csv')
             write_never_seen(never, data)
             print('CSV (невстреченные цели): {} ({} строк)'.format(never, len(data['never_seen_targets'])))
-    if not args.json and not args.csv:
-        print_table(data, limit=args.top)
     return 0
 
 
