@@ -1787,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 73,
+      "revision": 76,
       "status": "active",
       "records": [
         {
@@ -2154,27 +2154,6 @@
           ]
         },
         {
-          "id": "W2-T004",
-          "kind": "task",
-          "status": "active",
-          "title": "Глубокий аудит и мониторинг цен/доступности CPU-конфигураций Vast.ai",
-          "summary": "Аудит и монитор рынка Vast.ai: классификация disk/compute исправлена, единый collector и сессии сохранены. Добавлены docs/compute/vast_market_monitor_guide.md (полная инструкция) и scripts/vast_market_report.py (отчёт: частота моделей, min/avg/median цены, $/ядро, невстреченные цели). Исправлен BOM-сбой runtime.json (W2-I003). Длительный сбор 48-72 ч не запускался; аренды и платных действий нет. Владелец временно pi-main-20261007.",
-          "refs": [
-            "docs/compute/vast_market_monitor_guide.md",
-            "docs/tasks/W2_market_monitor_v2.md",
-            "good_cpu.txt",
-            "scripts/vast_market_report.py",
-            "scripts/vast_track_cpu.py"
-          ],
-          "owner": "pi-main-20261007",
-          "next_action": "По отдельному поручению запустить короткий live audit или 48-72 h сбор, затем отчёт vast_market_report.py; длительный сбор готов, но требует явного разрешения.",
-          "related_ids": [
-            "W2-I001",
-            "W2-C008",
-            "W2-D002"
-          ]
-        },
-        {
           "related_ids": [
             "W2-T003",
             "W2-D002"
@@ -2451,6 +2430,67 @@
             "W2-T003",
             "W2-D004",
             "W2-I006"
+          ]
+        },
+        {
+          "id": "W2-D007",
+          "kind": "decision",
+          "status": "accepted",
+          "title": "Монитор рынка переведён на анонимный публичный endpoint",
+          "summary": "По требованию пользователя монитор и логгирование свободных станций шлют анонимные POST на https://console.vast.ai/api/v0/bundles/ без API-ключа и не расходуют суточную квоту аккаунта. Публичный endpoint отдаёт <=64 строк на запрос и не поддерживает offset/cpu_name; полнота достигается разбиением цены, лимит --max-queries поднят до 64, spacing до 1 с. CLI-путь доступен явно через --transport cli (тратит квоту). Научные пороги и знаменатели не менялись.",
+          "refs": [
+            "src/submoon_research/compute/market_search.py",
+            "src/submoon_research/compute/market_monitor.py",
+            "docs/compute/vast_market_monitor_guide.md"
+          ],
+          "owner": "pi-main-20261007",
+          "next_action": "Проверить длительный анонимный сбор на устойчивость к IP rate-limit; при необходимости подобрать budget.",
+          "related_ids": [
+            "W2-T004",
+            "W2-I005",
+            "W2-R002"
+          ]
+        },
+        {
+          "id": "W2-C013",
+          "kind": "check",
+          "status": "passed",
+          "title": "Анонимный монитор: --once нашёл 133 целевых станции без квоты",
+          "summary": "scripts/vast_track_cpu.py --once --max-price 1.0 (транспорт по умолчанию anonymous) за ~67 с и 64 запроса нашёл 133 предложения по 38 моделям good_cpu.txt; в requests transport=anonymous, ошибок нет. Квота аккаунта не использовалась (CLI search не вызывался). Полнота не гарантирована: complete=false из-за насыщенных бакетов (>64).",
+          "refs": [
+            "data/interim/vast_market/20261007T120655Z-c1b5756e/latest.txt",
+            "tests/unit/test_vast_market_monitor.py",
+            "src/submoon_research/compute/market_search.py",
+            "docs/compute/vast_market_monitor_guide.md"
+          ],
+          "owner": "pi-main-20261007",
+          "next_action": "Оценить покрытие на длинном прогоне и устойчивость к rate-limit.",
+          "related_ids": [
+            "W2-T004",
+            "W2-D007"
+          ]
+        },
+        {
+          "id": "W2-T004",
+          "kind": "task",
+          "status": "active",
+          "title": "Глубокий аудит и мониторинг цен/доступности CPU-конфигураций Vast.ai",
+          "summary": "Транспорт монитора переведён на анонимный публичный endpoint (W2-D007): без API-ключа, квота аккаунта не тратится. CLI-путь через --transport cli. Добавлены тесты query_to_body/anonymous_request/collect. --once нашёл 133 кандидата по 38 моделям (W2-C013). Публичный endpoint: <=64 строк/запрос, без offset и cpu_name, поэтому покрытие неполное и помечается complete=false. Инструкция обновлена.",
+          "refs": [
+            "docs/compute/vast_market_monitor_guide.md",
+            "docs/tasks/W2_market_monitor_v2.md",
+            "good_cpu.txt",
+            "scripts/vast_market_report.py",
+            "scripts/vast_track_cpu.py",
+            "src/submoon_research/compute/market_search.py",
+            "tests/unit/test_vast_market_monitor.py"
+          ],
+          "owner": "pi-main-20261007",
+          "next_action": "По поручению — короткий или 48-72 h анонимный сбор, затем отчёт vast_market_report.py; следить за IP rate-limit.",
+          "related_ids": [
+            "W2-I001",
+            "W2-C008",
+            "W2-D002"
           ]
         }
       ]

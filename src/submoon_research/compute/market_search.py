@@ -9,6 +9,8 @@ import re
 import shutil
 import subprocess
 import time
+import urllib.error
+import urllib.request
 
 
 # Публичная техническая конфигурация; отсутствующие сведения остаются null.
@@ -23,6 +25,12 @@ PUBLIC_FIELDS = ('id', 'ask_contract_id', 'machine_id', 'resource_type', 'cpu_na
     'rentable', 'rented', 'duration', 'end_date', 'driver_version', 'os_version',
     'vms_enabled', 'datacenter', 'external')
 
+# Публичный endpoint отвечает на POST без API-ключа и не расходует суточную
+# квоту поисковых строк аккаунта; он отдаёт не более ANONYMOUS_PAGE_LIMIT строк.
+VAST_BUNDLES = 'https://console.vast.ai/api/v0/bundles/'
+QUERY_OPERATORS = {'=': 'eq', '!=': 'neq', '>=': 'gte', '<=': 'lte', '>': 'gt', '<': 'lt'}
+ANONYMOUS_PAGE_LIMIT = 64
+
 
 @dataclass(frozen=True)
 class MarketConfig:
@@ -33,10 +41,13 @@ class MarketConfig:
     cpu_only: bool = False
     whole_machine_only: bool = False
     limit: int = 1000
-    max_queries: int = 24
-    request_spacing: float = 5.0
+    max_queries: int = 64
+    request_spacing: float = 1.0
     cycle_budget: float = 240.0
     timeout: float = 60.0
+    anonymous: bool = True
+    anonymous_cap: int = ANONYMOUS_PAGE_LIMIT
+    allow_cli_fallback: bool = False
 
     def validate(self):
         for value in (self.max_price, self.storage_gb, self.min_cores, self.min_disk,
@@ -45,6 +56,8 @@ class MarketConfig:
                 raise ValueError('Ограничения должны быть положительными и конечными')
         if not 1 <= self.limit <= 1000 or not 1 <= self.max_queries <= 64 or self.request_spacing < 0:
             raise ValueError('Неверный бюджет запросов')
+        if not 1 <= self.anonymous_cap <= 1000:
+            raise ValueError('Неверный предел анонимной страницы')
 
 
 class SearchError(RuntimeError):
@@ -82,6 +95,76 @@ def parse_response(proc):
     return [{k: o.get(k) for k in PUBLIC_FIELDS} for o in data]
 
 
+def query_value(raw):
+    if raw == 'true':
+        return True
+    if raw == 'false':
+        return False
+    try:
+        return int(raw)
+    except ValueError:
+        try:
+            return float(raw)
+        except ValueError:
+            return raw
+
+
+def query_to_body(query, config):
+    """Переводит CLI-строку фильтров в JSON-тело публичного endpoint."""
+    body = {}
+    for token in query.split():
+        match = re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)(>=|<=|!=|=|>|<)(.+)', token)
+        if not match:
+            raise SearchError('invalid_query_token')
+        field, operator, raw = match.groups()
+        # Поля вроде dph_total встречаются дважды (>=low и <high): объединяем.
+        body.setdefault(field, {})[QUERY_OPERATORS[operator]] = query_value(raw)
+    body.update(type='on-demand', allocated_storage=config.storage_gb,
+                limit=config.limit, order=[['dph_total', 'asc']])
+    return body
+
+
+def anonymous_request(query, config):
+    """POST к публичному endpoint без ключа: не тратит квоту аккаунта."""
+    request = urllib.request.Request(VAST_BUNDLES, data=json.dumps(query_to_body(query, config)).encode(),
+        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    try:
+        with opener.open(request, timeout=config.timeout) as response:
+            text = response.read().decode('utf-8', 'replace')
+    except urllib.error.HTTPError as exc:
+        if exc.code == 429:
+            raise SearchError('rate_limited', 429) from None
+        if exc.code in (401, 403):
+            raise SearchError('authentication_or_access_denied', exc.code) from None
+        raise SearchError('cli_or_api_error', exc.code) from None
+    except (urllib.error.URLError, TimeoutError, OSError):
+        raise SearchError('timeout') from None
+    try:
+        data = json.loads(text)
+    except ValueError:
+        raise SearchError('invalid_json') from None
+    if isinstance(data, dict):
+        if data.get('success') is False or 'error' in data:
+            raise SearchError('api_error')
+        data = data.get('offers')
+    if not isinstance(data, list) or any(not isinstance(o, dict) for o in data):
+        raise SearchError('invalid_schema')
+    return [{k: o.get(k) for k in PUBLIC_FIELDS} for o in data]
+
+
+def default_request(query, config):
+    """Анонимный публичный путь по умолчанию; CLI — только при явном разрешении."""
+    if not config.anonymous:
+        return cli_request(query, config)
+    try:
+        return anonymous_request(query, config)
+    except SearchError as exc:
+        if config.allow_cli_fallback and exc.kind in ('timeout', 'invalid_json', 'invalid_schema'):
+            return cli_request(query, config)
+        raise
+
+
 def cli_request(query, config):
     env = {k: v for k, v in os.environ.items() if k.upper() not in ('HTTP_PROXY', 'HTTPS_PROXY', 'ALL_PROXY')}
     env['PYTHONIOENCODING'] = 'utf-8'
@@ -108,8 +191,13 @@ def cli_request(query, config):
     return parse_response(proc)
 
 
-def collect(config, request=cli_request, clock=time.monotonic, sleep=time.sleep):
+def collect(config, request=None, clock=time.monotonic, sleep=time.sleep):
     config.validate()
+    if request is None:
+        request = default_request
+    # Анонимная выдача ограничена страницей; сравнивать насыщение нужно с ней,
+    # иначе разбиение диапазона не сработает и часть предложений потеряется.
+    effective_limit = min(config.limit, config.anonymous_cap) if config.anonymous else config.limit
     started = clock()
     offers, receipts = {}, []
     incomplete = []
@@ -139,6 +227,7 @@ def collect(config, request=cli_request, clock=time.monotonic, sleep=time.sleep)
             from dataclasses import replace
             result = request(query, replace(config, timeout=min(config.timeout, remaining)))
             receipt.update(status='ok', reported_http_status=None, count=len(result),
+                transport='anonymous' if config.anonymous else 'cli',
                 response_sha256=hashlib.sha256(json.dumps(result, sort_keys=True).encode()).hexdigest())
         except SearchError as exc:
             receipt.update(status=exc.kind, reported_http_status=exc.status, count=None)
@@ -150,8 +239,8 @@ def collect(config, request=cli_request, clock=time.monotonic, sleep=time.sleep)
         for offer in result:
             if isinstance(offer.get('id'), int):
                 offers[offer['id']] = offer
-        if len(result) >= config.limit:
-            # CLI не имеет offset: разбиение диапазона вместо "все=первые N".
+        if len(result) >= effective_limit:
+            # CLI/публичный endpoint не имеют offset: разбиение диапазона.
             if depth < 12 and high-low > 1e-8:
                 middle = (low+high)/2
                 search(low, middle, gpu_filter, depth+1)

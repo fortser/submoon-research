@@ -9,6 +9,7 @@ import pytest
 from submoon_research.compute.cpu_targets import parse_targets
 from submoon_research.compute.market_search import (
     MarketConfig, SearchError, parse_response, collect, rejection, candidate, cli_request,
+    query_to_body, anonymous_request,
 )
 from submoon_research.compute.market_store import MarketStore
 
@@ -105,6 +106,55 @@ def test_valid_null_tail_and_secret_field_whitelist():
     proc = SimpleNamespace(stdout=json.dumps([offer() | {'instance_api_key':'SECRET'}])+'\nnull', stderr='', returncode=0)
     data = parse_response(proc)
     assert data[0]['id'] == 1 and 'instance_api_key' not in data[0]
+
+
+def test_query_to_body_merges_price_and_maps_ops():
+    body = query_to_body('num_gpus>=1 rentable=true rented=false cpu_arch=amd64 '
+                         'cpu_cores_effective>=4 disk_space>=20 dph_total>=0 dph_total<=0.2',
+                         MarketConfig(min_cores=4))
+    assert body['num_gpus'] == {'gte': 1} and body['rentable'] == {'eq': True}
+    assert body['rented'] == {'eq': False} and body['cpu_arch'] == {'eq': 'amd64'}
+    assert body['dph_total'] == {'gte': 0, 'lte': 0.2}
+    assert body['type'] == 'on-demand' and body['limit'] == 1000 and body['allocated_storage'] == 20
+
+
+def test_anonymous_request_parses_offers_without_secret(monkeypatch):
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *args):
+            return False
+
+        def read(self):
+            return json.dumps({'offers': [offer() | {'instance_api_key': 'SECRET'}]}).encode()
+
+    class Opener:
+        def open(self, request, timeout=None):
+            return Response()
+
+    monkeypatch.setattr('submoon_research.compute.market_search.urllib.request.build_opener',
+                        lambda *args, **kwargs: Opener())
+    data = anonymous_request('num_gpus>=1 rentable=true', MarketConfig())
+    assert data[0]['id'] == 1 and 'instance_api_key' not in data[0]
+
+
+def test_collect_prefers_anonymous_and_never_calls_cli(monkeypatch):
+    calls = {'anonymous': 0, 'cli': 0}
+
+    def fake_anonymous(query, config):
+        calls['anonymous'] += 1
+        return [offer(id=1)]
+
+    def fake_cli(query, config):
+        calls['cli'] += 1
+        return []
+
+    monkeypatch.setattr('submoon_research.compute.market_search.anonymous_request', fake_anonymous)
+    monkeypatch.setattr('submoon_research.compute.market_search.cli_request', fake_cli)
+    result = collect(MarketConfig(limit=10, request_spacing=0, max_queries=4), sleep=lambda seconds: None)
+    assert calls['anonymous'] >= 1 and calls['cli'] == 0
+    assert result['queries'] and all(r.get('transport') == 'anonymous' for r in result['queries'])
 
 
 def test_cli_avoids_broken_retry_flag(monkeypatch):

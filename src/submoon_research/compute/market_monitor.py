@@ -189,8 +189,12 @@ def main(argv=None):
     parser.add_argument('--whole-machine-only', action='store_true')
     parser.add_argument('--with-gpu', action='store_true', help='Совместимость: compute с GPU уже включены по умолчанию')
     parser.add_argument('--limit', type=int, default=1000)
-    parser.add_argument('--max-queries', type=int, default=24)
-    parser.add_argument('--request-spacing', type=float, default=5.)
+    parser.add_argument('--max-queries', type=int, default=64)
+    parser.add_argument('--request-spacing', type=float, default=1.)
+    parser.add_argument('--transport', choices=('anonymous', 'cli'), default='anonymous',
+                        help='anonymous (по умолчанию) не тратит суточную квоту аккаунта')
+    parser.add_argument('--allow-cli-fallback', action='store_true',
+                        help='при недоступности анонимного endpoint падать на CLI (тратит квоту)')
     parser.add_argument('--interval', type=float, default=300.)
     parser.add_argument('--duration-hours', type=float, default=72.)
     parser.add_argument('--cycles', type=int)
@@ -224,7 +228,9 @@ def main(argv=None):
     cfg = MarketConfig(max_price=args.max_price, storage_gb=args.storage_gb,
         min_cores=args.min_cores, min_disk=args.min_disk, cpu_only=args.cpu_only,
         whole_machine_only=args.whole_machine_only, limit=args.limit,
-        max_queries=args.max_queries, request_spacing=args.request_spacing)
+        max_queries=args.max_queries, request_spacing=args.request_spacing,
+        anonymous=args.transport == 'anonymous',
+        allow_cli_fallback=args.allow_cli_fallback)
     monitor(root, cfg, interval=args.interval, duration_hours=args.duration_hours,
             cycles=1 if args.once else args.cycles, folder=args.output, resume=args.resume)
     return 0
