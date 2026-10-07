@@ -374,9 +374,9 @@
       "path": "vastai_cli_cheatsheet.md",
       "kind": "local_operational_reference",
       "status": "read_and_corrected",
-      "sha256": "69959aa3eb83fdf94d33e0a5f5e2be7a2050f01c20a2654059b142bb323f98a5",
+      "sha256": "2449dc17cd989254cac1a6f798c09b6f166e7fbc309521adf36c4db7fbe41446",
       "supersedes": "vastai_local_cheatsheet",
-      "registered_utc": "2026-10-06T16:16:39+00:00",
+      "registered_utc": "2026-10-07T08:40:00+00:00",
       "limitations": "Resource type must be checked; current prices and hardware need live verification."
     },
     {
@@ -390,5 +390,5 @@
       "limitations": "Offer classification only, not a CPU rental or numerical benchmark."
     }
   ],
-  "updated_utc": "2026-10-06T16:21:41+00:00"
+  "updated_utc": "2026-10-07T08:40:00+00:00"
 }

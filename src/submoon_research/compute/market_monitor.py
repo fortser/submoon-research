@@ -34,7 +34,7 @@ def runtime_entry(root, folder, active, manifest):
     (root/'tracking').mkdir(exist_ok=True)
     path = root/'tracking/runtime.json'
     with writer_lock(root):
-        existing = json.loads(path.read_text(encoding='utf-8')) if path.exists() else dict(schema_version='1.0',processes=[])
+        existing = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else dict(schema_version='1.0',processes=[])
         entries = [p for p in existing['processes'] if p.get('market_session_id') != folder.name]
         if active:
             entries.append(dict(market_session_id=folder.name, run_id='vast-market-'+folder.name,

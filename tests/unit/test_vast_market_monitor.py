@@ -203,6 +203,23 @@ def test_monitor_session_lifecycle_and_runtime_without_network(tmp_path, monkeyp
     assert manifest['status'] == 'completed' and manifest['paid_actions'] == 0
     assert not (folder/'collector.lock').exists()
     assert (folder/'code/market_monitor.py').is_file()
-    assert json.loads((root/'tracking/runtime.json').read_text(encoding='utf-8'))['processes'] == []
+    assert json.loads((root/'tracking/runtime.json').read_text(encoding='utf-8-sig'))['processes'] == []
     with pytest.raises(ValueError, match='завершённую'):
         monitor(root, MarketConfig(), cycles=1, folder=folder, resume=True)
+
+
+def test_runtime_json_with_bom_does_not_break_session(tmp_path, monkeypatch):
+    from submoon_research.compute.market_monitor import monitor
+    root = tmp_path/'project'
+    (root/'tracking').mkdir(parents=True)
+    (root/'good_cpu.txt').write_text((ROOT/'good_cpu.txt').read_text(encoding='utf-8'), encoding='utf-8')
+    bom_runtime = dict(schema_version='1.0', updated_utc='2026-10-07T00:00:00Z', processes=[])
+    (root/'tracking/runtime.json').write_text(
+        json.dumps(bom_runtime, ensure_ascii=False), encoding='utf-8-sig')
+    data = collection() | {'queries':[dict(status='ok')], 'offers':[offer()]}
+    monkeypatch.setattr('submoon_research.compute.market_monitor.collect', lambda cfg:data)
+    folder = monitor(root, MarketConfig(), cycles=1, folder=root/'session', duration_hours=.1)
+    assert json.loads((folder/'manifest.json').read_text(encoding='utf-8'))['status'] == 'completed'
+    written = (root/'tracking/runtime.json').read_bytes()
+    assert not written.startswith(b'\xef\xbb\xbf')
+    assert json.loads(written.decode('utf-8'))['processes'] == []
