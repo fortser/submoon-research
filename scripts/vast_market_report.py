@@ -14,9 +14,11 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import sqlite3
 import statistics
+from datetime import datetime, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -57,6 +59,35 @@ def latest_session():
 
 def _round(value, digits=5):
     return None if value is None else round(value, digits)
+
+
+CSV_COLUMNS = ['model', 'polls_seen', 'availability_fraction_of_polls_with_data',
+               'unique_machines', 'samples', 'min_usd_h', 'avg_usd_h', 'median_usd_h',
+               'max_usd_h', 'min_usd_per_effective_cpu', 'avg_usd_per_effective_cpu']
+
+
+def write_csv(path, data):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    generated = datetime.now(timezone.utc).isoformat(timespec='seconds')
+    with path.open('w', encoding='utf-8-sig', newline='') as stream:
+        writer = csv.writer(stream, delimiter=';')
+        writer.writerow(['generated_utc', 'session', 'data_polls', 'complete_polls'] + CSV_COLUMNS)
+        for row in data['models']:
+            writer.writerow([generated, data['session'], data['data_polls'], data['complete_polls']]
+                            + [row.get(column) for column in CSV_COLUMNS])
+    return path
+
+
+def write_never_seen(path, data):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('w', encoding='utf-8-sig', newline='') as stream:
+        writer = csv.writer(stream, delimiter=';')
+        writer.writerow(['session', 'target'])
+        for target in data['never_seen_targets']:
+            writer.writerow([data['session'], target])
+    return path
 
 
 # Колонки сортировки: имя в CLI -> поле модели. Префикс '-' даёт убывание.
@@ -189,6 +220,9 @@ def main(argv=None):
     parser.add_argument('--sort', default='min_per_cpu',
                         help='Колонка сортировки по возрастанию (префикс - для убывания): '
                              + ', '.join(SORT_CHOICES))
+    parser.add_argument('--csv', type=Path,
+                        help='Сохранить модели в CSV (UTF-8 BOM, разделитель ;); '
+                             'рядом создаётся <имя>_never_seen.csv по ненайденным целям')
     args = parser.parse_args(argv)
     if bool(args.folder) == bool(args.latest):
         parser.error('Укажите папку сессии или --latest')
@@ -196,7 +230,14 @@ def main(argv=None):
     data = report(folder, sort=args.sort)
     if args.json:
         print(json.dumps(data, ensure_ascii=False, indent=2))
-    else:
+    if args.csv:
+        path = write_csv(args.csv, data)
+        print('CSV: {} ({} строк)'.format(path, len(data['models'])))
+        if data['never_seen_targets']:
+            never = args.csv.with_name(args.csv.stem+'_never_seen.csv')
+            write_never_seen(never, data)
+            print('CSV (невстреченные цели): {} ({} строк)'.format(never, len(data['never_seen_targets'])))
+    if not args.json and not args.csv:
         print_table(data, limit=args.top)
     return 0
 

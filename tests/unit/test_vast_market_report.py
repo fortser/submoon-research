@@ -30,6 +30,21 @@ def collection():
     return dict(complete=True, incomplete=[], queries=[], offers=[], elapsed_seconds=.1)
 
 
+def test_write_csv_and_never_seen(tmp_path):
+    module = load_report()
+    data = dict(session='s1', data_polls=2, complete_polls=1,
+                models=[dict(model='a', polls_seen=2, availability_fraction_of_polls_with_data=1.0,
+                             unique_machines=1, samples=2, min_usd_h=0.1, avg_usd_h=0.2,
+                             median_usd_h=0.2, max_usd_h=0.3, min_usd_per_effective_cpu=0.01,
+                             avg_usd_per_effective_cpu=0.02)],
+                never_seen_targets=['Xeon W-3400 family'])
+    path = module.write_csv(tmp_path/'out.csv', data)
+    text = path.read_text(encoding='utf-8-sig')
+    assert 'min_usd_per_effective_cpu' in text and ';a;' in text
+    never = module.write_never_seen(tmp_path/'out_never_seen.csv', data)
+    assert 'Xeon W-3400 family' in never.read_text(encoding='utf-8-sig')
+
+
 def test_sort_models_ascending_none_last_and_descending():
     module = load_report()
     rows = [
