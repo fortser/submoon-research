@@ -1,0 +1,88 @@
+{
+ "schema_version": "1.0",
+ "utc": "2026-10-08T09:44:36Z",
+ "kind": "local_jit_long_horizon_probe_not_validated_benchmark",
+ "purpose": "предварительная оценка скорости dop853_jit на длинном горизонте для плана CPU-матрицы",
+ "machine": {
+  "processor": "Intel64 Family 6 Model 158 Stepping 10, GenuineIntel",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "logical_cpus": 6,
+  "affinity": 6,
+  "memory_total_bytes": 51474800640,
+  "note": "локальный i5-9400, только dop853_jit; reboundx локально не собирается"
+ },
+ "warmup_seconds": 0.23975350000000617,
+ "numeric_mode": "W2 NumericMode() дефолт rtol=1e-11, max_step=P0*0.025",
+ "inputs_sha256": {
+  "three_engines_config": "413d33f22ec2c2fbee6b1a41debea33137c4ada736cf13d4dbabcb633dedc8ef",
+  "engine_compare": "24a2ba21e64b0bca0fa31a2e031142bb26e43deaa2de0806a42e6d724f8eda05",
+  "w2_comparison": "1338f06f04984b00ab148fb69200282b90172a5daf1ea9a135062c01df2e7247"
+ },
+ "rows": [
+  {
+   "orbit_id": "iapetus-inner-0-0.3",
+   "host": "iapetus",
+   "status": "partial",
+   "wall_seconds": 5.000059500000134,
+   "simulated_years": 0.1131838637445003,
+   "steps": 6465,
+   "years_per_second": 0.022636503374509297,
+   "projected_full_10000yr_core_hours": 122.71231699617535
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.3",
+   "host": "iapetus",
+   "status": "partial",
+   "wall_seconds": 4.999817500000063,
+   "simulated_years": 0.11338125319342876,
+   "steps": 6482,
+   "years_per_second": 0.022677078352045316,
+   "projected_full_10000yr_core_hours": 122.4927539013085
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.3",
+   "host": "ganymede",
+   "status": "partial",
+   "wall_seconds": 4.999796899999637,
+   "simulated_years": 0.069278086659856,
+   "steps": 5395,
+   "years_per_second": 0.013856180170010711,
+   "projected_full_10000yr_core_hours": 200.47211740143175
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.3",
+   "host": "ganymede",
+   "status": "partial",
+   "wall_seconds": 4.9997714000001,
+   "simulated_years": 0.06572830399494285,
+   "steps": 5248,
+   "years_per_second": 0.01314626184607991,
+   "projected_full_10000yr_core_hours": 211.29791953794717
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.3",
+   "host": "himalia",
+   "status": "partial",
+   "wall_seconds": 4.9998075000003155,
+   "simulated_years": 0.14373605975080692,
+   "steps": 7076,
+   "years_per_second": 0.028748318760431844,
+   "projected_full_10000yr_core_hours": 96.62400785680072
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.3",
+   "host": "himalia",
+   "status": "partial",
+   "wall_seconds": 4.999959299999318,
+   "simulated_years": 0.14445364318085605,
+   "steps": 7112,
+   "years_per_second": 0.02889096380862055,
+   "projected_full_10000yr_core_hours": 96.1469404820942
+  }
+ ],
+ "limitations": [
+  "Один локальный CPU, 4-5 с на случай, экстраполяция без проверки хвоста.",
+  "horizon задан большим periods, случай обрывается по wall-лимиту; событие не проверялось.",
+  "Не является допуском W2/W1 и не измеряет долю выживших орбит."
+ ]
+}

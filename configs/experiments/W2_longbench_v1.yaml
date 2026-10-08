@@ -1,0 +1,68 @@
+schema_version: '1.0'
+experiment_id: W2-longbench-v1
+data_kind: development_machine_benchmark
+production_allowed: false
+sample_kind: development_machine_benchmark_not_probability_sample
+hosts:
+- iapetus
+- ganymede
+- himalia
+engines:
+- dop853_jit
+- ias15_reboundx
+model_path: data/processed/L1-nominal-v0_4_1/model.json
+states_path: data/processed/W0-geometric-states-aligned-v3/geometric_states.json
+contrasts_path: runs/W1-cost-20261005T165056Z-2a523e1a/initial_conditions/contrasts.json
+inputs_sha256:
+  data/processed/L1-nominal-v0_4_1/model.json: aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5
+  data/processed/W0-geometric-states-aligned-v3/geometric_states.json: 8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330
+  runs/W1-cost-20261005T165056Z-2a523e1a/initial_conditions/contrasts.json: 4c66db61aa60461b31da08d2328da25c05d164e0a50e39e30b7771d2e52dc866
+primary_years: 5.0
+extended_years: 15.0
+year_seconds: 31557600.0
+eccentricities:
+- 0.0
+- 0.3
+inclinations_degrees:
+- 0.0
+- 90.0
+- 180.0
+reference_case_id: iapetus-inner-0-0.3
+# Замороженный набор кандидатов до первой аренды (W2-T006, план §5).
+# Проверка выживания на пилоте подтверждает, что события не прерывают горизонт.
+# Проверка выживания на пилоте i9 (2026-10-08): 14 случаев прошли 5 лет без события.
+# Исключены: ganymede-inner-90-0.3, iapetus-inner-90-0.3, ganymede-inner-90-0.0
+# (host_contact) и himalia-inner-90-0.3 (не уложился в 600 с).
+frozen_survivors:
+- iapetus-inner-0-0.0
+- iapetus-inner-0-0.3
+- iapetus-inner-180-0.0
+- iapetus-inner-180-0.3
+- ganymede-inner-0-0.0
+- ganymede-inner-0-0.3
+- ganymede-inner-180-0.0
+- ganymede-inner-180-0.3
+- himalia-inner-0-0.0
+- himalia-inner-0-0.3
+- himalia-inner-180-0.0
+- himalia-inner-180-0.3
+- iapetus-inner-90-0.0
+- himalia-inner-90-0.0
+case_wall_seconds: 540
+stage_wall_seconds: 600
+campaign_wall_seconds: 14400
+diagnostic_samples: 65
+repeats: 3
+scaling_workers:
+- 1
+- 2
+- 4
+- 8
+- 16
+- 32
+cross_engine: ias15_reboundx
+cache_mib: 256
+remote:
+  required: true
+  max_workers: 16
+  assembled_budget_usd: 12.0

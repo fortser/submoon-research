@@ -105,7 +105,12 @@ def run_case(job):
                 raise MemoryError('Лимит RAM worker')
 
     periods = job.get('periods', 5.)
-    horizon = case['period_seconds']*periods
+    if job.get('horizon_years') is not None:
+        # Длинный машинный бенчмарк W2-T006: горизонт в модельных годах,
+        # а не в периодах субспутника. Не заменяет научную постановку.
+        horizon = float(job['horizon_years'])*31557600.0
+    else:
+        horizon = case['period_seconds']*periods
     cache = None
     if engine == 'hierarchical_cached' and job.get('reuse_cache'):
         key = (case['host'], mode.cache_epsilon)

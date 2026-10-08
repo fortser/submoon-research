@@ -41,7 +41,7 @@ def machine_info():
     return info
 
 
-def worker_limit(requested):
+def worker_limit(requested, per_worker_gib=2.0):
     machine = machine_info()
     limits = [requested, int(os.environ.get('W2_EFFECTIVE_CPUS', '1'))]
     if machine['affinity']:
@@ -52,13 +52,16 @@ def worker_limit(requested):
     memory = psutil.virtual_memory().available
     if machine.get('memory.max', 'max') != 'max':
         memory = min(memory, int(machine['memory.max']))
-    limits.append(max(1, int(memory/(2*2**30))))
+    limits.append(max(1, int(memory/(per_worker_gib*2**30))))
     return max(1, min(limits))
 
 
 def execute_jobs(jobs, workers, run):
     results = []
     started = time.perf_counter()
+    # Прогрев JIT-кеша в родителе до пула: уменьшает одновременную компиляцию
+    # Numba в воркерах (наблюдались редкие segfault при высоком параллелизме).
+    warmup()
     pool = mp.get_context('spawn').Pool(workers, initializer=worker_init)
     pending = [(job, pool.apply_async(run_case, (job,))) for job in jobs]
     try:

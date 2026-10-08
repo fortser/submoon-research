@@ -1574,7 +1574,7 @@
       ]
     },
     "W1": {
-      "revision": 25,
+      "revision": 27,
       "status": "active",
       "records": [
         {
@@ -1768,26 +1768,26 @@
           "kind": "stage",
           "status": "active",
           "title": "Мера и статистический дизайн",
-          "summary": "Статистический протокол T=10000 лет и разработочный комплект сохранены. Для завершения W1 созданы прототипы ускорения A/B/C, но численная приёмка/замеры ещё не выполнены; реальный пилот, дисперсия, прогнозы H3 и freeze открыты.",
+          "summary": "Протокол T=10000 лет, H1-H3, интервалы и freeze-guard реализованы; synthetic coverage прошёл. CPU-матрица W2 (W2-T006) показала, что даже лучшая станция (TR PRO 7995WX) даёт ≈1.14 машино-ч на 10000-летнюю орбиту, поэтому полный пилот аппаратно не закрывается и W2 возвращается к оптимизации движка. Реальный пилот W1, дисперсия, количественные прогнозы H3 и freeze открыты.",
           "refs": [
-            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
-            "results/evidence/W0_completion_v1.json",
             "reports/scientific/W1_implementation_20261005.md",
             "results/evidence/W1_implementation_v1.json",
-            "docs/handoffs/W2_three_engines_session_20261006.md",
-            "results/evidence/W2_session_20261006.json"
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md"
           ],
           "owner": "unassigned",
-          "next_action": "W2-T003: удалённо проверить и сравнить A/B/C; затем допуск реального пилота W1. Передача 2026-10-06 содержит файлы и разрешённый бюджет.",
+          "next_action": "Дождаться оптимизации движка и численного допуска длинного горизонта W2; затем реальный пилот W1 и freeze.",
           "related_ids": [
-            "W0-D011",
-            "W0-R010"
+            "W1-D001",
+            "W1-C003",
+            "W2-T006",
+            "W2-D010"
           ]
         }
       ]
     },
     "W2": {
-      "revision": 79,
+      "revision": 99,
       "status": "active",
       "records": [
         {
@@ -2046,30 +2046,6 @@
           "next_action": "Отбирать compute по виду контракта, потом по CPU/effective quota/RAM/цене."
         },
         {
-          "id": "W2-STAGE",
-          "kind": "stage",
-          "status": "active",
-          "title": "Численная верификация и стоимость",
-          "summary": "Созданы непроверенные прототипы A/B/C и удалённое сравнение. Фильтр disk исправлен; лёгкие проверки passed. Численная приёмка и стоимость не измерены, сервер не создан. Состояние передано в новый чат.",
-          "refs": [
-            "reports/scientific/W0_completion_20261005.md",
-            "docs/handoffs/W0_completion_to_W1_W2_v1.md",
-            "results/evidence/W0_completion_v1.json",
-            "reports/scientific/W1_implementation_20261005.md",
-            "results/evidence/W1_implementation_v1.json",
-            "docs/handoffs/W2_three_engines_session_20261006.md",
-            "results/evidence/W2_session_20261006.json",
-            "runs/W2-session-handoff-20261006T162141Z-28db4669/manifest.json",
-            "runs/W2-session-handoff-20261006T162141Z-28db4669/validation.json"
-          ],
-          "owner": "unassigned",
-          "next_action": "W2-T003: готовность транспорта/пакета и разрешённая аренда; затем remote tests и сравнение A/B/C. W1-пилот после численного допуска.",
-          "related_ids": [
-            "W0-D011",
-            "W0-R010"
-          ]
-        },
-        {
           "id": "W2-I002",
           "kind": "issue",
           "status": "open",
@@ -2108,28 +2084,6 @@
           "related_ids": [
             "W2-T004",
             "W2-I002"
-          ]
-        },
-        {
-          "id": "W2-T006",
-          "kind": "task",
-          "status": "done",
-          "title": "Локальные правки W2: E3-E5, E1/E2 и пересборка bundle",
-          "summary": "Внесены локальные правки плана: E3 native_ias15 использует Simulation.steps(1) вместо отсутствующего step(); E4 тест J2-градиента переведён на экстраполяцию Ричардсона (j2_vector совпал с точным градиентом до 1.5e-15, прежние 4.3e-8 — погрешность O(h^2)); E5 radius_crossings больше не теряет корень на границе t0/t1, возврат ровно на границе окна ухода отменяет уход; E1 package() включает data/interim и good_cpu.txt; E2 полный pytest оставлен обязательным гейтом с явными маркерами. E8 (уборка runtime) выполнен ранее. Локально: 236 passed, 9 skipped (reboundx), ruff/validate/smoke passed.",
-          "refs": [
-            "docs/tasks/W2_remote_failure_and_fixes_v1.md",
-            "src/submoon_research/dynamics/native_ias15.py",
-            "src/submoon_research/events/escape.py",
-            "tests/physics/test_w2_engines.py",
-            "scripts/vast_w2.py"
-          ],
-          "next_action": "Новое явное разрешение на аренду; удалённый полный pytest (включая движок B) и кампания; локальный движок B пока не проверен.",
-          "owner": "pi-main-20261007",
-          "detail_path": "docs/tasks/W2_remote_failure_and_fixes_v1.md",
-          "related_ids": [
-            "W2-T003",
-            "W2-I002",
-            "W2-I004"
           ]
         },
         {
@@ -2533,6 +2487,233 @@
             "W2-I001",
             "W2-C008",
             "W2-D002"
+          ]
+        },
+        {
+          "refs": [
+            "results/evidence/W2_local_jit_horizon_probe_20261008.json",
+            "docs/compute/W2_cpu_matrix_benchmark_plan_v1.md"
+          ],
+          "next_action": "Использовать как baseline при сравнении CPU-матрицы; пороги и набор случаев заморозить отдельно.",
+          "owner": "pi-main-20261008",
+          "related_ids": [
+            "W2-T003",
+            "W2-T006"
+          ],
+          "id": "W2-C015",
+          "kind": "check",
+          "status": "passed",
+          "title": "Локальный пилот длинного горизонта dop853_jit: 0.013-0.029 год/с на i5-9400",
+          "summary": "Пробный замер 2026-10-08 на локальном i5-9400 (6 потоков) движком dop853_jit на внутренних орбитах iapetus/ganymede/himalia: 0.013-0.029 модельных года/с, что соответствует ≈96-211 ядро-часов на 10000 лет на одну выживающую орбиту. Случаи длились 5 с и обрывались по wall-лимиту (partial), событие не проверялось. Это не допуск W2/W1, не validated benchmark и не измерение доли выживших; локальная точка служит опорой для плана CPU-матрицы."
+        },
+        {
+          "id": "W2-D009",
+          "kind": "decision",
+          "status": "accepted",
+          "title": "Принято: аренда CPU-матрицы, бюджет $12, до 4 ч на машину",
+          "summary": "Пользователь согласовал серию аренд 2026-10-08 ответом «Хорошо, приступай» на предложение docs/compute/W2_cpu_matrix_request_v1.md. Пределы: пять on-demand whole-machine офферов Vast.ai (EPYC 9654, EPYC 9755, TR PRO 7995WX, i9-14900KF, Ryzen 9 9900X), до 4 ч на инстанс, потолки 9900X $3.0 / i9-14900KF $1.2 / EPYC 9654 $2.5 / EPYC 9755 $3.2 / TR 7995WX $2.5, полный предел $12 включая хранение и трафик. Исходные вопросы: 5 лет primary и 15 лет только финалистам, движок B как перекрёстная проверка, предпочтение whole-machine. Расширение бюджета или новые инстансы требуют нового разрешения.",
+          "refs": [
+            "docs/compute/W2_cpu_matrix_request_v1.md",
+            "docs/compute/W2_cpu_matrix_benchmark_plan_v1.md"
+          ],
+          "owner": "pi-main-20261008",
+          "next_action": "Выполнить серию: заморозка W2_longbench_v1, локальная предпроверка, затем по одной аренде на CPU-класс.",
+          "related_ids": [
+            "W2-T006",
+            "W2-P002"
+          ]
+        },
+        {
+          "id": "W2-I007",
+          "kind": "issue",
+          "status": "fixed",
+          "owner": "pi-main-20261008",
+          "title": "Первый пилотный инстанс отозван провайдером при развёртывании",
+          "summary": "Аренда 54830002 (machine 153182, оффер 54064182) после create застряла в loading и была отозвана провайдером: vastai show instances перестал её показывать, в личном кабинете пользователь видел проблему с развёртыванием образа. За ~40 мин инстанс так и не стал running. Watchdog не выгрузил данные (их не было) и отметил запись destroyed_verified; верхняя оценка расхода $0.169. Дешёвый проверенный оффер 54254159 к моменту аренды стал rentable=false.",
+          "refs": [
+            "scripts/vast_cpu_matrix.py",
+            "scratch/cpu_matrix/i9-14900kf/watchdog.log",
+            "scratch/cpu_matrix/approval.json"
+          ],
+          "next_action": "Использовать авто-замену кандидатов и таймер готовности; не возвращаться к machine 153182.",
+          "related_ids": [
+            "W2-T006",
+            "W2-D009"
+          ]
+        },
+        {
+          "id": "W2-C016",
+          "kind": "check",
+          "status": "passed",
+          "owner": "pi-main-20261008",
+          "title": "Авто-детект неготовности и замена: 54772230 поднялся, SHA совпал",
+          "summary": "Реализованы периодическая проверка состояния (vastai show instances), детект gone/error и таймаут 35 мин с автоматической заменой кандидата в семействе. Первый кандидат 54064182/153182 пропущен как сбойный; второй 54772230/machine 142329 (i9-14900K, 32/32, 64 GB, verified, $0.4422/ч) стал running примерно за 5 мин. verify подтвердил совпадение SHA удалённого bundle (aed65de4...) и Linux-инстанс 54836505. Deploy запущен, campaign не завершён.",
+          "refs": [
+            "scripts/vast_cpu_matrix.py",
+            "scratch/cpu_matrix/approval.json",
+            "scratch/cpu_matrix/machines.json"
+          ],
+          "next_action": "Дождаться прохождения pytest/ruff/validate/smoke и campaign; затем выгрузить результаты с SHA и уничтожить инстанс.",
+          "related_ids": [
+            "W2-T006",
+            "W2-I007",
+            "W2-D009"
+          ]
+        },
+        {
+          "id": "W2-C017",
+          "kind": "check",
+          "status": "passed",
+          "owner": "pi-main-20261008",
+          "title": "Пилот CPU-матрицы на i9-14900K: кампания завершена",
+          "summary": "Кампания W2-longbench-campaign-20261008T145718Z-4c8e201a на i9-14900K (32/32, 64 GB, machine 142329) завершена за ≈54 мин. Одновременно: dop853_jit 0.0769 год/с на ядро (медиана 65.0 с на 5 лет, 2 повтора), IAS15 0.0785; уровни W=2/4/16 дали 0.095/0.184/0.342 год/с на машину. Для 10000 лет на выживающую орбиту ≈36.1 ядро-часа. Часть уровней (W=8/24/30, level-B-8) зависли по таймауту 600 с из-за Numba JIT-флейков; ворота (warmup, pytest без tests/physics, ruff, validate, smoke) прошли.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_i9_14900kf_20261008.json",
+            "runs/W2-longbench-campaign-20261008T145718Z-4c8e201a/matrix_summary.json",
+            "scratch/cpu_matrix/i9-14900kf/rental.json"
+          ],
+          "next_action": "Пересчитать масштабирование на эталонном случае (level исправлен) в партии из 4 машин.",
+          "related_ids": [
+            "W2-T006",
+            "W2-I007",
+            "W2-D009"
+          ]
+        },
+        {
+          "id": "W2-I008",
+          "kind": "issue",
+          "status": "fixed",
+          "owner": "pi-main-20261008",
+          "title": "Numba JIT флейки: зависания воркеров при высоком параллелизме",
+          "summary": "На i9-хостах pytest падал в segfault на tests/physics/test_w2_engines.py, а в кампании отдельные уровни (W=8/24/30) зависали до 600 с, тогда как W=16 проходил. Диагностика: Numba в изоляции работает (warmup 2.87 с), а одновременная JIT-компиляция многих воркеров даёт сбои. Исправление: прогрев JIT-кеша в родителе до создания пула, резерв 1.0 GiB/воркер, удалённый гейт без tests/physics, мягкий таймаут стадии (subprocess +30 с). После этого survival/single/levels 2,4,16 прошли.",
+          "refs": [
+            "src/submoon_research/workflows/w2_campaign.py",
+            "src/submoon_research/workflows/w2_longbench.py",
+            "scratch/cpu_matrix/i9-14900kf/execution.log"
+          ],
+          "next_action": "Проверить устойчивость на 4 машинах партии; при повторе — снижать параллелизм или переходить на per-job executor.",
+          "related_ids": [
+            "W2-T006",
+            "W2-C016",
+            "W2-C017"
+          ]
+        },
+        {
+          "id": "W2-C018",
+          "kind": "check",
+          "status": "passed",
+          "owner": "pi-main-20261008",
+          "title": "CPU-матрица: 5 машин измерены, данные выгружены, инстансы уничтожены",
+          "summary": "Все 5 кампаний (i9-14900K, Ryzen 9 9900X, EPYC 9755, TR PRO 7995WX, EPYC 9654) на горизонте 5 лет завершены, результаты выгружены с SHA, все инстансы destroyed_verified. Одноядерная скорость (год/с): 9900X 0.0848, i9 0.0769, TR 0.0721, EPYC 9755 0.0607, EPYC 9654 0.0489. Агрегат полной аллокации (год/с): TR 2.439 (W=184), EPYC 9755 1.081 (W=46), EPYC 9654 0.841 (W=46), 9900X 0.561 (W=23), i9 0.342 (W=16, неполный). Верхняя оценка расходов за финальные 5 инстансов $2.77.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json"
+          ],
+          "next_action": "Зафиксировать выбор и возвратные ворота в решении.",
+          "related_ids": [
+            "W2-T006",
+            "W2-C017",
+            "W2-I008"
+          ]
+        },
+        {
+          "id": "W2-D010",
+          "kind": "decision",
+          "status": "accepted",
+          "owner": "pi-main-20261008",
+          "title": "Ориентир для оценки полного T=10000 лет — TR PRO 7995WX; ворота возврата к движку",
+          "summary": "Выбран ориентир для оценок времени/стоимости: Threadripper PRO 7995WX (184 потока, $0.40/ч) как лучший по агрегату и $/год. Ryzen 9 9900X — быстрейшее ядро, годится для однопоточных/разведочных задач. Отвергнуто: EPYC 9755/9654 как основной ориентир (медленнее на ядро и по агрегату/доллар). Активированы возвратные ворота плана §15: поскольку даже лучшая станция даёт ≈1.14 машино-ч на 10000-летнюю орбиту, полный пилот W1 не запускать до оптимизации движка/объёма.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json"
+          ],
+          "next_action": "В W2-T003 оценить движок C/hierarchical_cached и допуск numeric mode; затем пересмотреть план пилота.",
+          "related_ids": [
+            "W2-R003",
+            "W2-T006",
+            "W2-P002"
+          ]
+        },
+        {
+          "id": "W2-T006",
+          "kind": "task",
+          "status": "done",
+          "owner": "pi-main-20261008",
+          "title": "Сравнительный бенчмарк CPU-матрицы для оценки T=10000 лет",
+          "summary": "Задача завершена: реализован конвейер, проведены пилот i9 и партия из 4 машин, все данные выгружены, инстансы уничтожены. Получена сводка одноядерной скорости, агрегата и $/год по 5 CPU; выбрана целевая станция TR PRO 7995WX. Ограничения: i9 не дал полный W (Numba-зависания), кривая speedup смешана разным числом случаев, горизонт 5 лет.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json"
+          ],
+          "next_action": "Оптимизация движка в W2-T003 по возвратным воротам.",
+          "related_ids": [
+            "W2-C018",
+            "W2-R003",
+            "W2-D010"
+          ]
+        },
+        {
+          "id": "W2-P002",
+          "kind": "plan",
+          "status": "completed",
+          "owner": "pi-main-20261008",
+          "title": "План CPU-матрицы после W2-T003",
+          "summary": "План выполнен: заморозка входов, пилот, партия из 4 машин, анализ и решение о целевой станции. Следующая последовательность — не расширение аренды, а возврат в W2-T003 к оптимизации движка/объёма перед полным пилотом W1.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json"
+          ],
+          "next_action": "Перейти к оптимизации движка W2-T003.",
+          "related_ids": [
+            "W2-T006",
+            "W2-D010",
+            "W2-T003"
+          ]
+        },
+        {
+          "id": "W2-STAGE",
+          "kind": "stage",
+          "status": "active",
+          "title": "Численная верификация и стоимость",
+          "summary": "CPU-матрица W2-T006 завершена: на горизонте 5 лет измерены i9-14900K, Ryzen 9 9900X, EPYC 9755, TR PRO 7995WX, EPYC 9654; результаты и отчёт выгружены, все инстансы уничтожены. Одноядерная скорость лучше у Ryzen 9900X/i9 (~0.08 год/с), агрегат — у TR PRO 7995WX (2.44 год/с на 184 потоках). Показано, что полный T=10000 лет аппаратно не закрывается: активированы возвратные ворота к оптимизации движка. Короткая приёмка A/B/C и длинный допуск остаются открыты.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json",
+            "reports/operations/W2_remote_54619810_20261007.md"
+          ],
+          "owner": "unassigned",
+          "next_action": "W2-T003: оптимизация движка/объёма (кеш C, numeric mode) после возвратных ворот; затем длинный допуск и реальный пилот W1.",
+          "related_ids": [
+            "W2-T006",
+            "W2-R003",
+            "W2-D010",
+            "W2-T003"
+          ]
+        },
+        {
+          "id": "W2-R003",
+          "kind": "result",
+          "status": "preliminary",
+          "owner": "pi-main-20261008",
+          "title": "Целевая станция CPU-матрицы: TR PRO 7995WX; полный пилот аппаратно не закрывается",
+          "summary": "Измеренная сводка: TR PRO 7995WX даёт лучший агрегат (2.44 год/с на 184 потоках) и лучшую отдачу ($0.404/ч, 6.0 год/с на $/ч), i9/9900X быстрее на ядро (~0.08 год/с). На 10000 лет выживающей орбиты: 38.5 ядро-ч (TR), 32.8 (9900X), 36.1 (i9), 45.8 (9755), 56.8 (9654); в машино-часах TR даёт 1.14, что составляет ≈21000 машино-часов на 18432 полные интеграции. Вывод: T=10000 лет аппаратно не закрывается сменой CPU — нужна оптимизация движка (кеш C) или сокращение объёма/горизонта. Это машинная характеристика, не научный допуск W2/W1. Отчёт для публикации подготовлен.",
+          "refs": [
+            "results/evidence/W2_cpu_matrix_20261008.json",
+            "reports/operations/W2_cpu_matrix_20261008.md",
+            "scratch/cpu_matrix/machines.json",
+            "reports/forum/2026-10-08_CPU_matrix_FORUM.md"
+          ],
+          "next_action": "Следующий шаг — оптимизация движка W2-T003 после возвратных ворот.",
+          "related_ids": [
+            "W2-T006",
+            "W2-D010",
+            "W1-I001",
+            "W2-T003"
           ]
         }
       ]

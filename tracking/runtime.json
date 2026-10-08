@@ -1,20 +1,7 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-07T18:00:11+00:00",
-  "processes": [
-    {
-      "market_session_id": "20261007T170113Z-77147931",
-      "run_id": "vast-market-20261007T170113Z-77147931",
-      "kind": "read_only_market_monitor",
-      "task_id": "W2-T004",
-      "pid": 2656,
-      "folder": "data/interim/vast_market/20261007T170113Z-77147931",
-      "deadline_epoch": 1791651673.9895191,
-      "heartbeat": "data/interim/vast_market/20261007T170113Z-77147931/heartbeat.json",
-      "stop_file": "data/interim/vast_market/20261007T170113Z-77147931/stop.requested",
-      "paid_actions": 0
-    }
-  ],
-  "note": "Активных внешних процессов нет; оборванные market-сессии удалены.",
-  "verification_run_id": "W2-T003-54254159-20261006"
+  "updated_utc": "2026-10-08T17:20:00+00:00",
+  "processes": [],
+  "note": "CPU-матрица W2-T006 завершена: все 5 аренд Vast.ai уничтожены (destroyed_verified). Активных внешних процессов нет.",
+  "verification_run_id": "W2-T006-cpu-matrix-20261008"
 }

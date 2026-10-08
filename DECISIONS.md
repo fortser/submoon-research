@@ -34,3 +34,5 @@
 | W2-D006 | W2 | accepted | Порог целостности dense IAS15 понижен 2e-13 -> 1e-9 с обоснованием | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D007 | W2 | accepted | Монитор рынка переведён на анонимный публичный endpoint | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D008 | W2 | accepted | Анонимный монитор: стратегия stratified (окна+jitter+смена K) | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D009 | W2 | accepted | Принято: аренда CPU-матрицы, бюджет $12, до 4 ч на машину | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D010 | W2 | accepted | Ориентир для оценки полного T=10000 лет — TR PRO 7995WX; ворота возврата к движку | [Запись](tracking/stages/W2/RECORDS.md) |
