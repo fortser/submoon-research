@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-09T17:57:46.366Z",
+  "actor": "codex-release-20261009",
+  "checks": {
+    "briefs": {
+      "exit": 0,
+      "output": "Stage context is current.\r\n",
+      "stderr": ""
+    },
+    "ruff": {
+      "exit": 0,
+      "output": "All checks passed!\n",
+      "stderr": ""
+    },
+    "validate": {
+      "exit": 0,
+      "output": "{\r\n  \"status\": \"passed\",\r\n  \"errors\": [],\r\n  \"host_passports\": 11,\r\n  \"tracking_records\": 187,\r\n  \"limitations\": \"Structural checks only; draft physics and scientific gates are not certified.\"\r\n}\r\n",
+      "stderr": ""
+    },
+    "smoke": {
+      "exit": 0,
+      "output": "{\"run_id\": \"L0-20261009T175222Z-49ef2c2d\", \"path\": \"T:\\\\test_python\\\\submoon-research\\\\runs\\\\L0-20261009T175222Z-49ef2c2d\", \"passed\": true}\r\n",
+      "stderr": ""
+    },
+    "pytest": {
+      "exit": 0,
+      "output": "============================= test session starts =============================\r\nplatform win32 -- Python 3.10.6, pytest-9.1.1, pluggy-1.6.0\r\nrootdir: T:\\test_python\\submoon-research\r\nconfigfile: pyproject.toml\r\ntestpaths: tests\r\nplugins: anyio-4.15.1\r\ncollected 312 items\r\n\r\ntests\\contracts\\test_nominal_inputs.py ........................          [  7%]\r\ntests\\integration\\test_l1_acceptance.py ....................             [ 14%]\r\ntests\\integration\\test_smoke.py ..                                       [ 14%]\r\ntests\\physics\\test_analytic_forces_events.py ...                         [ 15%]\r\ntests\\physics\\test_nominal_baseline.py ......                            [ 17%]\r\ntests\\physics\\test_w2_engines.py ....s.ssssssss                          [ 22%]\r\ntests\\unit\\test_admission_evaluators.py ...........                      [ 25%]\r\ntests\\unit\\test_baseline_audit.py ............                           [ 29%]\r\ntests\\unit\\test_compiled_dop853.py ....................                  [ 35%]\r\ntests\\unit\\test_ephemeris_versions.py ....                               [ 37%]\r\ntests\\unit\\test_events_shared_samples.py ................                [ 42%]\r\ntests\\unit\\test_ganymede_passport.py .........                           [ 45%]\r\ntests\\unit\\test_geometric_states.py ............                         [ 49%]\r\ntests\\unit\\test_himalia_passport.py .......                              [ 51%]\r\ntests\\unit\\test_l1_specification.py ...                                  [ 52%]\r\ntests\\unit\\test_massive_cache_lookup.py .........                        [ 55%]\r\ntests\\unit\\test_native_ias15_guard.py ..s                                [ 56%]\r\ntests\\unit\\test_orbit_contract.py ..                                     [ 56%]\r\ntests\\unit\\test_passports.py ......                                      [ 58%]\r\ntests\\unit\\test_provenance_execution.py .....                            [ 60%]\r\ntests\\unit\\test_release_freeze.py ...                                    [ 61%]\r\ntests\\unit\\test_sampling_design.py .....                                 [ 62%]\r\ntests\\unit\\test_tracking.py .........                                    [ 65%]\r\ntests\\unit\\test_vast_market_monitor.py ................................. [ 76%]\r\n..........................................................               [ 94%]\r\ntests\\unit\\test_vast_market_report.py ...                                [ 95%]\r\ntests\\unit\\test_vast_offer_classification.py .                           [ 96%]\r\ntests\\unit\\test_w1_protocol.py ............                              [100%]\r\n\r\n=========================== short test summary info ===========================\r\nSKIPPED [9] tests\\physics\\test_w2_engines.py:28: could not import 'reboundx': No module named 'reboundx'\r\nSKIPPED [1] tests\\unit\\test_native_ias15_guard.py:42: could not import 'reboundx': No module named 'reboundx'\r\n================= 302 passed, 10 skipped in 118.60s (0:01:58) =================\r\n",
+      "stderr": ""
+    }
+  },
+  "limitations": [
+    "10 tests skipped: reboundx absent in Windows venv",
+    "Immutable audit source snapshot contains an existing final blank line; preserved to retain SHA provenance"
+  ],
+  "smoke_run_id": "L0-20261009T175222Z-49ef2c2d"
+}

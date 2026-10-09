@@ -1,0 +1,166 @@
+{
+ "task": "W2-T008",
+ "kind": "machine_benchmark_not_scientific_result",
+ "numeric": {
+  "rtol": 1e-11,
+  "atol_position": 1e-08,
+  "atol_velocity": 1e-11,
+  "step_fraction": 0.025,
+  "epsilon": 1e-09,
+  "cache_epsilon": 1e-12
+ },
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5808.00",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "warmup_seconds": 0.19607235500001252,
+ "periods": 20.0,
+ "repeats": 3,
+ "cases": [
+  "iapetus-inner-0-0.3",
+  "iapetus-inner-180-0.3",
+  "iapetus-outer-0-0.3",
+  "iapetus-outer-180-0.3",
+  "ganymede-inner-0-0.3",
+  "ganymede-inner-180-0.3",
+  "ganymede-outer-0-0.3",
+  "ganymede-outer-180-0.3",
+  "himalia-inner-0-0.3",
+  "himalia-inner-180-0.3",
+  "himalia-outer-0-0.3",
+  "himalia-outer-180-0.3"
+ ],
+ "scaling": {
+  "levels": [
+   1,
+   2,
+   3,
+   6
+  ],
+  "replicate": 1,
+  "periods": 10.0,
+  "results": {
+   "dop853_jit": [
+    {
+     "workers": 1,
+     "wall_seconds": 4.002153192000037,
+     "jobs": 12,
+     "speedup": 1.0,
+     "efficiency": 1.0,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 223199232
+    },
+    {
+     "workers": 2,
+     "wall_seconds": 2.9338476940000078,
+     "jobs": 12,
+     "speedup": 1.3641312056467054,
+     "efficiency": 0.6820656028233527,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 222633984
+    },
+    {
+     "workers": 3,
+     "wall_seconds": 2.2778345060000333,
+     "jobs": 12,
+     "speedup": 1.756999106589168,
+     "efficiency": 0.585666368863056,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 223236096
+    },
+    {
+     "workers": 6,
+     "wall_seconds": 2.4435940679999817,
+     "jobs": 12,
+     "speedup": 1.6378142525430566,
+     "efficiency": 0.27296904209050943,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 222629888
+    }
+   ],
+   "hierarchical_cached": [
+    {
+     "workers": 1,
+     "wall_seconds": 40.966153684000005,
+     "jobs": 12,
+     "speedup": 1.0,
+     "efficiency": 1.0,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 241475584
+    },
+    {
+     "workers": 2,
+     "wall_seconds": 21.190994081999975,
+     "jobs": 12,
+     "speedup": 1.933186972044762,
+     "efficiency": 0.966593486022381,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 241524736
+    },
+    {
+     "workers": 3,
+     "wall_seconds": 15.221921680000037,
+     "jobs": 12,
+     "speedup": 2.691260311621831,
+     "efficiency": 0.8970867705406104,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 240513024
+    },
+    {
+     "workers": 6,
+     "wall_seconds": 11.389565783999956,
+     "jobs": 12,
+     "speedup": 3.596814352795538,
+     "efficiency": 0.5994690587992563,
+     "not_completed": 0,
+     "worker_memory_peak_bytes": 234549248
+    }
+   ]
+  }
+ },
+ "utc": "20261009T103330Z"
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "check": "pytest",
+    "command": [
+      "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-q"
+    ],
+    "returncode": 0,
+    "seconds": 127.51499999999942
+  },
+  {
+    "check": "ruff",
+    "command": [
+      "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+      "-m",
+      "ruff",
+      "check",
+      "src",
+      "scripts",
+      "tests"
+    ],
+    "returncode": 0,
+    "seconds": 0.1709999999984575
+  },
+  {
+    "check": "validate",
+    "command": [
+      "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+      "scripts/project.py",
+      "validate"
+    ],
+    "returncode": 0,
+    "seconds": 0.7970000000022992
+  },
+  {
+    "check": "smoke",
+    "command": [
+      "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+      "scripts/project.py",
+      "smoke"
+    ],
+    "returncode": 0,
+    "seconds": 6.406999999999243
+  }
+]

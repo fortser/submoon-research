@@ -1,0 +1,488 @@
+{
+ "task": "W2-T008",
+ "stage": "F",
+ "kind": "prototype_benchmark_not_numeric_admission",
+ "utc": "20261009T112002Z",
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5808.00",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "periods": 200.0,
+ "repeats": 1,
+ "numeric": {
+  "rtol": 1e-11,
+  "atol_position": 1e-08,
+  "atol_velocity": 1e-11,
+  "step_fraction": 0.025,
+  "epsilon": 1e-09,
+  "cache_epsilon": 1e-12
+ },
+ "first_call_seconds": 0.051511495000006846,
+ "walls": {
+  "iapetus-inner-0-0.3": {
+   "scipy_A": [
+    4.202568111000005
+   ],
+   "compiled": [
+    1.3421139760000003
+   ]
+  },
+  "iapetus-inner-180-0.3": {
+   "scipy_A": [
+    4.224095409
+   ],
+   "compiled": [
+    1.3699648739999972
+   ]
+  },
+  "iapetus-outer-0-0.3": {
+   "scipy_A": [
+    0.10809849000000327
+   ],
+   "compiled": [
+    0.030631497000001673
+   ]
+  },
+  "iapetus-outer-180-0.3": {
+   "scipy_A": [
+    0.16584658499999705
+   ],
+   "compiled": [
+    0.04898649499999408
+   ]
+  },
+  "ganymede-inner-0-0.3": {
+   "scipy_A": [
+    4.76308336000001
+   ],
+   "compiled": [
+    1.6966969430000063
+   ]
+  },
+  "ganymede-inner-180-0.3": {
+   "scipy_A": [
+    5.1336082220000065
+   ],
+   "compiled": [
+    2.124219148999998
+   ]
+  },
+  "ganymede-outer-0-0.3": {
+   "scipy_A": [
+    0.1161207920000038
+   ],
+   "compiled": [
+    0.0424100970000012
+   ]
+  },
+  "ganymede-outer-180-0.3": {
+   "scipy_A": [
+    0.17004718799999807
+   ],
+   "compiled": [
+    0.07150649500000839
+   ]
+  },
+  "himalia-inner-0-0.3": {
+   "scipy_A": [
+    3.8488139279999984
+   ],
+   "compiled": [
+    1.178764416000007
+   ]
+  },
+  "himalia-inner-180-0.3": {
+   "scipy_A": [
+    3.862091626999998
+   ],
+   "compiled": [
+    1.1795126159999967
+   ]
+  },
+  "himalia-outer-0-0.3": {
+   "scipy_A": [
+    0.07351429500000961
+   ],
+   "compiled": [
+    0.017492798999995784
+   ]
+  },
+  "himalia-outer-180-0.3": {
+   "scipy_A": [
+    0.2852773799999966
+   ],
+   "compiled": [
+    0.09415269299999807
+   ]
+  }
+ },
+ "totals_min_seconds": {
+  "scipy_A": 26.953165387000027,
+  "compiled": 9.196452050000005
+ },
+ "rows": {
+  "iapetus-inner-0-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 1.774407335049493e-11,
+   "steps": [
+    8367,
+    8367
+   ],
+   "nfev": [
+    125507,
+    125507
+   ],
+   "python_event_steps": 639
+  },
+  "iapetus-inner-180-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 6.539256456546295e-11,
+   "steps": [
+    8374,
+    8374
+   ],
+   "nfev": [
+    125612,
+    125612
+   ],
+   "python_event_steps": 704
+  },
+  "iapetus-outer-0-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 5.455164402342971e-14,
+   "probe_position_difference_over_a": 9.169661128649952e-12,
+   "steps": [
+    223,
+    223
+   ],
+   "nfev": [
+    3479,
+    3479
+   ],
+   "python_event_steps": 5,
+   "event_ref": {
+    "time": 9695993.71773542,
+    "departure_time": 2835974.511556084,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 9695993.717735576,
+    "departure_time": 2835974.511556239,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  },
+  "iapetus-outer-180-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 2.694719765012793e-14,
+   "probe_position_difference_over_a": 4.3407192520227106e-11,
+   "steps": [
+    334,
+    334
+   ],
+   "nfev": [
+    5204,
+    5204
+   ],
+   "python_event_steps": 15,
+   "event_ref": {
+    "time": 14431614.119180145,
+    "departure_time": 7571594.913000808,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 14431614.119180221,
+    "departure_time": 7571594.913000885,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  },
+  "ganymede-inner-0-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 1.2189194315802843e-11,
+   "steps": [
+    8530,
+    8530
+   ],
+   "nfev": [
+    128252,
+    128252
+   ],
+   "python_event_steps": 110
+  },
+  "ganymede-inner-180-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 1.2844276050190301e-11,
+   "steps": [
+    8732,
+    8732
+   ],
+   "nfev": [
+    132338,
+    132338
+   ],
+   "python_event_steps": 806
+  },
+  "ganymede-outer-0-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": -1.2305703163035851e-14,
+   "probe_position_difference_over_a": 8.042951347946284e-13,
+   "steps": [
+    197,
+    197
+   ],
+   "nfev": [
+    3173,
+    3173
+   ],
+   "python_event_steps": 5,
+   "event_ref": {
+    "time": 866525.2861156848,
+    "departure_time": 248258.13662715003,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 866525.2861156816,
+    "departure_time": 248258.13662714683,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  },
+  "ganymede-outer-180-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": -8.203802108690568e-14,
+   "probe_position_difference_over_a": 6.06085464252333e-11,
+   "steps": [
+    290,
+    290
+   ],
+   "nfev": [
+    4628,
+    4628
+   ],
+   "python_event_steps": 25,
+   "event_ref": {
+    "time": 1305437.6259831316,
+    "departure_time": 687170.4764945967,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 1305437.6259831106,
+    "departure_time": 687170.4764945757,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  },
+  "himalia-inner-0-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 1.0989952686339378e-11,
+   "steps": [
+    8022,
+    8022
+   ],
+   "nfev": [
+    120332,
+    120332
+   ],
+   "python_event_steps": 867
+  },
+  "himalia-inner-180-0.3": {
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 0.0,
+   "probe_position_difference_over_a": 4.2212719187114873e-11,
+   "steps": [
+    8023,
+    8023
+   ],
+   "nfev": [
+    120347,
+    120347
+   ],
+   "python_event_steps": 878
+  },
+  "himalia-outer-0-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": -4.077415215875852e-13,
+   "probe_position_difference_over_a": 5.909558955659928e-11,
+   "steps": [
+    162,
+    162
+   ],
+   "nfev": [
+    2492,
+    2492
+   ],
+   "python_event_steps": 5,
+   "event_ref": {
+    "time": 31644779.52953759,
+    "departure_time": 10236775.094131717,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 31644779.529533982,
+    "departure_time": 10236775.094128115,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  },
+  "himalia-outer-180-0.3": {
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "same_outcome": true,
+   "run_status": [
+    "completed",
+    "completed"
+   ],
+   "end_time_difference_periods": 3.792215185466221e-10,
+   "probe_position_difference_over_a": 3.8972505692232136e-08,
+   "steps": [
+    576,
+    576
+   ],
+   "nfev": [
+    9218,
+    9218
+   ],
+   "python_event_steps": 90,
+   "event_ref": {
+    "time": 102392556.58468741,
+    "departure_time": 80984552.14928155,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "event_new": {
+    "time": 102392556.58804126,
+    "departure_time": 80984552.1526354,
+    "event": "operational_escape",
+    "eternal_escape_proven": false
+   },
+   "same_event": true
+  }
+ },
+ "all_outcomes_and_events_agree": true
+}

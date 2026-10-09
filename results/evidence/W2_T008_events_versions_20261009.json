@@ -1,0 +1,251 @@
+{
+ "task": "W2-T008",
+ "stage": "D",
+ "kind": "machine_benchmark_not_scientific_result",
+ "utc": "20261009T105637Z",
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5808.00",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "periods": 20.0,
+ "repeats": 3,
+ "numeric": {
+  "rtol": 1e-11,
+  "atol_position": 1e-08,
+  "atol_velocity": 1e-11,
+  "step_fraction": 0.025,
+  "epsilon": 1e-09,
+  "cache_epsilon": 1e-12
+ },
+ "walls": {
+  "iapetus-inner-0-0.3": {
+   "v0": [
+    0.5288201190000024,
+    0.5317187190000041,
+    0.5249983189999909
+   ],
+   "current": [
+    0.41433061500000434,
+    0.4425223160000016,
+    0.4145779149999953
+   ]
+  },
+  "iapetus-inner-180-0.3": {
+   "v0": [
+    0.5364996189999971,
+    0.5373149189999964,
+    0.5378460189999998
+   ],
+   "current": [
+    0.41886241499999954,
+    0.4147849149999985,
+    0.420523414999991
+   ]
+  },
+  "iapetus-outer-0-0.3": {
+   "v0": [
+    0.14407180500000294,
+    0.1366474039999943,
+    0.13906390500000043
+   ],
+   "current": [
+    0.10905410400000193,
+    0.10712010400000338,
+    0.10972050399999489
+   ]
+  },
+  "iapetus-outer-180-0.3": {
+   "v0": [
+    0.21167440800000037,
+    0.21586950700000074,
+    0.21544590800000663
+   ],
+   "current": [
+    0.16344960600000036,
+    0.17083260700000125,
+    0.16487330500000041
+   ]
+  },
+  "ganymede-inner-0-0.3": {
+   "v0": [
+    0.625531622000004,
+    0.6177467220000068,
+    0.614136122000005
+   ],
+   "current": [
+    0.4848228170000013,
+    0.46965551699999963,
+    0.4713113170000014
+   ]
+  },
+  "ganymede-inner-180-0.3": {
+   "v0": [
+    0.6707506240000001,
+    0.6491726230000125,
+    0.6465300210000038
+   ],
+   "current": [
+    0.5998201220000041,
+    0.5103813180000003,
+    0.49583221700000024
+   ]
+  },
+  "ganymede-outer-0-0.3": {
+   "v0": [
+    0.14875380500000546,
+    0.1482060050000058,
+    0.1449563049999938
+   ],
+   "current": [
+    0.11494350400000286,
+    0.11666690500000243,
+    0.11348340300000359
+   ]
+  },
+  "ganymede-outer-180-0.3": {
+   "v0": [
+    0.21834680799999973,
+    0.22548830799999564,
+    0.2155665080000091
+   ],
+   "current": [
+    0.17004390599999653,
+    0.17147550599999306,
+    0.16596420499999454
+   ]
+  },
+  "himalia-inner-0-0.3": {
+   "v0": [
+    0.4840300169999949,
+    0.4825064170000104,
+    0.4695227160000002
+   ],
+   "current": [
+    0.38550341399999866,
+    0.3867559140000054,
+    0.3781317130000019
+   ]
+  },
+  "himalia-inner-180-0.3": {
+   "v0": [
+    0.48403051700000077,
+    0.4809337169999992,
+    0.46969341499999473
+   ],
+   "current": [
+    0.38166121399999753,
+    0.38042051399999366,
+    0.3887522129999894
+   ]
+  },
+  "himalia-outer-0-0.3": {
+   "v0": [
+    0.09270650300000227,
+    0.09041360400000542,
+    0.09585420299998759
+   ],
+   "current": [
+    0.07345280299999501,
+    0.07226180199999988,
+    0.07447070300000291
+   ]
+  },
+  "himalia-outer-180-0.3": {
+   "v0": [
+    0.3599127120000034,
+    0.35210661200000004,
+    0.34996961200000953
+   ],
+   "current": [
+    0.29426831000000675,
+    0.2846857100000051,
+    0.27720090900000116
+   ]
+  }
+ },
+ "steps": {
+  "iapetus-inner-0-0.3": 841,
+  "iapetus-inner-180-0.3": 841,
+  "iapetus-outer-0-0.3": 223,
+  "iapetus-outer-180-0.3": 334,
+  "ganymede-inner-0-0.3": 862,
+  "ganymede-inner-180-0.3": 881,
+  "ganymede-outer-0-0.3": 197,
+  "ganymede-outer-180-0.3": 290,
+  "himalia-inner-0-0.3": 806,
+  "himalia-inner-180-0.3": 806,
+  "himalia-outer-0-0.3": 162,
+  "himalia-outer-180-0.3": 576
+ },
+ "totals_min_seconds": {
+  "v0": 4.410608053000004,
+  "current": 3.452635520000001
+ },
+ "c_cases_checked": 12,
+ "bitwise_identical": true,
+ "mismatches": [],
+ "breakdown_seconds": {
+  "diagnostics": 0.03960522199898264,
+  "forces": 1.028732712000732,
+  "integrator_restart": 0.0010390410000127304,
+  "integrator_step": 0.7730652709969661,
+  "integrator_dense_output": 0.2943541350017256,
+  "dense_eval": 0.33102714700027036,
+  "events": 0.867375318997631,
+  "other": 0.15155000400361018
+ },
+ "breakdown_calls": {
+  "diagnostics": 6831,
+  "forces": 104061,
+  "integrator_restart": 12,
+  "integrator_step": 6819,
+  "integrator_dense_output": 6819,
+  "dense_eval": 14180,
+  "events": 20457
+ },
+ "breakdown_steps": 6819
+}

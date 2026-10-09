@@ -36,3 +36,7 @@
 | W2-D008 | W2 | accepted | Анонимный монитор: стратегия stratified (окна+jitter+смена K) | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D009 | W2 | accepted | Принято: аренда CPU-матрицы, бюджет $12, до 4 ч на машину | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D010 | W2 | accepted | Ориентир для оценки полного T=10000 лет — TR PRO 7995WX; ворота возврата к движку | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D011 | W2 | accepted | Локальные прогоны движков B/C (IAS15+REBOUNDx) выполнять в WSL Ubuntu-24.04 | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D012 | W2 | accepted | Не развивать C как движок отдельной орбиты; оптимизировать A (события, компилируемый цикл) | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D013 | W2 | accepted | Высокие эксцентриситеты (e >= 0.9) до P2-1: только флаг вне проверенной области, правило — по данным | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D014 | W2 | accepted | Удалённый P2-1 на Vast.ai: вариант В, выполнение сегодня (вариант А), стенд v4 и срок 13.5 ч | [Запись](tracking/stages/W2/RECORDS.md) |

@@ -1,0 +1,2603 @@
+{
+ "years": 1.0,
+ "jobs": 144,
+ "Q1_failures": [],
+ "Q2_violations": [],
+ "problems": [],
+ "passed": true,
+ "pairs": [
+  {
+   "tau_seconds": 18244237.5,
+   "tau_periods": 1347.6536897869728,
+   "tau_years": 0.578125,
+   "max_dr_before_tau": 1.0185196333361194e-06,
+   "max_dv_before_tau": 1.018525690579697e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 18994660.085301578,
+   "tau_periods": 1403.0854263000033,
+   "tau_years": 0.6019044567806671,
+   "max_dr_before_tau": 1.0174217564742477e-06,
+   "max_dv_before_tau": 1.0175231478909397e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.603828073987823e-07,
+   "max_dv_before_tau": 7.605723210364678e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.4390819700393243e-06,
+   "max_dv_before_tau": 1.959387743512225e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.4450767740917027e-06,
+   "max_dv_before_tau": 1.967578672372408e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10354837.5,
+   "tau_periods": 447.9638158454574,
+   "tau_years": 0.328125,
+   "max_dr_before_tau": 8.704105315005668e-07,
+   "max_dv_before_tau": 1.2513717503885876e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-0-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 18244237.5,
+   "tau_periods": 1347.6536897869728,
+   "tau_years": 0.578125,
+   "max_dr_before_tau": 1.019525976043809e-06,
+   "max_dv_before_tau": 1.01954567911499e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 16430069.486009235,
+   "tau_periods": 1213.645884969251,
+   "tau_years": 0.5206374846632581,
+   "max_dr_before_tau": 1.006777992738096e-06,
+   "max_dv_before_tau": 1.006827764919429e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.561549458550195e-07,
+   "max_dv_before_tau": 2.5607150439822713e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.174312179808196e-06,
+   "max_dv_before_tau": 1.6024360456946755e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.1794768766461784e-06,
+   "max_dv_before_tau": 1.6095060155276635e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10354837.5,
+   "tau_periods": 447.9638158454574,
+   "tau_years": 0.328125,
+   "max_dr_before_tau": 8.260002426972007e-07,
+   "max_dv_before_tau": 1.1960312946549935e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 18244237.5,
+   "tau_periods": 1347.6536897869728,
+   "tau_years": 0.578125,
+   "max_dr_before_tau": 1.019783847071121e-06,
+   "max_dv_before_tau": 1.0197964997763587e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 18244237.5,
+   "tau_periods": 1347.6536897869728,
+   "tau_years": 0.578125,
+   "max_dr_before_tau": 1.027556617637906e-06,
+   "max_dv_before_tau": 1.027540405998093e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 8.60572531327398e-07,
+   "max_dv_before_tau": 8.604863028880296e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.3411851777404051e-06,
+   "max_dv_before_tau": 1.8340416503682e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 903226.9356821653,
+   "tau_periods": 39.07477878649301,
+   "tau_years": 0.028621534453892733,
+   "max_dr_before_tau": 1.345687014930663e-06,
+   "max_dv_before_tau": 1.8402261771797823e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10354837.5,
+   "tau_periods": 447.9638158454574,
+   "tau_years": 0.328125,
+   "max_dr_before_tau": 7.145035632012956e-07,
+   "max_dv_before_tau": 1.0275799892205365e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-180-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 3.151016762977585e-10,
+   "max_dv_before_tau": 7.748752124065905e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.029427609598093e-12,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "iapetus-outer-0-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 3.1449003297978063e-10,
+   "max_dv_before_tau": 1.103282018930359e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.055717558525047e-12,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "iapetus-outer-0-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.0922530298478152e-11,
+   "max_dv_before_tau": 1.254703028400492e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.6289948926954078e-14,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "iapetus-outer-0-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.688645954523947e-09,
+   "max_dv_before_tau": 1.982465988224929e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 9.305327422695395e-12,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-0-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.7503905362659265e-09,
+   "max_dv_before_tau": 2.0171482617282333e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 9.247489535056097e-12,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-0-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 6.174929246038261e-11,
+   "max_dv_before_tau": 3.4688577264620414e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.783788763929897e-14,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-0-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.3116272255584166e-08,
+   "max_dv_before_tau": 1.4446901488677622e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 1.1013635158994409e-09,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.318210703962055e-08,
+   "max_dv_before_tau": 1.4467018915215158e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 1.1035337511833608e-09,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 6.584522470886957e-11,
+   "max_dv_before_tau": 5.146951856812876e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.170235283920059e-12,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.8783408373701616e-09,
+   "max_dv_before_tau": 1.6077477133242413e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.819177675363794e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.291300903442968e-09,
+   "max_dv_before_tau": 1.4157482835091725e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.380043513462416e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.904141834910711e-10,
+   "max_dv_before_tau": 2.000584334400786e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.3913416190137746e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.3000826724028394e-08,
+   "max_dv_before_tau": 1.945473499461304e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-outer-180-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.3058631373727115e-08,
+   "max_dv_before_tau": 1.9549284829760797e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-outer-180-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 6.123181621393139e-11,
+   "max_dv_before_tau": 9.45626326280767e-11,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-outer-180-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.1711118592727908e-07,
+   "max_dv_before_tau": 8.0799962722419e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.806904201523921e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-180-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.1737821216842496e-07,
+   "max_dv_before_tau": 8.089873066391999e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.8060300607221e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-180-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.675559596294039e-10,
+   "max_dv_before_tau": 9.895731821393502e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 8.741408018212231e-14,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-180-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 13806450.0,
+   "tau_periods": 1362.0965034676117,
+   "tau_years": 0.4375,
+   "max_dr_before_tau": 1.0452021709948616e-06,
+   "max_dv_before_tau": 1.045894807991167e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 12327187.5,
+   "tau_periods": 1216.1575923817961,
+   "tau_years": 0.390625,
+   "max_dr_before_tau": 1.0015543256013043e-06,
+   "max_dv_before_tau": 1.0021651300637283e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.368787856834356e-07,
+   "max_dv_before_tau": 4.37546008402492e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 6.790363141496552e-07,
+   "max_dv_before_tau": 1.000152269928444e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 6.821730808492115e-07,
+   "max_dv_before_tau": 1.0047872465004734e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 12327187.5,
+   "tau_periods": 712.2573104582398,
+   "tau_years": 0.390625,
+   "max_dr_before_tau": 9.845257186958316e-07,
+   "max_dv_before_tau": 1.103950225544915e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-0-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 13313362.5,
+   "tau_periods": 1313.4501997723398,
+   "tau_years": 0.421875,
+   "max_dr_before_tau": 9.950085349183851e-07,
+   "max_dv_before_tau": 1.002435391201159e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 3.6918984869376145e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 14299537.5,
+   "tau_periods": 1410.7428071628835,
+   "tau_years": 0.453125,
+   "max_dr_before_tau": 1.003423213468739e-06,
+   "max_dv_before_tau": 1.0173229150996335e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 3.309827649069771e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.692862080498271e-07,
+   "max_dv_before_tau": 2.678754933511077e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 3.8207083786784343e-08,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 6.962983249647562e-07,
+   "max_dv_before_tau": 1.105732808489211e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 2.5378107111415654e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 6.984988371609562e-07,
+   "max_dv_before_tau": 1.1092514789208551e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 2.549767838934872e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 6.8203069271825796e-09,
+   "max_dv_before_tau": 8.873235299631135e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 1.1957127793306394e-09,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 13806450.0,
+   "tau_periods": 1362.0965034676117,
+   "tau_years": 0.4375,
+   "max_dr_before_tau": 1.046803840871323e-06,
+   "max_dv_before_tau": 1.0472652249936304e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 15280703.085396625,
+   "tau_periods": 1507.541203071426,
+   "tau_years": 0.4842162612301514,
+   "max_dr_before_tau": 1.039680268513796e-06,
+   "max_dv_before_tau": 1.0403661583342844e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 24161287.5,
+   "tau_periods": 2383.6688810683204,
+   "tau_years": 0.765625,
+   "max_dr_before_tau": 1.0023210203636564e-06,
+   "max_dv_before_tau": 1.0019505979881158e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 8.246978756703977e-07,
+   "max_dv_before_tau": 1.262340608290428e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 39.04680847006282,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 8.280668357425508e-07,
+   "max_dv_before_tau": 1.2675174092804887e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10847925.0,
+   "tau_periods": 626.786433203251,
+   "tau_years": 0.34375,
+   "max_dr_before_tau": 1.2240826033862277e-06,
+   "max_dv_before_tau": 1.7240426167364e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-inner-180-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 3.015238016988912e-11,
+   "max_dv_before_tau": 1.1000239418614536e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.427774304773826e-13,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-0-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 3.0118907780977274e-11,
+   "max_dv_before_tau": 1.1022521373766996e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.263698262600015e-13,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-0-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.622358789771178e-13,
+   "max_dv_before_tau": 4.387536014970019e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 1.6407604217381135e-14,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-0-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.442242236930999e-09,
+   "max_dv_before_tau": 1.5899223608031423e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.761484644255004e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-0-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.496664589389262e-09,
+   "max_dv_before_tau": 1.6057137663385773e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.817407228629245e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-0-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.442672921505359e-11,
+   "max_dv_before_tau": 1.5796751178417822e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 5.592258437424071e-13,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-0-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.0999991753459063e-08,
+   "max_dv_before_tau": 1.1051755453220526e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.869786047054397e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.1177295227536588e-08,
+   "max_dv_before_tau": 1.1137599614613656e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.912436702683912e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.7730406277047488e-10,
+   "max_dv_before_tau": 8.58444451466901e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.265065562951463e-12,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.332736157165872e-10,
+   "max_dv_before_tau": 2.0923771583489557e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 7.511993707536045e-11,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.075192813967214e-10,
+   "max_dv_before_tau": 2.028411662655499e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 7.287163953079541e-11,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.6471947026180938e-11,
+   "max_dv_before_tau": 6.941152694160722e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.248297544565032e-12,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 14211740.67357917,
+   "tau_periods": 55.63906226068269,
+   "tau_years": 0.45034288645458365,
+   "max_dr_before_tau": 8.036249804161445e-07,
+   "max_dv_before_tau": 1.2464782217695944e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-outer-180-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 14211740.67357917,
+   "tau_periods": 55.63906226068269,
+   "tau_years": 0.45034288645458365,
+   "max_dr_before_tau": 8.084409243950032e-07,
+   "max_dv_before_tau": 1.2539719600942275e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-outer-180-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.4744793993578115e-08,
+   "max_dv_before_tau": 2.313465252710415e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "ganymede-outer-180-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.3042986696068035e-08,
+   "max_dv_before_tau": 2.5189508632397228e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 3.1104259928316475e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-180-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 5.3234629119871875e-08,
+   "max_dv_before_tau": 2.5298802144192467e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 3.063390860741821e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-180-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.337322814580044e-10,
+   "max_dv_before_tau": 1.0975856680861618e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.703513208982592e-13,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-180-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 20216587.5,
+   "tau_periods": 1342.535591730727,
+   "tau_years": 0.640625,
+   "max_dr_before_tau": 1.0122464123504197e-06,
+   "max_dv_before_tau": 1.0122480628604795e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 20709675.0,
+   "tau_periods": 1375.2803622607448,
+   "tau_years": 0.65625,
+   "max_dr_before_tau": 1.0138517056790157e-06,
+   "max_dv_before_tau": 1.0142985449877552e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 16271887.5,
+   "tau_periods": 1080.5774274905853,
+   "tau_years": 0.515625,
+   "max_dr_before_tau": 1.0042907759113327e-06,
+   "max_dv_before_tau": 1.0036834399431394e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.0285078591752196e-06,
+   "max_dv_before_tau": 9.507596461216776e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.0305186367122204e-06,
+   "max_dv_before_tau": 9.524391640196434e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 11341012.5,
+   "tau_periods": 441.07947334599936,
+   "tau_years": 0.359375,
+   "max_dr_before_tau": 8.145521010113905e-07,
+   "max_dv_before_tau": 1.0913552589133842e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-0-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 20216587.5,
+   "tau_periods": 1342.535591730727,
+   "tau_years": 0.640625,
+   "max_dr_before_tau": 1.0119176182422217e-06,
+   "max_dv_before_tau": 1.0119192825185547e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 21695850.0,
+   "tau_periods": 1440.7699033207803,
+   "tau_years": 0.6875,
+   "max_dr_before_tau": 1.010260947630594e-06,
+   "max_dv_before_tau": 1.0102946045144772e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 14299537.5,
+   "tau_periods": 949.5983453705143,
+   "tau_years": 0.453125,
+   "max_dr_before_tau": 1.0003730864916086e-06,
+   "max_dv_before_tau": 1.0004445234231275e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.0281128597387037e-06,
+   "max_dv_before_tau": 9.501268773113892e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.0301329148147507e-06,
+   "max_dv_before_tau": 9.51805694417622e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10847925.0,
+   "tau_periods": 421.90210493965157,
+   "tau_years": 0.34375,
+   "max_dr_before_tau": 1.029452070343182e-06,
+   "max_dv_before_tau": 1.314540424395989e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 20216587.5,
+   "tau_periods": 1342.535591730727,
+   "tau_years": 0.640625,
+   "max_dr_before_tau": 1.0114779955361184e-06,
+   "max_dv_before_tau": 1.0114789730483487e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.0",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 19723500.0,
+   "tau_periods": 1309.7908212007094,
+   "tau_years": 0.625,
+   "max_dr_before_tau": 1.0194154621989891e-06,
+   "max_dv_before_tau": 1.0189653155968558e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.0",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 29585250.0,
+   "tau_periods": 1964.686231801064,
+   "tau_years": 0.9375,
+   "max_dr_before_tau": 1.0089184696226344e-06,
+   "max_dv_before_tau": 1.0085261552262451e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.0",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.0282726365244877e-06,
+   "max_dv_before_tau": 9.503292285072616e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.3",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 675791.3498667751,
+   "tau_periods": 26.283164108232764,
+   "tau_years": 0.021414535638539532,
+   "max_dr_before_tau": 1.03029845256561e-06,
+   "max_dv_before_tau": 9.520114512628442e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.3",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10847925.0,
+   "tau_periods": 421.90210493965157,
+   "tau_years": 0.34375,
+   "max_dr_before_tau": 7.885997073814638e-07,
+   "max_dv_before_tau": 1.0066376910869474e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-180-0.3",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.060835515507347e-07,
+   "max_dv_before_tau": 2.0309695478459788e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 4453590.339984668,
+   "tau_periods": 0.5035698580441598,
+   "tau_years": 0.14112576178114522,
+   "max_dr_before_tau": 6.677546756587288e-08,
+   "max_dv_before_tau": 1.3836372322132957e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 4453590.339984668,
+   "tau_periods": 0.5035698580441598,
+   "tau_years": 0.14112576178114522,
+   "max_dr_before_tau": 6.689069871829944e-08,
+   "max_dv_before_tau": 1.3840943709026308e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.628383524220119e-07,
+   "max_dv_before_tau": 6.689290348564663e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 3852282.610984446,
+   "tau_periods": 0.43557966931599296,
+   "tau_years": 0.12207146966133185,
+   "max_dr_before_tau": 1.4596127728545427e-08,
+   "max_dv_before_tau": 1.080567341109973e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 3852282.610984446,
+   "tau_periods": 0.43557966931599296,
+   "tau_years": 0.12207146966133185,
+   "max_dr_before_tau": 1.1359521810557568e-08,
+   "max_dv_before_tau": 1.0669394759252205e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-0-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.9004134223688734e-07,
+   "max_dv_before_tau": 8.364197916732792e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 3852282.610984446,
+   "tau_periods": 0.43557966931599296,
+   "tau_years": 0.12207146966133185,
+   "max_dr_before_tau": 7.52590153836172e-08,
+   "max_dv_before_tau": 8.88149241406435e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 3852282.610984446,
+   "tau_periods": 0.43557966931599296,
+   "tau_years": 0.12207146966133185,
+   "max_dr_before_tau": 7.519614827794204e-08,
+   "max_dv_before_tau": 8.880298704071871e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 9.123120935217744e-09,
+   "max_dv_before_tau": 3.3126935421654336e-09,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 14299537.5,
+   "tau_periods": 1.6168564055662398,
+   "tau_years": 0.453125,
+   "max_dr_before_tau": 2.9101660126062804e-08,
+   "max_dv_before_tau": 1.0967664409863369e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 14299537.5,
+   "tau_periods": 1.6168564055662398,
+   "tau_years": 0.453125,
+   "max_dr_before_tau": 2.8973720800768794e-08,
+   "max_dv_before_tau": 1.0966031385865586e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 8.493062730919851e-09,
+   "max_dv_before_tau": 1.5949118038902106e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-outer-180-0.0",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 25640550.0,
+   "tau_periods": 2.89919079618774,
+   "tau_years": 0.8125,
+   "max_dr_before_tau": 1.6947815968649254e-08,
+   "max_dv_before_tau": 1.3203250701784423e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-outer-180-0.0",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 25640550.0,
+   "tau_periods": 2.89919079618774,
+   "tau_years": 0.8125,
+   "max_dr_before_tau": 1.2887818380799521e-08,
+   "max_dv_before_tau": 1.3332930426745385e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-outer-180-0.0",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.108277061933838e-08,
+   "max_dv_before_tau": 2.746032851175397e-08,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-180-0.3",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 26133637.5,
+   "tau_periods": 2.954944465345197,
+   "tau_years": 0.828125,
+   "max_dr_before_tau": 7.460350872913946e-08,
+   "max_dv_before_tau": 2.033046381946165e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-180-0.3",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 26133637.5,
+   "tau_periods": 2.954944465345197,
+   "tau_years": 0.828125,
+   "max_dr_before_tau": 8.131115399795146e-08,
+   "max_dv_before_tau": 2.0383705528827965e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-180-0.3",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 18244237.5,
+   "tau_periods": 1347.6536897869728,
+   "tau_years": 0.578125,
+   "max_dr_before_tau": 1.0202361528203277e-06,
+   "max_dv_before_tau": 1.0202421339527073e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 21695850.0,
+   "tau_periods": 1602.615198665589,
+   "tau_years": 0.6875,
+   "max_dr_before_tau": 1.0284580792212974e-06,
+   "max_dv_before_tau": 1.0284328046944766e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 8.122589589425564e-07,
+   "max_dv_before_tau": 8.122569969237853e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 781276.4876154169,
+   "tau_periods": 33.79904287465046,
+   "tau_years": 0.02475715794659343,
+   "max_dr_before_tau": 1.0720962610556375e-06,
+   "max_dv_before_tau": 1.5400008894321126e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 781276.4876154169,
+   "tau_periods": 33.79904287465046,
+   "tau_years": 0.02475715794659343,
+   "max_dr_before_tau": 1.0760465568566195e-06,
+   "max_dv_before_tau": 1.5457014592924032e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 11341012.5,
+   "tau_periods": 490.6270364021677,
+   "tau_years": 0.359375,
+   "max_dr_before_tau": 9.058358946588219e-07,
+   "max_dv_before_tau": 1.152946991858347e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 9197523.289842296,
+   "tau_periods": 3.245417110772001,
+   "tau_years": 0.29145192568009914,
+   "max_dr_before_tau": 1.3806073307609948e-06,
+   "max_dv_before_tau": 7.691657666232857e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 1.2359374397599203e-07,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 9197523.289842296,
+   "tau_periods": 3.245417110772001,
+   "tau_years": 0.29145192568009914,
+   "max_dr_before_tau": 1.3846599440043144e-06,
+   "max_dv_before_tau": 7.71423370780952e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 1.2395662545552822e-07,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.595567143045868e-08,
+   "max_dv_before_tau": 6.2080438893085806e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 3.628814795361935e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.1848898042723991e-07,
+   "max_dv_before_tau": 3.917027791661495e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.269368108836371e-09,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.201350019949075e-07,
+   "max_dv_before_tau": 3.9715543591107726e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.300685353246882e-09,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.6460219883229763e-09,
+   "max_dv_before_tau": 5.452665034632819e-10,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 3.131724441051087e-11,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 13806450.0,
+   "tau_periods": 1362.0965034676117,
+   "tau_years": 0.4375,
+   "max_dr_before_tau": 1.0770273638627664e-06,
+   "max_dv_before_tau": 1.0944356286404184e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 3.458436071020811e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 12292922.628541062,
+   "tau_periods": 1212.7771389266368,
+   "tau_years": 0.38953921174427275,
+   "max_dr_before_tau": 1.0185999354360487e-06,
+   "max_dv_before_tau": 1.0041767639027653e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": 3.871367918388417e-07,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.025448657972629e-07,
+   "max_dv_before_tau": 2.0488963124486448e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 4.1293184736760564e-08,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.0317908951075062e-07,
+   "max_dv_before_tau": 2.0285395415269488e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.836971908666987e-08,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.0496515001931838e-07,
+   "max_dv_before_tau": 2.0463730407856977e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.8617694758475203e-08,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.7860635538547028e-09,
+   "max_dv_before_tau": 1.7833535857831113e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.479756718053338e-10,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.3626759075276997e-11,
+   "max_dv_before_tau": 6.786148970864484e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 6.492397835460952e-13,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.4033250562997048e-11,
+   "max_dv_before_tau": 6.82837219800159e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 6.469609496270145e-13,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 4.942164468764796e-13,
+   "max_dv_before_tau": 8.595672964048591e-12,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.2788339190807132e-15,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.2951805114879784e-09,
+   "max_dv_before_tau": 1.8302615062124458e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.3892662107993646e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 7.363270263704709e-09,
+   "max_dv_before_tau": 1.8475072871751696e-09,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.411380015150124e-10,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 6.810055261328004e-11,
+   "max_dv_before_tau": 1.7249169409576106e-11,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.2113804350759243e-12,
+   "Q2": true,
+   "outcomes": [
+    "operational_escape",
+    "operational_escape"
+   ],
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 20216587.5,
+   "tau_periods": 1342.535591730727,
+   "tau_years": 0.640625,
+   "max_dr_before_tau": 1.0111986801668388e-06,
+   "max_dv_before_tau": 1.0112007135546875e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 20216587.5,
+   "tau_periods": 1342.535591730727,
+   "tau_years": 0.640625,
+   "max_dr_before_tau": 1.037480508770004e-06,
+   "max_dv_before_tau": 1.0373160417827415e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 8.033984033781485e-07,
+   "max_dv_before_tau": 8.035561796056551e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 505624.8109007502,
+   "tau_periods": 19.6649748250232,
+   "tau_years": 0.016022283408774755,
+   "max_dr_before_tau": 9.045346947434127e-07,
+   "max_dv_before_tau": 1.194806896354758e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 505624.8109007502,
+   "tau_periods": 19.6649748250232,
+   "tau_years": 0.016022283408774755,
+   "max_dr_before_tau": 9.063923593324145e-07,
+   "max_dv_before_tau": 1.197281357547533e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": 10354837.5,
+   "tau_periods": 402.72473653330377,
+   "tau_years": 0.328125,
+   "max_dr_before_tau": 7.845048454153615e-07,
+   "max_dv_before_tau": 1.1650649652843046e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "survived",
+    "survived"
+   ],
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "inner"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.0714296254444218e-07,
+   "max_dv_before_tau": 1.082600188847285e-07,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 10847925.0,
+   "tau_periods": 1.226580721464044,
+   "tau_years": 0.34375,
+   "max_dr_before_tau": 1.2235803862400542e-08,
+   "max_dv_before_tau": 1.270378468481907e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": 10847925.0,
+   "tau_periods": 1.226580721464044,
+   "tau_years": 0.34375,
+   "max_dr_before_tau": 1.3235864316665348e-08,
+   "max_dv_before_tau": 1.2678323473533973e-06,
+   "event_checked_before_tau": false,
+   "same_outcome": true,
+   "dt_periods": null,
+   "Q2": true,
+   "outcomes": [
+    "unresolved",
+    "unresolved"
+   ],
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 2.508325978609983e-09,
+   "max_dv_before_tau": 1.5979049572121118e-08,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 7.801268407286229e-11,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "pair": "D-T",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.008289092497366e-08,
+   "max_dv_before_tau": 2.1909133264102365e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 7.823213999512172e-11,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "pair": "D-B",
+   "radial": "outer"
+  },
+  {
+   "tau_seconds": null,
+   "tau_periods": null,
+   "tau_years": null,
+   "max_dr_before_tau": 1.2591093593907717e-08,
+   "max_dv_before_tau": 2.1998417585827391e-07,
+   "event_checked_before_tau": true,
+   "same_outcome": true,
+   "dt_periods": 2.1945592225943375e-13,
+   "Q2": true,
+   "outcomes": [
+    "host_contact",
+    "host_contact"
+   ],
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "pair": "T-B",
+   "radial": "outer"
+  }
+ ],
+ "stand_version": 2
+}

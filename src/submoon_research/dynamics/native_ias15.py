@@ -1,4 +1,5 @@
 """IAS15 5.1.1 + REBOUNDx; адаптер принятого шага с проверкой ABI."""
+import bisect
 import ctypes
 import hashlib
 import json
@@ -10,6 +11,30 @@ from submoon_research.dynamics.dense_segments import PowerSegment
 
 
 SUPPORTED_REBOUND = '5.1.1'
+ENDPOINT_RESIDUAL_LIMIT = 1e-9
+
+
+def endpoint_residual(polynomial_end, end):
+    """Согласованность полинома шага с концом принятого шага IAS15 (по телам, W2-I015).
+
+    Остаток нормируется длиной вектора положения (скорости) тела, а не каждой компонентой.
+    REBOUND хранит время как fl(t + dt_done), поэтому right-left отличается от фактического
+    шага до ulp(t)/2 (~3.7e-9 с после 1 года, ~3e-8 с после 4 лет); при скорости тела
+    10-30 км/с это 1e-7..1e-6 км. Прежняя покомпонентная нормировка (1+|x|) превращала эту
+    ошибку метки времени в ложный отказ на компоненте, проходящей через ноль. Грубые
+    дефекты (ABI, коэффициенты) по-прежнему дают остаток порядка самих членов полинома.
+    """
+    diff = np.asarray(polynomial_end, dtype=float)-np.asarray(end, dtype=float)
+    end = np.asarray(end, dtype=float)
+    position = np.linalg.norm(diff[:, :3], axis=1)/(1+np.linalg.norm(end[:, :3], axis=1))
+    velocity = np.linalg.norm(diff[:, 3:], axis=1)/(1+np.linalg.norm(end[:, 3:], axis=1))
+    return float(max(position.max(), velocity.max()))
+
+
+def component_residual(polynomial_end, end):
+    """Прежняя покомпонентная мера (до W2-I015) — только для диагностики."""
+    end = np.asarray(end, dtype=float)
+    return float(np.max(abs(np.asarray(polynomial_end, dtype=float)-end)/(1+abs(end))))
 
 
 class NativeIAS15:
@@ -83,16 +108,18 @@ class NativeIAS15:
         b = self._array('br', 21*self.count).reshape(7, self.count, 3)
         coeff = self._assemble(start, a0, b, dt)
         end = self.absolute_state()
-        residual = float(np.max(abs(coeff.sum(axis=0)-end)/(1+abs(end))))
+        polynomial_end = coeff.sum(axis=0)
+        residual = endpoint_residual(polynomial_end, end)
         # 2e-13 оказалось ниже достижимой согласованности IAS15 при J2: при
         # несходимости predictor-corrector остаток растёт до ~6e-13 (проверено
         # диагностикой). 1e-9 на два порядка ниже научного порога интерполяции
         # 1e-7 и выше наблюдённого дна, поэтому ловит грубые дефекты, но не
-        # аварийно завершает корректный шаг.
-        if not np.isfinite(residual) or residual > 1e-9:
+        # аварийно завершает корректный шаг (W2-D006). Нормировка по телам — W2-I015.
+        if not np.isfinite(residual) or residual > ENDPOINT_RESIDUAL_LIMIT:
             raise ArithmeticError('Полином IAS15 не воспроизвёл конец принятого шага')
         coeff -= coeff[:, :1, :]
         self.last_endpoint_residual = residual
+        self.last_component_residual = component_residual(polynomial_end, end)
         return PowerSegment(left, right, coeff.reshape(10, -1))
 
 
@@ -108,6 +135,7 @@ class MassiveCache:
         self.byte_limit = byte_limit
         self.segments = []
         self.ends = []
+        self._cursor = 0
         self.native = None
         self.wall_seconds = 0.0
         self.cpu_seconds = 0.0
@@ -142,9 +170,19 @@ class MassiveCache:
             self.cpu_seconds += time.process_time()-cpu
 
     def segment_at(self, t):
-        index = int(np.searchsorted(self.ends, t, side='right'))
-        if index == len(self.segments) and self.segments and t == self.end:
-            index -= 1
+        # Семантика прежнего np.searchsorted(self.ends, t, side='right'), но без
+        # преобразования всего списка границ в массив на каждом вызове (O(n)):
+        # сначала проверяется сегмент предыдущего обращения (последовательные
+        # вызовы RHS/dense попадают в него), иначе bisect по списку, O(log n).
+        # Курсор только ускоряет поиск: он проверяется по тем же границам и не
+        # предполагает монотонного времени.
+        ends, count, index = self.ends, len(self.ends), self._cursor
+        if not (index < count and t < ends[index] and (index == 0 or ends[index-1] <= t)):
+            index = bisect.bisect_right(ends, t)
+            if index == count and count and t == ends[-1]:
+                index -= 1
+            if index < count:
+                self._cursor = index
         if index >= len(self.segments) or t < self.segments[index].left:
             raise ValueError('Состояние вне покрытия кеша')
         return self.segments[index]
@@ -176,5 +214,6 @@ class MassiveCache:
                 raise MemoryError('Загружаемый кеш превышает лимит')
             self.segments = [PowerSegment(float(b[0]), float(b[1]), c.copy()) for b, c in zip(bounds, coeff)]
             self.ends = bounds[:, 1].tolist()
+            self._cursor = 0
             self.bytes = coeff.nbytes
             self.native = None

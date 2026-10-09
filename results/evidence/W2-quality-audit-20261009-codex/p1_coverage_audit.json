@@ -1,0 +1,160 @@
+{
+  "source": "results/evidence/W2_P004_P1_equivalence_20261009.json",
+  "sha256": "133dbce6569061290213a1f9ee6db11a4494864d04218e7b8a7f9c76728415b8",
+  "mandatory_C3_rows": 96,
+  "start_only_C3_rows": [
+    {
+      "orbit_id": "iapetus-outer-0-0.0",
+      "host": "iapetus",
+      "radial": "outer",
+      "periods": 200,
+      "outcome_ref": "host_contact",
+      "outcome_new": "host_contact",
+      "status": [
+        "completed",
+        "completed"
+      ],
+      "errors": [
+        null,
+        null
+      ],
+      "C1": true,
+      "dt_periods": 1.3144974463477039e-14,
+      "C2": true,
+      "max_dr_over_a": 0,
+      "max_dv_over_na": 0,
+      "first_exceedance_periods": null,
+      "compared_samples": 1,
+      "C3": true,
+      "steps": [
+        68,
+        68
+      ],
+      "nfev": [
+        1370,
+        1370
+      ],
+      "C4": true,
+      "python_event_steps": 2,
+      "wall": [
+        0.04201633100001345,
+        0.0027728249999938726
+      ]
+    },
+    {
+      "orbit_id": "ganymede-outer-0-0.0",
+      "host": "ganymede",
+      "radial": "outer",
+      "periods": 200,
+      "outcome_ref": "host_contact",
+      "outcome_new": "host_contact",
+      "status": [
+        "completed",
+        "completed"
+      ],
+      "errors": [
+        null,
+        null
+      ],
+      "C1": true,
+      "dt_periods": 2.26743974948531e-14,
+      "C2": true,
+      "max_dr_over_a": 0,
+      "max_dv_over_na": 0,
+      "first_exceedance_periods": null,
+      "compared_samples": 1,
+      "C3": true,
+      "steps": [
+        59,
+        59
+      ],
+      "nfev": [
+        1175,
+        1175
+      ],
+      "C4": true,
+      "python_event_steps": 4,
+      "wall": [
+        0.04132287199999496,
+        0.003645857999998725
+      ]
+    },
+    {
+      "orbit_id": "ganymede-outer-90-0.0-phase",
+      "host": "ganymede",
+      "radial": "outer",
+      "periods": 200,
+      "outcome_ref": "host_contact",
+      "outcome_new": "host_contact",
+      "status": [
+        "completed",
+        "completed"
+      ],
+      "errors": [
+        null,
+        null
+      ],
+      "C1": true,
+      "dt_periods": 1.1394169595403566e-16,
+      "C2": true,
+      "max_dr_over_a": 0,
+      "max_dv_over_na": 0,
+      "first_exceedance_periods": null,
+      "compared_samples": 1,
+      "C3": true,
+      "steps": [
+        55,
+        55
+      ],
+      "nfev": [
+        1091,
+        1091
+      ],
+      "C4": true,
+      "python_event_steps": 4,
+      "wall": [
+        0.03838339700001825,
+        0.0034880080000050384
+      ]
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.3-phase",
+      "host": "himalia",
+      "radial": "outer",
+      "periods": 200,
+      "outcome_ref": "host_contact",
+      "outcome_new": "host_contact",
+      "status": [
+        "completed",
+        "completed"
+      ],
+      "errors": [
+        null,
+        null
+      ],
+      "C1": true,
+      "dt_periods": 8.603430349614078e-14,
+      "C2": true,
+      "max_dr_over_a": 0,
+      "max_dv_over_na": 0,
+      "first_exceedance_periods": null,
+      "compared_samples": 1,
+      "C3": true,
+      "steps": [
+        53,
+        53
+      ],
+      "nfev": [
+        1085,
+        1085
+      ],
+      "C4": true,
+      "python_event_steps": 4,
+      "wall": [
+        0.030422331000011127,
+        0.003019591000025912
+      ]
+    }
+  ],
+  "all_start_only_count": 27
+}

@@ -1,0 +1,500 @@
+{
+  "run_id": "verified_controls",
+  "data_kind": "synthetic_audit_controls_not_probability_sample",
+  "utc": "2026-10-09T14:20:30.378038+00:00",
+  "prototype_version": 3,
+  "checks": {
+    "p1_start_only_false_trajectory_pass": {
+      "orbit_id": "synthetic",
+      "host": "synthetic",
+      "radial": null,
+      "periods": 200.0,
+      "outcome_ref": "host_contact",
+      "outcome_new": "host_contact",
+      "status": [
+        "completed",
+        "completed"
+      ],
+      "errors": [
+        null,
+        null
+      ],
+      "C1": true,
+      "dt_periods": 1.5915495626043438e-11,
+      "C2": true,
+      "max_dr_over_a": 0.0,
+      "max_dv_over_na": 0.0,
+      "first_exceedance_periods": null,
+      "compared_samples": 1,
+      "C3": true,
+      "steps": [
+        10,
+        10
+      ],
+      "nfev": [
+        150,
+        150
+      ],
+      "C4": true,
+      "python_event_steps": 1,
+      "wall": [
+        0.1,
+        0.1
+      ]
+    },
+    "p2_large_divergence_pass": {
+      "years": 1.0,
+      "jobs": 3,
+      "Q1_failures": [],
+      "Q2_violations": [],
+      "passed": true,
+      "pairs": [
+        {
+          "tau_seconds": 1.0,
+          "tau_periods": 0.15915494309189535,
+          "tau_years": 3.168808781402895e-08,
+          "max_dr_before_tau": 1.0,
+          "max_dv_before_tau": 0.0,
+          "event_checked_before_tau": false,
+          "same_outcome": true,
+          "dt_periods": null,
+          "Q2": true,
+          "outcomes": [
+            "survived",
+            "survived"
+          ],
+          "orbit_id": "synthetic",
+          "pair": "D-T",
+          "radial": null
+        },
+        {
+          "tau_seconds": 1.0,
+          "tau_periods": 0.15915494309189535,
+          "tau_years": 3.168808781402895e-08,
+          "max_dr_before_tau": 2.0,
+          "max_dv_before_tau": 0.0,
+          "event_checked_before_tau": false,
+          "same_outcome": true,
+          "dt_periods": null,
+          "Q2": true,
+          "outcomes": [
+            "survived",
+            "survived"
+          ],
+          "orbit_id": "synthetic",
+          "pair": "D-B",
+          "radial": null
+        },
+        {
+          "tau_seconds": 1.0,
+          "tau_periods": 0.15915494309189535,
+          "tau_years": 3.168808781402895e-08,
+          "max_dr_before_tau": 1.0,
+          "max_dv_before_tau": 0.0,
+          "event_checked_before_tau": false,
+          "same_outcome": true,
+          "dt_periods": null,
+          "Q2": true,
+          "outcomes": [
+            "survived",
+            "survived"
+          ],
+          "orbit_id": "synthetic",
+          "pair": "T-B",
+          "radial": null
+        }
+      ]
+    },
+    "p2_empty_pass": {
+      "years": 1.0,
+      "jobs": 0,
+      "Q1_failures": [],
+      "Q2_violations": [],
+      "passed": true,
+      "pairs": []
+    },
+    "kepler_default_tight": [
+      {
+        "e": 0.0,
+        "mode": "default",
+        "numeric": {
+          "rtol": 1e-11,
+          "atol_position": 1e-08,
+          "atol_velocity": 1e-11,
+          "step_fraction": 0.025,
+          "epsilon": 1e-09,
+          "cache_epsilon": 1e-12
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 1.775659702643514e-12,
+          "first_bound_at_limit_time": null,
+          "max_any": 1.775659702643514e-12,
+          "bound_approach_steps_at_limit": 0,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 401,
+        "position_a": 5.627462682654853e-11,
+        "velocity_na": 5.528957195068412e-11,
+        "probe_energy_relative_drift": 9.257039579324555e-12,
+        "probe_angular_relative_drift": 4.6282977450573526e-12
+      },
+      {
+        "e": 0.0,
+        "mode": "tight",
+        "numeric": {
+          "rtol": 1e-13,
+          "atol_position": 1e-10,
+          "atol_velocity": 1e-13,
+          "step_fraction": 0.0125,
+          "epsilon": 1e-12,
+          "cache_epsilon": 1e-13
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 1.245195869600526e-14,
+          "first_bound_at_limit_time": null,
+          "max_any": 1.245195869600526e-14,
+          "bound_approach_steps_at_limit": 0,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 801,
+        "position_a": 1.7535535994852164e-13,
+        "velocity_na": 1.681542268427423e-13,
+        "probe_energy_relative_drift": 3.552713678800501e-14,
+        "probe_angular_relative_drift": 1.7763568394002505e-14
+      },
+      {
+        "e": 0.5,
+        "mode": "default",
+        "numeric": {
+          "rtol": 1e-11,
+          "atol_position": 1e-08,
+          "atol_velocity": 1e-11,
+          "step_fraction": 0.025,
+          "epsilon": 1e-09,
+          "cache_epsilon": 1e-12
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.5000000000208384,
+          "first_bound_at_limit_time": null,
+          "max_any": 0.5000000000208384,
+          "bound_approach_steps_at_limit": 0,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 532,
+        "position_a": 3.0771389431745246e-08,
+        "velocity_na": 7.15548879779637e-08,
+        "probe_energy_relative_drift": 5.054792140413156e-10,
+        "probe_angular_relative_drift": 2.3706303586834565e-10
+      },
+      {
+        "e": 0.5,
+        "mode": "tight",
+        "numeric": {
+          "rtol": 1e-13,
+          "atol_position": 1e-10,
+          "atol_velocity": 1e-13,
+          "step_fraction": 0.0125,
+          "epsilon": 1e-12,
+          "cache_epsilon": 1e-13
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.500000000000516,
+          "first_bound_at_limit_time": null,
+          "max_any": 0.500000000000516,
+          "bound_approach_steps_at_limit": 0,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 996,
+        "position_a": 1.715994473881894e-10,
+        "velocity_na": 4.014939635062781e-10,
+        "probe_energy_relative_drift": 1.2464695942071558e-11,
+        "probe_angular_relative_drift": 5.659028801119348e-12
+      },
+      {
+        "e": 0.9,
+        "mode": "default",
+        "numeric": {
+          "rtol": 1e-11,
+          "atol_position": 1e-08,
+          "atol_velocity": 1e-11,
+          "step_fraction": 0.025,
+          "epsilon": 1e-09,
+          "cache_epsilon": 1e-12
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.9000000000119834,
+          "first_bound_at_limit_time": 0.014498820366773838,
+          "max_any": 0.9000000000119834,
+          "bound_approach_steps_at_limit": 43,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 952,
+        "position_a": 1.1567955267025698e-07,
+        "velocity_na": 2.654262935921587e-06,
+        "probe_energy_relative_drift": 1.2276593075455366e-09,
+        "probe_angular_relative_drift": 4.033051670404575e-11
+      },
+      {
+        "e": 0.9,
+        "mode": "tight",
+        "numeric": {
+          "rtol": 1e-13,
+          "atol_position": 1e-10,
+          "atol_velocity": 1e-13,
+          "step_fraction": 0.0125,
+          "epsilon": 1e-12,
+          "cache_epsilon": 1e-13
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.9000000000002091,
+          "first_bound_at_limit_time": 0.010117145473273494,
+          "max_any": 0.9000000000002091,
+          "bound_approach_steps_at_limit": 142,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 1684,
+        "position_a": 8.877170411551649e-10,
+        "velocity_na": 2.0370830581140348e-08,
+        "probe_energy_relative_drift": 7.607692253941423e-12,
+        "probe_angular_relative_drift": 6.002975894148221e-13
+      },
+      {
+        "e": 0.99,
+        "mode": "default",
+        "numeric": {
+          "rtol": 1e-11,
+          "atol_position": 1e-08,
+          "atol_velocity": 1e-11,
+          "step_fraction": 0.025,
+          "epsilon": 1e-09,
+          "cache_epsilon": 1e-12
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.990000000007793,
+          "first_bound_at_limit_time": 9.338043637916755e-05,
+          "max_any": 0.990000000007793,
+          "bound_approach_steps_at_limit": 720,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 1507,
+        "position_a": 1.4038898312838927e-06,
+        "velocity_na": 0.000995191577181049,
+        "probe_energy_relative_drift": 3.813670490515619e-09,
+        "probe_angular_relative_drift": 3.81984444075556e-11
+      },
+      {
+        "e": 0.99,
+        "mode": "tight",
+        "numeric": {
+          "rtol": 1e-13,
+          "atol_position": 1e-10,
+          "atol_velocity": 1e-13,
+          "step_fraction": 0.0125,
+          "epsilon": 1e-12,
+          "cache_epsilon": 1e-13
+        },
+        "run_status": "completed",
+        "production_allowed": false,
+        "outcome": "survived",
+        "reported_massive_energy_drift": 0.0,
+        "eccentricity_monitor": {
+          "limit": 0.9,
+          "max_bound": 0.9900000000001496,
+          "first_bound_at_limit_time": 5.66767487193337e-05,
+          "max_any": 0.9900000000001496,
+          "bound_approach_steps_at_limit": 1233,
+          "note": "диагностика V02; правило выхода из области не применяется"
+        },
+        "steps": 2609,
+        "position_a": 5.948848904669053e-09,
+        "velocity_na": 4.2170196111429314e-06,
+        "probe_energy_relative_drift": 1.230016088982211e-11,
+        "probe_angular_relative_drift": 7.988054662178001e-13
+      }
+    ],
+    "compiled_analytical_controls": {
+      "engine": "compiled_audit",
+      "tests": [
+        {
+          "test": "kepler",
+          "eccentricity": 0.0,
+          "position": 2.0497336384336963e-12,
+          "velocity": 2.0209320926671872e-12,
+          "energy": 3.4516833835596117e-13,
+          "angular_momentum": 1.7252865802674933e-13,
+          "reference": {
+            "digits": 60,
+            "a_from_rounded_seed": 1.0,
+            "e_from_rounded_seed": 0.0,
+            "energy_from_rounded_seed": -0.5,
+            "angular_momentum_from_rounded_seed": 1.0,
+            "kepler_residual": 0.0,
+            "comparison": "same_binary64_initial_state_not_ideal_decimal_elements"
+          },
+          "passed": true,
+          "wall_seconds": 0.0033891999992192723,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "test": "kepler",
+          "eccentricity": 0.5,
+          "position": 9.41260555755224e-11,
+          "velocity": 2.195644760382656e-10,
+          "energy": 3.4561242756581123e-12,
+          "angular_momentum": 2.4702462297909733e-12,
+          "reference": {
+            "digits": 60,
+            "a_from_rounded_seed": 0.9999999999999997,
+            "e_from_rounded_seed": 0.49999999999999983,
+            "energy_from_rounded_seed": -0.5000000000000002,
+            "angular_momentum_from_rounded_seed": 0.8660254037844386,
+            "kepler_residual": 4.116302200095225e-51,
+            "comparison": "same_binary64_initial_state_not_ideal_decimal_elements"
+          },
+          "passed": true,
+          "wall_seconds": 0.0049849999995785765,
+          "cpu_seconds": 0.0
+        },
+        {
+          "test": "kepler",
+          "eccentricity": 0.9,
+          "position": 9.209524919004915e-10,
+          "velocity": 2.1129260998736942e-08,
+          "energy": 6.6129324238772824e-12,
+          "angular_momentum": 2.710054403110007e-13,
+          "reference": {
+            "digits": 60,
+            "a_from_rounded_seed": 1.0000000000000049,
+            "e_from_rounded_seed": 0.9000000000000005,
+            "energy_from_rounded_seed": -0.4999999999999976,
+            "angular_momentum_from_rounded_seed": 0.43588989435406744,
+            "kepler_residual": 4.4326160115181115e-51,
+            "comparison": "same_binary64_initial_state_not_ideal_decimal_elements"
+          },
+          "passed": false,
+          "wall_seconds": 0.008842600000207312,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "test": "kepler",
+          "eccentricity": 0.99,
+          "position": 1.0166520283931661e-08,
+          "velocity": 7.206859938200115e-06,
+          "energy": 3.5686342769736257e-11,
+          "angular_momentum": 3.1896707497480747e-13,
+          "reference": {
+            "digits": 60,
+            "a_from_rounded_seed": 1.000000000000017,
+            "e_from_rounded_seed": 0.9900000000000002,
+            "energy_from_rounded_seed": -0.49999999999999145,
+            "angular_momentum_from_rounded_seed": 0.14106735979665885,
+            "kepler_residual": 7.082743410464454e-51,
+            "comparison": "same_binary64_initial_state_not_ideal_decimal_elements"
+          },
+          "passed": false,
+          "wall_seconds": 0.013458100002026185,
+          "cpu_seconds": 0.015625
+        },
+        {
+          "test": "CR3BP",
+          "jacobi_relative_drift": 2.4424906541753444e-15,
+          "passed": true
+        },
+        {
+          "test": "J2",
+          "j2": 0.0001,
+          "node_relative_error": 0.00011955467169055822,
+          "peri_relative_error": 7.083700961130202e-05,
+          "energy_relative_drift": 2.5064395003937534e-12,
+          "passed": true
+        },
+        {
+          "test": "J2",
+          "j2": 5e-05,
+          "node_relative_error": 5.793709252310819e-05,
+          "peri_relative_error": 0.0001443927475192064,
+          "energy_relative_drift": 2.4786839247781245e-12,
+          "passed": true
+        }
+      ],
+      "passed": false,
+      "scope": "synthetic_analytic_controls_not_production"
+    },
+    "cross_version_resume": {
+      "old_version": 3,
+      "new_version": 1003,
+      "accepted": true,
+      "same_fingerprint": true,
+      "explanation": "Версия изменена только в памяти аудиторского процесса; файлы движка не менялись."
+    },
+    "eccentricity_after_terminal_event": {
+      "last_valid_time": 0.0,
+      "event": {
+        "time": 0.0,
+        "body_index": 0,
+        "event": "reference_tangency_within_tolerance",
+        "distance_residual_km": 0.0,
+        "physical_surface_verified": false
+      },
+      "monitor": {
+        "limit": 0.9,
+        "max_bound": 0.9499999999999998,
+        "first_bound_at_limit_time": 0.027698023216006777,
+        "max_any": 0.9499999999999998,
+        "bound_approach_steps_at_limit": 0,
+        "note": "диагностика V02; правило выхода из области не применяется"
+      }
+    },
+    "original_host_j2_unsupported": {
+      "raised": true,
+      "error": "Сингулярность J2"
+    }
+  },
+  "limitations": [
+    "Не допуск W2/V07; нет длинного ансамбля и независимого B."
+  ],
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.67.0",
+    "mpmath": "1.3.0",
+    "rebound": "5.1.1",
+    "reboundx": null
+  },
+  "elapsed_seconds": 1.9370000000017171
+}

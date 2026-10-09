@@ -1,0 +1,1148 @@
+{
+ "task": "W2-T008",
+ "kind": "machine_benchmark_not_scientific_result",
+ "numeric": {
+  "rtol": 1e-11,
+  "atol_position": 1e-08,
+  "atol_velocity": 1e-11,
+  "step_fraction": 0.025,
+  "epsilon": 1e-09,
+  "cache_epsilon": 1e-12
+ },
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5808.00",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "warmup_seconds": 0.2129910890000133,
+ "periods": 20.0,
+ "repeats": 3,
+ "cases": [
+  "iapetus-inner-0-0.3",
+  "iapetus-inner-180-0.3",
+  "iapetus-outer-0-0.3",
+  "iapetus-outer-180-0.3",
+  "ganymede-inner-0-0.3",
+  "ganymede-inner-180-0.3",
+  "ganymede-outer-0-0.3",
+  "ganymede-outer-180-0.3",
+  "himalia-inner-0-0.3",
+  "himalia-inner-180-0.3",
+  "himalia-outer-0-0.3",
+  "himalia-outer-180-0.3"
+ ],
+ "single_process": {
+  "rows": [
+   {
+    "orbit_id": "iapetus-inner-0-0.3",
+    "host": "iapetus",
+    "period_seconds": 23115.343547239325,
+    "horizon_seconds": 462306.87094478647,
+    "A": {
+     "wall_min": 0.49168078399998194,
+     "walls": [
+      0.49168078399998194,
+      0.4920546920000106,
+      0.5033438100000467
+     ],
+     "steps": 841,
+     "nfev": 12617,
+     "run_status": "completed",
+     "last_valid_time": 462306.87094478647,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.11499059399443468,
+       "massive_cache": 0.0,
+       "events": 0.17200143699915316,
+       "dense_eval": 0.0831412970007932,
+       "integrator_step": 0.09536240500528947,
+       "integrator_dense_output": 0.036023084000305516,
+       "integrator_restart": 7.892399997899702e-05,
+       "diagnostics": 0.0046367759995291635,
+       "other": 0.01745150200054013
+      },
+      "calls": {
+       "forces": 12617,
+       "massive_cache": 0,
+       "events": 1682,
+       "dense_eval": 3429,
+       "integrator_step": 841,
+       "integrator_dense_output": 841,
+       "integrator_restart": 1,
+       "diagnostics": 842,
+       "other": 0
+      },
+      "instrumented_wall": 0.5236860190000243
+     }
+    },
+    "C": {
+     "wall_min": 1.359195752000005,
+     "walls": [
+      1.359195752000005,
+      1.4102962549999916,
+      1.4056678210000086
+     ],
+     "steps": 1047,
+     "nfev": 15799,
+     "run_status": "completed",
+     "last_valid_time": 462306.87094478647,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.0826708050001912,
+       "massive_cache": 0.7117245819994196,
+       "events": 0.21980862100002696,
+       "dense_eval": 0.12614232099844003,
+       "integrator_step": 0.2661582280013022,
+       "integrator_dense_output": 0.07987319899820022,
+       "integrator_restart": 0.004699384999526046,
+       "diagnostics": 0.006391371000461277,
+       "other": 0.026372318002415795
+      },
+      "calls": {
+       "forces": 15799,
+       "massive_cache": 53744,
+       "events": 2094,
+       "dense_eval": 8506,
+       "integrator_step": 1047,
+       "integrator_dense_output": 1047,
+       "integrator_restart": 47,
+       "diagnostics": 1048,
+       "other": 0
+      },
+      "instrumented_wall": 1.5238408299999833
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 2.560435037649908e-07
+    }
+   },
+   {
+    "orbit_id": "iapetus-inner-180-0.3",
+    "host": "iapetus",
+    "period_seconds": 23115.343547239325,
+    "horizon_seconds": 462306.87094478647,
+    "A": {
+     "wall_min": 0.4888479170000437,
+     "walls": [
+      0.5151931019999836,
+      0.4888479170000437,
+      0.5075428769999917
+     ],
+     "steps": 841,
+     "nfev": 12617,
+     "run_status": "completed",
+     "last_valid_time": 462306.87094478647,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.11642688600039719,
+       "massive_cache": 0.0,
+       "events": 0.17844506300036755,
+       "dense_eval": 0.08475454099783519,
+       "integrator_step": 0.09764178799974843,
+       "integrator_dense_output": 0.03702725599947598,
+       "integrator_restart": 8.139900000969646e-05,
+       "diagnostics": 0.004842295999537782,
+       "other": 0.018199925002591044
+      },
+      "calls": {
+       "forces": 12617,
+       "massive_cache": 0,
+       "events": 1682,
+       "dense_eval": 3429,
+       "integrator_step": 841,
+       "integrator_dense_output": 841,
+       "integrator_restart": 1,
+       "diagnostics": 842,
+       "other": 0
+      },
+      "instrumented_wall": 0.5374191539999629
+     }
+    },
+    "C": {
+     "wall_min": 1.348420701000009,
+     "walls": [
+      1.3940802379999866,
+      1.348420701000009,
+      1.446976124999992
+     ],
+     "steps": 1045,
+     "nfev": 15769,
+     "run_status": "completed",
+     "last_valid_time": 462306.87094478647,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.08179889600421575,
+       "massive_cache": 0.7016921159968206,
+       "events": 0.2378773239987595,
+       "dense_eval": 0.12557697900052744,
+       "integrator_step": 0.2650720370015165,
+       "integrator_dense_output": 0.09179679699946064,
+       "integrator_restart": 0.004653369999687129,
+       "diagnostics": 0.006708604000436935,
+       "other": 0.026425490998576606
+      },
+      "calls": {
+       "forces": 15769,
+       "massive_cache": 53642,
+       "events": 2090,
+       "dense_eval": 8490,
+       "integrator_step": 1045,
+       "integrator_dense_output": 1045,
+       "integrator_restart": 47,
+       "diagnostics": 1046,
+       "other": 0
+      },
+      "instrumented_wall": 1.541601614000001
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 2.4180329454490407e-07
+    }
+   },
+   {
+    "orbit_id": "iapetus-outer-0-0.3",
+    "host": "iapetus",
+    "period_seconds": 2834003.4503775826,
+    "horizon_seconds": 56680069.007551655,
+    "A": {
+     "wall_min": 0.1269001340000102,
+     "walls": [
+      0.1269001340000102,
+      0.13675375100001474,
+      0.1289054329999999
+     ],
+     "steps": 223,
+     "nfev": 3479,
+     "run_status": "completed",
+     "last_valid_time": 9695993.71773542,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.03340406499916071,
+       "massive_cache": 0.0,
+       "events": 0.04398004199993011,
+       "dense_eval": 0.022662554000532964,
+       "integrator_step": 0.028635232000567612,
+       "integrator_dense_output": 0.010219250999966789,
+       "integrator_restart": 0.00010834999994813188,
+       "diagnostics": 0.0013012900002422612,
+       "other": 0.005248742999640399
+      },
+      "calls": {
+       "forces": 3479,
+       "massive_cache": 0,
+       "events": 446,
+       "dense_eval": 905,
+       "integrator_step": 223,
+       "integrator_dense_output": 223,
+       "integrator_restart": 1,
+       "diagnostics": 224,
+       "other": 0
+      },
+      "instrumented_wall": 0.14555952699998898
+     }
+    },
+    "C": {
+     "wall_min": 6.018620897999995,
+     "walls": [
+      6.187045026000021,
+      6.018620897999995,
+      6.2388633709999795
+     ],
+     "steps": 4530,
+     "nfev": 69338,
+     "run_status": "completed",
+     "last_valid_time": 9695993.71770887,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.37101619199569313,
+       "massive_cache": 3.137055338999005,
+       "events": 0.9489639659993259,
+       "dense_eval": 0.5531282680071854,
+       "integrator_step": 1.1849636660032843,
+       "integrator_dense_output": 0.3583067209966657,
+       "integrator_restart": 0.07056647700039775,
+       "diagnostics": 0.030574123999826952,
+       "other": 0.12886473799864007
+      },
+      "calls": {
+       "forces": 69338,
+       "massive_cache": 235207,
+       "events": 9060,
+       "dense_eval": 36266,
+       "integrator_step": 4530,
+       "integrator_dense_output": 4530,
+       "integrator_restart": 694,
+       "diagnostics": 4531,
+       "other": 0
+      },
+      "instrumented_wall": 6.783439491000024
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": -9.368423300120085e-12,
+     "probe_position_difference_over_a": 5.406417743854881e-09
+    }
+   },
+   {
+    "orbit_id": "iapetus-outer-180-0.3",
+    "host": "iapetus",
+    "period_seconds": 2834003.4503775826,
+    "horizon_seconds": 56680069.007551655,
+    "A": {
+     "wall_min": 0.19264191299998856,
+     "walls": [
+      0.19335590500003264,
+      0.20507209700002704,
+      0.19264191299998856
+     ],
+     "steps": 334,
+     "nfev": 5204,
+     "run_status": "completed",
+     "last_valid_time": 14431614.119180145,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.04900509499981354,
+       "massive_cache": 0.0,
+       "events": 0.06849223400035953,
+       "dense_eval": 0.034126404999142324,
+       "integrator_step": 0.041407107000054566,
+       "integrator_dense_output": 0.0154190639996159,
+       "integrator_restart": 8.112399996207387e-05,
+       "diagnostics": 0.001987795999809805,
+       "other": 0.007611007001230519
+      },
+      "calls": {
+       "forces": 5204,
+       "massive_cache": 0,
+       "events": 668,
+       "dense_eval": 1359,
+       "integrator_step": 334,
+       "integrator_dense_output": 334,
+       "integrator_restart": 1,
+       "diagnostics": 335,
+       "other": 0
+      },
+      "instrumented_wall": 0.21812983199998826
+     }
+    },
+    "C": {
+     "wall_min": 8.914690463,
+     "walls": [
+      9.091218932999993,
+      8.914690463,
+      9.278935229000012
+     ],
+     "steps": 6729,
+     "nfev": 102985,
+     "run_status": "completed",
+     "last_valid_time": 14431614.11752783,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.5806024360009587,
+       "massive_cache": 4.861227735992998,
+       "events": 1.491637163000064,
+       "dense_eval": 0.8687621060011566,
+       "integrator_step": 1.842305683005975,
+       "integrator_dense_output": 0.5661662760008994,
+       "integrator_restart": 0.10795302599728984,
+       "diagnostics": 0.050612796002155847,
+       "other": 0.2071811639984844
+      },
+      "calls": {
+       "forces": 102985,
+       "massive_cache": 349352,
+       "events": 13458,
+       "dense_eval": 53878,
+       "integrator_step": 6729,
+       "integrator_dense_output": 6729,
+       "integrator_restart": 1025,
+       "diagnostics": 6730,
+       "other": 0
+      },
+      "instrumented_wall": 10.576448385999981
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": -5.830321973530606e-10,
+     "probe_position_difference_over_a": 2.3757847389157286e-07
+    }
+   },
+   {
+    "orbit_id": "ganymede-inner-0-0.3",
+    "host": "ganymede",
+    "period_seconds": 17307.21091801662,
+    "horizon_seconds": 346144.21836033236,
+    "A": {
+     "wall_min": 0.5698329479999984,
+     "walls": [
+      0.5806533729999614,
+      0.5698329479999984,
+      0.572791948000031
+     ],
+     "steps": 862,
+     "nfev": 13064,
+     "run_status": "completed",
+     "last_valid_time": 346144.21836033236,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.17547989100279437,
+       "massive_cache": 0.0,
+       "events": 0.19399630099940168,
+       "dense_eval": 0.08952595400108976,
+       "integrator_step": 0.10710263500016026,
+       "integrator_dense_output": 0.03980378799644768,
+       "integrator_restart": 7.90170000186663e-05,
+       "diagnostics": 0.006532901000241509,
+       "other": 0.019345772999884048
+      },
+      "calls": {
+       "forces": 13064,
+       "massive_cache": 0,
+       "events": 1724,
+       "dense_eval": 3513,
+       "integrator_step": 862,
+       "integrator_dense_output": 862,
+       "integrator_restart": 1,
+       "diagnostics": 863,
+       "other": 0
+      },
+      "instrumented_wall": 0.631866260000038
+     }
+    },
+    "C": {
+     "wall_min": 2.5585565420000194,
+     "walls": [
+      2.618246030000023,
+      2.5599529930000244,
+      2.5585565420000194
+     ],
+     "steps": 1876,
+     "nfev": 28652,
+     "run_status": "completed",
+     "last_valid_time": 346144.21836033236,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.1603742090021001,
+       "massive_cache": 1.298315924994597,
+       "events": 0.4320794979987568,
+       "dense_eval": 0.22474623599993038,
+       "integrator_step": 0.47886418000086906,
+       "integrator_dense_output": 0.142892874998779,
+       "integrator_restart": 0.02248354800025254,
+       "diagnostics": 0.01487340899842593,
+       "other": 0.050876698006277365
+      },
+      "calls": {
+       "forces": 28652,
+       "massive_cache": 97277,
+       "events": 3752,
+       "dense_eval": 15138,
+       "integrator_step": 1876,
+       "integrator_dense_output": 1876,
+       "integrator_restart": 232,
+       "diagnostics": 1877,
+       "other": 0
+      },
+      "instrumented_wall": 2.825506577999988
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 1.2850065851336634e-07
+    }
+   },
+   {
+    "orbit_id": "ganymede-inner-180-0.3",
+    "host": "ganymede",
+    "period_seconds": 17307.21091801662,
+    "horizon_seconds": 346144.21836033236,
+    "A": {
+     "wall_min": 0.5998586409999689,
+     "walls": [
+      0.619892759000038,
+      0.6125093750000019,
+      0.5998586409999689
+     ],
+     "steps": 881,
+     "nfev": 13385,
+     "run_status": "completed",
+     "last_valid_time": 346144.21836033236,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.1758942579991185,
+       "massive_cache": 0.0,
+       "events": 0.21007709199898272,
+       "dense_eval": 0.08877651300031175,
+       "integrator_step": 0.10350276200063036,
+       "integrator_dense_output": 0.03937291100021412,
+       "integrator_restart": 7.718299997350186e-05,
+       "diagnostics": 0.006464801999243264,
+       "other": 0.01876554800151098
+      },
+      "calls": {
+       "forces": 13385,
+       "massive_cache": 0,
+       "events": 1762,
+       "dense_eval": 3589,
+       "integrator_step": 881,
+       "integrator_dense_output": 881,
+       "integrator_restart": 1,
+       "diagnostics": 882,
+       "other": 0
+      },
+      "instrumented_wall": 0.6429310689999852
+     }
+    },
+    "C": {
+     "wall_min": 2.5407832909999684,
+     "walls": [
+      2.760810348000007,
+      2.6534819660000153,
+      2.5407832909999684
+     ],
+     "steps": 1902,
+     "nfev": 29162,
+     "run_status": "completed",
+     "last_valid_time": 346144.21836033236,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.1589063420074126,
+       "massive_cache": 1.2873004159944799,
+       "events": 0.44050935599517516,
+       "dense_eval": 0.22455147300706813,
+       "integrator_step": 0.47183600999954933,
+       "integrator_dense_output": 0.14115747499602094,
+       "integrator_restart": 0.02216811199929225,
+       "diagnostics": 0.014635956997551602,
+       "other": 0.04850766000345175
+      },
+      "calls": {
+       "forces": 29162,
+       "massive_cache": 98963,
+       "events": 3804,
+       "dense_eval": 15346,
+       "integrator_step": 1902,
+       "integrator_dense_output": 1902,
+       "integrator_restart": 232,
+       "diagnostics": 1903,
+       "other": 0
+      },
+      "instrumented_wall": 2.8095728010000016
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 1.587001518694147e-07
+    }
+   },
+   {
+    "orbit_id": "ganymede-outer-0-0.3",
+    "host": "ganymede",
+    "period_seconds": 255427.3939232417,
+    "horizon_seconds": 5108547.878464834,
+    "A": {
+     "wall_min": 0.13768600100002004,
+     "walls": [
+      0.14892708500002527,
+      0.13768600100002004,
+      0.14109746799999812
+     ],
+     "steps": 197,
+     "nfev": 3173,
+     "run_status": "completed",
+     "last_valid_time": 866525.2861156848,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.0451796480002713,
+       "massive_cache": 0.0,
+       "events": 0.04809431300043343,
+       "dense_eval": 0.022117201999606095,
+       "integrator_step": 0.027261311999723148,
+       "integrator_dense_output": 0.01016951400004018,
+       "integrator_restart": 7.626600000776307e-05,
+       "diagnostics": 0.0016147959998420447,
+       "other": 0.0051614940000490606
+      },
+      "calls": {
+       "forces": 3173,
+       "massive_cache": 0,
+       "events": 394,
+       "dense_eval": 801,
+       "integrator_step": 197,
+       "integrator_dense_output": 197,
+       "integrator_restart": 1,
+       "diagnostics": 198,
+       "other": 0
+      },
+      "instrumented_wall": 0.15967454499997302
+     }
+    },
+    "C": {
+     "wall_min": 4.463100799000017,
+     "walls": [
+      4.649378203000026,
+      4.602354941999977,
+      4.463100799000017
+     ],
+     "steps": 3307,
+     "nfev": 50725,
+     "run_status": "completed",
+     "last_valid_time": 866525.2861009318,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.2811166609911879,
+       "massive_cache": 2.255094373003601,
+       "events": 0.7513677270009111,
+       "dense_eval": 0.39201485900298394,
+       "integrator_step": 0.8218116530016459,
+       "integrator_dense_output": 0.24948494800059962,
+       "integrator_restart": 0.05258296499818016,
+       "diagnostics": 0.025682107999784876,
+       "other": 0.08788207800114378
+      },
+      "calls": {
+       "forces": 50725,
+       "massive_cache": 172030,
+       "events": 6614,
+       "dense_eval": 26482,
+       "integrator_step": 3307,
+       "integrator_dense_output": 3307,
+       "integrator_restart": 560,
+       "diagnostics": 3308,
+       "other": 0
+      },
+      "instrumented_wall": 4.917037372000038
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": -5.775795721266831e-11,
+     "probe_position_difference_over_a": 7.1362067421546864e-09
+    }
+   },
+   {
+    "orbit_id": "ganymede-outer-180-0.3",
+    "host": "ganymede",
+    "period_seconds": 255427.3939232417,
+    "horizon_seconds": 5108547.878464834,
+    "A": {
+     "wall_min": 0.2040519389999531,
+     "walls": [
+      0.2040519389999531,
+      0.22448095799995826,
+      0.21627156499999955
+     ],
+     "steps": 290,
+     "nfev": 4628,
+     "run_status": "completed",
+     "last_valid_time": 1305437.6259831316,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.06399325600091288,
+       "massive_cache": 0.0,
+       "events": 0.07302918199968644,
+       "dense_eval": 0.03104511199899207,
+       "integrator_step": 0.03928052999890497,
+       "integrator_dense_output": 0.014146908000213898,
+       "integrator_restart": 8.946699995249219e-05,
+       "diagnostics": 0.002347955000004731,
+       "other": 0.007561323001311848
+      },
+      "calls": {
+       "forces": 4628,
+       "massive_cache": 0,
+       "events": 580,
+       "dense_eval": 1185,
+       "integrator_step": 290,
+       "integrator_dense_output": 290,
+       "integrator_restart": 1,
+       "diagnostics": 291,
+       "other": 0
+      },
+      "instrumented_wall": 0.23149373299997933
+     }
+    },
+    "C": {
+     "wall_min": 6.756272147999994,
+     "walls": [
+      6.802263976000006,
+      6.961310695999998,
+      6.756272147999994
+     ],
+     "steps": 4965,
+     "nfev": 76147,
+     "run_status": "completed",
+     "last_valid_time": 1305437.6259761963,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.4273590080027816,
+       "massive_cache": 3.433878398991908,
+       "events": 1.1527403499999878,
+       "dense_eval": 0.5957431990016744,
+       "integrator_step": 1.2559956269978443,
+       "integrator_dense_output": 0.3826060199990593,
+       "integrator_restart": 0.08257878299792765,
+       "diagnostics": 0.04033640800133753,
+       "other": 0.13707855500751975
+      },
+      "calls": {
+       "forces": 76147,
+       "massive_cache": 258256,
+       "events": 9930,
+       "dense_eval": 39770,
+       "integrator_step": 4965,
+       "integrator_dense_output": 4965,
+       "integrator_restart": 836,
+       "diagnostics": 4966,
+       "other": 0
+      },
+      "instrumented_wall": 7.50831634900004
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": -2.7151850379062882e-11,
+     "probe_position_difference_over_a": 5.187129195677976e-08
+    }
+   },
+   {
+    "orbit_id": "himalia-inner-0-0.3",
+    "host": "himalia",
+    "period_seconds": 25711.948039585335,
+    "horizon_seconds": 514238.9607917067,
+    "A": {
+     "wall_min": 0.4351801049999722,
+     "walls": [
+      0.4351801049999722,
+      0.4724663490000012,
+      0.43560699700003624
+     ],
+     "steps": 806,
+     "nfev": 12092,
+     "run_status": "completed",
+     "last_valid_time": 514238.9607917067,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.0904144259984605,
+       "massive_cache": 0.0,
+       "events": 0.1636083519974818,
+       "dense_eval": 0.07964733300116222,
+       "integrator_step": 0.09259762099873114,
+       "integrator_dense_output": 0.03516489600093564,
+       "integrator_restart": 7.718299997350186e-05,
+       "diagnostics": 0.003907923000554092,
+       "other": 0.017364508002685852
+      },
+      "calls": {
+       "forces": 12092,
+       "massive_cache": 0,
+       "events": 1612,
+       "dense_eval": 3289,
+       "integrator_step": 806,
+       "integrator_dense_output": 806,
+       "integrator_restart": 1,
+       "diagnostics": 807,
+       "other": 0
+      },
+      "instrumented_wall": 0.48278224199998476
+     }
+    },
+    "C": {
+     "wall_min": 1.102637967000021,
+     "walls": [
+      1.1193860180000001,
+      1.1972537409999973,
+      1.102637967000021
+     ],
+     "steps": 869,
+     "nfev": 13075,
+     "run_status": "completed",
+     "last_valid_time": 514238.9607917067,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.06566997999982505,
+       "massive_cache": 0.5847594690026199,
+       "events": 0.18905793899961054,
+       "dense_eval": 0.10419454100338044,
+       "integrator_step": 0.22146568699980662,
+       "integrator_dense_output": 0.06717620299536975,
+       "integrator_restart": 0.0023063380001531186,
+       "diagnostics": 0.004797266999844396,
+       "other": 0.021575445999360454
+      },
+      "calls": {
+       "forces": 13075,
+       "massive_cache": 44504,
+       "events": 1738,
+       "dense_eval": 7082,
+       "integrator_step": 869,
+       "integrator_dense_output": 869,
+       "integrator_restart": 20,
+       "diagnostics": 870,
+       "other": 0
+      },
+      "instrumented_wall": 1.2610028699999702
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 2.986362376591138e-07
+    }
+   },
+   {
+    "orbit_id": "himalia-inner-180-0.3",
+    "host": "himalia",
+    "period_seconds": 25711.948039585335,
+    "horizon_seconds": 514238.9607917067,
+    "A": {
+     "wall_min": 0.444808222000006,
+     "walls": [
+      0.46409131500001877,
+      0.44888179700001274,
+      0.444808222000006
+     ],
+     "steps": 806,
+     "nfev": 12092,
+     "run_status": "completed",
+     "last_valid_time": 514238.9607917067,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.08950888199876772,
+       "massive_cache": 0.0,
+       "events": 0.15997560400188604,
+       "dense_eval": 0.07797247999860701,
+       "integrator_step": 0.09097728400035976,
+       "integrator_dense_output": 0.03426401800049916,
+       "integrator_restart": 9.588299997176364e-05,
+       "diagnostics": 0.00391014200056361,
+       "other": 0.016618039999343637
+      },
+      "calls": {
+       "forces": 12092,
+       "massive_cache": 0,
+       "events": 1612,
+       "dense_eval": 3289,
+       "integrator_step": 806,
+       "integrator_dense_output": 806,
+       "integrator_restart": 1,
+       "diagnostics": 807,
+       "other": 0
+      },
+      "instrumented_wall": 0.4733223329999987
+     }
+    },
+    "C": {
+     "wall_min": 1.1628801129999715,
+     "walls": [
+      1.1628801129999715,
+      1.1753499890000398,
+      1.1766550480000433
+     ],
+     "steps": 869,
+     "nfev": 13075,
+     "run_status": "completed",
+     "last_valid_time": 514238.9607917067,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.06499890500032279,
+       "massive_cache": 0.57855266499854,
+       "events": 0.18778887199948713,
+       "dense_eval": 0.10419912900027839,
+       "integrator_step": 0.21901369599868303,
+       "integrator_dense_output": 0.06537047700152243,
+       "integrator_restart": 0.001818654999908631,
+       "diagnostics": 0.005033141001149488,
+       "other": 0.021287937000124657
+      },
+      "calls": {
+       "forces": 13075,
+       "massive_cache": 44504,
+       "events": 1738,
+       "dense_eval": 7082,
+       "integrator_step": 869,
+       "integrator_dense_output": 869,
+       "integrator_restart": 20,
+       "diagnostics": 870,
+       "other": 0
+      },
+      "instrumented_wall": 1.2480634770000165
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "survived",
+     "outcome_C": "survived",
+     "end_time_difference_periods": 0.0,
+     "probe_position_difference_over_a": 3.0916579805625295e-07
+    }
+   },
+   {
+    "orbit_id": "himalia-outer-0-0.3",
+    "host": "himalia",
+    "period_seconds": 8844036.768368527,
+    "horizon_seconds": 176880735.36737055,
+    "A": {
+     "wall_min": 0.08302663000000621,
+     "walls": [
+      0.08823384799995893,
+      0.09173221500003592,
+      0.08302663000000621
+     ],
+     "steps": 162,
+     "nfev": 2492,
+     "run_status": "completed",
+     "last_valid_time": 31644779.52953759,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.019067511999310227,
+       "massive_cache": 0.0,
+       "events": 0.029664708000211704,
+       "dense_eval": 0.016245712999136686,
+       "integrator_step": 0.019539296001198636,
+       "integrator_dense_output": 0.007248884999626171,
+       "integrator_restart": 8.662500005129914e-05,
+       "diagnostics": 0.0008329799996431575,
+       "other": 0.0038585370007808706
+      },
+      "calls": {
+       "forces": 2492,
+       "massive_cache": 0,
+       "events": 324,
+       "dense_eval": 662,
+       "integrator_step": 162,
+       "integrator_dense_output": 162,
+       "integrator_restart": 1,
+       "diagnostics": 163,
+       "other": 0
+      },
+      "instrumented_wall": 0.09654425599995875
+     }
+    },
+    "C": {
+     "wall_min": 1.546335923000015,
+     "walls": [
+      1.5590609070000028,
+      1.638511713000014,
+      1.546335923000015
+     ],
+     "steps": 1208,
+     "nfev": 18468,
+     "run_status": "completed",
+     "last_valid_time": 31644779.55499796,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.09096885999417736,
+       "massive_cache": 0.8073705679994418,
+       "events": 0.22726385299961294,
+       "dense_eval": 0.14222619499753364,
+       "integrator_step": 0.30087311301036834,
+       "integrator_dense_output": 0.09079464999780384,
+       "integrator_restart": 0.01586437999935697,
+       "diagnostics": 0.0068485980001469215,
+       "other": 0.03210030100160566
+      },
+      "calls": {
+       "forces": 18468,
+       "massive_cache": 62666,
+       "events": 2416,
+       "dense_eval": 9692,
+       "integrator_step": 1208,
+       "integrator_dense_output": 1208,
+       "integrator_restart": 162,
+       "diagnostics": 1209,
+       "other": 0
+      },
+      "instrumented_wall": 1.7143105180000475
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": 2.87881773355229e-09,
+     "probe_position_difference_over_a": null
+    }
+   },
+   {
+    "orbit_id": "himalia-outer-180-0.3",
+    "host": "himalia",
+    "period_seconds": 8844036.768368527,
+    "horizon_seconds": 176880735.36737055,
+    "A": {
+     "wall_min": 0.3250062050000224,
+     "walls": [
+      0.3250062050000224,
+      0.33666464800000995,
+      0.33756215599998995
+     ],
+     "steps": 576,
+     "nfev": 9218,
+     "run_status": "completed",
+     "last_valid_time": 102392556.58468741,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.06989389100050403,
+       "massive_cache": 0.0,
+       "events": 0.11815594199998714,
+       "dense_eval": 0.05766099800194979,
+       "integrator_step": 0.0715660329997263,
+       "integrator_dense_output": 0.025424037998959648,
+       "integrator_restart": 9.551700009069464e-05,
+       "diagnostics": 0.0029334059994425843,
+       "other": 0.01254569999935029
+      },
+      "calls": {
+       "forces": 9218,
+       "massive_cache": 0,
+       "events": 1152,
+       "dense_eval": 2368,
+       "integrator_step": 576,
+       "integrator_dense_output": 576,
+       "integrator_restart": 1,
+       "diagnostics": 577,
+       "other": 0
+      },
+      "instrumented_wall": 0.3582755250000105
+     }
+    },
+    "C": {
+     "wall_min": 5.073226290999969,
+     "walls": [
+      5.075577448999979,
+      5.204902717000039,
+      5.073226290999969
+     ],
+     "steps": 3883,
+     "nfev": 59411,
+     "run_status": "completed",
+     "last_valid_time": 102392558.24992646,
+     "breakdown": {
+      "seconds": {
+       "forces": 0.3024216630028036,
+       "massive_cache": 2.615230440001369,
+       "events": 0.759367445995565,
+       "dense_eval": 0.4578290060054542,
+       "integrator_step": 0.9744394659906561,
+       "integrator_dense_output": 0.2930500639996012,
+       "integrator_restart": 0.046854325000424524,
+       "diagnostics": 0.0209117509995167,
+       "other": 0.10152583900458012
+      },
+      "calls": {
+       "forces": 59411,
+       "massive_cache": 201595,
+       "events": 7766,
+       "dense_eval": 31192,
+       "integrator_step": 3883,
+       "integrator_dense_output": 3883,
+       "integrator_restart": 493,
+       "diagnostics": 3884,
+       "other": 0
+      },
+      "instrumented_wall": 5.5716299999999706
+     }
+    },
+    "agreement": {
+     "same_outcome": true,
+     "outcome_A": "operational_escape",
+     "outcome_C": "operational_escape",
+     "end_time_difference_periods": 1.8828947624237112e-07,
+     "probe_position_difference_over_a": null
+    }
+   }
+  ],
+  "totals_min_seconds": {
+   "A": 4.099521438999972,
+   "C": 42.84472088799998
+  },
+  "cache_preparation_seconds": 1.7232293149998554,
+  "caches": {
+   "iapetus": {
+    "segments": 3981,
+    "bytes": 9554400,
+    "prep_wall_seconds": 0.8836933979999912
+   },
+   "ganymede": {
+    "segments": 3232,
+    "bytes": 10859520,
+    "prep_wall_seconds": 0.6777613809999252
+   },
+   "himalia": {
+    "segments": 838,
+    "bytes": 1608960,
+    "prep_wall_seconds": 0.16177453599993896
+   }
+  }
+ },
+ "utc": "20261009T103139Z"
+}

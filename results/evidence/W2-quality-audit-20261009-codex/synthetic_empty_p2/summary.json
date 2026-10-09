@@ -1,0 +1,31 @@
+{
+ "plan": "W2-P004",
+ "stage": "P2-1",
+ "utc": "20261009T141953Z",
+ "prototype_version": 3,
+ "machine": {
+  "platform": "Windows-10-10.0.19045-SP0",
+  "python": "3.10.6",
+  "executable": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 47.94,
+  "lscpu_error": "FileNotFoundError(2, 'Не удается найти указанный файл', None, 2, None)"
+ },
+ "years": [
+  1.0
+ ],
+ "b_max_years": 10.0,
+ "cases": [],
+ "levels": [
+  {
+   "years": 1.0,
+   "passed": true,
+   "Q1_failures": [],
+   "Q2_violations": []
+  }
+ ],
+ "verdict_passed": true,
+ "wall_seconds": 0.1766195999989577
+}

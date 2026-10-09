@@ -1,0 +1,6029 @@
+{
+ "plan": "W2-P004",
+ "stage": "P1",
+ "criteria_doc": "docs/tasks/W2_compiled_mode_admission_v1.md",
+ "utc": "20261009T164741Z",
+ "prototype_version": 4,
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5808.00",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "periods": [
+  20.0,
+  200.0,
+  2000.0
+ ],
+ "cases": [
+  "iapetus-inner-0-0.0",
+  "iapetus-inner-0-0.3",
+  "iapetus-inner-90-0.0",
+  "iapetus-inner-90-0.3",
+  "iapetus-inner-180-0.0",
+  "iapetus-inner-180-0.3",
+  "iapetus-outer-0-0.0",
+  "iapetus-outer-0-0.3",
+  "iapetus-outer-90-0.0",
+  "iapetus-outer-90-0.3",
+  "iapetus-outer-180-0.0",
+  "iapetus-outer-180-0.3",
+  "ganymede-inner-0-0.0",
+  "ganymede-inner-0-0.3",
+  "ganymede-inner-90-0.0",
+  "ganymede-inner-90-0.3",
+  "ganymede-inner-180-0.0",
+  "ganymede-inner-180-0.3",
+  "ganymede-outer-0-0.0",
+  "ganymede-outer-0-0.3",
+  "ganymede-outer-90-0.0",
+  "ganymede-outer-90-0.3",
+  "ganymede-outer-180-0.0",
+  "ganymede-outer-180-0.3",
+  "himalia-inner-0-0.0",
+  "himalia-inner-0-0.3",
+  "himalia-inner-90-0.0",
+  "himalia-inner-90-0.3",
+  "himalia-inner-180-0.0",
+  "himalia-inner-180-0.3",
+  "himalia-outer-0-0.0",
+  "himalia-outer-0-0.3",
+  "himalia-outer-90-0.0",
+  "himalia-outer-90-0.3",
+  "himalia-outer-180-0.0",
+  "himalia-outer-180-0.3",
+  "iapetus-inner-90-0.0-phase",
+  "iapetus-inner-90-0.3-phase",
+  "iapetus-outer-90-0.0-phase",
+  "iapetus-outer-90-0.3-phase",
+  "ganymede-inner-90-0.0-phase",
+  "ganymede-inner-90-0.3-phase",
+  "ganymede-outer-90-0.0-phase",
+  "ganymede-outer-90-0.3-phase",
+  "himalia-inner-90-0.0-phase",
+  "himalia-inner-90-0.3-phase",
+  "himalia-outer-90-0.0-phase",
+  "himalia-outer-90-0.3-phase"
+ ],
+ "numeric": {
+  "rtol": 1e-11,
+  "atol_position": 1e-08,
+  "atol_velocity": 1e-11,
+  "step_fraction": 0.025,
+  "epsilon": 1e-09,
+  "cache_epsilon": 1e-12
+ },
+ "verdict_passed": true,
+ "evaluator_version": 2,
+ "full_scope": true,
+ "problems": [],
+ "wall_seconds": 224.668566356,
+ "rows": [
+  {
+   "orbit_id": "iapetus-inner-0-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 5.869800699493692e-13,
+   "max_dv_over_na": 5.810254903703819e-13,
+   "end_dr_over_a": 5.869800699493692e-13,
+   "end_dv_over_na": 5.810254903703819e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.436165496000001,
+    0.02977726899996469
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-0-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.0758746500050628e-12,
+   "max_dv_over_na": 1.6263908051522867e-12,
+   "end_dr_over_a": 1.0758746500050628e-12,
+   "end_dv_over_na": 1.6263908051522867e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    841,
+    841
+   ],
+   "nfev": [
+    12617,
+    12617
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4814823699999806,
+    0.03235997699999871
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.2874482377884625e-13,
+   "max_dv_over_na": 2.1941330194974198e-13,
+   "end_dr_over_a": 8.883406542070107e-14,
+   "end_dv_over_na": 9.93535379457497e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4105423760000235,
+    0.026969794999956775
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.0010890047421123e-12,
+   "max_dv_over_na": 2.9854488083095847e-12,
+   "end_dr_over_a": 2.0010890047421123e-12,
+   "end_dv_over_na": 2.9854488083095847e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    843,
+    843
+   ],
+   "nfev": [
+    12647,
+    12647
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.48859808400001725,
+    0.03557426800000485
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.2340825098330916e-13,
+   "max_dv_over_na": 1.1930724919563885e-13,
+   "end_dr_over_a": 5.43598793789055e-14,
+   "end_dv_over_na": 5.0886309525637964e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4645732639999949,
+    0.0287601360000167
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.5843080561015292e-12,
+   "max_dv_over_na": 2.370174046260314e-12,
+   "end_dr_over_a": 1.5843080561015292e-12,
+   "end_dv_over_na": 2.370174046260314e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    841,
+    841
+   ],
+   "nfev": [
+    12617,
+    12617
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.493333492000005,
+    0.03580563399998482
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.3144974463477039e-14,
+   "C2": true,
+   "max_dr_over_a": 1.8758014812764372e-13,
+   "max_dv_over_na": 9.348338342642548e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 82,
+   "C3": true,
+   "steps": [
+    68,
+    68
+   ],
+   "nfev": [
+    1370,
+    1370
+   ],
+   "C4": true,
+   "python_event_steps": 2,
+   "wall": [
+    0.05182300599997802,
+    0.020966912999995202
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.455164402342971e-14,
+   "C2": true,
+   "max_dr_over_a": 1.8058767911137067e-12,
+   "max_dv_over_na": 4.140712968688472e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 4.140712968688472e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 113,
+   "C3": true,
+   "steps": [
+    223,
+    223
+   ],
+   "nfev": [
+    3479,
+    3479
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.156106101000006,
+    0.020605380000006335
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 7.624085188816682e-14,
+   "C2": true,
+   "max_dr_over_a": 2.1771016372644916e-12,
+   "max_dv_over_na": 3.48603245651447e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 3.48603245651447e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 117,
+   "C3": true,
+   "steps": [
+    274,
+    274
+   ],
+   "nfev": [
+    4340,
+    4340
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.15185441999997806,
+    0.021912729000007403
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1211348719899567e-11,
+   "C2": true,
+   "max_dr_over_a": 1.4973319311773818e-10,
+   "max_dv_over_na": 4.820589731463086e-10,
+   "end_dr_over_a": 2.960880652892423e-12,
+   "end_dv_over_na": 4.820589731463086e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 124,
+   "C3": true,
+   "steps": [
+    312,
+    312
+   ],
+   "nfev": [
+    4778,
+    4778
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.250131424000017,
+    0.030893951999985347
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.49303463902853e-11,
+   "max_dv_over_na": 2.3884785043738085e-11,
+   "end_dr_over_a": 1.1234644348894569e-11,
+   "end_dv_over_na": 1.375039669411818e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    1247,
+    1247
+   ],
+   "nfev": [
+    18983,
+    18983
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.7625420290000022,
+    0.044667140999990806
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.694719765012793e-14,
+   "C2": true,
+   "max_dr_over_a": 4.286498477897624e-11,
+   "max_dv_over_na": 1.6052685812173205e-11,
+   "end_dr_over_a": 4.16426604470792e-11,
+   "end_dv_over_na": 1.6052685812173205e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 125,
+   "C3": true,
+   "steps": [
+    334,
+    334
+   ],
+   "nfev": [
+    5204,
+    5204
+   ],
+   "C4": true,
+   "python_event_steps": 9,
+   "wall": [
+    0.2063314499999933,
+    0.031083426999998665
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.9030736872581117e-13,
+   "max_dv_over_na": 2.8880252969286823e-13,
+   "end_dr_over_a": 2.8553365045881744e-13,
+   "end_dv_over_na": 2.8775381369527744e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.6519084519999865,
+    0.03722793399998636
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 9.888401047446144e-13,
+   "max_dv_over_na": 1.4344379708129777e-12,
+   "end_dr_over_a": 9.569802472342731e-13,
+   "end_dv_over_na": 1.3677780677943781e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    862,
+    862
+   ],
+   "nfev": [
+    13064,
+    13064
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.5757265009999912,
+    0.03494699300000548
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 7.988383749033316e-13,
+   "max_dv_over_na": 7.945417601699732e-13,
+   "end_dr_over_a": 7.790793918046822e-13,
+   "end_dv_over_na": 7.903617838896335e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.5089474390000248,
+    0.04197617500000206
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.13802649445959e-12,
+   "max_dv_over_na": 1.6931338927422958e-12,
+   "end_dr_over_a": 1.13802649445959e-12,
+   "end_dv_over_na": 1.6931338927422958e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    868,
+    868
+   ],
+   "nfev": [
+    13070,
+    13070
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.6168233170000121,
+    0.036629350999987764
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 5.66890005675646e-13,
+   "max_dv_over_na": 5.549569756333035e-13,
+   "end_dr_over_a": 5.086901757239577e-13,
+   "end_dv_over_na": 5.203768371630722e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.50498853900001,
+    0.029750409999962812
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.165771677544322e-13,
+   "max_dv_over_na": 6.521907777245517e-13,
+   "end_dr_over_a": 4.10125662147551e-13,
+   "end_dv_over_na": 6.031595839129288e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    881,
+    881
+   ],
+   "nfev": [
+    13385,
+    13385
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.6322646559999896,
+    0.03028739400002678
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.26743974948531e-14,
+   "C2": true,
+   "max_dr_over_a": 4.823000855545945e-13,
+   "max_dv_over_na": 6.500571337616461e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 84,
+   "C3": true,
+   "steps": [
+    59,
+    59
+   ],
+   "nfev": [
+    1175,
+    1175
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.05425968900001976,
+    0.01264587200000733
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 8.897709548232955e-13,
+   "max_dv_over_na": 4.3090367535251643e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 2.4722978438078383e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 113,
+   "C3": true,
+   "steps": [
+    197,
+    197
+   ],
+   "nfev": [
+    3173,
+    3173
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1382617229999994,
+    0.021364195999979074
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.924968189609855e-15,
+   "C2": true,
+   "max_dr_over_a": 5.709535452785257e-13,
+   "max_dv_over_na": 4.0662425277141206e-13,
+   "end_dr_over_a": 1.3491531454175324e-13,
+   "end_dv_over_na": 4.0662425277141206e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 117,
+   "C3": true,
+   "steps": [
+    250,
+    250
+   ],
+   "nfev": [
+    4112,
+    4112
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.17406048199998736,
+    0.026684895000016695
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.0482636027771281e-13,
+   "C2": true,
+   "max_dr_over_a": 1.2865531419599917e-12,
+   "max_dv_over_na": 8.056858107197287e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 113,
+   "C3": true,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3908,
+    3908
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.1593434929999944,
+    0.026294487000029676
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.0077534222907895e-11,
+   "max_dv_over_na": 1.6645423829659243e-11,
+   "end_dr_over_a": 7.209590377108978e-12,
+   "end_dv_over_na": 8.262698570064143e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    1088,
+    1088
+   ],
+   "nfev": [
+    17006,
+    17006
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.6923323430000039,
+    0.0367542920000119
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.203802108690568e-14,
+   "C2": true,
+   "max_dr_over_a": 5.5754144889085507e-11,
+   "max_dv_over_na": 2.650722045137067e-11,
+   "end_dr_over_a": 5.209525227933037e-11,
+   "end_dv_over_na": 2.650722045137067e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 125,
+   "C3": true,
+   "steps": [
+    290,
+    290
+   ],
+   "nfev": [
+    4628,
+    4628
+   ],
+   "C4": true,
+   "python_event_steps": 10,
+   "wall": [
+    0.1983870680000166,
+    0.022469327999999678
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.672901271147876e-13,
+   "max_dv_over_na": 3.552904643710672e-13,
+   "end_dr_over_a": 3.672901271147876e-13,
+   "end_dv_over_na": 3.552904643710672e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4201193399999852,
+    0.026029935999986265
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 9.16604483819426e-13,
+   "max_dv_over_na": 1.368781007399254e-12,
+   "end_dr_over_a": 6.772889775541706e-13,
+   "end_dv_over_na": 1.0040326965397224e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    806,
+    806
+   ],
+   "nfev": [
+    12092,
+    12092
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.46535243100001367,
+    0.027384036000000833
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 5.350630610285817e-13,
+   "max_dv_over_na": 5.277426801990286e-13,
+   "end_dr_over_a": 5.145928252916425e-13,
+   "end_dv_over_na": 5.210259164963543e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.420499207000006,
+    0.026729536000004828
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 8.377462607190001e-13,
+   "max_dv_over_na": 1.2593721061092512e-12,
+   "end_dr_over_a": 8.377462607190001e-13,
+   "end_dv_over_na": 1.2593721061092512e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    806,
+    806
+   ],
+   "nfev": [
+    12092,
+    12092
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4945764920000215,
+    0.0231249279999588
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.9196898684185526e-13,
+   "max_dv_over_na": 3.902806243154298e-13,
+   "end_dr_over_a": 3.9196898684185526e-13,
+   "end_dv_over_na": 3.902806243154298e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4688320970000177,
+    0.023757062000015594
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.954404289811214e-12,
+   "max_dv_over_na": 4.420398556434226e-12,
+   "end_dr_over_a": 2.954404289811214e-12,
+   "end_dv_over_na": 4.420398556434226e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    806,
+    806
+   ],
+   "nfev": [
+    12092,
+    12092
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4290327300000172,
+    0.024864669999999478
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3209253966400765e-13,
+   "C2": true,
+   "max_dr_over_a": 1.1730205694686242e-11,
+   "max_dv_over_na": 1.3003697807536201e-11,
+   "end_dr_over_a": 2.378846423511087e-12,
+   "end_dv_over_na": 1.3003697807536201e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 116,
+   "C3": true,
+   "steps": [
+    200,
+    200
+   ],
+   "nfev": [
+    3194,
+    3194
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.11517135200000439,
+    0.017910013000005165
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 4.077415215875852e-13,
+   "C2": true,
+   "max_dr_over_a": 3.224170337755141e-11,
+   "max_dv_over_na": 2.1782778818450925e-11,
+   "end_dr_over_a": 1.3688696308407185e-11,
+   "end_dv_over_na": 2.1782778818450925e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 115,
+   "C3": true,
+   "steps": [
+    162,
+    162
+   ],
+   "nfev": [
+    2492,
+    2492
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.10637263700002109,
+    0.01817052999996349
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.150729939540431e-13,
+   "C2": true,
+   "max_dr_over_a": 2.8631120712844787e-11,
+   "max_dv_over_na": 2.4460471937680778e-11,
+   "end_dr_over_a": 1.4154331450128519e-11,
+   "end_dv_over_na": 2.4460471937680778e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 119,
+   "C3": true,
+   "steps": [
+    198,
+    198
+   ],
+   "nfev": [
+    3128,
+    3128
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.09968766299999743,
+    0.0198575630000164
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.020949315417371e-13,
+   "C2": true,
+   "max_dr_over_a": 7.12559560395658e-11,
+   "max_dv_over_na": 5.860022104833613e-11,
+   "end_dr_over_a": 2.2742162075176308e-11,
+   "end_dv_over_na": 5.860022104833613e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 123,
+   "C3": true,
+   "steps": [
+    216,
+    216
+   ],
+   "nfev": [
+    3314,
+    3314
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.12631728299999168,
+    0.01787481300004856
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.75391781031876e-12,
+   "C2": true,
+   "max_dr_over_a": 1.018650095431293e-09,
+   "max_dv_over_na": 3.958717631732714e-10,
+   "end_dr_over_a": 1.018650095431293e-09,
+   "end_dv_over_na": 3.958717631732714e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 174,
+   "C3": true,
+   "steps": [
+    796,
+    796
+   ],
+   "nfev": [
+    12818,
+    12818
+   ],
+   "C4": true,
+   "python_event_steps": 30,
+   "wall": [
+    0.4506691750000016,
+    0.0459523069999932
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.792215185466221e-10,
+   "C2": true,
+   "max_dr_over_a": 4.671117484025772e-08,
+   "max_dv_over_na": 1.7493602016498888e-08,
+   "end_dr_over_a": 1.496709436724912e-08,
+   "end_dv_over_na": 1.5835605881398497e-08,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 157,
+   "C3": true,
+   "steps": [
+    576,
+    576
+   ],
+   "nfev": [
+    9218,
+    9218
+   ],
+   "C4": true,
+   "python_event_steps": 29,
+   "wall": [
+    0.3541555609999989,
+    0.047273864999965554
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.1928738241983163e-13,
+   "max_dv_over_na": 4.1718948197667627e-13,
+   "end_dr_over_a": 4.1928738241983163e-13,
+   "end_dv_over_na": 4.1718948197667627e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4375238119999949,
+    0.02802661900000203
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 5.032445696101006e-13,
+   "max_dv_over_na": 7.293489722317515e-13,
+   "end_dr_over_a": 3.5444389982870205e-13,
+   "end_dv_over_na": 3.3275126458306807e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    841,
+    841
+   ],
+   "nfev": [
+    12617,
+    12617
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.46435500600000523,
+    0.030077569000013682
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.4709226424630807e-12,
+   "C2": true,
+   "max_dr_over_a": 6.628453285544705e-11,
+   "max_dv_over_na": 8.754851585828537e-11,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 8.754851585828537e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 127,
+   "C3": true,
+   "steps": [
+    413,
+    413
+   ],
+   "nfev": [
+    6689,
+    6689
+   ],
+   "C4": true,
+   "python_event_steps": 12,
+   "wall": [
+    0.2540859239999804,
+    0.029678727000032268
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3989578395845595e-13,
+   "C2": true,
+   "max_dr_over_a": 1.0857176399936283e-11,
+   "max_dv_over_na": 1.2313455169788651e-11,
+   "end_dr_over_a": 1.6295897665051298e-12,
+   "end_dv_over_na": 1.2313455169788651e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 117,
+   "C3": true,
+   "steps": [
+    288,
+    288
+   ],
+   "nfev": [
+    4646,
+    4646
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.16476218299999346,
+    0.03271784300000036
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.406136660379591e-13,
+   "max_dv_over_na": 1.315375673983494e-13,
+   "end_dr_over_a": 3.23413790650645e-14,
+   "end_dv_over_na": 3.252890632469111e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.5342166329999998,
+    0.04767105700000229
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.6587625981677246e-12,
+   "max_dv_over_na": 2.766807196821234e-12,
+   "end_dr_over_a": 9.730810382166705e-13,
+   "end_dv_over_na": 8.065957728014528e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    903,
+    903
+   ],
+   "nfev": [
+    14051,
+    14051
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.6328518720000034,
+    0.04664035700000113
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1394169595403566e-16,
+   "C2": true,
+   "max_dr_over_a": 8.239294738363397e-15,
+   "max_dv_over_na": 4.3054095464315424e-14,
+   "end_dr_over_a": 2.1600447669135417e-15,
+   "end_dv_over_na": 4.3054095464315424e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 82,
+   "C3": true,
+   "steps": [
+    55,
+    55
+   ],
+   "nfev": [
+    1091,
+    1091
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.0423421999999789,
+    0.026476994999995895
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 7.518801121214723e-13,
+   "max_dv_over_na": 7.847436145540419e-13,
+   "end_dr_over_a": 7.518801121214723e-13,
+   "end_dv_over_na": 7.847436145540419e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 115,
+   "C3": true,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3740,
+    3740
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.14781338599999572,
+    0.028263852000009138
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 9.793630854977907e-13,
+   "max_dv_over_na": 9.754603853344904e-13,
+   "end_dr_over_a": 9.793630854977907e-13,
+   "end_dv_over_na": 9.754603853344904e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    804,
+    804
+   ],
+   "nfev": [
+    12062,
+    12062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4456190759999856,
+    0.028062368999997034
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 20.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 9.055154874785963e-14,
+   "max_dv_over_na": 1.336255847813731e-13,
+   "end_dr_over_a": 3.01273861157919e-14,
+   "end_dv_over_na": 2.7727468639555815e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    806,
+    806
+   ],
+   "nfev": [
+    12092,
+    12092
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    0.4386816530000033,
+    0.038670308999996905
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.369764641219712e-15,
+   "C2": true,
+   "max_dr_over_a": 2.5451394611047492e-11,
+   "max_dv_over_na": 1.1928334201546644e-11,
+   "end_dr_over_a": 1.9662969122097918e-11,
+   "end_dv_over_na": 1.0942084717687008e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 119,
+   "C3": true,
+   "steps": [
+    225,
+    225
+   ],
+   "nfev": [
+    3665,
+    3665
+   ],
+   "C4": true,
+   "python_event_steps": 8,
+   "wall": [
+    0.144008303999982,
+    0.022537986999964232
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 20.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.603430349614078e-14,
+   "C2": true,
+   "max_dr_over_a": 1.6988636112065094e-12,
+   "max_dv_over_na": 1.6163300243322655e-11,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 82,
+   "C3": true,
+   "steps": [
+    53,
+    53
+   ],
+   "nfev": [
+    1085,
+    1085
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.04196709999999371,
+    0.015414754999994784
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-0-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.865949131920265e-11,
+   "max_dv_over_na": 2.8625010277928515e-11,
+   "end_dr_over_a": 2.865949131920265e-11,
+   "end_dv_over_na": 2.8625010277928515e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.115899968999997,
+    0.15014969399999245
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-0-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.774407335049493e-11,
+   "max_dv_over_na": 2.6460582970814288e-11,
+   "end_dr_over_a": 1.774407335049493e-11,
+   "end_dv_over_na": 2.6460582970814288e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8367,
+    8367
+   ],
+   "nfev": [
+    125507,
+    125507
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.7886256419999995,
+    0.15788021800000251
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.607271281074253e-12,
+   "max_dv_over_na": 3.646149401112845e-12,
+   "end_dr_over_a": 3.607271281074253e-12,
+   "end_dv_over_na": 3.646149401112845e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.285444861000002,
+    0.16233934199999567
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.1768079610788596e-11,
+   "max_dv_over_na": 3.255741676000461e-11,
+   "end_dr_over_a": 2.1768079610788596e-11,
+   "end_dv_over_na": 3.255741676000461e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8392,
+    8392
+   ],
+   "nfev": [
+    125882,
+    125882
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.517929538000004,
+    0.16522409200001675
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.0658664467435655e-11,
+   "max_dv_over_na": 1.0652467471684486e-11,
+   "end_dr_over_a": 1.0478291016845954e-11,
+   "end_dv_over_na": 1.047625162636362e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.206259542999987,
+    0.15886563500004058
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 6.539256456546295e-11,
+   "max_dv_over_na": 9.841082285946269e-11,
+   "end_dr_over_a": 6.539256456546295e-11,
+   "end_dv_over_na": 9.841082285946269e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8374,
+    8374
+   ],
+   "nfev": [
+    125612,
+    125612
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.6548512769999775,
+    0.16429780000004257
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.3144974463477039e-14,
+   "C2": true,
+   "max_dr_over_a": 1.297394683488039e-13,
+   "max_dv_over_na": 3.233405955415669e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 48,
+   "C3": true,
+   "steps": [
+    68,
+    68
+   ],
+   "nfev": [
+    1370,
+    1370
+   ],
+   "C4": true,
+   "python_event_steps": 2,
+   "wall": [
+    0.04380382499999769,
+    0.015724863999992067
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.455164402342971e-14,
+   "C2": true,
+   "max_dr_over_a": 1.7748562508965404e-12,
+   "max_dv_over_na": 4.140712968688472e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 4.140712968688472e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 72,
+   "C3": true,
+   "steps": [
+    223,
+    223
+   ],
+   "nfev": [
+    3479,
+    3479
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.11664865099999133,
+    0.016112795999958962
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 7.624085188816682e-14,
+   "C2": true,
+   "max_dr_over_a": 2.1900330347318617e-12,
+   "max_dv_over_na": 3.48603245651447e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 3.48603245651447e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 74,
+   "C3": true,
+   "steps": [
+    274,
+    274
+   ],
+   "nfev": [
+    4340,
+    4340
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1427231379999796,
+    0.022560445999999956
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1211348719899567e-11,
+   "C2": true,
+   "max_dr_over_a": 1.472955573420261e-10,
+   "max_dv_over_na": 4.820589731463086e-10,
+   "end_dr_over_a": 2.960880652892423e-12,
+   "end_dv_over_na": 4.820589731463086e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 78,
+   "C3": true,
+   "steps": [
+    312,
+    312
+   ],
+   "nfev": [
+    4778,
+    4778
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.18408248800000138,
+    0.017624013000045124
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.801182315441318e-10,
+   "max_dv_over_na": 5.130558171833557e-10,
+   "end_dr_over_a": 2.272258629112836e-10,
+   "end_dv_over_na": 2.3967793917857426e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    12715,
+    12715
+   ],
+   "nfev": [
+    197507,
+    197507
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    6.674967869999989,
+    0.2535416069999883
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.694719765012793e-14,
+   "C2": true,
+   "max_dr_over_a": 4.16426604470792e-11,
+   "max_dv_over_na": 1.6052685812173205e-11,
+   "end_dr_over_a": 4.16426604470792e-11,
+   "end_dv_over_na": 1.6052685812173205e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 78,
+   "C3": true,
+   "steps": [
+    334,
+    334
+   ],
+   "nfev": [
+    5204,
+    5204
+   ],
+   "C4": true,
+   "python_event_steps": 9,
+   "wall": [
+    0.18024110499999324,
+    0.021964427999989766
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.9924340599461644e-11,
+   "max_dv_over_na": 2.99106260681574e-11,
+   "end_dr_over_a": 2.9924340599461644e-11,
+   "end_dv_over_na": 2.99106260681574e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.843617381000001,
+    0.24238467599997193
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.464261879354407e-11,
+   "max_dv_over_na": 2.1465392197206776e-11,
+   "end_dr_over_a": 1.2189194315802843e-11,
+   "end_dv_over_na": 1.0549134642171995e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8530,
+    8530
+   ],
+   "nfev": [
+    128252,
+    128252
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    5.081865873999988,
+    0.24131538500000715
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.339017296840667e-12,
+   "max_dv_over_na": 3.3445657684996728e-12,
+   "end_dr_over_a": 1.540057592571171e-12,
+   "end_dv_over_na": 1.5468633543401709e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.925364231000003,
+    0.22829697899999246
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1434889656297602e-12,
+   "C2": true,
+   "max_dr_over_a": 5.197248495695029e-12,
+   "max_dv_over_na": 7.877148109458677e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 134,
+   "C3": true,
+   "steps": [
+    3017,
+    3017
+   ],
+   "nfev": [
+    45929,
+    45929
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    1.9692096109999966,
+    0.11150239400001283
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.865305016513851e-11,
+   "max_dv_over_na": 3.8686182234372325e-11,
+   "end_dr_over_a": 3.865305016513851e-11,
+   "end_dv_over_na": 3.8686182234372325e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.814710853999998,
+    0.2082866989999843
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.894423387513778e-11,
+   "max_dv_over_na": 2.867563650222873e-11,
+   "end_dr_over_a": 1.2844276050190301e-11,
+   "end_dv_over_na": 1.194661661547839e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8732,
+    8732
+   ],
+   "nfev": [
+    132338,
+    132338
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    5.689380352000001,
+    0.21772158099997796
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.26743974948531e-14,
+   "C2": true,
+   "max_dr_over_a": 2.7827559465443777e-13,
+   "max_dv_over_na": 1.1973082871050545e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 50,
+   "C3": true,
+   "steps": [
+    59,
+    59
+   ],
+   "nfev": [
+    1175,
+    1175
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.04409807499999374,
+    0.018846297000038703
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 7.956131654063367e-13,
+   "max_dv_over_na": 4.0882677622394235e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 2.4722978438078383e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 72,
+   "C3": true,
+   "steps": [
+    197,
+    197
+   ],
+   "nfev": [
+    3173,
+    3173
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1207225919999928,
+    0.019636461999994026
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.924968189609855e-15,
+   "C2": true,
+   "max_dr_over_a": 5.643960764453628e-13,
+   "max_dv_over_na": 4.0662425277141206e-13,
+   "end_dr_over_a": 1.3491531454175324e-13,
+   "end_dv_over_na": 4.0662425277141206e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 74,
+   "C3": true,
+   "steps": [
+    250,
+    250
+   ],
+   "nfev": [
+    4112,
+    4112
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.16051215100000604,
+    0.01960703800000374
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.0482636027771281e-13,
+   "C2": true,
+   "max_dr_over_a": 7.508462311447421e-13,
+   "max_dv_over_na": 2.747045200412823e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 72,
+   "C3": true,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3908,
+    3908
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.1533855269999833,
+    0.02389483700000028
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.6161725309591598e-10,
+   "max_dv_over_na": 3.027851241897412e-10,
+   "end_dr_over_a": 1.224914424741513e-10,
+   "end_dv_over_na": 2.0718688078112422e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    10761,
+    10761
+   ],
+   "nfev": [
+    167585,
+    167585
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    6.9579297040000085,
+    0.2677837630000113
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.203802108690568e-14,
+   "C2": true,
+   "max_dr_over_a": 5.5059106543651794e-11,
+   "max_dv_over_na": 2.650722045137067e-11,
+   "end_dr_over_a": 5.209525227933037e-11,
+   "end_dv_over_na": 2.650722045137067e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 78,
+   "C3": true,
+   "steps": [
+    290,
+    290
+   ],
+   "nfev": [
+    4628,
+    4628
+   ],
+   "C4": true,
+   "python_event_steps": 10,
+   "wall": [
+    0.19800060200000758,
+    0.026137643999959437
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 8.771251798502098e-12,
+   "max_dv_over_na": 8.779576268235129e-12,
+   "end_dr_over_a": 8.771251798502098e-12,
+   "end_dv_over_na": 8.779576268235129e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    3.929231474000005,
+    0.13745569700000715
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.2547802141098817e-11,
+   "max_dv_over_na": 1.8692812733772567e-11,
+   "end_dr_over_a": 1.0989952686339378e-11,
+   "end_dv_over_na": 1.638977508938721e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8022,
+    8022
+   ],
+   "nfev": [
+    120332,
+    120332
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.260918531999977,
+    0.1461895119999781
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.4942139303905715e-11,
+   "max_dv_over_na": 2.4917087664180913e-11,
+   "end_dr_over_a": 2.4942139303905715e-11,
+   "end_dv_over_na": 2.4917087664180913e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.178361164999984,
+    0.14225123799997164
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.1400531232263229e-11,
+   "max_dv_over_na": 1.7067105320000957e-11,
+   "end_dr_over_a": 1.1400531232263229e-11,
+   "end_dv_over_na": 1.7067105320000957e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8022,
+    8022
+   ],
+   "nfev": [
+    120332,
+    120332
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.749432557999995,
+    0.15288044499999387
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 8.096004080195151e-12,
+   "max_dv_over_na": 8.113036325157184e-12,
+   "end_dr_over_a": 8.096004080195151e-12,
+   "end_dv_over_na": 8.113036325157184e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.1445634890000065,
+    0.1459626370000251
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.2212719187114873e-11,
+   "max_dv_over_na": 6.333145511764812e-11,
+   "end_dr_over_a": 4.2212719187114873e-11,
+   "end_dv_over_na": 6.333145511764812e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8023,
+    8023
+   ],
+   "nfev": [
+    120347,
+    120347
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.768516178999988,
+    0.17236519900001213
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3209253966400765e-13,
+   "C2": true,
+   "max_dr_over_a": 1.1624609794735956e-11,
+   "max_dv_over_na": 1.3856044230985818e-10,
+   "end_dr_over_a": 2.378846423511087e-12,
+   "end_dv_over_na": 1.3003697807536201e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 74,
+   "C3": true,
+   "steps": [
+    200,
+    200
+   ],
+   "nfev": [
+    3194,
+    3194
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1015304379999975,
+    0.02293912100003581
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 4.077415215875852e-13,
+   "C2": true,
+   "max_dr_over_a": 3.16218071178379e-11,
+   "max_dv_over_na": 2.1782778818450925e-11,
+   "end_dr_over_a": 1.3688696308407185e-11,
+   "end_dv_over_na": 2.1782778818450925e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 73,
+   "C3": true,
+   "steps": [
+    162,
+    162
+   ],
+   "nfev": [
+    2492,
+    2492
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.10258643700001358,
+    0.033972210000001724
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.150729939540431e-13,
+   "C2": true,
+   "max_dr_over_a": 2.740075939723294e-11,
+   "max_dv_over_na": 2.4460471937680778e-11,
+   "end_dr_over_a": 1.4154331450128519e-11,
+   "end_dv_over_na": 2.4460471937680778e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 75,
+   "C3": true,
+   "steps": [
+    198,
+    198
+   ],
+   "nfev": [
+    3128,
+    3128
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1005029469999954,
+    0.02363798700002917
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.020949315417371e-13,
+   "C2": true,
+   "max_dr_over_a": 7.176072276314804e-11,
+   "max_dv_over_na": 5.860022104833613e-11,
+   "end_dr_over_a": 2.2742162075176308e-11,
+   "end_dv_over_na": 5.860022104833613e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 77,
+   "C3": true,
+   "steps": [
+    216,
+    216
+   ],
+   "nfev": [
+    3314,
+    3314
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.11234013600000026,
+    0.030299677000016345
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.75391781031876e-12,
+   "C2": true,
+   "max_dr_over_a": 1.1048609745557016e-09,
+   "max_dv_over_na": 5.331249904616265e-10,
+   "end_dr_over_a": 1.018650095431293e-09,
+   "end_dv_over_na": 3.958717631732714e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 98,
+   "C3": true,
+   "steps": [
+    796,
+    796
+   ],
+   "nfev": [
+    12818,
+    12818
+   ],
+   "C4": true,
+   "python_event_steps": 30,
+   "wall": [
+    0.396685677999983,
+    0.05216098100004274
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.792215185466221e-10,
+   "C2": true,
+   "max_dr_over_a": 4.435337613763132e-08,
+   "max_dv_over_na": 1.5835605881398497e-08,
+   "end_dr_over_a": 1.496709436724912e-08,
+   "end_dv_over_na": 1.5835605881398497e-08,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 91,
+   "C3": true,
+   "steps": [
+    576,
+    576
+   ],
+   "nfev": [
+    9218,
+    9218
+   ],
+   "C4": true,
+   "python_event_steps": 29,
+   "wall": [
+    0.3071774130000051,
+    0.046226574000002074
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.245954529987908e-12,
+   "max_dv_over_na": 4.250538056942024e-12,
+   "end_dr_over_a": 4.245954529987908e-12,
+   "end_dv_over_na": 4.250538056942024e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.212559424999995,
+    0.15991925100001936
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.0330198056558782e-10,
+   "max_dv_over_na": 1.5670684756152237e-10,
+   "end_dr_over_a": 7.190549780561117e-11,
+   "end_dv_over_na": 6.561653185311983e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8392,
+    8392
+   ],
+   "nfev": [
+    125882,
+    125882
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.619630201000007,
+    0.17797583899999836
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.4709226424630807e-12,
+   "C2": true,
+   "max_dr_over_a": 6.628134938753391e-11,
+   "max_dv_over_na": 8.754851585828537e-11,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 8.754851585828537e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 79,
+   "C3": true,
+   "steps": [
+    413,
+    413
+   ],
+   "nfev": [
+    6689,
+    6689
+   ],
+   "C4": true,
+   "python_event_steps": 12,
+   "wall": [
+    0.22343323799998416,
+    0.036658500999976695
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3989578395845595e-13,
+   "C2": true,
+   "max_dr_over_a": 1.087506182432483e-11,
+   "max_dv_over_na": 1.2313455169788651e-11,
+   "end_dr_over_a": 1.6295897665051298e-12,
+   "end_dv_over_na": 1.2313455169788651e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 74,
+   "C3": true,
+   "steps": [
+    288,
+    288
+   ],
+   "nfev": [
+    4646,
+    4646
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.18259785500001158,
+    0.02051893699996299
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.5058081147793137e-12,
+   "max_dv_over_na": 3.5150565921830683e-12,
+   "end_dr_over_a": 3.5058081147793137e-12,
+   "end_dv_over_na": 3.5150565921830683e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    5.302620246999993,
+    0.24222022600002902
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.320609959660396e-13,
+   "C2": true,
+   "max_dr_over_a": 1.8652309438159936e-12,
+   "max_dv_over_na": 3.1896221614130022e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 105,
+   "C3": true,
+   "steps": [
+    1071,
+    1071
+   ],
+   "nfev": [
+    16739,
+    16739
+   ],
+   "C4": true,
+   "python_event_steps": 2,
+   "wall": [
+    0.7544191730000023,
+    0.05154837300000281
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1394169595403566e-16,
+   "C2": true,
+   "max_dr_over_a": 8.220252350249929e-15,
+   "max_dv_over_na": 4.3054095464315424e-14,
+   "end_dr_over_a": 2.1600447669135417e-15,
+   "end_dv_over_na": 4.3054095464315424e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 48,
+   "C3": true,
+   "steps": [
+    55,
+    55
+   ],
+   "nfev": [
+    1091,
+    1091
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.04909793999999579,
+    0.016632638000032784
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 7.518801121214723e-13,
+   "max_dv_over_na": 7.847436145540419e-13,
+   "end_dr_over_a": 7.518801121214723e-13,
+   "end_dv_over_na": 7.847436145540419e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 73,
+   "C3": true,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3740,
+    3740
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.18217307200001187,
+    0.01923808000003646
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.9286755088810537e-11,
+   "max_dv_over_na": 1.9225075079529924e-11,
+   "end_dr_over_a": 1.9286755088810537e-11,
+   "end_dv_over_na": 1.9225075079529924e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8004,
+    8004
+   ],
+   "nfev": [
+    120062,
+    120062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.241214602000014,
+    0.14286806300003718
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 200.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.1098346747842455e-11,
+   "max_dv_over_na": 3.161952561668615e-11,
+   "end_dr_over_a": 1.638127953908787e-11,
+   "end_dv_over_na": 1.5158281408082497e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": true,
+   "steps": [
+    8023,
+    8023
+   ],
+   "nfev": [
+    120347,
+    120347
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    4.322585253,
+    0.14319320399999924
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.369764641219712e-15,
+   "C2": true,
+   "max_dr_over_a": 2.5477296423680942e-11,
+   "max_dv_over_na": 1.0942084717687008e-11,
+   "end_dr_over_a": 1.9662969122097918e-11,
+   "end_dv_over_na": 1.0942084717687008e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 75,
+   "C3": true,
+   "steps": [
+    225,
+    225
+   ],
+   "nfev": [
+    3665,
+    3665
+   ],
+   "C4": true,
+   "python_event_steps": 8,
+   "wall": [
+    0.11419986799998583,
+    0.021301495999978215
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 200.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.603430349614078e-14,
+   "C2": true,
+   "max_dr_over_a": 9.910540802092229e-13,
+   "max_dv_over_na": 2.455644902063534e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 48,
+   "C3": true,
+   "steps": [
+    53,
+    53
+   ],
+   "nfev": [
+    1085,
+    1085
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.03361361000000329,
+    0.021492988000034075
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-0-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.3417464005504965e-09,
+   "max_dv_over_na": 1.3416775265184208e-09,
+   "end_dr_over_a": 1.3417464005504965e-09,
+   "end_dv_over_na": 1.3416775265184208e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    48.474237787999996,
+    1.480445426000017
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-0-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 8.974688971263775e-10,
+   "max_dv_over_na": 1.318651838146444e-09,
+   "end_dr_over_a": 5.48268933491532e-10,
+   "end_dv_over_na": 7.91342044719207e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    83606,
+    83606
+   ],
+   "nfev": [
+    1254092,
+    1254092
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    46.055496391999995,
+    1.5900141120000058
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.4955894322572757e-10,
+   "max_dv_over_na": 4.4955233541745585e-10,
+   "end_dr_over_a": 4.4955894322572757e-10,
+   "end_dv_over_na": 4.4955233541745585e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    41.985351339999994,
+    1.4992175639999914
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 6.268229416026287e-10,
+   "max_dv_over_na": 9.541763828447336e-10,
+   "end_dr_over_a": 6.268229416026287e-10,
+   "end_dv_over_na": 9.541763828447336e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    84196,
+    84196
+   ],
+   "nfev": [
+    1262942,
+    1262942
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    53.886911098,
+    1.5735199819999934
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.0",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.7777346329703663e-09,
+   "max_dv_over_na": 1.7777523022330139e-09,
+   "end_dr_over_a": 1.7777346329703663e-09,
+   "end_dv_over_na": 1.7777523022330139e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    48.42974576700001,
+    1.4431640500000071
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-180-0.3",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.461345394849193e-09,
+   "max_dv_over_na": 2.137203194321819e-09,
+   "end_dr_over_a": 1.461345394849193e-09,
+   "end_dv_over_na": 2.137203194321819e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    83689,
+    83689
+   ],
+   "nfev": [
+    1255337,
+    1255337
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    47.416450336,
+    1.5390641399999936
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.3144974463477039e-14,
+   "C2": true,
+   "max_dr_over_a": 4.647360755844381e-13,
+   "max_dv_over_na": 2.233392268850853e-11,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 17,
+   "C3": null,
+   "steps": [
+    68,
+    68
+   ],
+   "nfev": [
+    1370,
+    1370
+   ],
+   "C4": true,
+   "python_event_steps": 2,
+   "wall": [
+    0.042659399000001486,
+    0.025181193999998186
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.455164402342971e-14,
+   "C2": true,
+   "max_dr_over_a": 1.7841973932383122e-12,
+   "max_dv_over_na": 4.140712968688472e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 4.140712968688472e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 40,
+   "C3": null,
+   "steps": [
+    223,
+    223
+   ],
+   "nfev": [
+    3479,
+    3479
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.12006329700000151,
+    0.02207763699999532
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 7.624085188816682e-14,
+   "C2": true,
+   "max_dr_over_a": 2.2017698492832182e-12,
+   "max_dv_over_na": 3.48603245651447e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 3.48603245651447e-12,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 41,
+   "C3": null,
+   "steps": [
+    274,
+    274
+   ],
+   "nfev": [
+    4340,
+    4340
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.14853629499999954,
+    0.027867211000000225
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1211348719899567e-11,
+   "C2": true,
+   "max_dr_over_a": 1.4735183107446594e-10,
+   "max_dv_over_na": 4.820589731463086e-10,
+   "end_dr_over_a": 2.960880652892423e-12,
+   "end_dv_over_na": 4.820589731463086e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 45,
+   "C3": null,
+   "steps": [
+    312,
+    312
+   ],
+   "nfev": [
+    4778,
+    4778
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.17007379599999695,
+    0.03334768499999541
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.0",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 6.774232867660482e-08,
+   "max_dv_over_na": 1.208487686909029e-07,
+   "end_dr_over_a": 5.634275656167785e-08,
+   "end_dv_over_na": 9.199238358566062e-08,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    127148,
+    127148
+   ],
+   "nfev": [
+    1977746,
+    1977746
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    65.031007631,
+    2.3651442640000084
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.3",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.694719765012793e-14,
+   "C2": true,
+   "max_dr_over_a": 4.16426604470792e-11,
+   "max_dv_over_na": 1.6052685812173205e-11,
+   "end_dr_over_a": 4.16426604470792e-11,
+   "end_dv_over_na": 1.6052685812173205e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 45,
+   "C3": null,
+   "steps": [
+    334,
+    334
+   ],
+   "nfev": [
+    5204,
+    5204
+   ],
+   "C4": true,
+   "python_event_steps": 9,
+   "wall": [
+    0.17422394700000154,
+    0.02233934599999543
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.870263090906696e-09,
+   "max_dv_over_na": 2.870778650310733e-09,
+   "end_dr_over_a": 2.870263090906696e-09,
+   "end_dv_over_na": 2.870778650310733e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    46.81204770999999,
+    1.9194501129999821
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-0-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 2.585327234834274e-09,
+   "max_dv_over_na": 3.5636149531018605e-09,
+   "end_dr_over_a": 2.4782215328824247e-09,
+   "end_dv_over_na": 2.841874850776356e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    85433,
+    85433
+   ],
+   "nfev": [
+    1295957,
+    1295957
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    52.057866686999986,
+    2.089427944999983
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.3488139200205713e-10,
+   "C2": true,
+   "max_dr_over_a": 7.266126339552569e-10,
+   "max_dv_over_na": 7.967621814047602e-10,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 185,
+   "C3": null,
+   "steps": [
+    74253,
+    74253
+   ],
+   "nfev": [
+    1113797,
+    1113797
+   ],
+   "C4": true,
+   "python_event_steps": 51,
+   "wall": [
+    48.28958542700002,
+    1.8954762589999916
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1434889656297602e-12,
+   "C2": true,
+   "max_dr_over_a": 7.500324274485224e-12,
+   "max_dv_over_na": 8.521054157885199e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 83,
+   "C3": null,
+   "steps": [
+    3017,
+    3017
+   ],
+   "nfev": [
+    45929,
+    45929
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    2.168904795000003,
+    0.090831565000002
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.0",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 4.146743675286512e-10,
+   "max_dv_over_na": 4.14688318461381e-10,
+   "end_dr_over_a": 4.146743675286512e-10,
+   "end_dv_over_na": 4.14688318461381e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    49.99948451600001,
+    1.9687476109999977
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-180-0.3",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 7.694968314901059e-10,
+   "max_dv_over_na": 1.1975194221925552e-09,
+   "end_dr_over_a": 4.1310989687493543e-10,
+   "end_dv_over_na": 3.5589815817773983e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    87731,
+    87731
+   ],
+   "nfev": [
+    1342667,
+    1342667
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    58.91034316999999,
+    2.2044992890000117
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.26743974948531e-14,
+   "C2": true,
+   "max_dr_over_a": 2.1313973719747847e-13,
+   "max_dv_over_na": 6.122176733703598e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 18,
+   "C3": null,
+   "steps": [
+    59,
+    59
+   ],
+   "nfev": [
+    1175,
+    1175
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.04485157400000617,
+    0.020053638000007368
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 1.0964726660542079e-12,
+   "max_dv_over_na": 4.750415978022327e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 2.4722978438078383e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 40,
+   "C3": null,
+   "steps": [
+    197,
+    197
+   ],
+   "nfev": [
+    3173,
+    3173
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.11745293500001708,
+    0.02126253699998415
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.924968189609855e-15,
+   "C2": true,
+   "max_dr_over_a": 5.643529589271564e-13,
+   "max_dv_over_na": 5.639346894044728e-13,
+   "end_dr_over_a": 1.3491531454175324e-13,
+   "end_dv_over_na": 4.0662425277141206e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 42,
+   "C3": null,
+   "steps": [
+    250,
+    250
+   ],
+   "nfev": [
+    4112,
+    4112
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.16274130100001116,
+    0.02211796999998228
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.0482636027771281e-13,
+   "C2": true,
+   "max_dr_over_a": 5.287781090130227e-13,
+   "max_dv_over_na": 6.659800127735849e-13,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 39,
+   "C3": null,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3908,
+    3908
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.14912522799997419,
+    0.024504327999977704
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.0",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.4003257684093844e-06,
+   "max_dv_over_na": 2.385871298659926e-06,
+   "end_dr_over_a": 8.360332028404897e-08,
+   "end_dv_over_na": 6.392474959292088e-08,
+   "first_exceedance_periods": 1608.9472532568384,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    107442,
+    107442
+   ],
+   "nfev": [
+    1671812,
+    1671812
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    70.65102288400001,
+    2.6108371889999944
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.3",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.203802108690568e-14,
+   "C2": true,
+   "max_dr_over_a": 5.334149407943962e-11,
+   "max_dv_over_na": 2.650722045137067e-11,
+   "end_dr_over_a": 5.209525227933037e-11,
+   "end_dv_over_na": 2.650722045137067e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 45,
+   "C3": null,
+   "steps": [
+    290,
+    290
+   ],
+   "nfev": [
+    4628,
+    4628
+   ],
+   "C4": true,
+   "python_event_steps": 10,
+   "wall": [
+    0.18519128799999862,
+    0.02617256999999995
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.3539601828218215e-10,
+   "max_dv_over_na": 1.3549803125619979e-10,
+   "end_dr_over_a": 1.3539601828218215e-10,
+   "end_dv_over_na": 1.3549803125619979e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    39.110267158,
+    1.2388593500000127
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-0-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 7.115576943216595e-10,
+   "max_dv_over_na": 1.0630588156074844e-09,
+   "end_dr_over_a": 4.6385035612343947e-10,
+   "end_dv_over_na": 6.933323612533728e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80178,
+    80178
+   ],
+   "nfev": [
+    1202672,
+    1202672
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    41.712229457999996,
+    1.2831406660000084
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.3865079065767186e-09,
+   "max_dv_over_na": 1.3863667984384557e-09,
+   "end_dr_over_a": 1.3865079065767186e-09,
+   "end_dv_over_na": 1.3863667984384557e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    43.045396006000004,
+    1.280012266
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.0995582676830506e-09,
+   "max_dv_over_na": 1.6470322841330432e-09,
+   "end_dr_over_a": 1.0995582676830506e-09,
+   "end_dv_over_na": 1.6470322841330432e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80183,
+    80183
+   ],
+   "nfev": [
+    1202747,
+    1202747
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    40.12186792899999,
+    1.3346255140000096
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.0",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.611879525817446e-10,
+   "max_dv_over_na": 3.6119642366759903e-10,
+   "end_dr_over_a": 3.611879525817446e-10,
+   "end_dv_over_na": 3.6119642366759903e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    37.845516105,
+    1.2925050559999818
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-180-0.3",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 3.987633199714818e-09,
+   "max_dv_over_na": 5.980682548062559e-09,
+   "end_dr_over_a": 3.987633199714818e-09,
+   "end_dv_over_na": 5.980682548062559e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80191,
+    80191
+   ],
+   "nfev": [
+    1202867,
+    1202867
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    42.20049341800001,
+    1.3226087500000006
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3209253966400765e-13,
+   "C2": true,
+   "max_dr_over_a": 1.1702479371849677e-11,
+   "max_dv_over_na": 1.3003697807536201e-11,
+   "end_dr_over_a": 2.378846423511087e-12,
+   "end_dv_over_na": 1.3003697807536201e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 41,
+   "C3": null,
+   "steps": [
+    200,
+    200
+   ],
+   "nfev": [
+    3194,
+    3194
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.1529650520000132,
+    0.0225972039999931
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-0-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 4.077415215875852e-13,
+   "C2": true,
+   "max_dr_over_a": 3.096365363206084e-11,
+   "max_dv_over_na": 2.1782778818450925e-11,
+   "end_dr_over_a": 1.3688696308407185e-11,
+   "end_dv_over_na": 2.1782778818450925e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 40,
+   "C3": null,
+   "steps": [
+    162,
+    162
+   ],
+   "nfev": [
+    2492,
+    2492
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.07767455900000186,
+    0.01699994699998797
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.150729939540431e-13,
+   "C2": true,
+   "max_dr_over_a": 2.6127869893382467e-11,
+   "max_dv_over_na": 2.4460471937680778e-11,
+   "end_dr_over_a": 1.4154331450128519e-11,
+   "end_dv_over_na": 2.4460471937680778e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 42,
+   "C3": null,
+   "steps": [
+    198,
+    198
+   ],
+   "nfev": [
+    3128,
+    3128
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.10123692099998038,
+    0.018068321999976433
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 5.020949315417371e-13,
+   "C2": true,
+   "max_dr_over_a": 7.163086083080243e-11,
+   "max_dv_over_na": 5.860022104833613e-11,
+   "end_dr_over_a": 2.2742162075176308e-11,
+   "end_dv_over_na": 5.860022104833613e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 45,
+   "C3": null,
+   "steps": [
+    216,
+    216
+   ],
+   "nfev": [
+    3314,
+    3314
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.10186877999998956,
+    0.017974363000007543
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.0",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.75391781031876e-12,
+   "C2": true,
+   "max_dr_over_a": 1.018650095431293e-09,
+   "max_dv_over_na": 3.958717631732714e-10,
+   "end_dr_over_a": 1.018650095431293e-09,
+   "end_dv_over_na": 3.958717631732714e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 61,
+   "C3": null,
+   "steps": [
+    796,
+    796
+   ],
+   "nfev": [
+    12818,
+    12818
+   ],
+   "C4": true,
+   "python_event_steps": 30,
+   "wall": [
+    0.4086278259999858,
+    0.04024706600000627
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-180-0.3",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.792215185466221e-10,
+   "C2": true,
+   "max_dr_over_a": 4.642350319413887e-08,
+   "max_dv_over_na": 1.5835605881398497e-08,
+   "end_dr_over_a": 1.496709436724912e-08,
+   "end_dv_over_na": 1.5835605881398497e-08,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 56,
+   "C3": null,
+   "steps": [
+    576,
+    576
+   ],
+   "nfev": [
+    9218,
+    9218
+   ],
+   "C4": true,
+   "python_event_steps": 29,
+   "wall": [
+    0.3180377109999881,
+    0.041717490999985785
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.152056502190725e-09,
+   "max_dv_over_na": 1.1521061548437177e-09,
+   "end_dr_over_a": 1.152056502190725e-09,
+   "end_dv_over_na": 1.1521061548437177e-09,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    43.48838589899998,
+    1.4203495049999901
+   ]
+  },
+  {
+   "orbit_id": "iapetus-inner-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.0378763989843432e-10,
+   "C2": true,
+   "max_dr_over_a": 8.651272055821914e-10,
+   "max_dv_over_na": 1.270685711601677e-09,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 188,
+   "C3": null,
+   "steps": [
+    82962,
+    82962
+   ],
+   "nfev": [
+    1251236,
+    1251236
+   ],
+   "C4": true,
+   "python_event_steps": 174,
+   "wall": [
+    49.685128864999996,
+    1.6158559490000073
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.4709226424630807e-12,
+   "C2": true,
+   "max_dr_over_a": 6.556439127984298e-11,
+   "max_dv_over_na": 8.754851585828537e-11,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 8.754851585828537e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 46,
+   "C3": null,
+   "steps": [
+    413,
+    413
+   ],
+   "nfev": [
+    6689,
+    6689
+   ],
+   "C4": true,
+   "python_event_steps": 12,
+   "wall": [
+    0.20901719099998672,
+    0.032012468999994326
+   ]
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "host": "iapetus",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.3989578395845595e-13,
+   "C2": true,
+   "max_dr_over_a": 1.0764494246244387e-11,
+   "max_dv_over_na": 1.2313455169788651e-11,
+   "end_dr_over_a": 1.6295897665051298e-12,
+   "end_dv_over_na": 1.2313455169788651e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 41,
+   "C3": null,
+   "steps": [
+    288,
+    288
+   ],
+   "nfev": [
+    4646,
+    4646
+   ],
+   "C4": true,
+   "python_event_steps": 7,
+   "wall": [
+    0.15274285199998872,
+    0.02126712100002237
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.6612095145757445e-10,
+   "C2": true,
+   "max_dr_over_a": 1.8273721338748608e-10,
+   "max_dv_over_na": 1.8384196373278107e-10,
+   "end_dr_over_a": 1.457430708685075e-10,
+   "end_dv_over_na": 1.6398339357987504e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 184,
+   "C3": null,
+   "steps": [
+    73727,
+    73727
+   ],
+   "nfev": [
+    1105907,
+    1105907
+   ],
+   "C4": true,
+   "python_event_steps": 17,
+   "wall": [
+    46.333808033999986,
+    1.8409255280000139
+   ]
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 2.320609959660396e-13,
+   "C2": true,
+   "max_dr_over_a": 1.6456402073178184e-12,
+   "max_dv_over_na": 2.5915431455500998e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 66,
+   "C3": null,
+   "steps": [
+    1071,
+    1071
+   ],
+   "nfev": [
+    16739,
+    16739
+   ],
+   "C4": true,
+   "python_event_steps": 2,
+   "wall": [
+    0.6749985470000013,
+    0.04193309199999362
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.1394169595403566e-16,
+   "C2": true,
+   "max_dr_over_a": 8.774423891375316e-15,
+   "max_dv_over_na": 6.914934204217744e-14,
+   "end_dr_over_a": 2.1600447669135417e-15,
+   "end_dv_over_na": 4.3054095464315424e-14,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 17,
+   "C3": null,
+   "steps": [
+    55,
+    55
+   ],
+   "nfev": [
+    1091,
+    1091
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.04361150799999791,
+    0.017044405000007146
+   ]
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "host": "ganymede",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 1.2305703163035851e-14,
+   "C2": true,
+   "max_dr_over_a": 7.518801121214723e-13,
+   "max_dv_over_na": 7.847436145540419e-13,
+   "end_dr_over_a": 7.518801121214723e-13,
+   "end_dv_over_na": 7.847436145540419e-13,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 40,
+   "C3": null,
+   "steps": [
+    230,
+    230
+   ],
+   "nfev": [
+    3740,
+    3740
+   ],
+   "C4": true,
+   "python_event_steps": 6,
+   "wall": [
+    0.16567875799998433,
+    0.021487487999991117
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.0-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 1.595097722983699e-10,
+   "max_dv_over_na": 1.5950830778833485e-10,
+   "end_dr_over_a": 1.5914528279692247e-10,
+   "end_dv_over_na": 1.5918504108794907e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80004,
+    80004
+   ],
+   "nfev": [
+    1200062,
+    1200062
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    39.448439906000004,
+    1.3146560259999944
+   ]
+  },
+  {
+   "orbit_id": "himalia-inner-90-0.3-phase",
+   "host": "himalia",
+   "radial": "inner",
+   "periods": 2000.0,
+   "outcome_ref": "survived",
+   "outcome_new": "survived",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 0.0,
+   "C2": true,
+   "max_dr_over_a": 6.094842817908421e-10,
+   "max_dv_over_na": 9.200727068949897e-10,
+   "end_dr_over_a": 1.4447501791092512e-10,
+   "end_dv_over_na": 1.3094346963662588e-10,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 190,
+   "C3": null,
+   "steps": [
+    80235,
+    80235
+   ],
+   "nfev": [
+    1203527,
+    1203527
+   ],
+   "C4": true,
+   "python_event_steps": 1,
+   "wall": [
+    43.42454117899999,
+    1.283247732999996
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.0-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "operational_escape",
+   "outcome_new": "operational_escape",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 3.369764641219712e-15,
+   "C2": true,
+   "max_dr_over_a": 2.5385416444750664e-11,
+   "max_dv_over_na": 2.904511600463918e-11,
+   "end_dr_over_a": 1.9662969122097918e-11,
+   "end_dv_over_na": 1.0942084717687008e-11,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 42,
+   "C3": null,
+   "steps": [
+    225,
+    225
+   ],
+   "nfev": [
+    3665,
+    3665
+   ],
+   "C4": true,
+   "python_event_steps": 8,
+   "wall": [
+    0.11224544499998501,
+    0.022716002999970897
+   ]
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "host": "himalia",
+   "radial": "outer",
+   "periods": 2000.0,
+   "outcome_ref": "host_contact",
+   "outcome_new": "host_contact",
+   "status": [
+    "completed",
+    "completed"
+   ],
+   "errors": [
+    null,
+    null
+   ],
+   "evaluator_version": 2,
+   "C1": true,
+   "dt_periods": 8.603430349614078e-14,
+   "C2": true,
+   "max_dr_over_a": 8.748957741499891e-13,
+   "max_dv_over_na": 1.612263897134158e-12,
+   "end_dr_over_a": 0.0,
+   "end_dv_over_na": 0.0,
+   "first_exceedance_periods": null,
+   "compared_samples_before_end": 16,
+   "C3": null,
+   "steps": [
+    53,
+    53
+   ],
+   "nfev": [
+    1085,
+    1085
+   ],
+   "C4": true,
+   "python_event_steps": 4,
+   "wall": [
+    0.031782018000001244,
+    0.016935687999989568
+   ]
+  }
+ ]
+}

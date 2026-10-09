@@ -1,0 +1,70 @@
+{
+  "schema_version": "audit-1",
+  "run_id": "W2-quality-audit-20261009-codex",
+  "status": "completed",
+  "actor": "codex-audit-20261009",
+  "utc": "2026-10-09T14:24:51.406Z",
+  "scope": "W2_algorithm_quality_readonly_engine_audit",
+  "data_kind": "synthetic_controls_and_source_review_not_probability_sample",
+  "production_allowed": false,
+  "environment": {
+    "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.19045-SP0",
+    "executable": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.67.0",
+    "mpmath": "1.3.0",
+    "rebound": "5.1.1",
+    "reboundx": null
+  },
+  "source_sha256": {
+    "src/submoon_research/dynamics/compiled_dop853.py": "a3a549b01c95b50a00da551f0e865124ebdab74e671209b48511673e25227b49",
+    "src/submoon_research/dynamics/engine_compare.py": "8978d2dce15699ac64323e21903ae1b35bbb7bd7e5110cd3432ad6c68e585c44",
+    "src/submoon_research/dynamics/fast_forces.py": "d18822c3268d1ae11967d76a91889b711f49508235811fe17eb565c6eb2eb59c",
+    "src/submoon_research/dynamics/nominal.py": "34a9b3245dad97992917e99afe57d78219cc32df7a85c4fd5c46268308f94cff",
+    "src/submoon_research/dynamics/native_ias15.py": "6f1880f1c4bd75f865088c8d9aa0db7cd154c45ba0f674953557b4e63671e193",
+    "src/submoon_research/events/dense_contact.py": "449556bd5c36f05d68e8d4ba419a88673c101c76b708eb9024740d2330b90009",
+    "src/submoon_research/events/escape.py": "01b21d049fbd84c63632063a582543e7cccd6d215ff2cf68e171927602fa2086",
+    "scripts/admission_p1_equivalence.py": "05d5941d475e5085ba879e536905c8e733e2bcc76eff37f94766e6194e2de15d",
+    "scripts/admission_p2_horizons.py": "1defe9aed45e03e68f11f31a16efc30fe959d3dcd06139d1b8cc83025a38d6c8",
+    "src/submoon_research/dynamics/dense_segments.py": "2cad414cc7e53812d1e1f53e8497ac5f43d652bd551bddb7d86ff9fad498bb4f",
+    "src/submoon_research/dynamics/initialization.py": "1a260c11fab2b15f8c116ff0b434b786674c7237633bf967655c33205e4c6437",
+    "src/submoon_research/dynamics/baseline.py": "e4622112851de66d5444d39043cc46381372253304bdffa8d2e79bb0534d01f0",
+    "src/submoon_research/forces/gravity.py": "272f67bd682272b8a0d619e2033a950050b48f5fb58ef44fb93d8087cd918b16",
+    "src/submoon_research/workflows/w2_comparison.py": "a71c4cb83de24fba7964db6e5885a5c29698a6ef8f108e5268194c87056589f2",
+    "src/submoon_research/workflows/w1_ensemble.py": "1ed7864d94b7f17b579142026c57e66dc673ffe66ca9cf323700bee3d5044121",
+    "scripts/audit_orbit_quality_20261009.py": "15f38f82aa9c7d25895984254d497622260fc1361f908d2ecf20d02d617feeb1",
+    "configs/experiments/W2_three_engines_v1.yaml": "413d33f22ec2c2fbee6b1a41debea33137c4ada736cf13d4dbabcb633dedc8ef",
+    "data/processed/L1-nominal-v0_4_1/model.json": "aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5",
+    "docs/tasks/W2_compiled_mode_admission_v1.md": "74d8b4029b444111e2ff4b4feb39d7946756a0f69dcd6b8a5ecf75163965738f",
+    "results/evidence/W2_P004_P1_equivalence_20261009.json": "133dbce6569061290213a1f9ee6db11a4494864d04218e7b8a7f9c76728415b8"
+  },
+  "checks_path": "results/evidence/W2-quality-audit-20261009-codex/checks.json",
+  "controls_path": "results/evidence/W2-quality-audit-20261009-codex/verified_controls/probes.json",
+  "controls_run_id": "verified_controls",
+  "report_path": "reports/scientific/W2_algorithm_quality_audit_20261009.md",
+  "smoke_run_id": "L0-20261009T141457Z-3322c2a8",
+  "independent_native_backend_executed": false,
+  "limitations": [
+    "reboundx отсутствует в Windows .venv; WSL перечисление вернуло отказ доступа",
+    "Нет расчёта 10000 лет или оценки долей",
+    "Сохранены незакоммиченные исходники фактического рабочего дерева"
+  ],
+  "sources": [
+    {
+      "url": "https://docs.scipy.org/doc/scipy-1.15.3/reference/generated/scipy.integrate.DOP853.html",
+      "accessed": "2026-10-09"
+    },
+    {
+      "url": "https://rebound.hanno-rein.de/integrators/ias15/",
+      "accessed": "2026-10-09"
+    },
+    {
+      "url": "https://reboundx.readthedocs.io/en/stable/effects.html",
+      "accessed": "2026-10-09"
+    }
+  ]
+}
