@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-09T17:59:42.768Z",
+  "branch": "main",
+  "remote": "origin",
+  "repository": "https://github.com/fortser/submoon-research",
+  "commit": "0f1840b9da4bdd347854f7b45d9bbe8fc47d0823",
+  "remote_commit": "0f1840b9da4bdd347854f7b45d9bbe8fc47d0823",
+  "verified_equal": true,
+  "checks_ref": "results/evidence/W2_session_checks_20261009.json",
+  "handoff_ref": "docs/handoffs/W2_resume_20261010.md",
+  "excluded_local_file": "claude_start.bat",
+  "note": "Подтверждение основного коммита; запись трекинга отправляется следующим служебным коммитом."
+}

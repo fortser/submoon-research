@@ -1787,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 158,
+      "revision": 159,
       "status": "active",
       "records": [
         {
@@ -3460,18 +3460,6 @@
           "next_action": "Для 7995WX повторять поиск при изменении рынка; текущий поиск BAT не охватывает цены выше 1 USD/h."
         },
         {
-          "id": "W2-T011",
-          "kind": "task",
-          "status": "active",
-          "owner": "codex-release-20261009",
-          "title": "Сохранение текущего состояния W2 в main и push",
-          "summary": "Прямое поручение пользователя: создать коммит и push в основную ветку; сохранить точку продолжения на завтра. Проверить состав файлов, выполнить штатные проверки и отправить без force.",
-          "refs": [
-            "docs/tracking_protocol.md"
-          ],
-          "next_action": "Проверить изменения и тесты, сохранить handoff, создать коммит и push origin main."
-        },
-        {
           "id": "W2-C026",
           "kind": "check",
           "status": "passed",
@@ -3488,6 +3476,20 @@
             "W2-T008",
             "W2-I015"
           ]
+        },
+        {
+          "id": "W2-T011",
+          "kind": "task",
+          "status": "done",
+          "owner": "codex-release-20261009",
+          "title": "Сохранение текущего состояния W2 в main и push",
+          "summary": "Создан коммит 0f1840b9da4bdd347854f7b45d9bbe8fc47d0823 и выполнен push origin main; удалённый SHA совпал с локальным. Сохранены W2-код, аудит, малые доказательства и handoff на завтра. Штатные проверки: 302 passed, 10 skipped (reboundx), Ruff/validate/smoke/досье passed. Локальный запускатель с учётными данными исключён. Подтверждение в refs; служебная запись отправляется отдельным коммитом.",
+          "refs": [
+            "results/evidence/W2_git_checkpoint_20261009.json",
+            "results/evidence/W2_session_checks_20261009.json",
+            "docs/handoffs/W2_resume_20261010.md"
+          ],
+          "next_action": "Завтра повторить поиск 7995WX, проверить W2-I015 в WSL и продолжить P2-1 по актуальным воротам/плану аренды."
         }
       ]
     },
