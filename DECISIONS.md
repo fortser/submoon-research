@@ -45,4 +45,5 @@
 | W2-D017 | W2 | accepted | Продление тестового P2-1 на i9-14900KF до ~22 ч (разрешено до 24 ч) | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D018 | W2 | accepted | Цензурирование прерванных заданий удалённого P2-1 | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D019 | W2 | accepted | Автоматическое сворачивание отменено; finish вручную 2026-10-11 | [Запись](tracking/stages/W2/RECORDS.md) |
-| W2-D020 | W2 | accepted | Перезапуск P2-1 после W2-I017 — чистый полный прогон без засеивания D/T из 55200007 | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D021 | W2 | accepted | Перезапуск P2-1 после W2-I017: seed D/T 10000 лет из 55200007, остальное заново; i9 только P-ядра | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D020 | W2 | superseded | Перезапуск P2-1 после W2-I017 — чистый полный прогон без засеивания D/T из 55200007 | [Запись](tracking/stages/W2/RECORDS.md) |

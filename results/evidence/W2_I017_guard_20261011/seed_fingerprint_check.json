@@ -1,0 +1,12 @@
+{
+ "decision": "W2-D021",
+ "utc": "2026-10-11T11:05:00+00:00",
+ "source_jobs": "runs/W2-P2-1-55200007/jobs.jsonl",
+ "source_sha256": "bb4ed3018990ff9138e03c399a5cc3431c99aeadf4a7f49d5b38d67f15e73645",
+ "compiled_fingerprint_55200007": "7435a83dbcc71d9018f542ff981699f89eb7114373f8486d99a1c45430a18236",
+ "compiled_fingerprint_current_src": "7435a83dbcc71d9018f542ff981699f89eb7114373f8486d99a1c45430a18236",
+ "seed_rows_D_T_10000y_fingerprint_match": "96/96",
+ "other_D_T_rows_fingerprint_match": "384/384",
+ "environment_note": "Посчитано в среде Claude (Python 3.10.12, numpy 2.2.6, scipy 1.15.3, версия numba подставлена 0.67.0 как в p2_pip_freeze.txt сервера 55200007); сервер ubuntu:22.04 даёт Python 3.10.12 и те же закреплённые пакеты. Окончательная проверка — строка стенда «уже готово заданий 96 (отброшено несовпавших по отпечатку 0)».",
+ "core_speed_evidence": "P2-1 55200007, B: ~2600-2840 шагов/с (P-ядра) против ~1000-1500 (E-ядра) на одном и том же типе заданий; ganymede-inner 1000 лет ~112 млн шагов"
+}

@@ -49,6 +49,8 @@ REMOTE_ROOT = '/workspace/submoon-research'
 BUNDLES = 'https://console.vast.ai/api/v0/bundles/'
 LIVE = ('created', 'running', 'deployed')
 STOP_FILE = '/workspace/p2_stop'
+SEED = WORK/'seed_jobs.jsonl'
+SEED_INFO = WORK/'seed_info.json'
 DEFAULT_RUN_DEADLINE_HOURS = 13.5
 
 
@@ -282,6 +284,49 @@ W=$NP
 """ + 'PIN="taskset -c $PCPUS"'
 
 
+def _select_seed(lines, variants, years):
+    """Строки прежнего jobs.jsonl для переиспользования (W2-D021): только заданные варианты и
+    ступени, только завершённые, с отпечатком, без дубликатов. Стенд сам примет лишь строки,
+    чей job_fingerprint совпадёт с текущим кодом и окружением; остальные пересчитает."""
+    variants, years = set(variants), {float(y) for y in years}
+    selected, keys = [], set()
+    for line in lines:
+        if not line.strip():
+            continue
+        row = json.loads(line)
+        if row.get('variant') not in variants or float(row.get('years')) not in years:
+            continue
+        key = (row.get('orbit_id'), float(row['years']), row['variant'])
+        if row.get('run_status') != 'completed' or not row.get('job_fingerprint'):
+            raise ValueError('Строка для seed не завершена или без отпечатка: '+str(key))
+        if key in keys:
+            raise ValueError('Дубликат строки для seed: '+str(key))
+        keys.add(key)
+        selected.append(line.strip())
+    return selected
+
+
+def make_seed():
+    plan = approval()
+    spec = plan.get('seed')
+    if not spec:
+        raise ValueError('В approval нет раздела seed')
+    source = ROOT/spec['source_jobs']
+    digest = vw.digest(source)
+    if spec.get('source_sha256') and digest != spec['source_sha256']:
+        raise ValueError('SHA источника seed не совпал с approval')
+    lines = _select_seed(source.read_text(encoding='utf-8').splitlines(), spec['variants'], spec['years'])
+    if len(lines) != int(spec['expected_rows']):
+        raise ValueError(f'Строк для seed {len(lines)}, ожидалось {spec["expected_rows"]}')
+    SEED.write_text('\n'.join(lines)+'\n', encoding='utf-8', newline='\n')
+    info = dict(utc=vw.now(), decision=spec.get('decision', 'W2-D021'), source_jobs=spec['source_jobs'],
+                source_sha256=digest, variants=list(spec['variants']), years=list(spec['years']),
+                rows=len(lines), seed_sha256=vw.digest(SEED))
+    save(SEED_INFO, info)
+    print(json.dumps(info, ensure_ascii=False))
+    return info
+
+
 def _start_script(rental):
     iid = int(rental['instance_id'])
     workers = _workers(rental['offer'])
@@ -357,6 +402,20 @@ def deploy():
         log = f'/workspace/p2_{rental["instance_id"]}.log'
         if vw.remote_command(client, 'test ! -e '+log+' && echo absent').strip() != 'absent':
             raise RuntimeError('Удалённый лог уже существует: повторный deploy запрещён')
+        if plan.get('seed'):
+            info = load(SEED_INFO)
+            if not info or not SEED.exists() or vw.digest(SEED) != info.get('seed_sha256'):
+                raise RuntimeError('Нет согласованного seed: сначала действие seed')
+            remote_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
+            remote_jobs = remote_dir+'/jobs.jsonl'
+            vw.remote_command(client, 'mkdir -p '+remote_dir)
+            if vw.remote_command(client, 'test ! -e '+remote_jobs+' && echo absent').strip() != 'absent':
+                raise RuntimeError('Удалённый jobs.jsonl уже существует: seed не накладывается поверх')
+            sftp.put(str(SEED), remote_jobs)
+            if vw.remote_command(client, 'sha256sum '+remote_jobs).split()[0] != info['seed_sha256']:
+                raise RuntimeError('SHA seed на сервере не совпал')
+            rental['seed'] = info
+        rental['pcores_only'] = bool(plan.get('pcores_only'))
         script = WORK/f'start_{rental["instance_id"]}.sh'
         script.write_text(_start_script(rental), encoding='utf-8', newline='\n')
         vw.put_if_missing_or_identical(client, sftp, script, '/workspace/p2_start.sh')
@@ -541,14 +600,14 @@ def finish(partial=False):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
-    parser.add_argument('action', choices=('preflight', 'offers', 'prepare', 'rent', 'wait', 'deploy',
+    parser.add_argument('action', choices=('preflight', 'offers', 'prepare', 'seed', 'rent', 'wait', 'deploy',
                                            'status', 'wrapup', 'download', 'finish', 'destroy'))
     parser.add_argument('--offer-id', type=int, default=None)
     parser.add_argument('--timeout-minutes', type=int, default=40)
     parser.add_argument('--partial', action='store_true', help='finish: выгрузить и удалить, даже если стенд не завершён')
     args = parser.parse_args(argv)
     WORK.mkdir(parents=True, exist_ok=True)
-    {'preflight': preflight, 'offers': search_offers, 'prepare': prepare,
+    {'preflight': preflight, 'offers': search_offers, 'prepare': prepare, 'seed': make_seed,
      'rent': lambda: rent(args.offer_id), 'wait': lambda: wait(args.timeout_minutes), 'deploy': deploy,
      'status': status, 'wrapup': wrapup, 'download': download,
      'finish': lambda: finish(args.partial), 'destroy': destroy}[args.action]()
