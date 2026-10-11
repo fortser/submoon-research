@@ -1,6 +1,27 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-11T09:55:03+00:00",
-  "processes": [],
-  "note": "Аренда Vast.ai instance 55200007 (i9-14900KF, W2-P2-1) завершена 2026-10-11T09:55:03Z: выгрузка (archive SHA-256 eddb985ed90b58e702dc9115ed7fe69e41471301c61d532758743616f444b31a), destroy подтверждён. Прогон 672/672: обязательный §3.1 ПРОЙДЕН, расширение не пройдено (4 B-отказа на 1000 лет). Расход $3.378 за 22.52 ч. Активных удалённых исполнений нет. См. results/evidence/W2_P2-1_remote_55200007/destroy_verification.json."
+  "updated_utc": "2026-10-11T15:00:00+00:00",
+  "processes": [
+    {
+      "run_id": "W2-P2-1-55404980",
+      "instance_id": 55404980,
+      "host": "vast.ai",
+      "kind": "remote_admission_run",
+      "task_id": "W2-T011",
+      "status": "deployed",
+      "cpu": "Core i9-14900KF",
+      "workers": 8,
+      "created_utc": "2026-10-11T14:53:38+00:00",
+      "deployed_utc": "2026-10-11T14:54:45+00:00",
+      "run_deadline_utc": "2026-10-12T13:23:38Z",
+      "stop_command": "python -X utf8 scripts/vast_p2.py finish",
+      "remote_log": "/workspace/p2_55404980.log",
+      "limits": {"max_hourly_usd": 0.2, "budget_usd": 5.0},
+      "paid_actions": 1,
+      "pcores_only": true,
+      "seed_rows": 96,
+      "note": "Перезапуск P2-1 после W2-I017 (W2-D021): offer 54254159, machine 138965, $0.1614/ч, только P-ядра (workers ожидается 8), seed 96 строк D/T 10000 лет из W2-P2-1-55200007. Срок стенда createdAt+22.5 ч."
+    }
+  ],
+  "note": "Активная аренда W2-P2-1-55404980 (перезапуск после W2-I017, W2-D021). Ставка $0.1614/ч, бюджет $5. Проверка pin/seed_rows — после этапа running. Новые платные действия (кроме завершения) — только с разрешения пользователя."
 }

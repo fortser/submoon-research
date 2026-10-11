@@ -1787,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 197,
+      "revision": 198,
       "status": "active",
       "records": [
         {
@@ -3846,14 +3846,14 @@
           "kind": "task",
           "status": "active",
           "owner": "pi-p2rerun-20261011",
-          "title": "Перезапуск P2-1 после W2-I017 (W2-D021)",
-          "summary": "Шаг 1 пройден: WSL-проверка (pytest — только известный таймаут W2-I009; ruff/validate/bench_quick/stand_quick OK); перенос архива 55200007, approval (i9-13900K/14900K, ≤$0.20/ч, ≤24 ч, $5) и seed 96 строк (source_sha256 bb4ed301…3645) подтверждены. Для validate пришлось исправить висячие ссылки 4 записей (W2-D016/D017/I016/C029) на перенесённые в superseded файлы. preflight OK (кредит $16.35, живой аренды нет). offers: 0 — i9-13900K/14900K(F) ≤ $0.20/ч на рынке нет; ближайший offer 55379677 (i9-14900K, 16 эфф. ядер, 64 ГБ, RTX 5080, $0.2808/ч, verified, Швеция) выше лимита; прошлая машина 138970 недоступна. Аренда не выполнялась, деньги не тратились.",
+          "title": "Перезапуск P2-1 после W2-I017 (W2-D021): запущен на 55404980",
+          "summary": "Арендован offer 54254159 (machine 138965): instance 55404980, Core i9-14900KF, 32 эфф. ядра, 31.9 ГБ, RTX 4060 Ti, $0.1614/ч, verified, rel 0.9972, Mexico. deploy 14:54:45Z; срок стенда 2026-10-12T13:23:38Z; только P-ядра (pcores_only). Согласие пользователя — approval 'да'. Проверено на сервере по разделу 2.3: pin=taskset -c 0,2,4,6,8,10,12,14, workers=8 (P-ядра); seed_rows=96; строка стенда «уже готово заданий 96 (отброшено несовпавших по отпечатку 0)»; к расчёту 576 (480 обязательных + 96 расширения); diag_ias15_guard_dtdone: исправление OK (done max 6.42e-16); процессов 8, привязка к P-ядрам. Бюджет $5; при $0.1614/ч 22.5 ч = $3.63.",
           "refs": [
             "docs/tasks/W2_P2-1_rerun_operator_task.md",
-            "scratch/claude/W2-T008_checks_i017_20261011T105153Z.log",
-            "scratch/p2_rental/seed_info.json"
+            "scratch/p2_rental/seed_info.json",
+            "tracking/runtime.json"
           ],
-          "next_action": "Дождаться предложения i9-13900K/14900K(F) ≤ $0.20/ч (повторить offers) либо решения пользователя о повышении ставки/бюджета для offer 55379677; затем prepare, rent, wait, deploy и проверка pin/seed_rows=96.",
+          "next_action": "Ждать done/срока (ориентир 15–19 ч от создания); контроль по progress.json; по завершении — finish (выгрузка+SHA+destroy), evidence W2_P2-1_remote_55404980, отчёт reports/operations/W2_P2-1_rerun_20261011.md, журнал; научный разбор — W2-T008.",
           "related_ids": [
             "W2-D021",
             "W2-I017",
