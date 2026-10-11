@@ -1,0 +1,33 @@
+{
+  "instance_id": 55200007,
+  "run_id": "W2-P2-1-55200007",
+  "gates": {
+    "pytest": {
+      "command": "pytest -q tests/unit/test_compiled_dop853.py tests/unit/test_admission_evaluators.py tests/unit/test_events_shared_samples.py tests/unit/test_native_ias15_guard.py",
+      "result": "50 passed, 2 warnings in 10.22s",
+      "status": "passed"
+    },
+    "ruff": {
+      "command": "ruff check src scripts tests",
+      "result": "All checks passed!",
+      "status": "passed"
+    },
+    "diag_ias15_guard": {
+      "issue": "W2-I015",
+      "limit": 1e-09,
+      "synthetic_component_max": 2.5300483224133584e-07,
+      "synthetic_body_max": 7.939603747481712e-11,
+      "real_orbit": "himalia-inner-90-0.0",
+      "real_years": 1.5,
+      "real_run_status": "completed",
+      "real_outcome": "survived",
+      "real_component_max": 1.9833864505971808e-09,
+      "real_body_max": 1.898000801423828e-14,
+      "real_wall_s": 21.8,
+      "mechanism_confirmed": true,
+      "fix_ok": true
+    }
+  },
+  "gate_policy": "pytest/ruff — научные гейты (не обходятся); diag_ias15_guard — диагностика, не гейт",
+  "source_log": "p2_55200007.log"
+}

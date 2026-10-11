@@ -1,0 +1,44 @@
+{
+  "diag_ias15_guard.json": {
+    "sha256": "c90a789ff8b7f6ab548f84af4ce2313c97cf0da1095ae11a1521a5baf42992e9",
+    "bytes": 644
+  },
+  "gates.json": {
+    "sha256": "f7fbe1f84f714b43ad3573225da2e2d762497f3f03534264fecbd470c142d7db",
+    "bytes": 1189
+  },
+  "hardware.json": {
+    "sha256": "2ee9952e3e74ff24029911081d242f360feb20b465d9f616d8b08abc0684968c",
+    "bytes": 936
+  },
+  "mandatory_stats.json": {
+    "sha256": "78e7b3b1d2c681cdcdc0b571ec3c7624f6e3ad7ea1e7f71d3406204710d3955d",
+    "bytes": 2805
+  },
+  "p2_55200007.log": {
+    "sha256": "13c7e202e077dd8b12a67a34c2ceb4fea2af425d51001c281ee23f057c64ef9e",
+    "bytes": 37799
+  },
+  "p2_pip_freeze.txt": {
+    "sha256": "d72dd819c26c9d834be9c1d661a31153a969275eec658eb8f0fbeb047fce8101",
+    "bytes": 770
+  },
+  "p2_status.txt": {
+    "sha256": "aca56bb1c8bc04436cb5db34478acf396f1fe589cd86cecdd81aa924b430d157",
+    "bytes": 123
+  },
+  "speed_comparison.json": {
+    "sha256": "86a6db07a598c9161d7269a055dd503aca94fbd935e20d7d5de0cdf4db07edfc",
+    "bytes": 788
+  },
+  "summary.json": {
+    "sha256": "ea5008c3da79afb4f087cea63accaceb5419ad19f3adbb10ef0c4692f741b631",
+    "bytes": 7310
+  },
+  "_jobs_jsonl": {
+    "location": "runs/W2-P2-1-55200007/jobs.jsonl",
+    "sha256": "f01e1c4893457e28c0825efd7544d4042bb77bfcecf6a9c8265b1a0f4c36ffb8",
+    "bytes": 9145597,
+    "note": "Крупный per-task файл вне evidence (git-ignore runs/**); SHA приведён здесь."
+  }
+}

@@ -1,20 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-09T17:47:56+00:00",
-  "processes": [
-    {
-      "market_session_id": "20261009T173929Z-b368291d",
-      "run_id": "vast-market-20261009T173929Z-b368291d",
-      "kind": "read_only_market_monitor",
-      "task_id": "W2-T004",
-      "pid": 20632,
-      "folder": "data/interim/vast_market/20261009T173929Z-b368291d",
-      "deadline_epoch": 1791826769.183676,
-      "heartbeat": "data/interim/vast_market/20261009T173929Z-b368291d/heartbeat.json",
-      "stop_file": "data/interim/vast_market/20261009T173929Z-b368291d/stop.requested",
-      "paid_actions": 0
-    }
-  ],
-  "note": "CPU-матрица W2-T006 завершена: все 5 аренд Vast.ai уничтожены (destroyed_verified). Активных внешних процессов нет.",
-  "verification_run_id": "W2-T006-cpu-matrix-20261008"
+  "updated_utc": "2026-10-11T09:55:03+00:00",
+  "processes": [],
+  "note": "Аренда Vast.ai instance 55200007 (i9-14900KF, W2-P2-1) завершена 2026-10-11T09:55:03Z: выгрузка (archive SHA-256 eddb985ed90b58e702dc9115ed7fe69e41471301c61d532758743616f444b31a), destroy подтверждён. Прогон 672/672: обязательный §3.1 ПРОЙДЕН, расширение не пройдено (4 B-отказа на 1000 лет). Расход $3.378 за 22.52 ч. Активных удалённых исполнений нет. См. results/evidence/W2_P2-1_remote_55200007/destroy_verification.json."
 }

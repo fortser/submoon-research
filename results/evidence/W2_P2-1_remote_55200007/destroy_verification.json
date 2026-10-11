@@ -1,0 +1,36 @@
+{
+ "kind": "remote_instance_teardown_verification",
+ "run_id": "W2-P2-1-55200007",
+ "task": "W2-T010",
+ "plan": "W2-P004",
+ "utc": "2026-10-11T09:55:03.656811+00:00",
+ "instance_id": 55200007,
+ "offer_id": 40179084,
+ "cpu": "Core™ i9-14900KF",
+ "hourly_usd": 0.15,
+ "created_utc": "2026-10-10T11:23:53.583163+00:00",
+ "deployed_utc": "2026-10-10T11:28:05.230565+00:00",
+ "elapsed_hours": 22.519,
+ "upper_cost_usd": 3.378,
+ "budget_usd": 3.0,
+ "result_archive": "scratch\\p2_rental\\results_55200007.tar.gz",
+ "result_archive_sha256": "eddb985ed90b58e702dc9115ed7fe69e41471301c61d532758743616f444b31a",
+ "remote_files": 15,
+ "extracted_files": 18,
+ "destroy_status": "destroyed_verified",
+ "destroy_check": "vw.instances() после destroy: instance 55200007 отсутствует (проверено scripts/vast_p2.destroy)",
+ "artifact_sha256": {
+  "runs_jobs_jsonl": "bb4ed3018990ff9138e03c399a5cc3431c99aeadf4a7f49d5b38d67f15e73645",
+  "runs_summary_json": "e405bef735a46c796608b8422881b86cb68d54a039894dcda4ce9ab9520f9c84",
+  "runs_level_1000y_json": "3b74f35d8c7fd19a057483d0db8399a7168816dc88560c110a03a2c31cdb393c",
+  "runs_level_10000y_json": "09439b61f6c1da8cc30d0780b0ab841a23cf87f2e0e21ae243df1663a8429087",
+  "remote_log_final": "23487a443873482625c23c2c14ee1d30347c1914046c81e3b25275000eefbc26"
+ },
+ "jobs_count": 672,
+ "verdict": {
+  "verdict_passed": true,
+  "extension_passed": false,
+  "full_scope": true,
+  "wall_seconds": 61261.859
+ }
+}

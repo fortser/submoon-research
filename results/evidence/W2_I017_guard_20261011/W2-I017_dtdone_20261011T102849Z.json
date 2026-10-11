@@ -1,0 +1,87 @@
+{
+ "issue": "W2-I017",
+ "limit": 1e-09,
+ "case": "ganymede-inner-180-0.0",
+ "rows": [
+  {
+   "t0_seconds": 0.0,
+   "t0_years": 0.0,
+   "ulp_t0": 0.0,
+   "steps": 30000,
+   "simulated_years": 0.2678952069842955,
+   "label_max": 4.125149288367921e-13,
+   "label_over_limit": 0,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 1.0,
+   "wall": 9.278634686000004
+  },
+  {
+   "t0_seconds": 3155760000.0,
+   "t0_years": 100.0,
+   "ulp_t0": 4.76837158203125e-07,
+   "steps": 30000,
+   "simulated_years": 0.26789520698495517,
+   "label_max": 3.675378148348189e-10,
+   "label_over_limit": 0,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 0.4999951124191284,
+   "wall": 9.305826592999978
+  },
+  {
+   "t0_seconds": 9467280000.0,
+   "t0_years": 300.0,
+   "ulp_t0": 1.9073486328125e-06,
+   "steps": 30000,
+   "simulated_years": 0.2678952069828549,
+   "label_max": 2.174243077667735e-09,
+   "label_over_limit": 3,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 0.49999889731407166,
+   "wall": 9.688008746000008
+  },
+  {
+   "t0_seconds": 18934560000.0,
+   "t0_years": 600.0,
+   "ulp_t0": 3.814697265625e-06,
+   "steps": 30000,
+   "simulated_years": 0.2678952069845472,
+   "label_max": 1.379688170633966e-08,
+   "label_over_limit": 80,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 0.49997594952583313,
+   "wall": 9.553960550999989
+  },
+  {
+   "t0_seconds": 31557600000.0,
+   "t0_years": 1000.0,
+   "ulp_t0": 3.814697265625e-06,
+   "steps": 30000,
+   "simulated_years": 0.2678952069845472,
+   "label_max": 1.379688170633966e-08,
+   "label_over_limit": 80,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 0.49997594952583313,
+   "wall": 9.287941236000023
+  },
+  {
+   "t0_seconds": 315576000000.0,
+   "t0_years": 10000.0,
+   "ulp_t0": 6.103515625e-05,
+   "steps": 30000,
+   "simulated_years": 0.26789520712960374,
+   "label_max": 7.04545575675976e-08,
+   "label_over_limit": 17607,
+   "done_max": 6.423804616781769e-16,
+   "done_over_limit": 0,
+   "dt_mismatch_max_in_ulp": 0.49998700618743896,
+   "wall": 8.96365070500002
+  }
+ ],
+ "hypothesis_ulp_confirmed": true,
+ "fix_ok": true
+}

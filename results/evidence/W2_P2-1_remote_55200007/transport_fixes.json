@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-10",
+  "task": "W2-T010",
+  "actor": "pi-p2rental-20261010",
+  "changes": [
+    {
+      "file": "scripts/vast_p2.py",
+      "area": "preflight",
+      "issue": "CLI 0.3.1 отдаёт 400 'owner: Extra inputs are not permitted' на `show user` (и с прокси, и без) — credit-check недоступен.",
+      "fix": "Баланс через REST `/api/v0/users/current/` (ключ из ~/.config/vastai/vast_api_key; в файлы проекта/логи не пишется). Добавлены _api_key() и _credit_usd(); preflight печатает credit_error при сбое."
+    },
+    {
+      "file": "scripts/vast_p2.py",
+      "area": "prepare",
+      "issue": "Пакет включал все малые runs/ и W0-сырьё: 118 МБ, 28820 файлов (ожидалось несколько МБ).",
+      "fix": "В пакет добавляются только подтверждённые входы configs/experiments/W2_*.yaml (inputs_sha256: model, states, contrasts); локальные бенчмарки runs/ и data/raw|kernels исключены."
+    }
+  ],
+  "verification": {
+    "preflight": "cli=true, ssh_key=true, paramiko=true, credit_usd=19.73, enough_credit=true, existing_live_rental=false",
+    "ruff": "All checks passed",
+    "bundle_bytes": 1206529,
+    "bundle_files": 381,
+    "bundle_sha256": "53e88dd923502920540835c4941ee24352074f9011a49e2f5cf854b12055eace",
+    "remote_gate": "pytest 50 passed, ruff OK, diag W2-I015 OK на instance 55200007"
+  }
+}

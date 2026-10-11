@@ -111,6 +111,19 @@ SUITES = {
                          '0.01', '--concurrent', '--workers', '4',
                          '--run-dir', f'scratch/claude/W2-P004_P2-1_v4_quick_{STAMP}']),
     ],
+    # W2-I017: страж IAS15 на dt_last_done, распаковка результатов со сверкой SHA (vast_p2),
+    # полный набор тестов, журнал, диагностика больших t и короткий гейт стенда.
+    'i017': [
+        ('pytest', [PY, '-m', 'pytest', 'tests']),
+        ('ruff', [PY, '-m', 'ruff', 'check', 'src', 'scripts', 'tests']),
+        ('validate', [PY, 'scripts/project.py', 'validate']),
+        ('bench_quick', [PY, 'scripts/diag_ias15_guard_dtdone.py',
+                         '--output', f'scratch/claude/W2-I017_dtdone_{STAMP}.json']),
+        ('stand_quick', [PY, 'scripts/admission_p2_horizons.py', '--limit', '4', '--years', '0.01', '0.03',
+                         '0.1', '--b-max-years', '0.03', '--core-years', '0.01', '0.03', '--core-b-max',
+                         '0.01', '--concurrent', '--workers', '4',
+                         '--run-dir', f'scratch/claude/W2-P004_P2-1_i017_quick_{STAMP}']),
+    ],
 }
 GATED = ('bench_full', 'bench_scaling', 'bench_long')  # запускаются, только если bench_quick прошёл
 

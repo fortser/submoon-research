@@ -1,0 +1,298 @@
+{
+  "schema_version": "1.0",
+  "kind": "preliminary_remote_measurement",
+  "instance_id": 55200007,
+  "offer_id": 40179084,
+  "run_id": "W2-P2-1-55200007",
+  "task": "W2-T010",
+  "plan": "W2-P004",
+  "stage": "W2",
+  "captured_utc": "2026-10-10T14:20:00Z",
+  "mandatory_set": {
+    "definition": "§3.1: D/T 1,10,100,1000 лет; B 1,10 лет; 48 случаев",
+    "tasks": 480,
+    "completed": 480,
+    "run_status": "completed (все 480)",
+    "wall_clock_s": 5886,
+    "wall_clock_min": 98.1,
+    "core_wall_sum_h": 25.4,
+    "critical_path_s": 5728.7,
+    "critical_path_case": "T-1000 выживший",
+    "integrated_model_years": 33243.6,
+    "workers": 24,
+    "note": "Обязательный набор идёт первым (order_jobs: core до extension); завершён к 2026-10-10T13:07:58Z"
+  },
+  "speed_measurement": {
+    "unit": "wall i5-9400 / wall 14900KF на одинаковом задании (min дубликатов)",
+    "vs_local_i5_9400_6proc": {
+      "1|B": {
+        "n": 48,
+        "median_speedup": 1.31,
+        "min": 0.56,
+        "max": 1.71
+      },
+      "1|D": {
+        "n": 48,
+        "median_speedup": 1.16,
+        "min": 0.65,
+        "max": 6.32
+      },
+      "1|T": {
+        "n": 48,
+        "median_speedup": 1.26,
+        "min": 0.63,
+        "max": 6.13
+      },
+      "10|B": {
+        "n": 48,
+        "median_speedup": 1.31,
+        "min": 0.19,
+        "max": 1.55
+      },
+      "10|D": {
+        "n": 48,
+        "median_speedup": 1.18,
+        "min": 0.64,
+        "max": 6.6
+      },
+      "10|T": {
+        "n": 48,
+        "median_speedup": 1.26,
+        "min": 0.69,
+        "max": 5.58
+      }
+    },
+    "overall_median_speedup": 1.29,
+    "survivor_throughput_model_years_per_core_s": {
+      "D_1000y": 0.5723,
+      "T_1000y": 0.3536
+    },
+    "note": "Задания однопоточные (OMP/NUMBA_NUM_THREADS=1). Возможна часть задач на E-ядрах."
+  },
+  "extension": {
+    "definition": "§3.2: D/T 10000 лет; B 100,1000 лет",
+    "planned": 192,
+    "done_at_capture": 13,
+    "status": "running; срок стенда 2026-10-11T09:23:53Z; незавершённые будут partial",
+    "ext_wall_sum_h": 1.55
+  },
+  "per_years_variant": {
+    "1000|T": {
+      "n": 48,
+      "wall_min": 0.006,
+      "wall_med": 1.286,
+      "wall_max": 5728.7,
+      "wall_sum": 46263.0,
+      "outcomes": {
+        "host_contact": 17,
+        "survived": 14,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 14419.5
+    },
+    "1000|D": {
+      "n": 48,
+      "wall_min": 0.003,
+      "wall_med": 0.733,
+      "wall_max": 4340.6,
+      "wall_sum": 27740.0,
+      "outcomes": {
+        "host_contact": 17,
+        "survived": 14,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 14419.5
+    },
+    "10|B": {
+      "n": 48,
+      "wall_min": 0.0273,
+      "wall_med": 4.601,
+      "wall_max": 680.1,
+      "wall_sum": 6878.0,
+      "outcomes": {
+        "host_contact": 11,
+        "survived": 20,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 222.1
+    },
+    "100|T": {
+      "n": 48,
+      "wall_min": 0.0041,
+      "wall_med": 1.645,
+      "wall_max": 881.1,
+      "wall_sum": 5988.0,
+      "outcomes": {
+        "host_contact": 17,
+        "survived": 14,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 1819.5
+    },
+    "100|D": {
+      "n": 48,
+      "wall_min": 0.0027,
+      "wall_med": 0.59,
+      "wall_max": 442.3,
+      "wall_sum": 2776.0,
+      "outcomes": {
+        "host_contact": 17,
+        "survived": 14,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 1819.5
+    },
+    "1|B": {
+      "n": 48,
+      "wall_min": 0.028,
+      "wall_med": 1.684,
+      "wall_max": 94.1,
+      "wall_sum": 899.0,
+      "outcomes": {
+        "host_contact": 9,
+        "survived": 23,
+        "operational_escape": 10,
+        "unresolved": 6
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 33.0
+    },
+    "10|T": {
+      "n": 48,
+      "wall_min": 0.004,
+      "wall_med": 0.159,
+      "wall_max": 51.8,
+      "wall_sum": 508.0,
+      "outcomes": {
+        "host_contact": 11,
+        "survived": 20,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 222.1
+    },
+    "10|D": {
+      "n": 48,
+      "wall_min": 0.0026,
+      "wall_med": 0.127,
+      "wall_max": 25.9,
+      "wall_sum": 282.0,
+      "outcomes": {
+        "host_contact": 11,
+        "survived": 20,
+        "operational_escape": 17
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 222.1
+    },
+    "1|T": {
+      "n": 48,
+      "wall_min": 0.0034,
+      "wall_med": 0.084,
+      "wall_max": 8.8,
+      "wall_sum": 69.0,
+      "outcomes": {
+        "survived": 23,
+        "host_contact": 9,
+        "operational_escape": 10,
+        "unresolved": 6
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 33.0
+    },
+    "1|D": {
+      "n": 48,
+      "wall_min": 0.0027,
+      "wall_med": 0.054,
+      "wall_max": 4.4,
+      "wall_sum": 35.0,
+      "outcomes": {
+        "host_contact": 9,
+        "survived": 23,
+        "operational_escape": 10,
+        "unresolved": 6
+      },
+      "status": {
+        "completed": 48
+      },
+      "integ_years": 33.0
+    },
+    "10000|T": {
+      "n": 6,
+      "wall_min": 0.0607,
+      "wall_med": 4.387,
+      "wall_max": 454.9,
+      "wall_sum": 739.0,
+      "outcomes": {
+        "host_contact": 6
+      },
+      "status": {
+        "completed": 6
+      },
+      "integ_years": 193.2
+    },
+    "1000|B": {
+      "n": 7,
+      "wall_min": 0.4331,
+      "wall_med": 28.459,
+      "wall_max": 4533.4,
+      "wall_sum": 4829.0,
+      "outcomes": {
+        "host_contact": 7
+      },
+      "status": {
+        "completed": 7
+      },
+      "integ_years": 100.9
+    }
+  },
+  "artifacts": {
+    "hardware.json": "проверенные характеристики до загрузки",
+    "gates.json": "pytest/ruff/diag",
+    "mandatory_stats.json": "полные wall-статистики по (годы, вариант)",
+    "speed_comparison.json": "сравнение i5-9400 -> 14900KF",
+    "jobs.jsonl": "runs/W2-P2-1-55200007/jobs.jsonl (SHA-256 в manifest_sha256.json)",
+    "p2_pip_freeze.txt": "версии пакетов",
+    "p2_55200007.log": "удалённый лог",
+    "diag_ias15_guard.json": "диагностика W2-I015"
+  },
+  "disclaimer": "Операторская регистрация факта и замеров. Научную интерпретацию (P2-Q1/Q2, допуск) делает основной исполнитель W2-T008; здесь она не выносится.",
+  "interrupted_tasks_policy": {
+    "saved_fields": [
+      "run_status='partial'",
+      "error (stopped_by_deadline)",
+      "stopped=true",
+      "last_valid_time (достигнутое время)",
+      "final_probe",
+      "samples",
+      "outcome на момент останова"
+    ],
+    "not_saved": "задания, не начавшиеся до останова, записи не имеют",
+    "classification": "computational_censoring (не survived, не lost)",
+    "denominator_rule": "исключать прерванные из знаменателя долей; показывать отдельно как 'цензурировано'",
+    "source": "scripts/admission_p2_horizons.py (влияет только на §3.2; §3.1 завершён без partial)"
+  }
+}

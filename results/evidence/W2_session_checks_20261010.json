@@ -1,0 +1,20 @@
+{
+  "utc": "2026-10-10T16:53:25+00:00",
+  "actor": "pi-p2rental-20261010",
+  "task": "W2-T010",
+  "pytest": "302 passed, 10 skipped (reboundx отсутствует локально), 119.21 s",
+  "ruff": "All checks passed (src scripts tests)",
+  "validate": "passed, 199 tracking records",
+  "smoke": {
+    "run_id": "L0-20261010T165113Z-ed05d049",
+    "passed": true
+  },
+  "scope": "Локальные штатные проверки Windows-.venv после сессии; удалённые гейты instance 55200007 — в gates.json. Проверки установки не закрывают P2 и production-допуск.",
+  "changed_files": [
+    "scripts/vast_p2.py (транспорт: preflight/prepare)",
+    "tracking/* (журнал)",
+    "results/evidence/W2_P2-1_remote_55200007/",
+    "reports/operations/W2_P2-1_remote_20261010.md",
+    "docs/handoffs/W2_resume_20261011.md"
+  ]
+}

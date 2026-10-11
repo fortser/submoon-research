@@ -12,6 +12,8 @@ SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копир
   prepare   — пакет проекта с манифестом SHA -> scratch/p2_rental/bundle.tar.gz
   rent      — аренда ОДНОГО инстанса из offers.json в пределах approval (платно)
   wait      — ожидание состояния running (иначе удаление по таймауту)
+  seed      — выборка готовых строк прежнего run для переиспользования (approval['seed'], W2-D021)
+              -> scratch/p2_rental/seed_jobs.jsonl + seed_info.json (без затрат)
   deploy    — загрузка пакета, сверка SHA, запуск удалённого сценария (nohup); срок стенда =
               создание + run_deadline_hours из approval (по умолчанию 13.5 ч)
   status    — состояние, оценка расходов, этап удалённого сценария, прогресс P2-1, хвост лога
@@ -69,6 +71,28 @@ def approval():
     return value
 
 
+def _api_key():
+    """Ключ Vast.ai из стандартного каталога CLI; на диск проекта не копируется."""
+    for path in (Path.home()/'.config/vastai/vast_api_key', Path.home()/'.vast_api_key'):
+        if path.exists():
+            text = path.read_text(encoding='utf-8').strip()
+            return text.split('=', 1)[1].strip() if '=' in text else text
+    return None
+
+
+def _credit_usd():
+    """Баланс через публичный REST (CLI 0.3.1 отдаёт 400 на `show user`)."""
+    key = _api_key()
+    if not key:
+        return None
+    request = urllib.request.Request('https://console.vast.ai/api/v0/users/current/',
+        headers={'Authorization': 'Bearer '+key, 'Accept': 'application/json'})
+    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+    with opener.open(request, timeout=60) as response:
+        data = json.loads(response.read().decode('utf-8', 'replace'))
+    return data.get('credit')
+
+
 def preflight():
     plan = approval()
     key = Path.home()/'.ssh/vast_agent'
@@ -78,8 +102,12 @@ def preflight():
         checks['paramiko'] = True
     except ImportError:
         checks['paramiko'] = False
-    user = vw.cli('show', 'user')
-    checks['credit_usd'] = user.get('credit') if isinstance(user, dict) else None
+    try:
+        credit = _credit_usd()
+    except Exception as exc:  # noqa: BLE001
+        checks['credit_error'] = type(exc).__name__
+        credit = None
+    checks['credit_usd'] = credit
     checks['budget_usd'] = plan['budget_usd']
     checks['enough_credit'] = (checks['credit_usd'] is not None
                                and float(checks['credit_usd']) >= float(plan['budget_usd']))
@@ -138,12 +166,19 @@ def prepare():
     paths = [p for name in roots for p in (ROOT/name).rglob('*') if p.is_file()
              and '__pycache__' not in p.parts and 'vast_market' not in p.parts
              and p.suffix not in ('.pyc', '.pem', '.key') and p.name != '.write.lock']
-    # Входы load_cases (W2_three_engines_v1.yaml) и малые артефакты runs (контрасты и т.п.).
-    for p in (ROOT/'runs').rglob('*'):
-        if (p.is_file() and p.stat().st_size <= 2*2**20 and '__pycache__' not in p.parts
-                and p.suffix not in ('.gz', '.zip', '.npz', '.parquet', '.png')
-                and not p.parts[len(ROOT.parts)+1].startswith('W2-P2-1')):
-            paths.append(p)
+    # Только подтверждённые входы load_cases из W2-конфигов (model, states, contrasts):
+    # локальные бенчмарки runs/ и W0-сырьё (data/raw, кернелы) удалённому расчёту не нужны.
+    import yaml  # noqa: E402
+    for cfg_path in (ROOT/'configs/experiments').glob('W2_*.yaml'):
+        try:
+            cfg = yaml.safe_load(cfg_path.read_text(encoding='utf-8'))
+        except Exception:  # noqa: BLE001
+            continue
+        if isinstance(cfg, dict) and isinstance(cfg.get('inputs_sha256'), dict):
+            for rel in cfg['inputs_sha256']:
+                p = ROOT/rel
+                if p.is_file():
+                    paths.append(p)
     paths += [p for p in ROOT.iterdir() if p.is_file() and p.suffix in ('.md', '.toml', '.txt')]
     paths = sorted(set(p for p in paths if p.is_file()))
     index = {p.relative_to(ROOT).as_posix(): vw.digest(p) for p in paths}
@@ -216,11 +251,43 @@ def _workers(offer):
     return max(1, min(effective, int(ram_mb/450))) if ram_mb else effective
 
 
+# W2-D021: на гибридных Intel (P+E) длинные задания B идут в 2-2.5 раза медленнее на E-ядрах
+# (P2-1 55200007: ~2700 против ~1100-1500 шагов/с). Режим pcores_only: по одному процессу на
+# физическое P-ядро (/sys/devices/cpu_core/cpus), стенд под taskset; без P-ядер — FAILED pcores.
+_PCORES_BLOCK = r"""PCPUS=$(python3 - <<'PY'
+import os, re, subprocess
+def parse(text):
+    out = []
+    for a, b in re.findall(r'(\d+)(?:-(\d+))?', text):
+        out.extend(range(int(a), int(b or a)+1))
+    return out
+try:
+    pset = set(parse(open('/sys/devices/cpu_core/cpus').read()))
+except OSError:
+    pset = set()
+allowed = os.sched_getaffinity(0)
+first = {}
+for line in subprocess.check_output(['lscpu', '-p=CPU,CORE']).decode().splitlines():
+    if line.startswith('#'):
+        continue
+    cpu, core = map(int, line.split(',')[:2])
+    if cpu in pset and cpu in allowed and core not in first:
+        first[core] = cpu
+print(','.join(map(str, sorted(first.values()))))
+PY
+)
+[ -n "$PCPUS" ] || fail pcores
+NP=$(echo "$PCPUS" | tr ',' '\n' | wc -l)
+W=$NP
+""" + 'PIN="taskset -c $PCPUS"'
+
+
 def _start_script(rental):
     iid = int(rental['instance_id'])
     workers = _workers(rental['offer'])
     run_dir = f'runs/W2-P2-1-{iid}'
     deadline = rental['run_deadline_utc']
+    pcores_block = _PCORES_BLOCK if rental.get('pcores_only') else '# pcores_only выключен: все физические ядра'
     return f'''#!/bin/bash
 set -uo pipefail
 export DEBIAN_FRONTEND=noninteractive
@@ -243,6 +310,8 @@ echo "gates $(date -u +%FT%TZ)" > $STATUS
 # Диагностика W2-I015 (не гейт): реальный случай отказа B до 1.5 года новым стражем.
 mkdir -p {run_dir}
 .venv/bin/python -u scripts/diag_ias15_guard.py --output {run_dir}/diag_ias15_guard.json || echo "diag_ias15_guard: код $?"
+# Диагностика W2-I017 (не гейт): страж на dt_last_done при t0 до 10000 лет.
+.venv/bin/python -u scripts/diag_ias15_guard_dtdone.py --output {run_dir}/diag_ias15_guard_dtdone.json || echo "diag_ias15_guard_dtdone: код $?"
 # Короткий гейт: обязательный набор с B, расширение B и ступень вне обязательного набора.
 .venv/bin/python -u scripts/admission_p2_horizons.py --limit 4 --years 0.01 0.03 0.1 --b-max-years 0.03 --core-years 0.01 0.03 --core-b-max 0.01 --concurrent --workers 8 --run-dir runs/W2-P2-1-quick-{iid} || fail quick
 PHYS=$(lscpu -p=CORE,SOCKET | grep -v '^#' | sort -u | wc -l)
@@ -250,8 +319,11 @@ QUOTA=$(awk '$1!="max"{{printf "%d", $1/$2}}' /sys/fs/cgroup/cpu.max 2>/dev/null
 W={workers}
 if [ "$PHYS" -gt 0 ] && [ "$PHYS" -lt "$W" ]; then W=$PHYS; fi
 if [ -n "$QUOTA" ] && [ "$QUOTA" -gt 0 ] && [ "$QUOTA" -lt "$W" ]; then W=$QUOTA; fi
-echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} deadline={deadline}" > $STATUS
-.venv/bin/python -u scripts/admission_p2_horizons.py --years 1 10 100 1000 10000 --b-max-years 1000 --concurrent --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir}
+PIN=""
+{pcores_block}
+SEED=$(test -f {run_dir}/jobs.jsonl && wc -l < {run_dir}/jobs.jsonl || echo 0)
+echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=${{PIN:-none}} seed_rows=$SEED deadline={deadline}" > $STATUS
+$PIN .venv/bin/python -u scripts/admission_p2_horizons.py --years 1 10 100 1000 10000 --b-max-years 1000 --concurrent --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir}
 echo "done exit=$? $(date -u +%FT%TZ)" > $STATUS
 '''
 
@@ -380,27 +452,62 @@ print(len(files))
         sftp.close()
     if vw.digest(target) != remote_hash:
         raise RuntimeError('SHA выгруженного архива не совпал')
-    extracted = 0
-    with tarfile.open(target, 'r:gz') as tar:
+    stats = _extract_results(target, iid)
+    rental.update(downloaded_utc=vw.now(), result_archive_sha256=remote_hash, remote_files=int(count),
+                  extracted_files=stats['written'], extract_stats=stats,
+                  result_archive=str(target.relative_to(ROOT)))
+    save(RENTAL, rental)
+    print(json.dumps(dict(instance_id=iid, files=int(count), sha256=remote_hash, **stats)))
+
+
+def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
+    """Распаковка архива результатов со сверкой SHA-256 каждого файла.
+
+    Прежде существующий файл молча пропускался: устаревший jobs.jsonl (17:41, 9.1 МБ против
+    11.4 МБ на сервере) и пустой jobs.jsonl после оборванной распаковки не обновлялись.
+    Теперь совпадающий по SHA файл не трогается, отличающийся переносится в
+    <work>/superseded_<iid>_<stamp>/ с сохранением пути и заменяется; запись атомарная.
+    """
+    import hashlib
+    import shutil
+
+    root = Path(root or ROOT)
+    work = Path(work or WORK)
+    stamp = stamp or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+    stats = dict(written=0, new=0, unchanged=0, replaced=0, superseded_dir=None)
+    with tarfile.open(archive, 'r:gz') as tar:
         for member in tar.getmembers():
             if not member.isfile():
                 continue
             name = member.name
+            parts = Path(name).parts
+            if '..' in parts or Path(name).is_absolute():
+                raise ValueError('Путь вне разрешённой области: '+name)
             if name.startswith('remote_logs/'):
-                destination = WORK/f'remote_logs_{iid}'/Path(name).name
-            elif name.startswith('runs/W2-P2-1') and '..' not in Path(name).parts:
-                destination = ROOT/name
+                destination = work/f'remote_logs_{iid}'/Path(name).name
+            elif name.startswith('runs/W2-P2-1'):
+                destination = root/name
             else:
                 raise ValueError('Путь вне разрешённой области: '+name)
+            data = tar.extractfile(member).read()
             if destination.exists():
-                continue
+                if hashlib.sha256(destination.read_bytes()).hexdigest() == hashlib.sha256(data).hexdigest():
+                    stats['unchanged'] += 1
+                    continue
+                keep = work/f'superseded_{iid}_{stamp}'/destination.relative_to(
+                    root if destination.is_relative_to(root) else work)
+                keep.parent.mkdir(parents=True, exist_ok=True)
+                shutil.move(str(destination), str(keep))
+                stats['replaced'] += 1
+                stats['superseded_dir'] = str(work/f'superseded_{iid}_{stamp}')
+            else:
+                stats['new'] += 1
             destination.parent.mkdir(parents=True, exist_ok=True)
-            destination.write_bytes(tar.extractfile(member).read())
-            extracted += 1
-    rental.update(downloaded_utc=vw.now(), result_archive_sha256=remote_hash, remote_files=int(count),
-                  extracted_files=extracted, result_archive=str(target.relative_to(ROOT)))
-    save(RENTAL, rental)
-    print(json.dumps(dict(instance_id=iid, files=int(count), extracted=extracted, sha256=remote_hash)))
+            temporary = destination.with_name(destination.name+'.partial')
+            temporary.write_bytes(data)
+            temporary.replace(destination)
+            stats['written'] += 1
+    return stats
 
 
 def destroy():

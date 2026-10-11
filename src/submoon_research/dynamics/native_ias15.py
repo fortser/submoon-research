@@ -103,20 +103,34 @@ class NativeIAS15:
         dt = right-left
         if not dt > 0 or right > bound+8*np.spacing(bound):
             raise ArithmeticError('IAS15 нарушил временную границу')
+        # W2-I017 (P2-1, 1000 лет): REBOUND хранит t = fl(t + dt_done), поэтому метка
+        # right-left отличается от фактического шага до ulp(right)/2, и остаток стража,
+        # собранного на метке, растёт линейно с t (скачком на каждой степени двойки:
+        # отказы ganymede-inner B сразу после 2**34 с = 544.4 года). Полином собирается
+        # на фактическом шаге dt_last_done; сегмент по-прежнему покрывает [left, right],
+        # ошибка метки времени внутри шага <= ulp(right)/2 и не зависит от исправления.
+        dt_done = float(self.sim.dt_last_done)
+        if not dt_done > 0 or abs(dt_done-dt) > 2*np.spacing(right):
+            raise ArithmeticError('Фактический шаг IAS15 не согласован с меткой времени')
         a0 = self._array('a0', 3*self.count).reshape(self.count, 3)
         # br = коэффициенты выполненного шага.
         b = self._array('br', 21*self.count).reshape(7, self.count, 3)
-        coeff = self._assemble(start, a0, b, dt)
+        coeff = self._assemble(start, a0, b, dt_done)
         end = self.absolute_state()
         polynomial_end = coeff.sum(axis=0)
         residual = endpoint_residual(polynomial_end, end)
+        # Остаток проверяемого шага сохраняется и при отказе: прежде в запись попадал
+        # только максимум по принятым шагам (8.7e-10..9.9e-10 < порога в отказах P2-1).
+        self.checked_endpoint_residual = residual
+        self.checked_time = right
         # 2e-13 оказалось ниже достижимой согласованности IAS15 при J2: при
         # несходимости predictor-corrector остаток растёт до ~6e-13 (проверено
         # диагностикой). 1e-9 на два порядка ниже научного порога интерполяции
         # 1e-7 и выше наблюдённого дна, поэтому ловит грубые дефекты, но не
         # аварийно завершает корректный шаг (W2-D006). Нормировка по телам — W2-I015.
         if not np.isfinite(residual) or residual > ENDPOINT_RESIDUAL_LIMIT:
-            raise ArithmeticError('Полином IAS15 не воспроизвёл конец принятого шага')
+            raise ArithmeticError('Полином IAS15 не воспроизвёл конец принятого шага '
+                                  f'(остаток {residual:.3e} при t={right:.9e} с)')
         coeff -= coeff[:, :1, :]
         self.last_endpoint_residual = residual
         self.last_component_residual = component_residual(polynomial_end, end)

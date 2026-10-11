@@ -1,0 +1,40 @@
+{
+ "updated_utc": "2026-10-11T06:09:35.782751+00:00",
+ "elapsed_seconds": 61261.568252633035,
+ "done": 672,
+ "planned": 672,
+ "by_level": {
+  "1": {
+   "done": 144,
+   "planned": 144,
+   "stopped": 0
+  },
+  "10": {
+   "done": 144,
+   "planned": 144,
+   "stopped": 0
+  },
+  "100": {
+   "done": 144,
+   "planned": 144,
+   "stopped": 0
+  },
+  "1000": {
+   "done": 144,
+   "planned": 144,
+   "stopped": 0
+  },
+  "10000": {
+   "done": 96,
+   "planned": 96,
+   "stopped": 0
+  }
+ },
+ "last": {
+  "orbit_id": "ganymede-inner-180-0.0",
+  "years": 10000.0,
+  "variant": "T",
+  "status": "completed",
+  "wall": 61258.532487057964
+ }
+}

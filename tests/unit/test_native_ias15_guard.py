@@ -1,4 +1,4 @@
-"""W2-I015: страж согласованности полинома IAS15 и округление времени REBOUND.
+"""W2-I015, W2-I017: страж согласованности полинома IAS15 и округление времени REBOUND.
 
 REBOUND хранит t = fl(t + dt_done); right-left отличается от фактического шага до ulp(t)/2.
 Прежняя покомпонентная нормировка давала ложный отказ, когда компонента положения тела
@@ -51,3 +51,40 @@ def test_native_ias15_steps_at_large_time_pass_guard():
         native.step(native.sim.t+1.0e6)
         worst = max(worst, native.last_endpoint_residual)
     assert worst < ENDPOINT_RESIDUAL_LIMIT/5  # ожидаемо <= ~1e-10: v*ulp(t)/2/|r|
+
+
+@pytest.mark.parametrize('t0', [0.0, float(2**31), float(2**34+12345), float(2**36)])
+def test_endpoint_residual_independent_of_time_label(t0):
+    # W2-I017: REBOUND хранит t = fl(t + dt_done); полином, собранный на метке right-left,
+    # давал остаток ~ ulp(t) (отказы ganymede-inner B сразу после 2**34 с = 544.4 года).
+    # Полином на sim.dt_last_done воспроизводит конец шага на уровне машинной точности при любом t.
+    pytest.importorskip('rebound')
+    pytest.importorskip('reboundx')
+    from submoon_research.dynamics.native_ias15 import NativeIAS15
+
+    gm, radius = 1.26686534e8, 1.0e5
+    speed = math.sqrt(gm/radius)
+    state = np.array([[0, 0, 0, 0, 0, 0], [radius, 0, 0, 0, speed, 0]], dtype=float)
+    native = NativeIAS15(state, [gm], [], t0=t0, initial_dt=10.0)
+    worst = 0.0
+    for _ in range(600):
+        native.step(native.sim.t+1.0e6)
+        worst = max(worst, native.last_endpoint_residual)
+    assert worst < 1e-12
+
+
+def test_rejected_step_residual_is_reported():
+    # W2-I017: остаток отклонённого шага сохраняется и попадает в текст ошибки
+    # (прежде в запись попадал только максимум по принятым шагам).
+    pytest.importorskip('rebound')
+    pytest.importorskip('reboundx')
+    from submoon_research.dynamics import native_ias15 as nm
+
+    gm, radius = 1.26686534e8, 1.0e5
+    state = np.array([[0, 0, 0, 0, 0, 0], [radius, 0, 0, 0, math.sqrt(gm/radius), 0]], dtype=float)
+    native = nm.NativeIAS15(state, [gm], [], t0=0.0, initial_dt=10.0)
+    original = native._assemble
+    native._assemble = lambda start, a0, b, dt: original(start, a0, b, dt*(1+1e-6))  # грубый дефект
+    with pytest.raises(ArithmeticError, match='остаток'):
+        native.step(1.0e6)
+    assert native.checked_endpoint_residual > nm.ENDPOINT_RESIDUAL_LIMIT
