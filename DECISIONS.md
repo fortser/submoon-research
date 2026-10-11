@@ -41,9 +41,9 @@
 | W2-D013 | W2 | accepted | Высокие эксцентриситеты (e >= 0.9) до P2-1: только флаг вне проверенной области, правило — по данным | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D014 | W2 | accepted | Удалённый P2-1 на Vast.ai: вариант В, выполнение сегодня (вариант А), стенд v4 и срок 13.5 ч | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D015 | W2 | accepted | Тестовый прогон P2-1 на Threadripper PRO 5975WX (GPU-инстанс), пределы $4 и 5 ч | [Запись](tracking/stages/W2/RECORDS.md) |
-| W2-D016 | W2 | accepted | Замена вышедшего из строя 5975WX на i9-14900KF; 7995WX доступен только срезом 32 vCPU | [Запись](tracking/stages/W2/RECORDS.md) |
-| W2-D017 | W2 | accepted | Продление тестового P2-1 на i9-14900KF до ~22 ч (разрешено до 24 ч) | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D018 | W2 | accepted | Цензурирование прерванных заданий удалённого P2-1 | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D019 | W2 | accepted | Автоматическое сворачивание отменено; finish вручную 2026-10-11 | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D021 | W2 | accepted | Перезапуск P2-1 после W2-I017: seed D/T 10000 лет из 55200007, остальное заново; i9 только P-ядра | [Запись](tracking/stages/W2/RECORDS.md) |
 | W2-D020 | W2 | superseded | Перезапуск P2-1 после W2-I017 — чистый полный прогон без засеивания D/T из 55200007 | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D016 | W2 | accepted | Замена вышедшего из строя 5975WX на i9-14900KF; 7995WX доступен только срезом 32 vCPU | [Запись](tracking/stages/W2/RECORDS.md) |
+| W2-D017 | W2 | accepted | Продление тестового P2-1 на i9-14900KF до ~22 ч (разрешено до 24 ч) | [Запись](tracking/stages/W2/RECORDS.md) |

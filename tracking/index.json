@@ -1787,7 +1787,7 @@
       ]
     },
     "W2": {
-      "revision": 192,
+      "revision": 197,
       "status": "active",
       "records": [
         {
@@ -3417,20 +3417,6 @@
           ]
         },
         {
-          "id": "W2-T011",
-          "kind": "task",
-          "status": "done",
-          "owner": "codex-release-20261009",
-          "title": "Сохранение текущего состояния W2 в main и push",
-          "summary": "Создан коммит 0f1840b9da4bdd347854f7b45d9bbe8fc47d0823 и выполнен push origin main; удалённый SHA совпал с локальным. Сохранены W2-код, аудит, малые доказательства и handoff на завтра. Штатные проверки: 302 passed, 10 skipped (reboundx), Ruff/validate/smoke/досье passed. Локальный запускатель с учётными данными исключён. Подтверждение в refs; служебная запись отправляется отдельным коммитом.",
-          "refs": [
-            "results/evidence/W2_git_checkpoint_20261009.json",
-            "results/evidence/W2_session_checks_20261009.json",
-            "docs/handoffs/W2_resume_20261010.md"
-          ],
-          "next_action": "Завтра повторить поиск 7995WX, проверить W2-I015 в WSL и продолжить P2-1 по актуальным воротам/плану аренды."
-        },
-        {
           "id": "W2-D015",
           "kind": "decision",
           "status": "accepted",
@@ -3449,62 +3435,6 @@
             "W2-P004",
             "W2-T010",
             "W2-D014"
-          ]
-        },
-        {
-          "id": "W2-D016",
-          "kind": "decision",
-          "status": "accepted",
-          "owner": "pi-p2rental-20261010",
-          "title": "Замена вышедшего из строя 5975WX на i9-14900KF; 7995WX доступен только срезом 32 vCPU",
-          "summary": "Первый тестовый оффер W2-D015 (5975WX 53991778, deverified) не поднялся: инстанс 55196988 завис в created (OCI runtime create failed), удалён, расход $0.023. По запросу пользователя рассмотрены альтернативы. 7995WX в аренде сейчас только как GPU-срез 32 vCPU (offer 51500607, $0.4711/ч, California, verified) — не полный 96-ядерный целевой узел плана. Пользователь 2026-10-10 подтвердил рекомендацию: тестовый прогон на Core i9-14900KF, оффер 40179084 (Мексика, 32 потока ~24 физ. ядра, RAM 31.9 ГБ, 1x RTX 4060, $0.15/ч, verified, rel 0.9955). Пределы: бюджет $3, ставка <= $0.25/ч, <= 8 ч, срок стенда 5 ч, 1 инстанс, <= 2 попытки.",
-          "refs": [
-            "scratch/p2_rental/approval.json",
-            "scratch/p2_rental/approval_5975wx_v2.json",
-            "scratch/p2_rental/offers.json"
-          ],
-          "next_action": "Арендовать 40179084, дождаться running, проверить фактические CPU/RAM/диск/квоту, затем deploy стенда v4 (срок 5 ч).",
-          "related_ids": [
-            "W2-D015",
-            "W2-T010",
-            "W2-T008",
-            "W2-P004"
-          ]
-        },
-        {
-          "id": "W2-D017",
-          "kind": "decision",
-          "status": "accepted",
-          "owner": "pi-p2rental-20261010",
-          "title": "Продление тестового P2-1 на i9-14900KF до ~22 ч (разрешено до 24 ч)",
-          "summary": "Пользователь 2026-10-10 разрешил увеличить срок аренды этого сервера при необходимости до 24 ч из-за низкой цены ($0.15/ч). Обязательный набор P2-1 почти закрыт (осталось 6 заданий D/T-1000); расширение (D/T 10 000 лет, B 100/1000 лет) уже идёт, но самые долгие выжившие случаи требуют часов. Решение: после закрытия обязательного набора перезапустить стенд с тем же checkpoint (runs/W2-P2-1-55200007) и новым сроком создание+22 ч (2026-10-11T09:23:53Z). Пределы: бюджет $5, ставка <= $0.20/ч, <= 24 ч, 1 инстанс.",
-          "refs": [
-            "scratch/p2_rental/approval.json",
-            "tracking/runtime.json",
-            "scratch/p2_rental/rental.json"
-          ],
-          "next_action": "Дождаться завершения обязательных 6 заданий, перезапустить стенд с новым deadline, мониторить; при завершении — finish.",
-          "related_ids": [
-            "W2-D016",
-            "W2-T010",
-            "W2-P004"
-          ]
-        },
-        {
-          "id": "W2-I016",
-          "kind": "issue",
-          "status": "fixed",
-          "owner": "pi-p2rental-20261010",
-          "title": "pkill -f не убивает spawn-воркеры стенда: 24 осиротевших процесса, load 47",
-          "summary": "При продлении аренды (W2-D017) стенд был остановлен через `pkill -f admission_p2_horizons.py`, но пул использует multiprocessing.spawn: воркеры имеют cmdline `-c from multiprocessing.spawn import spawn_main ...` и под фильтр не попали. 24 осиротевших воркера первого прогона ещё ~45 мин жгли CPU, конкурируя с новым стендом (load 47 при 24 физ. ядрах, BrokenPipeError при отправке результатов в мёртвого родителя). Исправлено: `kill -9` по процессам с args spawn_main/resource_tracker и etimes>5000; python-процессов стало 26, load вернулся к 24. Завершённые задания корректны, пострадала только пропускная способность. Рекомендация: останавливать стенд по группе процессов или убивать spawn-воркеры по возрасту/args, а не по pkill -f.",
-          "refs": [
-            "scratch/p2_rental/rental.json",
-            "tracking/runtime.json"
-          ],
-          "next_action": "Учесть при остановке/перезапуске стенда в будущем (finish/wrapup).",
-          "related_ids": [
-            "W2-T010",
-            "W2-D017"
           ]
         },
         {
@@ -3593,23 +3523,6 @@
           "related_ids": [
             "W2-T010",
             "W2-P005"
-          ]
-        },
-        {
-          "id": "W2-C029",
-          "kind": "check",
-          "status": "passed",
-          "owner": "pi-p2rental-20261010",
-          "title": "Правки транспорта vast_p2: preflight через REST и пакет 1.2 МБ",
-          "summary": "preflight: CLI 0.3.1 отдаёт 400 'owner: Extra inputs are not permitted' на show user — баланс через REST; credit $19.73, cli/ssh_key/paramiko true, живой аренды нет. prepare: в пакет только входы configs/experiments/W2_*.yaml (inputs_sha256), 118 МБ -> 1.2 МБ (381 файл, SHA 53e88dd9...). ruff All checks passed. Правки не трогают научный код; подтверждены удалённым прогоном instance 55200007.",
-          "refs": [
-            "results/evidence/W2_P2-1_remote_55200007/transport_fixes.json",
-            "scratch/p2_rental/bundle_info.json"
-          ],
-          "next_action": "Учесть при будущих арендах W2.",
-          "related_ids": [
-            "W2-T010",
-            "W2-D018"
           ]
         },
         {
@@ -3853,6 +3766,99 @@
             "W2-P004",
             "W2-R014",
             "W2-T008"
+          ]
+        },
+        {
+          "id": "W2-D016",
+          "kind": "decision",
+          "status": "accepted",
+          "owner": "pi-p2rental-20261010",
+          "title": "Замена вышедшего из строя 5975WX на i9-14900KF; 7995WX доступен только срезом 32 vCPU",
+          "summary": "Первый тестовый оффер W2-D015 (5975WX 53991778, deverified) не поднялся: инстанс 55196988 завис в created (OCI runtime create failed), удалён, расход $0.023. По запросу пользователя рассмотрены альтернативы. 7995WX в аренде сейчас только как GPU-срез 32 vCPU (offer 51500607, $0.4711/ч, California, verified) — не полный 96-ядерный целевой узел плана. Пользователь 2026-10-10 подтвердил рекомендацию: тестовый прогон на Core i9-14900KF, оффер 40179084 (Мексика, 32 потока ~24 физ. ядра, RAM 31.9 ГБ, 1x RTX 4060, $0.15/ч, verified, rel 0.9955). Пределы: бюджет $3, ставка <= $0.25/ч, <= 8 ч, срок стенда 5 ч, 1 инстанс, <= 2 попытки.",
+          "refs": [
+            "scratch/p2_rental/approval.json",
+            "scratch/p2_rental/approval_5975wx_v2.json",
+            "scratch/p2_rental/superseded/W2-P2-1-55200007/offers.json"
+          ],
+          "next_action": "Арендовать 40179084, дождаться running, проверить фактические CPU/RAM/диск/квоту, затем deploy стенда v4 (срок 5 ч).",
+          "related_ids": [
+            "W2-D015",
+            "W2-T010",
+            "W2-T008",
+            "W2-P004"
+          ]
+        },
+        {
+          "id": "W2-D017",
+          "kind": "decision",
+          "status": "accepted",
+          "owner": "pi-p2rental-20261010",
+          "title": "Продление тестового P2-1 на i9-14900KF до ~22 ч (разрешено до 24 ч)",
+          "summary": "Пользователь 2026-10-10 разрешил увеличить срок аренды этого сервера при необходимости до 24 ч из-за низкой цены ($0.15/ч). Обязательный набор P2-1 почти закрыт (осталось 6 заданий D/T-1000); расширение (D/T 10 000 лет, B 100/1000 лет) уже идёт, но самые долгие выжившие случаи требуют часов. Решение: после закрытия обязательного набора перезапустить стенд с тем же checkpoint (runs/W2-P2-1-55200007) и новым сроком создание+22 ч (2026-10-11T09:23:53Z). Пределы: бюджет $5, ставка <= $0.20/ч, <= 24 ч, 1 инстанс.",
+          "refs": [
+            "scratch/p2_rental/approval.json",
+            "tracking/runtime.json",
+            "scratch/p2_rental/superseded/W2-P2-1-55200007/rental.json"
+          ],
+          "next_action": "Дождаться завершения обязательных 6 заданий, перезапустить стенд с новым deadline, мониторить; при завершении — finish.",
+          "related_ids": [
+            "W2-D016",
+            "W2-T010",
+            "W2-P004"
+          ]
+        },
+        {
+          "id": "W2-I016",
+          "kind": "issue",
+          "status": "fixed",
+          "owner": "pi-p2rental-20261010",
+          "title": "pkill -f не убивает spawn-воркеры стенда: 24 осиротевших процесса, load 47",
+          "summary": "При продлении аренды (W2-D017) стенд был остановлен через `pkill -f admission_p2_horizons.py`, но пул использует multiprocessing.spawn: воркеры имеют cmdline `-c from multiprocessing.spawn import spawn_main ...` и под фильтр не попали. 24 осиротевших воркера первого прогона ещё ~45 мин жгли CPU, конкурируя с новым стендом (load 47 при 24 физ. ядрах, BrokenPipeError при отправке результатов в мёртвого родителя). Исправлено: `kill -9` по процессам с args spawn_main/resource_tracker и etimes>5000; python-процессов стало 26, load вернулся к 24. Завершённые задания корректны, пострадала только пропускная способность. Рекомендация: останавливать стенд по группе процессов или убивать spawn-воркеры по возрасту/args, а не по pkill -f.",
+          "refs": [
+            "scratch/p2_rental/superseded/W2-P2-1-55200007/rental.json",
+            "tracking/runtime.json"
+          ],
+          "next_action": "Учесть при остановке/перезапуске стенда в будущем (finish/wrapup).",
+          "related_ids": [
+            "W2-T010",
+            "W2-D017"
+          ]
+        },
+        {
+          "id": "W2-C029",
+          "kind": "check",
+          "status": "passed",
+          "owner": "pi-p2rental-20261010",
+          "title": "Правки транспорта vast_p2: preflight через REST и пакет 1.2 МБ",
+          "summary": "preflight: CLI 0.3.1 отдаёт 400 'owner: Extra inputs are not permitted' на show user — баланс через REST; credit $19.73, cli/ssh_key/paramiko true, живой аренды нет. prepare: в пакет только входы configs/experiments/W2_*.yaml (inputs_sha256), 118 МБ -> 1.2 МБ (381 файл, SHA 53e88dd9...). ruff All checks passed. Правки не трогают научный код; подтверждены удалённым прогоном instance 55200007.",
+          "refs": [
+            "results/evidence/W2_P2-1_remote_55200007/transport_fixes.json",
+            "scratch/p2_rental/superseded/W2-P2-1-55200007/bundle_info.json"
+          ],
+          "next_action": "Учесть при будущих арендах W2.",
+          "related_ids": [
+            "W2-T010",
+            "W2-D018"
+          ]
+        },
+        {
+          "id": "W2-T011",
+          "kind": "task",
+          "status": "active",
+          "owner": "pi-p2rerun-20261011",
+          "title": "Перезапуск P2-1 после W2-I017 (W2-D021)",
+          "summary": "Шаг 1 пройден: WSL-проверка (pytest — только известный таймаут W2-I009; ruff/validate/bench_quick/stand_quick OK); перенос архива 55200007, approval (i9-13900K/14900K, ≤$0.20/ч, ≤24 ч, $5) и seed 96 строк (source_sha256 bb4ed301…3645) подтверждены. Для validate пришлось исправить висячие ссылки 4 записей (W2-D016/D017/I016/C029) на перенесённые в superseded файлы. preflight OK (кредит $16.35, живой аренды нет). offers: 0 — i9-13900K/14900K(F) ≤ $0.20/ч на рынке нет; ближайший offer 55379677 (i9-14900K, 16 эфф. ядер, 64 ГБ, RTX 5080, $0.2808/ч, verified, Швеция) выше лимита; прошлая машина 138970 недоступна. Аренда не выполнялась, деньги не тратились.",
+          "refs": [
+            "docs/tasks/W2_P2-1_rerun_operator_task.md",
+            "scratch/claude/W2-T008_checks_i017_20261011T105153Z.log",
+            "scratch/p2_rental/seed_info.json"
+          ],
+          "next_action": "Дождаться предложения i9-13900K/14900K(F) ≤ $0.20/ч (повторить offers) либо решения пользователя о повышении ставки/бюджета для offer 55379677; затем prepare, rent, wait, deploy и проверка pin/seed_rows=96.",
+          "related_ids": [
+            "W2-D021",
+            "W2-I017",
+            "W2-T008",
+            "W2-P004"
           ]
         }
       ]
