@@ -113,6 +113,16 @@ class Budget:
                 raise TimeoutError(STOPPED+': стоп-файл')
 
 
+def unresolved_reason(out):
+    """W2-D022: причина исхода unresolved явно. Прототип v5 сообщает её сам (в т.ч. высокие e);
+    у B монитора e нет — там только вычислительная причина или незавершённый уход."""
+    if out['physical_outcome'] != 'unresolved':
+        return None
+    if out.get('unresolved_reason'):
+        return out['unresolved_reason']
+    return 'computational' if out['run_status'] != 'completed' else 'escape_not_resolved_at_horizon'
+
+
 def _job(job):
     case, years, variant = job['case'], job['years'], job['variant']
     horizon = years*YEAR
@@ -132,6 +142,7 @@ def _job(job):
         prototype_version=PROTOTYPE_VERSION, job_fingerprint=job['fingerprint'],
         wall=time.perf_counter()-started,
         run_status=out['run_status'], error=out['error'], outcome=out['physical_outcome'],
+        unresolved_reason=unresolved_reason(out),
         last_valid_time=out['last_valid_time'],
         event=None if event is None else dict(event=event['event'], time=event['time'],
                                               body=event.get('body_index')),

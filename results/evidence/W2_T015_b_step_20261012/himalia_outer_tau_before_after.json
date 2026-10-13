@@ -1,0 +1,122 @@
+{
+ "himalia-outer-0-0.0@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.14112576178114522,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 110,
+  "steps_new": 203
+ },
+ "himalia-outer-0-0.0@10": {
+  "tau_DT": null,
+  "tau_DB_old": 0.1490144370527746,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": 1.8551244309224806e-08,
+  "same_outcome": true,
+  "steps_old": 113,
+  "steps_new": 211
+ },
+ "himalia-outer-0-0.3@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.12207146966133185,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 62,
+  "steps_new": 167
+ },
+ "himalia-outer-0-0.3@10": {
+  "tau_DT": null,
+  "tau_DB_old": 0.12889504440725366,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": 2.8446984453393603e-09,
+  "same_outcome": true,
+  "steps_old": 62,
+  "steps_new": 167
+ },
+ "himalia-outer-180-0.0@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.8125,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 61,
+  "steps_new": 191
+ },
+ "himalia-outer-180-0.0@10": {
+  "tau_DT": 3.28125,
+  "tau_DB_old": 1.5174079748634932,
+  "tau_DB_new": 3.28125,
+  "tau_TB_new": null,
+  "event_dt_P0": 9.646234345721288e-08,
+  "same_outcome": true,
+  "steps_old": 269,
+  "steps_new": 832
+ },
+ "himalia-outer-180-0.3@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.828125,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 63,
+  "steps_new": 186
+ },
+ "himalia-outer-180-0.3@10": {
+  "tau_DT": 2.34375,
+  "tau_DB_old": 0.8494422498263802,
+  "tau_DB_new": 2.34375,
+  "tau_TB_new": null,
+  "event_dt_P0": 2.455863493736035e-07,
+  "same_outcome": true,
+  "steps_old": 207,
+  "steps_new": 584
+ },
+ "himalia-outer-90-0.0@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.12207146966133185,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 66,
+  "steps_new": 184
+ },
+ "himalia-outer-90-0.0@10": {
+  "tau_DT": null,
+  "tau_DB_old": 0.11987818459583775,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": 9.521377826234815e-09,
+  "same_outcome": true,
+  "steps_old": 74,
+  "steps_new": 204
+ },
+ "himalia-outer-90-0.0-phase@1": {
+  "tau_DT": null,
+  "tau_DB_old": 0.34375,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": null,
+  "same_outcome": true,
+  "steps_old": 84,
+  "steps_new": 196
+ },
+ "himalia-outer-90-0.0-phase@10": {
+  "tau_DT": null,
+  "tau_DB_old": null,
+  "tau_DB_new": null,
+  "tau_TB_new": null,
+  "event_dt_P0": 6.868785029665009e-10,
+  "same_outcome": true,
+  "steps_old": 93,
+  "steps_new": 217
+ }
+}

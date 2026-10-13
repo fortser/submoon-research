@@ -1,0 +1,170 @@
+{
+  "utc": "2026-10-12T08:18:25.125705+00:00",
+  "run_id": "W2-P2-1-55404980",
+  "evidence_hashes_verified": 23,
+  "transfer_files_verified": 19,
+  "bundle_files_verified": 386,
+  "B_fingerprint_reconstructed": "d884ed1f874308f7da792aa15dd57681d8b8f89d1993a16a5a838ee737b6529e",
+  "jobs": 672,
+  "seed_exact": 96,
+  "repeat_DT_exact": 384,
+  "Q2_pairs": 624,
+  "Q2_independently_reproduced": true,
+  "coverage": [
+    {
+      "years": 1.0,
+      "pairs": 144,
+      "Q2_failed": 0,
+      "only_initial": 0,
+      "events_checked": 49,
+      "after_tau": 8
+    },
+    {
+      "years": 10.0,
+      "pairs": 144,
+      "Q2_failed": 0,
+      "only_initial": 0,
+      "events_checked": 58,
+      "after_tau": 26
+    },
+    {
+      "years": 100.0,
+      "pairs": 144,
+      "Q2_failed": 0,
+      "only_initial": 6,
+      "events_checked": 58,
+      "after_tau": 44
+    },
+    {
+      "years": 1000.0,
+      "pairs": 144,
+      "Q2_failed": 0,
+      "only_initial": 30,
+      "events_checked": 58,
+      "after_tau": 44
+    },
+    {
+      "years": 10000.0,
+      "pairs": 48,
+      "Q2_failed": 0,
+      "only_initial": 19,
+      "events_checked": 24,
+      "after_tau": 13
+    }
+  ],
+  "unresolved": [
+    {
+      "orbit_id": "himalia-outer-0-0.3",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-0-0.0",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.3",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-180-0.3",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0-phase",
+      "years": 1.0,
+      "variant": "B"
+    },
+    {
+      "orbit_id": "himalia-outer-0-0.3",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-0-0.0",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.3",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0-phase",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-0-0.3",
+      "years": 1.0,
+      "variant": "D"
+    },
+    {
+      "orbit_id": "himalia-outer-0-0.0",
+      "years": 1.0,
+      "variant": "D"
+    },
+    {
+      "orbit_id": "himalia-outer-180-0.3",
+      "years": 1.0,
+      "variant": "T"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.3",
+      "years": 1.0,
+      "variant": "D"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0-phase",
+      "years": 1.0,
+      "variant": "D"
+    },
+    {
+      "orbit_id": "himalia-outer-180-0.3",
+      "years": 1.0,
+      "variant": "D"
+    },
+    {
+      "orbit_id": "himalia-outer-90-0.0",
+      "years": 1.0,
+      "variant": "D"
+    }
+  ],
+  "negative_controls": [
+    {
+      "name": "missing_last_level",
+      "rejected": true,
+      "reason": "count != 672"
+    },
+    {
+      "name": "duplicate",
+      "rejected": true,
+      "reason": "duplicate jobs"
+    },
+    {
+      "name": "nan",
+      "rejected": true,
+      "reason": "nonfinite value"
+    }
+  ],
+  "previous_audit_false_pass_missing_10000_level": true,
+  "limitations": [
+    "Q2 воспроизведён независимым кодом, не независимыми интеграциями/силами.",
+    "Проверка tau по редкой сетке не доказывает непрерывную точность.",
+    "Криптографическая целостность не удостоверяет корректность физики."
+  ]
+}

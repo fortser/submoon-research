@@ -45,7 +45,7 @@ from submoon_research.events.dense_contact import polynomial_contact
 from submoon_research.events.escape import EscapeTracker
 
 ENGINE = 'dop853_compiled_proto'
-PROTOTYPE_VERSION = 4
+PROTOTYPE_VERSION = 5  # v5: правило высоких e W2-D022
 
 _A = np.ascontiguousarray(_dc.A[:_dc.N_STAGES, :_dc.N_STAGES])
 _B = np.ascontiguousarray(_dc.B)
@@ -66,10 +66,13 @@ SCREEN_MARGIN = 1e-8
 SCREEN_DEPTH = 5
 
 DONE, CANDIDATE, BATCH_LIMIT, FAILED = 0, 1, 2, 3
-# V02: DOP853 не допущен при e >= 0.9 (аналитический контроль). Версия 3 только
-# измеряет оскулирующий эксцентриситет пробы относительно хозяина; правило
-# выхода из допустимой области будет принято решением по данным P2-1.
+# V02: DOP853 не допущен при e >= 0.9 (аналитический контроль). Монитор измеряет
+# оскулирующий эксцентриситет пробы относительно хозяина. W2-D022 (по данным P2-1):
+# высокая фаза допускается только как терминальная — контакт или уход не позже
+# HIGH_E_TERMINAL_PERIODS периодов P0 после первого связанного e >= предела; иначе
+# расчёт останавливается в t1 + K·P0 с исходом unresolved (вычислительное цензурирование).
 ECCENTRICITY_LIMIT = 0.9
+HIGH_E_TERMINAL_PERIODS = 10.0
 FLAG_FIRST, FLAG_CONTACT, FLAG_CROSSING, FLAG_DEADLINE = 1, 2, 4, 8
 
 
@@ -93,6 +96,7 @@ def implementation_fingerprint():
                      max_factor=MAX_FACTOR, error_exponent=ERROR_EXPONENT,
                      screen_margin=module.SCREEN_MARGIN, screen_depth=module.SCREEN_DEPTH,
                      eccentricity_limit=module.ECCENTRICITY_LIMIT,
+                     high_e_terminal_periods=module.HIGH_E_TERMINAL_PERIODS,
                      python=platform.python_version(), numpy=np.__version__,
                      scipy=scipy.__version__, numba=numba.__version__)
     digest.update(json.dumps(constants, sort_keys=True).encode())
@@ -469,6 +473,7 @@ def run_batch(t, y, f, h_abs, t_bound, max_step, rtol, atol, gms, figures, radii
     nfev = 0
     t_old = t
     h = 0.0
+    had_flag = emon[1] >= 0.0
     while steps < max_steps:
         if t >= t_bound:
             return DONE, t, h_abs, steps, nfev, sample_index, drift, 0, t_old, h
@@ -505,6 +510,11 @@ def run_batch(t, y, f, h_abs, t_bound, max_step, rtol, atol, gms, figures, radii
         while sample_index < sample_times.size and sample_times[sample_index] <= t:
             _dense_eval(F, y_old, (sample_times[sample_index] - t_old)/h, samples_out[sample_index])
             sample_index += 1
+        if not had_flag and emon[1] >= 0.0:
+            # W2-D022: впервые связанное e >= предела — вернуть управление, чтобы граница
+            # следующих партий стала min(H, t1 + K·P0). Шаги не меняются: партия
+            # продолжается с тем же состоянием, укорачивается только последний шаг.
+            return BATCH_LIMIT, t, h_abs, steps, nfev, sample_index, drift, 0, t_old, h
     return BATCH_LIMIT, t, h_abs, steps, nfev, sample_index, drift, 0, t_old, h
 
 
@@ -558,6 +568,12 @@ def integrate_compiled(initial, gms, figures, radii, horizon, *, period, mode=No
     steps, nfev, python_steps, batches = 0, 0, 0, 0
     _eccentricity_monitor(np.ascontiguousarray(state), t, float(gms[0]), emon)
 
+    def high_e_bound():
+        # W2-D022: после первого связанного e >= предела счёт идёт не дальше t1 + K·P0.
+        if emon[1] < 0:
+            return float(horizon)
+        return min(float(horizon), float(emon[1]) + HIGH_E_TERMINAL_PERIODS*period)
+
     def checkpoint():
         # Накопленные диагностики продолжаются после restart (W2-I013).
         return dict(schema_version='W2-state-compiled-2', contract_sha256=contract, engine=ENGINE,
@@ -588,10 +604,13 @@ def integrate_compiled(initial, gms, figures, radii, horizon, *, period, mode=No
         force_first = bool(tracker is not None and t == 0.0)
         while t < horizon:
             budget()
+            stop = high_e_bound()
+            if t >= stop:
+                break
             deadline = (tracker.pending_since + tracker.window_seconds
                         if tracker is not None and tracker.pending_since is not None else np.inf)
             code, t_new, h_abs, done, used, sample_index, drift, flags, t_old, h = run_batch(
-                t, y, f, h_abs, float(horizon), max_step, float(mode.rtol), atol, gms, fs, radii,
+                t, y, f, h_abs, stop, max_step, float(mode.rtol), atol, gms, fs, radii,
                 1e-7, hill_in, hill_out, float(deadline), energy0, drift, sample_times,
                 sample_index, samples_out, batch_steps, force_first, K, F, y_old, end_state, emon)
             batches += 1
@@ -640,15 +659,30 @@ def integrate_compiled(initial, gms, figures, radii, horizon, *, period, mode=No
         status, error = 'partial', str(exc)
     except (ArithmeticError, ValueError, RuntimeError, MemoryError) as exc:
         status, error = 'failed', str(exc)
+    high_e_stop = None if emon[1] < 0 else float(emon[1]) + HIGH_E_TERMINAL_PERIODS*period
+    phase, reason = None, None
+    if high_e_stop is not None and status == 'completed':
+        if event:
+            phase = 'terminal'
+        elif high_e_stop <= horizon and t >= high_e_stop:
+            phase = 'prolonged'
+        else:
+            phase = 'open_at_horizon'
     if status != 'completed':
-        outcome = 'unresolved'
+        outcome, reason = 'unresolved', 'computational'
     elif event:
         outcome = ('operational_escape' if event['event'] == 'operational_escape'
                    else 'host_contact' if event['body_index'] == 0 else 'other_contact')
+    elif phase == 'prolonged':
+        outcome, reason = 'unresolved', 'high_e_prolonged'
+    elif phase == 'open_at_horizon':
+        outcome, reason = 'unresolved', 'high_e_open_at_horizon'
     else:
         outcome = tracker.outcome() if tracker else 'survived'
+        reason = 'escape_not_resolved_at_horizon' if outcome == 'unresolved' else None
     samples = [dict(time=float(sample_times[k]), state=samples_out[k].tolist()) for k in range(sample_index)]
     return dict(engine=ENGINE, run_status=status, physical_outcome=outcome, error=error,
+        unresolved_reason=reason,
         last_valid_time=float(t), final_state=state.tolist(), event=event, samples=samples,
         checkpoint=checkpoint(), massive_energy_relative_drift=float(drift),
         endpoint_residual=None, steps=steps, nfev=nfev, wall_seconds=time.perf_counter()-started,
@@ -661,7 +695,11 @@ def integrate_compiled(initial, gms, figures, radii, horizon, *, period, mode=No
                  'не доказанный максимум внутри шага'),
         numerical_domain=dict(eccentricity_limit=ECCENTRICITY_LIMIT,
             outside_validated_domain=bool(emon[1] >= 0),
-            rule='только флаг; обработка выхода (B или unresolved) — решением по данным P2-1'),
+            high_e_phase=phase, high_e_stop_time=high_e_stop,
+            high_e_terminal_periods=HIGH_E_TERMINAL_PERIODS,
+            rule='W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); '
+                 'иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — '
+                 'unresolved (open_at_horizon)'),
         implementation_sha256=implementation,
         batches=batches, physical_surface_verified=False, permanent_escape_assessed=False,
         production_allowed=False)

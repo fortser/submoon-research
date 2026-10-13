@@ -1,0 +1,363 @@
+{
+ "run": "runs/W2-P2-1-55404980",
+ "question": "Зависит ли расчёт (события и состояния в общих моментах сетки) от горизонта задания?",
+ "pairs": [
+  {
+   "variant": "D",
+   "h1": 1.0,
+   "h2": 10.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 193,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 1.0,
+   "h2": 100.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 1.0,
+   "h2": 1000.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 1.0,
+   "h2": 10000.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 29,
+   "max_abs_diff": 1.14105932880193e-06
+  },
+  {
+   "variant": "D",
+   "h1": 10.0,
+   "h2": 100.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 126,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 10.0,
+   "h2": 1000.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 10.0,
+   "h2": 10000.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 100.0,
+   "h2": 1000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 108,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 100.0,
+   "h2": 10000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "D",
+   "h1": 1000.0,
+   "h2": 10000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 84,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 1.0,
+   "h2": 10.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 193,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 1.0,
+   "h2": 100.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 1.0,
+   "h2": 1000.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 1.0,
+   "h2": 10000.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 29,
+   "max_abs_diff": 6.366462912410498e-10
+  },
+  {
+   "variant": "T",
+   "h1": 10.0,
+   "h2": 100.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 126,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 10.0,
+   "h2": 1000.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 10.0,
+   "h2": 10000.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 100.0,
+   "h2": 1000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 108,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 100.0,
+   "h2": 10000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "T",
+   "h1": 1000.0,
+   "h2": 10000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 84,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 1.0,
+   "h2": 10.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 193,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 1.0,
+   "h2": 100.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 1.0,
+   "h2": 1000.0,
+   "events_compared": 19,
+   "events_identical": 19,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 10.0,
+   "h2": 100.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 126,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 10.0,
+   "h2": 1000.0,
+   "events_compared": 28,
+   "events_identical": 28,
+   "common_samples": 0,
+   "max_abs_diff": 0
+  },
+  {
+   "variant": "B",
+   "h1": 100.0,
+   "h2": 1000.0,
+   "events_compared": 34,
+   "events_identical": 34,
+   "common_samples": 108,
+   "max_abs_diff": 0
+  }
+ ],
+ "only_start_at_10000": [
+  {
+   "orbit_id": "ganymede-inner-90-0.0",
+   "event_years": 0.5962113132313889,
+   "common_samples_at_H1": 158,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.0-phase",
+   "event_years": 0.591986644872006,
+   "common_samples_at_H1": 157,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3",
+   "event_years": 0.03730858618664947,
+   "common_samples_at_H1": 84,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-inner-90-0.3-phase",
+   "event_years": 0.012986360581278866,
+   "common_samples_at_H1": 68,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.0",
+   "event_years": 0.005775123594422654,
+   "common_samples_at_H1": 56,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-0-0.3",
+   "event_years": 0.02745852935951028,
+   "common_samples_at_H1": 79,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-180-0.3",
+   "event_years": 0.04136682212789029,
+   "common_samples_at_H1": 86,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0",
+   "event_years": 0.03189770846179215,
+   "common_samples_at_H1": 82,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.0-phase",
+   "event_years": 0.0051701337449819185,
+   "common_samples_at_H1": 55,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3",
+   "event_years": 0.026874647177376115,
+   "common_samples_at_H1": 79,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "ganymede-outer-90-0.3-phase",
+   "event_years": 0.029046368707709644,
+   "common_samples_at_H1": 80,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "himalia-outer-90-0.3-phase",
+   "event_years": 0.1768370745862926,
+   "common_samples_at_H1": 115,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.0",
+   "event_years": 0.05740088218267162,
+   "common_samples_at_H1": 91,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-0-0.3",
+   "event_years": 0.3072475003718779,
+   "common_samples_at_H1": 130,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-180-0.3",
+   "event_years": 0.4573102555067629,
+   "common_samples_at_H1": 146,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0",
+   "event_years": 0.3488563176821131,
+   "common_samples_at_H1": 135,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.0-phase",
+   "event_years": 0.4970644170033289,
+   "common_samples_at_H1": 149,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3",
+   "event_years": 0.4524850597169509,
+   "common_samples_at_H1": 145,
+   "event_identical_H1_vs_H10000": true
+  },
+  {
+   "orbit_id": "iapetus-outer-90-0.3-phase",
+   "event_years": 0.340689192236395,
+   "common_samples_at_H1": 134,
+   "event_identical_H1_vs_H10000": true
+  }
+ ],
+ "totals": {
+  "events_compared": 671,
+  "events_identical": 671,
+  "common_samples": 1507,
+  "horizon_pairs_with_nonzero_diff": 2
+ },
+ "interpretation": "Все 671 событие, наступающее внутри меньшего горизонта, совпадают бит в бит между заданиями разных горизонтов (D, T, B). Состояния в общих моментах сетки совпадают бит в бит при t < меньшего горизонта; единственные отличия — ровно в момент t = H1 (конец меньшего задания: укороченный последний шаг против интерполяции внутри шага), D до 1.14e-6 км (<= 5e-11 от |r|), T до 6.4e-10 км. Следствие: 19 пар D-T на 10000 лет, имеющих общую лишь стартовую точку, — те же вычисления, что в заданиях 1 год, где каждая пара сравнена не менее чем в 55 общих точках до события (все события <= 0.596 года). Свойство эмпирическое для текущего кода (шаг не зависит от горизонта, кроме последнего)."
+}

@@ -1,0 +1,73 @@
+{
+  "instance_id": 55404980,
+  "status": "destroyed_verified",
+  "created_utc": "2026-10-11T14:53:38.695692+00:00",
+  "created_epoch": 1791730418.6956923,
+  "deadline_epoch": 1791816818.6956923,
+  "offer": {
+    "id": 54254159,
+    "machine_id": 138965,
+    "cpu_name": "Core™ i9-14900KF",
+    "cpu_cores_effective": 32.0,
+    "cpu_cores": 32,
+    "cpu_ram": 31926,
+    "cpu_arch": "amd64",
+    "gpu_name": "RTX 4060 Ti",
+    "num_gpus": 1,
+    "dph_total": 0.1613888888888889,
+    "dph_base": 0.16,
+    "storage_total_cost": 0.001388888888888889,
+    "storage_cost": 0.19999999999999998,
+    "inet_down_cost": 0.0026041666666666665,
+    "inet_up_cost": 0.00390625,
+    "reliability": 0.9971898,
+    "verification": "verified",
+    "disk_space": 671.0,
+    "geolocation": "Mexico, MX",
+    "direct_port_count": 99,
+    "rentable": true,
+    "rented": false,
+    "resource_type": "gpu",
+    "internet_down_cost_per_tb": 2.6666666666666665,
+    "internet_up_cost_per_tb": 4.0,
+    "usd_per_effective_core_hour": 0.005043
+  },
+  "approval_ref": "да",
+  "budget_usd": 5.0,
+  "run_deadline_utc": "2026-10-12T13:23:38Z",
+  "seed": {
+    "utc": "2026-10-11T10:47:08.133118+00:00",
+    "decision": "W2-D021",
+    "source_jobs": "runs/W2-P2-1-55200007/jobs.jsonl",
+    "source_sha256": "bb4ed3018990ff9138e03c399a5cc3431c99aeadf4a7f49d5b38d67f15e73645",
+    "variants": [
+      "D",
+      "T"
+    ],
+    "years": [
+      10000
+    ],
+    "rows": 96,
+    "seed_sha256": "22e40195d20face108d0c850a862574113f805a308dfb4e0b1bd56f9245c95e9"
+  },
+  "pcores_only": true,
+  "deployed_utc": "2026-10-11T14:54:45.032819+00:00",
+  "remote_pid": 408,
+  "remote_log": "/workspace/p2_55404980.log",
+  "workers": 32,
+  "downloaded_utc": "2026-10-12T07:42:41.680779+00:00",
+  "result_archive_sha256": "617b206e4a64c5d0796af4ca2983a5c9c27f83b72930b5f71b45e9b77fead7bd",
+  "remote_files": 16,
+  "extracted_files": 19,
+  "extract_stats": {
+    "written": 19,
+    "new": 19,
+    "unchanged": 0,
+    "replaced": 0,
+    "superseded_dir": null
+  },
+  "result_archive": "scratch\\p2_rental\\results_55404980.tar.gz",
+  "destroyed_utc": "2026-10-12T07:43:39.269379+00:00",
+  "elapsed_hours": 16.833,
+  "upper_cost_usd": 2.717
+}

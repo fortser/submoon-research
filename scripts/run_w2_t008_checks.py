@@ -20,6 +20,9 @@ STAMP = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 SUITE = sys.argv[1] if len(sys.argv) > 1 else 'lookup'
 LOG = ROOT/'scratch'/'claude'/f'W2-T008_checks_{SUITE}_{STAMP}.log'
 
+_P2_2_QUICK = ['--per-cell', '2', '--b-per-cell', '1', '--years', '0.01', '0.1', '--b-years', '0.1']
+_P2_2_COST = ['--per-cell', '32', '--b-per-cell', '4', '--years', '1', '10', '--b-years', '10']
+
 SUITES = {
     # Пакет 1: поиск сегмента кеша (W2-C019, W2-R004).
     'lookup': [
@@ -124,8 +127,56 @@ SUITES = {
                          '0.01', '--concurrent', '--workers', '4',
                          '--run-dir', f'scratch/claude/W2-P004_P2-1_i017_quick_{STAMP}']),
     ],
+    # W2-T014: прототип v5 (правило высоких e W2-D022), независимость от горизонта, строгая приёмка
+    # run (W2-I020) на обоих прогонах P2-1, короткий гейт стенда.
+    'd022': [
+        ('pytest', [PY, '-m', 'pytest', 'tests']),
+        ('ruff', [PY, '-m', 'ruff', 'check', 'src', 'scripts', 'tests']),
+        ('validate', [PY, 'scripts/project.py', 'validate']),
+        ('verify_rerun', [PY, 'scripts/verify_p2_run.py', '--run', 'runs/W2-P2-1-55404980',
+                          '--years', '1', '10', '100', '1000', '10000', '--b-max-years', '1000',
+                          '--seed-info', 'results/evidence/W2_P2-1_remote_55404980/seed_info.json',
+                          '--repeat-of', 'runs/W2-P2-1-55200007', '--expect-passed',
+                          '--output', f'scratch/claude/W2-T014_verify_55404980_{STAMP}.json']),
+        ('verify_first', [PY, 'scripts/verify_p2_run.py', '--run', 'runs/W2-P2-1-55200007',
+                          '--years', '1', '10', '100', '1000', '10000', '--b-max-years', '1000',
+                          '--output', f'scratch/claude/W2-T014_verify_55200007_{STAMP}.json']),
+        ('stand_quick', [PY, 'scripts/admission_p2_horizons.py', '--limit', '4', '--years', '0.01', '0.03',
+                         '0.1', '--b-max-years', '0.03', '--core-years', '0.01', '0.03', '--core-b-max',
+                         '0.01', '--concurrent', '--workers', '4',
+                         '--run-dir', f'scratch/claude/W2-P004_P2-1_v5_quick_{STAMP}']),
+    ],
+    # W2-T015: предел шага B по местному орбитальному времени (W2-I019) — тесты и замер.
+    'b_step': [
+        ('pytest', [PY, '-m', 'pytest', 'tests']),
+        ('ruff', [PY, '-m', 'ruff', 'check', 'src', 'scripts', 'tests']),
+        ('validate', [PY, 'scripts/project.py', 'validate']),
+        ('bench_quick', [PY, 'scripts/diag_ias15_dense_step.py', '--caps', 'none', 'local:0.025',
+                         '--output', f'scratch/claude/W2-T015_diag_{STAMP}.json']),
+        ('stand_quick', [PY, 'scripts/admission_p2_horizons.py', '--limit', '4', '--years', '0.01', '0.03',
+                         '0.1', '--b-max-years', '0.03', '--core-years', '0.01', '0.03', '--core-b-max',
+                         '0.01', '--concurrent', '--workers', '4',
+                         '--run-dir', f'scratch/claude/W2-P004_P2-1_bstep_quick_{STAMP}']),
+    ],
+    # W2-T016 (план W2-P006): стенд P2-2a, строгий приёмщик, обрезка последнего шага B по горизонту
+    # (W2-I021); короткий гейт стенда и замер стоимости на вероятностной выборке (10 лет).
+    'p2_2': [
+        ('pytest', [PY, '-m', 'pytest', 'tests']),
+        ('ruff', [PY, '-m', 'ruff', 'check', 'src', 'scripts', 'tests']),
+        ('validate', [PY, 'scripts/project.py', 'validate']),
+        ('bench_quick', [PY, 'scripts/admission_p2_2.py', *_P2_2_QUICK, '--workers', '4',
+                         '--run-dir', f'scratch/claude/W2-P2-2_quick_{STAMP}']),
+        ('verify_quick', [PY, 'scripts/verify_p2_2_run.py', '--run', f'scratch/claude/W2-P2-2_quick_{STAMP}',
+                          *_P2_2_QUICK, '--expect-complete',
+                          '--output', f'scratch/claude/W2-P2-2_quick_verify_{STAMP}.json']),
+        ('bench_full', [PY, 'scripts/admission_p2_2.py', *_P2_2_COST, '--workers', '8',
+                        '--run-dir', f'scratch/claude/W2-P2-2_cost_{STAMP}']),
+        ('verify_full', [PY, 'scripts/verify_p2_2_run.py', '--run', f'scratch/claude/W2-P2-2_cost_{STAMP}',
+                         *_P2_2_COST, '--expect-complete',
+                         '--output', f'scratch/claude/W2-P2-2_cost_verify_{STAMP}.json']),
+    ],
 }
-GATED = ('bench_full', 'bench_scaling', 'bench_long')  # запускаются, только если bench_quick прошёл
+GATED = ('bench_full', 'bench_scaling', 'bench_long', 'verify_full')  # только если bench_quick прошёл
 
 
 def main():

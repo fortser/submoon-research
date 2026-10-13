@@ -350,7 +350,7 @@ export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMBA_NUM_THRE
 export W2_REMOTE_EXECUTION=1 W2_INSTANCE_ID={iid}
 rm -f {STOP_FILE}
 echo "gates $(date -u +%FT%TZ)" > $STATUS
-.venv/bin/python -m pytest -q tests/unit/test_compiled_dop853.py tests/unit/test_admission_evaluators.py tests/unit/test_events_shared_samples.py tests/unit/test_native_ias15_guard.py || fail pytest
+.venv/bin/python -m pytest -q tests/unit/test_compiled_dop853.py tests/unit/test_admission_evaluators.py tests/unit/test_events_shared_samples.py tests/unit/test_native_ias15_guard.py tests/unit/test_high_e_rule.py tests/unit/test_horizon_independence.py || fail pytest
 .venv/bin/python -m ruff check src scripts tests || fail ruff
 # Диагностика W2-I015 (не гейт): реальный случай отказа B до 1.5 года новым стражем.
 mkdir -p {run_dir}
@@ -367,7 +367,7 @@ if [ -n "$QUOTA" ] && [ "$QUOTA" -gt 0 ] && [ "$QUOTA" -lt "$W" ]; then W=$QUOTA
 PIN=""
 {pcores_block}
 SEED=$(test -f {run_dir}/jobs.jsonl && wc -l < {run_dir}/jobs.jsonl || echo 0)
-echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=${{PIN:-none}} seed_rows=$SEED deadline={deadline}" > $STATUS
+echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=${{PCPUS:-none}} seed_rows=$SEED deadline={deadline}" > $STATUS
 $PIN .venv/bin/python -u scripts/admission_p2_horizons.py --years 1 10 100 1000 10000 --b-max-years 1000 --concurrent --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir}
 echo "done exit=$? $(date -u +%FT%TZ)" > $STATUS
 '''
@@ -421,12 +421,30 @@ def deploy():
         vw.put_if_missing_or_identical(client, sftp, script, '/workspace/p2_start.sh')
         pid = vw.remote_command(client, f'nohup bash /workspace/p2_start.sh > {log} 2>&1 < /dev/null & echo $!')
         rental.update(status='deployed', deployed_utc=vw.now(), remote_pid=int(pid.strip()),
-                      remote_log=log, workers=_workers(rental['offer']))
+                      remote_log=log, workers_limit=_workers(rental['offer']), workers=None)
         save(RENTAL, rental)
         print(json.dumps(dict(instance_id=rental['instance_id'], remote_pid=rental['remote_pid'],
-                              workers=rental['workers'], run_deadline_utc=rental['run_deadline_utc'])))
+                              workers_limit=rental['workers_limit'], pcores_only=rental['pcores_only'],
+                              run_deadline_utc=rental['run_deadline_utc'])))
     finally:
         client.close()
+
+
+def _parse_running_stage(text):
+    """Фактические параметры запуска из строки этапа «running … workers=N … pin=… seed_rows=N».
+    В rental.json прежде попадал только предел по предложению (32 при фактических 8, W2-C034)."""
+    if not text.startswith('running '):
+        return None
+    fields = dict(m.groups() for m in re.finditer(r'(\w+)=(\S+)', text))
+    actual = {}
+    if 'workers' in fields:
+        actual['workers'] = int(fields['workers'])
+    pin = re.search(r'pin=(?:taskset -c )?(\S+)', text)  # прежний формат: pin=taskset -c 0,2,…
+    if pin:
+        actual['pin'] = None if pin.group(1) == 'none' else pin.group(1)
+    if 'seed_rows' in fields:
+        actual['seed_rows'] = int(fields['seed_rows'])
+    return actual
 
 
 def status():
@@ -451,6 +469,10 @@ def status():
             with vw.connection(info) as client:
                 run_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
                 out['remote_stage'] = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
+                actual = _parse_running_stage(out['remote_stage'])
+                if actual and any(rental.get(k) != v for k, v in actual.items()):
+                    rental.update(actual)  # фактические workers/pin/seed со строки этапа
+                    save(RENTAL, rental)
                 out['progress'] = vw.remote_command(client, f'cat {run_dir}/progress.json 2>/dev/null || echo none', 20).strip()[:1500]
                 out['log_tail'] = vw.remote_command(client, f'tail -n 15 {rental.get("remote_log", "/dev/null")} 2>/dev/null', 20)[-2500:]
         except Exception as exc:

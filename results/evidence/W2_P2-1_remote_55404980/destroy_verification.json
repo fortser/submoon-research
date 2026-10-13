@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-12T07:49:18.788999+00:00",
+  "instance_id": 55404980,
+  "provider_instances": [],
+  "target_absent": true,
+  "source": "Vast show instances --raw: отдельная проверка после destroy",
+  "rental_status": "destroyed_verified"
+}

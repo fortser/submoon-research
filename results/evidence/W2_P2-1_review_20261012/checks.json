@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-12T08:29:04.533933+00:00",
+  "checks": [
+    {
+      "command": [
+        "-m",
+        "ruff",
+        "check",
+        "src",
+        "scripts",
+        "tests",
+        "results\\evidence\\W2_P2-1_review_20261012\\review.py"
+      ],
+      "exit_code": 0,
+      "stdout": "All checks passed!\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scripts/project.py",
+        "validate"
+      ],
+      "exit_code": 0,
+      "stdout": "{\n  \"status\": \"passed\",\n  \"errors\": [],\n  \"host_passports\": 11,\n  \"tracking_records\": 216,\n  \"limitations\": \"Structural checks only; draft physics and scientific gates are not certified.\"\n}\n",
+      "stderr": ""
+    }
+  ],
+  "full_pytest_rerun": false,
+  "note": "Полный pytest был выполнен W2-T012, 311/15. Научный код при рецензии не менялся."
+}

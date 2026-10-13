@@ -1,0 +1,16 @@
+{
+ "task": "W2-T014",
+ "decision": "W2-D022",
+ "utc": "2026-10-12",
+ "environment": "среда Claude на ПК пользователя: Python 3.10.12, numpy 2.2.6, scipy 1.15.3; numba заменён заглушкой (njit -> обычная функция, fastmath=False); код src v5",
+ "reference": "runs/W2-P2-1-55404980 (прототип v4, numba на i9-14900KF)",
+ "flagged_21_outer_D_H10y": "21/21: исход, событие (тип, время, тело) и все точки сетки совпадают с v4 побитно; high_e_phase=terminal у всех",
+ "non_flagged_H1y": {
+  "iapetus-outer-180-0.0 D": "побитно, 689 шагов",
+  "iapetus-outer-180-0.0 T": "побитно, 1229 шагов",
+  "ganymede-inner-90-0.3 D": "побитно, 3017 шагов",
+  "ganymede-inner-90-0.3-phase T": "побитно, 2033 шага"
+ },
+ "unit_tests": "tests/unit/test_high_e_rule.py 6/6 (минимальный запускальщик; полный pytest — в WSL)",
+ "note": "Совпадение чистого Python с numba побитно ожидаемо при fastmath=False; полная проверка с numba — набор d022 в WSL."
+}

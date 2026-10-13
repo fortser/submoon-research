@@ -1,0 +1,1202 @@
+{
+ "ganymede-inner-0-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6955375559454187,
+   "power_rms_dex": 0.4495851806309596,
+   "exp_efold_years": 0.07384415541778502,
+   "exp_rms_dex": 1.1892317965292791,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 140,
+   "t_range_years": [
+    0.003756670890311597,
+    1.0
+   ],
+   "power_slope": 2.665701336799199,
+   "power_rms_dex": 0.4828211197145701,
+   "exp_efold_years": 0.09287044248427945,
+   "exp_rms_dex": 1.2839754130473546,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 143,
+   "t_range_years": [
+    0.001,
+    4.21875
+   ],
+   "power_slope": 2.020183660826702,
+   "power_rms_dex": 0.302413155130981,
+   "exp_efold_years": 0.2907300440324884,
+   "exp_rms_dex": 1.4180833278288874,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 153,
+   "t_range_years": [
+    0.003966662010161199,
+    7.65625
+   ],
+   "power_slope": 2.5297855697646754,
+   "power_rms_dex": 0.5927554685389114,
+   "exp_efold_years": 0.5148722801951818,
+   "exp_rms_dex": 1.6856129679920513,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-0-0.3": {
+  "D-T@1": {
+   "points": 131,
+   "t_range_years": [
+    0.0001,
+    0.336945030221216
+   ],
+   "power_slope": 2.000960557265156,
+   "power_rms_dex": 0.20091625923091458,
+   "exp_efold_years": 0.02268150045077551,
+   "exp_rms_dex": 1.3629417160372586,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.9418699089359581,
+   "power_rms_dex": 0.259243769998002,
+   "exp_efold_years": 0.06846385214998482,
+   "exp_rms_dex": 1.4563117698283286,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 81,
+   "t_range_years": [
+    0.001,
+    0.33089106441964966
+   ],
+   "power_slope": 2.0878965157477016,
+   "power_rms_dex": 0.17268064692277454,
+   "exp_efold_years": 0.02779135886162356,
+   "exp_rms_dex": 0.9355667867072194,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 156,
+   "t_range_years": [
+    0.001,
+    7.34375
+   ],
+   "power_slope": 2.0261880872014593,
+   "power_rms_dex": 0.19419159931530974,
+   "exp_efold_years": 0.4626888163488323,
+   "exp_rms_dex": 1.6307432239179727,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-180-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6958424967033667,
+   "power_rms_dex": 0.4476632920744688,
+   "exp_efold_years": 0.07386285882709928,
+   "exp_rms_dex": 1.1898283674807422,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 166,
+   "t_range_years": [
+    0.0005700402367896367,
+    1.0
+   ],
+   "power_slope": 2.422787552259857,
+   "power_rms_dex": 0.41064358835046755,
+   "exp_efold_years": 0.064366232994662,
+   "exp_rms_dex": 1.170933477729479,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 143,
+   "t_range_years": [
+    0.001,
+    4.21875
+   ],
+   "power_slope": 2.0223063768270757,
+   "power_rms_dex": 0.3133786507759596,
+   "exp_efold_years": 0.290593130890168,
+   "exp_rms_dex": 1.423156109795047,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 149,
+   "t_range_years": [
+    0.001,
+    4.84375
+   ],
+   "power_slope": 2.5099998273389996,
+   "power_rms_dex": 0.39976416960072436,
+   "exp_efold_years": 0.25654400818266215,
+   "exp_rms_dex": 1.6709777662171432,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-180-0.3": {
+  "D-T@1": {
+   "points": 125,
+   "t_range_years": [
+    0.0001,
+    0.296875
+   ],
+   "power_slope": 2.0451532759537483,
+   "power_rms_dex": 0.24494210790875823,
+   "exp_efold_years": 0.0188614179149055,
+   "exp_rms_dex": 1.3652153492274366,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.985699593899055,
+   "power_rms_dex": 0.2950229693772659,
+   "exp_efold_years": 0.0664197845365978,
+   "exp_rms_dex": 1.474163908083612,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 78,
+   "t_range_years": [
+    0.001,
+    0.30774356208980624
+   ],
+   "power_slope": 2.167210621512482,
+   "power_rms_dex": 0.2244891247723835,
+   "exp_efold_years": 0.024575598532379967,
+   "exp_rms_dex": 0.9833207853896454,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 140,
+   "t_range_years": [
+    0.001,
+    4.21875
+   ],
+   "power_slope": 2.130610858238669,
+   "power_rms_dex": 0.208320966622082,
+   "exp_efold_years": 0.27126785408664256,
+   "exp_rms_dex": 1.5497123349693926,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-90-0.0": {
+  "D-T@1": {
+   "points": 158,
+   "t_range_years": [
+    0.0001,
+    0.59375
+   ],
+   "power_slope": 1.6367745000759666,
+   "power_rms_dex": 0.4712101306121787,
+   "exp_efold_years": 0.04460225332294938,
+   "exp_rms_dex": 1.0518438606665301,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 127,
+   "t_range_years": [
+    0.000708587849148888,
+    0.59375
+   ],
+   "power_slope": 2.3655729372465015,
+   "power_rms_dex": 0.414942020316175,
+   "exp_efold_years": 0.041266349467810645,
+   "exp_rms_dex": 1.0371632694183068,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 92,
+   "t_range_years": [
+    0.001,
+    0.5910899064227995
+   ],
+   "power_slope": 1.9840018140926647,
+   "power_rms_dex": 0.3838005023725423,
+   "exp_efold_years": 0.045979790773724064,
+   "exp_rms_dex": 0.9339195375767334,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 88,
+   "t_range_years": [
+    0.001,
+    0.5910899064227995
+   ],
+   "power_slope": 2.3721875167032067,
+   "power_rms_dex": 0.382261106110492,
+   "exp_efold_years": 0.03799816879078005,
+   "exp_rms_dex": 1.0253116686367156,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-90-0.0-phase": {
+  "D-T@1": {
+   "points": 157,
+   "t_range_years": [
+    0.0001,
+    0.578125
+   ],
+   "power_slope": 1.633414203038915,
+   "power_rms_dex": 0.4804021375052768,
+   "exp_efold_years": 0.043735708159526876,
+   "exp_rms_dex": 1.0465045256322705,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 120,
+   "t_range_years": [
+    0.0014633706173946344,
+    0.578125
+   ],
+   "power_slope": 2.550865130449634,
+   "power_rms_dex": 0.14863195217447508,
+   "exp_efold_years": 0.045979658009258934,
+   "exp_rms_dex": 1.1431349114735219,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 92,
+   "t_range_years": [
+    0.001,
+    0.5910899064227995
+   ],
+   "power_slope": 1.975683552951241,
+   "power_rms_dex": 0.3729894503165026,
+   "exp_efold_years": 0.046226223814044926,
+   "exp_rms_dex": 0.9285992507430321,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 86,
+   "t_range_years": [
+    0.0015451703926941457,
+    0.5910899064227995
+   ],
+   "power_slope": 2.569846513580068,
+   "power_rms_dex": 0.14057330497230197,
+   "exp_efold_years": 0.04090723954262599,
+   "exp_rms_dex": 1.1687491128043146,
+   "better": "power"
+  }
+ },
+ "ganymede-inner-90-0.3": {
+  "D-T@1": {
+   "points": 84,
+   "t_range_years": [
+    0.0001,
+    0.03557796490339496
+   ],
+   "power_slope": 1.903609177555949,
+   "power_rms_dex": 0.30787236907459953,
+   "exp_efold_years": 0.003074665649309162,
+   "exp_rms_dex": 0.7145060889313073,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 84,
+   "t_range_years": [
+    0.0001,
+    0.03557796490339496
+   ],
+   "power_slope": 1.493531862100155,
+   "power_rms_dex": 0.3999085976318055,
+   "exp_efold_years": 0.0036079817110533903,
+   "exp_rms_dex": 0.48314849185194353,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 50,
+   "t_range_years": [
+    0.001,
+    0.0349387277474913
+   ],
+   "power_slope": 2.3937658435641174,
+   "power_rms_dex": 0.17597180022076309,
+   "exp_efold_years": 0.00419713886903939,
+   "exp_rms_dex": 0.5405737417002594,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 50,
+   "t_range_years": [
+    0.001,
+    0.0349387277474913
+   ],
+   "power_slope": 2.000570630108699,
+   "power_rms_dex": 0.359345006341215,
+   "exp_efold_years": 0.004424922644714109,
+   "exp_rms_dex": 0.3549235994139767,
+   "better": "exponential"
+  }
+ },
+ "ganymede-inner-90-0.3-phase": {
+  "D-T@1": {
+   "points": 63,
+   "t_range_years": [
+    0.0001243048829569517,
+    0.012889504440725367
+   ],
+   "power_slope": 2.9321515042668267,
+   "power_rms_dex": 0.5126425005196822,
+   "exp_efold_years": 0.0010985187928598324,
+   "exp_rms_dex": 1.1719093086139822,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 51,
+   "t_range_years": [
+    0.00034310975906798823,
+    0.012889504440725367
+   ],
+   "power_slope": 2.179245583629061,
+   "power_rms_dex": 0.19124614164622625,
+   "exp_efold_years": 0.0016746530800136761,
+   "exp_rms_dex": 0.5201296602308819,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 36,
+   "t_range_years": [
+    0.001,
+    0.012657915866672033
+   ],
+   "power_slope": 2.004369961076593,
+   "power_rms_dex": 0.1421607560502144,
+   "exp_efold_years": 0.002361064942954965,
+   "exp_rms_dex": 0.27345389658716857,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 36,
+   "t_range_years": [
+    0.001,
+    0.012657915866672033
+   ],
+   "power_slope": 1.9322601273523607,
+   "power_rms_dex": 0.1350794470056488,
+   "exp_efold_years": 0.0024308981948467797,
+   "exp_rms_dex": 0.2523688569330592,
+   "better": "power"
+  }
+ },
+ "himalia-inner-0-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6234441108686049,
+   "power_rms_dex": 0.45421604437762036,
+   "exp_efold_years": 0.0758893507256503,
+   "exp_rms_dex": 1.1061649153248063,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 139,
+   "t_range_years": [
+    0.004343054463316706,
+    1.0
+   ],
+   "power_slope": 3.4372209518428942,
+   "power_rms_dex": 0.3686072217492104,
+   "exp_efold_years": 0.06427338602240401,
+   "exp_rms_dex": 1.179778944212276,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 161,
+   "t_range_years": [
+    0.001,
+    6.25
+   ],
+   "power_slope": 1.9697719232602415,
+   "power_rms_dex": 0.3262484376479281,
+   "exp_efold_years": 0.4280091446749657,
+   "exp_rms_dex": 1.4331408629839613,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 112,
+   "t_range_years": [
+    0.004265021844233417,
+    3.133740223858905
+   ],
+   "power_slope": 3.135452678191356,
+   "power_rms_dex": 0.4416389906102071,
+   "exp_efold_years": 0.17957268630265794,
+   "exp_rms_dex": 1.7290116270600724,
+   "better": "power"
+  }
+ },
+ "himalia-inner-0-0.3": {
+  "D-T@1": {
+   "points": 117,
+   "t_range_years": [
+    0.0001,
+    0.21875
+   ],
+   "power_slope": 1.9061907398599085,
+   "power_rms_dex": 0.29733735374186965,
+   "exp_efold_years": 0.01468615340684994,
+   "exp_rms_dex": 1.153014295609708,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.8613816757597605,
+   "power_rms_dex": 0.3152140060407378,
+   "exp_efold_years": 0.06995152799206412,
+   "exp_rms_dex": 1.357972463709727,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 75,
+   "t_range_years": [
+    0.001,
+    0.19916480638308548
+   ],
+   "power_slope": 2.2402901525881713,
+   "power_rms_dex": 0.1812621958693276,
+   "exp_efold_years": 0.018017313136439412,
+   "exp_rms_dex": 0.8969430740083658,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 141,
+   "t_range_years": [
+    0.001,
+    4.6875
+   ],
+   "power_slope": 2.070093768783376,
+   "power_rms_dex": 0.22210749480102723,
+   "exp_efold_years": 0.31412571828945585,
+   "exp_rms_dex": 1.5529918577468984,
+   "better": "power"
+  }
+ },
+ "himalia-inner-180-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.623378725533429,
+   "power_rms_dex": 0.45443168498439157,
+   "exp_efold_years": 0.0758883727491834,
+   "exp_rms_dex": 1.1060741832818275,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 138,
+   "t_range_years": [
+    0.00302214265517838,
+    1.0
+   ],
+   "power_slope": 2.9216130791404353,
+   "power_rms_dex": 0.5074889095493305,
+   "exp_efold_years": 0.08160428662014851,
+   "exp_rms_dex": 1.250555487608452,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 161,
+   "t_range_years": [
+    0.001,
+    6.25
+   ],
+   "power_slope": 1.9698122968397798,
+   "power_rms_dex": 0.3245584195236136,
+   "exp_efold_years": 0.42800426159734567,
+   "exp_rms_dex": 1.432806196415926,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 114,
+   "t_range_years": [
+    0.002967843150390038,
+    5.0
+   ],
+   "power_slope": 2.976823142553179,
+   "power_rms_dex": 0.5055191507503971,
+   "exp_efold_years": 0.2672534463496822,
+   "exp_rms_dex": 1.7987123545509542,
+   "better": "power"
+  }
+ },
+ "himalia-inner-180-0.3": {
+  "D-T@1": {
+   "points": 117,
+   "t_range_years": [
+    0.0001,
+    0.21875
+   ],
+   "power_slope": 1.907200751735873,
+   "power_rms_dex": 0.2978327539811548,
+   "exp_efold_years": 0.014669710494938103,
+   "exp_rms_dex": 1.1525181828842417,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.8078761210456442,
+   "power_rms_dex": 0.30350401645039987,
+   "exp_efold_years": 0.07476772970498313,
+   "exp_rms_dex": 1.4053274164902825,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 75,
+   "t_range_years": [
+    0.001,
+    0.19916480638308548
+   ],
+   "power_slope": 2.2423840945903115,
+   "power_rms_dex": 0.18060460444979612,
+   "exp_efold_years": 0.017989899972275188,
+   "exp_rms_dex": 0.8966010307322316,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 136,
+   "t_range_years": [
+    0.001,
+    10.0
+   ],
+   "power_slope": 2.039096493109516,
+   "power_rms_dex": 0.2383109329702854,
+   "exp_efold_years": 0.4484458450900348,
+   "exp_rms_dex": 1.7589662160006556,
+   "better": "power"
+  }
+ },
+ "himalia-inner-90-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6233396644919353,
+   "power_rms_dex": 0.4541052472813629,
+   "exp_efold_years": 0.07589002285354499,
+   "exp_rms_dex": 1.105911777179756,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 140,
+   "t_range_years": [
+    0.004039235853150905,
+    1.0
+   ],
+   "power_slope": 3.2338749967393805,
+   "power_rms_dex": 0.2944143015957226,
+   "exp_efold_years": 0.06799060854476058,
+   "exp_rms_dex": 1.1416757668132549,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 161,
+   "t_range_years": [
+    0.001,
+    6.25
+   ],
+   "power_slope": 1.9695484272291248,
+   "power_rms_dex": 0.32456663328498103,
+   "exp_efold_years": 0.4280357382083156,
+   "exp_rms_dex": 1.4324846535593148,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 111,
+   "t_range_years": [
+    0.003966662010161199,
+    6.5625
+   ],
+   "power_slope": 2.9332239015493444,
+   "power_rms_dex": 0.4784838978086321,
+   "exp_efold_years": 0.2389699622127043,
+   "exp_rms_dex": 1.912942207650987,
+   "better": "power"
+  }
+ },
+ "himalia-inner-90-0.0-phase": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6231890904191477,
+   "power_rms_dex": 0.4556194703743281,
+   "exp_efold_years": 0.07587215757780873,
+   "exp_rms_dex": 1.1055707036437834,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 138,
+   "t_range_years": [
+    0.0046697253532797045,
+    1.0
+   ],
+   "power_slope": 2.8584588906992563,
+   "power_rms_dex": 0.6203301701753278,
+   "exp_efold_years": 0.08914232282241714,
+   "exp_rms_dex": 1.374296571587815,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 161,
+   "t_range_years": [
+    0.001,
+    6.25
+   ],
+   "power_slope": 1.9702713193040762,
+   "power_rms_dex": 0.3283055895732369,
+   "exp_efold_years": 0.4278399448666691,
+   "exp_rms_dex": 1.4336231164296922,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 135,
+   "t_range_years": [
+    0.0045858233661428055,
+    6.09375
+   ],
+   "power_slope": 2.6810390484434383,
+   "power_rms_dex": 0.5386966611507971,
+   "exp_efold_years": 0.3833594562769562,
+   "exp_rms_dex": 1.70003687932164,
+   "better": "power"
+  }
+ },
+ "himalia-inner-90-0.3": {
+  "D-T@1": {
+   "points": 117,
+   "t_range_years": [
+    0.0001,
+    0.21875
+   ],
+   "power_slope": 1.9068450892282414,
+   "power_rms_dex": 0.29761716947974015,
+   "exp_efold_years": 0.014676640038099065,
+   "exp_rms_dex": 1.1528400365205405,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.910134918548166,
+   "power_rms_dex": 0.3358429043294346,
+   "exp_efold_years": 0.0677055030437263,
+   "exp_rms_dex": 1.378413441188639,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 75,
+   "t_range_years": [
+    0.001,
+    0.19916480638308548
+   ],
+   "power_slope": 2.241642304391581,
+   "power_rms_dex": 0.1808796187808876,
+   "exp_efold_years": 0.01800107435649503,
+   "exp_rms_dex": 0.8968717466745789,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 140,
+   "t_range_years": [
+    0.001,
+    9.21875
+   ],
+   "power_slope": 2.0104097487105177,
+   "power_rms_dex": 0.4316924940582401,
+   "exp_efold_years": 0.6166975792630321,
+   "exp_rms_dex": 1.8910868437250001,
+   "better": "power"
+  }
+ },
+ "himalia-inner-90-0.3-phase": {
+  "D-T@1": {
+   "points": 114,
+   "t_range_years": [
+    0.0001,
+    0.203125
+   ],
+   "power_slope": 2.6892989944957937,
+   "power_rms_dex": 0.7480390821528928,
+   "exp_efold_years": 0.012363523447701698,
+   "exp_rms_dex": 2.035645826726341,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 168,
+   "t_range_years": [
+    0.0005301630411562781,
+    1.0
+   ],
+   "power_slope": 1.9324704593756827,
+   "power_rms_dex": 0.14914205450656223,
+   "exp_efold_years": 0.08692110986969498,
+   "exp_rms_dex": 1.1472543178454995,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 73,
+   "t_range_years": [
+    0.001,
+    0.19916480638308548
+   ],
+   "power_slope": 1.9731424203705317,
+   "power_rms_dex": 0.12048452910488468,
+   "exp_efold_years": 0.019220077620536593,
+   "exp_rms_dex": 0.7417364844797111,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 141,
+   "t_range_years": [
+    0.001,
+    4.503428864545827
+   ],
+   "power_slope": 1.938156855577328,
+   "power_rms_dex": 0.15160121110501232,
+   "exp_efold_years": 0.30450452551135343,
+   "exp_rms_dex": 1.3712843034463607,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-0-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6467737979003487,
+   "power_rms_dex": 0.456251299047621,
+   "exp_efold_years": 0.07519401011453113,
+   "exp_rms_dex": 1.1338383519286022,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 144,
+   "t_range_years": [
+    0.0011772430676769295,
+    1.0
+   ],
+   "power_slope": 2.5446028775310037,
+   "power_rms_dex": 0.38463459970819375,
+   "exp_efold_years": 0.08357512630159157,
+   "exp_rms_dex": 1.152626069638398,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 156,
+   "t_range_years": [
+    0.001,
+    5.625
+   ],
+   "power_slope": 1.9824081645330085,
+   "power_rms_dex": 0.31561316624649677,
+   "exp_efold_years": 0.3880722079266886,
+   "exp_rms_dex": 1.4294312020470605,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 140,
+   "t_range_years": [
+    0.0011560912813835744,
+    5.3125
+   ],
+   "power_slope": 2.585930431140685,
+   "power_rms_dex": 0.44725178595514214,
+   "exp_efold_years": 0.3033851391611329,
+   "exp_rms_dex": 1.6128343123554143,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-0-0.3": {
+  "D-T@1": {
+   "points": 122,
+   "t_range_years": [
+    0.0001,
+    0.265625
+   ],
+   "power_slope": 2.011753541333158,
+   "power_rms_dex": 0.23826493397455184,
+   "exp_efold_years": 0.017069755642869024,
+   "exp_rms_dex": 1.2975799832950528,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.92720625831244,
+   "power_rms_dex": 0.27668688357843924,
+   "exp_efold_years": 0.06945437664192808,
+   "exp_rms_dex": 1.4654591629332128,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 78,
+   "t_range_years": [
+    0.001,
+    0.26619313461261324
+   ],
+   "power_slope": 2.1966663223163416,
+   "power_rms_dex": 0.1899601393313039,
+   "exp_efold_years": 0.022000268712038463,
+   "exp_rms_dex": 0.9355454615653407,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 142,
+   "t_range_years": [
+    0.001,
+    4.84375
+   ],
+   "power_slope": 2.0741840286587423,
+   "power_rms_dex": 0.19038674540741338,
+   "exp_efold_years": 0.3112722783475817,
+   "exp_rms_dex": 1.553974782405505,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-180-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6467451764221148,
+   "power_rms_dex": 0.45689819195031345,
+   "exp_efold_years": 0.07519244412488903,
+   "exp_rms_dex": 1.1339807224971237,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 150,
+   "t_range_years": [
+    0.0011772430676769295,
+    1.0
+   ],
+   "power_slope": 2.5944218848086966,
+   "power_rms_dex": 0.37171172822172927,
+   "exp_efold_years": 0.07389401513880557,
+   "exp_rms_dex": 1.2662966672046072,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 156,
+   "t_range_years": [
+    0.001,
+    5.625
+   ],
+   "power_slope": 1.9824482446305747,
+   "power_rms_dex": 0.3164247520113036,
+   "exp_efold_years": 0.38808597192671207,
+   "exp_rms_dex": 1.4297664786715838,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 167,
+   "t_range_years": [
+    0.0011560912813835744,
+    8.125
+   ],
+   "power_slope": 2.4638811680443924,
+   "power_rms_dex": 0.42820027887552264,
+   "exp_efold_years": 0.5063632395056422,
+   "exp_rms_dex": 1.9162318337889535,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-180-0.3": {
+  "D-T@1": {
+   "points": 124,
+   "t_range_years": [
+    0.0001,
+    0.265625
+   ],
+   "power_slope": 2.002170843018969,
+   "power_rms_dex": 0.2695815616973768,
+   "exp_efold_years": 0.01773299813160154,
+   "exp_rms_dex": 1.2853441087803972,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.8982312603666736,
+   "power_rms_dex": 0.3103993623086766,
+   "exp_efold_years": 0.06973011873713222,
+   "exp_rms_dex": 1.4240739495877368,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 78,
+   "t_range_years": [
+    0.001,
+    0.26619313461261324
+   ],
+   "power_slope": 2.2242207608109914,
+   "power_rms_dex": 0.2021692554286521,
+   "exp_efold_years": 0.021789081671479207,
+   "exp_rms_dex": 0.9540523431670384,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 138,
+   "t_range_years": [
+    0.001,
+    4.21875
+   ],
+   "power_slope": 2.1018079282018247,
+   "power_rms_dex": 0.19396961487771347,
+   "exp_efold_years": 0.2603127949328768,
+   "exp_rms_dex": 1.4930696096467209,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-90-0.0": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6465009899413485,
+   "power_rms_dex": 0.4573136441814645,
+   "exp_efold_years": 0.07520066448770923,
+   "exp_rms_dex": 1.1339037359734385,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 148,
+   "t_range_years": [
+    0.001094888965127687,
+    1.0
+   ],
+   "power_slope": 2.596449015813927,
+   "power_rms_dex": 0.25233482379336525,
+   "exp_efold_years": 0.07688873905501145,
+   "exp_rms_dex": 1.1648550076273652,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 156,
+   "t_range_years": [
+    0.001,
+    5.625
+   ],
+   "power_slope": 1.982225581925415,
+   "power_rms_dex": 0.31636594260573125,
+   "exp_efold_years": 0.3881102137971666,
+   "exp_rms_dex": 1.4294858089253084,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 145,
+   "t_range_years": [
+    0.0011560912813835744,
+    5.625
+   ],
+   "power_slope": 2.5103068562414963,
+   "power_rms_dex": 0.3482775268652093,
+   "exp_efold_years": 0.33750268573867864,
+   "exp_rms_dex": 1.6663026975307589,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-90-0.0-phase": {
+  "D-T@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.6466223013756447,
+   "power_rms_dex": 0.45574669755445346,
+   "exp_efold_years": 0.07521010134080557,
+   "exp_rms_dex": 1.1338722407583535,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 141,
+   "t_range_years": [
+    0.003756670890311597,
+    1.0
+   ],
+   "power_slope": 3.032876068204028,
+   "power_rms_dex": 0.42284930828111805,
+   "exp_efold_years": 0.07001630567875532,
+   "exp_rms_dex": 1.0631765631720949,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 156,
+   "t_range_years": [
+    0.001,
+    5.625
+   ],
+   "power_slope": 1.9817097977733853,
+   "power_rms_dex": 0.3157871663963735,
+   "exp_efold_years": 0.3882068787027482,
+   "exp_rms_dex": 1.4289782350342595,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 172,
+   "t_range_years": [
+    0.003966662010161199,
+    10.0
+   ],
+   "power_slope": 2.718357291730646,
+   "power_rms_dex": 0.3635396224881069,
+   "exp_efold_years": 0.612697856483534,
+   "exp_rms_dex": 1.8066051718553884,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-90-0.3": {
+  "D-T@1": {
+   "points": 126,
+   "t_range_years": [
+    0.0001,
+    0.3125
+   ],
+   "power_slope": 1.9943946958783032,
+   "power_rms_dex": 0.26616273946496244,
+   "exp_efold_years": 0.019674491669379353,
+   "exp_rms_dex": 1.3164440207580406,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 191,
+   "t_range_years": [
+    0.0001,
+    1.0
+   ],
+   "power_slope": 1.929809237728034,
+   "power_rms_dex": 0.30336014829658986,
+   "exp_efold_years": 0.06857242390475826,
+   "exp_rms_dex": 1.4445431434899874,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 80,
+   "t_range_years": [
+    0.001,
+    0.3125
+   ],
+   "power_slope": 2.2118467709478726,
+   "power_rms_dex": 0.20015105449148865,
+   "exp_efold_years": 0.02526563606242204,
+   "exp_rms_dex": 0.9956608130283753,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 129,
+   "t_range_years": [
+    0.001,
+    3.133740223858905
+   ],
+   "power_slope": 2.146188818187412,
+   "power_rms_dex": 0.2062619721769867,
+   "exp_efold_years": 0.19941453126226377,
+   "exp_rms_dex": 1.4629852139456825,
+   "better": "power"
+  }
+ },
+ "iapetus-inner-90-0.3-phase": {
+  "D-T@1": {
+   "points": 119,
+   "t_range_years": [
+    0.0001,
+    0.296875
+   ],
+   "power_slope": 2.49170249957661,
+   "power_rms_dex": 0.593910503201241,
+   "exp_efold_years": 0.017817301831418875,
+   "exp_rms_dex": 1.8383764146481607,
+   "better": "power"
+  },
+  "T-B@1": {
+   "points": 173,
+   "t_range_years": [
+    0.00020651929314796278,
+    1.0
+   ],
+   "power_slope": 2.044753350512942,
+   "power_rms_dex": 0.16713428486742887,
+   "exp_efold_years": 0.07724590495034922,
+   "exp_rms_dex": 1.2860417480588622,
+   "better": "power"
+  },
+  "D-T@10": {
+   "points": 80,
+   "t_range_years": [
+    0.001,
+    0.30774356208980624
+   ],
+   "power_slope": 2.0075935170225434,
+   "power_rms_dex": 0.1428129202752915,
+   "exp_efold_years": 0.026359053750322353,
+   "exp_rms_dex": 0.8408263569061963,
+   "better": "power"
+  },
+  "T-B@10": {
+   "points": 110,
+   "t_range_years": [
+    0.001,
+    1.4112576178114524
+   ],
+   "power_slope": 2.048476226875949,
+   "power_rms_dex": 0.15335326640928662,
+   "exp_efold_years": 0.10306258175941056,
+   "exp_rms_dex": 1.1682954434318515,
+   "better": "power"
+  }
+ }
+}

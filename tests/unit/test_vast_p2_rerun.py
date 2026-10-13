@@ -61,3 +61,18 @@ def test_start_script_pcores_mode_pins_stand_and_fails_without_pcores():
         assert 'diag_ias15_guard_dtdone.py' in script and 'seed_rows=$SEED' in script
         if shutil.which('bash'):
             assert subprocess.run(['bash', '-n'], input=script.encode(), check=False).returncode == 0
+
+
+def test_running_stage_reports_actual_workers_pin_and_seed():
+    vast = load('vast_p2')
+    new = ('running 2026-10-12T00:00:00Z workers=8 physical=24 quota=30 offer_limit=32 '
+           'pin=0,2,4,6,8,10,12,14 seed_rows=96 deadline=2026-10-12T13:23:38Z')
+    old = ('running 2026-10-11T14:58:00Z workers=8 physical=24 quota=30 offer_limit=32 '
+           'pin=taskset -c 0,2,4,6,8,10,12,14 seed_rows=96 deadline=2026-10-12T13:23:38Z')
+    plain = 'running 2026-10-12T00:00:00Z workers=12 physical=12 quota=none offer_limit=24 pin=none seed_rows=0 deadline=x'
+    expected = dict(workers=8, pin='0,2,4,6,8,10,12,14', seed_rows=96)
+    assert vast._parse_running_stage(new) == expected
+    assert vast._parse_running_stage(old) == expected
+    assert vast._parse_running_stage(plain) == dict(workers=12, pin=None, seed_rows=0)
+    assert vast._parse_running_stage('gates 2026-10-12T00:00:00Z') is None
+    assert 'pin=${PCPUS:-none}' in vast._start_script(rental(True))

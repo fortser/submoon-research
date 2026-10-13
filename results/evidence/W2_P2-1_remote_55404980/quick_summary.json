@@ -1,0 +1,179 @@
+{
+ "plan": "W2-P004",
+ "stage": "P2-1",
+ "utc": "20261011T145658Z",
+ "prototype_version": 4,
+ "machine": {
+  "platform": "Linux-6.8.0-124-generic-x86_64-with-glibc2.35",
+  "python": "3.10.12",
+  "executable": "/workspace/submoon-research/.venv/bin/python",
+  "node": "26251b0419c4",
+  "logical_cpus": 32,
+  "physical_cores": 24,
+  "memory_total_gib": 31.18,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "32",
+   "On-line CPU(s) list": "0-31",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i9-14900KF",
+   "CPU family": "6",
+   "Model": "183",
+   "Thread(s) per core": "2",
+   "Core(s) per socket": "24",
+   "Socket(s)": "1",
+   "Stepping": "1",
+   "CPU max MHz": "6000.0000",
+   "CPU min MHz": "800.0000",
+   "BogoMIPS": "6374.40",
+   "Virtualization": "VT-x",
+   "L1d cache": "896 KiB (24 instances)",
+   "L1i cache": "1.3 MiB (24 instances)",
+   "L2 cache": "32 MiB (12 instances)",
+   "L3 cache": "36 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-31",
+   "Vulnerability Gather data sampling": "Not affected",
+   "Vulnerability Indirect target selection": "Not affected",
+   "Vulnerability Itlb multihit": "Not affected",
+   "Vulnerability L1tf": "Not affected",
+   "Vulnerability Mds": "Not affected",
+   "Vulnerability Meltdown": "Not affected",
+   "Vulnerability Mmio stale data": "Not affected",
+   "Vulnerability Reg file data sampling": "Mitigation; Clear Register File",
+   "Vulnerability Retbleed": "Not affected",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; PBRSB-eIBRS SW sequence; BHI BHI_DIS_S",
+   "Vulnerability Srbds": "Not affected",
+   "Vulnerability Tsa": "Not affected",
+   "Vulnerability Tsx async abort": "Not affected",
+   "Vulnerability Vmscape": "Mitigation; IBPB before exit to userspace"
+  }
+ },
+ "years": [
+  0.01,
+  0.03,
+  0.1
+ ],
+ "b_max_years": 0.03,
+ "core_years": [
+  0.01,
+  0.03
+ ],
+ "core_b_max": 0.01,
+ "concurrent": true,
+ "evaluate_only": false,
+ "deadline_utc": null,
+ "stop_file": null,
+ "workers": 8,
+ "cases": [
+  "iapetus-inner-0-0.0",
+  "iapetus-inner-0-0.3",
+  "iapetus-inner-90-0.0",
+  "iapetus-inner-90-0.3"
+ ],
+ "levels": [
+  {
+   "years": 0.01,
+   "kind": "core",
+   "variants": [
+    "T",
+    "D",
+    "B"
+   ],
+   "focus": [
+    "B",
+    "D",
+    "T"
+   ],
+   "passed": false,
+   "complete": true,
+   "counted": true,
+   "stopped": 0,
+   "Q1_failures": [],
+   "Q2_violations": [],
+   "problems": [
+    "сокращённый разработочный объём — не допуск"
+   ]
+  },
+  {
+   "years": 0.03,
+   "kind": "core",
+   "variants": [
+    "T",
+    "D"
+   ],
+   "focus": [
+    "D",
+    "T"
+   ],
+   "passed": false,
+   "complete": true,
+   "counted": true,
+   "stopped": 0,
+   "Q1_failures": [],
+   "Q2_violations": [],
+   "problems": [
+    "сокращённый разработочный объём — не допуск"
+   ]
+  }
+ ],
+ "extension_levels": [
+  {
+   "years": 0.03,
+   "kind": "extension",
+   "variants": [
+    "T",
+    "D",
+    "B"
+   ],
+   "focus": [
+    "B"
+   ],
+   "passed": false,
+   "complete": true,
+   "counted": true,
+   "stopped": 0,
+   "Q1_failures": [],
+   "Q2_violations": [],
+   "problems": [
+    "сокращённый разработочный объём — не допуск"
+   ]
+  },
+  {
+   "years": 0.1,
+   "kind": "extension",
+   "variants": [
+    "T",
+    "D"
+   ],
+   "focus": [
+    "D",
+    "T"
+   ],
+   "passed": false,
+   "complete": true,
+   "counted": true,
+   "stopped": 0,
+   "Q1_failures": [],
+   "Q2_violations": [],
+   "problems": [
+    "сокращённый разработочный объём — не допуск"
+   ]
+  }
+ ],
+ "verdict_passed": false,
+ "extension_passed": false,
+ "full_scope": false,
+ "stand_version": 4,
+ "implementations": {
+  "compiled": "7435a83dbcc71d9018f542ff981699f89eb7114373f8486d99a1c45430a18236",
+  "B": "d884ed1f874308f7da792aa15dd57681d8b8f89d1993a16a5a838ee737b6529e"
+ },
+ "wall_seconds": 1.4098222255706787
+}

@@ -1,0 +1,14 @@
+{
+ "location": "C:\\inp\\submoon-research_W2-P2-1_backup_20261012",
+ "created_utc": "2026-10-12",
+ "files": 101,
+ "size": "41 МБ",
+ "manifest": "backup_MANIFEST.sha256 (копия MANIFEST.sha256 из папки резервной копии)",
+ "checks": {
+  "copy_vs_source_sha256": "101/101 совпадают",
+  "server_archives_vs_server_reported_sha": "results_55200007.tar.gz и results_55404980.tar.gz совпадают с result_archive_sha256 в rental.json",
+  "restore_from_archives": "распаковка обоих архивов во временную папку: jobs.jsonl, summary.json, level_1000y.json, level_10000y.json, progress.json побитно равны копиям runs/",
+  "secrets": "в rental_records и evidence ключей нет (только упоминание пути к ключу в transport_fixes.json)"
+ },
+ "user_instruction": "Пользователь 2026-10-12 12:02 MSK: «Для резервной копии ты можешь создать отдельную папку в C:\\inp\\»"
+}

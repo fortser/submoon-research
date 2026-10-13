@@ -1,0 +1,27 @@
+{
+ "run": "runs/W2-P2-1-55200007",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "jobs": {
+   "rows": 672,
+   "expected": 672
+  },
+  "levels": {
+   "core": [
+    1.0,
+    10.0,
+    100.0,
+    1000.0
+   ],
+   "extension": [
+    100.0,
+    1000.0,
+    10000.0
+   ],
+   "verdict_passed": true,
+   "extension_passed": false,
+   "pairs": 624
+  }
+ }
+}

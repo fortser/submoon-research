@@ -1,0 +1,28 @@
+{
+ "issue": "W2-I015",
+ "limit": 1e-09,
+ "synthetic": {
+  "component_max": 1.3436167148164101e-14,
+  "component_over_limit": 0,
+  "body_max": 5.866005905065165e-16,
+  "steps": 600,
+  "error": null,
+  "t0": 2147483648.0
+ },
+ "real": {
+  "component_max": 1.953171096141029e-14,
+  "component_over_limit": 0,
+  "body_max": 5.921086189145031e-16,
+  "steps": 112789,
+  "orbit_id": "himalia-inner-90-0.0",
+  "years": 1.5,
+  "run_status": "completed",
+  "error": null,
+  "outcome": "survived",
+  "last_valid_years": 1.5,
+  "endpoint_residual_max": 5.921086189145031e-16,
+  "wall": 22.420580208301544
+ },
+ "mechanism_confirmed": false,
+ "fix_ok": true
+}

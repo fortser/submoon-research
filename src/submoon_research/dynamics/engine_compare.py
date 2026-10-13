@@ -2,6 +2,7 @@
 from dataclasses import asdict, dataclass
 import hashlib
 import json
+import math
 import time
 
 import numpy as np
@@ -35,6 +36,20 @@ class NumericMode:
 def fingerprint(value):
     return hashlib.sha256(json.dumps(value, sort_keys=True, allow_nan=False,
         separators=(',', ':')).encode()).hexdigest()
+
+
+def ias15_step_limit(native, period, gm_host, fraction):
+    """W2-I019: предел шага B — fraction·min(P0, 2π·sqrt(r³/GM хозяина)) по текущему r пробы.
+
+    IAS15 выбирает шаг по ошибке в абсолютной системе (движение вокруг планеты), а не по движению
+    пробы относительно малого хозяина: у himalia-outer шаг доходил до 0.08 P0, и состояния внутри
+    шага (сетка сравнения, плотный вывод событий) ошибались до 1.3e-5 a. Постоянный предел 0.025 P0
+    не спасает у тесного перицентра (r ≈ 0.2–0.36 a: до 3.4e-6); местное орбитальное время — да
+    (≤ 2.6e-9 на проверенных орбитах). При r = a предел равен доле шага DOP853 (step_fraction·P0).
+    """
+    host, probe = native.sim.particles[0], native.sim.particles[native.count-1]
+    r = math.sqrt((probe.x-host.x)**2 + (probe.y-host.y)**2 + (probe.z-host.z)**2)
+    return fraction*min(period, 2*math.pi*math.sqrt(r**3/float(gm_host)))
 
 
 def integrate_engine(engine, initial, gms, figures, radii, horizon, *, period,
@@ -118,8 +133,11 @@ def integrate_engine(engine, initial, gms, figures, radii, horizon, *, period,
             budget()
             left = t
             if native:
-                dense = native.step(horizon)
-                right = dense.right
+                dense = native.step(horizon, ias15_step_limit(native, period, gms[0], mode.step_fraction))
+                # W2-I021: метка REBOUND t = fl(t + dt) на последнем шаге может превысить горизонт
+                # на несколько ulp (допуск native.step — 8 ulp); принятый отрезок ограничивается
+                # горизонтом, сегмент покрывает [left, dense.right] ⊇ [left, horizon].
+                right = min(dense.right, horizon)
                 endpoint_residual = max(endpoint_residual, native.last_endpoint_residual)
             else:
                 bound = min(horizon, cache.segment_at(t).right) if cache else horizon

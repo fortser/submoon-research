@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-11T10:47:08.133118+00:00",
+  "decision": "W2-D021",
+  "source_jobs": "runs/W2-P2-1-55200007/jobs.jsonl",
+  "source_sha256": "bb4ed3018990ff9138e03c399a5cc3431c99aeadf4a7f49d5b38d67f15e73645",
+  "variants": [
+    "D",
+    "T"
+  ],
+  "years": [
+    10000
+  ],
+  "rows": 96,
+  "seed_sha256": "22e40195d20face108d0c850a862574113f805a308dfb4e0b1bd56f9245c95e9"
+}
