@@ -1,0 +1,3284 @@
+{
+ "utc": "2026-10-18T10:46:52.971622+00:00",
+ "status": "passed_with_skips",
+ "steps": [
+  {
+   "name": "excluded_collection",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "--collect-only",
+    "-q",
+    "tests/integration/test_l1_acceptance.py"
+   ],
+   "log": "excluded_collection.log",
+   "status": "passed",
+   "exit_code": 0,
+   "wall_seconds": 0.5976818999988609
+  },
+  {
+   "name": "pytest",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-vv",
+    "-ra",
+    "--tb=long",
+    "--durations=20",
+    "--junitxml=T:\\test_python\\submoon-research\\results\\evidence\\W2_OPT01_05_20261018\\windows_short\\pytest.xml",
+    "--ignore=tests/integration/test_l1_acceptance.py"
+   ],
+   "log": "pytest.log",
+   "status": "passed_with_skips",
+   "exit_code": 0,
+   "pytest": {
+    "counts": {
+     "passed": 504,
+     "failure": 0,
+     "error": 0,
+     "skipped": 24
+    },
+    "tests": [
+     {
+      "name": "::tests.unit.test_ias15_horizon_clip",
+      "status": "skipped",
+      "seconds": 0.0,
+      "detail": "collection skipped"
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_baseline_cannot_bypass_numeric_gates_with_empty_or_fake_passed",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>0]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>1]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>2]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>3]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>4]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>5]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>6]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_model_rejects_unversioned_scientific_mutations[<lambda>7]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>0]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>1]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>2]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>3]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>4]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>5]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_nominal_geometry_rejects_semantic_changes[<lambda>6]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[input_state_sha256-x]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[model_sha256-x]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[orbit_id-another]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[gms-value3]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[rtol-0.001]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[horizon_seconds-3.0]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[time-nan]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.contracts.test_nominal_inputs::test_checkpoint_rejects_wrong_science_numerics_or_state[state-value7]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_smoke::test_numerical_reference_formats_and_immutable_runs",
+      "status": "passed",
+      "seconds": 2.163,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_smoke::test_draft_cannot_be_run_as_smoke",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_analytic_forces_events::test_independent_barycentric_force_and_missing_indirect_negative_control",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_analytic_forces_events::test_j2_independent_potential_gradient_and_external_difference",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_analytic_forces_events::test_contact_between_steps_tangency_miss_and_energy_sign",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_relative_nbody_equals_independent_inertial_with_j2",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_j2_pair_energy_gradient_and_reaction",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_dense_contact_multiple_hidden_passages_and_tangent",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_checkpoint_resumes_same_state_and_contact_classification",
+      "status": "passed",
+      "seconds": 0.444,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_rounded_pericenter_kepler_reference_closes_initial_conditions",
+      "status": "passed",
+      "seconds": 0.008,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_nominal_baseline::test_positive_two_body_energy_is_unresolved_not_permanent_escape",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_compiled_forces_against_independent_vectorized_and_potential",
+      "status": "passed",
+      "seconds": 0.346,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_degree_nine_hidden_contact_and_crossings",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_tangency_and_other_body_contact",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_return_exactly_at_escape_window_cancels_departure",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_ias15_dense_endpoints_and_internal_points",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_engine_circular_and_restart_contract[dop853_jit]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_engine_circular_and_restart_contract[ias15_reboundx]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_engine_circular_and_restart_contract[hierarchical_cached]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_cache_identity_and_forbidden_extrapolation",
+      "status": "skipped",
+      "seconds": 0.001,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_native_rotated_j2_against_independent_force",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_separate_process_restart_with_escape_history[dop853_jit]",
+      "status": "skipped",
+      "seconds": 0.003,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_separate_process_restart_with_escape_history[ias15_reboundx]",
+      "status": "skipped",
+      "seconds": 0.004,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_separate_process_restart_with_escape_history[hierarchical_cached]",
+      "status": "skipped",
+      "seconds": 0.003,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.physics.test_w2_engines::test_saved_cache_sha_and_continuation",
+      "status": "skipped",
+      "seconds": 0.003,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_start_only_comparison_cannot_pass_different_end_states",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_insufficient_coverage_is_inconclusive",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_dense_coverage_passes_identical_runs",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_empty_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_empty_incomplete_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_job_fingerprint_binds_implementation_mode_and_horizon",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_extension_stopped_is_incomplete_not_failure",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_truncated_pair_compares_events_only_on_common_interval",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_level_plan_separates_core_and_extension_and_orders_core_first",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_budget_stops_on_deadline_and_stop_file",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_read_rows_rejects_foreign_and_broken_lines",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_explicit_tex_mass_and_unit_scaling",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_unsupported_source_notation_is_not_invented[\\\\mass]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_unsupported_source_notation_is_not_invented[nan]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_unsupported_source_notation_is_not_invented[5e21]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_unsupported_source_notation_is_not_invented[1+2]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_invalid_physical_assumptions_rejected[0-1000]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_invalid_physical_assumptions_rejected[-100-1000]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_invalid_physical_assumptions_rejected[100-nan]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_jpl_missing_uncertainty_does_not_become_zero",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_source_input_missing_units_is_rejected",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_source_input_nonfinite_state_is_rejected",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_audit::test_archive_numeric_diagnostics_remain_json_and_failed_checks_are_preserved",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_gate_p2_2::test_go_with_b_warning",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_gate_p2_2::test_failed_when_volume_does_not_fit",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_gate_p2_2::test_fast_machine_without_warnings",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_baseline_gate_p2_2::test_insufficient_or_invalid_baseline_fails",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_steps_and_dense_output_follow_scipy_dop853",
+      "status": "passed",
+      "seconds": 0.046,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_scalar_force_and_energy_kernels_match_fast_forces[0]",
+      "status": "passed",
+      "seconds": 0.022,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_scalar_force_and_energy_kernels_match_fast_forces[1]",
+      "status": "passed",
+      "seconds": 0.013,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_scalar_force_and_energy_kernels_match_fast_forces[2]",
+      "status": "passed",
+      "seconds": 0.012,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_compiled_screen_never_skips_an_exact_event[0]",
+      "status": "passed",
+      "seconds": 0.225,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_compiled_screen_never_skips_an_exact_event[1]",
+      "status": "passed",
+      "seconds": 0.225,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_compiled_screen_never_skips_an_exact_event[2]",
+      "status": "passed",
+      "seconds": 0.265,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_subdivision_clears_a_near_pericenter_pass",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_full_path_matches_scipy_engine_a[circular]",
+      "status": "passed",
+      "seconds": 0.058,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_full_path_matches_scipy_engine_a[escape]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_full_path_matches_scipy_engine_a[excursion]",
+      "status": "passed",
+      "seconds": 0.165,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_full_path_matches_scipy_engine_a[host_contact]",
+      "status": "passed",
+      "seconds": 0.01,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_full_path_matches_scipy_engine_a[moon]",
+      "status": "passed",
+      "seconds": 0.17,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_partial_and_resume_continue_to_the_same_result",
+      "status": "passed",
+      "seconds": 0.01,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_eccentricity_monitor_reports_osculating_e[0.0]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_eccentricity_monitor_reports_osculating_e[0.5]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_eccentricity_monitor_reports_osculating_e[0.95]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_checkpoint_rejects_another_implementation_version",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_eccentricity_monitor_stops_at_terminal_contact",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_compiled_dop853::test_eccentricity_history_survives_restart",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ephemeris_versions::test_himalia_scope_excludes_other_group_and_merged_jupiter",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ephemeris_versions::test_reject_inconsistent_backward_forward_gm",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ephemeris_versions::test_reject_inconsistent_backward_forward_constants",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ephemeris_versions::test_wrong_body_and_nonfinite_gm_are_rejected",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_contact_matches_reference_with_and_without_shared_samples[0]",
+      "status": "passed",
+      "seconds": 0.274,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_contact_matches_reference_with_and_without_shared_samples[1]",
+      "status": "passed",
+      "seconds": 0.309,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_contact_matches_reference_with_and_without_shared_samples[2]",
+      "status": "passed",
+      "seconds": 0.31,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_contact_matches_reference_with_and_without_shared_samples[3]",
+      "status": "passed",
+      "seconds": 0.284,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_crossings_match_reference_for_all_radii[0]",
+      "status": "passed",
+      "seconds": 0.504,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_crossings_match_reference_for_all_radii[1]",
+      "status": "passed",
+      "seconds": 0.52,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_crossings_match_reference_for_all_radii[2]",
+      "status": "passed",
+      "seconds": 0.495,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_crossings_match_reference_for_all_radii[3]",
+      "status": "passed",
+      "seconds": 0.496,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_escape_history_matches_reference_step_by_step[0]",
+      "status": "passed",
+      "seconds": 0.266,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_escape_history_matches_reference_step_by_step[1]",
+      "status": "passed",
+      "seconds": 0.214,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_escape_history_matches_reference_step_by_step[2]",
+      "status": "passed",
+      "seconds": 0.271,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_engine_a_full_path_bitwise_equal_to_reference[circular]",
+      "status": "passed",
+      "seconds": 0.064,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_engine_a_full_path_bitwise_equal_to_reference[escape]",
+      "status": "passed",
+      "seconds": 0.048,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_engine_a_full_path_bitwise_equal_to_reference[excursion]",
+      "status": "passed",
+      "seconds": 0.343,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_engine_a_full_path_bitwise_equal_to_reference[host_contact]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_events_shared_samples::test_engine_a_full_path_bitwise_equal_to_reference[moon]",
+      "status": "passed",
+      "seconds": 0.366,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_exact_linalg::test_exactly_rounded_sums_and_shapes",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_exact_linalg::test_generation_independent_of_openblas_kernel",
+      "status": "passed",
+      "seconds": 2.029,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_exact_linalg::test_legacy_mode_repeats_numpy_and_restores",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_segment_gm_conflict_rejected",
+      "status": "passed",
+      "seconds": 0.019,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_nonfinite_primary_gm_rejected",
+      "status": "passed",
+      "seconds": 0.019,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[sigma-unknown_sigma_and_distribution]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[radius-radius_role_preserved]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[axes-unknown_shape_not_fabricated]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[gravity-gravity_not_adopted]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[sampling-unknown_covariance_not_zero]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_unjustified_interpretations_rejected[epoch-unknown_state_not_fabricated]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ganymede_passport::test_archive_detects_physical_differences_and_keeps_every_member",
+      "status": "passed",
+      "seconds": 0.124,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_conversion_against_astropy_and_exact_physical_units",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[AU-D-KM-S]",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[ICRF-Ecliptic J2000]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[GEOMETRIC-ASTROMETRIC]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[(10)-(599)]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[(0)-(5)]",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[TDB-UT]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[2451545.0,-2451544.0,]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_wrong_physical_contract_in_raw_header_or_rows[,3,4,0,-,nan,4,0,]",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_reject_light_time_corrected_request_even_with_geometric_header",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_detect_disagreement_between_bridge_table_and_raw_text",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_geometric_states::test_change_of_origin_invariant_under_common_translation_and_velocity",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_prolonged_high_e_stops_at_ten_periods_unresolved",
+      "status": "passed",
+      "seconds": 0.008,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_terminal_high_e_contact_is_accepted",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_high_e_open_at_horizon_is_unresolved",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_regular_orbit_unaffected",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_stop_does_not_change_steps_before_it",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_high_e_rule::test_prototype_version_and_fingerprint_include_rule",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_duplicate_primary_gm",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_nonfinite_gm",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_unjustified_scientific_interpretation[sigma-gm_error_role_preserved]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_unjustified_scientific_interpretation[volume-radius_definition_not_promoted]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_unjustified_scientific_interpretation[third_axis-unknown_volume_and_third_axis]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_unjustified_scientific_interpretation[unit-units]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_himalia_passport::test_rejects_unjustified_scientific_interpretation[sampling-unknown_covariance_not_zero]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_compiled_does_not_depend_on_horizon[ganymede-outer-0-0.0-years0-D]",
+      "status": "passed",
+      "seconds": 0.021,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_compiled_does_not_depend_on_horizon[iapetus-outer-180-0.0-years1-D]",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_compiled_does_not_depend_on_horizon[iapetus-outer-180-0.0-years2-T]",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_compiled_does_not_depend_on_horizon[himalia-outer-90-0.3-phase-years3-D]",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_ias15_does_not_depend_on_horizon[ganymede-outer-0-0.0-years0]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_ias15_does_not_depend_on_horizon[iapetus-outer-180-0.0-years1]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_horizon_independence::test_only_last_step_differs_at_short_horizon_end",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_dense_step::test_ias15_samples_match_step_endpoints_on_small_host_outer_orbit[himalia-outer-90-0.0-0.16]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_ias15_dense_step::test_ias15_samples_match_step_endpoints_on_small_host_outer_orbit[himalia-outer-0-0.0-0.2]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_l1_specification::test_operational_events_cannot_be_promoted_to_physical_escape",
+      "status": "passed",
+      "seconds": 0.123,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_l1_specification::test_massive_submoon_requires_different_equations_and_new_contract",
+      "status": "passed",
+      "seconds": 0.164,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_l1_specification::test_forcing_and_production_are_rejected",
+      "status": "passed",
+      "seconds": 0.125,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_lookup_matches_previous_searchsorted_in_any_order[0]",
+      "status": "passed",
+      "seconds": 0.228,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_lookup_matches_previous_searchsorted_in_any_order[1]",
+      "status": "passed",
+      "seconds": 0.115,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_lookup_matches_previous_searchsorted_in_any_order[2]",
+      "status": "passed",
+      "seconds": 0.129,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_lookup_matches_previous_searchsorted_in_any_order[3]",
+      "status": "passed",
+      "seconds": 0.115,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_lookup_matches_previous_searchsorted_in_any_order[4]",
+      "status": "passed",
+      "seconds": 0.116,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_sequential_and_backward_queries_inside_and_across_segments",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_end_of_coverage_and_outside_raise_as_before",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_cursor_stays_valid_after_extension_and_replacement",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_massive_cache_lookup::test_saved_and_loaded_cache_resets_cursor",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_time_label_error_on_zero_crossing_component_is_not_a_defect",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_gross_defects_are_still_detected",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_native_ias15_steps_at_large_time_pass_guard",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[0.0]",
+      "status": "skipped",
+      "seconds": 0.003,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[2147483648.0]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[17179881529.0]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[68719476736.0]",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_rejected_step_residual_is_reported",
+      "status": "skipped",
+      "seconds": 0.002,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_orbit_contract::test_compute_failure_cannot_be_reported_as_escape",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_orbit_contract::test_event_cannot_be_beyond_valid_state",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_units_reproducible_and_match_plan_sample",
+      "status": "passed",
+      "seconds": 0.137,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_plan_keys_and_params",
+      "status": "passed",
+      "seconds": 0.037,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_clopper_pearson_exact",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_newcombe_paired_properties_and_coverage",
+      "status": "passed",
+      "seconds": 0.21,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_analyze_equivalent_inconclusive_not_equivalent",
+      "status": "passed",
+      "seconds": 0.251,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_unresolved_reason_is_a_separate_label",
+      "status": "passed",
+      "seconds": 0.014,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_incomplete_or_failed_final_horizon_is_not_decided",
+      "status": "passed",
+      "seconds": 0.405,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_stopped_or_missing_b_does_not_block_decision",
+      "status": "passed",
+      "seconds": 0.723,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_b_pairs_are_descriptive_with_high_e_exclusion",
+      "status": "passed",
+      "seconds": 0.034,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_divergence_time_on_grid",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[state]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[gm]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[radius]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[window]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[period]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[figure]",
+      "status": "passed",
+      "seconds": 0.046,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[dimension]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[missing]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[duplicate]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[seed]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[sha]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[full_sha]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[params]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[numerics]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[mode]",
+      "status": "passed",
+      "seconds": 0.046,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[nan]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[inf]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[type]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[units]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[state]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[gm]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[radius]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[window]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[period]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[figure]",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_valid_units_and_bad_json",
+      "status": "passed",
+      "seconds": 0.088,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_completed_source_read_only_and_analysis_exclusive",
+      "status": "passed",
+      "seconds": 0.383,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_resume_only_partial_matching_contract",
+      "status": "passed",
+      "seconds": 0.156,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[tail]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[middle]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[blank]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[foreign]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[duplicate]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[schema]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_aliases_and_atomic_writes",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_p21_entrypoint_protects_rows_and_analysis",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_ignores_prose_and_accepts_fortran_exponents",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_rejects_invalid_numbers[NaN]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_rejects_invalid_numbers[1e999]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_rejects_invalid_numbers[1.2 invalid]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_rejects_invalid_numbers[]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_passports::test_pck_rejects_duplicate_assignments",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_provenance_execution::test_exact_bytes_are_used_and_unbound_or_changed_inputs_rejected",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_provenance_execution::test_manifest_exists_before_work_and_failed_runs_are_finalized[error0-failed]",
+      "status": "passed",
+      "seconds": 0.336,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_provenance_execution::test_manifest_exists_before_work_and_failed_runs_are_finalized[error1-cancelled]",
+      "status": "passed",
+      "seconds": 0.343,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_provenance_execution::test_overflow_and_external_timeout_are_failures",
+      "status": "passed",
+      "seconds": 0.803,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_provenance_execution::test_disk_reserve_checked_before_work",
+      "status": "passed",
+      "seconds": 0.143,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_release_freeze::test_zip_path_traversal_rejected_before_writes",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_release_freeze::test_draft_or_synthetic_does_not_freeze",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_release_freeze::test_release_preserves_unicode_and_spaces",
+      "status": "passed",
+      "seconds": 0.055,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_sampling_design::test_conditional_density_normalization_and_orbital_invariants[uniform_a_e_cos_i_phases]",
+      "status": "passed",
+      "seconds": 0.034,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_sampling_design::test_conditional_density_normalization_and_orbital_invariants[uniform_log_a]",
+      "status": "passed",
+      "seconds": 0.039,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_sampling_design::test_conditional_density_normalization_and_orbital_invariants[canonical_volume]",
+      "status": "passed",
+      "seconds": 0.048,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_sampling_design::test_isotropic_axes_degeneracies_and_empty_domain",
+      "status": "passed",
+      "seconds": 0.078,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_sampling_design::test_paired_error_and_unresolved_denominator",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_history_retained_and_summaries_recover",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_stale_writer_cannot_lose_update",
+      "status": "passed",
+      "seconds": 0.021,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_leftover_lock_file_does_not_block_journal",
+      "status": "passed",
+      "seconds": 0.021,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_retry_with_same_input_is_idempotent",
+      "status": "passed",
+      "seconds": 0.023,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_lost_write_is_reported",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_monitor_lock_still_exclusive",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_owner_cannot_be_silently_replaced",
+      "status": "passed",
+      "seconds": 0.055,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_completion_requires_local_evidence[refs0]",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_completion_requires_local_evidence[refs1]",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_completion_requires_local_evidence[refs2]",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_corrupted_sequence_is_not_silently_repaired",
+      "status": "passed",
+      "seconds": 0.022,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_negative_result_is_retained",
+      "status": "passed",
+      "seconds": 0.02,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_next_step_follows_newer_active_work",
+      "status": "passed",
+      "seconds": 0.058,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_stage_lag_is_flagged",
+      "status": "passed",
+      "seconds": 0.186,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_summary_shows_current_decisions_and_open_failures",
+      "status": "passed",
+      "seconds": 0.161,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_tracking::test_decision_links_use_anchors",
+      "status": "passed",
+      "seconds": 0.019,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[Intel(R) Core(TM) i9-14900K-Core i9-14900K-1.0-measured]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[13th Gen Intel(R) Core(TM) i9-14900KF-Core i9-14900KF/KS-1.0-estimate]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD EPYC 9654 96-Core Processor-EPYC 9654-0.64-measured]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD Ryzen Threadripper PRO 7995WX 96-Cores-Threadripper PRO 7995WX-0.94-measured]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD Ryzen 9 9900X 12-Core Processor-Ryzen 9 9900X-1.1-measured]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD EPYC 9755 128-Core Processor-EPYC 9755-0.79-measured]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD Ryzen 9 9900X3D 12-Core Processor-Ryzen 9 9900X3D-1.07-estimate]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD EPYC 9684X 96-Core Processor-EPYC 9684X-0.62-estimate]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD EPYC 9554 64-Core Processor-EPYC 9004 (Zen 4)-0.66-estimate]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD EPYC 75F3 32-Core Processor-EPYC 7xF3 (Zen 3, F)-0.75-estimate]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[AMD Ryzen 9 7900X3D 12-Core Processor-Ryzen 9 7950X3D/7900X3D-0.95-estimate]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_lookup[Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz-Xeon E5 v3/v4-0.4-estimate]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_catalog_unknown_cpu_and_every_target_has_speed",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_measured_values_follow_cpu_matrix_report",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_describe_whole_slice_and_hybrid",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_estimate_epyc_9654_is_bound_by_longest_job",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_estimate_small_slice_is_volume_bound_and_late",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_ram_limits_processes",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_hybrid_uses_p_cores_unless_profile_allows_e_cores",
+      "status": "passed",
+      "seconds": 0.049,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes0-requirements0-disk_contract]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes1-requirements1-unavailable]",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes2-requirements2-price]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes3-requirements3-vcpu]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes4-requirements4-share]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes5-requirements5-ram]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes6-requirements6-disk]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes7-requirements7-reliability]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes8-requirements8-verification]",
+      "status": "passed",
+      "seconds": 0.029,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes9-requirements9-verification]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes10-requirements10-verification]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes11-requirements11-verification]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes12-requirements12-direct_ports]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes13-requirements13-unknown_cpu]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes14-requirements14-slow_cpu]",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes15-requirements15-gpu_not_allowed]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rejections[changes16-requirements16-cpu_regex]",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_search_status_policy_accepts_only_current_allowed_statuses[verified]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_search_status_policy_accepts_only_current_allowed_statuses[unverified]",
+      "status": "passed",
+      "seconds": 0.035,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_search_status_policy_blocks_old_override_during_recheck",
+      "status": "passed",
+      "seconds": 0.026,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_ranking_puts_fitting_cheap_first",
+      "status": "passed",
+      "seconds": 0.029,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_fake_endpoint_reproduces_probe3",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_price_scan_finds_everything_behind_post_filters",
+      "status": "passed",
+      "seconds": 0.012,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_initial_windows_do_not_merge_on_repeated_prices",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_prior_prices_cut_queries",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_price_scan_reports_ties_budget_and_access_errors",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_price_scan_retries_timeout_once",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_price_window_uses_base_price_and_storage_price_is_recomputed",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_sweep_unions_pass_shapes_and_finds_hidden_offers",
+      "status": "passed",
+      "seconds": 0.066,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_sweep_respects_query_budget",
+      "status": "passed",
+      "seconds": 0.019,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_find_reports_sweep_and_flags",
+      "status": "passed",
+      "seconds": 0.034,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_recheck_statuses",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_repository_profiles_and_validation",
+      "status": "passed",
+      "seconds": 0.008,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_vast_find_writes_page_offers_and_history",
+      "status": "passed",
+      "seconds": 0.079,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_vast_find_replays_monitor_snapshot",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_vast_p2_offers_include_gpu_instances_only_when_allowed",
+      "status": "passed",
+      "seconds": 0.07,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_vast_p2_profile_from_approval_keeps_approval_limits",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_vast_p2_rent_skips_offer_taken_meanwhile",
+      "status": "passed",
+      "seconds": 0.054,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_skipped_passes_are_not_saturation",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_slow_queries_leave_budget_for_diversification",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_access_error_stops_all_passes",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes0]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes1]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes2]",
+      "status": "passed",
+      "seconds": 0.03,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes3]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes4]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes5]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes6]",
+      "status": "passed",
+      "seconds": 0.027,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_rechecks_every_requirement[changes7]",
+      "status": "passed",
+      "seconds": 0.028,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_rental_refuses_failed_recheck",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_recheck_uses_storage_price_and_identity",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_narrow_profile_also_runs_relaxed_control",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_prepare_p2_2a_creates_only_local_package_and_command_templates",
+      "status": "passed",
+      "seconds": 0.006,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_monitor_is_bounded_and_preserves_snapshots",
+      "status": "passed",
+      "seconds": 0.086,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_station_selection_is_only_proposal_and_prefers_verified",
+      "status": "passed",
+      "seconds": 0.075,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_station_selection_keeps_fast_higher_hourly_offer_with_bounded_total",
+      "status": "passed",
+      "seconds": 0.05,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_station_selection_refuses_stale_and_failed_recheck",
+      "status": "passed",
+      "seconds": 0.053,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_cpu_matrix_fetch_uses_shared_recheck",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_saturation_counts_only_relevant_offers",
+      "status": "passed",
+      "seconds": 0.015,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_finder::test_undrained_exclude_is_not_saturation",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-14900K]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-14900KF]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-14900KS]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-13900K]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-13900KF]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-13900KS]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-12900K]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i9-12900KF]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i7-14700]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i7-14700K]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i7-14700KF]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i7-13700K]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core i7-13700KF]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core Ultra 9 285K]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Core Ultra 7 265K]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 9950X]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 9950X3D]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 9900X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 7950X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 7950X3D]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 7900X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 7900]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 7 9700X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 7 9800X3D]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 7 7700X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 5950X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 5900X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Ryzen 9 5900XT]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper 7960X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper 7970X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper 7980X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 7955WX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 7975WX]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 7985WX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 7995WX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 5955WX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 5965WX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[Threadripper PRO 5975WX]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9575F]",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9475F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9375F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9474F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9374F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9274F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9174F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 75F3]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 73F3]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 7543]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 7443]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 7343]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 4584PX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 4564P]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 4484PX]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9654]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9554]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_every_explicit_cpu[EPYC 9555]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_families[Intel Xeon w5-2465X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_families[Intel Xeon W-2455]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_families[Intel Xeon w9-3495X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_families[AMD EPYC 4464P]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_families[AMD EPYC 9655]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[Core i9-14900]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[Core i9-14900KX]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[Ryzen 9 79000X]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[Xeon E5-2400]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[EPYC 4490]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[EPYC 9395F]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_no_unrequested_prefix_or_comment_number[EPYC 2026]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_partial_cpu_quota_null_ram_and_price",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_canonical_model_does_not_split_vendor_spellings",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[failed with error 429: https://x/?api_key=SECRET-0-rate_limited]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[failed with error 403: denied-0-authentication_or_access_denied]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[Warning: Unrecognized field: cpu_name\\n[]-0-cli_or_api_error]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[<html>bad</html>-0-invalid_json]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[{}-0-invalid_schema]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[[]-1-cli_or_api_error]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_errors_do_not_leak_or_become_empty_success[[{\"dph_total\":NaN}]-0-invalid_json]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_valid_null_tail_and_secret_field_whitelist",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_query_to_body_merges_price_and_maps_ops",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_anonymous_request_parses_offers_without_secret",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_default_strategy_is_stratified_for_anonymous",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_cli_default_strategy_is_bisect",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_stratified_seed_changes_windows",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_collect_prefers_anonymous_and_never_calls_cli",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_cli_avoids_broken_retry_flag",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_truncated_search_is_split",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_rate_limit_stops_subsequent_calls",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_history_first_seen_reappearance_incomplete_gaps_and_duplicates",
+      "status": "passed",
+      "seconds": 0.036,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_volatile_metadata_not_configuration_change_and_read_only_stats",
+      "status": "passed",
+      "seconds": 0.024,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_monitor_session_lifecycle_and_runtime_without_network",
+      "status": "passed",
+      "seconds": 0.053,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_monitor::test_runtime_json_with_bom_does_not_break_session",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_report::test_write_csv_and_never_seen",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_report::test_sort_models_ascending_none_last_and_descending",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_market_report::test_report_frequency_and_prices",
+      "status": "passed",
+      "seconds": 0.025,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_offer_classification::test_monitor_and_tracker_reject_real_disk_offer_shape",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_2a::test_p2_2a_script_order_and_commands",
+      "status": "passed",
+      "seconds": 3.416,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_2a::test_p2_1_script_unchanged_by_default",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_2a::test_approval_requires_p2_2a_fields",
+      "status": "passed",
+      "seconds": 0.005,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_2a::test_extract_accepts_only_scenario_prefix",
+      "status": "passed",
+      "seconds": 0.007,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_continue::test_plan_bounds_and_existing_contract",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_continue::test_transport_does_not_create_or_touch_other_contract",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_continue::test_script_preserves_gates_and_pins_physical_cores",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_download::test_extract_replaces_stale_and_empty_files_and_keeps_old_copies",
+      "status": "passed",
+      "seconds": 0.012,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_download::test_extract_rejects_paths_outside_allowed_area[runs/../evil.txt]",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_download::test_extract_rejects_paths_outside_allowed_area[other/file.txt]",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_download::test_extract_rejects_paths_outside_allowed_area[/abs/file.txt]",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_seed_selects_only_completed_requested_rows",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_seed_rejects_incomplete_or_unfingerprinted_rows[{\"orbit_id\": \"a\", \"years\": 10000.0, \"variant\": \"D\", \"run_status\": \"partial\", \"job_fingerprint\": \"xaD10000.0\"}]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_seed_rejects_incomplete_or_unfingerprinted_rows[{\"orbit_id\": \"a\", \"years\": 10000.0, \"variant\": \"D\", \"run_status\": \"completed\", \"job_fingerprint\": \"\"}]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_seed_rejects_duplicates",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_start_script_pcores_mode_pins_stand_and_fails_without_pcores",
+      "status": "passed",
+      "seconds": 0.248,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_p2_rerun::test_running_stage_reports_actual_workers_pin_and_seed",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_target_estimate_and_conservative_reserve",
+      "status": "passed",
+      "seconds": 0.038,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes0-unavailable]",
+      "status": "passed",
+      "seconds": 0.034,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes1-unavailable]",
+      "status": "passed",
+      "seconds": 0.035,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes2-verification]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes3-verification]",
+      "status": "passed",
+      "seconds": 0.034,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes4-disk_contract]",
+      "status": "passed",
+      "seconds": 0.036,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes5-excluded_machine]",
+      "status": "passed",
+      "seconds": 0.033,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes6-target_price]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes7-unknown_storage_price]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes8-ram]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes9-vcpu]",
+      "status": "passed",
+      "seconds": 0.033,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes10-share]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes11-unknown_cpu]",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes12-reliability]",
+      "status": "passed",
+      "seconds": 0.033,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_rejections[changes13-series_time]",
+      "status": "passed",
+      "seconds": 0.033,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_analog_uses_workload_not_raw_core_count",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[interval_seconds-60]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[automatic_rental-True]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[trial_budget_usd-2]",
+      "status": "passed",
+      "seconds": 0.015,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[trial_hours-1]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[max_paid_attempts-2]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[paid_retries-1]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[full_run_budget_usd-14]",
+      "status": "passed",
+      "seconds": 0.015,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[max_hourly_usd-1]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[port-80]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[request_timeout_seconds-nan]",
+      "status": "passed",
+      "seconds": 0.016,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_config_cannot_widen_approval[max_recheck_machines-1.5]",
+      "status": "passed",
+      "seconds": 0.015,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_single_episode_survives_restart_and_offer_id_change",
+      "status": "passed",
+      "seconds": 0.086,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_state_really_persists_on_disk",
+      "status": "passed",
+      "seconds": 0.085,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_negative_rearms_but_absence_and_error_do_not",
+      "status": "passed",
+      "seconds": 0.107,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_network_failure_preserves_episode",
+      "status": "passed",
+      "seconds": 0.055,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_unknown_price_does_not_rearm",
+      "status": "passed",
+      "seconds": 0.056,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_price_hysteresis_avoids_sound_on_small_threshold_fluctuations",
+      "status": "passed",
+      "seconds": 0.064,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_target_probe_discovers_changed_ids_and_prefers_available",
+      "status": "passed",
+      "seconds": 0.059,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_target_is_not_dependent_on_broad_search_and_saved_before_sound",
+      "status": "passed",
+      "seconds": 0.058,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_recheck_can_reject_a_broad_candidate",
+      "status": "passed",
+      "seconds": 0.151,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_multiple_findings_one_sound_per_cycle",
+      "status": "passed",
+      "seconds": 0.174,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_mute_and_snooze_do_not_lose_findings",
+      "status": "passed",
+      "seconds": 0.09,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_sound_failure_does_not_lose_result",
+      "status": "passed",
+      "seconds": 0.051,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_review_five_calendar_days_no_budget_increase",
+      "status": "passed",
+      "seconds": 0.076,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_staleness",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_secret_fields_not_saved",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_access_error_stops_further_provider_requests",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_exclusive_lock_and_recovery",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_allocation_not_price_or_offer_identity",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_local_server_csrf_and_no_poll_from_ui",
+      "status": "passed",
+      "seconds": 0.072,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_actual_hardware_estimate_limits_workers_and_never_approves",
+      "status": "passed",
+      "seconds": 0.135,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_vast_radar::test_radar_has_no_paid_executor_imports",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_run_accepted_and_tampering_rejected",
+      "status": "skipped",
+      "seconds": 0.009,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_run_resumes_and_superseded_rows_accepted",
+      "status": "skipped",
+      "seconds": 0.01,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_b_accepted_as_decision_ready",
+      "status": "skipped",
+      "seconds": 0.009,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_float_tolerance_only_for_floats",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_refuses_foreign_or_accepted_run_dir",
+      "status": "skipped",
+      "seconds": 0.009,
+      "detail": "could not import 'reboundx': No module named 'reboundx'"
+     },
+     {
+      "name": "tests.unit.test_verify_p2_run::test_composition_rejects_missing_duplicate_and_extra",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_run::test_row_checks",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_run::test_real_run_accepted_and_mutations_rejected",
+      "status": "passed",
+      "seconds": 10.837,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_design_rejects_silent_scope_change",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_denominator_pairing_and_unknown_bounds",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_intervals_zero_variance_and_simultaneity",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_hypotheses_refutation_and_unknowns",
+      "status": "passed",
+      "seconds": 0.16,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_geometry_fit_and_holdout_isolation",
+      "status": "passed",
+      "seconds": 0.029,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_escape_and_pending_window",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_hidden_departure_and_return_in_one_step",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_escape_event_before_later_return",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_event_history_cannot_skip_interval",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_freeze_rejects_short_real_benchmark",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_pilot_admission_denies_draft_and_over_budget",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w1_protocol::test_timeout_keeps_all_planned_rows_and_stops_once",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w2_check_runner::test_failure_traceback_and_aggregate_exit",
+      "status": "passed",
+      "seconds": 0.065,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w2_check_runner::test_required_skip_and_xml_summary",
+      "status": "passed",
+      "seconds": 0.032,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_w2_check_runner::test_timeout_not_success",
+      "status": "passed",
+      "seconds": 0.115,
+      "detail": null
+     }
+    ]
+   },
+   "wall_seconds": 41.843419300003006
+  },
+  {
+   "name": "ruff",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "-m",
+    "ruff",
+    "check",
+    "src",
+    "scripts",
+    "tests"
+   ],
+   "log": "ruff.log",
+   "status": "passed",
+   "exit_code": 0,
+   "wall_seconds": 0.11640510000142967
+  },
+  {
+   "name": "validate",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "scripts/project.py",
+    "validate"
+   ],
+   "log": "validate.log",
+   "status": "passed",
+   "exit_code": 0,
+   "wall_seconds": 1.0605710000018007
+  },
+  {
+   "name": "smoke",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "scripts/project.py",
+    "smoke"
+   ],
+   "log": "smoke.log",
+   "status": "passed",
+   "exit_code": 0,
+   "wall_seconds": 7.924543500001164
+  }
+ ],
+ "suite": "short",
+ "excluded_tests": [
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[epoch_index_conflict]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[tides_without_parameters]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[disable_monopoles]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[remove_iapetus_host_and_parent]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[remove_external_parameters]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_energy_formula]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[negative_contact_radius]",
+  "tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[grid_denominator]",
+  "tests/integration/test_l1_acceptance.py::test_combined_invalid_and_unbound_state_rejected",
+  "tests/integration/test_l1_acceptance.py::test_bound_inconsistent_states_and_wrong_hash_rejected",
+  "tests/integration/test_l1_acceptance.py::test_geometric_identity_finiteness_and_units_are_checked",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>0]",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>1]",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>2]",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>3]",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>4]",
+  "tests/integration/test_l1_acceptance.py::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>5]",
+  "tests/integration/test_l1_acceptance.py::test_canonical_control_and_read_dependencies_are_preserved"
+ ],
+ "not_run": [
+  "IAS15 long diagnostic (requires separate explicit command)"
+ ],
+ "scientific_admission": false
+}

@@ -1,0 +1,15 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.1.1, pluggy-1.6.0 -- T:\test_python\submoon-research\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: T:\test_python\submoon-research
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 1 item
+
+tests/integration/test_l1_acceptance.py::test_canonical_control_and_read_dependencies_are_preserved PASSED [100%]
+
+============================= slowest 5 durations =============================
+6.10s call     tests/integration/test_l1_acceptance.py::test_canonical_control_and_read_dependencies_are_preserved
+0.00s setup    tests/integration/test_l1_acceptance.py::test_canonical_control_and_read_dependencies_are_preserved
+0.00s teardown tests/integration/test_l1_acceptance.py::test_canonical_control_and_read_dependencies_are_preserved
+============================== 1 passed in 6.31s ==============================

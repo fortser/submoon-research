@@ -1,0 +1,25 @@
+{
+ "run": "scratch/claude/W2-P2-2_cost_20261013T090822Z",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "jobs": {
+   "rows": 1188,
+   "accepted": 1188,
+   "expected": 1188,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "decision": "not_decided",
+   "stratum_verdict": "inconclusive",
+   "discordant": 0,
+   "n": 288,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  }
+ }
+}

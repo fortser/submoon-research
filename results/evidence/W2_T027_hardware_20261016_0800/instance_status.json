@@ -1,0 +1,18 @@
+{
+  "id": 56220810,
+  "actual_status": "running",
+  "cur_state": "running",
+  "status_msg": "success, running ubuntu_22.04/ssh",
+  "label": "w2-hardware-9975wx-20261016-0800",
+  "machine_id": 143224,
+  "start_date": 1792138200.519415,
+  "dph_total": 0.611111111111111,
+  "ssh_host": "ssh2.vast.ai",
+  "ssh_port": 12820,
+  "public_ipaddr": "72.238.245.156",
+  "cpu_cores_effective": 64.0,
+  "cpu_ram": 257061,
+  "disk_space": 60.0,
+  "gpu_name": "RTX PRO 5000",
+  "utc": "2026-10-16T08:10:23.791350+00:00"
+}

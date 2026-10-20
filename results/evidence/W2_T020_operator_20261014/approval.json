@@ -1,0 +1,32 @@
+{
+  "approved": true,
+  "user_message": "Да, разрешаю. Я готов стартовать прямо сейчас, если будут хорошие предложения по аренде.",
+  "user_message_context": "P2-2a (W2-P006, полный объём 9504 задания) на одной целой станции по плану docs/compute/W2_P2-2a_rental_plan_v2.md с поправкой W2-T019: сценарий p2_2a транспорта vast_p2, автоматическая базовая проверка, правило W2-D026. Кандидат 14.10: offer 53991778, TR PRO 5975WX 64/64 vCPU, deverified, $0.377/ч с диском; прогноз 17-19.7 ч, ~$6.4-7.4.",
+  "approved_utc": "2026-10-14T10:13:00.481588+00:00",
+  "scenario": "p2_2a",
+  "plan": "docs/compute/W2_P2-2a_rental_plan_v2.md",
+  "task": "docs/tasks/W2_P2-2a_operator_task.md",
+  "budget_usd": 12.0,
+  "max_hourly_usd": 0.4,
+  "max_hours": 22,
+  "run_deadline_hours": 20.5,
+  "max_rent_attempts": 1,
+  "max_instances": 1,
+  "min_effective_cpus": 64,
+  "min_workers": 28,
+  "min_ram_gb": 64,
+  "min_share": 0.95,
+  "disk_gb": 60,
+  "min_reliability": 0.97,
+  "verification": [
+    "verified",
+    "deverified"
+  ],
+  "image": "ubuntu:22.04",
+  "cpu_name_regex": "Threadripper PRO (5975|5995|7975|7985|7995)WX|EPYC 9(654|684X|754|755)",
+  "allow_gpu": true,
+  "profile": "p2_2a_station",
+  "mode": "on-demand",
+  "baseline_margin": 1.15,
+  "pcores_only": false
+}

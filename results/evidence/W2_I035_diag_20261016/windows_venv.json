@@ -1,0 +1,254 @@
+{
+ "task": "W2-I035",
+ "environment": {
+  "python": "3.10.6",
+  "implementation": "CPython",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "libc": [
+   "",
+   ""
+  ],
+  "numpy": "2.2.6",
+  "scipy": "1.15.3",
+  "blas": {
+   "name": "scipy-openblas",
+   "found": true,
+   "version": "0.3.29",
+   "detection method": "pkgconfig",
+   "include directory": "C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include",
+   "lib directory": "C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib",
+   "openblas configuration": "OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24",
+   "pc file directory": "C:/a/numpy/numpy/.openblas"
+  },
+  "cpu": "",
+  "cpu_flags": {
+   "fma": false,
+   "avx2": false,
+   "avx512f": false,
+   "sse4_2": false
+  },
+  "float_repr_style": "short",
+  "design_py": "T:\\test_python\\submoon-research\\src\\submoon_research\\sampling\\design.py",
+  "pycache_prefix": null,
+  "dont_write_bytecode": false
+ },
+ "run": "runs/W2-P2-2a-56220810",
+ "units_sha256": {
+  "local": "dfa90a1569ceb7fc301a4f2de4f7a8a26aba11ee3be76c0577ca47e971fdbad0",
+  "server": "c79794710e51c3b514c82cc2edd4364ef4300b5cd414af7720cb82e085781583",
+  "match": false
+ },
+ "probe_vs_server": {
+  "uniform_a_e_cos_i_phases": {
+   "units": 384,
+   "probe_mismatch": 177,
+   "max_ulp": 364,
+   "missing": 0
+  },
+  "uniform_log_a": {
+   "units": 384,
+   "probe_mismatch": 175,
+   "max_ulp": 1548,
+   "missing": 0
+  },
+  "canonical_volume": {
+   "units": 384,
+   "probe_mismatch": 168,
+   "max_ulp": 352,
+   "missing": 0
+  }
+ },
+ "trace": {
+  "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0000",
+  "measure": "uniform_a_e_cos_i_phases",
+  "inner_km": "0x1.768b439581062p+9",
+  "hill_km": "0x1.1bb37529ed858p+15",
+  "gm_host": "0x1.e20f77f36c5c5p+6",
+  "emax": "0x1.3333333333333p-2",
+  "normal": "0x1.4c178078b74b5p+13",
+  "sobol": [
+   "0x1.55b1f4a000000p-3",
+   "0x1.f950d48800000p-1",
+   "0x1.5fcb417000000p-1",
+   "0x1.94890c0000000p-6",
+   "0x1.5b9679d000000p-2",
+   "0x1.f8fb4df000000p-1"
+  ],
+  "target": "0x1.bb4227b694c16p+10",
+  "e": "0x1.989feaad75f63p-5",
+  "lower": "0x1.8a351aac71640p+9",
+  "quad_at_e": "0x1.bb4227b694c16p+10",
+  "width_at_e": "0x1.158aa0bf3bbffp+15",
+  "a": "0x1.1813e0d58d779p+15",
+  "a_unit": "0x1.1813e0d58d779p+15",
+  "probe_state": [
+   "0x1.bbcce36c386f6p+14",
+   "0x1.b6e5dc7a8ffafp+9",
+   "0x1.261c254296078p+14",
+   "0x1.7414ab929cef4p-6",
+   "0x1.68b7924e1accdp-5",
+   "-0x1.22374622967c4p-5"
+  ],
+  "period": "0x1.da3e74a3bfea4p+21",
+  "pow_checks": {
+   "high**1.5": "0x1.a65d0b262c64fp+22",
+   "math.pow(high,1.5)": "0x1.a65d0b262c64fp+22",
+   "np.power(high,1.5)": "0x1.a65d0b262c64fp+22",
+   "sqrt(high)**3": "0x1.a65d0b262c64fp+22"
+  }
+ },
+ "massive_sha256": {
+  "iapetus": "52e6f6ca8d541fb6ea97cafe4fbb71715d2434f1b46879df1d68bff7faa0d445",
+  "ganymede": "ef3ac736b248216cd0443e362234068a978de328a3103de0baa33c30042f8a39",
+  "himalia": "3d0140260f94e2c56afb6f2c0c9c5a19a0d16af50e1161354a7ee1b60e8bdcbf"
+ },
+ "reference_environment": {
+  "python": "3.13.16",
+  "implementation": "CPython",
+  "platform": "Linux-6.18.44-fc-v139-x86_64-with-glibc2.39",
+  "libc": [
+   "glibc",
+   "2.39"
+  ],
+  "numpy": "2.5.3",
+  "scipy": "1.18.1",
+  "blas": {
+   "name": "scipy-openblas",
+   "found": true,
+   "version": "0.3.34.106.0",
+   "detection method": "pkgconfig",
+   "include directory": "/opt/_internal/cpython-3.13.14/lib/python3.13/site-packages/scipy_openblas64/include",
+   "lib directory": "/opt/_internal/cpython-3.13.14/lib/python3.13/site-packages/scipy_openblas64/lib",
+   "openblas configuration": "OpenBLAS 0.3.34.106.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64",
+   "pc file directory": "/project/.openblas"
+  },
+  "cpu": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+  "cpu_flags": {
+   "fma": true,
+   "avx2": true,
+   "avx512f": true,
+   "sse4_2": true
+  },
+  "float_repr_style": "short",
+  "design_py": "/tmp/claude-0/-home-claude/7311122e-75ae-5bb6-b08c-7367e8d6edb4/scratchpad/bundle/src/submoon_research/sampling/design.py",
+  "pycache_prefix": null,
+  "dont_write_bytecode": false
+ },
+ "trace_vs_reference": {
+  "a": {
+   "local": "0x1.1813e0d58d779p+15",
+   "reference": "0x1.f6cabfd8a54dep+12"
+  },
+  "a_unit": {
+   "local": "0x1.1813e0d58d779p+15",
+   "reference": "0x1.f6cabfd8a54dep+12"
+  },
+  "e": {
+   "local": "0x1.989feaad75f63p-5",
+   "reference": "0x1.aa8de70cabbbfp-3"
+  },
+  "high_pow_1_5": {
+   "local": null,
+   "reference": "0x1.a65d0b262c64bp+22"
+  },
+  "hill_km": {
+   "local": "0x1.1bb37529ed858p+15",
+   "reference": "0x1.1bb37529ed856p+15"
+  },
+  "inner_sum": {
+   "local": null,
+   "reference": "0x1.6050eef6e769ap+19"
+  },
+  "lower": {
+   "local": "0x1.8a351aac71640p+9",
+   "reference": "0x1.d9134f1dbe100p+9"
+  },
+  "lower_pow_1_5": {
+   "local": null,
+   "reference": "0x1.c6bcc15c618fbp+14"
+  },
+  "measure": {
+   "local": "uniform_a_e_cos_i_phases",
+   "reference": "canonical_volume"
+  },
+  "normal": {
+   "local": "0x1.4c178078b74b5p+13",
+   "reference": "0x1.93c42f551d32bp+17"
+  },
+  "orbit_id": {
+   "local": "iapetus:uniform_a_e_cos_i_phases:0000",
+   "reference": "iapetus:canonical_volume:0000"
+  },
+  "period": {
+   "local": "0x1.da3e74a3bfea4p+21",
+   "reference": "0x1.934b3de5714e3p+18"
+  },
+  "pow_checks": {
+   "local": {
+    "high**1.5": "0x1.a65d0b262c64fp+22",
+    "math.pow(high,1.5)": "0x1.a65d0b262c64fp+22",
+    "np.power(high,1.5)": "0x1.a65d0b262c64fp+22",
+    "sqrt(high)**3": "0x1.a65d0b262c64fp+22"
+   },
+   "reference": {
+    "high**1.5": "0x1.a65d0b262c64bp+22",
+    "math.pow(high,1.5)": "0x1.a65d0b262c64bp+22",
+    "np.power(high,1.5)": "0x1.a65d0b262c64bp+22",
+    "sqrt(high)**3": "0x1.a65d0b262c64cp+22"
+   }
+  },
+  "probe_state": {
+   "local": [
+    "0x1.bbcce36c386f6p+14",
+    "0x1.b6e5dc7a8ffafp+9",
+    "0x1.261c254296078p+14",
+    "0x1.7414ab929cef4p-6",
+    "0x1.68b7924e1accdp-5",
+    "-0x1.22374622967c4p-5"
+   ],
+   "reference": [
+    "0x1.07799e3bbcae7p+13",
+    "0x1.5225bf5a5d6a9p+11",
+    "0x1.d41e25374100dp+11",
+    "-0x1.1d84e03eb452ap-6",
+    "-0x1.1d0b086d16d10p-4",
+    "0x1.1ffe782c33c12p-4"
+   ]
+  },
+  "quad_at_e": {
+   "local": "0x1.bb4227b694c16p+10",
+   "reference": "0x1.8569e1ab62f27p+16"
+  },
+  "sobol": {
+   "local": [
+    "0x1.55b1f4a000000p-3",
+    "0x1.f950d48800000p-1",
+    "0x1.5fcb417000000p-1",
+    "0x1.94890c0000000p-6",
+    "0x1.5b9679d000000p-2",
+    "0x1.f8fb4df000000p-1"
+   ],
+   "reference": [
+    "0x1.edccc33000000p-2",
+    "0x1.9b97698000000p-4",
+    "0x1.5528809000000p-2",
+    "0x1.23203aa000000p-1",
+    "0x1.156f7d5800000p-1",
+    "0x1.fa06e4a000000p-2"
+   ]
+  },
+  "target": {
+   "local": "0x1.bb4227b694c16p+10",
+   "reference": "0x1.8569e1ab62f25p+16"
+  },
+  "width_at_e": {
+   "local": "0x1.158aa0bf3bbffp+15",
+   "reference": "0x1.d3322b38ebbbap+19"
+  }
+ },
+ "massive_vs_reference": {
+  "iapetus": true,
+  "ganymede": true,
+  "himalia": true
+ }
+}

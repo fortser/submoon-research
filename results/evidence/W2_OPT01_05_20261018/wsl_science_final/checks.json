@@ -1,0 +1,463 @@
+{
+ "utc": "2026-10-18T10:55:37.017716+00:00",
+ "status": "passed",
+ "steps": [
+  {
+   "name": "pytest",
+   "command": [
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "-m",
+    "pytest",
+    "-vv",
+    "-ra",
+    "--tb=long",
+    "--durations=20",
+    "--junitxml=/mnt/t/test_python/submoon-research/results/evidence/W2_OPT01_05_20261018/wsl_science_final/pytest.xml",
+    "tests/unit/test_p2_file_contracts.py",
+    "tests/unit/test_verify_p2_2_run.py",
+    "tests/unit/test_admission_evaluators.py",
+    "tests/unit/test_p2_2_stand.py"
+   ],
+   "log": "pytest.log",
+   "status": "passed",
+   "exit_code": 0,
+   "pytest": {
+    "counts": {
+     "passed": 70,
+     "failure": 0,
+     "error": 0,
+     "skipped": 0
+    },
+    "tests": [
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[state]",
+      "status": "passed",
+      "seconds": 0.222,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[gm]",
+      "status": "passed",
+      "seconds": 0.131,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[radius]",
+      "status": "passed",
+      "seconds": 0.125,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[window]",
+      "status": "passed",
+      "seconds": 0.127,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[period]",
+      "status": "passed",
+      "seconds": 0.123,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[figure]",
+      "status": "passed",
+      "seconds": 0.127,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[dimension]",
+      "status": "passed",
+      "seconds": 0.113,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[missing]",
+      "status": "passed",
+      "seconds": 0.127,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[duplicate]",
+      "status": "passed",
+      "seconds": 0.134,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[seed]",
+      "status": "passed",
+      "seconds": 0.131,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[sha]",
+      "status": "passed",
+      "seconds": 0.132,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[full_sha]",
+      "status": "passed",
+      "seconds": 0.118,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[params]",
+      "status": "passed",
+      "seconds": 0.127,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[numerics]",
+      "status": "passed",
+      "seconds": 0.129,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[mode]",
+      "status": "passed",
+      "seconds": 0.137,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[nan]",
+      "status": "passed",
+      "seconds": 0.128,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[inf]",
+      "status": "passed",
+      "seconds": 0.129,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[type]",
+      "status": "passed",
+      "seconds": 0.135,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[units]",
+      "status": "passed",
+      "seconds": 0.127,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[state]",
+      "status": "passed",
+      "seconds": 0.042,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[gm]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[radius]",
+      "status": "passed",
+      "seconds": 0.042,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[window]",
+      "status": "passed",
+      "seconds": 0.041,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[period]",
+      "status": "passed",
+      "seconds": 0.039,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[figure]",
+      "status": "passed",
+      "seconds": 0.041,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_valid_units_and_bad_json",
+      "status": "passed",
+      "seconds": 0.284,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_completed_source_read_only_and_analysis_exclusive",
+      "status": "passed",
+      "seconds": 1.021,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_resume_only_partial_matching_contract",
+      "status": "passed",
+      "seconds": 0.4,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[tail]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[middle]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[blank]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[foreign]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[duplicate]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[schema]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_aliases_and_atomic_writes",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[state]",
+      "status": "passed",
+      "seconds": 0.334,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[gm]",
+      "status": "passed",
+      "seconds": 0.321,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[params]",
+      "status": "passed",
+      "seconds": 0.33,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[missing_units]",
+      "status": "passed",
+      "seconds": 0.329,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[manifest]",
+      "status": "passed",
+      "seconds": 0.286,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_acceptor_cannot_overwrite_source_or_report[verify_p2_run]",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_acceptor_cannot_overwrite_source_or_report[verify_p2_2_run]",
+      "status": "passed",
+      "seconds": 0.014,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_run_lock_prevents_second_writer",
+      "status": "passed",
+      "seconds": 0.223,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_p21_entrypoint_protects_rows_and_analysis",
+      "status": "passed",
+      "seconds": 0.28,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_run_accepted_and_tampering_rejected",
+      "status": "passed",
+      "seconds": 3.516,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_run_resumes_and_superseded_rows_accepted",
+      "status": "passed",
+      "seconds": 2.062,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_b_accepted_as_decision_ready",
+      "status": "passed",
+      "seconds": 2.691,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_float_tolerance_only_for_floats",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_refuses_foreign_or_accepted_run_dir",
+      "status": "passed",
+      "seconds": 4.685,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_start_only_comparison_cannot_pass_different_end_states",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_insufficient_coverage_is_inconclusive",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_dense_coverage_passes_identical_runs",
+      "status": "passed",
+      "seconds": 0.004,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_empty_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_empty_incomplete_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_job_fingerprint_binds_implementation_mode_and_horizon",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_extension_stopped_is_incomplete_not_failure",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_truncated_pair_compares_events_only_on_common_interval",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_level_plan_separates_core_and_extension_and_orders_core_first",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_budget_stops_on_deadline_and_stop_file",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_read_rows_rejects_foreign_and_broken_lines",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_units_reproducible_and_match_plan_sample",
+      "status": "passed",
+      "seconds": 0.189,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_plan_keys_and_params",
+      "status": "passed",
+      "seconds": 0.055,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_clopper_pearson_exact",
+      "status": "passed",
+      "seconds": 0.012,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_newcombe_paired_properties_and_coverage",
+      "status": "passed",
+      "seconds": 0.177,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_analyze_equivalent_inconclusive_not_equivalent",
+      "status": "passed",
+      "seconds": 0.17,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_unresolved_reason_is_a_separate_label",
+      "status": "passed",
+      "seconds": 0.018,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_incomplete_or_failed_final_horizon_is_not_decided",
+      "status": "passed",
+      "seconds": 0.348,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_stopped_or_missing_b_does_not_block_decision",
+      "status": "passed",
+      "seconds": 0.682,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_b_pairs_are_descriptive_with_high_e_exclusion",
+      "status": "passed",
+      "seconds": 0.037,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_divergence_time_on_grid",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     }
+    ]
+   },
+   "wall_seconds": 25.44548994
+  }
+ ],
+ "suite": "science",
+ "excluded_tests": [],
+ "not_run": [
+  "IAS15 long diagnostic (requires separate explicit command)"
+ ],
+ "scientific_admission": false
+}

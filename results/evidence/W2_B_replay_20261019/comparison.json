@@ -1,0 +1,58 @@
+{
+  "run_id": "W2-B-replay-20261019",
+  "comparison": "exact binary64 hex; canonical SHA256 states/coefficients",
+  "checks": {
+    "record_counts": true,
+    "requested_steps": true,
+    "identity": true,
+    "restart_native": true,
+    "all_step_fields_match": true,
+    "all_failure_fields_match": true,
+    "same_snapshot": true,
+    "expected_exit": true,
+    "code_unchanged": true,
+    "source_unchanged": true,
+    "within_short_budget": true
+  },
+  "passed": true,
+  "expected_accepted_steps": 416,
+  "actual_accepted_steps": 416,
+  "mismatch_counts": {
+    "left": 0,
+    "right": 0,
+    "dt_done": 0,
+    "next_dt": 0,
+    "absolute_state_sha256": 0,
+    "coefficients_sha256": 0
+  },
+  "mismatches": {
+    "left": [],
+    "right": [],
+    "dt_done": [],
+    "next_dt": [],
+    "absolute_state_sha256": [],
+    "coefficients_sha256": []
+  },
+  "failure_checks": {
+    "reason": true,
+    "error": true,
+    "left": true,
+    "right": true,
+    "dt_done": true,
+    "next_dt": true
+  },
+  "failure": {
+    "reason": "no_time_advance",
+    "error": "IAS15 нарушил временную границу",
+    "left": 25526330757.864594,
+    "right": 25526330757.864594,
+    "dt_done": 1.839013869133714e-06,
+    "next_dt": 2.716361931203976e-06
+  },
+  "replay_wall_seconds": 0.25413021099999966,
+  "process_wall_seconds": 7.952999999997701,
+  "replay_sha256": "fd3d85242b86559780fe433d326e7b462d474fbd81d18518049d3a14de71af12",
+  "reference_sha256": "94f4dbca6c1dbcfa4efdba6509637d527730cb20d6e656646e6517a24d837dc9",
+  "scientific_admission": false,
+  "limitations": "Одна разработочная орбита и то же ABI; причина коллапса шага не установлена; нет event tracker/production checkpoint."
+}

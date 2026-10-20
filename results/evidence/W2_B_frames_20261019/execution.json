@@ -1,0 +1,41 @@
+{
+  "executions": [
+    {
+      "variant": "N",
+      "returncode": 0,
+      "wall_seconds": 6.437000000005355,
+      "finished_utc": "2026-10-19T16:27:36.527699+00:00",
+      "output_exists": true
+    },
+    {
+      "variant": "P00",
+      "returncode": 0,
+      "wall_seconds": 2.4530000000013388,
+      "finished_utc": "2026-10-19T16:27:39.026293+00:00",
+      "output_exists": true
+    },
+    {
+      "variant": "P10",
+      "returncode": 0,
+      "wall_seconds": 2.4219999999986612,
+      "finished_utc": "2026-10-19T16:27:41.491395+00:00",
+      "output_exists": true
+    },
+    {
+      "variant": "P01",
+      "returncode": 0,
+      "wall_seconds": 2.4689999999973224,
+      "finished_utc": "2026-10-19T16:27:44.000618+00:00",
+      "output_exists": true
+    },
+    {
+      "variant": "P11",
+      "returncode": 0,
+      "wall_seconds": 2.4060000000026776,
+      "finished_utc": "2026-10-19T16:27:46.398545+00:00",
+      "output_exists": true
+    }
+  ],
+  "total_wall_seconds": 16.312000000005355,
+  "complete": true
+}

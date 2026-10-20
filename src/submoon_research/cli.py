@@ -108,7 +108,8 @@ def main(argv=None):
         elif args.track_command == "add":
             record = json.loads(args.input.read_text(encoding="utf-8-sig"))
             event = tracking.add_record(root, args.stage, record, args.actor, args.expected_revision)
-            print(json.dumps({"stage": args.stage, "revision": event["revision"], "id": record["id"]}))
+            print(json.dumps({"stage": args.stage, "revision": event["revision"], "id": record["id"],
+                              "event_id": event.get("event_id")}))
         return 0
     except (ValueError, KeyError, OSError, RuntimeError) as exc:
         print(f"ERROR: {exc}")

@@ -14,7 +14,6 @@ import subprocess
 import sys
 import tarfile
 import time
-import urllib.request
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -86,16 +85,15 @@ def candidates(machine):
 
 
 def fetch_offers(machine):
-    body = {'rentable': {'eq': True}, 'rented': {'eq': False}, 'type': 'on-demand',
-            'allocated_storage': 40, 'limit': 10, 'cpu_arch': {'eq': 'amd64'},
-            'disk_space': {'gte': 20}, 'machine_id': {'eq': int(machine['machine_id'])}}
-    request = urllib.request.Request(BUNDLES, data=json.dumps(body).encode(),
-        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
-    opened = urllib.request.build_opener(urllib.request.ProxyHandler({})).open(request, timeout=90)
-    with opened as response:
-        data = json.loads(response.read().decode('utf-8', 'replace'))
-    offers = data.get('offers', []) if isinstance(data, dict) else []
-    return [o for o in offers if int(o.get('id', -1)) == int(machine['offer_id'])]
+    """Бесплатная перепроверка одной машины общим поиском (W2-T017, market_search.recheck)."""
+    src = str(ROOT/'src')
+    if src not in sys.path:
+        sys.path.insert(0, src)
+    from submoon_research.compute.market_search import MarketConfig, recheck
+    check = recheck(machine['offer_id'], machine['machine_id'], MarketConfig(storage_gb=40., timeout=90.))
+    if check['status'] == 'error':
+        raise RuntimeError('Перепроверка оффера не удалась: '+str(check['reason']))
+    return [check['offer']] if check['status'] == 'available' else []
 
 
 def package_min():

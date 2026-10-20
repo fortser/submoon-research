@@ -1,0 +1,10 @@
+{
+  "utc": "2026-10-14T10:36:08.351504+00:00",
+  "instances": [],
+  "budget_usd": 12.0,
+  "max_hours": 22,
+  "run_deadline_hours": 20.5,
+  "operator": "pi-p2-2a-20261014",
+  "control": "Сервер останавливает стенд к абсолютному сроку; оператор проверяет baseline в этой сессии. Удаление завтра через finish ≤22 ч; автоматического destroy нет.",
+  "transfer_plan_gib_each_direction": 10
+}

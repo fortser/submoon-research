@@ -1,0 +1,13 @@
+{
+  "timeout_pid": 374,
+  "utc": "2026-10-19T11:04:53.282352+00:00",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "5395s",
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "/mnt/t/test_python/submoon-research/scripts/capture_b_local_once.py",
+    "--supervise"
+  ]
+}

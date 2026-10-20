@@ -125,7 +125,8 @@ def offers(gpu=False, max_hourly_usd=None, offer_ids=None, machine_ids=None):
                      '--limit', max(200, len(offer_ids or [])), '--order', 'dph_total')
         source = 'cli'
     clean = [{k: r.get(k) for k in SAFE_OFFER_FIELDS} for r in result if isinstance(r, dict)]
-    clean = [o for o in clean if o.get('id') is not None]
+    clean = [o for o in clean if o.get('id') is not None
+             and o.get('verification') in ('verified', 'unverified')]  # W2-D029
     save(WORK/'offers_classification.json', dict(utc=now(), source=source, all_offers=clean))
     clean = [o for o in clean if (True if gpu else CPU_PATTERN.search(o['cpu_name'] or ''))]
     # num_gpus=0 включает дисковые контракты! Имя CPU не даёт права вычислений.
@@ -321,7 +322,8 @@ def rent(approval_path):
                and o['cpu_cores_effective'] >= 16
                and (o['resource_type'] == 'gpu' and o['num_gpus'] >= 1 and o['cpu_ram'] >= 30000
                     if approval.get('gpu_fallback') else o['resource_type'] in ('cpu', 'compute') and o['num_gpus'] == 0)
-               and (o['verification'] == 'verified' or approval.get('allow_unverified'))]
+               and (o['verification'] == 'verified'
+                    or o['verification'] == 'unverified' and approval.get('allow_unverified'))]
     if approved_ids and len(allowed) != 1:
         raise RuntimeError('Точный offer_id не найден или неоднозначен')
     if not allowed:

@@ -1,0 +1,29 @@
+{
+ "run": "runs/W2-P2-2a-56220810",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "float_rtol": 1e-12,
+  "jobs": {
+   "rows": 9504,
+   "accepted": 9504,
+   "expected": 9504,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "dt_complete": true,
+   "dt_failed": 0,
+   "b_unfinished": 0,
+   "decision": "inconclusive",
+   "stratum_verdict": "inconclusive",
+   "discordant": 17,
+   "n": 1152,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  }
+ }
+}

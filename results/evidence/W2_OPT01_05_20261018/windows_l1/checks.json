@@ -1,0 +1,160 @@
+{
+ "utc": "2026-10-18T10:48:37.318634+00:00",
+ "status": "passed",
+ "steps": [
+  {
+   "name": "pytest",
+   "command": [
+    "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-vv",
+    "-ra",
+    "--tb=long",
+    "--durations=20",
+    "--junitxml=T:\\test_python\\submoon-research\\results\\evidence\\W2_OPT01_05_20261018\\windows_l1\\pytest.xml",
+    "tests/integration/test_l1_acceptance.py"
+   ],
+   "log": "pytest.log",
+   "status": "passed",
+   "exit_code": 0,
+   "pytest": {
+    "counts": {
+     "passed": 20,
+     "failure": 0,
+     "error": 0,
+     "skipped": 0
+    },
+    "tests": [
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[rotating_frame]",
+      "status": "passed",
+      "seconds": 5.853,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]",
+      "status": "passed",
+      "seconds": 5.666,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[epoch_index_conflict]",
+      "status": "passed",
+      "seconds": 6.084,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[tides_without_parameters]",
+      "status": "passed",
+      "seconds": 5.747,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[disable_monopoles]",
+      "status": "passed",
+      "seconds": 6.696,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[remove_iapetus_host_and_parent]",
+      "status": "passed",
+      "seconds": 6.155,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[remove_external_parameters]",
+      "status": "passed",
+      "seconds": 6.742,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[wrong_energy_formula]",
+      "status": "passed",
+      "seconds": 6.161,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[negative_contact_radius]",
+      "status": "passed",
+      "seconds": 6.233,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_all_ten_mutations_rejected_by_cli[grid_denominator]",
+      "status": "passed",
+      "seconds": 6.347,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_combined_invalid_and_unbound_state_rejected",
+      "status": "passed",
+      "seconds": 14.673,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_bound_inconsistent_states_and_wrong_hash_rejected",
+      "status": "passed",
+      "seconds": 14.853,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_geometric_identity_finiteness_and_units_are_checked",
+      "status": "passed",
+      "seconds": 0.06,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>0]",
+      "status": "passed",
+      "seconds": 0.13,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>1]",
+      "status": "passed",
+      "seconds": 0.07,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>2]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>3]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>4]",
+      "status": "passed",
+      "seconds": 0.046,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_strict_missing_extra_empty_type_and_nonfinite[<lambda>5]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.integration.test_l1_acceptance::test_canonical_control_and_read_dependencies_are_preserved",
+      "status": "passed",
+      "seconds": 7.503,
+      "detail": null
+     }
+    ]
+   },
+   "wall_seconds": 99.8241792000008
+  }
+ ],
+ "suite": "l1",
+ "excluded_tests": [],
+ "not_run": [
+  "IAS15 long diagnostic (requires separate explicit command)"
+ ],
+ "scientific_admission": false
+}

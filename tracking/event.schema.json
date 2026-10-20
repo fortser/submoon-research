@@ -29,6 +29,10 @@
     "actor": {
       "type": "string"
     },
+    "event_id": {
+      "type": "string",
+      "description": "Детерминированный ID события (S0-T006): повтор той же записи не создаёт дубля; отсутствует у событий до 2026-10-13."
+    },
     "record": {
       "$ref": "record.schema.json"
     }

@@ -103,7 +103,7 @@ def main():
                   costs=[], sample_size=[])
     print(f'единиц {len(points)} (9 ячеек × {args.per_cell}); a/RH0 квантили 10/25/50/75/90%: '
           + ', '.join(f'{x:.3f}' for x in report['sample']['a_over_rh_quantiles']))
-    print(f"период, сут, квантили 1/10/50/90%: " + ', '.join(f'{x:.2f}' for x in report['sample']['period_days_quantiles']))
+    print("период, сут, квантили 1/10/50/90%: " + ', '.join(f'{x:.2f}' for x in report['sample']['period_days_quantiles']))
     print(f"\n{'H, лет':>7} {'c':>4} {'выжив.':>7} {'D, ядро-ч':>10} {'T, ядро-ч':>10} {'B подвыб., ядро-ч':>18} {'макс. T, ч':>11} {'макс. B, ч':>11}")
     b_points = [p for p in points if p['unit'] < args.b_per_cell]
     for horizon in args.horizons:

@@ -1,0 +1,98 @@
+{
+ "plan": "W2-P006",
+ "stage": "P2-2a",
+ "utc": "20261013T092239Z",
+ "stand_version": "P2-2-v1",
+ "prototype_version": 5,
+ "machine": {
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "executable": "/home/taras/venvs/submoon-w2/bin/python",
+  "node": "HOME-PC",
+  "logical_cpus": 6,
+  "physical_cores": 6,
+  "memory_total_gib": 23.44,
+  "lscpu": {
+   "Architecture": "x86_64",
+   "CPU op-mode(s)": "32-bit, 64-bit",
+   "Address sizes": "39 bits physical, 48 bits virtual",
+   "Byte Order": "Little Endian",
+   "CPU(s)": "6",
+   "On-line CPU(s) list": "0-5",
+   "Vendor ID": "GenuineIntel",
+   "Model name": "Intel(R) Core(TM) i5-9400 CPU @ 2.90GHz",
+   "CPU family": "6",
+   "Model": "158",
+   "Thread(s) per core": "1",
+   "Core(s) per socket": "6",
+   "Socket(s)": "1",
+   "Stepping": "10",
+   "BogoMIPS": "5807.99",
+   "Hypervisor vendor": "Microsoft",
+   "Virtualization type": "full",
+   "L1d cache": "192 KiB (6 instances)",
+   "L1i cache": "192 KiB (6 instances)",
+   "L2 cache": "1.5 MiB (6 instances)",
+   "L3 cache": "9 MiB (1 instance)",
+   "NUMA node(s)": "1",
+   "NUMA node0 CPU(s)": "0-5",
+   "Vulnerability Gather data sampling": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Itlb multihit": "KVM: Mitigation: VMX unsupported",
+   "Vulnerability L1tf": "Mitigation; PTE Inversion",
+   "Vulnerability Mds": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Meltdown": "Mitigation; PTI",
+   "Vulnerability Mmio stale data": "Mitigation; Clear CPU buffers; SMT Host state unknown",
+   "Vulnerability Reg file data sampling": "Not affected",
+   "Vulnerability Retbleed": "Mitigation; IBRS",
+   "Vulnerability Spec rstack overflow": "Not affected",
+   "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+   "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+   "Vulnerability Spectre v2": "Mitigation; IBRS; IBPB conditional; STIBP disabled; RSB filling; PBRSB-eIBRS Not affected; BHI SW loop, KVM SW loop",
+   "Vulnerability Srbds": "Unknown: Dependent on hypervisor status",
+   "Vulnerability Tsx async abort": "Not affected"
+  }
+ },
+ "params": {
+  "per_cell": 32,
+  "b_per_cell": 4,
+  "unit_start": 0,
+  "years": [
+   1.0,
+   10.0
+  ],
+  "b_years": [
+   10.0
+  ]
+ },
+ "full_scope": false,
+ "workers": 8,
+ "deadline_utc": null,
+ "stop_file": null,
+ "evaluate_only": false,
+ "units": 288,
+ "units_sha256": "2fcde32f3ce36780598d84565ac3bba18930c393faed05bd962550a608832aaf",
+ "planned": 1188,
+ "done": 1188,
+ "stopped": 0,
+ "failed": 0,
+ "complete": true,
+ "decision": {
+  "stage": "P2-2a",
+  "horizon_years": 10.0,
+  "level": "pooled",
+  "margin": 0.005,
+  "verdict": "not_decided",
+  "stratum_verdict": "inconclusive",
+  "reasons": [
+   "сокращённый объём — не решение P2-2a"
+  ],
+  "n": 288,
+  "discordant": 0,
+  "cp_upper": 0.01034793603989076
+ },
+ "implementations": {
+  "compiled": "5642ae74b1eeedfa461ffeaa4419e2ac5e738c169ec99dab14570c11bb3e3c63",
+  "B": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587"
+ },
+ "wall_seconds": 548.662506269
+}

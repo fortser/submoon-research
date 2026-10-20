@@ -1,0 +1,108 @@
+{
+  "run_id": "W2-OPT01-05-20261018",
+  "utc": "2026-10-18T16:27:31.178863+00:00",
+  "actor": "pi-w2-stabilize-20261018",
+  "scope": "OPT-01..05; no scientific dynamics changes",
+  "changed_from_working_baseline": {
+    "run_W2-C067_checks.bat": {
+      "before": "36b7112c10e41769dfd1ac39701d86b460173760aa9863691f60893cf438a9ff",
+      "after": "cca026b94ce88c3a2532493741a3cf576795ea18537b53a71bf936b681d3d6a8"
+    },
+    "scripts/admission_p2_2.py": {
+      "before": "492cf264390bbe7e754cd7ff61d168afb489e80717c4a02571172158990b0ae6",
+      "after": "df6faca700af40dc7377673360f5cb5278a0fcc214507cf1d771d9e98bcbd9df"
+    },
+    "scripts/admission_p2_horizons.py": {
+      "before": "b64499f76f653dd329244148ff2fd708974b888c97e0047dbb49d24a82123dfb",
+      "after": "fbce2d4408c560c638e608db89aa0cace284ef9fead0e215c73b13fde4ed133e"
+    },
+    "scripts/diag_b_failure_p2_2.py": {
+      "before": "54e595269687052f5ec57e534f7f613ebcb548ce5f9e626faaf0ac1c229c50dc",
+      "after": "090e8813dd33659ae0a36266b776007b4769d19cd297fe534ebe199b89859fa1"
+    },
+    "scripts/prepare_p2_2a.py": {
+      "before": "c60e9ec888aff7d3af68d264287dbf6ce5aea3f617797907ea93790e7e80843d",
+      "after": "6e6dc1b37f49e2a6bec173de24affe6803d4b55ca9e42769d56d2ab8d9be23be"
+    },
+    "scripts/vast_p2.py": {
+      "before": "49139c7f57a683eb5a734912d3401ad5e8da96a3de29bfc28827d0a4d5b27e71",
+      "after": "249f0b703422ecc4615a4d0dd8162428d8d434d489228d58026e71e520d92aac"
+    },
+    "scripts/verify_p2_2_run.py": {
+      "before": "1d7b19d254b894ce27a0ac78dc0de1df49cb8884fb6f74c87484b08ce5acd420",
+      "after": "720ae578c329814db2ef646f2bafb6df575c1c3c1c2d05d6e31b78cc3922fa1c"
+    },
+    "scripts/verify_p2_run.py": {
+      "before": "2e22894fe01a5865cffca94971fb6342bb70645da7c8f9cfaf2ba1061af1607a",
+      "after": "8f7706aefd25cc324484b6096d59f6cfe4a0c67c702f0ba79f1ff7a4765256f8"
+    },
+    "tests/unit/test_admission_evaluators.py": {
+      "before": "3f5c98e9c0932dfd0ad83c96ae2a6bab030a7ed28c193f914071245bab9767b4",
+      "after": "cab677d3648b17cf5d0933e3a46b2acea8935b00b373af46e27920d0c6288b0c"
+    },
+    "tests/unit/test_vast_p2_2a.py": {
+      "before": "a5222d8b9d2c1e85b22460885e6e69e65ea04d8a9de20c0febc885d85c8183c5",
+      "after": "d3b487e3cb528ca45d1ca5ae583a6163f7d4c526497a5db1d6ca433b2eb25c24"
+    },
+    "tests/unit/test_verify_p2_2_run.py": {
+      "before": "ef93d35805f4400a25922579ac63f97b7d5f41d23debbd1844ab87c315258079",
+      "after": "b412c3cd55a27af0120e53e7f25e7cb770812a15e3af4947555c738ef66fc17e"
+    }
+  },
+  "new_code": {
+    "src/submoon_research/contracts/p2_files.py": "57106be58c9164c9f660d837ec3d9858d935c1339d8387dd2351edf4bbdacd9a",
+    "scripts/check_w2_stabilization.py": "2ffc0d50915419c1868e553ef64b7f4a6afd7293c5c93154c77c8ffba1ad85a4",
+    "tests/unit/test_p2_file_contracts.py": "3a8c08b124adc61a5a05736026f4c4e52f0b12b15cf764415d08e05043bc31f6",
+    "tests/unit/test_w2_check_runner.py": "5374b7e16fd5ca3bc7c18cca697f5afbd1fdb4d1c780912299070e42ecb89699"
+  },
+  "artifacts_sha256": {
+    "reports/analysis/W2_OPT01_05_20261018.md": "b28fc8b5b5b726947482901f0f7785d0da711395ce86b9ba02e8d5306870b009",
+    "results/evidence/claims.csv": "6ddcd5305ee732536502dd40e052f24ddc85397e928fc8a7c10da18b902d79a7",
+    "results/evidence/W2_OPT01_05_20261018/package.diff": "d0881780a7296b686982d3c1448e223fef249014c2a2166308de8e96f0a30c93",
+    "results/evidence/W2_OPT01_05_20261018/baseline_manifest.json": "1e2950fa8acaa6a6d567e0a39f958222765814d1edb616f645c9559ad1e86cf4",
+    "results/evidence/W2_OPT01_05_20261018/baseline_additional.json": "17049612950056bffe12504873b56d7e790935997fddd5fd69efa54de5944acf",
+    "results/evidence/W2_OPT01_05_20261018/restore_check.json": "062a89943966d01f3b659dfacecaa78de6f826765896649abd27aab0d7b39ef9",
+    "results/evidence/W2_OPT01_05_20261018/l1_profile.txt": "3844040b065524e932cbe65e5a5fc601ce0878f99017396b91caacaf43cf82d9",
+    "results/evidence/W2_OPT01_05_20261018/windows_all_final/checks.json": "4d8acb066d41e188b31eed6496cbce12f7d83e705e74a2f128de550509892b70",
+    "results/evidence/W2_OPT01_05_20261018/windows_all_final/compileall.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/evidence/W2_OPT01_05_20261018/windows_all_final/pytest.log": "7fc8a3df18ca477d5fefed7740c65c03ea053d088ebd858669c21eea66ab6a8a",
+    "results/evidence/W2_OPT01_05_20261018/windows_all_final/pytest.xml": "16e3ead40b2032dacd7b5976c48060fadf9ff9271dd543465c019709d8f233b0",
+    "results/evidence/W2_OPT01_05_20261018/windows_all_final/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/checks.json": "d39e1d75a17dd79ed26566d11f3e252615e9a28ab59e1b04607597f0e8e986b7",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/excluded_collection.log": "3dac9b6c8a6da7ab9db9a3964379d97d4c1f4def3b34625e6595ec99ff7e5fc2",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/pytest.log": "9bfd73792b64d6f9666fb5a7df3463a645c769f910d19377e7a1af302d290037",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/pytest.xml": "f5e3b42e8bafdcf2c295f6094ab5f59b1048079db98699690a32419f1610129e",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/ruff.log": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/smoke.log": "9f57e6f4ac474ba32d573fd24dc696d57aa9c7d8853843ddf4bd25a6a443607e",
+    "results/evidence/W2_OPT01_05_20261018/windows_short_final/validate.log": "e6040790c3b6c070f4e4abb4adb8b98fbe6ded5cce2cabe57cd0bd52b61aa033",
+    "results/evidence/W2_OPT01_05_20261018/windows_l1/checks.json": "e2a088deed0b1f0cc3f537c08a509f1fd271419a6393b19f867b489189f27478",
+    "results/evidence/W2_OPT01_05_20261018/windows_l1/pytest.log": "72231b573f7e8b1d94ec8cc8bc77c4e1a7d9841c829dab59f7b15acf6bf3e0a5",
+    "results/evidence/W2_OPT01_05_20261018/windows_l1/pytest.xml": "9b6d01e4107171d63abe3b6eed9f6debaaa7ad457e4924559735006d4ddc7b87",
+    "results/evidence/W2_OPT01_05_20261018/wsl_science_release/checks.json": "7e5be90c015837bfa1c7fcfddd614420e29f935ac7cf4ec525498d3feb0e41b3",
+    "results/evidence/W2_OPT01_05_20261018/wsl_science_release/pytest.log": "8a77466c40a638df04fa3da374d4a371ae0a2e0111f733ed89ec9978687a39d0",
+    "results/evidence/W2_OPT01_05_20261018/wsl_science_release/pytest.xml": "9b0af657228f0a3b3286b3c35e96bfcc42f092fb75cbc8d8b28031b0743eb2f0"
+  },
+  "checks": {
+    "windows_all_final": "passed_with_skips",
+    "windows_short_final": "passed_with_skips",
+    "windows_l1": "passed",
+    "wsl_science_release": "passed"
+  },
+  "protected_run": {
+    "run_id": "W2-P2-2a-56220810",
+    "unchanged": true,
+    "files": {
+      "acceptance.json": "4f6dd44f7621dd7d7d5fdad4318b48b92cd9f31d4417ec609300d534ec412c94",
+      "acceptance_stdout.log": "bb5ab337a2c5773f971ed0a0a1cf02c784f8d54425e86326ff84f0ebd49351f8",
+      "analysis.json": "3bb005ca9bcd1fb646d459e14a21eec30eb4279a14d8c5871356ac01fecd46e2",
+      "baseline_gate.json": "a47c04131d3cbaae95f4c2bd005ffcd04f07614d667f02d8a157b549c2e7ebe5",
+      "hardware.txt": "9d24367603379cbe05afc4a0585f15a56a6a54cdde54e7d20faa404a58569087",
+      "jobs.jsonl": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+      "progress.json": "7a9a11029e9aee8ae1a72cf6bb36785f0e81057a29d41a0abdf33c06ec5b8d7e",
+      "stand_stdout.log": "346dee1d44d6c9520752e2ba68a60edc91370509327cdbea15018317f154b9bd",
+      "summary.json": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f"
+    }
+  },
+  "scientific_modules_unchanged": true,
+  "paid_actions": 0
+}

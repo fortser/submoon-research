@@ -22,6 +22,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'src'))
+from submoon_research.contracts.p2_files import atomic_json, loads, output_path  # noqa: E402
+
 YEAR = 365.25*86400.0
 EVENT_OUTCOME = {'reference_contact': 'host_contact', 'other_contact': 'other_contact',
                  'operational_escape': 'operational_escape'}
@@ -52,11 +54,19 @@ def finite(value):
 
 def read_jsonl(path, failures):
     rows = []
-    for number, line in enumerate(Path(path).read_text(encoding='utf-8').splitlines(), 1):
-        if not line.strip():
-            continue
+    try:
+        raw = Path(path).read_bytes()
+    except OSError as exc:
+        failures.append(f'{path}: {exc}')
+        return rows
+    if raw and not raw.endswith(b'\n'):
+        failures.append(f'{path}: незавершённый хвост')
+    for number, line in enumerate(raw.decode('utf-8').splitlines(), 1):
         try:
-            rows.append(json.loads(line))
+            row = loads(line)
+            if not isinstance(row, dict):
+                raise ValueError('не объект')
+            rows.append(row)
         except ValueError:
             failures.append(f'{path}: строка {number} не разбирается')
     return rows
@@ -131,6 +141,25 @@ def check_row(row):
 
 
 def verify(args):
+    """W2-D036: run до W2-I035 (нет generator_numerics в summary) проверяются в режиме legacy-blas."""
+    from submoon_research.exact_linalg import LEGACY, NUMERICS_VERSION, numerics
+    try:
+        name = json.loads((ROOT/args.run/'summary.json').read_text(encoding='utf-8')).get('generator_numerics', LEGACY)
+    except (OSError, ValueError):
+        name = NUMERICS_VERSION
+    if name not in (LEGACY, NUMERICS_VERSION):
+        return dict(run=args.run, passed=False, checks=dict(generator_numerics=name),
+                    failures=[f'summary.generator_numerics = {name!r}: неизвестная численная схема генератора'])
+    with numerics(name):
+        report = _verify(args)
+    report['checks']['generator_numerics'] = name
+    if name == LEGACY and any('отпечаток задания не совпал' in f for f in report['failures']):
+        report['failures'].append('run до W2-I035 проверен в режиме legacy-blas: несовпадение отпечатков означает '
+                                  'другое ядро OpenBLAS, чем при расчёте (W2-D036)')
+    return report
+
+
+def _verify(args):
     failures, checks = [], {}
     run = ROOT/args.run
     stand = stand_module()
@@ -266,12 +295,15 @@ def parse(argv=None):
 
 def main(argv=None):
     args = parse(argv)
+    try:
+        path = output_path(ROOT/args.output, ROOT/args.run) if args.output else None
+    except ValueError as exc:
+        print(f'ОТКАЗ (ничего не записано): {exc}')
+        return 2
     report = verify(args)
-    text = json.dumps(report, ensure_ascii=False, indent=1, default=float)
-    if args.output:
-        path = ROOT/args.output
+    if path is not None:
         path.parent.mkdir(parents=True, exist_ok=True)
-        path.write_text(text, encoding='utf-8')
+        atomic_json(path, report)
     print(('ПРИНЯТ' if report['passed'] else 'НЕ ПРИНЯТ') + f": {args.run}; проверки {report['checks']}")
     for failure in report['failures']:
         print('  -', failure)

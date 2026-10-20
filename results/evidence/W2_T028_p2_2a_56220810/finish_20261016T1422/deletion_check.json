@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-16T14:25:12.640254+00:00",
+  "instance_id": 56220810,
+  "absent": true,
+  "instances": [
+    {
+      "id": 56229721,
+      "actual_status": "exited",
+      "label": null
+    }
+  ]
+}

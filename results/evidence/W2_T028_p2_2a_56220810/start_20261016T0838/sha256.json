@@ -1,0 +1,22 @@
+{
+  "captured_epoch": 1792139915.9848173,
+  "files": {
+    "approval.json": "e5ceb9d35467e3a3365fd009e25a0e9c8d7805ee13bd00f1cd94ddaa07256b39",
+    "baseline_acceptance.json": "1cfda32e21040e25ce3f7c9e7645acefeeeb80fead62706aec0b402f9665d58e",
+    "baseline_analysis.json": "335c71980687b55e2e5371da1cee77af87be6d12e0b230ce94b3c28bb4491017",
+    "baseline_gate.json": "a47c04131d3cbaae95f4c2bd005ffcd04f07614d667f02d8a157b549c2e7ebe5",
+    "baseline_jobs.jsonl": "60d551123e0692f551b6bad063e775eb03719645d19a7cb07d742a2c2c76a513",
+    "baseline_summary.json": "169cd6ec6d16a31648f74c793a59c7a5dc486817603402ff4b7cc95e4a525b0a",
+    "bundle_info.json": "a0f5542aae73c6d0231144c2cd1e15fa81140909596d48f7fdb54589b4da895d",
+    "deployment_inventory.txt": "c7d73641521ea912624241c07f50c8626d9e236d9682919dbe40041780ba4817",
+    "hardware.txt": "9d24367603379cbe05afc4a0585f15a56a6a54cdde54e7d20faa404a58569087",
+    "pip_freeze.txt": "cee25f9c1fa3dde9b24928ad4198fe3fd420035589a2c8acf8d394283c755d50",
+    "remote_bundle_manifest.json": "c223e643bb1e6edf4e874cdfbca266f8743f06509d1fdf11a70ee9318b76f6d9",
+    "remote_snapshot.txt": "c3b1a330ea495b2c7acdd35e689aa55bd2a42a99e6c753bab3642c9511695a1a",
+    "remote_start.sh": "9ce83ae9e4b5b93cc9edc9b05280430feaee42069c2607c314d7120633fc1545",
+    "rental.json": "6c1d2b8a5e90857b7862a0bc1d73f96417dc085ed7f7005dd1c34f4b272807ac",
+    "supervisor_launch.json": "da23340f4bcd256f474413c14e3794b7a037f96d1f82f0e73b647550c835dcdf",
+    "supervisor_status.json": "09ff354aa69387db437369676f9ba083ea77b05646a25f43a30fa8cd55b44b1d",
+    "transport_sha256.json": "816679381929486f09e5e2d261b0fcf062293ef8ae6d86ace6a253a1945e769a"
+  }
+}

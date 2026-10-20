@@ -185,6 +185,37 @@ def test_incomplete_or_failed_final_horizon_is_not_decided():
     assert s.analyze(missing, unit_list, params, True)['decision']['verdict'] == 'not_decided'
 
 
+def test_stopped_or_missing_b_does_not_block_decision():
+    """W2-D026: остановленные сроком или недостающие B на финальном горизонте не блокируют решение D–T."""
+    s, unit_list, params = synthetic(n_per_cell=128, years=(100.0, 1000.0), b_per_cell=16, b_years=(100.0, 1000.0))
+    slow = {u['orbit_id'] for u in unit_list[:3]}
+    rows = rows_for(s, unit_list, params, lambda u, y, v: dict(status='partial', outcome='unresolved',
+                    reason='computational') if v == 'B' and y == 1000.0 and u['orbit_id'] in slow else {})
+    result = s.analyze(rows, unit_list, params, True)
+    final = result['horizons']['1000']
+    assert not result['complete'] and not final['complete'] and final['dt_complete']
+    assert (final['b_planned'], final['b_unfinished']) == (144, 3)
+    assert result['decision']['verdict'] == 'equivalent' and result['decision']['reasons'] == []
+    assert result['decision']['b_unfinished'] == 3 and result['decision']['rule'] == 'W2-D026'
+    assert any('B не завершено' in n for n in result['decision']['notes'])
+    assert final['pairs']['D-B']['units'] == 141  # пары с B — только по завершённым
+    assert result['analysis_version'] == s.ANALYSIS_VERSION
+    missing = [r for r in rows_for(s, unit_list, params)
+               if not (r['variant'] == 'B' and r['years'] == 1000.0 and r['orbit_id'] in slow)]
+    result = s.analyze(missing, unit_list, params, True)
+    assert result['decision']['verdict'] == 'equivalent' and result['horizons']['1000']['b_unfinished'] == 3
+    # Отказ B не блокирует (как прежде), отказ D/T — блокирует.
+    b_failed = rows_for(s, unit_list, params, lambda u, y, v: dict(status='failed', outcome='unresolved',
+                        reason='computational') if v == 'B' and y == 1000.0 and u['orbit_id'] in slow else {})
+    assert s.analyze(b_failed, unit_list, params, True)['decision']['verdict'] == 'equivalent'
+    # Остановленный D на финальном горизонте по-прежнему блокирует.
+    first = unit_list[0]['orbit_id']
+    d_stopped = rows_for(s, unit_list, params, lambda u, y, v: dict(status='partial', outcome='unresolved',
+                         reason='computational') if v == 'D' and y == 1000.0 and u['orbit_id'] == first else {})
+    result = s.analyze(d_stopped, unit_list, params, True)
+    assert result['decision']['verdict'] == 'not_decided' and not result['horizons']['1000']['dt_complete']
+
+
 def test_b_pairs_are_descriptive_with_high_e_exclusion():
     s, unit_list, params = synthetic(n_per_cell=4, years=(1000.0,), b_per_cell=2, b_years=(1000.0,))
     first = unit_list[0]['orbit_id']

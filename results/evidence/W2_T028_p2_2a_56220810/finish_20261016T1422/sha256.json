@@ -1,0 +1,14 @@
+{
+  "files": {
+    "acceptance_local.json": "b74c381e0948d7810e73516bd2565e7becd0e67f1841b8f58c8fe7c524cf02b7",
+    "deletion_check.json": "d004cbb13805a8934383e7172ed979f2e90afdf9fe3fa741a97891b8b1c2a7c4",
+    "local_source_comparison.json": "18ddc25167e23871125d054d7bb19d7f8a763e68be157975a1b3afed8b131572",
+    "observation.json": "359e1794b924aa5fecacf87c3fd2930d9ac3de37a11b7dd6500bbde3a33a24af",
+    "rental.json": "297e66e7691f53c2b3677ce36b63c8f544dc556855c5c7860d5bbfdf8c632180",
+    "rental_final.json": "3eb31a764049d139699d4e679beb34707e8b322d7955c817bfd911795fed147d",
+    "supervisor.log": "03e2d2181c0b83438194f7062372f0c095953cd9f2e8d95a701e7b14cd89f041",
+    "supervisor_error.json": "8cc82a7af8f4cbf733a0b79834272a177d31e26d8292e01af4afa49678748f29",
+    "supervisor_launch.json": "da23340f4bcd256f474413c14e3794b7a037f96d1f82f0e73b647550c835dcdf",
+    "supervisor_status.json": "5034198a20318a0f69b9378e87ae460149403cbf1e01d4ac1af93645e4b962e0"
+  }
+}

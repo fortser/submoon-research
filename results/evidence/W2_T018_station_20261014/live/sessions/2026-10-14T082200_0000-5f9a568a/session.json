@@ -1,0 +1,249 @@
+{
+ "session_id": "2026-10-14T082200_0000-5f9a568a",
+ "profile": "p2_2a_station",
+ "snapshots": [
+  {
+   "cycle": 1,
+   "utc": "2026-10-14T08:22:06+00:00",
+   "observed": 1,
+   "newly_observed": [
+    53991778
+   ],
+   "not_reobserved": [],
+   "search": {
+    "mode": "sweep",
+    "strategy": "sweep",
+    "complete": false,
+    "passes": [
+     {
+      "name": "price",
+      "status": "completed",
+      "found": 11,
+      "new": 11,
+      "queries": 1,
+      "reasons": []
+     },
+     {
+      "name": "exclude",
+      "status": "completed",
+      "found": 1,
+      "new": 1,
+      "queries": 2,
+      "reasons": []
+     },
+     {
+      "name": "vcpu_bands",
+      "status": "completed",
+      "found": 11,
+      "new": 0,
+      "queries": 2,
+      "reasons": []
+     },
+     {
+      "name": "gpu_count",
+      "status": "completed",
+      "found": 11,
+      "new": 0,
+      "queries": 2,
+      "reasons": []
+     }
+    ],
+    "stop_reason": "saturation_heuristic",
+    "saturated": true,
+    "last_two_passes_new_fraction": 0.0,
+    "queries": 7,
+    "errors": [],
+    "incomplete": [],
+    "elapsed_seconds": 6.9,
+    "raw_offers": 12,
+    "receipts": [
+     {
+      "sweep_pass": "price",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 11,
+      "continued": null,
+      "elapsed_seconds": 0.7959999999998217,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "exclude",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,152547,152693,153055,153723]",
+      "status": "ok",
+      "count": 1,
+      "continued": null,
+      "elapsed_seconds": 0.8440000000000509,
+      "excluded_machines": 11
+     },
+     {
+      "sweep_pass": "exclude",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,151327,152547,152693,153055,153723]",
+      "status": "ok",
+      "count": 0,
+      "continued": null,
+      "elapsed_seconds": 1.0,
+      "excluded_machines": 12
+     },
+     {
+      "sweep_pass": "vcpu_bands",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 cpu_cores_effective<96 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 10,
+      "continued": null,
+      "elapsed_seconds": 1.125,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "vcpu_bands",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=96 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 1,
+      "continued": null,
+      "elapsed_seconds": 0.8910000000000764,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "gpu_count",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus=1 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 4,
+      "continued": null,
+      "elapsed_seconds": 1.094000000000051,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "gpu_count",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus>=2 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 7,
+      "continued": null,
+      "elapsed_seconds": 1.1089999999999236,
+      "excluded_machines": null
+     }
+    ]
+   }
+  },
+  {
+   "cycle": 2,
+   "utc": "2026-10-14T08:22:29+00:00",
+   "observed": 1,
+   "newly_observed": [],
+   "not_reobserved": [],
+   "search": {
+    "mode": "sweep",
+    "strategy": "sweep",
+    "complete": false,
+    "passes": [
+     {
+      "name": "price",
+      "status": "completed",
+      "found": 12,
+      "new": 12,
+      "queries": 1,
+      "reasons": []
+     },
+     {
+      "name": "exclude",
+      "status": "completed",
+      "found": 1,
+      "new": 1,
+      "queries": 2,
+      "reasons": []
+     },
+     {
+      "name": "vcpu_bands",
+      "status": "completed",
+      "found": 12,
+      "new": 0,
+      "queries": 2,
+      "reasons": []
+     },
+     {
+      "name": "gpu_count",
+      "status": "completed",
+      "found": 12,
+      "new": 0,
+      "queries": 2,
+      "reasons": []
+     }
+    ],
+    "stop_reason": "saturation_heuristic",
+    "saturated": true,
+    "last_two_passes_new_fraction": 0.0,
+    "queries": 7,
+    "errors": [],
+    "incomplete": [],
+    "elapsed_seconds": 6.8,
+    "raw_offers": 13,
+    "receipts": [
+     {
+      "sweep_pass": "price",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 12,
+      "continued": null,
+      "elapsed_seconds": 0.7190000000000509,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "exclude",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,143742,144728,147430,149802,150930,152547,152693,153055,153723]",
+      "status": "ok",
+      "count": 1,
+      "continued": null,
+      "elapsed_seconds": 0.8910000000000764,
+      "excluded_machines": 12
+     },
+     {
+      "sweep_pass": "exclude",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,143742,144728,147430,149802,150930,151327,152547,152693,153055,153723]",
+      "status": "ok",
+      "count": 0,
+      "continued": null,
+      "elapsed_seconds": 1.375,
+      "excluded_machines": 13
+     },
+     {
+      "sweep_pass": "vcpu_bands",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 cpu_cores_effective<96 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 11,
+      "continued": null,
+      "elapsed_seconds": 0.8589999999999236,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "vcpu_bands",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=96 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 1,
+      "continued": null,
+      "elapsed_seconds": 0.75,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "gpu_count",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus=1 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 4,
+      "continued": null,
+      "elapsed_seconds": 0.9850000000001273,
+      "excluded_machines": null
+     },
+     {
+      "sweep_pass": "gpu_count",
+      "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus>=2 dph_total>=0 dph_total<=0.40000000000000002",
+      "status": "ok",
+      "count": 8,
+      "continued": null,
+      "elapsed_seconds": 1.1869999999998981,
+      "excluded_machines": null
+     }
+    ]
+   }
+  }
+ ],
+ "requested_cycles": 2,
+ "elapsed_seconds": 29.782000000000153,
+ "rental_enabled": false
+}

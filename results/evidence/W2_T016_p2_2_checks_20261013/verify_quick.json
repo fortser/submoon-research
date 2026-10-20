@@ -1,0 +1,25 @@
+{
+ "run": "scratch/claude/W2-P2-2_quick_20261013T090822Z",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "jobs": {
+   "rows": 81,
+   "accepted": 81,
+   "expected": 81,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "decision": "not_decided",
+   "stratum_verdict": "inconclusive",
+   "discordant": 0,
+   "n": 18,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  }
+ }
+}

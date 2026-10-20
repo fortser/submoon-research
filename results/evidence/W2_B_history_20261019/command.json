@@ -1,0 +1,18 @@
+{
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu-24.04",
+    "--cd",
+    "/mnt/t/test_python/submoon-research",
+    "-e",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "55s",
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "-c",
+    "import os,sys,resource,json,math\nfrom pathlib import Path\nos.environ.update({k:'1' for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMBA_NUM_THREADS')})\nos.sched_setaffinity(0,{min(os.sched_getaffinity(0))})\nresource.setrlimit(resource.RLIMIT_AS,(2*1024**3,2*1024**3))\nsys.path.insert(0,'src')\nimport numpy as np\nfrom submoon_research.diagnostics.ias15_replay import load_snapshot,adaptation,environment\nfrom submoon_research.contracts.p2_files import read_json,file_digest,digest,atomic_json\npath=Path('results/evidence/W2_B_capture_20261019/attempt/diagnostic_artifacts/pre_step_snapshot/snapshot_manifest.json')\nsha='9a634be5f9404ed88ccf66839aedc7133f4b38a27520e9d029e31dd78557b52a'\nidentity=read_json(path)['identity']\nnative,doc=load_snapshot(path,sha,expected_identity=identity)\nfresh,_=load_snapshot(path,sha,expected_identity=identity,physical_only=True)\nscalar_names=['G','t','dt','dt_last_done','N','N_var','N_active','testparticle_type','force_is_velocity_dependent','gravity','softening','exact_finish_time','steps_done']\ndef scalars(s):\n d={}\n for key in scalar_names:\n  val=getattr(s,key,None)\n  d[key]=val if isinstance(val,(str,int,float,bool,type(None))) else str(val)\n return d\nbuffers={}\nfor name in ['at','x0','v0','a0','csx','csv','csa0','g','b','csb','e','br','er']:\n size=3*native.count*(7 if name in ['g','b','csb','e','br','er'] else 1)\n row={}\n for key,obj in [('native',native),('fresh',fresh)]:\n  ptr=getattr(obj.sim.integrator,name)\n  a=obj._array(name,size) if ptr else None\n  row[key]=dict(allocated=bool(ptr),elements=size if ptr else 0,values=None if a is None else a.tolist(),sha256=None if a is None else digest(a.tolist()),nonzero=None if a is None else int(np.count_nonzero(a)),max_abs=None if a is None else float(np.max(abs(a))))\n buffers[name]=row\nstate=native.absolute_state(); other=fresh.absolute_state(); csx=native._array('csx',3*native.count).reshape(native.count,3); csv=native._array('csv',3*native.count).reshape(native.count,3)\nprobe_relative_correction=(csx[-1]-csx[0]).tolist()\nout=dict(run_id='W2-B-history-20261019',steps_executed=0,snapshot_sha256=file_digest(path),identity=identity,environment=environment(),physical_state_exact=state.tobytes()==other.tobytes(),physical_state_sha256=digest(state.tolist()),adaptation_native=adaptation(native),adaptation_fresh=adaptation(fresh),scalars_native=scalars(native.sim),scalars_fresh=scalars(fresh.sim),buffers=buffers,native_csx_over_position_ulp=(csx/np.abs(np.spacing(state[:,:3]))).tolist(),probe_minus_host_csx_km=probe_relative_correction,probe_minus_host_csv_km_s=(csv[-1]-csv[0]).tolist(),simulation_gravity_field_types=[(x[0],str(x[1])) for x in native.sim._fields_ if 'gravity' in x[0]],source_sha256=file_digest(Path('data/raw/rebound_5_1_1_20261019/integrator_ias15.c')),limitations='Read-only stored buffers. Fresh NULL arrays are not allocated zero arrays. No reset or causal intervention; physical equality is binary64 x/v, not equality of low-order compensation state.')\natomic_json(Path('results/evidence/W2_B_history_20261019/audit.json'),out)\nprint(json.dumps({k:v for k,v in out.items() if k not in ('buffers','identity','native_csx_over_position_ulp')},ensure_ascii=False,indent=2))\nprint('BUFFERS', {k:dict(native_nonzero=v['native']['nonzero'],native_max=v['native']['max_abs'],fresh_allocated=v['fresh']['allocated']) for k,v in buffers.items()})\n"
+  ],
+  "started_utc": "2026-10-20T07:49:05.445829+00:00"
+}

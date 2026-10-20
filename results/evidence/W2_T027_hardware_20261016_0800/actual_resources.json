@@ -1,0 +1,7 @@
+{
+  "cpu_name": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+  "physical_workers": 32,
+  "effective_vcpus": 61.43999,
+  "ram_gb": 258.765488128,
+  "core_speed_ratio": null
+}

@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "physical_state_exact": true,
+    "zero_integration_steps": true,
+    "scalar_contract": true,
+    "adaptation_same": true,
+    "fresh_buffers_unallocated": true,
+    "native_buffer_bounds": true,
+    "native_csa0_zero": true,
+    "gravity_basic": true,
+    "snapshot_unchanged": true
+  },
+  "passed": true,
+  "scientific_admission": false
+}

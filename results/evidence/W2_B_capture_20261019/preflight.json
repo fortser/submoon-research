@@ -1,0 +1,83 @@
+{
+  "run_id": "W2-B-capture-20261019",
+  "approval": "W2-D037",
+  "utc": "2026-10-19T11:01:13.034088+00:00",
+  "identity": {
+    "orbit": "himalia:uniform_log_a:0008",
+    "years": 1000.0,
+    "source_run": "runs/W2-P2-2a-56220810",
+    "job_fingerprint": "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+    "B_implementation": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587",
+    "source_summary_sha256": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+    "source_jobs_sha256": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+    "inputs_manifest_sha256": null,
+    "source_inputs_manifest": null,
+    "period_seconds": 165815.82478317557,
+    "gm_host": 0.1515524299611265,
+    "step_fraction": 0.025
+  },
+  "preflight": {
+    "checks": {
+      "job_fingerprint_matches": true,
+      "implementation_B_matches": true,
+      "initial_probe_exact": true
+    },
+    "input_basis": "legacy generator; checked against trusted job fingerprint"
+  },
+  "environment": {
+    "python": "3.12.3",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "packages": {
+      "rebound": "5.1.1",
+      "reboundx": "5.1.0",
+      "numpy": "2.2.6"
+    },
+    "native_adapter_sha256": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4"
+  },
+  "code_sha256": {
+    "scripts/capture_b_local_once.py": "7d9da7813cc6c900516739831e3c34ddcc99ad9ec9465a0130fa1a2ec6523bb6",
+    "scripts/diag_b_failure_p2_2.py": "01c3666dc74a6d4274b268a044764da737a3fbb570135b2ef44c5848e16dc3d7",
+    "scripts/admission_p2_2.py": "ee791a34dd713e19a75dd19036d9c259ae4bac7953f8f218e8b1a7ea4e33f129",
+    "src/submoon_research/diagnostics/ias15_replay.py": "4fcdc7034637ed73509fd27743e8967537ec97f11e05799d9dd609ad4550330a",
+    "docs/tasks/W2_B_capture_20261019.md": "8118620fd3a72804a94585b742ada27b44c4e767fad0a9b5a9ce4f087e05707a",
+    "src/submoon_research/dynamics/baseline.py": "e4622112851de66d5444d39043cc46381372253304bdffa8d2e79bb0534d01f0",
+    "src/submoon_research/dynamics/compiled_dop853.py": "ce1ea53c4b84b2901d0feb63807318c5f5f898deb431d4f752b80032ae8199f4",
+    "src/submoon_research/dynamics/dense_segments.py": "2cad414cc7e53812d1e1f53e8497ac5f43d652bd551bddb7d86ff9fad498bb4f",
+    "src/submoon_research/dynamics/engine_compare.py": "dabbd6e1e8c59be42bfae28efc6c7216f28e83c93674e44faf0c0a9d8f83732d",
+    "src/submoon_research/dynamics/fast_forces.py": "d18822c3268d1ae11967d76a91889b711f49508235811fe17eb565c6eb2eb59c",
+    "src/submoon_research/dynamics/initialization.py": "a8dc974f375483e493353b1b1c48bc8e67aa7574c928874854bed82a4c65985d",
+    "src/submoon_research/dynamics/kepler_reference.py": "99f3b2c638ef8248c60a41c9c8e7eb4a8b8d8254e1137d4f99a53dc4ba6d255d",
+    "src/submoon_research/dynamics/native_ias15.py": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4",
+    "src/submoon_research/dynamics/nominal.py": "34a9b3245dad97992917e99afe57d78219cc32df7a85c4fd5c46268308f94cff",
+    "src/submoon_research/dynamics/__init__.py": "8e0ff9fe396f7698362f3299a58ebbb9b99e3398c66667429bd0abdefe7094b4",
+    "src/submoon_research/contracts/baseline.py": "f2532527e99268e9030a643cadbdf405070339ae569f241896ca37eee3ab1cb4",
+    "src/submoon_research/contracts/checkpoint.py": "0ef8949c52b53c80e21c445174adac277914ecb5f117de953b0a5f04681349c1",
+    "src/submoon_research/contracts/freeze.py": "8b318bb04bcd97a3fcbbe39fd5e37d6e054b5619620550003f9e4f0dd2d9b3a2",
+    "src/submoon_research/contracts/frozen_p2.py": "5ba72b7a206fec76a9d78997c57ba1ae073ebee05d37c61d6176f915d6b15458",
+    "src/submoon_research/contracts/identifiers.py": "89ab49ed3c9bb8424e52ae2bff5f0e65001bad7a9643fda270a4fdf6bc036924",
+    "src/submoon_research/contracts/l1.py": "a19df2c2a2cc82239a396234116b41c9a5fcdfb51ad11b13efccd3a404bd9e22",
+    "src/submoon_research/contracts/nominal_states.py": "85ad194ccf98584a1e9d060c93f3d3a868ec8538ed5e5ca910911e1082c1e2ae",
+    "src/submoon_research/contracts/orbit.py": "0f4f33502a25db51b7e525b9eba6176893f4601bb157ac23a187213a481cf5a8",
+    "src/submoon_research/contracts/p2_files.py": "57106be58c9164c9f660d837ec3d9858d935c1339d8387dd2351edf4bbdacd9a",
+    "src/submoon_research/contracts/w1.py": "6a3bfed1a24bc570c8017019dc02d6f9ca8ba7353bd6fe16c56e3f8dd1b6432f",
+    "src/submoon_research/contracts/__init__.py": "6cd7fb0f8a39f7d83b2d10c68487aef10855ee0a65f6dff18a7601d15fb9d898",
+    "src/submoon_research/exact_linalg.py": "33f4e58da9e3df6b61afb753f31129870cec2d78d09edb1a676efab01becc347",
+    "src/submoon_research/sampling/design.py": "1d94f5a5ac0e2488346840b3a8c97a2e1d1b54e8372b63e6c4248751208087c3"
+  },
+  "python": "/home/taras/venvs/submoon-w2/bin/python",
+  "affinity": [
+    0
+  ],
+  "memory_address_limit_bytes": 2147483648,
+  "free_disk_bytes": 157941063680,
+  "thread_environment": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "NUMBA_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1"
+  },
+  "integration_status": "not_run",
+  "scientific_admission": false
+}

@@ -34,6 +34,7 @@ import multiprocessing as mp
 import os
 import sys
 import time
+import traceback
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -49,8 +50,12 @@ import numpy as np  # noqa: E402
 from bench_engines_ac import cpu_info  # noqa: E402
 from submoon_research.dynamics.compiled_dop853 import (  # noqa: E402
     PROTOTYPE_VERSION, implementation_fingerprint, integrate_compiled)
+from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
 from submoon_research.dynamics.engine_compare import NumericMode, integrate_engine  # noqa: E402
 from submoon_research.workflows.w2_comparison import load_cases, warmup  # noqa: E402
+from submoon_research.contracts.p2_files import (  # noqa: E402
+    atomic_json, digest, exclusive_run, file_digest, preflight, read_job_rows, read_json, source_manifest,
+)
 
 YEAR = 365.25*86400.0
 LIMIT = 1e-6
@@ -311,25 +316,8 @@ def parse_deadline(text):
 
 
 def read_rows(jobs_file, expected_fp):
-    """Строки jobs.jsonl с совпавшим отпечатком; для ключа берётся последняя строка.
-    Повреждённая (недописанная) строка пропускается и учитывается как отброшенная."""
-    rows, ignored = {}, 0
-    if not jobs_file.exists():
-        return rows, ignored
-    for line in jobs_file.read_text(encoding='utf-8').splitlines():
-        if not line.strip():
-            continue
-        try:
-            row = json.loads(line)
-            key = (row['orbit_id'], row['years'], row['variant'])
-        except (ValueError, KeyError, TypeError):
-            ignored += 1
-            continue
-        if expected_fp.get(key) is not None and row.get('job_fingerprint') == expected_fp[key]:
-            rows[key] = row
-        else:
-            ignored += 1
-    return rows, ignored
+    """Строгий общий reader: повреждения/чужие строки не пропускаются."""
+    return read_job_rows(jobs_file, expected_fp), 0
 
 
 def run_jobs(jobs, workers, jobs_file, done, run_dir, planned, started):
@@ -363,7 +351,7 @@ def run_jobs(jobs, workers, jobs_file, done, run_dir, planned, started):
                 print(f'  {k}/{len(jobs)} заданий, {time.perf_counter()-started:.0f} с с начала', flush=True)
 
 
-def main():
+def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument('--years', type=float, nargs='*', default=list(FULL_YEARS))
     parser.add_argument('--b-max-years', type=float, default=FULL_B_MAX)
@@ -383,10 +371,20 @@ def main():
                         help='если файл появится, задания останавливаются (partial) и стенд подводит итог')
     parser.add_argument('--evaluate-only', action='store_true',
                         help='только оценка имеющегося jobs.jsonl (остановленные строки учитываются)')
-    args = parser.parse_args()
+    parser.add_argument('--resume', action='store_true')
+    parser.add_argument('--analysis-dir', help='новый отдельный каталог, только с --evaluate-only')
+    args = parser.parse_args(argv)
+    try:
+        with exclusive_run(ROOT/args.run_dir, ROOT/'scratch/p2_locks'):
+            return _main(args)
+    except (OSError, ValueError) as exc:
+        traceback.print_exc()
+        print(f'ОТКАЗ/ОШИБКА СТЕНДА: {exc}', flush=True)
+        return 2
 
-    run_dir = ROOT/args.run_dir
-    run_dir.mkdir(parents=True, exist_ok=True)
+
+def _main(args):
+    run_dir = (ROOT/args.run_dir).resolve()
     jobs_file = run_dir/'jobs.jsonl'
     deadline = parse_deadline(args.deadline_utc)
     _, cases = load_cases(ROOT)
@@ -397,9 +395,37 @@ def main():
                   and tuple(args.core_years) == FULL_YEARS and all(y in args.years for y in FULL_YEARS)
                   and args.core_b_max >= FULL_B_MAX and args.b_max_years >= FULL_B_MAX)
     implementations = dict(compiled=implementation_fingerprint(), B=b_fingerprint())
+    plan = level_plan(args.years, args.b_max_years, args.core_years, args.core_b_max)
     expected_fp = {(c['orbit_id'], y, v): job_fingerprint(c, y, v, implementations)
-                   for c in cases for y in args.years for v in ('D', 'T', 'B')}
-    rows, ignored = read_rows(jobs_file, expected_fp)
+                   for c in cases for y in args.years for v in plan[y]['variants']}
+    contract = dict(version='p2-1-run-v1', jobs_sha256=digest(sorted(expected_fp.items())),
+                    years=args.years, core_years=args.core_years, core_b_max=args.core_b_max,
+                    b_max_years=args.b_max_years, cases=[c['orbit_id'] for c in cases])
+    analysis_dir = (ROOT/args.analysis_dir).resolve() if args.analysis_dir else None
+    out_dir = analysis_dir or run_dir
+    try:
+        if not args.years or any(not math.isfinite(y) or y <= 0 for y in args.years):
+            raise ValueError('горизонты должны быть конечными и положительными')
+        if (run_dir/'summary.json').exists():
+            summary = read_json(run_dir/'summary.json')
+            for name in ('years', 'core_years', 'core_b_max', 'b_max_years', 'cases'):
+                if not isinstance(summary, dict) or summary.get(name) != contract[name]:
+                    raise ValueError(f'summary.{name}: другая постановка')
+            if summary.get('implementations') != implementations:
+                raise ValueError('summary.implementations: другая реализация')
+        rows, ignored = read_rows(jobs_file, expected_fp)
+        preflight(run_dir, analysis_dir, evaluate=args.evaluate_only, resume=args.resume,
+                  rows=rows, expected_fp=expected_fp, contract=contract)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        print(f'ОТКАЗ СТЕНДА (ничего не записано): {exc}', flush=True)
+        return 2
+    source = source_manifest(run_dir) if args.evaluate_only else None
+    if args.evaluate_only:
+        out_dir.mkdir(parents=True, exist_ok=False)
+    else:
+        run_dir.mkdir(parents=True, exist_ok=True)
+        if not args.resume:
+            atomic_json(run_dir/'run_contract.json', contract)
     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
     info = cpu_info()
@@ -411,7 +437,7 @@ def main():
           f"(обязательные {args.core_years}, B до {args.b_max_years:g} лет, в обязательном — до {args.core_b_max:g}); "
           f"процессов {args.workers}; режим {mode_text}; уже готово заданий {len(done)} "
           f"(отброшено несовпавших по отпечатку {ignored}); срок {args.deadline_utc or 'нет'}; "
-          f"объём {'полный' if full_scope else 'СОКРАЩЁННЫЙ'}; каталог {run_dir.relative_to(ROOT)}", flush=True)
+          f"объём {'полный' if full_scope else 'СОКРАЩЁННЫЙ'}; каталог {run_dir}", flush=True)
     if args.stop_file and os.path.exists(args.stop_file) and not args.evaluate_only:
         print(f'ВНИМАНИЕ: стоп-файл {args.stop_file} уже существует — задания будут сразу остановлены', flush=True)
     by_id = {c['orbit_id']: c for c in cases}
@@ -464,8 +490,7 @@ def main():
                 record['extension'] = summary
                 if core_stop is None and ext_stop is None and blocking(summary):
                     ext_stop = years
-        (run_dir/f'level_{years:g}y.json').write_text(json.dumps(record, ensure_ascii=False, indent=1,
-                                                                 default=float), encoding='utf-8')
+        atomic_json(out_dir/f'level_{years:g}y.json', record, replace=args.resume)
     core = [s for s in summaries if s['kind'] == 'core']
     extension = [s for s in summaries if s['kind'] == 'extension']
     core_levels = {s['years'] for s in core if s['counted'] and s['passed']}
@@ -480,22 +505,27 @@ def main():
                     Q2_violations=s['Q2_violations'], problems=s['problems'])
 
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    (run_dir/'summary.json').write_text(json.dumps(dict(plan='W2-P004', stage='P2-1', utc=stamp,
+    complete = set(done) == set(expected_fp) and all(r['run_status'] != 'partial' for r in done.values())
+    atomic_json(out_dir/'summary.json', dict(plan='W2-P004', stage='P2-1', utc=stamp,
+        complete=complete, source=source,
         prototype_version=PROTOTYPE_VERSION, machine=info, years=args.years, b_max_years=args.b_max_years,
         core_years=args.core_years, core_b_max=args.core_b_max, concurrent=args.concurrent,
         evaluate_only=args.evaluate_only, deadline_utc=args.deadline_utc, stop_file=args.stop_file,
         workers=args.workers, cases=[c['orbit_id'] for c in cases], levels=[brief(s) for s in core],
         extension_levels=[brief(s) for s in extension], verdict_passed=verdict,
         extension_passed=extension_passed, full_scope=full_scope, stand_version=STAND_VERSION,
-        implementations=implementations, wall_seconds=time.perf_counter()-started),
-        ensure_ascii=False, indent=1, default=float), encoding='utf-8')
+        implementations=implementations, generator_numerics=NUMERICS_VERSION,
+        wall_seconds=time.perf_counter()-started), replace=args.resume)
+    if not args.evaluate_only and complete:
+        atomic_json(run_dir/'sealed.json', dict(version=1, utc=stamp, scientific_admission=False,
+                                               summary_sha256=file_digest(out_dir/'summary.json')))
     clean = core_stop is None and ext_stop is None and all(s['counted'] for s in summaries)
     if verdict:
-        print(f"\nИТОГ P2-1 (обязательный набор): ПРОЙДЕНО; каталог {run_dir.relative_to(ROOT)}")
+        print(f"\nИТОГ P2-1 (обязательный набор): ПРОЙДЕНО; каталог {run_dir}")
     elif clean and not full_scope:
-        print(f"\nИТОГ: СОКРАЩЁННЫЙ ОБЪЁМ — нарушений не найдено, но это не допуск P2-1; каталог {run_dir.relative_to(ROOT)}")
+        print(f"\nИТОГ: СОКРАЩЁННЫЙ ОБЪЁМ — нарушений не найдено, но это не допуск P2-1; каталог {run_dir}")
     else:
-        print(f"\nИТОГ P2-1 (обязательный набор): НЕ ПРОЙДЕНО / НЕ ЗАВЕРШЕНО; каталог {run_dir.relative_to(ROOT)}")
+        print(f"\nИТОГ P2-1 (обязательный набор): НЕ ПРОЙДЕНО / НЕ ЗАВЕРШЕНО; каталог {run_dir}")
     if extension:
         stopped = sum(len(s['stopped']) for s in extension)
         print(f"РАСШИРЕНИЕ: {'пройдено полностью' if extension_passed else 'не пройдено или не завершено'}; "

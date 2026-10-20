@@ -1,4 +1,8 @@
-"""W2-P004 / P2-1 (вариант В) на одной арендованной CPU-машине Vast.ai.
+"""W2-P004: P2-1 (вариант В) или P2-2a (W2-P006) на одной арендованной CPU-машине Vast.ai.
+
+Сценарий задаётся approval['scenario']: 'p2_1' (по умолчанию, прежний стенд admission_p2_horizons)
+или 'p2_2a' (W2-T019: гейты, железо, базовый прогон с автоматическим решением
+baseline_gate_p2_2.py, полный стенд admission_p2_2.py со сроком и стоп-файлом, приёмка на сервере).
 
 Запуск глобальным Python Windows с установленными vastai и paramiko (как vast_w2.py);
 SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копируются и в файлы не пишутся.
@@ -8,9 +12,11 @@ SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копир
 
 Действия:
   preflight — CLI, SSH-ключ, paramiko, approval, баланс (без затрат)
-  offers    — бесплатный анонимный поиск подходящих машин -> scratch/p2_rental/offers.json
+  offers    — бесплатный поиск через общий поиск vast_find (W2-T017) -> scratch/p2_rental/offers.json;
+              GPU-инстансы — только при approval['allow_gpu']; профиль оценки — approval['profile']
   prepare   — пакет проекта с манифестом SHA -> scratch/p2_rental/bundle.tar.gz
-  rent      — аренда ОДНОГО инстанса из offers.json в пределах approval (платно)
+  rent      — аренда ОДНОГО инстанса из offers.json в пределах approval (платно); перед create —
+              бесплатная перепроверка машины, занятые пропускаются без траты попытки
   wait      — ожидание состояния running (иначе удаление по таймауту)
   seed      — выборка готовых строк прежнего run для переиспользования (approval['seed'], W2-D021)
               -> scratch/p2_rental/seed_jobs.jsonl + seed_info.json (без затрат)
@@ -35,6 +41,7 @@ import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import vast_w2 as vw  # noqa: E402
@@ -52,9 +59,30 @@ STOP_FILE = '/workspace/p2_stop'
 SEED = WORK/'seed_jobs.jsonl'
 SEED_INFO = WORK/'seed_info.json'
 DEFAULT_RUN_DEADLINE_HOURS = 13.5
+SCENARIOS = {'p2_1': 'W2-P2-1', 'p2_2a': 'W2-P2-2a'}
+# Полный P2-2a (W2-P006) и базовый прогон (W2-T019): параметры стенда и приёмщика.
+P2_2A_FULL = '--per-cell 128 --b-per-cell 16 --unit-start 0 --years 1 10 100 1000 --b-years 100 1000'
+P2_2A_BASELINE = '--per-cell 4 --b-per-cell 4 --unit-start 0 --years 1 10 --b-years 1'
+P2_2A_GATE_TESTS = ('tests/unit/test_compiled_dop853.py tests/unit/test_admission_evaluators.py '
+                    'tests/unit/test_events_shared_samples.py tests/unit/test_native_ias15_guard.py '
+                    'tests/unit/test_high_e_rule.py tests/unit/test_horizon_independence.py '
+                    'tests/unit/test_p2_2_stand.py tests/unit/test_verify_p2_2_run.py '
+                    'tests/unit/test_baseline_gate_p2_2.py')
 
 
-def load(path, default=None):
+def scenario_of(record):
+    """Сценарий approval/rental; прежние записи без поля — P2-1."""
+    name = (record or {}).get('scenario', 'p2_1')
+    if name not in SCENARIOS:
+        raise ValueError(f'Неизвестный сценарий {name!r}; допустимы {sorted(SCENARIOS)}')
+    return name
+
+
+def run_dir_of(rental):
+    return f"runs/{SCENARIOS[scenario_of(rental)]}-{int(rental['instance_id'])}"
+
+
+def load(path, default=None) -> Any:
     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
 
 
@@ -70,6 +98,12 @@ def approval():
         raise ValueError('Нет полного явного разрешения пользователя в '+str(APPROVAL))
     if float(value['max_hourly_usd'])*float(value['max_hours']) > float(value['budget_usd']):
         raise ValueError('Ставка x длительность превышает бюджет approval')
+    if scenario_of(value) == 'p2_2a':
+        for key in ('min_workers', 'run_deadline_hours'):
+            if key not in value:
+                raise ValueError(f'Для сценария p2_2a в approval нужен {key}')
+        if value.get('seed'):
+            raise ValueError('seed применим только к сценарию p2_1')
     return value
 
 
@@ -98,7 +132,7 @@ def _credit_usd():
 def preflight():
     plan = approval()
     key = Path.home()/'.ssh/vast_agent'
-    checks = dict(cli=bool(vw.CLI), ssh_key=key.exists(), approval=True)
+    checks: dict[str, Any] = dict(cli=bool(vw.CLI), ssh_key=key.exists(), approval=True)
     try:
         import paramiko  # noqa: F401
         checks['paramiko'] = True
@@ -120,43 +154,54 @@ def preflight():
         raise SystemExit('preflight: не пройдено')
 
 
-def search_offers():
+def _finder():
+    src = str(ROOT/'src')
+    if src not in sys.path:
+        sys.path.insert(0, src)
+    from submoon_research.compute import finder
+    return finder
+
+
+def search_profile(plan):
+    """Профиль общего поиска (W2-T017) из approval: пределы approval главнее профиля.
+
+    approval['profile'] — имя профиля configs/compute/profiles (оценка часов и $ на серию);
+    без него — ранжирование по цене эталонного ядра. approval['allow_gpu'] — разрешить
+    GPU-инстансы (на рынке Vast.ai почти все вычислительные предложения такие)."""
+    finder = _finder()
+    overrides = dict(min_effective_cpus=float(plan['min_effective_cpus']),
+                     max_hourly_usd=float(plan['max_hourly_usd']), disk_gb=float(plan.get('disk_gb', 60)),
+                     min_ram_gb=float(plan.get('min_ram_gb', 64)),
+                     min_reliability=float(plan.get('min_reliability', 0.97)),
+                     cpu_regex=plan['cpu_name_regex'], allow_gpu=bool(plan.get('allow_gpu', False)),
+                     min_direct_ports=1, max_hours=float(plan['max_hours']))
+    for key in ('min_share', 'verification', 'min_core_speed', 'require_known_cpu'):
+        if key in plan:
+            overrides[key] = plan[key]
+    if plan.get('profile'):
+        return finder.load_profile(plan['profile'], overrides)
+    return finder.make_profile(dict(title='approval '+str(plan.get('task', '')), source=str(APPROVAL)),
+                               'approval', overrides)
+
+
+def search_offers(request=None, sleep=None):
     plan = approval()
-    body = {'rentable': {'eq': True}, 'rented': {'eq': False}, 'type': 'on-demand',
-            'allocated_storage': int(plan.get('disk_gb', 60)), 'order': [['dph_total', 'asc']],
-            'limit': 1000, 'cpu_arch': {'eq': 'amd64'}, 'num_gpus': {'eq': 0},
-            'disk_space': {'gte': int(plan.get('disk_gb', 60))},
-            'cpu_cores_effective': {'gte': int(plan['min_effective_cpus'])},
-            'dph_total': {'lte': float(plan['max_hourly_usd'])},
-            'reliability': {'gte': float(plan.get('min_reliability', 0.97))}}
-    request = urllib.request.Request(BUNDLES, data=json.dumps(body).encode(),
-        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
-    with opener.open(request, timeout=120) as response:
-        data = json.loads(response.read().decode('utf-8', 'replace'))
-    raw = data.get('offers', []) if isinstance(data, dict) else []
-    pattern = re.compile(plan['cpu_name_regex'], re.I)
-    min_ram = float(plan.get('min_ram_gb', 64))*1000
-    found = []
-    for o in raw:
-        clean = {k: o.get(k) for k in vw.SAFE_OFFER_FIELDS}
-        if clean.get('resource_type') not in ('cpu', 'compute'):
-            continue  # num_gpus=0 включает дисковые контракты
-        if not pattern.search(clean.get('cpu_name') or ''):
-            continue
-        if float(clean.get('cpu_ram') or 0) < min_ram:
-            continue
-        clean['usd_per_effective_core_hour'] = float(clean['dph_total'])/max(1, int(clean['cpu_cores_effective']))
-        found.append(clean)
-    # Дешевле ядро-час — выше; при равенстве надёжнее машина.
-    found.sort(key=lambda o: (o['usd_per_effective_core_hour'], -(o.get('reliability') or 0)))
-    save(WORK/'offers.json', dict(utc=vw.now(), source='anonymous_bundles', filter=body,
-                                  cpu_name_regex=plan['cpu_name_regex'], offers=found))
-    for o in found[:15]:
-        print(json.dumps({k: o.get(k) for k in ('id', 'machine_id', 'cpu_name', 'cpu_cores_effective',
-              'cpu_ram', 'dph_total', 'reliability', 'geolocation', 'disk_space')}, ensure_ascii=False))
-    print(f'подходящих предложений: {len(found)}; сохранено в {WORK/"offers.json"}')
-    return found
+    finder = _finder()
+    profile = search_profile(plan)
+    result = finder.find(profile, request=request, sleep=sleep)
+    document = finder.offers_document(result)
+    document['cpu_name_regex'] = plan['cpu_name_regex']
+    save(WORK/'offers.json', document)
+    search = result['search']
+    print('поиск до насыщения (без гарантии полноты):', ', '.join(f"{p['name']} +{p['new']}" for p in search['passes']))
+    for o in document['offers'][:15]:
+        est = (o['finder'].get('estimate') or {})
+        print(json.dumps({**{k: o.get(k) for k in ('id', 'machine_id', 'cpu_name', 'cpu_cores_effective',
+              'cpu_cores', 'cpu_ram', 'dph_total', 'reliability', 'verification', 'geolocation')},
+              'hours': est.get('hours'), 'usd': est.get('usd'), 'flags': o['finder']['flags']}, ensure_ascii=False))
+    print(f"подходящих предложений: {len(document['offers'])}; запросов {search['queries']}; "
+          f"отсеяно {result['rejected']}; сохранено в {WORK/'offers.json'}")
+    return document['offers']
 
 
 def prepare():
@@ -194,6 +239,25 @@ def prepare():
     print(json.dumps(info))
 
 
+def _first_still_available(offers, plan, request=None):
+    """Бесплатная перепроверка перед create (W2-T017): машина свободна, цена и ядра в пределах."""
+    finder = _finder()
+    profile = search_profile(plan)
+    limits = profile['requirements']
+    for offer in offers:
+        check = finder.recheck(offer, limits, request=request)
+        if check['status'] == 'error':
+            raise RuntimeError(f"Перепроверка {offer['id']} не удалась ({check['reason']}); аренда запрещена")
+        fresh = check['offer'] or {}
+        if check['status'] == 'available':
+            row, reason = finder.evaluate(fresh, profile, finder.Catalog.load())
+            if reason is None and 'over_deadline' not in row['flags']:
+                return dict(fresh, dph_total=row['usd_per_hour'], finder=dict(estimate=row['estimate'], flags=row['flags']))
+            check.update(status='requirements_changed', reason=reason or 'over_deadline')
+        print(f"оффер {offer['id']} (машина {offer.get('machine_id')}) пропущен: {check['status']} {check['reason'] or ''}")
+    raise RuntimeError('Ни одно предложение из offers.json не прошло перепроверку; выполните offers заново')
+
+
 def rent(offer_id=None):
     plan = approval()
     current = load(RENTAL)
@@ -209,18 +273,19 @@ def rent(offer_id=None):
     offers = [o for o in offers if o['id'] not in tried]
     if not offers:
         raise RuntimeError('Нет подходящего предложения в offers.json (выполните offers)')
-    offer = offers[0]
+    offer = _first_still_available(offers, plan)
     if float(offer['dph_total']) > float(plan['max_hourly_usd']):
         raise RuntimeError('Цена выше предела approval')
     result = vw.cli('create', 'instance', offer['id'], '--image', plan.get('image', 'ubuntu:22.04'),
                     '--disk', int(plan.get('disk_gb', 60)), '--ssh', '--direct', '--cancel-unavail',
-                    '--label', 'submoon-w2-p2-1')
+                    '--label', 'submoon-w2-'+scenario_of(plan).replace('_', '-'))
     iid = result.get('new_contract') if isinstance(result, dict) else None
     history['attempts'].append(dict(utc=vw.now(), offer_id=offer['id'], instance_id=iid))
     save(WORK/'attempts.json', history)
     if not isinstance(iid, int):
         raise RuntimeError('Не подтверждён create instance')
-    record = dict(instance_id=iid, status='created', created_utc=vw.now(), created_epoch=time.time(),
+    record = dict(instance_id=iid, scenario=scenario_of(plan), status='created', created_utc=vw.now(),
+                  created_epoch=time.time(),
                   deadline_epoch=time.time()+float(plan['max_hours'])*3600, offer=offer,
                   approval_ref=plan['user_message'], budget_usd=plan['budget_usd'])
     save(RENTAL, record)
@@ -328,6 +393,8 @@ def make_seed():
 
 
 def _start_script(rental):
+    if scenario_of(rental) == 'p2_2a':
+        return _start_script_p2_2a(rental)
     iid = int(rental['instance_id'])
     workers = _workers(rental['offer'])
     run_dir = f'runs/W2-P2-1-{iid}'
@@ -373,6 +440,82 @@ echo "done exit=$? $(date -u +%FT%TZ)" > $STATUS
 '''
 
 
+_SETUP_BLOCK = f'''set -uo pipefail
+export DEBIAN_FRONTEND=noninteractive
+STATUS=/workspace/p2_status
+fail() {{ echo "FAILED $1 $(date -u +%FT%TZ)" > $STATUS; exit 1; }}
+echo "setup $(date -u +%FT%TZ)" > $STATUS
+apt-get update -qq || fail apt-update
+apt-get install -y -qq python3 python3-venv python3-dev build-essential git || fail apt-install
+cd {REMOTE_ROOT}
+python3 -m venv .venv || fail venv
+.venv/bin/python -m pip install --disable-pip-version-check -q -r requirements-w2.txt || fail pip
+.venv/bin/python -m pip install --disable-pip-version-check -q --no-deps -e . || fail pip-project
+.venv/bin/python -m pip freeze > /workspace/p2_pip_freeze.txt
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMBA_NUM_THREADS=1
+'''
+
+# Физические ядра в пределах affinity контейнера (а не всей машины), квота cgroup и RAM.
+_HARDWARE_BLOCK = r"""PHYS=$(python3 - <<'PY'
+import os, subprocess
+allowed = os.sched_getaffinity(0)
+cores = set()
+for line in subprocess.check_output(['lscpu', '-p=CPU,CORE,SOCKET']).decode().splitlines():
+    if line.startswith('#'):
+        continue
+    cpu, core, socket = line.split(',')[:3]
+    if int(cpu) in allowed:
+        cores.add((socket, core))
+print(len(cores))
+PY
+)
+QUOTA=$(awk '$1!="max"{printf "%d", $1/$2}' /sys/fs/cgroup/cpu.max 2>/dev/null)
+MEMB=$(cat /sys/fs/cgroup/memory.max 2>/dev/null || echo max)
+if [ "$MEMB" = "max" ] || [ -z "$MEMB" ]; then MEMB=$(awk '/MemTotal/{printf "%d", $2*1024}' /proc/meminfo); fi
+MEMW=$(( MEMB / 483183820 ))
+"""
+
+
+def _start_script_p2_2a(rental):
+    """P2-2a (W2-T019): гейты → железо → базовый прогон и автоматическое решение → полный стенд.
+    Срок стенда — абсолютный (создание + run_deadline_hours); стенд сам останавливает задания к сроку."""
+    iid = int(rental['instance_id'])
+    workers = _workers(rental['offer'])
+    run_dir = run_dir_of(rental)
+    base_dir = f'runs/W2-P2-2a-baseline-{iid}'
+    verification_dir = f'runs/W2-P2-2a-verification-{iid}'
+    deadline = rental['run_deadline_utc']
+    min_workers = int(rental['min_workers'])
+    margin = float(rental.get('baseline_margin', 1.15))
+    return f'''#!/bin/bash
+{_SETUP_BLOCK}export W2_REMOTE_EXECUTION=1 W2_INSTANCE_ID={iid}
+rm -f {STOP_FILE}
+echo "gates $(date -u +%FT%TZ)" > $STATUS
+.venv/bin/python -c "import rebound, reboundx" || fail reboundx
+.venv/bin/python -m pytest -q {P2_2A_GATE_TESTS} || fail pytest
+.venv/bin/python -m ruff check src scripts tests || fail ruff
+mkdir -p {run_dir} {base_dir} {verification_dir}
+{{ date -u +%FT%TZ; lscpu; echo; nproc; cat /sys/fs/cgroup/cpu.max; cat /sys/fs/cgroup/memory.max; grep -E 'MemTotal|MemAvailable' /proc/meminfo; df -h /workspace; python3 -c "import os; print('affinity', sorted(os.sched_getaffinity(0)))"; }} > {run_dir}/hardware.txt 2>&1
+{_HARDWARE_BLOCK}W={workers}
+if [ "$PHYS" -gt 0 ] && [ "$PHYS" -lt "$W" ]; then W=$PHYS; fi
+if [ -n "$QUOTA" ] && [ "$QUOTA" -gt 0 ] && [ "$QUOTA" -lt "$W" ]; then W=$QUOTA; fi
+if [ "$MEMW" -gt 0 ] && [ "$MEMW" -lt "$W" ]; then W=$MEMW; fi
+echo "hardware physical=$PHYS quota=${{QUOTA:-none}} mem_workers=$MEMW offer_limit={workers} workers=$W min_workers={min_workers}" >> {run_dir}/hardware.txt
+[ "$W" -ge {min_workers} ] || fail hardware
+echo "baseline $(date -u +%FT%TZ) workers=$W" > $STATUS
+BDL=$(date -u -d '+30 min' +%Y-%m-%dT%H:%M:%SZ)
+.venv/bin/python -u scripts/admission_p2_2.py {P2_2A_BASELINE} --workers $W --run-dir {base_dir} --deadline-utc $BDL --stop-file {STOP_FILE} 2>&1 | tee {base_dir}/stand_stdout.log
+.venv/bin/python scripts/verify_p2_2_run.py --run {base_dir} {P2_2A_BASELINE} --expect-complete --output {verification_dir}/baseline_acceptance.json || fail baseline-accept
+.venv/bin/python scripts/baseline_gate_p2_2.py --baseline {base_dir} --workers $W --deadline-utc {deadline} --margin {margin} --output {run_dir}/baseline_gate.json || fail baseline
+echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=none seed_rows=0 deadline={deadline}" > $STATUS
+.venv/bin/python -u scripts/admission_p2_2.py {P2_2A_FULL} --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir} 2>&1 | tee -a {run_dir}/stand_stdout.log
+EXIT=${{PIPESTATUS[0]}}
+.venv/bin/python scripts/verify_p2_2_run.py --run {run_dir} --expect-full --expect-decision-ready --output {verification_dir}/acceptance.json > {verification_dir}/acceptance_stdout.log 2>&1
+ACC=$?
+echo "done exit=$EXIT accept=$ACC $(date -u +%FT%TZ)" > $STATUS
+'''
+
+
 def deploy():
     rental = load(RENTAL)
     if not rental or rental.get('status') not in ('running', 'created'):
@@ -406,7 +549,7 @@ def deploy():
             info = load(SEED_INFO)
             if not info or not SEED.exists() or vw.digest(SEED) != info.get('seed_sha256'):
                 raise RuntimeError('Нет согласованного seed: сначала действие seed')
-            remote_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
+            remote_dir = f'{REMOTE_ROOT}/{run_dir_of(rental)}'
             remote_jobs = remote_dir+'/jobs.jsonl'
             vw.remote_command(client, 'mkdir -p '+remote_dir)
             if vw.remote_command(client, 'test ! -e '+remote_jobs+' && echo absent').strip() != 'absent':
@@ -416,6 +559,12 @@ def deploy():
                 raise RuntimeError('SHA seed на сервере не совпал')
             rental['seed'] = info
         rental['pcores_only'] = bool(plan.get('pcores_only'))
+        rental['scenario'] = scenario_of(plan)
+        if rental['scenario'] == 'p2_2a':
+            if rental['pcores_only']:
+                raise ValueError('pcores_only для p2_2a не поддержан')
+            rental['min_workers'] = int(plan['min_workers'])
+            rental['baseline_margin'] = float(plan.get('baseline_margin', 1.15))
         script = WORK/f'start_{rental["instance_id"]}.sh'
         script.write_text(_start_script(rental), encoding='utf-8', newline='\n')
         vw.put_if_missing_or_identical(client, sftp, script, '/workspace/p2_start.sh')
@@ -435,7 +584,7 @@ def _parse_running_stage(text):
     В rental.json прежде попадал только предел по предложению (32 при фактических 8, W2-C034)."""
     if not text.startswith('running '):
         return None
-    fields = dict(m.groups() for m in re.finditer(r'(\w+)=(\S+)', text))
+    fields = {m.group(1): m.group(2) for m in re.finditer(r'(\w+)=(\S+)', text)}
     actual = {}
     if 'workers' in fields:
         actual['workers'] = int(fields['workers'])
@@ -467,13 +616,16 @@ def status():
     if info.get('actual_status') == 'running':
         try:
             with vw.connection(info) as client:
-                run_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
+                run_dir = f'{REMOTE_ROOT}/{run_dir_of(rental)}'
                 out['remote_stage'] = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
                 actual = _parse_running_stage(out['remote_stage'])
                 if actual and any(rental.get(k) != v for k, v in actual.items()):
                     rental.update(actual)  # фактические workers/pin/seed со строки этапа
                     save(RENTAL, rental)
                 out['progress'] = vw.remote_command(client, f'cat {run_dir}/progress.json 2>/dev/null || echo none', 20).strip()[:1500]
+                if scenario_of(rental) == 'p2_2a':
+                    out['baseline_gate'] = vw.remote_command(
+                        client, f'cat {run_dir}/baseline_gate.json 2>/dev/null || echo none', 20).strip()[:1500]
                 out['log_tail'] = vw.remote_command(client, f'tail -n 15 {rental.get("remote_log", "/dev/null")} 2>/dev/null', 20)[-2500:]
         except Exception as exc:
             out['ssh'] = type(exc).__name__
@@ -495,7 +647,7 @@ def wrapup():
     vw.WORK = WORK
     with vw.connection(info) as client:
         stage = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
-        if not stage.startswith('running'):
+        if not stage.startswith(('running', 'baseline')):  # baseline — только сценарий p2_2a
             print(json.dumps(dict(stage=stage, action='стоп-файл не нужен'), ensure_ascii=False))
             return
         vw.remote_command(client, f'touch {STOP_FILE}', 20)
@@ -512,8 +664,9 @@ def download():
     vw.WORK = WORK
     pack = f'''import hashlib, json, pathlib, tarfile
 root = pathlib.Path("{REMOTE_ROOT}")
-files = [p for d in sorted((root/"runs").glob("W2-P2-1*{iid}")) for p in d.rglob("*") if p.is_file()]
-extra = [pathlib.Path(x) for x in ("/workspace/p2_status", "{rental.get('remote_log', '')}", "/workspace/p2_pip_freeze.txt")]
+files = [p for d in sorted((root/"runs").glob("{SCENARIOS[scenario_of(rental)]}*{iid}")) for p in d.rglob("*") if p.is_file()]
+extra = [pathlib.Path(x) for x in ("/workspace/p2_status", "{rental.get('remote_log', '')}", "/workspace/p2_pip_freeze.txt",
+                                   "/workspace/p2_start.sh")]
 with tarfile.open("/workspace/p2_results.tar.gz", "w:gz", compresslevel=1) as tar:
     for p in files:
         tar.add(p, arcname=p.relative_to(root).as_posix())
@@ -533,7 +686,7 @@ print(len(files))
         sftp.close()
     if vw.digest(target) != remote_hash:
         raise RuntimeError('SHA выгруженного архива не совпал')
-    stats = _extract_results(target, iid)
+    stats = _extract_results(target, iid, prefix='runs/'+SCENARIOS[scenario_of(rental)])
     rental.update(downloaded_utc=vw.now(), result_archive_sha256=remote_hash, remote_files=int(count),
                   extracted_files=stats['written'], extract_stats=stats,
                   result_archive=str(target.relative_to(ROOT)))
@@ -541,7 +694,7 @@ print(len(files))
     print(json.dumps(dict(instance_id=iid, files=int(count), sha256=remote_hash, **stats)))
 
 
-def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
+def _extract_results(archive, iid, *, root=None, work=None, stamp=None, prefix='runs/W2-P2-1'):
     """Распаковка архива результатов со сверкой SHA-256 каждого файла.
 
     Прежде существующий файл молча пропускался: устаревший jobs.jsonl (17:41, 9.1 МБ против
@@ -555,7 +708,7 @@ def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
     root = Path(root or ROOT)
     work = Path(work or WORK)
     stamp = stamp or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    stats = dict(written=0, new=0, unchanged=0, replaced=0, superseded_dir=None)
+    stats: dict[str, Any] = dict(written=0, new=0, unchanged=0, replaced=0, superseded_dir=None)
     with tarfile.open(archive, 'r:gz') as tar:
         for member in tar.getmembers():
             if not member.isfile():
@@ -566,11 +719,14 @@ def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
                 raise ValueError('Путь вне разрешённой области: '+name)
             if name.startswith('remote_logs/'):
                 destination = work/f'remote_logs_{iid}'/Path(name).name
-            elif name.startswith('runs/W2-P2-1'):
+            elif name.startswith(prefix):
                 destination = root/name
             else:
                 raise ValueError('Путь вне разрешённой области: '+name)
-            data = tar.extractfile(member).read()
+            stream = tar.extractfile(member)
+            if stream is None:
+                raise ValueError('Нет содержимого файла в архиве: '+name)
+            data = stream.read()
             if destination.exists():
                 if hashlib.sha256(destination.read_bytes()).hexdigest() == hashlib.sha256(data).hexdigest():
                     stats['unchanged'] += 1
@@ -618,10 +774,14 @@ def finish(partial=False):
         save(RENTAL, rental)
         raise SystemExit('Выгрузка не удалась; инстанс НЕ удалён. Повторите finish или по указанию — destroy.')
     destroy()
+    rental = load(RENTAL)
+    if scenario_of(rental) == 'p2_2a':
+        print('Дальше локально в WSL (REBOUNDx): строгая приёмка выгруженного run — '
+              f"verify_p2_2_run.py --run {run_dir_of(rental)} --expect-full --expect-decision-ready")
 
 
 def main(argv=None):
-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser = argparse.ArgumentParser(description=(__doc__ or '').splitlines()[0])
     parser.add_argument('action', choices=('preflight', 'offers', 'prepare', 'seed', 'rent', 'wait', 'deploy',
                                            'status', 'wrapup', 'download', 'finish', 'destroy'))
     parser.add_argument('--offer-id', type=int, default=None)

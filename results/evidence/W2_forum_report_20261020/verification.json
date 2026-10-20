@@ -1,0 +1,56 @@
+{
+  "document": "reports/forum/2026-10-20_PROJECT_STATUS_FORUM.md",
+  "words_main": 1051,
+  "chars_main": 7594,
+  "links_checked": 10,
+  "missing_links": [],
+  "source_jobs": 9504,
+  "source_status_counts": {
+    "completed": 9503,
+    "failed": 1
+  },
+  "pairs_1000_years": 1152,
+  "different_outcome_or_reason": 17,
+  "counts": {
+    "D": {
+      "('host_contact', None)": 349,
+      "('survived', None)": 270,
+      "('operational_escape', None)": 481,
+      "('unresolved', 'high_e_prolonged')": 52
+    },
+    "T": {
+      "('host_contact', None)": 349,
+      "('survived', None)": 268,
+      "('operational_escape', None)": 475,
+      "('unresolved', 'high_e_prolonged')": 60
+    }
+  },
+  "scope": "Documentation verification only; no new integrations",
+  "checked_utc": "2026-10-20T08:08:24.098168+00:00",
+  "document_sha256": "da9f4dd1a7947b74cb91cd35ad6fefdff7b3795eef3a7baa86add14566d1b85b",
+  "sources_sha256": {
+    "../progress/2026-10-05-w0-completion.md": "3dc25cf97dbfdd9da03d94885d9728c448594c68f3193fbd7d71f73682450327",
+    "../scientific/W2_algorithm_quality_audit_20261009.md": "9c58a12562c75d82d4bad02eba19ce78cbfe024e9514393210189a4b247f7e68",
+    "../operations/W2_P2-1_rerun_20261012.md": "c2c67154ca402fa9d010fe0061b0f9a6bf53f0b9464324cc0d4aabe16a274cf1",
+    "../analysis/W2_P2-2a_report_review_20261017.md": "e77c2752ac649af28c23146d7b4e88ddec2245c81df2e09f0bc5811d7f5b52aa",
+    "../analysis/W2_OPT01_05_20261018.md": "b28fc8b5b5b726947482901f0f7785d0da711395ce86b9ba02e8d5306870b009",
+    "../analysis/W2_B_capture_20261019.md": "8c6095ced038f1bec409ff7f11c304d5cda336d30994efdf89a0e5aea20bbea3",
+    "../analysis/W2_B_replay_20261019.md": "0614bfef9c81ff7329f0b7d83e9aa917ab460b34d9478bed424899627e90857a",
+    "../analysis/W2_B_controller_20261019.md": "48a03724f532c2f8b117462c07b59ccc9f652ddef7f1b0759e5a267f798b513e",
+    "../analysis/W2_B_frames_20261019.md": "5e02751ec00e15090742b452ebeddab2942166604c6823619adc6c4c8f32a178",
+    "../analysis/W2_B_history_20261020.md": "286b450bfeabac1af0366c08e2ddc04c25954e257444b60b87385120d7eaa0d8"
+  },
+  "notes": [
+    "Report reviewed for plain language and distinction between diagnostic success and numerical admission.",
+    "Duration of delays not attributed quantitatively; precise time accounting unavailable.",
+    "No new integrations, external publication or scientific code changes.",
+    "2026-10-20 claude-opus-20261020-forum: linked blockers 1-2 (12/17), threshold, continuity with 2026-10-08 forum post, definitions of outcome categories and control method; user approval «делай» 11:07 MSK"
+  ],
+  "previous_document_sha256": "98c6830ba62632441cb36fc12ba201b61ba30f4bc5bed4fe1c06bef295f4f848",
+  "high_e_one_side_among_17": 12,
+  "high_e_one_side_check": "jobs.jsonl W2-P2-2a-56220810, 1000 years, D vs T: in 12 of 17 differing pairs exactly one variant is unresolved/high_e_prolonged; other 5 differ among definite outcomes",
+  "claims_added": {
+    "cp_upper_D_T_1000y": "~0.022 vs threshold 0.005 (W2_OPT01_05_20261018.md:11, W2-P006)",
+    "prototype_speedup": "x24-28 vs scipy path A, same steps/outcomes, 12 cases x 20 P0, i5 (W2-R008); D/T = compiled prototype v5 variants (W2_P2-2_plan_v1.md:68); cost on 10000 y not measured, 1.14 machine-h not transferable (STATE.md)"
+  }
+}

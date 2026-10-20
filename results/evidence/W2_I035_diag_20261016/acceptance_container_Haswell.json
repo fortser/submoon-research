@@ -1,0 +1,37 @@
+{
+ "run": "runs/W2-P2-2a-56220810",
+ "passed": false,
+ "failures": [
+  "отпечаток задания не совпал: 3168 (например [('iapetus:canonical_volume:0000', 1.0, 'D'), ('iapetus:canonical_volume:0000', 1.0, 'T'), ('iapetus:canonical_volume:0000', 10.0, 'D')])",
+  "не хватает заданий: 3168 (например [('iapetus:canonical_volume:0000', 1.0, 'D'), ('iapetus:canonical_volume:0000', 1.0, 'T'), ('iapetus:canonical_volume:0000', 10.0, 'D')])",
+  "summary.units_sha256 = 'c79794710e51c3b514c82cc2edd4364ef4300b5cd414af7720cb82e085781583', пересчитано '8bb459e8ca0d7285bd5bb9e217898d13f5215471016ed5b2f7dd111c5ac0788b'",
+  "summary.done = 9504, пересчитано 6336",
+  "analysis.json не совпадает с пересчётом: /complete: пересчитано False, сохранено True; /cost/B/core_hours: пересчитано 16.16156942782199, сохранено 23.968496591739434; /cost/B/jobs: пересчитано 192, сохранено 288; /cost/B/max_wall_hours: пересчитано 2.4342786072349796, сохранено 4.006686001113849; /cost/B/max_wall_job[0]: пересчитано ganymede:uniform_a_e_cos_i_phases:0012, сохранено iapetus:uniform_log_a:0001; /cost/B/measured_over_model: пересчитано 0.6258788474548737, сохранено 0.5989185416859354; /cost/B/model_core_hours: пересчитано 25.822201043449155, сохранено 40.01962691665703; /cost/B/steps: пересчитано 307175432, сохранено 465708852; /cost/B/steps_per_orbit_quantiles[0]: пересчитано 42.1864023979559, сохранено 41.215341480305575; /cost/B/steps_per_orbit_quantiles[1]: пересчитано 43.56287918357611, сохранено 44.3724448597116",
+  "summary.decision не совпадает с пересчётом: /b_unfinished: пересчитано 48, сохранено 0; /cp_upper: пересчитано 0.02519313780675054, сохранено 0.02205301749597477; /discordant: пересчитано 12, сохранено 17; /n: пересчитано 768, сохранено 1152; /notes: пересчитано ['B не завершено на финальном горизонте: 48/144 (остановлено сроком или нет стро, сохранено []; /reasons: пересчитано ['финальный горизонт D/T не завершён (недостающие или остановленные задания D/T), сохранено []; /verdict: пересчитано not_decided, сохранено inconclusive",
+  "summary.complete не совпадает с пересчётом",
+  "ожидались завершённые D/T без отказов (W2-D026): D/T завершены False, отказов D/T 0"
+ ],
+ "checks": {
+  "jobs": {
+   "rows": 9504,
+   "accepted": 6336,
+   "expected": 9504,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": false,
+   "dt_complete": false,
+   "dt_failed": 0,
+   "b_unfinished": 96,
+   "decision": "not_decided",
+   "stratum_verdict": "inconclusive",
+   "discordant": 12,
+   "n": 768,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  }
+ }
+}

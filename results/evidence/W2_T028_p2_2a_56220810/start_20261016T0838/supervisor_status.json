@@ -1,0 +1,139 @@
+{
+  "utc": "2026-10-16T08:38:12.875928+00:00",
+  "instance_id": 56220810,
+  "supervisor_pid": 18340,
+  "elapsed_hours": 0.4757337127129237,
+  "compute_disk_upper_usd": 0.2907261577690089,
+  "budget_usd": 13,
+  "hard_deadline_epoch": 1792202980.2345624,
+  "local_supervisor_not_offline_safe": true,
+  "science_deadline_utc": "2026-10-17T00:39:40Z",
+  "actual_status": "running",
+  "stage": "running 2026-10-16T08:31:02Z workers=32 physical=32 quota=61 offer_limit=64 pin=0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 seed_rows=0 deadline=2026-10-17T00:39:40Z",
+  "progress": {
+    "updated_utc": "2026-10-16T08:38:10.739170+00:00",
+    "elapsed_seconds": 427.8616563929245,
+    "done": 76,
+    "planned": 9504,
+    "by_level": {
+      "1": {
+        "done": 0,
+        "planned": 2304,
+        "stopped": 0
+      },
+      "10": {
+        "done": 0,
+        "planned": 2304,
+        "stopped": 0
+      },
+      "100": {
+        "done": 3,
+        "planned": 2448,
+        "stopped": 0
+      },
+      "1000": {
+        "done": 73,
+        "planned": 2448,
+        "stopped": 0
+      }
+    },
+    "last": {
+      "orbit_id": "ganymede:uniform_log_a:0125",
+      "years": 1000.0,
+      "variant": "D",
+      "status": "completed",
+      "wall": 2.086151049938053
+    }
+  },
+  "baseline_gate": {
+    "ratios": {
+      "D": 0.737003061095037,
+      "T": 0.7251787169562242,
+      "B": 0.5563031924731219
+    },
+    "workers": 32,
+    "margin": 1.15,
+    "available_hours": 16.144035940555558,
+    "model_volume_core_hours": {
+      "D": 51.04620880460238,
+      "T": 101.64006265133862,
+      "B": 134.4997276194807
+    },
+    "model_longest_hours": {
+      "D": 0.5352745809961001,
+      "T": 1.0705491619922003,
+      "B": 9.011662009388903
+    },
+    "verdict": "GO",
+    "reasons": [],
+    "warnings": [],
+    "projected_hours": {
+      "volume": 5.817220319769337,
+      "path_dt": 0.7763394677320647,
+      "path_b": 5.013216345311796,
+      "need_dt": 6.689803367734737
+    },
+    "i9_equivalent_speed": {
+      "D": 1.3568464675224048,
+      "T": 1.378970420143157,
+      "B": 1.797580911866357
+    },
+    "baseline": "runs/W2-P2-2a-baseline-56220810",
+    "deadline_utc": "2026-10-17T00:39:40Z",
+    "now_utc": "2026-10-16T08:31:01.470614+00:00",
+    "machine": {
+      "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.35",
+      "python": "3.10.12",
+      "executable": "/workspace/submoon-research-W2-P2-2a-56220810/.venv/bin/python",
+      "node": "3807e6f61dbd",
+      "logical_cpus": 64,
+      "physical_cores": 32,
+      "memory_total_gib": 251.04,
+      "lscpu": {
+        "Architecture": "x86_64",
+        "CPU op-mode(s)": "32-bit, 64-bit",
+        "Address sizes": "52 bits physical, 57 bits virtual",
+        "Byte Order": "Little Endian",
+        "CPU(s)": "64",
+        "On-line CPU(s) list": "0-63",
+        "Vendor ID": "AuthenticAMD",
+        "Model name": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+        "CPU family": "26",
+        "Model": "8",
+        "Thread(s) per core": "2",
+        "Core(s) per socket": "32",
+        "Socket(s)": "1",
+        "Stepping": "1",
+        "CPU max MHz": "5484.0000",
+        "CPU min MHz": "400.0000",
+        "BogoMIPS": "7988.01",
+        "Virtualization": "AMD-V",
+        "L1d cache": "1.5 MiB (32 instances)",
+        "L1i cache": "1 MiB (32 instances)",
+        "L2 cache": "32 MiB (32 instances)",
+        "L3 cache": "128 MiB (4 instances)",
+        "NUMA node(s)": "1",
+        "NUMA node0 CPU(s)": "0-63",
+        "Vulnerability Gather data sampling": "Not affected",
+        "Vulnerability Indirect target selection": "Not affected",
+        "Vulnerability Itlb multihit": "Not affected",
+        "Vulnerability L1tf": "Not affected",
+        "Vulnerability Mds": "Not affected",
+        "Vulnerability Meltdown": "Not affected",
+        "Vulnerability Mmio stale data": "Not affected",
+        "Vulnerability Reg file data sampling": "Not affected",
+        "Vulnerability Retbleed": "Not affected",
+        "Vulnerability Spec rstack overflow": "Not affected",
+        "Vulnerability Spec store bypass": "Mitigation; Speculative Store Bypass disabled via prctl",
+        "Vulnerability Spectre v1": "Mitigation; usercopy/swapgs barriers and __user pointer sanitization",
+        "Vulnerability Spectre v2": "Mitigation; Enhanced / Automatic IBRS; IBPB conditional; STIBP always-on; PBRSB-eIBRS Not affected; BHI Not affected",
+        "Vulnerability Srbds": "Not affected",
+        "Vulnerability Tsa": "Not affected",
+        "Vulnerability Tsx async abort": "Not affected",
+        "Vulnerability Vmscape": "Not affected"
+      }
+    },
+    "survival_c": 0.5,
+    "task": "W2-T019"
+  }
+}

@@ -1,0 +1,438 @@
+{
+ "utc": "2026-10-13T17:07:35Z",
+ "missing_total": 20,
+ "cases": [
+  {
+   "offer_id": 53317848,
+   "machine_id": 45582,
+   "cpu": "epyc 7b13",
+   "vcpu": 64.0,
+   "price_60gb": 0.5555555555555556,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": true,
+    "offers_on_machine": [
+     53317848
+    ],
+    "price_20gb": 0.5407407407407407
+   },
+   "all_filters": {
+    "listed": false,
+    "count": 0
+   },
+   "vcpu32": {
+    "listed": false,
+    "count": 0
+   },
+   "no_cpu_disk": {
+    "listed": false,
+    "count": 0
+   }
+  },
+  {
+   "offer_id": 54857312,
+   "machine_id": 137571,
+   "cpu": "epyc 9654",
+   "vcpu": 48.0,
+   "price_60gb": 0.5777777777777777,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": false,
+    "offers_on_machine": [],
+    "price_20gb": null
+   }
+  },
+  {
+   "offer_id": 54897269,
+   "machine_id": 153621,
+   "cpu": "xeon w9 3475x",
+   "vcpu": 48.0,
+   "price_60gb": 0.6833333333333333,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": true,
+    "offers_on_machine": [
+     54897265,
+     54897269,
+     54897267
+    ],
+    "price_20gb": 0.7255555555555556
+   },
+   "all_filters": {
+    "listed": false,
+    "count": 0
+   },
+   "vcpu32": {
+    "listed": false,
+    "count": 0
+   },
+   "no_cpu_disk": {
+    "listed": false,
+    "count": 0
+   }
+  },
+  {
+   "offer_id": 55605303,
+   "machine_id": 151124,
+   "cpu": "ryzen 9 5950x",
+   "vcpu": 32.0,
+   "price_60gb": 0.51,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": true,
+    "offers_on_machine": [
+     55605303
+    ],
+    "price_20gb": 0.4988888888888888
+   },
+   "all_filters": {
+    "listed": false,
+    "count": 0
+   },
+   "vcpu32": {
+    "listed": false,
+    "count": 0
+   },
+   "no_cpu_disk": {
+    "listed": false,
+    "count": 0
+   }
+  },
+  {
+   "offer_id": 26186869,
+   "machine_id": 42944,
+   "cpu": "ryzen 9 9950x",
+   "vcpu": 32.0,
+   "price_60gb": 0.8833333333333334,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": true,
+    "offers_on_machine": [
+     26186869
+    ],
+    "price_20gb": 0.8722222222222222
+   },
+   "all_filters": {
+    "listed": false,
+    "count": 0
+   },
+   "vcpu32": {
+    "listed": false,
+    "count": 0
+   },
+   "no_cpu_disk": {
+    "listed": false,
+    "count": 0
+   }
+  },
+  {
+   "offer_id": 51764376,
+   "machine_id": 101691,
+   "cpu": "ryzen 9 9950x3d",
+   "vcpu": 32.0,
+   "price_60gb": 0.95,
+   "machine_in_all": false,
+   "by_machine": {
+    "listed": true,
+    "offers_on_machine": [
+     51764376
+    ],
+    "price_20gb": 0.9388888888888888
+   },
+   "all_filters": {
+    "listed": false,
+    "count": 0
+   },
+   "vcpu32": {
+    "listed": false,
+    "count": 0
+   },
+   "no_cpu_disk": {
+    "listed": false,
+    "count": 0
+   }
+  }
+ ],
+ "repeat": {
+  "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.54074074074074074 dph_total<=0.64555555555555555",
+  "original_count": 52,
+  "counts": [
+   48,
+   48
+  ],
+  "same_ids": false
+ },
+ "log": [
+  {
+   "query": "machine_id=45582 rentable=true rented=false",
+   "status": "ok",
+   "count": 1,
+   "seconds": 1.66,
+   "ids": [
+    53317848
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.5402407407407408 dph_total<=0.54124074074074069",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.84,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=20 dph_total>=0.5402407407407408 dph_total<=0.54124074074074069",
+   "status": "ok",
+   "count": 0,
+   "seconds": 1.05,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false dph_total>=0.5402407407407408 dph_total<=0.54124074074074069",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.64,
+   "ids": []
+  },
+  {
+   "query": "machine_id=137571 rentable=true rented=false",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.75,
+   "ids": []
+  },
+  {
+   "query": "machine_id=153621 rentable=true rented=false",
+   "status": "ok",
+   "count": 3,
+   "seconds": 1.28,
+   "ids": [
+    54897265,
+    54897267,
+    54897269
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.72505555555555568 dph_total<=0.72605555555555557",
+   "status": "ok",
+   "count": 0,
+   "seconds": 2.56,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=20 dph_total>=0.72505555555555568 dph_total<=0.72605555555555557",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.83,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false dph_total>=0.72505555555555568 dph_total<=0.72605555555555557",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.69,
+   "ids": []
+  },
+  {
+   "query": "machine_id=151124 rentable=true rented=false",
+   "status": "ok",
+   "count": 1,
+   "seconds": 1.36,
+   "ids": [
+    55605303
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.49838888888888883 dph_total<=0.49938888888888883",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.8,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=20 dph_total>=0.49838888888888883 dph_total<=0.49938888888888883",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.83,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false dph_total>=0.49838888888888883 dph_total<=0.49938888888888883",
+   "status": "ok",
+   "count": 0,
+   "seconds": 1.17,
+   "ids": []
+  },
+  {
+   "query": "machine_id=42944 rentable=true rented=false",
+   "status": "ok",
+   "count": 1,
+   "seconds": 1.3,
+   "ids": [
+    26186869
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.87172222222222229 dph_total<=0.87272222222222218",
+   "status": "ok",
+   "count": 0,
+   "seconds": 1.0,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=20 dph_total>=0.87172222222222229 dph_total<=0.87272222222222218",
+   "status": "ok",
+   "count": 0,
+   "seconds": 1.22,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false dph_total>=0.87172222222222229 dph_total<=0.87272222222222218",
+   "status": "ok",
+   "count": 0,
+   "seconds": 2.86,
+   "ids": []
+  },
+  {
+   "query": "machine_id=101691 rentable=true rented=false",
+   "status": "ok",
+   "count": 1,
+   "seconds": 0.59,
+   "ids": [
+    51764376
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.93838888888888883 dph_total<=0.93938888888888872",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.72,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=20 dph_total>=0.93838888888888883 dph_total<=0.93938888888888872",
+   "status": "ok",
+   "count": 0,
+   "seconds": 3.08,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false dph_total>=0.93838888888888883 dph_total<=0.93938888888888872",
+   "status": "ok",
+   "count": 0,
+   "seconds": 0.83,
+   "ids": []
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.54074074074074074 dph_total<=0.64555555555555555",
+   "status": "ok",
+   "count": 48,
+   "seconds": 3.73,
+   "ids": [
+    13080904,
+    27607245,
+    30239908,
+    35376206,
+    36066678,
+    36186183,
+    38565866,
+    39693763,
+    43709898,
+    43742701,
+    44003619,
+    48219165,
+    48229496,
+    48313926,
+    48782865,
+    50022819,
+    50208804,
+    50849752,
+    51061972,
+    51091380,
+    52125965,
+    52376240,
+    52481324,
+    53875091,
+    54112935,
+    54200258,
+    54335452,
+    54390900,
+    54491682,
+    54870558,
+    54895372,
+    54965190,
+    54999327,
+    55161368,
+    55307969,
+    55393338,
+    55417423,
+    55476739,
+    55622631,
+    55720808,
+    55743185,
+    55746139,
+    55749717,
+    55775524,
+    55775871,
+    55776517,
+    55778736,
+    55780569
+   ]
+  },
+  {
+   "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.54074074074074074 dph_total<=0.64555555555555555",
+   "status": "ok",
+   "count": 48,
+   "seconds": 3.5,
+   "ids": [
+    13080904,
+    27607245,
+    30239908,
+    35376206,
+    36066680,
+    36186181,
+    38565866,
+    39693763,
+    43709893,
+    43742701,
+    44003622,
+    48219165,
+    48229491,
+    48313934,
+    48782865,
+    50022819,
+    50208804,
+    50849755,
+    51061972,
+    51091380,
+    52125965,
+    52376241,
+    52481324,
+    53875091,
+    54112935,
+    54200258,
+    54335452,
+    54390900,
+    54491682,
+    54870558,
+    54965190,
+    54999327,
+    55094692,
+    55161368,
+    55307969,
+    55393333,
+    55476739,
+    55564268,
+    55622631,
+    55720801,
+    55743185,
+    55746137,
+    55749717,
+    55775524,
+    55775873,
+    55776511,
+    55778736,
+    55780569
+   ]
+  }
+ ]
+}

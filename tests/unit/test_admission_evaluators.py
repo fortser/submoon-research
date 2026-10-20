@@ -156,13 +156,17 @@ def test_p2_budget_stops_on_deadline_and_stop_file(tmp_path):
     assert p2.parse_deadline('2026-10-10T06:00:00Z') == p2.parse_deadline('2026-10-10T06:00:00+00:00')
 
 
-def test_p2_read_rows_keeps_last_matching_line_and_skips_broken(tmp_path):
+def test_p2_read_rows_rejects_foreign_and_broken_lines(tmp_path):
     import json
+    import pytest
     path = tmp_path/'jobs.jsonl'
     first = dict(orbit_id='a', years=1., variant='D', job_fingerprint='f', run_status='partial')
     second = dict(first, run_status='completed')
     alien = dict(first, variant='T', job_fingerprint='other')
     path.write_text('\n'.join([json.dumps(first), json.dumps(second), json.dumps(alien), '{"orbit_id": "a", "ye'])
                     + '\n', encoding='utf-8')
-    rows, ignored = p2.read_rows(path, {('a', 1., 'D'): 'f', ('a', 1., 'T'): 't'})
-    assert rows[('a', 1., 'D')]['run_status'] == 'completed' and ignored == 2
+    with pytest.raises(ValueError, match='строка 3'):
+        p2.read_rows(path, {('a', 1., 'D'): 'f', ('a', 1., 'T'): 't'})
+    path.write_text(json.dumps(first)+'\n'+json.dumps(second)+'\n', encoding='utf-8')
+    rows, ignored = p2.read_rows(path, {('a', 1., 'D'): 'f'})
+    assert rows[('a', 1., 'D')]['run_status'] == 'completed' and ignored == 0

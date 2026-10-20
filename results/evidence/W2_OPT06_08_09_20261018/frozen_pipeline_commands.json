@@ -1,0 +1,119 @@
+{
+  "manifest": "results/evidence/W2_OPT06_08_09_20261018/new_frozen_inputs/inputs_manifest.json",
+  "sha256": "c46cabb9c62a73f29152e17b6ce72b08ab0d5ac8d2f75f4352b79b56f34c3c8b",
+  "run_id": "W2-OPT06-short-20261018",
+  "records": [
+    {
+      "name": "freeze_new",
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/freeze_p2_inputs.py",
+        "--per-cell",
+        "1",
+        "--b-per-cell",
+        "1",
+        "--years",
+        "0.0003",
+        "--b-years",
+        "0.0003",
+        "--output-dir",
+        "results/evidence/W2_OPT06_08_09_20261018/new_frozen_inputs"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "frozen_short_run",
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/admission_p2_2.py",
+        "--per-cell",
+        "1",
+        "--b-per-cell",
+        "1",
+        "--years",
+        "0.0003",
+        "--b-years",
+        "0.0003",
+        "--inputs-manifest",
+        "results/evidence/W2_OPT06_08_09_20261018/new_frozen_inputs/inputs_manifest.json",
+        "--inputs-manifest-sha256",
+        "c46cabb9c62a73f29152e17b6ce72b08ab0d5ac8d2f75f4352b79b56f34c3c8b",
+        "--workers",
+        "0",
+        "--run-dir",
+        "runs/W2-OPT06-short-20261018"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "frozen_accept_wsl",
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/verify_p2_2_run.py",
+        "--per-cell",
+        "1",
+        "--b-per-cell",
+        "1",
+        "--years",
+        "0.0003",
+        "--b-years",
+        "0.0003",
+        "--inputs-manifest",
+        "results/evidence/W2_OPT06_08_09_20261018/new_frozen_inputs/inputs_manifest.json",
+        "--inputs-manifest-sha256",
+        "c46cabb9c62a73f29152e17b6ce72b08ab0d5ac8d2f75f4352b79b56f34c3c8b",
+        "--run",
+        "runs/W2-OPT06-short-20261018",
+        "--expect-complete",
+        "--output",
+        "results/evidence/W2_OPT06_08_09_20261018/frozen_accept_wsl.json"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "generator_check",
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/freeze_p2_inputs.py",
+        "--check-generator",
+        "results/evidence/W2_OPT06_08_09_20261018/new_frozen_inputs/inputs_manifest.json",
+        "--manifest-sha256",
+        "c46cabb9c62a73f29152e17b6ce72b08ab0d5ac8d2f75f4352b79b56f34c3c8b",
+        "--output-dir",
+        "results/evidence/W2_OPT06_08_09_20261018/generator_check"
+      ],
+      "returncode": 0,
+      "expected_returncode": 0
+    },
+    {
+      "name": "historical_reconstruction_rejected",
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/freeze_p2_inputs.py",
+        "--output-dir",
+        "results/evidence/W2_OPT06_08_09_20261018/historical_inputs_j8",
+        "--per-cell",
+        "1",
+        "--b-per-cell",
+        "1",
+        "--unit-start",
+        "8",
+        "--years",
+        "1000",
+        "--b-years",
+        "1000",
+        "--source-run",
+        "runs/W2-P2-2a-56220810",
+        "--source-summary-sha256",
+        "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+        "--source-jobs-sha256",
+        "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175"
+      ],
+      "returncode": 1,
+      "expected_returncode": 1
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "checked_utc": "2026-10-13T09:59:39.652444+00:00",
+  "document": "PROJECT_MAP.md",
+  "document_sha256": "099e29c874ff8227ac68ad5938d6c842b0a248cdb487122582885013ae65e6cc",
+  "local_link_occurrences": 113,
+  "missing_links": [],
+  "tree_paths_checked": 233,
+  "missing_tree_paths": [],
+  "navigation_status": "passed",
+  "commands": {
+    "stage_briefs": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/build_stage_briefs.py",
+        "--check"
+      ],
+      "returncode": 0,
+      "log": "results/evidence/PROJECT_MAP_20261013/stage_briefs.log"
+    },
+    "project_validate": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "scripts/project.py",
+        "validate"
+      ],
+      "returncode": 1,
+      "log": "results/evidence/PROJECT_MAP_20261013/project_validate.log"
+    },
+    "tracking_tests": {
+      "command": [
+        ".venv/Scripts/python.exe",
+        "-m",
+        "pytest",
+        "tests/unit/test_tracking.py",
+        "-q"
+      ],
+      "returncode": 0,
+      "log": "results/evidence/PROJECT_MAP_20261013/tracking_tests.log"
+    }
+  },
+  "scope": "Навигация и наличие путей; не повторная научная приёмка W0/W1/W2. Содержимое launchers, секреты и внешние сервисы не проверялись.",
+  "validation_limitation": "Общий validate не проходит: журнал W2 ссылается на отсутствующий old_temp_files/comp_stat_VAST-AI.bat (файл перемещён до этой задачи); далее возникают сообщения Missing related record. В рамках обновления карты журнал W2 и код не исправлялись."
+}

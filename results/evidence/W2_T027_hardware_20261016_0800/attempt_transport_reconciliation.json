@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-16T08:09:40.160561+00:00",
+  "initial_cli_result": "unstructured_response",
+  "instances": [],
+  "audit_last_successful_create_utc": "2026-10-14",
+  "paid_attempt_consumed": false,
+  "note": "CLI did not confirm create; repeated account reconciliation found no contract. Single direct API request, no paid contract retry."
+}

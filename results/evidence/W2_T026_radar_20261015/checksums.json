@@ -1,0 +1,22 @@
+{
+  "results/evidence/W2_T026_radar_20261015/00000001.json.gz": "8d227432343a4db829bb043fdc2af3576f11178ab7c5921bc875740a665a1aa0",
+  "results/evidence/W2_T026_radar_20261015/autostart_install.log": "9e8ee05e56cab0adbc1d949372d8fad9772b77332a574301b843b6e30e1c4fc8",
+  "results/evidence/W2_T026_radar_20261015/config-60cd304cce51c242.json": "59f9f4942ed2e5c8ea7f7c0b1377755299176cdd67ff845371a22025955001cb",
+  "results/evidence/W2_T026_radar_20261015/live_first_cycle.json": "6cd2f7d92432e0cf97e93a3e74669ee1d6099154e63b442e6e71f99a3728f81c",
+  "results/evidence/W2_T026_radar_20261015/process_check.json": "5cbdf0621e0092c1ef6c3eef8ef03961af44bc297d16f0b7c292ebca4ef193be",
+  "results/evidence/W2_T026_radar_20261015/pytest.log": "2f43af06b014d25cff5cc32a951eb6ee424a45ff6f7c166043b303f7060ab88c",
+  "results/evidence/W2_T026_radar_20261015/pytest_final.log": "ab9f47c0a8382f3d6098894553200c5e339fdf6062d8a2235ac78b1b2c6cafb1",
+  "results/evidence/W2_T026_radar_20261015/smoke.log": "dad4c6ed77df95efbecc8fee73263a4b05f60c49b415a35730d428836b005fd1",
+  "src/submoon_research/compute/radar.py": "42b17d4d3e24e8057ca8957acff51915cebf373b3aa8da739e3e5997123f2599",
+  "src/submoon_research/compute/radar_app.py": "a924f5b8de66acdbee644fb6ea3cb709d1b4c8d76e798c8fcc4fa7d68f213a9c",
+  "src/submoon_research/compute/radar.html": "9d6b824def48263dc9372c449c88902a2ef1e70893359bb8a2892116e122105e",
+  "scripts/vast_radar.py": "0412ca17ed4682c7af88dfd9a01acabaf8751d612c89fbe8d5ccab2cc7a20447",
+  "scripts/vast_trial_estimate.py": "a59173fac523ebc5c597fe08a6f2623f41b4efb4b21fe8315ef563cd2c4b7212",
+  "scripts/install_vast_radar.ps1": "5eee6e2d556053d081caec4569cdd1ced4d11cae42eabb01c2854a95aa176361",
+  "configs/compute/vast_radar.yaml": "104bb0e564ad29c4cc7bd076644235a3637fc1e1849baa4ea480019b65455c3b",
+  "tests/unit/test_vast_radar.py": "3cc9383b8491acc7651dec3d64986263397faa51eed35b38b83da2fe1fa8ce08",
+  "requirements/windows-py310-radar-20261015.lock.txt": "881917fe1e5514b2d102c870c0aa840de8607cdfa9d43c8511b171051a499bf7",
+  "docs/compute/trial_rental_approval.md": "fe87cf03ba322e8dd709715f8a785f0260319897adc1a0328df8ed9837f2ee09",
+  "docs/compute/vast_radar_guide.md": "a3240d28bdef075f6f17dd947115c3456a8b15f535d5edeea275db1529d27b47",
+  "reports/operations/W2_vast_radar_20261015.md": "d37ca4382216d821d47c6ff7842c2dc9fd3022bd627b084a72b2f17aef5a2568"
+}

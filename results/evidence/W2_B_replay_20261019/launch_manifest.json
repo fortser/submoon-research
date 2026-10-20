@@ -1,0 +1,72 @@
+{
+  "run_id": "W2-B-replay-20261019",
+  "task": "W2-T036",
+  "owner": "pi-w2-b-replay-20261019",
+  "started_utc": "2026-10-19T13:17:12.055170+00:00",
+  "command": [
+    "wsl.exe",
+    "-d",
+    "Ubuntu-24.04",
+    "--cd",
+    "/mnt/t/test_python/submoon-research",
+    "-e",
+    "timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "85s",
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "-c",
+    "import os,sys,resource\nos.environ.update({k:'1' for k in ('OMP_NUM_THREADS','OPENBLAS_NUM_THREADS','MKL_NUM_THREADS','NUMBA_NUM_THREADS','BLIS_NUM_THREADS','VECLIB_MAXIMUM_THREADS')})\nos.sched_setaffinity(0,{min(os.sched_getaffinity(0))})\nresource.setrlimit(resource.RLIMIT_AS,(2*1024**3,2*1024**3))\nresource.setrlimit(resource.RLIMIT_CORE,(0,0))\nresource.setrlimit(resource.RLIMIT_FSIZE,(256*1024**2,256*1024**2))\nsys.path.insert(0,'scripts')\nimport replay_ias15_snapshot\nraise SystemExit(replay_ias15_snapshot.main(sys.argv[1:]))\n",
+    "--snapshot",
+    "results/evidence/W2_B_capture_20261019/attempt/diagnostic_artifacts/pre_step_snapshot/snapshot_manifest.json",
+    "--snapshot-sha256",
+    "9a634be5f9404ed88ccf66839aedc7133f4b38a27520e9d029e31dd78557b52a",
+    "--job-fingerprint",
+    "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+    "--steps",
+    "417",
+    "--wall-seconds",
+    "60",
+    "--output",
+    "results/evidence/W2_B_replay_20261019/native_replay.json"
+  ],
+  "code_sha256": {
+    "scripts/replay_ias15_snapshot.py": "6129367ce1c34fac1f32c5a00502a923a223218153fb169687d5a09da57ba31f",
+    "src/submoon_research/diagnostics/ias15_replay.py": "4fcdc7034637ed73509fd27743e8967537ec97f11e05799d9dd609ad4550330a",
+    "src/submoon_research/contracts/p2_files.py": "57106be58c9164c9f660d837ec3d9858d935c1339d8387dd2351edf4bbdacd9a",
+    "src/submoon_research/dynamics/baseline.py": "e4622112851de66d5444d39043cc46381372253304bdffa8d2e79bb0534d01f0",
+    "src/submoon_research/dynamics/compiled_dop853.py": "ce1ea53c4b84b2901d0feb63807318c5f5f898deb431d4f752b80032ae8199f4",
+    "src/submoon_research/dynamics/dense_segments.py": "2cad414cc7e53812d1e1f53e8497ac5f43d652bd551bddb7d86ff9fad498bb4f",
+    "src/submoon_research/dynamics/engine_compare.py": "dabbd6e1e8c59be42bfae28efc6c7216f28e83c93674e44faf0c0a9d8f83732d",
+    "src/submoon_research/dynamics/fast_forces.py": "d18822c3268d1ae11967d76a91889b711f49508235811fe17eb565c6eb2eb59c",
+    "src/submoon_research/dynamics/initialization.py": "a8dc974f375483e493353b1b1c48bc8e67aa7574c928874854bed82a4c65985d",
+    "src/submoon_research/dynamics/kepler_reference.py": "99f3b2c638ef8248c60a41c9c8e7eb4a8b8d8254e1137d4f99a53dc4ba6d255d",
+    "src/submoon_research/dynamics/native_ias15.py": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4",
+    "src/submoon_research/dynamics/nominal.py": "34a9b3245dad97992917e99afe57d78219cc32df7a85c4fd5c46268308f94cff",
+    "src/submoon_research/dynamics/__init__.py": "8e0ff9fe396f7698362f3299a58ebbb9b99e3398c66667429bd0abdefe7094b4"
+  },
+  "snapshot_sha256": "9a634be5f9404ed88ccf66839aedc7133f4b38a27520e9d029e31dd78557b52a",
+  "reference_diagnostic_sha256": "94f4dbca6c1dbcfa4efdba6509637d527730cb20d6e656646e6517a24d837dc9",
+  "criteria": {
+    "accepted_steps": 416,
+    "attempts": 417,
+    "float_comparison": "exact binary64 hex",
+    "fields": [
+      "left",
+      "right",
+      "dt_done",
+      "next_dt",
+      "absolute_state_sha256",
+      "coefficients_sha256"
+    ],
+    "failure_fields": [
+      "reason",
+      "error",
+      "left",
+      "right",
+      "dt_done",
+      "next_dt"
+    ]
+  },
+  "scientific_admission": false
+}

@@ -1,0 +1,36 @@
+{
+  "utc": "2026-10-14T10:16:29.666106+00:00",
+  "checks": {
+    "cli": true,
+    "ssh_key": true,
+    "paramiko": true,
+    "approval": true,
+    "enough_credit": true,
+    "existing_live_rental": false
+  },
+  "credit_usd": 13.011813434396942,
+  "budget_usd": 12,
+  "approval_changed_fields": [
+    "approved",
+    "user_message",
+    "approved_utc"
+  ],
+  "paid_actions": 0,
+  "attempts_file_exists": false,
+  "rental_file_exists": false,
+  "run_id": null,
+  "bundle_sha256": "38252e9e3f5d53bdaa15ec13da9d77268a03c1181f800db0286da83cccaa6374",
+  "archived_files": [
+    "_offer_live.json",
+    "approval.json",
+    "attempts.json",
+    "bundle.tar.gz",
+    "bundle_info.json",
+    "bundle_manifest.json",
+    "offers.json",
+    "rental.json",
+    "seed_info.json",
+    "seed_jobs.jsonl",
+    "start_55404980.sh"
+  ]
+}

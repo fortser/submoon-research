@@ -1,0 +1,324 @@
+{
+  "run_id": "W2-P2-2a-56220810",
+  "rows": 9504,
+  "unique_keys": 9504,
+  "statuses": {
+    "completed": 9503,
+    "failed": 1
+  },
+  "n": 1152,
+  "discordant": 17,
+  "cp_upper_95": 0.0220530174959748,
+  "cp_interval_95": [
+    0.008619340768452928,
+    0.023522453511289294
+  ],
+  "final_outcomes": {
+    "D": {
+      "host_contact": 349,
+      "survived": 270,
+      "operational_escape": 481,
+      "unresolved:high_e_prolonged": 52
+    },
+    "T": {
+      "host_contact": 349,
+      "survived": 268,
+      "operational_escape": 475,
+      "unresolved:high_e_prolonged": 60
+    },
+    "B": {
+      "host_contact": 50,
+      "operational_escape": 68,
+      "unresolved:computational": 1,
+      "survived": 25
+    }
+  },
+  "cells": {
+    "ganymede:canonical_volume": {
+      "n": 128,
+      "discordant": 1,
+      "D:operational_escape": 63,
+      "T:operational_escape": 64,
+      "D:host_contact": 45,
+      "T:host_contact": 44,
+      "D:survived": 20,
+      "T:survived": 20
+    },
+    "ganymede:uniform_a_e_cos_i_phases": {
+      "n": 128,
+      "discordant": 0,
+      "D:operational_escape": 55,
+      "T:operational_escape": 55,
+      "D:host_contact": 48,
+      "T:host_contact": 48,
+      "D:survived": 25,
+      "T:survived": 25
+    },
+    "ganymede:uniform_log_a": {
+      "n": 128,
+      "discordant": 1,
+      "D:operational_escape": 23,
+      "T:operational_escape": 22,
+      "D:host_contact": 71,
+      "T:host_contact": 72,
+      "D:survived": 34,
+      "T:survived": 34
+    },
+    "himalia:canonical_volume": {
+      "n": 128,
+      "discordant": 3,
+      "D:survived": 14,
+      "T:survived": 14,
+      "D:operational_escape": 87,
+      "T:operational_escape": 87,
+      "D:unresolved:high_e_prolonged": 13,
+      "T:unresolved:high_e_prolonged": 13,
+      "D:host_contact": 14,
+      "T:host_contact": 14
+    },
+    "himalia:uniform_a_e_cos_i_phases": {
+      "n": 128,
+      "discordant": 3,
+      "D:operational_escape": 68,
+      "T:operational_escape": 67,
+      "D:survived": 27,
+      "T:survived": 28,
+      "D:host_contact": 24,
+      "T:host_contact": 24,
+      "D:unresolved:high_e_prolonged": 9,
+      "T:unresolved:high_e_prolonged": 9
+    },
+    "himalia:uniform_log_a": {
+      "n": 128,
+      "discordant": 4,
+      "D:host_contact": 54,
+      "T:host_contact": 54,
+      "D:survived": 36,
+      "T:survived": 33,
+      "D:operational_escape": 25,
+      "T:operational_escape": 24,
+      "D:unresolved:high_e_prolonged": 13,
+      "T:unresolved:high_e_prolonged": 17
+    },
+    "iapetus:canonical_volume": {
+      "n": 128,
+      "discordant": 2,
+      "D:host_contact": 18,
+      "T:host_contact": 18,
+      "D:operational_escape": 76,
+      "T:operational_escape": 74,
+      "D:survived": 28,
+      "T:survived": 29,
+      "D:unresolved:high_e_prolonged": 6,
+      "T:unresolved:high_e_prolonged": 7
+    },
+    "iapetus:uniform_a_e_cos_i_phases": {
+      "n": 128,
+      "discordant": 2,
+      "D:operational_escape": 60,
+      "T:operational_escape": 59,
+      "D:host_contact": 23,
+      "T:host_contact": 23,
+      "D:survived": 41,
+      "T:survived": 40,
+      "T:unresolved:high_e_prolonged": 6,
+      "D:unresolved:high_e_prolonged": 4
+    },
+    "iapetus:uniform_log_a": {
+      "n": 128,
+      "discordant": 1,
+      "D:host_contact": 52,
+      "T:host_contact": 52,
+      "D:survived": 45,
+      "T:survived": 45,
+      "D:operational_escape": 24,
+      "T:operational_escape": 23,
+      "D:unresolved:high_e_prolonged": 7,
+      "T:unresolved:high_e_prolonged": 8
+    }
+  },
+  "mismatches": [
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "D": "host_contact",
+      "T": "operational_escape",
+      "D_time_years": 2.926402691140478,
+      "T_time_years": 351.3272473001726
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "D": "operational_escape",
+      "T": "host_contact",
+      "D_time_years": 1.0015015202794335,
+      "T_time_years": 1.0371684281192635
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "D": "operational_escape",
+      "T": "survived",
+      "D_time_years": 627.4617987321308,
+      "T_time_years": 1000.0
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0063",
+      "D": "unresolved:high_e_prolonged",
+      "T": "operational_escape",
+      "D_time_years": 132.2356490104422,
+      "T_time_years": 175.37007969742848
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0073",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 726.7141208374092
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0088",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 294.60034434585816
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "D": "operational_escape",
+      "T": "survived",
+      "D_time_years": 169.50323328721313,
+      "T_time_years": 1000.0
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0099",
+      "D": "unresolved:high_e_prolonged",
+      "T": "survived",
+      "D_time_years": 605.8201118191678,
+      "T_time_years": 1000.0
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0035",
+      "D": "operational_escape",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 39.09287602885324,
+      "T_time_years": 114.63844509765963
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0063",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 763.4982197565573
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0077",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 891.1218137792804
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0108",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 306.68974942755443
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0032",
+      "D": "operational_escape",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 49.02802326244516,
+      "T_time_years": 168.43775942553782
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0037",
+      "D": "operational_escape",
+      "T": "survived",
+      "D_time_years": 551.8848754305333,
+      "T_time_years": 1000.0
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "D": "operational_escape",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 828.0611539465813,
+      "T_time_years": 501.61876891133323
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0057",
+      "D": "survived",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 1000.0,
+      "T_time_years": 736.4754475221066
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0124",
+      "D": "operational_escape",
+      "T": "unresolved:high_e_prolonged",
+      "D_time_years": 347.99187082813336,
+      "T_time_years": 290.2395958129059
+    }
+  ],
+  "b_pairs": {
+    "D": {
+      "all_n": 144,
+      "all_mismatches": 7,
+      "excluding_high_e_n": 139,
+      "excluding_high_e_mismatches": 2,
+      "completed_excluding_high_e_n": 138,
+      "completed_excluding_high_e_mismatches": 1,
+      "completed_discordant_ids": [
+        "himalia:canonical_volume:0012"
+      ]
+    },
+    "T": {
+      "all_n": 144,
+      "all_mismatches": 7,
+      "excluding_high_e_n": 138,
+      "excluding_high_e_mismatches": 1,
+      "completed_excluding_high_e_n": 137,
+      "completed_excluding_high_e_mismatches": 0,
+      "completed_discordant_ids": []
+    }
+  },
+  "cost": {
+    "D": {
+      "jobs": 4608,
+      "cpu_hours": 13.68786801419473,
+      "worker_wall_hours": 13.691924069377258,
+      "failed_wall_hours": 0.0,
+      "longest_wall_hours": 0.35347275706137427
+    },
+    "T": {
+      "jobs": 4608,
+      "cpu_hours": 26.86456252103448,
+      "worker_wall_hours": 26.869701103440537,
+      "failed_wall_hours": 0.0,
+      "longest_wall_hours": 0.7255984658833282
+    },
+    "B": {
+      "jobs": 288,
+      "cpu_hours": 23.966607589225553,
+      "worker_wall_hours": 23.968496591739434,
+      "failed_wall_hours": 0.31683030129746637,
+      "longest_wall_hours": 4.006686001113849
+    }
+  },
+  "failed": [
+    {
+      "orbit_id": "himalia:uniform_log_a:0008",
+      "variant": "B",
+      "years": 1000.0,
+      "error": "IAS15 нарушил временную границу",
+      "last_valid_time": 25526330757.864594,
+      "wall": 1140.589084670879,
+      "cpu": 1140.534562778
+    }
+  ],
+  "sha256": {
+    "runs/W2-P2-2a-56220810/jobs.jsonl": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+    "runs/W2-P2-2a-56220810/analysis.json": "3bb005ca9bcd1fb646d459e14a21eec30eb4279a14d8c5871356ac01fecd46e2",
+    "runs/W2-P2-2a-56220810/summary.json": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+    "scratch/p2_2a_56220810/bundle.tar.gz": "a81aba2800ee53a66d0c48892a2317b873ad281cbd1ac70dbb0829774b34711a",
+    "scratch/p2_2a_56220810/results_56220810.tar.gz": "7ab1989efa57b9174a3c3f392dc96805a527965bb8c83a8cb19160577226cb87"
+  }
+}

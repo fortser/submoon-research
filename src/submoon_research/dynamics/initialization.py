@@ -1,6 +1,8 @@
 """Общие номинальные входы из проверенной реализации W0."""
 import numpy as np
 
+from submoon_research.exact_linalg import dot, norm
+
 SETS = dict(
     iapetus=["iapetus", "sun", "jupiter", "saturn", "titan"],
     ganymede=["ganymede", "sun", "jupiter", "saturn", "io", "europa", "callisto"],
@@ -31,12 +33,13 @@ def physical_inputs(host, model, states):
     ]
     parent = relative[names.index(PARENTS[host])]
     central = model["bodies"][PARENTS[host]]["gm"]["value"] + gms[0]
-    a_host = 1 / (2 / np.linalg.norm(parent[:3]) - np.dot(parent[3:], parent[3:]) / central)
+    # W2-I035: без BLAS — иначе a_host (и радиус Хилла) зависят от ядра OpenBLAS процессора.
+    a_host = 1 / (2 / norm(parent[:3]) - dot(parent[3:], parent[3:]) / central)
     if not a_host > 0:
         raise ValueError("Неэллиптическая осцулирующая орбита хозяина")
-    first = -parent[:3] / np.linalg.norm(parent[:3])
+    first = -parent[:3] / norm(parent[:3])
     normal = np.cross(parent[:3], parent[3:])
-    normal /= np.linalg.norm(normal)
+    normal /= norm(normal)
     basis = np.column_stack([first, np.cross(normal, first), normal])
     return names, relative, gms, figures, radii, float(a_host), basis
 

@@ -1,4 +1,4 @@
-"""Read-only CLI, явная полнота поиска, квоты и безопасная диагностика ошибок."""
+"""Read-only CLI, ограничения поиска, квоты и безопасная диагностика ошибок."""
 from dataclasses import dataclass
 import hashlib
 import json
@@ -10,6 +10,7 @@ import re
 import shutil
 import subprocess
 import time
+from typing import Any
 import urllib.error
 import urllib.request
 
@@ -117,6 +118,13 @@ def query_to_body(query, config):
     """Переводит CLI-строку фильтров в JSON-тело публичного endpoint."""
     body = {}
     for token in query.split():
+        # Исключение списка (только анонимный транспорт): machine_id~notin=[1,2,3]
+        excluded = re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)~notin=\[([0-9,]*)\]', token)
+        if excluded:
+            values = [int(x) for x in excluded.group(2).split(',') if x]
+            if values:
+                body.setdefault(excluded.group(1), {})['notin'] = values
+            continue
         match = re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)(>=|<=|!=|=|>|<)(.+)', token)
         if not match:
             raise SearchError('invalid_query_token')
@@ -244,7 +252,7 @@ def collect_stratified(config, request, clock, sleep, seed=0):
         remaining = config.cycle_budget-(clock()-started)
         query = build_query(low, high, gpu_filter, config)
         last_request = clock()
-        receipt = dict(query=query, started_monotonic_seconds=last_request-started)
+        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last_request-started)
         try:
             from dataclasses import replace
             result = request(query, replace(config, timeout=min(config.timeout, remaining)))
@@ -315,7 +323,7 @@ def collect(config, request=None, clock=time.monotonic, sleep=time.sleep, seed=0
                  f'cpu_cores_effective>={config.min_cores:g} disk_space>={config.min_disk:g} '
                  f'dph_total>={low:.12g} dph_total{upper}{high:.12g}')
         last_request = clock()
-        receipt = dict(query=query, started_monotonic_seconds=last_request-started)
+        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last_request-started)
         try:
             from dataclasses import replace
             result = request(query, replace(config, timeout=min(config.timeout, remaining)))
@@ -405,3 +413,158 @@ def candidate(offer, targets, config):
         location=offer.get('geolocation'), verification=offer.get('verification'),
         reliability_reported=offer.get('reliability'), observed_configuration=offer,
         hardware_validation='provider_advertisement_not_leased_or_benchmarked')
+
+
+def _filter_price(offer):
+    """Цена, по которой endpoint фильтрует dph_total: базовая без хранилища (W2-R018)."""
+    for key in ('dph_base', 'dph_total'):
+        value = offer.get(key)
+        if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value):
+            return float(value)
+    return None
+
+
+def _subwindows(result, low, high, parts=4):
+    """Подокна насыщенного окна по квартилям цен полученной страницы.
+
+    Пустой список — окно уже точечное (одна цена) и делить нечего. Если вся страница —
+    одна цена p, окно режется на [low, p-δ], [p, p], [p+δ, high]: точка p проверяется сразу."""
+    prices = sorted(p for o in result if (p := _filter_price(o)) is not None and low <= p <= high)
+    if high-low <= 1e-9:
+        return []
+    if prices and prices[0] == prices[-1]:
+        point = prices[0]
+        below, above = math.nextafter(point, -math.inf), math.nextafter(point, math.inf)
+        return [w for w in ((low, below), (point, point), (above, high)) if w[0] <= w[1]]
+    cuts = []
+    for index in range(1, parts):
+        position = min(len(prices)-1, index*len(prices)//parts)
+        if position < 1:
+            continue
+        # Граница — посередине между соседними разными ценами, а не на цене предложения:
+        # значение на сервере может отличаться в последних знаках (W2-T017, live3).
+        below, above = prices[position-1], prices[position]
+        value = (below+above)/2 if below < above else None
+        if value is not None and low < value < high and (not cuts or value > cuts[-1]):
+            cuts.append(value)
+    if not cuts:
+        cuts = [(low+high)/2]
+    edges = [low, *cuts, high]
+    return [(edges[i], edges[i+1]) for i in range(len(edges)-1)]
+
+
+def initial_windows(prices, high, per_window=40, count=None):
+    """Начальные окна по прошлому снимку: примерно per_window предложений в каждом;
+    count — вместо этого разбить выборку на count равных по числу частей. Граница ставится
+    посередине между соседними РАЗНЫМИ ценами, поэтому повторяющиеся цены не рвут окно."""
+    prices = sorted(p for p in prices if p is not None and 0 <= p <= high)
+    if count and prices:
+        per_window = max(1, len(prices)//count)
+    cuts, in_window = [], 0
+    for index, price in enumerate(prices):
+        in_window += 1
+        following = prices[index+1] if index+1 < len(prices) else None
+        if in_window >= per_window and following is not None and following > price:
+            cuts.append((price+following)/2)
+            in_window = 0
+    edges = [0., *cuts, float(high)]
+    return [(edges[i], edges[i+1]) for i in range(len(edges)-1) if edges[i] < edges[i+1]]
+
+
+def scan_market(config, request=None, clock=time.monotonic, sleep=time.sleep, max_queries=200,
+                prior_prices=None, base_query='', split_at=None, per_window=None, prior_windows=None,
+                split_parts=4) -> dict[str, Any]:
+    """Снимок рынка до config.max_price по окнам базовой цены (W2-T017, W2-R019, W2-D024).
+
+    Свойства endpoint (замеры 2026-10-13): сервер берёт не больше «страницы» кандидатов окна
+    цены (64 анонимно, limit — через аккаунт), выбранных не по цене, и только ПОТОМ применяет
+    остальные фильтры — даже rentable/rented; фильтр цены работает по dph_base.
+    Без base_query запрос содержит только окно цены: полная страница — окно делится по ценам
+    страницы (границы посередине между соседними ценами). complete=True означает лишь, что
+    алгоритм обработал все окна, НЕ доказательство полноты рынка (W2-R020). С base_query
+    фильтры сокращают ответ, окно делится при split_at строк; complete=False, best_effort.
+    prior_prices — базовые цены прошлого снимка для начального разбиения.
+    """
+    config.validate()
+    if request is None:
+        request = default_request
+    from dataclasses import replace
+    cap = min(config.limit, config.anonymous_cap) if config.anonymous else config.limit
+    split_at = split_at or cap
+    per_window = per_window or max(1, int(cap*0.6))
+    started = clock()
+    offers, receipts, incomplete = {}, [], []
+    last = None
+    windows = initial_windows(prior_prices or [], config.max_price, per_window, prior_windows)
+    retried = set()
+    digits = '.17g' if config.anonymous else '.12g'
+    while windows:
+        low, high = windows.pop(0)
+        if len(receipts) >= max_queries or clock()-started >= config.cycle_budget:
+            incomplete.append(dict(low=low, high=high, reason='request_or_time_budget'))
+            incomplete.extend(dict(low=w[0], high=w[1], reason='request_or_time_budget') for w in windows)
+            break
+        if last is not None:
+            sleep(max(0, config.request_spacing-(clock()-last)))
+        remaining = config.cycle_budget-(clock()-started)
+        query = f'{base_query} dph_total>={low:{digits}} dph_total<={high:{digits}}'.strip()
+        last = clock()
+        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last-started)
+        try:
+            result = request(query, replace(config, timeout=max(1., min(config.timeout, remaining))))
+        except SearchError as exc:
+            receipt.update(status=exc.kind, reported_http_status=exc.status, count=None,
+                           elapsed_seconds=clock()-last)
+            receipts.append(receipt)
+            if exc.kind == 'timeout' and (low, high) not in retried:
+                retried.add((low, high))
+                receipt['continued'] = 'retry_after_timeout'
+                windows.insert(0, (low, high))
+                continue
+            incomplete.append(dict(low=low, high=high, reason=exc.kind))
+            if exc.kind in ('rate_limited', 'authentication_or_access_denied', 'daily_quota', 'cli_unavailable'):
+                incomplete.extend(dict(low=w[0], high=w[1], reason='stopped_after_'+exc.kind) for w in windows)
+                break
+            continue
+        receipt.update(status='ok', reported_http_status=None, count=len(result),
+                       transport='anonymous' if config.anonymous else 'cli', elapsed_seconds=clock()-last,
+                       response_sha256=hashlib.sha256(json.dumps(result, sort_keys=True).encode()).hexdigest())
+        receipts.append(receipt)
+        for offer in result:
+            if isinstance(offer.get('id'), int):
+                offers[offer['id']] = offer
+        if len(result) < split_at:
+            continue
+        parts = _subwindows(result, low, high, split_parts)
+        if not parts or len(parts) < 2:
+            incomplete.append(dict(low=low, high=high, reason='price_tie_over_page'))
+            continue
+        receipt['continued'] = f'split_into_{len(parts)}'
+        windows[:0] = parts
+    guaranteed = not base_query
+    return dict(offers=list(offers.values()), queries=receipts, complete=guaranteed and not incomplete,
+                best_effort=not guaranteed, incomplete=incomplete, elapsed_seconds=clock()-started,
+                strategy='price_scan' if guaranteed else 'quick_filtered',
+                transport='anonymous' if config.anonymous else 'cli', page=cap)
+
+
+def recheck(offer_id, machine_id, config, request=None) -> dict[str, Any]:
+    """Бесплатная перепроверка одной машины перед арендой: свободна ли, та же ли цена."""
+    if request is None:
+        request = default_request
+    # rentable/rented сервер применяет после предела страницы (probe3) — проверяем на клиенте.
+    query = f'machine_id={int(machine_id)}'
+    try:
+        result = request(query, config)
+    except SearchError as exc:
+        return dict(status='error', reason=exc.kind, offer=None)
+    match = [o for o in result if o.get('id') == int(offer_id)]
+    if not match:
+        return dict(status='gone', reason='offer_not_listed', offer=None,
+                    other_offers_on_machine=[o.get('id') for o in result])
+    offer = match[0]
+    if offer.get('machine_id') != int(machine_id):
+        return dict(status='error', reason='machine_identity_mismatch', offer=None)
+    if offer.get('rentable') is not True or offer.get('rented') is not False:
+        return dict(status='gone', reason='not_rentable', offer=offer)
+    return dict(status='available', reason=None, offer=offer)

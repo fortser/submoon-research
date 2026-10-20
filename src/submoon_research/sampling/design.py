@@ -10,6 +10,8 @@ from scipy.integrate import quad
 from scipy.optimize import brentq
 from scipy.stats import qmc
 
+from submoon_research.exact_linalg import matmul, matvec
+
 
 class DomainSpec(BaseModel):
     model_config = ConfigDict(extra='forbid', strict=True, allow_inf_nan=False, frozen=True)
@@ -73,7 +75,9 @@ def elements_to_cartesian(gm,a,e,u,mean_anomaly,omega,node,basis):
     si=math.sqrt(max(0,1-u*u))
     rotation=np.array([[cn*co-sn*so*u,-cn*so-sn*co*u,sn*si],
         [sn*co+cn*so*u,-sn*so+cn*co*u,-cn*si],[so*si,co*si,u]])
-    return np.r_[basis@rotation@position,basis@rotation@velocity]
+    # W2-I035: произведения 3×3 без BLAS — иначе старт зависит от ядра OpenBLAS процессора.
+    frame=matmul(basis,rotation)
+    return np.r_[matvec(frame,position),matvec(frame,velocity)]
 
 
 def generate(domain,measure,*,power,seed,randomization,basis):

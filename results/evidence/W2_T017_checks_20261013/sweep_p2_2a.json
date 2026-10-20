@@ -1,0 +1,3054 @@
+{
+ "utc": "2026-10-13T18:47:36+00:00",
+ "profile": {
+  "name": "p2_2a",
+  "title": "P2-2a полный стенд",
+  "source": "W2-R017, docs/compute/W2_P2-2a_rental_plan_v1.md",
+  "requirements": {
+   "min_effective_cpus": 32,
+   "min_share": 0.0,
+   "min_ram_gb": 32,
+   "disk_gb": 60,
+   "max_hourly_usd": 1.0,
+   "min_reliability": 0.95,
+   "verification": [
+    "verified",
+    "unverified",
+    "deverified"
+   ],
+   "min_direct_ports": 1,
+   "require_known_cpu": true,
+   "min_core_speed": 0.6,
+   "cpu_regex": null,
+   "allow_gpu": true,
+   "max_hours": 24
+  },
+  "workload": {
+   "core_hours": [
+    280.0,
+    350.0
+   ],
+   "critical_path_hours": [
+    12.0,
+    13.0
+   ],
+   "parallel_efficiency": 0.78,
+   "setup_hours": 1.0,
+   "ram_gb_per_process": 0.45,
+   "use_e_cores": false
+  },
+  "rank_by": "cost"
+ },
+ "catalog_reference": "P-ядро Core i9-14900K = 1.00 (W2-T006, прототип dop853)",
+ "server_query": "проходы до насыщения: rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 + окна цены / диапазоны vCPU / число GPU; остальные условия — на клиенте",
+ "search": {
+  "mode": "sweep",
+  "strategy": "sweep",
+  "complete": false,
+  "passes": [
+   {
+    "name": "price",
+    "found": 240,
+    "new": 240
+   },
+   {
+    "name": "exclude",
+    "found": 36,
+    "new": 36
+   },
+   {
+    "name": "vcpu_bands",
+    "found": 0,
+    "new": 0
+   },
+   {
+    "name": "gpu_count",
+    "found": 0,
+    "new": 0
+   }
+  ],
+  "last_two_passes_new_fraction": 0.0,
+  "queries": 21,
+  "errors": [
+   "timeout"
+  ],
+  "incomplete": [
+   {
+    "low": 0.65,
+    "high": 0.7793333333333333,
+    "reason": "time_or_query_budget",
+    "sweep_pass": "exclude"
+   },
+   {
+    "low": 0.7793333333333333,
+    "high": 0.884,
+    "reason": "time_or_query_budget",
+    "sweep_pass": "exclude"
+   },
+   {
+    "low": 0.884,
+    "high": 1.0,
+    "reason": "time_or_query_budget",
+    "sweep_pass": "exclude"
+   }
+  ],
+  "elapsed_seconds": 180.4,
+  "raw_offers": 276,
+  "receipts": [
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0 dph_total<=1",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_3",
+    "elapsed_seconds": 4.531999999999243,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0 dph_total<=0.20333333333333331",
+    "status": "ok",
+    "count": 25,
+    "continued": null,
+    "elapsed_seconds": 1.4380000000019209,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.20333333333333331 dph_total<=0.41266666666666663",
+    "status": "ok",
+    "count": 42,
+    "continued": null,
+    "elapsed_seconds": 2.561999999998079,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.41266666666666663 dph_total<=1",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_2",
+    "elapsed_seconds": 8.906999999999243,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.41266666666666663 dph_total<=0.59599999999999997",
+    "status": "ok",
+    "count": 39,
+    "continued": null,
+    "elapsed_seconds": 2.889999999999418,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.59599999999999997 dph_total<=1",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_2",
+    "elapsed_seconds": 4.110000000000582,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.59599999999999997 dph_total<=0.79800000000000004",
+    "status": "ok",
+    "count": 44,
+    "continued": null,
+    "elapsed_seconds": 3.7030000000013388,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.79800000000000004 dph_total<=1",
+    "status": "ok",
+    "count": 42,
+    "continued": null,
+    "elapsed_seconds": 30.639999999999418,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0 dph_total<=0.22666666666666668 machine_id~notin=[16055,21091,30031,35137,42769,45421,45760,53859,53940,57252,58911,68509,90944,138972,140107,143649,143742,144728,149802,149824,150124,151352,152541,152547,15",
+    "status": "ok",
+    "count": 3,
+    "continued": null,
+    "elapsed_seconds": 1.360000000000582,
+    "excluded_machines": 27
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0 dph_total<=0.22666666666666668 machine_id~notin=[16055,21091,30031,35137,42769,45418,45421,45760,53859,53940,57252,57253,58911,68509,90944,138972,140107,143217,143649,143742,144728,149802,149824,150124,1513",
+    "status": "ok",
+    "count": 0,
+    "continued": null,
+    "elapsed_seconds": 1.6869999999980791,
+    "excluded_machines": 30
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.22666666666666668 dph_total<=0.32666666666666666 machine_id~notin=[20242,21195,31412,34763,45109,45418,45778,48881,54785,68089,68321,78466,136826,137843,139301,146097,149802,149824,149875,150124,151327,1514",
+    "status": "ok",
+    "count": 7,
+    "continued": null,
+    "elapsed_seconds": 2.0310000000026776,
+    "excluded_machines": 28
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.22666666666666668 dph_total<=0.32666666666666666 machine_id~notin=[20242,21195,22995,31412,34763,44589,45109,45392,45418,45778,48881,54785,57252,57253,68089,68321,78466,136826,137843,139301,146097,147430,14",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 1.985000000000582,
+    "excluded_machines": 35
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.22666666666666668 dph_total<=0.32666666666666666 machine_id~notin=[20242,21195,22995,31412,34763,42769,44589,45109,45392,45418,45778,48881,54785,57252,57253,68089,68321,78466,136826,137843,139301,146097,147",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.7809999999954016,
+    "excluded_machines": 36
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.32666666666666666 dph_total<=0.43333333333333335 machine_id~notin=[33283,33537,38389,45315,53020,58911,60189,90944,114318,139253,139652,140107,142060,142421,144726,148971,150677,150905,150930,150998,151683,",
+    "status": "timeout",
+    "count": null,
+    "continued": null,
+    "elapsed_seconds": 100.17199999999866,
+    "excluded_machines": 27
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.43333333333333335 dph_total<=0.53466666666666662 machine_id~notin=[10685,13450,20242,34763,45315,54650,54785,142068,142711,144172,145090,145973,149495,149498,151110,151124,151425,151597,152299,153056,153436",
+    "status": "ok",
+    "count": 10,
+    "continued": null,
+    "elapsed_seconds": 1.5469999999986612,
+    "excluded_machines": 27
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.43333333333333335 dph_total<=0.53466666666666662 machine_id~notin=[8998,10685,13450,20242,34763,45315,54650,54785,59088,142068,142711,143557,144172,145090,145973,148805,149495,149498,149499,149987,150839,15",
+    "status": "ok",
+    "count": 3,
+    "continued": null,
+    "elapsed_seconds": 0.75,
+    "excluded_machines": 37
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.43333333333333335 dph_total<=0.53466666666666662 machine_id~notin=[8998,10685,13450,20242,34763,45315,54650,54785,59088,116195,142068,142711,143557,144172,145090,145973,148534,148805,149495,149498,149499,14",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 1.360000000000582,
+    "excluded_machines": 40
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.53466666666666662 dph_total<=0.65000000000000002 machine_id~notin=[7064,10236,21195,28909,45778,46531,48881,51313,55867,58241,68435,78466,96563,99580,101026,115358,136826,139287,140667,142429,142739,145643,",
+    "status": "ok",
+    "count": 5,
+    "continued": null,
+    "elapsed_seconds": 0.7810000000026776,
+    "excluded_machines": 28
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.53466666666666662 dph_total<=0.65000000000000002 machine_id~notin=[7064,10236,21195,24040,28909,45778,46531,48881,51313,55867,58241,68435,78466,96563,99580,101026,115358,136826,139287,140667,141095,142429,1",
+    "status": "ok",
+    "count": 2,
+    "continued": null,
+    "elapsed_seconds": 4.6560000000026776,
+    "excluded_machines": 33
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.53466666666666662 dph_total<=0.65000000000000002 machine_id~notin=[7064,10236,21195,24040,25792,28909,31196,45778,46531,48881,51313,55867,58241,68435,78466,96563,99580,101026,115358,136826,139287,140667,141",
+    "status": "ok",
+    "count": 0,
+    "continued": null,
+    "elapsed_seconds": 0.8279999999940628,
+    "excluded_machines": 35
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=32 disk_space>=60 dph_total>=0.65000000000000002 dph_total<=0.77933333333333332 machine_id~notin=[33405,34254,41395,41674,46427,47281,58657,59038,60189,70632,136759,139315,139896,140451,146370,146809,150099,150284,150601,151284,152030,15",
+    "status": "ok",
+    "count": 3,
+    "continued": null,
+    "elapsed_seconds": 2.7969999999986612,
+    "excluded_machines": 26
+   }
+  ]
+ },
+ "rejected": {
+  "slow_cpu": 132,
+  "reliability": 63,
+  "ram": 21,
+  "unknown_cpu": 5,
+  "price": 4,
+  "direct_ports": 2
+ },
+ "rows": [
+  {
+   "offer_id": 55276269,
+   "machine_id": 139652,
+   "cpu_name": "AMD EPYC 9654 96-Core Processor",
+   "cpu_key": "epyc 9654",
+   "catalog_key": "EPYC 9654",
+   "core_speed": 0.64,
+   "speed_source": "measured",
+   "speed_confidence": "measured",
+   "speed_ref": "W2-T006",
+   "vcpu": 192.0,
+   "host_vcpu": 192.0,
+   "share": 1.0,
+   "ram_gb": 63.989,
+   "disk_gb": 305.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5080",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.35,
+   "usd_per_vcpu_hour": 0.0018229166666666665,
+   "verification": "deverified",
+   "reliability": 0.9715323,
+   "location": "Rostov Oblast, RU",
+   "direct_ports": 14,
+   "physical_cores": 96.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 61.44,
+   "usd_per_ref_core_hour": 0.005696614583333333,
+   "flags": [
+    "deverified"
+   ],
+   "estimate": {
+    "hours": [
+     19.75,
+     21.3125
+    ],
+    "usd": [
+     6.9125,
+     7.459375
+    ],
+    "bound": "path",
+    "workers": 96.0,
+    "throughput_ref_cores": 61.44,
+    "ram_limits_workers": false
+   },
+   "rank": 1,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 10,
+    "offer_price_min": 0.33888888888888885,
+    "offer_price_max": 0.35
+   }
+  },
+  {
+   "offer_id": 49739233,
+   "machine_id": 139301,
+   "cpu_name": "Xeon® Gold 6444Y",
+   "cpu_key": "xeon gold 6444y",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 64.0,
+   "host_vcpu": 64.0,
+   "share": 1.0,
+   "ram_gb": 257.446,
+   "disk_gb": 2779.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX A6000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.33111111111111113,
+   "usd_per_vcpu_hour": 0.0051736111111111115,
+   "verification": "unverified",
+   "reliability": 0.9948027,
+   "location": "France, FR",
+   "direct_ports": 98,
+   "physical_cores": 32.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 20.8,
+   "usd_per_ref_core_hour": 0.015918803418803418,
+   "flags": [
+    "unverified",
+    "family_estimate"
+   ],
+   "estimate": {
+    "hours": [
+     19.46153846153846,
+     22.572978303747533
+    ],
+    "usd": [
+     6.443931623931624,
+     7.47416392724085
+    ],
+    "bound": "volume",
+    "workers": 32.0,
+    "throughput_ref_cores": 20.8,
+    "ram_limits_workers": false
+   },
+   "rank": 2,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 8,
+    "offer_price_min": 0.3237037037037037,
+    "offer_price_max": 0.33111111111111113
+   }
+  },
+  {
+   "offer_id": 54131732,
+   "machine_id": 34254,
+   "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+   "cpu_key": "epyc 7j13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 256.0,
+   "host_vcpu": 256.0,
+   "share": 1.0,
+   "ram_gb": 257.691,
+   "disk_gb": 6320.7,
+   "num_gpus": 1,
+   "gpu_name": "RTX 3070",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7366666666666668,
+   "usd_per_vcpu_hour": 0.002877604166666667,
+   "verification": "verified",
+   "reliability": 0.9947524,
+   "location": "Taiwan, TW",
+   "direct_ports": 256,
+   "physical_cores": 128.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 79.36,
+   "usd_per_ref_core_hour": 0.009282594086021508,
+   "flags": [
+    "family_estimate"
+   ],
+   "estimate": {
+    "hours": [
+     20.35483870967742,
+     21.967741935483872
+    ],
+    "usd": [
+     14.994731182795702,
+     16.182903225806456
+    ],
+    "bound": "path",
+    "workers": 128.0,
+    "throughput_ref_cores": 79.36,
+    "ram_limits_workers": false
+   },
+   "rank": 3,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:25:59+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.7255555555555556,
+    "offer_price_max": 0.7366666666666668
+   }
+  },
+  {
+   "offer_id": 55771655,
+   "machine_id": 139315,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 64.0,
+   "host_vcpu": 128.0,
+   "share": 0.5,
+   "ram_gb": 128.78,
+   "disk_gb": 1618.0,
+   "num_gpus": 2,
+   "gpu_name": "RTX PRO 4000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7955555555555556,
+   "usd_per_vcpu_hour": 0.012430555555555556,
+   "verification": "verified",
+   "reliability": 0.9935919,
+   "location": "Indiana, US",
+   "direct_ports": 256,
+   "physical_cores": 32.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 19.84,
+   "usd_per_ref_core_hour": 0.04009856630824373,
+   "flags": [
+    "slice",
+    "family_estimate"
+   ],
+   "estimate": {
+    "hours": [
+     20.35483870967742,
+     23.616832092638543
+    ],
+    "usd": [
+     16.193405017921148,
+     18.78850197592133
+    ],
+    "bound": "volume",
+    "workers": 32.0,
+    "throughput_ref_cores": 19.84,
+    "ram_limits_workers": false
+   },
+   "rank": 4,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:55:28+00:00",
+    "offer_runs_seen": 4,
+    "offer_price_min": 0.7807407407407407,
+    "offer_price_max": 0.7955555555555556
+   }
+  },
+  {
+   "offer_id": 55528101,
+   "machine_id": 8038,
+   "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+   "cpu_key": "epyc 7j13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 64.0,
+   "host_vcpu": 128.0,
+   "share": 0.5,
+   "ram_gb": 257.896,
+   "disk_gb": 2152.5,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.9444444444444443,
+   "usd_per_vcpu_hour": 0.014756944444444442,
+   "verification": "deverified",
+   "reliability": 0.9920512,
+   "location": "Japan, JP",
+   "direct_ports": 256,
+   "physical_cores": 32.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 19.84,
+   "usd_per_ref_core_hour": 0.047603046594982074,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate"
+   ],
+   "estimate": {
+    "hours": [
+     20.35483870967742,
+     23.616832092638543
+    ],
+    "usd": [
+     19.22401433691756,
+     22.304785865269732
+    ],
+    "bound": "volume",
+    "workers": 32.0,
+    "throughput_ref_cores": 19.84,
+    "ram_limits_workers": false
+   },
+   "rank": 5,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 7,
+    "offer_price_min": 0.9370370370370369,
+    "offer_price_max": 0.9444444444444443
+   }
+  },
+  {
+   "offer_id": 53991780,
+   "machine_id": 151327,
+   "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+   "cpu_key": "threadripper pro 5975wx",
+   "catalog_key": "Threadripper PRO 59x5WX",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 42.666666666666664,
+   "host_vcpu": 64.0,
+   "share": 0.6666666666666666,
+   "ram_gb": 42.749,
+   "disk_gb": 855.3333333333333,
+   "num_gpus": 2,
+   "gpu_name": "RTX 5060 Ti",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.2566666666666667,
+   "usd_per_vcpu_hour": 0.006015625000000001,
+   "verification": "deverified",
+   "reliability": 0.9834479,
+   "location": "Denmark, DK",
+   "direct_ports": 132,
+   "physical_cores": 21.333333333333332,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 16.0,
+   "usd_per_ref_core_hour": 0.01604166666666667,
+   "flags": [
+    "deverified",
+    "slice",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     23.435897435897434,
+     29.044871794871796
+    ],
+    "usd": [
+     6.015213675213676,
+     7.454850427350428
+    ],
+    "bound": "volume",
+    "workers": 21.333333333333332,
+    "throughput_ref_cores": 16.0,
+    "ram_limits_workers": false
+   },
+   "rank": 6,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 9,
+    "offer_price_min": 0.24555555555555558,
+    "offer_price_max": 0.2566666666666667
+   }
+  },
+  {
+   "offer_id": 55561261,
+   "machine_id": 152541,
+   "cpu_name": "AMD Ryzen Threadripper PRO 3955WX 16-Cores",
+   "cpu_key": "threadripper pro 3955wx",
+   "catalog_key": "Threadripper 3xxx/PRO 39xxWX",
+   "core_speed": 0.6,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 257.58,
+   "disk_gb": 1474.0,
+   "num_gpus": 1,
+   "gpu_name": "L4",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.21777777777777776,
+   "usd_per_vcpu_hour": 0.006805555555555555,
+   "verification": "unverified",
+   "reliability": 0.9663572,
+   "location": "Washington, US",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.6,
+   "usd_per_ref_core_hour": 0.022685185185185183,
+   "flags": [
+    "unverified",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     38.3931623931624,
+     47.741452991452995
+    ],
+    "usd": [
+     8.361177587844255,
+     10.397027540360874
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.6,
+    "ram_limits_workers": false
+   },
+   "rank": 7,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 9,
+    "offer_price_min": 0.21037037037037037,
+    "offer_price_max": 0.21777777777777776
+   }
+  },
+  {
+   "offer_id": 55618011,
+   "machine_id": 151110,
+   "cpu_name": "AMD Ryzen 9 7950X 16-Core Processor",
+   "cpu_key": "ryzen 9 7950x",
+   "catalog_key": "Ryzen 9 7950X",
+   "core_speed": 1.0,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 127.912,
+   "disk_gb": 1593.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.51,
+   "usd_per_vcpu_hour": 0.0159375,
+   "verification": "deverified",
+   "reliability": 0.9695278,
+   "location": "Kurskaya oblast', RU",
+   "direct_ports": 14,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 16.0,
+   "usd_per_ref_core_hour": 0.031875,
+   "flags": [
+    "deverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     23.435897435897434,
+     29.044871794871796
+    ],
+    "usd": [
+     11.952307692307691,
+     14.812884615384617
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 16.0,
+    "ram_limits_workers": false
+   },
+   "rank": 8,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.4988888888888888,
+    "offer_price_max": 0.51
+   }
+  },
+  {
+   "offer_id": 55728968,
+   "machine_id": 151111,
+   "cpu_name": "AMD Ryzen 9 7950X 16-Core Processor",
+   "cpu_key": "ryzen 9 7950x",
+   "catalog_key": "Ryzen 9 7950X",
+   "core_speed": 1.0,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 63.401,
+   "disk_gb": 763.2,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.51,
+   "usd_per_vcpu_hour": 0.0159375,
+   "verification": "deverified",
+   "reliability": 0.9522977,
+   "location": "Kurskaya oblast', RU",
+   "direct_ports": 14,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 16.0,
+   "usd_per_ref_core_hour": 0.031875,
+   "flags": [
+    "deverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     23.435897435897434,
+     29.044871794871796
+    ],
+    "usd": [
+     11.952307692307691,
+     14.812884615384617
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 16.0,
+    "ram_limits_workers": false
+   },
+   "rank": 9,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:55:28+00:00",
+    "offer_runs_seen": 6,
+    "offer_price_min": 0.4988888888888888,
+    "offer_price_max": 0.51
+   }
+  },
+  {
+   "offer_id": 50208804,
+   "machine_id": 139287,
+   "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+   "cpu_key": "threadripper pro 5975wx",
+   "catalog_key": "Threadripper PRO 59x5WX",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 48.0,
+   "host_vcpu": 48.0,
+   "share": 1.0,
+   "ram_gb": 62.756,
+   "disk_gb": 1281.0,
+   "num_gpus": 4,
+   "gpu_name": "RTX 3090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5977777777777777,
+   "usd_per_vcpu_hour": 0.012453703703703703,
+   "verification": "deverified",
+   "reliability": 0.9784081,
+   "location": "British Columbia, CA",
+   "direct_ports": 198,
+   "physical_cores": 24.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 18.0,
+   "usd_per_ref_core_hour": 0.03320987654320987,
+   "flags": [
+    "deverified",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     20.94301994301994,
+     25.928774928774928
+    ],
+    "usd": [
+     12.519271921494141,
+     15.499645457423235
+    ],
+    "bound": "volume",
+    "workers": 24.0,
+    "throughput_ref_cores": 18.0,
+    "ram_limits_workers": false
+   },
+   "rank": 10,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.5903703703703703,
+    "offer_price_max": 0.5977777777777777
+   }
+  },
+  {
+   "offer_id": 55331355,
+   "machine_id": 150839,
+   "cpu_name": "AMD Ryzen 9 7950X3D 16-Core Processor",
+   "cpu_key": "ryzen 9 7950x3d",
+   "catalog_key": "Ryzen 9 7950X3D/7900X3D",
+   "core_speed": 0.95,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 63.913,
+   "disk_gb": 761.4,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.51,
+   "usd_per_vcpu_hour": 0.0159375,
+   "verification": "deverified",
+   "reliability": 0.966329,
+   "location": "Saratovskaya oblast', RU",
+   "direct_ports": 14,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 15.2,
+   "usd_per_ref_core_hour": 0.03355263157894737,
+   "flags": [
+    "deverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     24.616734143049932,
+     30.520917678812417
+    ],
+    "usd": [
+     12.554534412955466,
+     15.565668016194333
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 15.2,
+    "ram_limits_workers": false
+   },
+   "rank": 11,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.4988888888888888,
+    "offer_price_max": 0.51
+   }
+  },
+  {
+   "offer_id": 54026131,
+   "machine_id": 153133,
+   "cpu_name": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpu_key": "ryzen 9 9950x",
+   "catalog_key": "Ryzen 9 9950X/9950X3D",
+   "core_speed": 1.1,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 94.173,
+   "disk_gb": 590.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX PRO 5000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6166666666666667,
+   "usd_per_vcpu_hour": 0.019270833333333334,
+   "verification": "verified",
+   "reliability": 0.9500556,
+   "location": "Jiangsu, CN",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.6,
+   "usd_per_ref_core_hour": 0.035037878787878785,
+   "flags": [
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.396270396270396,
+     26.49533799533799
+    ],
+    "usd": [
+     13.194366744366745,
+     16.33879176379176
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 17.6,
+    "ram_limits_workers": false
+   },
+   "rank": 12,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:20:40+00:00",
+    "offer_runs_seen": 2,
+    "offer_price_min": 0.6055555555555555,
+    "offer_price_max": 0.6166666666666667
+   }
+  },
+  {
+   "offer_id": 53285133,
+   "machine_id": 114318,
+   "cpu_name": "Xeon® Gold 5418Y",
+   "cpu_key": "xeon gold 5418y",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 96.0,
+   "share": 0.3333333333333333,
+   "ram_gb": 128.477,
+   "disk_gb": 453.0,
+   "num_gpus": 1,
+   "gpu_name": "L40",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.39333333333333337,
+   "usd_per_vcpu_hour": 0.012291666666666668,
+   "verification": "unverified",
+   "reliability": 0.9976396,
+   "location": "Vietnam, VN",
+   "direct_ports": 165,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.037820512820512825,
+   "flags": [
+    "unverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     13.96992767915845,
+     17.364076265614727
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 13,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 7,
+    "offer_price_min": 0.37111111111111117,
+    "offer_price_max": 0.39333333333333337
+   }
+  },
+  {
+   "offer_id": 53285135,
+   "machine_id": 114318,
+   "cpu_name": "Xeon® Gold 5418Y",
+   "cpu_key": "xeon gold 5418y",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 96.0,
+   "share": 0.3333333333333333,
+   "ram_gb": 128.477,
+   "disk_gb": 453.0,
+   "num_gpus": 1,
+   "gpu_name": "L40",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.39333333333333337,
+   "usd_per_vcpu_hour": 0.012291666666666668,
+   "verification": "unverified",
+   "reliability": 0.9976396,
+   "location": "Vietnam, VN",
+   "direct_ports": 165,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.037820512820512825,
+   "flags": [
+    "unverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     13.96992767915845,
+     17.364076265614727
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 14,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 7,
+    "offer_price_min": 0.37111111111111117,
+    "offer_price_max": 0.39333333333333337
+   }
+  },
+  {
+   "offer_id": 55794490,
+   "machine_id": 149964,
+   "cpu_name": "AMD EPYC 7443 24-Core Processor",
+   "cpu_key": "epyc 7443",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 48.0,
+   "host_vcpu": 48.0,
+   "share": 1.0,
+   "ram_gb": 515.626,
+   "disk_gb": 2488.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 3090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5924444444444443,
+   "usd_per_vcpu_hour": 0.01234259259259259,
+   "verification": "verified",
+   "reliability": 0.9852367,
+   "location": "The Netherlands, NL",
+   "direct_ports": 199,
+   "physical_cores": 24.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 14.879999999999999,
+   "usd_per_ref_core_hour": 0.03981481481481481,
+   "flags": [
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     25.12462089881445,
+     31.155776123518063
+    ],
+    "usd": [
+     14.884942070275402,
+     18.45806647673314
+    ],
+    "bound": "volume",
+    "workers": 24.0,
+    "throughput_ref_cores": 14.879999999999999,
+    "ram_limits_workers": false
+   },
+   "rank": 15,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.5924444444444443,
+    "offer_price_max": 0.5924444444444443
+   }
+  },
+  {
+   "offer_id": 55605303,
+   "machine_id": 151124,
+   "cpu_name": "AMD Ryzen 9 5950X 16-Core Processor",
+   "cpu_key": "ryzen 9 5950x",
+   "catalog_key": "Ryzen 9 5950X/5900X",
+   "core_speed": 0.78,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 128.733,
+   "disk_gb": 763.2,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.51,
+   "usd_per_vcpu_hour": 0.0159375,
+   "verification": "deverified",
+   "reliability": 0.9690985,
+   "location": "Kurskaya oblast', RU",
+   "direct_ports": 14,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 12.48,
+   "usd_per_ref_core_hour": 0.040865384615384616,
+   "flags": [
+    "deverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     29.763971071663377,
+     36.95496383957922
+    ],
+    "usd": [
+     15.179625246548323,
+     18.847031558185403
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 12.48,
+    "ram_limits_workers": false
+   },
+   "rank": 16,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 4,
+    "offer_price_min": 0.4988888888888888,
+    "offer_price_max": 0.51
+   }
+  },
+  {
+   "offer_id": 55788156,
+   "machine_id": 153621,
+   "cpu_name": "Xeon® w9-3475X",
+   "cpu_key": "xeon w9 3475x",
+   "catalog_key": "Xeon W-2400/3400",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 48.0,
+   "host_vcpu": 72.0,
+   "share": 0.6666666666666666,
+   "ram_gb": 85.62,
+   "disk_gb": 1117.1999999999998,
+   "num_gpus": 2,
+   "gpu_name": "RTX A6000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8166666666666667,
+   "usd_per_vcpu_hour": 0.017013888888888887,
+   "verification": "unverified",
+   "reliability": 0.9540922,
+   "location": "Kentucky, US",
+   "direct_ports": 198,
+   "physical_cores": 24.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 18.0,
+   "usd_per_ref_core_hour": 0.045370370370370366,
+   "flags": [
+    "unverified",
+    "slice",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     20.94301994301994,
+     25.928774928774928
+    ],
+    "usd": [
+     17.10346628679962,
+     21.175166191832858
+    ],
+    "bound": "volume",
+    "workers": 24.0,
+    "throughput_ref_cores": 18.0,
+    "ram_limits_workers": false
+   },
+   "rank": 17,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.8166666666666667,
+    "offer_price_max": 0.8166666666666667
+   }
+  },
+  {
+   "offer_id": 55789900,
+   "machine_id": 150601,
+   "cpu_name": "AMD EPYC 7663 56-Core Processor",
+   "cpu_key": "epyc 7663",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 56.0,
+   "host_vcpu": 112.0,
+   "share": 0.5,
+   "ram_gb": 128.752,
+   "disk_gb": 1039.5,
+   "num_gpus": 2,
+   "gpu_name": "CMP 170HX",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7966666666666667,
+   "usd_per_vcpu_hour": 0.014226190476190477,
+   "verification": "verified",
+   "reliability": 0.9764398,
+   "location": "Ontario, CA",
+   "direct_ports": 249,
+   "physical_cores": 28.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.36,
+   "usd_per_ref_core_hour": 0.04589093701996928,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.678246484698096,
+     26.84780810587262
+    ],
+    "usd": [
+     17.270336366142818,
+     21.388753791011855
+    ],
+    "bound": "volume",
+    "workers": 28.0,
+    "throughput_ref_cores": 17.36,
+    "ram_limits_workers": false
+   },
+   "rank": 18,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.7966666666666667,
+    "offer_price_max": 0.7966666666666667
+   }
+  },
+  {
+   "offer_id": 55783891,
+   "machine_id": 68321,
+   "cpu_name": "13th Gen Core™ i9-13900",
+   "cpu_key": "core i9 13900",
+   "catalog_key": "Core i9-14900/13900 (не K)",
+   "core_speed": 0.9,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 128.453,
+   "disk_gb": 1642.0,
+   "num_gpus": 2,
+   "gpu_name": "RTX 3070",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.3397777777777778,
+   "usd_per_vcpu_hour": 0.010618055555555556,
+   "verification": "verified",
+   "reliability": 0.9955421,
+   "location": "Texas, US",
+   "direct_ports": 256,
+   "physical_cores": 24.0,
+   "p_cores": 8.0,
+   "e_cores": 16.0,
+   "ref_cores": 13.68,
+   "usd_per_ref_core_hour": 0.024837556855100716,
+   "flags": [
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     50.857549857549856,
+     63.32193732193731
+    ],
+    "usd": [
+     17.28026527382083,
+     21.51538714783159
+    ],
+    "bound": "volume",
+    "workers": 8.0,
+    "throughput_ref_cores": 7.2,
+    "ram_limits_workers": false
+   },
+   "rank": 19,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:48:20+00:00",
+    "offer_runs_seen": 2,
+    "offer_price_min": 0.3397777777777778,
+    "offer_price_max": 0.3397777777777778
+   }
+  },
+  {
+   "offer_id": 54996993,
+   "machine_id": 53384,
+   "cpu_name": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpu_key": "ryzen 9 9950x",
+   "catalog_key": "Ryzen 9 9950X/9950X3D",
+   "core_speed": 1.1,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 63.976,
+   "disk_gb": 1572.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8833333333333333,
+   "usd_per_vcpu_hour": 0.027604166666666666,
+   "verification": "unverified",
+   "reliability": 0.9884177,
+   "location": "Norway, NO",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.6,
+   "usd_per_ref_core_hour": 0.050189393939393936,
+   "flags": [
+    "unverified",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.396270396270396,
+     26.49533799533799
+    ],
+    "usd": [
+     18.90003885003885,
+     23.404215229215225
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 17.6,
+    "ram_limits_workers": false
+   },
+   "rank": 20,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:55:28+00:00",
+    "offer_runs_seen": 6,
+    "offer_price_min": 0.8722222222222222,
+    "offer_price_max": 0.8833333333333334
+   }
+  },
+  {
+   "offer_id": 27710060,
+   "machine_id": 45820,
+   "cpu_name": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpu_key": "ryzen 9 9950x",
+   "catalog_key": "Ryzen 9 9950X/9950X3D",
+   "core_speed": 1.1,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 61.889,
+   "disk_gb": 3132.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8833333333333334,
+   "usd_per_vcpu_hour": 0.02760416666666667,
+   "verification": "verified",
+   "reliability": 0.999385,
+   "location": "Spain, ES",
+   "direct_ports": 98,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.6,
+   "usd_per_ref_core_hour": 0.05018939393939394,
+   "flags": [
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.396270396270396,
+     26.49533799533799
+    ],
+    "usd": [
+     18.90003885003885,
+     23.40421522921523
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 17.6,
+    "ram_limits_workers": false
+   },
+   "rank": 21,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.8833333333333334,
+    "offer_price_max": 0.8833333333333334
+   }
+  },
+  {
+   "offer_id": 26186869,
+   "machine_id": 42944,
+   "cpu_name": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpu_key": "ryzen 9 9950x",
+   "catalog_key": "Ryzen 9 9950X/9950X3D",
+   "core_speed": 1.1,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 61.889,
+   "disk_gb": 3080.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8833333333333334,
+   "usd_per_vcpu_hour": 0.02760416666666667,
+   "verification": "verified",
+   "reliability": 0.9992823,
+   "location": "Spain, ES",
+   "direct_ports": 98,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.6,
+   "usd_per_ref_core_hour": 0.05018939393939394,
+   "flags": [
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.396270396270396,
+     26.49533799533799
+    ],
+    "usd": [
+     18.90003885003885,
+     23.40421522921523
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 17.6,
+    "ram_limits_workers": false
+   },
+   "rank": 22,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.8722222222222222,
+    "offer_price_max": 0.8833333333333334
+   }
+  },
+  {
+   "offer_id": 52388436,
+   "machine_id": 33762,
+   "cpu_name": "AMD EPYC 7R13 48-Core Processor",
+   "cpu_key": "epyc 7r13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 54.857142857142854,
+   "host_vcpu": 192.0,
+   "share": 0.2857142857142857,
+   "ram_gb": 294.815,
+   "disk_gb": 695.4285714285714,
+   "num_gpus": 2,
+   "gpu_name": "CMP 170HX",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.9022222222222223,
+   "usd_per_vcpu_hour": 0.01644675925925926,
+   "verification": "verified",
+   "reliability": 0.9931668,
+   "location": "Hungary, HU",
+   "direct_ports": 256,
+   "physical_cores": 27.428571428571427,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.005714285714284,
+   "usd_per_ref_core_hour": 0.05305406212664278,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     22.109043286462644,
+     27.386304108078306
+    ],
+    "usd": [
+     19.94727016511963,
+     24.708532150843983
+    ],
+    "bound": "volume",
+    "workers": 27.428571428571427,
+    "throughput_ref_cores": 17.005714285714284,
+    "ram_limits_workers": false
+   },
+   "rank": 23,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.8874074074074074,
+    "offer_price_max": 0.9022222222222223
+   }
+  },
+  {
+   "offer_id": 55530481,
+   "machine_id": 7064,
+   "cpu_name": "AMD Ryzen Threadripper PRO 5995WX 64-Cores",
+   "cpu_key": "threadripper pro 5995wx",
+   "catalog_key": "Threadripper PRO 59x5WX",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 128.0,
+   "share": 0.25,
+   "ram_gb": 64.381,
+   "disk_gb": 303.25,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6555555555555556,
+   "usd_per_vcpu_hour": 0.02048611111111111,
+   "verification": "verified",
+   "reliability": 0.9980727,
+   "location": "Norway, NO",
+   "direct_ports": 24,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 12.0,
+   "usd_per_ref_core_hour": 0.05462962962962963,
+   "flags": [
+    "slice",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     30.914529914529915,
+     38.3931623931624
+    ],
+    "usd": [
+     20.2661918328585,
+     25.16885090218424
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 12.0,
+    "ram_limits_workers": false
+   },
+   "rank": 24,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.6555555555555556,
+    "offer_price_max": 0.6888888888888889
+   }
+  },
+  {
+   "offer_id": 54546941,
+   "machine_id": 148815,
+   "cpu_name": "Xeon® w5-3433",
+   "cpu_key": "xeon w5 3433",
+   "catalog_key": "Xeon W-2400/3400",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 62.25,
+   "disk_gb": 445.86233625037596,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6699999999999999,
+   "usd_per_vcpu_hour": 0.020937499999999998,
+   "verification": "verified",
+   "reliability": 0.9970401,
+   "location": "Czechia, CZ",
+   "direct_ports": 199,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 12.0,
+   "usd_per_ref_core_hour": 0.055833333333333325,
+   "flags": [
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     30.914529914529915,
+     38.3931623931624
+    ],
+    "usd": [
+     20.71273504273504,
+     25.723418803418806
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 12.0,
+    "ram_limits_workers": false
+   },
+   "rank": 25,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.6699999999999999,
+    "offer_price_max": 0.6699999999999999
+   }
+  },
+  {
+   "offer_id": 37930539,
+   "machine_id": 13450,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 128.983,
+   "disk_gb": 288.7375,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5611111111111111,
+   "usd_per_vcpu_hour": 0.017534722222222222,
+   "verification": "verified",
+   "reliability": 0.9972786,
+   "location": "Spain, ES",
+   "direct_ports": 124,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.05656362007168459,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     20.86600036761327,
+     25.94222268173881
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 26,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:03:11+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.5611111111111111,
+    "offer_price_max": 0.5611111111111111
+   }
+  },
+  {
+   "offer_id": 37930542,
+   "machine_id": 13450,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 128.983,
+   "disk_gb": 288.7375,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5611111111111111,
+   "usd_per_vcpu_hour": 0.017534722222222222,
+   "verification": "verified",
+   "reliability": 0.9972786,
+   "location": "Spain, ES",
+   "direct_ports": 124,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.05656362007168459,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     20.86600036761327,
+     25.94222268173881
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 27,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:03:11+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.5611111111111111,
+    "offer_price_max": 0.5611111111111111
+   }
+  },
+  {
+   "offer_id": 54627583,
+   "machine_id": 8998,
+   "cpu_name": "AMD Ryzen Threadripper 3970X 32-Core Processor",
+   "cpu_key": "threadripper 3970x",
+   "catalog_key": "Threadripper 3xxx/PRO 39xxWX",
+   "core_speed": 0.6,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 64.0,
+   "share": 0.5,
+   "ram_gb": 128.797,
+   "disk_gb": 803.7,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5466666666666666,
+   "usd_per_vcpu_hour": 0.017083333333333332,
+   "verification": "deverified",
+   "reliability": 0.9957916,
+   "location": "Japan, JP",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.6,
+   "usd_per_ref_core_hour": 0.05694444444444444,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     38.3931623931624,
+     47.741452991452995
+    ],
+    "usd": [
+     20.98826210826211,
+     26.09866096866097
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.6,
+    "ram_limits_workers": false
+   },
+   "rank": 28,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.5377777777777778,
+    "offer_price_max": 0.5466666666666666
+   }
+  },
+  {
+   "offer_id": 51501187,
+   "machine_id": 151447,
+   "cpu_name": "AMD Ryzen 9 9950X 16-Core Processor",
+   "cpu_key": "ryzen 9 9950x",
+   "catalog_key": "Ryzen 9 9950X/9950X3D",
+   "core_speed": 1.1,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 125.879,
+   "disk_gb": 1361.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX PRO 5000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.9888888888888888,
+   "usd_per_vcpu_hour": 0.030902777777777776,
+   "verification": "verified",
+   "reliability": 0.9904403,
+   "location": "Colorado, US",
+   "direct_ports": 198,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 17.6,
+   "usd_per_ref_core_hour": 0.05618686868686868,
+   "flags": [
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     21.396270396270396,
+     26.49533799533799
+    ],
+    "usd": [
+     21.158534058534055,
+     26.200945350945343
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 17.6,
+    "ram_limits_workers": false
+   },
+   "rank": 29,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.9888888888888888,
+    "offer_price_max": 0.9888888888888888
+   }
+  },
+  {
+   "offer_id": 36066678,
+   "machine_id": 96563,
+   "cpu_name": "Xeon® Gold 6430",
+   "cpu_key": "xeon gold 6430",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 128.0,
+   "share": 0.25,
+   "ram_gb": 128.913,
+   "disk_gb": 9575.0,
+   "num_gpus": 1,
+   "gpu_name": "L40S",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6055555555555555,
+   "usd_per_vcpu_hour": 0.01892361111111111,
+   "verification": "deverified",
+   "reliability": 0.9985174,
+   "location": "Texas, US",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.05822649572649572,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     21.50737453429761,
+     26.73282927898312
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 30,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 2,
+    "offer_price_min": 0.6055555555555555,
+    "offer_price_max": 0.6055555555555555
+   }
+  },
+  {
+   "offer_id": 36066680,
+   "machine_id": 96563,
+   "cpu_name": "Xeon® Gold 6430",
+   "cpu_key": "xeon gold 6430",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 128.0,
+   "share": 0.25,
+   "ram_gb": 128.913,
+   "disk_gb": 9575.0,
+   "num_gpus": 1,
+   "gpu_name": "L40S",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6055555555555555,
+   "usd_per_vcpu_hour": 0.01892361111111111,
+   "verification": "deverified",
+   "reliability": 0.9985174,
+   "location": "Texas, US",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.05822649572649572,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     21.50737453429761,
+     26.73282927898312
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 31,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.6018518518518519,
+    "offer_price_max": 0.6055555555555555
+   }
+  },
+  {
+   "offer_id": 52827130,
+   "machine_id": 55867,
+   "cpu_name": "AMD EPYC 7C13 64-Core Processor",
+   "cpu_key": "epyc 7c13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 128.979,
+   "disk_gb": 1136.5625,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6222222222222222,
+   "usd_per_vcpu_hour": 0.019444444444444445,
+   "verification": "verified",
+   "reliability": 0.9976454,
+   "location": "Nevada, US",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.06272401433691756,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     23.138535061115707,
+     28.767613270839075
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 32,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.6222222222222222,
+    "offer_price_max": 0.6222222222222222
+   }
+  },
+  {
+   "offer_id": 52827177,
+   "machine_id": 145142,
+   "cpu_name": "AMD EPYC 7C13 64-Core Processor",
+   "cpu_key": "epyc 7c13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 128.979,
+   "disk_gb": 1330.075,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6222222222222222,
+   "usd_per_vcpu_hour": 0.019444444444444445,
+   "verification": "verified",
+   "reliability": 0.9920869,
+   "location": "Nevada, US",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.06272401433691756,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     23.138535061115707,
+     28.767613270839075
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 33,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.6222222222222222,
+    "offer_price_max": 0.6222222222222222
+   }
+  },
+  {
+   "offer_id": 38463338,
+   "machine_id": 136759,
+   "cpu_name": "AMD Ryzen Threadripper PRO 5955WX 16-Cores",
+   "cpu_key": "threadripper pro 5955wx",
+   "catalog_key": "Threadripper PRO 59x5WX",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 257.575,
+   "disk_gb": 669.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 6000Ada",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.75,
+   "usd_per_vcpu_hour": 0.0234375,
+   "verification": "unverified",
+   "reliability": 0.9979561,
+   "location": "Wisconsin, US",
+   "direct_ports": 256,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 12.0,
+   "usd_per_ref_core_hour": 0.0625,
+   "flags": [
+    "unverified",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     30.914529914529915,
+     38.3931623931624
+    ],
+    "usd": [
+     23.185897435897438,
+     28.7948717948718
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 12.0,
+    "ram_limits_workers": false
+   },
+   "rank": 34,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.7388888888888889,
+    "offer_price_max": 0.7500000000000001
+   }
+  },
+  {
+   "offer_id": 49279286,
+   "machine_id": 26486,
+   "cpu_name": "AMD Ryzen 9 5900XT 16-Core Processor",
+   "cpu_key": "ryzen 9 5900xt",
+   "catalog_key": "Ryzen 9 5950X/5900X",
+   "core_speed": 0.78,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 64.213,
+   "disk_gb": 2691.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX PRO 5000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7986666666666666,
+   "usd_per_vcpu_hour": 0.024958333333333332,
+   "verification": "verified",
+   "reliability": 0.9980414,
+   "location": "Texas, US",
+   "direct_ports": 98,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 12.48,
+   "usd_per_ref_core_hour": 0.06399572649572649,
+   "flags": [
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     29.763971071663377,
+     36.95496383957922
+    ],
+    "usd": [
+     23.77149156256848,
+     29.514697786543937
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 12.48,
+    "ram_limits_workers": false
+   },
+   "rank": 35,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.7897777777777778,
+    "offer_price_max": 0.7986666666666666
+   }
+  },
+  {
+   "offer_id": 36186187,
+   "machine_id": 99580,
+   "cpu_name": "AMD EPYC 7763 64-Core Processor",
+   "cpu_key": "epyc 7763",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 64.467,
+   "disk_gb": 749.3269975900021,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6722222222222222,
+   "usd_per_vcpu_hour": 0.021006944444444443,
+   "verification": "deverified",
+   "reliability": 0.9978578,
+   "location": "United Kingdom, GB",
+   "direct_ports": 124,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.06776433691756271,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     24.997881628526788,
+     31.079296480102926
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 36,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:55:28+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.6722222222222222,
+    "offer_price_max": 0.6722222222222222
+   }
+  },
+  {
+   "offer_id": 36186188,
+   "machine_id": 99580,
+   "cpu_name": "AMD EPYC 7763 64-Core Processor",
+   "cpu_key": "epyc 7763",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 64.467,
+   "disk_gb": 749.3269975900021,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.6722222222222222,
+   "usd_per_vcpu_hour": 0.021006944444444443,
+   "verification": "deverified",
+   "reliability": 0.9978578,
+   "location": "United Kingdom, GB",
+   "direct_ports": 124,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.06776433691756271,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     24.997881628526788,
+     31.079296480102926
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 37,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:55:28+00:00",
+    "offer_runs_seen": 2,
+    "offer_price_min": 0.624074074074074,
+    "offer_price_max": 0.6722222222222222
+   }
+  },
+  {
+   "offer_id": 53029117,
+   "machine_id": 152299,
+   "cpu_name": "Core™ i9-14900KF",
+   "cpu_key": "core i9 14900kf",
+   "catalog_key": "Core i9-14900KF/KS",
+   "core_speed": 1.0,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 193.047,
+   "disk_gb": 1675.8,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.5444444444444444,
+   "usd_per_vcpu_hour": 0.017013888888888887,
+   "verification": "unverified",
+   "reliability": 0.9668787,
+   "location": "Romania, RO",
+   "direct_ports": 98,
+   "physical_cores": 24.0,
+   "p_cores": 8.0,
+   "e_cores": 16.0,
+   "ref_cores": 15.2,
+   "usd_per_ref_core_hour": 0.035818713450292396,
+   "flags": [
+    "unverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     45.87179487179487,
+     57.08974358974359
+    ],
+    "usd": [
+     24.97464387464387,
+     31.08219373219373
+    ],
+    "bound": "volume",
+    "workers": 8.0,
+    "throughput_ref_cores": 8.0,
+    "ram_limits_workers": false
+   },
+   "rank": 38,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.537037037037037,
+    "offer_price_max": 0.5444444444444444
+   }
+  },
+  {
+   "offer_id": 45330018,
+   "machine_id": 136815,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 32.211,
+   "disk_gb": 201.80757708074617,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.722,
+   "usd_per_vcpu_hour": 0.0225625,
+   "verification": "verified",
+   "reliability": 0.9655534,
+   "location": "Thailand, TH",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.07278225806451613,
+   "flags": [
+    "slice",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     26.848964433416043,
+     33.380705541770055
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 39,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.722,
+    "offer_price_max": 0.722
+   }
+  },
+  {
+   "offer_id": 30565039,
+   "machine_id": 47281,
+   "cpu_name": "AMD EPYC 7343 16-Core Processor",
+   "cpu_key": "epyc 7343",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 128.653,
+   "disk_gb": 168.0,
+   "num_gpus": 2,
+   "gpu_name": "RTX A6000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7422222222222223,
+   "usd_per_vcpu_hour": 0.023194444444444448,
+   "verification": "unverified",
+   "reliability": 0.9974814,
+   "location": "Italy, IT",
+   "direct_ports": 199,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.07482078853046596,
+   "flags": [
+    "unverified",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     27.60096682290231,
+     34.31565297307233
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 40,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:25:59+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.7274074074074075,
+    "offer_price_max": 0.7422222222222223
+   }
+  },
+  {
+   "offer_id": 55602710,
+   "machine_id": 33405,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 112.852,
+   "disk_gb": 2883.618566040472,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7477777777777779,
+   "usd_per_vcpu_hour": 0.02336805555555556,
+   "verification": "verified",
+   "reliability": 0.9992721,
+   "location": "Maryland, US",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.07538082437275986,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     27.807560885947986,
+     34.572506662990534
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 41,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:03:11+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.7292592592592594,
+    "offer_price_max": 0.7477777777777779
+   }
+  },
+  {
+   "offer_id": 52125965,
+   "machine_id": 150089,
+   "cpu_name": "Core™ i9-14900KF",
+   "cpu_key": "core i9 14900kf",
+   "catalog_key": "Core i9-14900KF/KS",
+   "core_speed": 1.0,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 96.382,
+   "disk_gb": 1250.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.611111111111111,
+   "usd_per_vcpu_hour": 0.01909722222222222,
+   "verification": "unverified",
+   "reliability": 0.9702192,
+   "location": "Romania, RO",
+   "direct_ports": 98,
+   "physical_cores": 24.0,
+   "p_cores": 8.0,
+   "e_cores": 16.0,
+   "ref_cores": 15.2,
+   "usd_per_ref_core_hour": 0.0402046783625731,
+   "flags": [
+    "unverified",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     45.87179487179487,
+     57.08974358974359
+    ],
+    "usd": [
+     28.03276353276353,
+     34.88817663817664
+    ],
+    "bound": "volume",
+    "workers": 8.0,
+    "throughput_ref_cores": 8.0,
+    "ram_limits_workers": false
+   },
+   "rank": 42,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 5,
+    "offer_price_min": 0.6037037037037036,
+    "offer_price_max": 0.611111111111111
+   }
+  },
+  {
+   "offer_id": 55377465,
+   "machine_id": 149491,
+   "cpu_name": "AMD EPYC 7713 64-Core Processor",
+   "cpu_key": "epyc 7713",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 128.977,
+   "disk_gb": 875.2891893864817,
+   "num_gpus": 1,
+   "gpu_name": "L40S",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8201702222222221,
+   "usd_per_vcpu_hour": 0.02563031944444444,
+   "verification": "verified",
+   "reliability": 0.9952342,
+   "location": "South Africa, ZA",
+   "direct_ports": 124,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.08267844982078852,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     30.499613747633486,
+     37.9194746289863
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 43,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.8201702222222221,
+    "offer_price_max": 0.8201702222222221
+   }
+  },
+  {
+   "offer_id": 45028389,
+   "machine_id": 25132,
+   "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+   "cpu_key": "epyc 7b13",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 64.467,
+   "disk_gb": 202.625,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.8833333333333333,
+   "usd_per_vcpu_hour": 0.027604166666666666,
+   "verification": "verified",
+   "reliability": 0.983714,
+   "location": "Alberta, CA",
+   "direct_ports": 31,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.08904569892473119,
+   "flags": [
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     32.848456024262475,
+     40.839736696994756
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 44,
+   "history": {
+    "machine_first_seen": "2026-10-13T18:47:36+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.8833333333333333,
+    "offer_price_max": 0.8833333333333333
+   }
+  },
+  {
+   "offer_id": 54572972,
+   "machine_id": 150806,
+   "cpu_name": "XEON® GOLD 6530",
+   "cpu_key": "xeon gold 6530",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 128.0,
+   "share": 0.25,
+   "ram_gb": 128.9,
+   "disk_gb": 801.5,
+   "num_gpus": 2,
+   "gpu_name": "RTX 5090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.95,
+   "usd_per_vcpu_hour": 0.0296875,
+   "verification": "deverified",
+   "reliability": 0.9912588,
+   "location": "Taiwan, TW",
+   "direct_ports": 24,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.09134615384615384,
+   "flags": [
+    "deverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     33.74092702169625,
+     41.93865877712031
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 45,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.95,
+    "offer_price_max": 0.95
+   }
+  },
+  {
+   "offer_id": 51290674,
+   "machine_id": 151284,
+   "cpu_name": "13th Gen Core™ i9-13900KF",
+   "cpu_key": "core i9 13900kf",
+   "catalog_key": "Core i9-13900K/KF/KS",
+   "core_speed": 0.97,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 32.0,
+   "share": 1.0,
+   "ram_gb": 96.336,
+   "disk_gb": 859.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX PRO 5000",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.7266666666666667,
+   "usd_per_vcpu_hour": 0.022708333333333334,
+   "verification": "unverified",
+   "reliability": 0.9699229,
+   "location": "Beijing, CN",
+   "direct_ports": 98,
+   "physical_cores": 24.0,
+   "p_cores": 8.0,
+   "e_cores": 16.0,
+   "ref_cores": 14.744,
+   "usd_per_ref_core_hour": 0.04928558509676253,
+   "flags": [
+    "unverified",
+    "low_reliability",
+    "speed_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     47.25958234205657,
+     58.824477927570705
+    ],
+    "usd": [
+     34.34196316856111,
+     42.74578729403471
+    ],
+    "bound": "volume",
+    "workers": 8.0,
+    "throughput_ref_cores": 7.76,
+    "ram_limits_workers": false
+   },
+   "rank": 46,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 9,
+    "offer_price_min": 0.7044444444444444,
+    "offer_price_max": 0.7266666666666667
+   }
+  },
+  {
+   "offer_id": 55255846,
+   "machine_id": 153545,
+   "cpu_name": "XEON® GOLD 6530",
+   "cpu_key": "xeon gold 6530",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 128.0,
+   "share": 0.25,
+   "ram_gb": 128.893,
+   "disk_gb": 604.9000000000001,
+   "num_gpus": 2,
+   "gpu_name": "CMP 170HX",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.9766666666666668,
+   "usd_per_vcpu_hour": 0.030520833333333337,
+   "verification": "verified",
+   "reliability": 0.955375,
+   "location": "British Columbia, CA",
+   "direct_ports": 199,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.09391025641025642,
+   "flags": [
+    "slice",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     34.68804076265616,
+     43.11588428665352
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 47,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 7,
+    "offer_price_min": 0.9655555555555556,
+    "offer_price_max": 0.9766666666666668
+   }
+  },
+  {
+   "offer_id": 54730495,
+   "machine_id": 153538,
+   "cpu_name": "AMD EPYC 7763 64-Core Processor",
+   "cpu_key": "epyc 7763",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 193.491,
+   "disk_gb": 684.625,
+   "num_gpus": 1,
+   "gpu_name": "A100 SXM4",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.961111111111111,
+   "usd_per_vcpu_hour": 0.03003472222222222,
+   "verification": "unverified",
+   "reliability": 0.9590682,
+   "location": "Iowa, US",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.09688620071684587,
+   "flags": [
+    "unverified",
+    "slice",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     35.74077290690194,
+     44.43568835584964
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 48,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 4,
+    "offer_price_min": 0.9425925925925925,
+    "offer_price_max": 0.961111111111111
+   }
+  },
+  {
+   "offer_id": 54730504,
+   "machine_id": 153538,
+   "cpu_name": "AMD EPYC 7763 64-Core Processor",
+   "cpu_key": "epyc 7763",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 256.0,
+   "share": 0.125,
+   "ram_gb": 193.491,
+   "disk_gb": 684.625,
+   "num_gpus": 1,
+   "gpu_name": "A100 SXM4",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.961111111111111,
+   "usd_per_vcpu_hour": 0.03003472222222222,
+   "verification": "unverified",
+   "reliability": 0.9590682,
+   "location": "Iowa, US",
+   "direct_ports": 99,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 9.92,
+   "usd_per_ref_core_hour": 0.09688620071684587,
+   "flags": [
+    "unverified",
+    "slice",
+    "low_reliability",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     37.18693134822167,
+     46.233664185277085
+    ],
+    "usd": [
+     35.74077290690194,
+     44.43568835584964
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 9.92,
+    "ram_limits_workers": false
+   },
+   "rank": 49,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.961111111111111,
+    "offer_price_max": 0.961111111111111
+   }
+  }
+ ]
+}

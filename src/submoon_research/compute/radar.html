@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Submoon — радар станций</title><style>
+:root{color-scheme:light dark}body{font:15px/1.5 system-ui,sans-serif;max-width:1550px;margin:24px auto;padding:0 20px}h1{font-size:23px}button{padding:7px 12px;margin:4px;cursor:pointer}small,.muted{opacity:.75}.banner{padding:12px;border:1px solid #888;border-radius:8px;margin:12px 0}.good{border-color:#2a6}.warn{border-color:#da3}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}td,th{padding:8px;text-align:left;border-bottom:1px solid #8885}th{white-space:nowrap}.scroll{overflow:auto}.green{color:#2a6}.amber{color:#c93}input{padding:6px}pre{white-space:pre-wrap}a{color:#579ded}#error{color:#e65}
+</style></head><body>
+<h1>Радар рабочих станций Vast.ai</h1>
+<p class="muted">Только поиск и уведомления. Никакой автоматической аренды. Данные провайдера ≠ проверенные характеристики.</p>
+<div id="health" class="banner">Загрузка локального состояния…</div><div id="error"></div>
+<div><button data-action="check">Проверить сейчас</button><button data-action="pause" id="pause">Пауза</button><button data-action="sound" id="sound">Звук</button><button data-action="snooze">Без звука на час</button><button data-action="test_sound">Проверить звук</button><button data-action="ack">Просмотрено</button><button data-action="stop">Завершить</button></div>
+<p><b>Файл для передачи агенту:</b> <code>docs/compute/interesting_stations.md</code> <button id="copy-path">Скопировать путь</button></p>
+<div id="review" class="banner warn" hidden></div>
+<p><label>Фильтр CPU/ID: <input id="filter" placeholder="9975wx…"></label> <label><input type="checkbox" id="only"> Только свежие подходящие</label></p>
+<h2>Цель: Threadripper PRO 9975WX</h2><div class="scroll" id="targets"></div>
+<h2>Выгодные аналоги / результаты перепроверки</h2><div class="scroll" id="analogs"></div>
+<details><summary>Последние сигналы</summary><div id="events"></div></details>
+<details><summary>Состояние поиска и ограничения</summary><pre id="search"></pre></details>
+<p class="muted">Цены с диском 60 ГБ, прогноз P2-2a (9504 задания) — приблизительный. Итог включает проверочные 30 минут, резерв выгрузки и $1 трафика. Продолжение основного расчёта требует согласия. 9975WX ≤$0.65/ч; аналоги ≤$0.75/ч, до 16 ч / $11 вычисления+диск и $13 с резервами. Один сигнал на эпизод. Отсутствие в неполной выдаче не означает занятость.</p>
+<script>
+const TOKEN='__TOKEN__';let DATA=null;let stopped=false;
+const el=id=>document.getElementById(id);
+const fmt=(x,d=2)=>x==null?'?':Number(x).toFixed(d);
+const span=x=>x?fmt(x[0])+'–'+fmt(x[1]):'?';
+const when=x=>x?new Date(x).toLocaleString('ru-RU'):'ещё не было';
+function node(tag,text){const n=document.createElement(tag);n.textContent=text;return n}
+function table(id,rows){const root=el(id);root.replaceChildren();if(!rows.length){root.append(node('p','Пока нет записей. Отсутствие не доказывает недоступность.'));return}
+const t=node('table',''),head=node('tr','');['CPU / предложение','Доступно vCPU / хост','RAM, ГБ','$/ч','Часы / $ серии','Итог с резервами','Статус / проверено','Причина / оговорки'].forEach(x=>head.append(node('th',x)));t.append(head);
+for(const r of rows){const tr=node('tr',''),td=node('td',r.cpu_name+' '),b=node('button',String(r.offer_id));b.onclick=()=>navigator.clipboard.writeText(String(r.offer_id));td.append(b,node('small',' machine '+r.machine_id));tr.append(td);
+const status=(r.stale?'УСТАРЕЛО · ':'')+r.state+' · '+r.verification;
+[r.vcpu+' / '+r.host_vcpu,fmt(r.ram_gb,1),fmt(r.usd_per_hour,3),r.estimate?span(r.estimate.hours)+' ч / $'+span(r.estimate.usd):'?',fmt(r.estimate_total_usd),status+' / '+when(r.checked_utc),(r.reason||'подходит')+'; скорость '+(r.speed_confidence||'неизвестна')].forEach(x=>tr.append(node('td',x)));t.append(tr)}root.append(t)}
+function render(){if(!DATA)return;const d=DATA,s=d.status;el('pause').textContent=d.paused?'Возобновить':'Пауза';el('sound').textContent=d.sound_enabled?'Звук: вкл.':'Звук: выкл.';
+const fresh=d.rows.filter(r=>r.state==='available'&&!r.stale).length;
+el('health').textContent=(d.paused?'Пауза':s.polling?'Идёт проверка':'Монитор работает')+' · Подходящих свежих: '+fresh+' · Последний цикл: '+when(s.last_cycle_utc)+' · Следующая проверка: '+when(new Date(s.next_poll_epoch*1000).toISOString())+(d.snooze_until>Date.now()/1000?' · Звук временно отключён':'')+(s.errors.length?' · Ошибки: '+s.errors.join(', '):'')+' · Поиск не гарантирует полный рынок';
+el('health').className='banner '+(fresh?'good':s.errors.length?'warn':'');el('review').hidden=!d.review_required;el('review').textContent='Пять дней без подходящих находок. Пора обсудить бюджет. Монитор продолжает поиск с прежними лимитами, расходы не увеличены.';
+const q=el('filter').value.toLowerCase(),only=el('only').checked;const rows=d.rows.filter(r=>(!only||(r.state==='available'&&!r.stale))&&JSON.stringify([r.cpu_name,r.offer_id,r.machine_id]).toLowerCase().includes(q));table('targets',rows.filter(r=>r.kind==='target'));table('analogs',rows.filter(r=>r.kind!=='target'));
+el('events').replaceChildren(...d.events.map(e=>node('p',when(e.utc)+' · '+e.cpu_name+' · offer '+e.offer_id+' / machine '+e.machine_id+(e.event_id>d.ack_event_id?' · НОВОЕ':''))));
+el('search').textContent=JSON.stringify({errors:s.errors,search:s.search,target_checks:s.target_checks,review_due_utc:d.review_due_utc,notification_error:d.notification_error},null,2)}
+async function refresh(){if(stopped)return;try{const r=await fetch('/api/state',{cache:'no-store'});if(!r.ok)throw Error();DATA=await r.json();el('error').textContent='';render()}catch{el('error').textContent='Нет связи с локальным монитором. Показанные данные могут устареть.'}}
+for(const b of document.querySelectorAll('[data-action]'))b.onclick=async()=>{try{const r=await fetch('/control',{method:'POST',headers:{'Content-Type':'application/json','X-Radar-Token':TOKEN},body:JSON.stringify({action:b.dataset.action})});if(!r.ok)throw Error();if(b.dataset.action==='stop'){stopped=true;el('health').textContent='Остановка монитора…'}else await refresh()}catch{el('error').textContent='Команда не выполнена'}};
+el('filter').oninput=render;el('only').onchange=render;el('copy-path').onclick=()=>navigator.clipboard.writeText('docs/compute/interesting_stations.md');refresh();setInterval(refresh,5000);
+</script></body></html>

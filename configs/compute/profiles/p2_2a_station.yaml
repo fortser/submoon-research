@@ -1,0 +1,24 @@
+# Более строгий отбор под предлагаемую ОДНУ аренду; это НЕ разрешение расходов.
+title: P2-2a — кандидаты на одну целую станцию
+source: W2-T018; W2-R017; docs/tasks/W2_P2-2_plan_v1.md
+requirements:
+  min_effective_cpus: 64
+  min_share: 0.95
+  min_ram_gb: 64
+  disk_gb: 60
+  max_hourly_usd: 0.75  # поиск: быстрый сервер может стоить дороже в час, но дешевле за серию
+  min_reliability: 0.97
+  verification: [verified, unverified]  # W2-D029: deverified исключён
+  min_direct_ports: 1
+  allow_gpu: true  # GPU не используется, но вычислительные контракты часто имеют GPU
+  require_known_cpu: true
+  min_core_speed: 0.6
+  max_hours: 22.5  # предел прогнозируемого исполнения с setup; ещё 1.5 ч до 24 ч на выгрузку
+workload:
+  core_hours: [280, 350]
+  critical_path_hours: [12, 13]
+  parallel_efficiency: 0.78  # не измерено под полной нагрузкой; базовая проверка обязательна
+  setup_hours: 1.0
+  ram_gb_per_process: 0.45
+  use_e_cores: false
+rank_by: cost

@@ -1,0 +1,68 @@
+{
+  "recorded_from": "observed commands/results in W2-T034 session",
+  "records": [
+    {
+      "command": [
+        "~/venvs/submoon-w2/bin/python",
+        "scripts/diag_b_failure_p2_2.py",
+        "--run",
+        "runs/W2-P2-2a-56220810",
+        "--source-summary-sha256",
+        "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+        "--source-jobs-sha256",
+        "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+        "--orbit",
+        "himalia:uniform_log_a:0008",
+        "--years",
+        "1000",
+        "--max-steps",
+        "64",
+        "--wall-seconds",
+        "60",
+        "--snapshot-at",
+        "100",
+        "--output",
+        "results/evidence/W2_OPT06_08_09_20261018/b_short64_v2.json"
+      ],
+      "observed_exit_code": 1,
+      "meaning": "expected diagnostic budget; integration partial, not failure reproduction"
+    },
+    {
+      "command": [
+        "~/venvs/submoon-w2/bin/python",
+        "scripts/replay_ias15_snapshot.py",
+        "--snapshot",
+        "/mnt/t/test_python/submoon-research/results/evidence/W2_OPT06_08_09_20261018/b_short64_v2_artifacts/pre_step_snapshot/snapshot_manifest.json",
+        "--snapshot-sha256",
+        "66f9a6147363db86fec9375ff54235e26240ed8a9e082d444952188bb81d9e57",
+        "--job-fingerprint",
+        "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+        "--steps",
+        "32",
+        "--output",
+        "results/evidence/W2_OPT06_08_09_20261018/himalia_replay_native.json"
+      ],
+      "observed_exit_code": 0,
+      "meaning": "bounded step replay; no production admission"
+    },
+    {
+      "command": [
+        "~/venvs/submoon-w2/bin/python",
+        "scripts/replay_ias15_snapshot.py",
+        "--snapshot",
+        "/mnt/t/test_python/submoon-research/results/evidence/W2_OPT06_08_09_20261018/b_short64_v2_artifacts/pre_step_snapshot/snapshot_manifest.json",
+        "--snapshot-sha256",
+        "66f9a6147363db86fec9375ff54235e26240ed8a9e082d444952188bb81d9e57",
+        "--job-fingerprint",
+        "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+        "--steps",
+        "32",
+        "--output",
+        "results/evidence/W2_OPT06_08_09_20261018/himalia_replay_physical.json",
+        "--physical-only"
+      ],
+      "observed_exit_code": 0,
+      "meaning": "bounded step replay; no production admission"
+    }
+  ]
+}

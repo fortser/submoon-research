@@ -1,0 +1,218 @@
+{
+ "utc": "2026-10-14T08:22:06+00:00",
+ "profile": {
+  "name": "p2_2a_station",
+  "title": "P2-2a — кандидаты на одну целую станцию",
+  "source": "W2-T018; W2-R017; docs/tasks/W2_P2-2_plan_v1.md",
+  "requirements": {
+   "min_effective_cpus": 64,
+   "min_share": 0.95,
+   "min_ram_gb": 64,
+   "disk_gb": 60,
+   "max_hourly_usd": 0.4,
+   "min_reliability": 0.97,
+   "verification": [
+    "verified",
+    "deverified"
+   ],
+   "min_direct_ports": 1,
+   "require_known_cpu": true,
+   "min_core_speed": 0.6,
+   "cpu_regex": null,
+   "allow_gpu": true,
+   "max_hours": 22.5
+  },
+  "workload": {
+   "core_hours": [
+    280.0,
+    350.0
+   ],
+   "critical_path_hours": [
+    12.0,
+    13.0
+   ],
+   "parallel_efficiency": 0.78,
+   "setup_hours": 1.0,
+   "ram_gb_per_process": 0.45,
+   "use_e_cores": false
+  },
+  "rank_by": "cost"
+ },
+ "catalog_reference": "P-ядро Core i9-14900K = 1.00 (W2-T006, прототип dop853)",
+ "server_query": "проходы до насыщения: rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 + окна цены / диапазоны vCPU / число GPU; остальные условия — на клиенте",
+ "search": {
+  "mode": "sweep",
+  "strategy": "sweep",
+  "complete": false,
+  "passes": [
+   {
+    "name": "price",
+    "status": "completed",
+    "found": 11,
+    "new": 11,
+    "queries": 1,
+    "reasons": []
+   },
+   {
+    "name": "exclude",
+    "status": "completed",
+    "found": 1,
+    "new": 1,
+    "queries": 2,
+    "reasons": []
+   },
+   {
+    "name": "vcpu_bands",
+    "status": "completed",
+    "found": 11,
+    "new": 0,
+    "queries": 2,
+    "reasons": []
+   },
+   {
+    "name": "gpu_count",
+    "status": "completed",
+    "found": 11,
+    "new": 0,
+    "queries": 2,
+    "reasons": []
+   }
+  ],
+  "stop_reason": "saturation_heuristic",
+  "saturated": true,
+  "last_two_passes_new_fraction": 0.0,
+  "queries": 7,
+  "errors": [],
+  "incomplete": [],
+  "elapsed_seconds": 6.9,
+  "raw_offers": 12,
+  "receipts": [
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 11,
+    "continued": null,
+    "elapsed_seconds": 0.7959999999998217,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,152547,152693,153055,153723]",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.8440000000000509,
+    "excluded_machines": 11
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,151327,152547,152693,153055,153723]",
+    "status": "ok",
+    "count": 0,
+    "continued": null,
+    "elapsed_seconds": 1.0,
+    "excluded_machines": 12
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 cpu_cores_effective<96 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 10,
+    "continued": null,
+    "elapsed_seconds": 1.125,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=96 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.8910000000000764,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus=1 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 4,
+    "continued": null,
+    "elapsed_seconds": 1.094000000000051,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus>=2 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 7,
+    "continued": null,
+    "elapsed_seconds": 1.1089999999999236,
+    "excluded_machines": null
+   }
+  ]
+ },
+ "rejected": {
+  "verification": 4,
+  "ram": 3,
+  "price": 3,
+  "share": 1
+ },
+ "rows": [
+  {
+   "offer_id": 53991778,
+   "machine_id": 151327,
+   "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+   "cpu_key": "threadripper pro 5975wx",
+   "catalog_key": "Threadripper PRO 59x5WX",
+   "core_speed": 0.75,
+   "speed_source": "estimate",
+   "speed_confidence": "model",
+   "speed_ref": null,
+   "vcpu": 64.0,
+   "host_vcpu": 64.0,
+   "share": 1.0,
+   "ram_gb": 64.124,
+   "disk_gb": 1273.0,
+   "num_gpus": 3,
+   "gpu_name": "RTX 5060 Ti",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.3766666666666667,
+   "usd_per_vcpu_hour": 0.005885416666666667,
+   "verification": "deverified",
+   "reliability": 0.9845688,
+   "location": "Denmark, DK",
+   "direct_ports": 198,
+   "physical_cores": 32.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 24.0,
+   "usd_per_ref_core_hour": 0.015694444444444445,
+   "flags": [
+    "deverified",
+    "speed_estimate"
+   ],
+   "estimate": {
+    "hours": [
+     17.0,
+     19.6965811965812
+    ],
+    "usd": [
+     6.403333333333334,
+     7.419045584045586
+    ],
+    "bound": "volume",
+    "workers": 32.0,
+    "throughput_ref_cores": 24.0,
+    "ram_limits_workers": false
+   },
+   "rank": 1,
+   "history": {
+    "machine_first_seen": "2026-10-14T08:22:06+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.3766666666666667,
+    "offer_price_max": 0.3766666666666667
+   }
+  }
+ ]
+}

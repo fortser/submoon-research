@@ -1,0 +1,20 @@
+...........................................................s.ssssssss... [ 14%]
+........................................................................ [ 28%]
+.................................ss.ss..............ssssss.............. [ 42%]
+........................................................................ [ 56%]
+........................................................................ [ 71%]
+........................................................................ [ 85%]
+........................................................sss............. [ 99%]
+...                                                                      [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\unit\test_ias15_horizon_clip.py:10: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [9] tests\physics\test_w2_engines.py:28: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [2] tests\unit\test_horizon_independence.py:67: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [2] tests\unit\test_ias15_dense_step.py:21: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_native_ias15_guard.py:42: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [4] tests\unit\test_native_ias15_guard.py:62: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_native_ias15_guard.py:80: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:45: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:105: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:129: could not import 'reboundx': No module named 'reboundx'
+485 passed, 23 skipped in 173.42s (0:02:53)

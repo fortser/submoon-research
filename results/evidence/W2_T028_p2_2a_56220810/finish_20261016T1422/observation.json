@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-16T14:22:23.704446+00:00",
+  "supervisor_alive": false,
+  "observed_stage": "done exit=1 accept=0 2026-10-16T12:31:30Z",
+  "next_action": "authorized download SHA256 and destroy; investigate stand exit"
+}

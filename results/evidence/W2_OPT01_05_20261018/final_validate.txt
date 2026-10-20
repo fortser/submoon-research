@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "errors": [],
+  "host_passports": 11,
+  "tracking_records": 316,
+  "limitations": "Structural checks only; draft physics and scientific gates are not certified."
+}

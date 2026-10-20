@@ -1,0 +1,7 @@
+{
+  "file": "results/evidence/claims.csv",
+  "sha256": "093e1eb54d34a170feb3da28248a77efd1fcc27b6e2e47d09cf833b237bf1fd7",
+  "archive": "scratch/w2_stabilization/baseline/claims_before.zip",
+  "archive_sha256": "c0a06050b9e73d382b517114aec94eb752f7af20f869b8c8a3361fc85e951ea9",
+  "restore_passed": true
+}

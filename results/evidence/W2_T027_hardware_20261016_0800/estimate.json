@@ -1,0 +1,37 @@
+{
+  "estimate": {
+    "hours": [
+      12.428571428571429,
+      14.354700854700853
+    ],
+    "usd": [
+      7.595238095238095,
+      8.772317188983854
+    ],
+    "bound": "volume",
+    "workers": 32,
+    "throughput_ref_cores": 33.6,
+    "ram_limits_workers": false
+  },
+  "total_hours": [
+    14.013876258182147,
+    15.940005684311572
+  ],
+  "total_usd": [
+    9.564035491111312,
+    10.74111458485707
+  ],
+  "speed_confidence": "family",
+  "speed_ratio": 1.05,
+  "within_budget": true,
+  "enough_workers": true,
+  "within_hourly_limit": true,
+  "continuation_approved": false,
+  "automatic_rental": false,
+  "limitations": [
+    "Приблизительная модель P2-2a, не измерение всей серии.",
+    "Setup 1 ч консервативно сохранён сверх уже прошедшего времени.",
+    "Трафик оценён резервом $1; фактические ставки/объём проверить.",
+    "До 30 минут от create требуется явное согласие продолжения, иначе destroy."
+  ]
+}

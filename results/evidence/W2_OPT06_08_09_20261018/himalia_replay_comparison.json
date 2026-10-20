@@ -1,0 +1,24 @@
+{
+  "snapshot": {
+    "manifest": "/mnt/t/test_python/submoon-research/results/evidence/W2_OPT06_08_09_20261018/b_short64_v2_artifacts/pre_step_snapshot/snapshot_manifest.json",
+    "sha256": "66f9a6147363db86fec9375ff54235e26240ed8a9e082d444952188bb81d9e57",
+    "time": 140.94345106569924
+  },
+  "checks": {
+    "native": {
+      "steps": 32,
+      "time_mismatches": 0,
+      "dt_done_mismatches": 0,
+      "state_hash_mismatches": 0,
+      "dense_hash_mismatches": 0
+    },
+    "physical": {
+      "steps": 32,
+      "time_mismatches": 27,
+      "dt_done_mismatches": 18,
+      "state_hash_mismatches": 32,
+      "dense_hash_mismatches": 32
+    }
+  },
+  "scope": "initial 64 steps only; not historical failure window; physical differences at equal step index, not error at a common time"
+}

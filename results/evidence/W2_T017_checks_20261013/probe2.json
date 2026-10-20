@@ -1,0 +1,557 @@
+{
+ "utc": "2026-10-13T17:12:03Z",
+ "A_machine_notin": [
+  55528101,
+  55745207,
+  55697103,
+  47802004,
+  28117844
+ ],
+ "B_id_notin": [
+  55528101,
+  55745207,
+  55697103,
+  47802004,
+  28117844
+ ],
+ "C_found_53317848": true,
+ "D_ids": [
+  55528101,
+  47802004
+ ],
+ "E_count": 15,
+ "log": [
+  {
+   "label": "A machine notin #0",
+   "body": {
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5090"
+    },
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 16
+    }
+   },
+   "status": "ok",
+   "count": 5,
+   "seconds": 1.42,
+   "rows": [
+    {
+     "id": 55528101,
+     "machine_id": 8038,
+     "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55745207,
+     "machine_id": 34481,
+     "cpu_name": "AMD Ryzen 9 5950X 16-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55697103,
+     "machine_id": 28796,
+     "cpu_name": "AMD EPYC 7402P 24-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Washington, US"
+    },
+    {
+     "id": 47802004,
+     "machine_id": 141132,
+     "cpu_name": "AMD EPYC 7453 28-Core Processor",
+     "cpu_cores_effective": 56.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9407407407407407,
+     "geolocation": "Italy, IT"
+    },
+    {
+     "id": 28117844,
+     "machine_id": 45198,
+     "cpu_name": "AMD EPYC 7642 48-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9425925925925925,
+     "geolocation": "Spain, ES"
+    }
+   ]
+  },
+  {
+   "label": "A machine notin #1",
+   "body": {
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5090"
+    },
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 16
+    },
+    "machine_id": {
+     "notin": [
+      8038,
+      34481,
+      28796,
+      141132,
+      45198
+     ]
+    }
+   },
+   "status": "ok",
+   "count": 0,
+   "seconds": 1.45,
+   "rows": []
+  },
+  {
+   "label": "B id notin #0",
+   "body": {
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5090"
+    },
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 16
+    }
+   },
+   "status": "ok",
+   "count": 5,
+   "seconds": 0.8,
+   "rows": [
+    {
+     "id": 55528101,
+     "machine_id": 8038,
+     "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55745207,
+     "machine_id": 34481,
+     "cpu_name": "AMD Ryzen 9 5950X 16-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55697103,
+     "machine_id": 28796,
+     "cpu_name": "AMD EPYC 7402P 24-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Washington, US"
+    },
+    {
+     "id": 47802004,
+     "machine_id": 141132,
+     "cpu_name": "AMD EPYC 7453 28-Core Processor",
+     "cpu_cores_effective": 56.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9407407407407407,
+     "geolocation": "Italy, IT"
+    },
+    {
+     "id": 28117844,
+     "machine_id": 45198,
+     "cpu_name": "AMD EPYC 7642 48-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9425925925925925,
+     "geolocation": "Spain, ES"
+    }
+   ]
+  },
+  {
+   "label": "B id notin #1",
+   "body": {
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5090"
+    },
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 16
+    },
+    "id": {
+     "notin": [
+      55528101,
+      55745207,
+      55697103,
+      47802004,
+      28117844
+     ]
+    }
+   },
+   "status": "ok",
+   "count": 5,
+   "seconds": 1.69,
+   "rows": [
+    {
+     "id": 55528101,
+     "machine_id": 8038,
+     "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55745207,
+     "machine_id": 34481,
+     "cpu_name": "AMD Ryzen 9 5950X 16-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 55697103,
+     "machine_id": 28796,
+     "cpu_name": "AMD EPYC 7402P 24-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Washington, US"
+    },
+    {
+     "id": 47802004,
+     "machine_id": 141132,
+     "cpu_name": "AMD EPYC 7453 28-Core Processor",
+     "cpu_cores_effective": 56.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9407407407407407,
+     "geolocation": "Italy, IT"
+    },
+    {
+     "id": 28117844,
+     "machine_id": 45198,
+     "cpu_name": "AMD EPYC 7642 48-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9425925925925925,
+     "geolocation": "Spain, ES"
+    }
+   ]
+  },
+  {
+   "label": "C base-price window 0.5333",
+   "body": {
+    "dph_total": {
+     "gte": 0.533,
+     "lte": 0.5337
+    },
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5070 Ti"
+    }
+   },
+   "status": "ok",
+   "count": 1,
+   "seconds": 0.78,
+   "rows": [
+    {
+     "id": 53317848,
+     "machine_id": 45582,
+     "cpu_name": "AMD EPYC 7B13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5070 Ti",
+     "dph_base": 0.5333333333333333,
+     "dph_total": 0.5407407407407407,
+     "geolocation": "Texas, US"
+    }
+   ]
+  },
+  {
+   "label": "D group, vCPU>=48",
+   "body": {
+    "num_gpus": {
+     "eq": 1
+    },
+    "gpu_name": {
+     "eq": "RTX 5090"
+    },
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 48
+    }
+   },
+   "status": "ok",
+   "count": 2,
+   "seconds": 0.83,
+   "rows": [
+    {
+     "id": 55528101,
+     "machine_id": 8038,
+     "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 47802004,
+     "machine_id": 141132,
+     "cpu_name": "AMD EPYC 7453 28-Core Processor",
+     "cpu_cores_effective": 56.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9407407407407407,
+     "geolocation": "Italy, IT"
+    }
+   ]
+  },
+  {
+   "label": "E window 0.9333 any GPU",
+   "body": {
+    "dph_total": {
+     "gte": 0.933,
+     "lte": 0.9337
+    },
+    "cpu_cores_effective": {
+     "gte": 16
+    }
+   },
+   "status": "ok",
+   "count": 15,
+   "seconds": 1.19,
+   "rows": [
+    {
+     "id": 55528101,
+     "machine_id": 8038,
+     "cpu_name": "AMD EPYC 7J13 64-Core Processor",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 45634545,
+     "machine_id": 145090,
+     "cpu_name": "Xeon® Gold 5218 ",
+     "cpu_cores_effective": 64.0,
+     "num_gpus": 2,
+     "gpu_name": "A800 PCIE",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Shanghai, CN"
+    },
+    {
+     "id": 55621898,
+     "machine_id": 153856,
+     "cpu_name": "AMD Ryzen Threadripper PRO 9955WX 16-Cores",
+     "cpu_cores_effective": 16.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX PRO 6000 Max-Q",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Georgia, US"
+    },
+    {
+     "id": 55745207,
+     "machine_id": 34481,
+     "cpu_name": "AMD Ryzen 9 5950X 16-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Japan, JP"
+    },
+    {
+     "id": 25673352,
+     "machine_id": 20955,
+     "cpu_name": "Xeon® Platinum 8352V ",
+     "cpu_cores_effective": 36.0,
+     "num_gpus": 2,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9370370370370369,
+     "geolocation": "Taiwan, TW"
+    },
+    {
+     "id": 54572972,
+     "machine_id": 150806,
+     "cpu_name": "XEON® GOLD 6530",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 2,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Taiwan, TW"
+    },
+    {
+     "id": 55735952,
+     "machine_id": 153953,
+     "cpu_name": "AMD EPYC 9654 96-Core Processor",
+     "cpu_cores_effective": 192.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX PRO 6000 Max-Q",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Croatia, HR"
+    },
+    {
+     "id": 54465079,
+     "machine_id": 30508,
+     "cpu_name": "AMD EPYC 7543 32-Core Processor",
+     "cpu_cores_effective": 28.444444444444443,
+     "num_gpus": 2,
+     "gpu_name": "RTX 4090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Bulgaria, BG"
+    },
+    {
+     "id": 55697103,
+     "machine_id": 28796,
+     "cpu_name": "AMD EPYC 7402P 24-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "Washington, US"
+    },
+    {
+     "id": 52216385,
+     "machine_id": 56769,
+     "cpu_name": "AMD EPYC 7713P 64-Core Processor",
+     "cpu_cores_effective": 16.0,
+     "num_gpus": 1,
+     "gpu_name": "A100 PCIE",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "United Kingdom, GB"
+    },
+    {
+     "id": 52216317,
+     "machine_id": 56763,
+     "cpu_name": "AMD EPYC 7713P 64-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "A100 PCIE",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9388888888888888,
+     "geolocation": "United Kingdom, GB"
+    },
+    {
+     "id": 47802004,
+     "machine_id": 141132,
+     "cpu_name": "AMD EPYC 7453 28-Core Processor",
+     "cpu_cores_effective": 56.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9407407407407407,
+     "geolocation": "Italy, IT"
+    },
+    {
+     "id": 28117844,
+     "machine_id": 45198,
+     "cpu_name": "AMD EPYC 7642 48-Core Processor",
+     "cpu_cores_effective": 24.0,
+     "num_gpus": 1,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9425925925925925,
+     "geolocation": "Spain, ES"
+    },
+    {
+     "id": 54730500,
+     "machine_id": 153538,
+     "cpu_name": "AMD EPYC 7763 64-Core Processor",
+     "cpu_cores_effective": 32.0,
+     "num_gpus": 1,
+     "gpu_name": "A100 SXM4",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9425925925925925,
+     "geolocation": "Iowa, US"
+    },
+    {
+     "id": 43602293,
+     "machine_id": 140149,
+     "cpu_name": "AMD EPYC 7K62 48-Core Processor",
+     "cpu_cores_effective": 48.0,
+     "num_gpus": 2,
+     "gpu_name": "RTX 5090",
+     "dph_base": 0.9333333333333332,
+     "dph_total": 0.9574074074074073,
+     "geolocation": "Jiangsu, CN"
+    }
+   ]
+  }
+ ]
+}

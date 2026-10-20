@@ -1,0 +1,325 @@
+{
+ "utc": "2026-10-14T17:32:16+00:00",
+ "profile": {
+  "name": "p2_2a_station",
+  "title": "P2-2a — кандидаты на одну целую станцию",
+  "source": "W2-T018; W2-R017; docs/tasks/W2_P2-2_plan_v1.md",
+  "requirements": {
+   "min_effective_cpus": 64,
+   "min_share": 0.95,
+   "min_ram_gb": 64,
+   "disk_gb": 60,
+   "max_hourly_usd": 0.75,
+   "min_reliability": 0.97,
+   "verification": [
+    "verified",
+    "unverified"
+   ],
+   "min_direct_ports": 1,
+   "require_known_cpu": true,
+   "min_core_speed": 0.6,
+   "cpu_regex": null,
+   "allow_gpu": true,
+   "max_hours": 22.5
+  },
+  "workload": {
+   "core_hours": [
+    280.0,
+    350.0
+   ],
+   "critical_path_hours": [
+    12.0,
+    13.0
+   ],
+   "parallel_efficiency": 0.78,
+   "setup_hours": 1.0,
+   "ram_gb_per_process": 0.45,
+   "use_e_cores": false
+  },
+  "rank_by": "cost"
+ },
+ "catalog_reference": "P-ядро Core i9-14900K = 1.00 (W2-T006, прототип dop853)",
+ "server_query": "проходы до насыщения: rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 + окна цены / диапазоны vCPU / число GPU; остальные условия — на клиенте",
+ "search": {
+  "mode": "sweep",
+  "strategy": "sweep",
+  "complete": false,
+  "passes": [
+   {
+    "name": "price",
+    "status": "completed",
+    "found": 28,
+    "new": 28,
+    "new_relevant": 28,
+    "queries": 1,
+    "reasons": []
+   },
+   {
+    "name": "relaxed",
+    "status": "partial",
+    "found": 217,
+    "new": 209,
+    "new_relevant": 0,
+    "queries": 6,
+    "reasons": [
+     "request_or_time_budget"
+    ]
+   },
+   {
+    "name": "exclude",
+    "status": "partial",
+    "found": 0,
+    "new": 0,
+    "new_relevant": 0,
+    "queries": 2,
+    "reasons": [
+     "timeout"
+    ]
+   },
+   {
+    "name": "vcpu_bands",
+    "status": "completed",
+    "found": 27,
+    "new": 5,
+    "new_relevant": 5,
+    "queries": 2,
+    "reasons": []
+   },
+   {
+    "name": "gpu_count",
+    "status": "completed",
+    "found": 27,
+    "new": 3,
+    "new_relevant": 3,
+    "queries": 2,
+    "reasons": []
+   }
+  ],
+  "stop_reason": "partial_passes",
+  "saturated": false,
+  "relevant_offers": 36,
+  "exclude_drained": false,
+  "last_two_passes_new_fraction": 0.222,
+  "queries": 13,
+  "errors": [
+   "timeout"
+  ],
+  "incomplete": [
+   {
+    "low": 0.20600000000000002,
+    "high": 0.2646666666666667,
+    "reason": "request_or_time_budget",
+    "sweep_pass": "relaxed"
+   },
+   {
+    "low": 0.2646666666666667,
+    "high": 0.306128116,
+    "reason": "request_or_time_budget",
+    "sweep_pass": "relaxed"
+   },
+   {
+    "low": 0.306128116,
+    "high": 0.38666666666666666,
+    "reason": "request_or_time_budget",
+    "sweep_pass": "relaxed"
+   },
+   {
+    "low": 0.38666666666666666,
+    "high": 0.75,
+    "reason": "request_or_time_budget",
+    "sweep_pass": "relaxed"
+   },
+   {
+    "reason": "timeout",
+    "sweep_pass": "exclude"
+   }
+  ],
+  "elapsed_seconds": 71.3,
+  "raw_offers": 245,
+  "receipts": [
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 28,
+    "continued": null,
+    "elapsed_seconds": 5.5939999999973224,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_3",
+    "elapsed_seconds": 2.375,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0 dph_total<=0.10400000000000001",
+    "status": "ok",
+    "count": 32,
+    "continued": null,
+    "elapsed_seconds": 7.968000000000757,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.10400000000000001 dph_total<=0.15200000000000002",
+    "status": "ok",
+    "count": 43,
+    "continued": null,
+    "elapsed_seconds": 2.2030000000013388,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.15200000000000002 dph_total<=0.75",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_2",
+    "elapsed_seconds": 7.125,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.15200000000000002 dph_total<=0.20600000000000002",
+    "status": "ok",
+    "count": 34,
+    "continued": null,
+    "elapsed_seconds": 3.375,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "relaxed",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=16 disk_space>=20 dph_total>=0.20600000000000002 dph_total<=0.75",
+    "status": "ok",
+    "count": 64,
+    "continued": "split_into_4",
+    "elapsed_seconds": 6.094000000004598,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.094666666666666663 machine_id~notin=[12708,14503,14542,16146,16597,21091,21252,22775,23222,25195,26531,27568,27657,27747,29155,29907,30031,30821,30927,31196,31459,31594,31607,31822,31848,33261,33283,34586,34763,38389,38442,42769,42771,42772,44589,45109,45111,45392,45418,45421,45423,45427,45582,45760,46368,46427,47283,49284,51313,52214,53859,53940,57252,57256,58241,58657,60189,67689,68089,77226,78466,89336,90944,91790,95392,114318,116739,122421,130234,136798,136996,137168,137296,137710,138085,138131,139877,140297,141095,141422,142060,142421,142429,142434,142650,142752,143359,143581,143726,143742,143816,144003,144728,145028,145090,145251,145579,146308,146383,146616,146809,147430,147669,148180,148391,148614,148971,149373,149497,149640,149802,149845,149875,149881,149953,149954,150214,150292,150735,150830,150920,150979,151327,151424,151425,151502,151510,151511,151575,151576,151597,151605,151683,151716,151844,151901,151903,152000,152023,152035,152091,152123,152125,152135,152284,152355,152462,152536,152596,152674,152679,152688,152693,152869,152872,153107,153144,153154,153182,153189,153333,153410,153432,153457,153573,153606,153665,153668,153686,153698,153723,153731,153746,153851,153867,153880,153893,153933,153952,153955,154001,154069,154084,154087,154103]",
+    "status": "ok",
+    "count": 0,
+    "continued": null,
+    "elapsed_seconds": 0.8589999999967404,
+    "excluded_machines": 185
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0.094666666666666663 dph_total<=0.12133333333333332 machine_id~notin=[12708,14503,14542,16146,16597,21091,21252,22775,23222,25195,26531,27568,27657,27747,29155,29907,30031,30821,30927,31196,31459,31594,31607,31822,31848,33261,33283,34586,34763,38389,38442,42769,42771,42772,44589,45109,45111,45392,45418,45421,45423,45427,45582,45760,46368,46427,47283,49284,51313,52214,53859,53940,57252,57256,58241,58657,60189,67689,68089,77226,78466,89336,90944,91790,95392,114318,116739,122421,130234,136798,136996,137168,137296,137710,138085,138131,139877,140297,141095,141422,142060,142421,142429,142434,142650,142752,143359,143581,143726,143742,143816,144003,144728,145028,145090,145251,145579,146308,146383,146616,146809,147430,147669,148180,148391,148614,148971,149373,149497,149640,149802,149845,149875,149881,149953,149954,150214,150292,150735,150830,150920,150979,151327,151424,151425,151502,151510,151511,151575,151576,151597,151605,151683,151716,151844,151901,151903,152000,152023,152035,152091,152123,152125,152135,152284,152355,152462,152536,152596,152674,152679,152688,152693,152869,152872,153107,153144,153154,153182,153189,153333,153410,153432,153457,153573,153606,153665,153668,153686,153698,153723,153731,153746,153851,153867,153880,153893,153933,153952,153955,154001,154069,154084,154087,154103]",
+    "status": "timeout",
+    "count": null,
+    "continued": null,
+    "elapsed_seconds": 27.656000000002678,
+    "excluded_machines": 185
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 cpu_cores_effective<96 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 26,
+    "continued": null,
+    "elapsed_seconds": 2.1569999999992433,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=96 disk_space>=60 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.7339999999967404,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus=1 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 11,
+    "continued": null,
+    "elapsed_seconds": 1.5780000000013388,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus>=2 dph_total>=0 dph_total<=0.75",
+    "status": "ok",
+    "count": 16,
+    "continued": null,
+    "elapsed_seconds": 3.5310000000026776,
+    "excluded_machines": null
+   }
+  ]
+ },
+ "rejected": {
+  "vcpu": 209,
+  "share": 13,
+  "slow_cpu": 7,
+  "reliability": 6,
+  "verification": 5,
+  "ram": 2,
+  "price": 2
+ },
+ "rows": [
+  {
+   "offer_id": 47079050,
+   "machine_id": 28907,
+   "cpu_name": "AMD EPYC 7713 64-Core Processor",
+   "cpu_key": "epyc 7713",
+   "catalog_key": "EPYC 7003 (Zen 3)",
+   "core_speed": 0.62,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 64.0,
+   "host_vcpu": 64.0,
+   "share": 1.0,
+   "ram_gb": 80.412,
+   "disk_gb": 1470.8,
+   "num_gpus": 1,
+   "gpu_name": "RTX 4090",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.41533333333333333,
+   "usd_per_vcpu_hour": 0.006489583333333333,
+   "verification": "verified",
+   "reliability": 0.9976104,
+   "location": "Thailand, TH",
+   "direct_ports": 98,
+   "physical_cores": 32.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 19.84,
+   "usd_per_ref_core_hour": 0.020934139784946237,
+   "flags": [
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     20.35483870967742,
+     23.616832092638543
+    ],
+    "usd": [
+     8.454043010752688,
+     9.808857595809208
+    ],
+    "bound": "volume",
+    "workers": 32.0,
+    "throughput_ref_cores": 19.84,
+    "ram_limits_workers": false
+   },
+   "rank": 1,
+   "history": {
+    "machine_first_seen": "2026-10-14T17:32:16+00:00",
+    "offer_runs_seen": 1,
+    "offer_price_min": 0.41533333333333333,
+    "offer_price_max": 0.41533333333333333
+   }
+  }
+ ]
+}

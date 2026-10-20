@@ -1,0 +1,28 @@
+{
+  "run_id": "W2-B-capture-20261019",
+  "kind": "local_b_diagnostic",
+  "task_id": "W2-T035",
+  "owner": "pi-w2-b-capture-20261019",
+  "host": "local WSL Ubuntu-24.04",
+  "pid": 376,
+  "supervisor_pid": 375,
+  "timeout_pid": 374,
+  "last_checked_utc": "2026-10-19T11:05:35.793203+00:00",
+  "status": "running",
+  "heartbeat": "results/evidence/W2_B_capture_20261019/attempt/heartbeat.json",
+  "final": "results/evidence/W2_B_capture_20261019/attempt/final.json",
+  "command": [
+    "/usr/bin/timeout",
+    "--signal=TERM",
+    "--kill-after=5s",
+    "5395s",
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "/mnt/t/test_python/submoon-research/scripts/capture_b_local_once.py",
+    "--supervise"
+  ],
+  "stop": "Создать results/evidence/W2_B_capture_20261019/attempt/STOP; supervisor остановит только этот worker",
+  "max_wall_seconds": 5400,
+  "deadline_utc": "2026-10-19T12:34:53.282352+00:00",
+  "paid_actions": 0,
+  "retries": 0
+}

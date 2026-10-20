@@ -1,0 +1,23 @@
+# P2-2a: полный стенд admission_p2_2.py (W2-P007). Нагрузка — по замеру W2-R017 и
+# docs/compute/W2_P2-2a_rental_plan_v1.md; ядро-часы и самое долгое задание даны для P-ядра i9.
+title: P2-2a полный стенд
+source: W2-R017, docs/compute/W2_P2-2a_rental_plan_v1.md
+requirements:
+  min_effective_cpus: 32       # меньше — серия не укладывается в сутки даже на быстром ядре
+  min_ram_gb: 32
+  disk_gb: 60
+  max_hourly_usd: 1.0          # предел ПОИСКА, не разрешение аренды
+  min_reliability: 0.95
+  verification: [verified, unverified]  # W2-D029: deverified исключён
+  min_direct_ports: 1          # vast_p2 создаёт инстанс с --direct
+  require_known_cpu: true
+  min_core_speed: 0.6
+  max_hours: 24
+workload:
+  core_hours: [280, 350]
+  critical_path_hours: [12, 13] # B на 1000 лет: числом ядер не ускоряется
+  parallel_efficiency: 0.78     # допущение до замера базовой проверкой
+  setup_hours: 1.0              # развёртывание, гейты, базовая проверка
+  ram_gb_per_process: 0.45      # как vast_p2._workers
+  use_e_cores: false            # W2-D021: только P-ядра
+rank_by: cost

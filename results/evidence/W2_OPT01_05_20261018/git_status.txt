@@ -1,0 +1,147 @@
+ M AGENTS.md
+ M DECISIONS.md
+ M PLAN.md
+ M PROJECT_MAP.md
+ M README.md
+ M STATE.md
+ M TRACKING_SYSTEM.md
+ M docs/compute_policy.md
+ M docs/tasks/W2_P2-1_remote_operator_task.md
+ M docs/tasks/W2_P2-2_plan_v1.md
+ M docs/tracking_protocol.md
+ D old_temp_files/comp_stat_VAST-AI.bat
+ M pyproject.toml
+ M scripts/admission_p2_2.py
+ M scripts/admission_p2_horizons.py
+ M scripts/plan_p2_2.py
+ M scripts/vast_cpu_matrix.py
+ M scripts/vast_p2.py
+ M scripts/vast_w2.py
+ M scripts/verify_p2_2_run.py
+ M scripts/verify_p2_run.py
+ M src/submoon_research/cli.py
+ M src/submoon_research/compute/market_search.py
+ M src/submoon_research/dynamics/initialization.py
+ M src/submoon_research/sampling/design.py
+ M src/submoon_research/tracking.py
+ M tests/unit/test_p2_2_stand.py
+ M tests/unit/test_tracking.py
+ M tests/unit/test_verify_p2_2_run.py
+ M tracking/event.schema.json
+ M tracking/index.json
+ M tracking/project.yaml
+ M tracking/runtime.json
+ M tracking/stages/S0/RECORDS.md
+ M tracking/stages/S0/SUMMARY.md
+ M tracking/stages/S0/journal.jsonl
+ M tracking/stages/W0/RECORDS.md
+ M tracking/stages/W0/SUMMARY.md
+ M tracking/stages/W0/journal.jsonl
+ M tracking/stages/W1/RECORDS.md
+ M tracking/stages/W1/SUMMARY.md
+ M tracking/stages/W10/SUMMARY.md
+ M tracking/stages/W2/RECORDS.md
+ M tracking/stages/W2/SUMMARY.md
+ M tracking/stages/W2/journal.jsonl
+ M tracking/stages/W3/SUMMARY.md
+ M tracking/stages/W4/SUMMARY.md
+ M tracking/stages/W5/SUMMARY.md
+ M tracking/stages/W6/SUMMARY.md
+ M tracking/stages/W7/SUMMARY.md
+ M tracking/stages/W8/SUMMARY.md
+ M tracking/stages/W9/SUMMARY.md
+?? REPORT_W2_P2-2a_20261016.md
+?? comp_stat_VAST-AI.bat
+?? configs/compute/
+?? docs/compute/W2_P2-2a_56220810_acceptance.md
+?? docs/compute/W2_P2-2a_56220810_approval.md
+?? docs/compute/W2_P2-2a_rental_plan_v1.md
+?? docs/compute/W2_P2-2a_rental_plan_v2.md
+?? docs/compute/interesting_stations.md
+?? docs/compute/trial_rental_approval.md
+?? docs/compute/vast_find_guide.md
+?? docs/compute/vast_radar_guide.md
+?? docs/compute/vast_watchlist.md
+?? docs/tasks/S0_org_optimization_20261013.md
+?? docs/tasks/W2_P2-2a_operator_task.md
+?? docs/tasks/W2_stabilization_optimization_plan_20261018.md
+?? find_all.bat
+?? find_p2_2a.bat
+?? monitor_p2_2a.bat
+?? reports/analysis/W2_C067_checks_review_20261018.md
+?? reports/analysis/W2_P2-2a_report_review_20261017.md
+?? reports/operations/W2_P2-2a_56220810_finish_20261016.md
+?? reports/operations/W2_P2-2a_56220810_start_20261016.md
+?? reports/operations/W2_P2-2a_analogs_20261014.md
+?? reports/operations/W2_P2-2a_evening_search_20261014.md
+?? reports/operations/W2_P2-2a_operator_20261014.md
+?? reports/operations/W2_P2-2a_refresh_20261014_1806.md
+?? reports/operations/W2_hardware_9975WX_20261016.md
+?? reports/operations/W2_market_refresh_20261015.md
+?? reports/operations/W2_station_selection_20261014.md
+?? reports/operations/W2_trial_preflight_20261016.md
+?? reports/operations/W2_vast_radar_20261015.md
+?? requirements/windows-py310-radar-20261015.lock.txt
+?? results/evidence/PROJECT_MAP_20261013/
+?? results/evidence/W2_C067_review_20261018/
+?? results/evidence/W2_D029_search_20261014/
+?? results/evidence/W2_I034_diag_20261017/
+?? results/evidence/W2_I035_diag_20261016/
+?? results/evidence/W2_OPT01_05_20261018/
+?? results/evidence/W2_P2-2a_review_20261017/
+?? results/evidence/W2_T016_p2_2_checks_20261013/
+?? results/evidence/W2_T017_checks_20261013/
+?? results/evidence/W2_T018_station_20261014/
+?? results/evidence/W2_T020_D028_20261014/
+?? results/evidence/W2_T020_operator_20261014/
+?? results/evidence/W2_T021_search_20261014/
+?? results/evidence/W2_T022_refresh_20261014/
+?? results/evidence/W2_T023_analogs_20261014/
+?? results/evidence/W2_T025_market_refresh/
+?? results/evidence/W2_T026_radar_20261015/
+?? results/evidence/W2_T027_hardware_20261016_0800/
+?? results/evidence/W2_T027_preflight_20261016/
+?? results/evidence/W2_T028_p2_2a_56220810/
+?? run_S0-T006_checks.bat
+?? run_W2-C067_checks.bat
+?? run_W2-D036_checks.bat
+?? run_W2-I022_checks.bat
+?? run_W2-I035_diag.bat
+?? run_W2-T017_account.bat
+?? run_W2-T017_account2.bat
+?? run_W2-T017_checks.bat
+?? run_W2-T017_live.bat
+?? run_W2-T017_live3.bat
+?? run_W2-T017_live4.bat
+?? run_W2-T017_probe.bat
+?? run_W2-T017_probe2.bat
+?? run_W2-T017_probe3.bat
+?? run_W2-T017_sweep.bat
+?? run_W2-T019_checks.bat
+?? scripts/baseline_gate_p2_2.py
+?? scripts/diag_b_failure_p2_2.py
+?? scripts/diag_units_repro_p2_2.py
+?? scripts/install_vast_radar.ps1
+?? scripts/prepare_p2_2a.py
+?? scripts/vast_find.py
+?? scripts/vast_find_crosscheck.py
+?? scripts/vast_find_probe.py
+?? scripts/vast_find_probe2.py
+?? scripts/vast_find_probe3.py
+?? scripts/vast_p2_continue.py
+?? scripts/vast_radar.py
+?? scripts/vast_station_select.py
+?? scripts/vast_trial_estimate.py
+?? src/submoon_research/compute/finder.py
+?? src/submoon_research/compute/finder_html.py
+?? src/submoon_research/compute/radar.html
+?? src/submoon_research/compute/radar.py
+?? src/submoon_research/compute/radar_app.py
+?? src/submoon_research/exact_linalg.py
+?? tests/unit/test_baseline_gate_p2_2.py
+?? tests/unit/test_exact_linalg.py
+?? tests/unit/test_vast_finder.py
+?? tests/unit/test_vast_p2_2a.py
+?? tests/unit/test_vast_p2_continue.py
+?? tests/unit/test_vast_radar.py
+?? vast_radar.bat

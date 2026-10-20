@@ -1,0 +1,30 @@
+{
+ "run": "runs/W2-P2-2a-56220810",
+ "passed": false,
+ "failures": [
+  "analysis.json не совпадает с пересчётом: /cost/D/measured_over_model: пересчитано 0.7651044196952002, сохранено 0.7651044196951996; /cost/D/model_core_hours: пересчитано 17.8954972902023, сохранено 17.895497290202314; /cost/T/measured_over_model: пересчитано 0.7544306143857877, сохранено 0.7544306143857887; /cost/T/model_core_hours: пересчитано 35.61586790233353, сохранено 35.61586790233348; /horizons/1/pairs/D-T/levels/cells[0]/cp_upper: пересчитано 0.039758031153124124, сохранено 0.03975803115312412; /horizons/1/pairs/D-T/levels/cells[6]/cp_upper: пересчитано 0.039758031153124124, сохранено 0.03975803115312412; /horizons/1/pairs/D-T/levels/cells[7]/cp_upper: пересчитано 0.039758031153124124, сохранено 0.03975803115312412; /horizons/1/pairs/D-T/levels/cells[8]/cp_upper: пересчитано 0.039758031153124124, сохранено 0.03975803115312412; /horizons/1/pairs/D-T/levels/hosts[0]/cp_two_sided[0]: пересчитано 0.00035197895733856776, сохранено 0.00035197895733856787; /horizons/10/pairs/D-T/levels/cells[1]/cp_upper: пересчитано 0.039758031153124124, сохранено 0.03975803115312412"
+ ],
+ "checks": {
+  "jobs": {
+   "rows": 9504,
+   "accepted": 9504,
+   "expected": 9504,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "dt_complete": true,
+   "dt_failed": 0,
+   "b_unfinished": 0,
+   "decision": "inconclusive",
+   "stratum_verdict": "inconclusive",
+   "discordant": 17,
+   "n": 1152,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  }
+ }
+}

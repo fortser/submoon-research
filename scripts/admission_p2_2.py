@@ -13,8 +13,9 @@ operational_escape, unresolved с причиной (канал потерь). Д
 граница доли расхождений D–T при α=0.05/S не больше 0.005; «не эквивалентно» — двусторонний
 интервал Ньюкомба для парных долей уровня 1−0.05/(5S) для какой-либо из 5 категорий целиком вне
 [−0.005, 0.005]; иначе «не определено». Решение P2-2a — только сводно на финальном горизонте
-полного объёма, без остановленных и отказавших заданий (§4, §7); остальное — описательно.
-B — согласие независимым методом (точные интервалы), не допуск.
+полного объёма, когда все задания D и T там есть, без остановок и отказов (§4, §7; W2-D026:
+остановленные сроком или недостающие задания B решение не блокируют и показываются отдельно);
+остальное — описательно. B — согласие независимым методом (точные интервалы), не допуск.
 
 Каждое задание сразу дописывается в jobs.jsonl; продолжение — по отпечатку задания (единица,
 физика, режим, горизонт, вариант, сетка, SHA реализации). --deadline-utc и --stop-file
@@ -35,6 +36,7 @@ import multiprocessing as mp
 import os
 import sys
 import time
+import traceback
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -62,8 +64,18 @@ from submoon_research.dynamics.engine_compare import NumericMode, integrate_engi
 from submoon_research.dynamics.initialization import PARENTS, physical_inputs  # noqa: E402
 from submoon_research.sampling.design import MEASURES, DomainSpec, generate  # noqa: E402
 from submoon_research.workflows.smoke import sha256 as file_sha256  # noqa: E402
+from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
+from submoon_research.contracts.p2_files import (  # noqa: E402
+    atomic_json, contract_digest, digest, exclusive_run, overlaps, preflight, read_json, source_manifest,
+    units_digest, validate_units_document,
+)
+from submoon_research.contracts.frozen_p2 import (  # noqa: E402
+    copied_provenance, load_frozen_inputs, manifest_for,
+)
 
 PLAN, STAGE, STAND_VERSION = 'W2-P006', 'P2-2a', 'P2-2-v1'
+# Версия правила разбора (не входит в отпечаток заданий: счёт не меняется). a2 — W2-D026.
+ANALYSIS_VERSION = 'P2-2-a2'
 YEAR = 365.25*86400.0
 CELLS = tuple((host, measure) for host in HOSTS for measure in MEASURES)
 FULL = dict(per_cell=128, b_per_cell=16, unit_start=0, years=[1.0, 10.0, 100.0, 1000.0],
@@ -125,17 +137,13 @@ def units(per_cell, unit_start=0, prepared=None):
     return out
 
 
-def units_digest(unit_list):
-    payload = [(u['orbit_id'], u['seed'], u['state']) for u in unit_list]
-    return hashlib.sha256(json.dumps(payload, default=float).encode()).hexdigest()
-
-
 def normalize_params(per_cell, b_per_cell, unit_start, years, b_years):
     params = dict(per_cell=int(per_cell), b_per_cell=int(b_per_cell), unit_start=int(unit_start),
                   years=sorted({float(y) for y in years}), b_years=sorted({float(y) for y in b_years}))
     if params['per_cell'] < 1 or not 0 <= params['b_per_cell'] <= params['per_cell'] or params['unit_start'] < 0:
         raise ValueError('Нужно per_cell >= 1, 0 <= b_per_cell <= per_cell, unit_start >= 0')
-    if not params['years'] or min(params['years']) <= 0 or not set(params['b_years']) <= set(params['years']):
+    if (not params['years'] or any(not math.isfinite(y) or y <= 0 for y in params['years'])
+            or not set(params['b_years']) <= set(params['years'])):
         raise ValueError('Горизонты должны быть > 0, горизонты B — подмножество --years')
     return params
 
@@ -203,7 +211,8 @@ def _job(job):
     except Exception as exc:  # noqa: BLE001 — сбой одного задания записывается, стенд продолжает
         probe = unit['state'][-6:]
         return dict(base, wall=time.perf_counter()-started, cpu=time.process_time()-cpu,
-                    run_status='failed', error=f'{type(exc).__name__}: {exc}', outcome='unresolved',
+                    run_status='failed', error=f'{type(exc).__name__}: {exc}',
+                    traceback=traceback.format_exc(), outcome='unresolved',
                     unresolved_reason='computational', last_valid_time=0.0, event=None, steps=None,
                     nfev=None, eccentricity=None, numerical_domain=None, endpoint_residual=None,
                     stopped=False, crashed=True, final_probe=probe, samples=[(0.0, probe)])
@@ -433,6 +442,11 @@ def analyze(rows, unit_list, params, full_scope):
         failed = [r for r in present if r['run_status'] == 'failed']
         complete = len(present) == len(keys) and not stopped
         complete_all = complete_all and complete
+        # W2-D026: завершённость D/T отдельно от B (B не входит в критерий решения).
+        dt_keys = [k for k in keys if k[2] in ('D', 'T')]
+        dt_complete = all(k in by_key and by_key[k]['run_status'] != 'partial' for k in dt_keys)
+        b_keys = [k for k in keys if k[2] == 'B']
+        b_unfinished = sum(1 for k in b_keys if k not in by_key or by_key[k]['run_status'] == 'partial')
         pairs = {}
         for a, b in PAIRS:
             items = []
@@ -443,7 +457,8 @@ def analyze(rows, unit_list, params, full_scope):
             if items:
                 pairs[f'{a}-{b}'] = pair_summary(items, (a, b) == ('D', 'T'))
         horizons[f'{years:g}'] = dict(years=years, planned=len(keys), present=len(present),
-            stopped=len(stopped), complete=complete,
+            stopped=len(stopped), complete=complete, dt_complete=dt_complete,
+            b_planned=len(b_keys), b_unfinished=b_unfinished,
             failed=[dict(orbit_id=r['orbit_id'], variant=r['variant'], error=str(r['error'])[:300]) for r in failed],
             outcomes=outcome_table(present, by_id), pairs=pairs)
     final = max(params['years'])
@@ -452,19 +467,26 @@ def analyze(rows, unit_list, params, full_scope):
     reasons = []
     if not full_scope:
         reasons.append('сокращённый объём — не решение P2-2a')
-    if not level['complete']:
-        reasons.append('финальный горизонт не завершён (недостающие или остановленные задания)')
+    if not level['dt_complete']:
+        reasons.append('финальный горизонт D/T не завершён (недостающие или остановленные задания D/T)')
     if any(f['variant'] in ('D', 'T') for f in level['failed']):
         reasons.append('отказы заданий D/T на финальном горизонте')
     if pooled is None:
         reasons.append('нет пар D–T')
+    notes = []
+    if level['b_unfinished']:
+        notes.append(f"B не завершено на финальном горизонте: {level['b_unfinished']}/{level['b_planned']} "
+                     '(остановлено сроком или нет строки); решение не блокирует (W2-D026), '
+                     'пары D–B/T–B — по завершённым')
     decision = dict(stage=STAGE, horizon_years=final, level=DECISION_LEVEL, margin=MARGIN,
-                    verdict='not_decided' if reasons else pooled['verdict'],
+                    rule='W2-D026', verdict='not_decided' if reasons else pooled['verdict'],
                     stratum_verdict=None if pooled is None else pooled['verdict'], reasons=reasons,
+                    notes=notes, b_unfinished=level['b_unfinished'],
                     n=None if pooled is None else pooled['n'],
                     discordant=None if pooled is None else pooled['discordant'],
                     cp_upper=None if pooled is None else pooled['cp_upper'])
-    return dict(plan=PLAN, stage=STAGE, stand_version=STAND_VERSION, margin=MARGIN, alpha=ALPHA,
+    return dict(plan=PLAN, stage=STAGE, stand_version=STAND_VERSION, analysis_version=ANALYSIS_VERSION,
+                margin=MARGIN, alpha=ALPHA,
                 categories=list(CATEGORIES), levels=[dict(level=k, strata=s) for k, s in LEVELS],
                 params=params, full_scope=full_scope, complete=complete_all, horizons=horizons,
                 cost=cost_summary(list(by_key.values()), by_id), decision=decision)
@@ -512,6 +534,8 @@ def report(analysis):
     print(f"\nРЕШЕНИЕ {d['stage']} ({d['level']}, {d['horizon_years']:g} лет, граница {d['margin']}): "
           f"{VERDICT_RU[d['verdict']]}" + (f" — {'; '.join(d['reasons'])}" if d['reasons'] else '')
           + (f"; по данным страты: {VERDICT_RU[d['stratum_verdict']]}" if d['reasons'] and d['stratum_verdict'] else ''))
+    for note in d.get('notes') or []:
+        print('  примечание: '+note)
 
 
 # ---------------------------------------------------------------- запуск
@@ -529,25 +553,109 @@ def parse(argv=None):
                         help='ISO 8601 UTC: к этому сроку незавершённые задания останавливаются (partial)')
     parser.add_argument('--stop-file', default=None,
                         help='если файл появится, задания останавливаются (partial) и стенд подводит итог')
+    parser.add_argument('--inputs-manifest', help='закреплённые входы вместо вызова генератора')
+    parser.add_argument('--inputs-manifest-sha256', help='внешний SHA-256 манифеста входов')
     parser.add_argument('--evaluate-only', action='store_true')
+    parser.add_argument('--resume', action='store_true', help='продолжить незавершённый совместимый run')
+    parser.add_argument('--analysis-dir', default=None,
+                        help='новый отдельный каталог; обязателен и разрешён только с --evaluate-only')
     return parser.parse_args(argv)
+
+
+def units_document(unit_list, params, implementations=None):
+    """Полный контракт новых run; legacy-хеш стартов сохраняет прежний смысл."""
+    doc = dict(plan=PLAN, stage=STAGE, generator_numerics=NUMERICS_VERSION, params=params,
+               units_sha256=units_digest(unit_list), units=unit_list,
+               contract=dict(version='p2-input-v1', stand=STAND_VERSION, grid=GRID_ID,
+                             modes=dict(D=NumericMode().__dict__, T=NumericMode.tight().__dict__),
+                             implementations=implementations,
+                             position_unit='km', time_unit='s', gm_unit='km^3/s^2',
+                             frame='host-relative, nonrotating ICRF axes',
+                             input_config_sha256=file_sha256(ROOT/'configs/experiments/W2_three_engines_v1.yaml')))
+    doc['contract_sha256'] = contract_digest(doc)
+    return doc
 
 
 def main(argv=None):
     args = parse(argv)
+    try:
+        with exclusive_run(ROOT/args.run_dir, ROOT/'scratch/p2_locks'):
+            return _main(args)
+    except (OSError, ValueError) as exc:
+        traceback.print_exc()
+        print(f'ОТКАЗ/ОШИБКА СТЕНДА: {exc}', flush=True)
+        return 2
+
+
+def _main(args):
     params = normalize_params(args.per_cell, args.b_per_cell, args.unit_start, args.years, args.b_years)
     full_scope = is_full_scope(params)
-    run_dir = ROOT/args.run_dir
-    run_dir.mkdir(parents=True, exist_ok=True)
+    run_dir = (ROOT/args.run_dir).resolve()
     jobs_file = run_dir/'jobs.jsonl'
     deadline = parse_deadline(args.deadline_utc)
-    unit_list = units(params['per_cell'], params['unit_start'])
-    by_id = {u['orbit_id']: u for u in unit_list}
     implementations = dict(compiled=implementation_fingerprint(), B=b_fingerprint())
+    if bool(args.inputs_manifest) != bool(args.inputs_manifest_sha256):
+        raise ValueError('Нужны вместе --inputs-manifest и --inputs-manifest-sha256')
+    if args.inputs_manifest:
+        input_dir = (ROOT/args.inputs_manifest).resolve().parent
+        if overlaps(run_dir, input_dir) and not (run_dir == input_dir and (args.resume or args.evaluate_only)):
+            raise ValueError('Run не должен изменять отдельный артефакт frozen inputs')
+        if args.analysis_dir and overlaps(ROOT/args.analysis_dir, input_dir):
+            raise ValueError('Анализ не должен изменять frozen inputs')
+        document, _ = load_frozen_inputs(ROOT/args.inputs_manifest, args.inputs_manifest_sha256,
+            params=params, numerical_contract=units_document([], params, implementations)['contract'])
+        unit_list = document['units']
+        input_provenance = copied_provenance(args.inputs_manifest, args.inputs_manifest_sha256)
+    else:
+        unit_list = units(params['per_cell'], params['unit_start'])
+        document = units_document(unit_list, params, implementations)
+        input_provenance = dict(kind='generated-in-stand', generator_numerics=NUMERICS_VERSION,
+                                stand_file_sha256=file_sha256(Path(__file__)))
+    by_id = {u['orbit_id']: u for u in unit_list}
     planned = plan_keys(unit_list, params)
     expected_fp = {k: job_fingerprint(by_id[k[0]], k[1], k[2], implementations)
                    for keys in planned.values() for k in keys}
-    rows, ignored = read_rows(jobs_file, expected_fp)
+    analysis_dir = (ROOT/args.analysis_dir).resolve() if args.analysis_dir else None
+    out_dir = analysis_dir or run_dir
+    contract = dict(version='p2-run-v1', input_contract_sha256=document['contract_sha256'],
+                    jobs_sha256=digest(sorted(expected_fp.items())))
+    try:
+        summary = read_json(run_dir/'summary.json') if (run_dir/'summary.json').exists() else None
+        if summary is not None:
+            for name, value in (('params', params), ('implementations', implementations),
+                                ('units_sha256', units_digest(unit_list))):
+                if not isinstance(summary, dict) or summary.get(name) != value:
+                    raise ValueError(f'summary.{name}: другая постановка')
+        if (run_dir/'units.json').exists():
+            validate_units_document(read_json(run_dir/'units.json'), document)
+            if summary is not None and summary.get('units_file_sha256') not in (
+                    None, file_sha256(run_dir/'units.json')):
+                raise ValueError('units.json: SHA файла не совпал с summary')
+        elif (args.resume or (run_dir/'run_contract.json').exists()
+              or (summary and (summary.get('units_file_sha256') or summary.get('input_contract_sha256')))):
+            raise ValueError('отсутствует обязательный units.json')
+        local_manifest = run_dir/'inputs_manifest.json'
+        if summary and summary.get('inputs_manifest_sha256'):
+            if not local_manifest.exists() or file_sha256(local_manifest) != summary['inputs_manifest_sha256']:
+                raise ValueError('Локальный inputs manifest утрачен или изменён')
+        if local_manifest.exists():
+            local_doc, _ = load_frozen_inputs(local_manifest, file_sha256(local_manifest), params=params)
+            validate_units_document(local_doc, document)
+        if summary and summary.get('input_contract_sha256') not in (None, document['contract_sha256']):
+            raise ValueError('summary.input_contract_sha256: другая постановка')
+        rows, ignored = read_rows(jobs_file, expected_fp)
+        preflight(run_dir, analysis_dir, evaluate=args.evaluate_only, resume=args.resume,
+                  rows=rows, expected_fp=expected_fp, contract=contract)
+    except (OSError, ValueError, TypeError, KeyError) as exc:
+        print(f'ОТКАЗ СТЕНДА (ничего не записано): {exc}', flush=True)
+        return 2
+    source = source_manifest(run_dir) if args.evaluate_only else None
+    if args.evaluate_only:
+        out_dir.mkdir(parents=True, exist_ok=False)
+    else:
+        run_dir.mkdir(parents=True, exist_ok=True)
+        if not args.resume:
+            atomic_json(run_dir/'run_contract.json', contract)
     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
     total = sum(len(k) for k in planned.values())
@@ -559,7 +667,13 @@ def main(argv=None):
     if args.stop_file and os.path.exists(args.stop_file) and not args.evaluate_only:
         print(f'ВНИМАНИЕ: стоп-файл {args.stop_file} уже существует — задания будут сразу остановлены', flush=True)
     started = time.perf_counter()
+    units_path = run_dir/'units.json'
+    if not units_path.exists() and not args.evaluate_only:
+        atomic_json(units_path, document)
+    inputs_manifest_path = run_dir/'inputs_manifest.json'
     if not args.evaluate_only:
+        if not inputs_manifest_path.exists():
+            atomic_json(inputs_manifest_path, manifest_for(units_path, document, input_provenance))
         jobs = [dict(unit=by_id[o], years=y, variant=v, fingerprint=expected_fp[(o, y, v)],
                      deadline=deadline, stop_file=args.stop_file)
                 for keys in planned.values() for (o, y, v) in keys if (o, y, v) not in done]
@@ -575,20 +689,29 @@ def main(argv=None):
     report(analysis)
     stopped = sum(1 for r in final_rows if r['run_status'] == 'partial')
     failed = sum(1 for r in final_rows if r['run_status'] == 'failed')
-    (run_dir/'analysis.json').write_text(json.dumps(analysis, ensure_ascii=False, indent=1, default=float),
-                                         encoding='utf-8')
+    atomic_json(out_dir/'analysis.json', analysis, replace=args.resume)
     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
-    (run_dir/'summary.json').write_text(json.dumps(dict(plan=PLAN, stage=STAGE, utc=stamp,
+    atomic_json(out_dir/'summary.json', dict(plan=PLAN, stage=STAGE, utc=stamp,
         stand_version=STAND_VERSION, prototype_version=PROTOTYPE_VERSION, machine=cpu_info(),
         params=params, full_scope=full_scope, workers=args.workers, deadline_utc=args.deadline_utc,
         stop_file=args.stop_file, evaluate_only=args.evaluate_only, units=len(unit_list),
-        units_sha256=units_digest(unit_list), planned=total, done=len(final_rows), stopped=stopped,
+        units_sha256=units_digest(unit_list), generator_numerics=document['generator_numerics'],
+        input_basis='frozen' if args.inputs_manifest else 'generator',
+        inputs_manifest_sha256=file_sha256(inputs_manifest_path) if inputs_manifest_path.exists() else None,
+        frozen_anchor=args.inputs_manifest_sha256,
+        input_contract_sha256=document['contract_sha256'], source=source,
+        units_file_sha256=file_sha256(units_path) if units_path.exists() else None, planned=total, done=len(final_rows), stopped=stopped,
         failed=failed, complete=analysis['complete'], decision=analysis['decision'],
-        implementations=implementations, wall_seconds=time.perf_counter()-started),
-        ensure_ascii=False, indent=1, default=float), encoding='utf-8')
+        implementations=implementations, wall_seconds=time.perf_counter()-started), replace=args.resume)
+    if not args.evaluate_only and analysis['complete']:
+        atomic_json(run_dir/'sealed.json', dict(version=1, utc=stamp, scientific_admission=False,
+                                               summary_sha256=file_sha256(out_dir/'summary.json')))
     ok = analysis['complete'] and not failed
+    b_left = sum(level['b_unfinished'] for level in analysis['horizons'].values())
     print(f"\nИТОГ СТЕНДА: {'все задания завершены' if ok else 'НЕ ЗАВЕРШЕНО или есть отказы'} "
-          f"({len(final_rows)}/{total}, остановлено {stopped}, отказов {failed}); каталог {shown(run_dir)}")
+          f"({len(final_rows)}/{total}, остановлено {stopped}, отказов {failed}; "
+          f"D/T на всех горизонтах {'завершены' if all(lv['dt_complete'] for lv in analysis['horizons'].values()) else 'НЕ завершены'}, "
+          f"B не завершено {b_left}); каталог {shown(run_dir)}")
     return 0 if ok else 1
 
 

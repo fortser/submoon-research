@@ -1,0 +1,2030 @@
+diff --git a/pyproject.toml b/pyproject.toml
+index 175e292..996bfe6 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -15,6 +15,7 @@ dependencies = [
+ 
+ [project.optional-dependencies]
+ dev = ["pytest", "ruff"]
++monitor = ["pystray>=0.19.5,<0.20", "Pillow>=10,<13"]
+ geometry = ["spiceypy"]
+ observations = ["photutils", "reproject", "scikit-image", "pvl", "pds4_tools"]
+ extended_physics = ["reboundx"]
+@@ -29,6 +30,7 @@ where = ["src"]
+ 
+ [tool.setuptools.package-data]
+ "submoon_research.contracts" = ["*.json"]
++"submoon_research.compute" = ["radar.html"]
+ 
+ [tool.pytest.ini_options]
+ testpaths = ["tests"]
+diff --git a/scripts/admission_p2_2.py b/scripts/admission_p2_2.py
+index edafcae..d5385d4 100644
+--- a/scripts/admission_p2_2.py
++++ b/scripts/admission_p2_2.py
+@@ -13,8 +13,9 @@ operational_escape, unresolved с причиной (канал потерь). Д
+ граница доли расхождений D–T при α=0.05/S не больше 0.005; «не эквивалентно» — двусторонний
+ интервал Ньюкомба для парных долей уровня 1−0.05/(5S) для какой-либо из 5 категорий целиком вне
+ [−0.005, 0.005]; иначе «не определено». Решение P2-2a — только сводно на финальном горизонте
+-полного объёма, без остановленных и отказавших заданий (§4, §7); остальное — описательно.
+-B — согласие независимым методом (точные интервалы), не допуск.
++полного объёма, когда все задания D и T там есть, без остановок и отказов (§4, §7; W2-D026:
++остановленные сроком или недостающие задания B решение не блокируют и показываются отдельно);
++остальное — описательно. B — согласие независимым методом (точные интервалы), не допуск.
+ 
+ Каждое задание сразу дописывается в jobs.jsonl; продолжение — по отпечатку задания (единица,
+ физика, режим, горизонт, вариант, сетка, SHA реализации). --deadline-utc и --stop-file
+@@ -62,8 +63,11 @@ from submoon_research.dynamics.engine_compare import NumericMode, integrate_engi
+ from submoon_research.dynamics.initialization import PARENTS, physical_inputs  # noqa: E402
+ from submoon_research.sampling.design import MEASURES, DomainSpec, generate  # noqa: E402
+ from submoon_research.workflows.smoke import sha256 as file_sha256  # noqa: E402
++from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
+ 
+ PLAN, STAGE, STAND_VERSION = 'W2-P006', 'P2-2a', 'P2-2-v1'
++# Версия правила разбора (не входит в отпечаток заданий: счёт не меняется). a2 — W2-D026.
++ANALYSIS_VERSION = 'P2-2-a2'
+ YEAR = 365.25*86400.0
+ CELLS = tuple((host, measure) for host in HOSTS for measure in MEASURES)
+ FULL = dict(per_cell=128, b_per_cell=16, unit_start=0, years=[1.0, 10.0, 100.0, 1000.0],
+@@ -433,6 +437,11 @@ def analyze(rows, unit_list, params, full_scope):
+         failed = [r for r in present if r['run_status'] == 'failed']
+         complete = len(present) == len(keys) and not stopped
+         complete_all = complete_all and complete
++        # W2-D026: завершённость D/T отдельно от B (B не входит в критерий решения).
++        dt_keys = [k for k in keys if k[2] in ('D', 'T')]
++        dt_complete = all(k in by_key and by_key[k]['run_status'] != 'partial' for k in dt_keys)
++        b_keys = [k for k in keys if k[2] == 'B']
++        b_unfinished = sum(1 for k in b_keys if k not in by_key or by_key[k]['run_status'] == 'partial')
+         pairs = {}
+         for a, b in PAIRS:
+             items = []
+@@ -443,7 +452,8 @@ def analyze(rows, unit_list, params, full_scope):
+             if items:
+                 pairs[f'{a}-{b}'] = pair_summary(items, (a, b) == ('D', 'T'))
+         horizons[f'{years:g}'] = dict(years=years, planned=len(keys), present=len(present),
+-            stopped=len(stopped), complete=complete,
++            stopped=len(stopped), complete=complete, dt_complete=dt_complete,
++            b_planned=len(b_keys), b_unfinished=b_unfinished,
+             failed=[dict(orbit_id=r['orbit_id'], variant=r['variant'], error=str(r['error'])[:300]) for r in failed],
+             outcomes=outcome_table(present, by_id), pairs=pairs)
+     final = max(params['years'])
+@@ -452,19 +462,26 @@ def analyze(rows, unit_list, params, full_scope):
+     reasons = []
+     if not full_scope:
+         reasons.append('сокращённый объём — не решение P2-2a')
+-    if not level['complete']:
+-        reasons.append('финальный горизонт не завершён (недостающие или остановленные задания)')
++    if not level['dt_complete']:
++        reasons.append('финальный горизонт D/T не завершён (недостающие или остановленные задания D/T)')
+     if any(f['variant'] in ('D', 'T') for f in level['failed']):
+         reasons.append('отказы заданий D/T на финальном горизонте')
+     if pooled is None:
+         reasons.append('нет пар D–T')
++    notes = []
++    if level['b_unfinished']:
++        notes.append(f"B не завершено на финальном горизонте: {level['b_unfinished']}/{level['b_planned']} "
++                     '(остановлено сроком или нет строки); решение не блокирует (W2-D026), '
++                     'пары D–B/T–B — по завершённым')
+     decision = dict(stage=STAGE, horizon_years=final, level=DECISION_LEVEL, margin=MARGIN,
+-                    verdict='not_decided' if reasons else pooled['verdict'],
++                    rule='W2-D026', verdict='not_decided' if reasons else pooled['verdict'],
+                     stratum_verdict=None if pooled is None else pooled['verdict'], reasons=reasons,
++                    notes=notes, b_unfinished=level['b_unfinished'],
+                     n=None if pooled is None else pooled['n'],
+                     discordant=None if pooled is None else pooled['discordant'],
+                     cp_upper=None if pooled is None else pooled['cp_upper'])
+-    return dict(plan=PLAN, stage=STAGE, stand_version=STAND_VERSION, margin=MARGIN, alpha=ALPHA,
++    return dict(plan=PLAN, stage=STAGE, stand_version=STAND_VERSION, analysis_version=ANALYSIS_VERSION,
++                margin=MARGIN, alpha=ALPHA,
+                 categories=list(CATEGORIES), levels=[dict(level=k, strata=s) for k, s in LEVELS],
+                 params=params, full_scope=full_scope, complete=complete_all, horizons=horizons,
+                 cost=cost_summary(list(by_key.values()), by_id), decision=decision)
+@@ -512,6 +529,8 @@ def report(analysis):
+     print(f"\nРЕШЕНИЕ {d['stage']} ({d['level']}, {d['horizon_years']:g} лет, граница {d['margin']}): "
+           f"{VERDICT_RU[d['verdict']]}" + (f" — {'; '.join(d['reasons'])}" if d['reasons'] else '')
+           + (f"; по данным страты: {VERDICT_RU[d['stratum_verdict']]}" if d['reasons'] and d['stratum_verdict'] else ''))
++    for note in d.get('notes') or []:
++        print('  примечание: '+note)
+ 
+ 
+ # ---------------------------------------------------------------- запуск
+@@ -530,9 +549,62 @@ def parse(argv=None):
+     parser.add_argument('--stop-file', default=None,
+                         help='если файл появится, задания останавливаются (partial) и стенд подводит итог')
+     parser.add_argument('--evaluate-only', action='store_true')
++    parser.add_argument('--analysis-dir', default=None,
++                        help='куда писать analysis.json/summary.json (по умолчанию --run-dir); обязателен для '
++                             'нового разбора уже принятого run (W2-C067)')
+     return parser.parse_args(argv)
+ 
+ 
++def foreign_rows(jobs_file, expected_fp):
++    """W2-C067: строки jobs.jsonl чужой постановки — ключ вне плана или другой отпечаток.
++    Повреждённая (недописанная) строка — не чужая: допустима при продолжении после сбоя."""
++    mismatched, unknown, corrupt = 0, 0, 0
++    if not jobs_file.exists():
++        return dict(mismatched=0, unknown=0, corrupt=0)
++    for line in jobs_file.read_text(encoding='utf-8').splitlines():
++        if not line.strip():
++            continue
++        try:
++            row = json.loads(line)
++            key = (row['orbit_id'], float(row['years']), row['variant'])
++        except (ValueError, KeyError, TypeError):
++            corrupt += 1
++            continue
++        if key not in expected_fp:
++            unknown += 1
++        elif row.get('job_fingerprint') != expected_fp[key]:
++            mismatched += 1
++    return dict(mismatched=mismatched, unknown=unknown, corrupt=corrupt)
++
++
++def units_document(unit_list, params):
++    """Буквальные стартовые векторы run с SHA (W2-C067): не зависят от будущего генератора."""
++    return dict(plan=PLAN, stage=STAGE, generator_numerics=NUMERICS_VERSION, params=params,
++                units_sha256=units_digest(unit_list), units=unit_list)
++
++
++def guard_run_dir(run_dir, out_dir, foreign, unit_list):
++    """Отказ ДО любой записи (W2-C067): чужие строки, принятый run или другие старты."""
++    problems = []
++    if foreign['mismatched'] or foreign['unknown']:
++        problems.append(f"в jobs.jsonl строки другой постановки: другой отпечаток {foreign['mismatched']}, "
++                        f"вне плана {foreign['unknown']} (другой код, окружение, генератор или параметры); "
++                        'продолжение и разбор этого каталога текущим стендом запрещены — новый --run-dir')
++    accepted = sorted(p.name for p in run_dir.glob('acceptance*.json'))
++    if accepted and out_dir == run_dir:
++        problems.append(f"run уже принят ({', '.join(accepted)}); новый разбор — только в отдельный --analysis-dir")
++    stored = run_dir/'units.json'
++    if stored.exists():
++        try:
++            digest = json.loads(stored.read_text(encoding='utf-8')).get('units_sha256')
++        except ValueError:
++            digest = None
++        if digest != units_digest(unit_list):
++            problems.append('units.json каталога не совпадает со стартами текущего генератора '
++                            f'({str(digest)[:16]}… против {units_digest(unit_list)[:16]}…)')
++    return problems
++
++
+ def main(argv=None):
+     args = parse(argv)
+     params = normalize_params(args.per_cell, args.b_per_cell, args.unit_start, args.years, args.b_years)
+@@ -547,6 +619,14 @@ def main(argv=None):
+     planned = plan_keys(unit_list, params)
+     expected_fp = {k: job_fingerprint(by_id[k[0]], k[1], k[2], implementations)
+                    for keys in planned.values() for k in keys}
++    out_dir = ROOT/args.analysis_dir if args.analysis_dir else run_dir
++    foreign = foreign_rows(jobs_file, expected_fp)
++    problems = guard_run_dir(run_dir, out_dir, foreign, unit_list)
++    if problems:
++        print('ОТКАЗ СТЕНДА (ничего не записано):', flush=True)
++        for problem in problems:
++            print('  - '+problem, flush=True)
++        return 2
+     rows, ignored = read_rows(jobs_file, expected_fp)
+     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
+     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
+@@ -559,6 +639,11 @@ def main(argv=None):
+     if args.stop_file and os.path.exists(args.stop_file) and not args.evaluate_only:
+         print(f'ВНИМАНИЕ: стоп-файл {args.stop_file} уже существует — задания будут сразу остановлены', flush=True)
+     started = time.perf_counter()
++    units_path = run_dir/'units.json'
++    if not units_path.exists() and not args.evaluate_only:
++        tmp = units_path.with_suffix('.tmp')
++        tmp.write_text(json.dumps(units_document(unit_list, params), ensure_ascii=False, default=float), encoding='utf-8')
++        tmp.replace(units_path)
+     if not args.evaluate_only:
+         jobs = [dict(unit=by_id[o], years=y, variant=v, fingerprint=expected_fp[(o, y, v)],
+                      deadline=deadline, stop_file=args.stop_file)
+@@ -575,20 +660,25 @@ def main(argv=None):
+     report(analysis)
+     stopped = sum(1 for r in final_rows if r['run_status'] == 'partial')
+     failed = sum(1 for r in final_rows if r['run_status'] == 'failed')
+-    (run_dir/'analysis.json').write_text(json.dumps(analysis, ensure_ascii=False, indent=1, default=float),
++    out_dir.mkdir(parents=True, exist_ok=True)
++    (out_dir/'analysis.json').write_text(json.dumps(analysis, ensure_ascii=False, indent=1, default=float),
+                                          encoding='utf-8')
+     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+-    (run_dir/'summary.json').write_text(json.dumps(dict(plan=PLAN, stage=STAGE, utc=stamp,
++    (out_dir/'summary.json').write_text(json.dumps(dict(plan=PLAN, stage=STAGE, utc=stamp,
+         stand_version=STAND_VERSION, prototype_version=PROTOTYPE_VERSION, machine=cpu_info(),
+         params=params, full_scope=full_scope, workers=args.workers, deadline_utc=args.deadline_utc,
+         stop_file=args.stop_file, evaluate_only=args.evaluate_only, units=len(unit_list),
+-        units_sha256=units_digest(unit_list), planned=total, done=len(final_rows), stopped=stopped,
++        units_sha256=units_digest(unit_list), generator_numerics=NUMERICS_VERSION,
++        units_file_sha256=file_sha256(units_path) if units_path.exists() else None, planned=total, done=len(final_rows), stopped=stopped,
+         failed=failed, complete=analysis['complete'], decision=analysis['decision'],
+         implementations=implementations, wall_seconds=time.perf_counter()-started),
+         ensure_ascii=False, indent=1, default=float), encoding='utf-8')
+     ok = analysis['complete'] and not failed
++    b_left = sum(level['b_unfinished'] for level in analysis['horizons'].values())
+     print(f"\nИТОГ СТЕНДА: {'все задания завершены' if ok else 'НЕ ЗАВЕРШЕНО или есть отказы'} "
+-          f"({len(final_rows)}/{total}, остановлено {stopped}, отказов {failed}); каталог {shown(run_dir)}")
++          f"({len(final_rows)}/{total}, остановлено {stopped}, отказов {failed}; "
++          f"D/T на всех горизонтах {'завершены' if all(lv['dt_complete'] for lv in analysis['horizons'].values()) else 'НЕ завершены'}, "
++          f"B не завершено {b_left}); каталог {shown(run_dir)}")
+     return 0 if ok else 1
+ 
+ 
+diff --git a/scripts/admission_p2_horizons.py b/scripts/admission_p2_horizons.py
+index 225f859..e342226 100644
+--- a/scripts/admission_p2_horizons.py
++++ b/scripts/admission_p2_horizons.py
+@@ -49,6 +49,7 @@ import numpy as np  # noqa: E402
+ from bench_engines_ac import cpu_info  # noqa: E402
+ from submoon_research.dynamics.compiled_dop853 import (  # noqa: E402
+     PROTOTYPE_VERSION, implementation_fingerprint, integrate_compiled)
++from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
+ from submoon_research.dynamics.engine_compare import NumericMode, integrate_engine  # noqa: E402
+ from submoon_research.workflows.w2_comparison import load_cases, warmup  # noqa: E402
+ 
+@@ -399,6 +400,22 @@ def main():
+     implementations = dict(compiled=implementation_fingerprint(), B=b_fingerprint())
+     expected_fp = {(c['orbit_id'], y, v): job_fingerprint(c, y, v, implementations)
+                    for c in cases for y in args.years for v in ('D', 'T', 'B')}
++    # W2-C067: строки с другим отпечатком (другой код, окружение или генератор) — отказ до записи;
++    # иначе стенд отбросил бы их и перезаписал level_*.json и summary.json завершённого run.
++    mismatched = 0
++    if jobs_file.exists():
++        for line in jobs_file.read_text(encoding='utf-8').splitlines():
++            try:
++                row = json.loads(line)
++                key = (row['orbit_id'], float(row['years']), row['variant'])
++            except (ValueError, KeyError, TypeError):
++                continue
++            if key in expected_fp and row.get('job_fingerprint') != expected_fp[key]:
++                mismatched += 1
++    if mismatched:
++        print(f'ОТКАЗ СТЕНДА (ничего не записано): в jobs.jsonl {mismatched} строк с другим отпечатком; '
++              'продолжение и разбор этого каталога текущим стендом запрещены — новый --run-dir', flush=True)
++        return 2
+     rows, ignored = read_rows(jobs_file, expected_fp)
+     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
+     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
+@@ -487,7 +504,8 @@ def main():
+         workers=args.workers, cases=[c['orbit_id'] for c in cases], levels=[brief(s) for s in core],
+         extension_levels=[brief(s) for s in extension], verdict_passed=verdict,
+         extension_passed=extension_passed, full_scope=full_scope, stand_version=STAND_VERSION,
+-        implementations=implementations, wall_seconds=time.perf_counter()-started),
++        implementations=implementations, generator_numerics=NUMERICS_VERSION,
++        wall_seconds=time.perf_counter()-started),
+         ensure_ascii=False, indent=1, default=float), encoding='utf-8')
+     clean = core_stop is None and ext_stop is None and all(s['counted'] for s in summaries)
+     if verdict:
+diff --git a/scripts/plan_p2_2.py b/scripts/plan_p2_2.py
+index cd98bcd..d24d4c0 100644
+--- a/scripts/plan_p2_2.py
++++ b/scripts/plan_p2_2.py
+@@ -103,7 +103,7 @@ def main():
+                   costs=[], sample_size=[])
+     print(f'единиц {len(points)} (9 ячеек × {args.per_cell}); a/RH0 квантили 10/25/50/75/90%: '
+           + ', '.join(f'{x:.3f}' for x in report['sample']['a_over_rh_quantiles']))
+-    print(f"период, сут, квантили 1/10/50/90%: " + ', '.join(f'{x:.2f}' for x in report['sample']['period_days_quantiles']))
++    print("период, сут, квантили 1/10/50/90%: " + ', '.join(f'{x:.2f}' for x in report['sample']['period_days_quantiles']))
+     print(f"\n{'H, лет':>7} {'c':>4} {'выжив.':>7} {'D, ядро-ч':>10} {'T, ядро-ч':>10} {'B подвыб., ядро-ч':>18} {'макс. T, ч':>11} {'макс. B, ч':>11}")
+     b_points = [p for p in points if p['unit'] < args.b_per_cell]
+     for horizon in args.horizons:
+diff --git a/scripts/vast_cpu_matrix.py b/scripts/vast_cpu_matrix.py
+index 434a1ca..4d30da6 100644
+--- a/scripts/vast_cpu_matrix.py
++++ b/scripts/vast_cpu_matrix.py
+@@ -14,7 +14,6 @@ import subprocess
+ import sys
+ import tarfile
+ import time
+-import urllib.request
+ from pathlib import Path
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parent))
+@@ -86,16 +85,15 @@ def candidates(machine):
+ 
+ 
+ def fetch_offers(machine):
+-    body = {'rentable': {'eq': True}, 'rented': {'eq': False}, 'type': 'on-demand',
+-            'allocated_storage': 40, 'limit': 10, 'cpu_arch': {'eq': 'amd64'},
+-            'disk_space': {'gte': 20}, 'machine_id': {'eq': int(machine['machine_id'])}}
+-    request = urllib.request.Request(BUNDLES, data=json.dumps(body).encode(),
+-        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
+-    opened = urllib.request.build_opener(urllib.request.ProxyHandler({})).open(request, timeout=90)
+-    with opened as response:
+-        data = json.loads(response.read().decode('utf-8', 'replace'))
+-    offers = data.get('offers', []) if isinstance(data, dict) else []
+-    return [o for o in offers if int(o.get('id', -1)) == int(machine['offer_id'])]
++    """Бесплатная перепроверка одной машины общим поиском (W2-T017, market_search.recheck)."""
++    src = str(ROOT/'src')
++    if src not in sys.path:
++        sys.path.insert(0, src)
++    from submoon_research.compute.market_search import MarketConfig, recheck
++    check = recheck(machine['offer_id'], machine['machine_id'], MarketConfig(storage_gb=40., timeout=90.))
++    if check['status'] == 'error':
++        raise RuntimeError('Перепроверка оффера не удалась: '+str(check['reason']))
++    return [check['offer']] if check['status'] == 'available' else []
+ 
+ 
+ def package_min():
+diff --git a/scripts/vast_p2.py b/scripts/vast_p2.py
+index 92d7fc7..ba6ef90 100644
+--- a/scripts/vast_p2.py
++++ b/scripts/vast_p2.py
+@@ -1,4 +1,8 @@
+-"""W2-P004 / P2-1 (вариант В) на одной арендованной CPU-машине Vast.ai.
++"""W2-P004: P2-1 (вариант В) или P2-2a (W2-P006) на одной арендованной CPU-машине Vast.ai.
++
++Сценарий задаётся approval['scenario']: 'p2_1' (по умолчанию, прежний стенд admission_p2_horizons)
++или 'p2_2a' (W2-T019: гейты, железо, базовый прогон с автоматическим решением
++baseline_gate_p2_2.py, полный стенд admission_p2_2.py со сроком и стоп-файлом, приёмка на сервере).
+ 
+ Запуск глобальным Python Windows с установленными vastai и paramiko (как vast_w2.py);
+ SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копируются и в файлы не пишутся.
+@@ -8,9 +12,11 @@ SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копир
+ 
+ Действия:
+   preflight — CLI, SSH-ключ, paramiko, approval, баланс (без затрат)
+-  offers    — бесплатный анонимный поиск подходящих машин -> scratch/p2_rental/offers.json
++  offers    — бесплатный поиск через общий поиск vast_find (W2-T017) -> scratch/p2_rental/offers.json;
++              GPU-инстансы — только при approval['allow_gpu']; профиль оценки — approval['profile']
+   prepare   — пакет проекта с манифестом SHA -> scratch/p2_rental/bundle.tar.gz
+-  rent      — аренда ОДНОГО инстанса из offers.json в пределах approval (платно)
++  rent      — аренда ОДНОГО инстанса из offers.json в пределах approval (платно); перед create —
++              бесплатная перепроверка машины, занятые пропускаются без траты попытки
+   wait      — ожидание состояния running (иначе удаление по таймауту)
+   seed      — выборка готовых строк прежнего run для переиспользования (approval['seed'], W2-D021)
+               -> scratch/p2_rental/seed_jobs.jsonl + seed_info.json (без затрат)
+@@ -35,6 +41,7 @@ import time
+ import urllib.request
+ from datetime import datetime, timezone
+ from pathlib import Path
++from typing import Any
+ 
+ sys.path.insert(0, str(Path(__file__).resolve().parent))
+ import vast_w2 as vw  # noqa: E402
+@@ -52,9 +59,30 @@ STOP_FILE = '/workspace/p2_stop'
+ SEED = WORK/'seed_jobs.jsonl'
+ SEED_INFO = WORK/'seed_info.json'
+ DEFAULT_RUN_DEADLINE_HOURS = 13.5
++SCENARIOS = {'p2_1': 'W2-P2-1', 'p2_2a': 'W2-P2-2a'}
++# Полный P2-2a (W2-P006) и базовый прогон (W2-T019): параметры стенда и приёмщика.
++P2_2A_FULL = '--per-cell 128 --b-per-cell 16 --unit-start 0 --years 1 10 100 1000 --b-years 100 1000'
++P2_2A_BASELINE = '--per-cell 4 --b-per-cell 4 --unit-start 0 --years 1 10 --b-years 1'
++P2_2A_GATE_TESTS = ('tests/unit/test_compiled_dop853.py tests/unit/test_admission_evaluators.py '
++                    'tests/unit/test_events_shared_samples.py tests/unit/test_native_ias15_guard.py '
++                    'tests/unit/test_high_e_rule.py tests/unit/test_horizon_independence.py '
++                    'tests/unit/test_p2_2_stand.py tests/unit/test_verify_p2_2_run.py '
++                    'tests/unit/test_baseline_gate_p2_2.py')
++
++
++def scenario_of(record):
++    """Сценарий approval/rental; прежние записи без поля — P2-1."""
++    name = (record or {}).get('scenario', 'p2_1')
++    if name not in SCENARIOS:
++        raise ValueError(f'Неизвестный сценарий {name!r}; допустимы {sorted(SCENARIOS)}')
++    return name
+ 
+ 
+-def load(path, default=None):
++def run_dir_of(rental):
++    return f"runs/{SCENARIOS[scenario_of(rental)]}-{int(rental['instance_id'])}"
++
++
++def load(path, default=None) -> Any:
+     return json.loads(path.read_text(encoding='utf-8')) if path.exists() else default
+ 
+ 
+@@ -70,6 +98,12 @@ def approval():
+         raise ValueError('Нет полного явного разрешения пользователя в '+str(APPROVAL))
+     if float(value['max_hourly_usd'])*float(value['max_hours']) > float(value['budget_usd']):
+         raise ValueError('Ставка x длительность превышает бюджет approval')
++    if scenario_of(value) == 'p2_2a':
++        for key in ('min_workers', 'run_deadline_hours'):
++            if key not in value:
++                raise ValueError(f'Для сценария p2_2a в approval нужен {key}')
++        if value.get('seed'):
++            raise ValueError('seed применим только к сценарию p2_1')
+     return value
+ 
+ 
+@@ -98,7 +132,7 @@ def _credit_usd():
+ def preflight():
+     plan = approval()
+     key = Path.home()/'.ssh/vast_agent'
+-    checks = dict(cli=bool(vw.CLI), ssh_key=key.exists(), approval=True)
++    checks: dict[str, Any] = dict(cli=bool(vw.CLI), ssh_key=key.exists(), approval=True)
+     try:
+         import paramiko  # noqa: F401
+         checks['paramiko'] = True
+@@ -120,43 +154,54 @@ def preflight():
+         raise SystemExit('preflight: не пройдено')
+ 
+ 
+-def search_offers():
++def _finder():
++    src = str(ROOT/'src')
++    if src not in sys.path:
++        sys.path.insert(0, src)
++    from submoon_research.compute import finder
++    return finder
++
++
++def search_profile(plan):
++    """Профиль общего поиска (W2-T017) из approval: пределы approval главнее профиля.
++
++    approval['profile'] — имя профиля configs/compute/profiles (оценка часов и $ на серию);
++    без него — ранжирование по цене эталонного ядра. approval['allow_gpu'] — разрешить
++    GPU-инстансы (на рынке Vast.ai почти все вычислительные предложения такие)."""
++    finder = _finder()
++    overrides = dict(min_effective_cpus=float(plan['min_effective_cpus']),
++                     max_hourly_usd=float(plan['max_hourly_usd']), disk_gb=float(plan.get('disk_gb', 60)),
++                     min_ram_gb=float(plan.get('min_ram_gb', 64)),
++                     min_reliability=float(plan.get('min_reliability', 0.97)),
++                     cpu_regex=plan['cpu_name_regex'], allow_gpu=bool(plan.get('allow_gpu', False)),
++                     min_direct_ports=1, max_hours=float(plan['max_hours']))
++    for key in ('min_share', 'verification', 'min_core_speed', 'require_known_cpu'):
++        if key in plan:
++            overrides[key] = plan[key]
++    if plan.get('profile'):
++        return finder.load_profile(plan['profile'], overrides)
++    return finder.make_profile(dict(title='approval '+str(plan.get('task', '')), source=str(APPROVAL)),
++                               'approval', overrides)
++
++
++def search_offers(request=None, sleep=None):
+     plan = approval()
+-    body = {'rentable': {'eq': True}, 'rented': {'eq': False}, 'type': 'on-demand',
+-            'allocated_storage': int(plan.get('disk_gb', 60)), 'order': [['dph_total', 'asc']],
+-            'limit': 1000, 'cpu_arch': {'eq': 'amd64'}, 'num_gpus': {'eq': 0},
+-            'disk_space': {'gte': int(plan.get('disk_gb', 60))},
+-            'cpu_cores_effective': {'gte': int(plan['min_effective_cpus'])},
+-            'dph_total': {'lte': float(plan['max_hourly_usd'])},
+-            'reliability': {'gte': float(plan.get('min_reliability', 0.97))}}
+-    request = urllib.request.Request(BUNDLES, data=json.dumps(body).encode(),
+-        headers={'Content-Type': 'application/json', 'Accept': 'application/json'}, method='POST')
+-    opener = urllib.request.build_opener(urllib.request.ProxyHandler({}))
+-    with opener.open(request, timeout=120) as response:
+-        data = json.loads(response.read().decode('utf-8', 'replace'))
+-    raw = data.get('offers', []) if isinstance(data, dict) else []
+-    pattern = re.compile(plan['cpu_name_regex'], re.I)
+-    min_ram = float(plan.get('min_ram_gb', 64))*1000
+-    found = []
+-    for o in raw:
+-        clean = {k: o.get(k) for k in vw.SAFE_OFFER_FIELDS}
+-        if clean.get('resource_type') not in ('cpu', 'compute'):
+-            continue  # num_gpus=0 включает дисковые контракты
+-        if not pattern.search(clean.get('cpu_name') or ''):
+-            continue
+-        if float(clean.get('cpu_ram') or 0) < min_ram:
+-            continue
+-        clean['usd_per_effective_core_hour'] = float(clean['dph_total'])/max(1, int(clean['cpu_cores_effective']))
+-        found.append(clean)
+-    # Дешевле ядро-час — выше; при равенстве надёжнее машина.
+-    found.sort(key=lambda o: (o['usd_per_effective_core_hour'], -(o.get('reliability') or 0)))
+-    save(WORK/'offers.json', dict(utc=vw.now(), source='anonymous_bundles', filter=body,
+-                                  cpu_name_regex=plan['cpu_name_regex'], offers=found))
+-    for o in found[:15]:
+-        print(json.dumps({k: o.get(k) for k in ('id', 'machine_id', 'cpu_name', 'cpu_cores_effective',
+-              'cpu_ram', 'dph_total', 'reliability', 'geolocation', 'disk_space')}, ensure_ascii=False))
+-    print(f'подходящих предложений: {len(found)}; сохранено в {WORK/"offers.json"}')
+-    return found
++    finder = _finder()
++    profile = search_profile(plan)
++    result = finder.find(profile, request=request, sleep=sleep)
++    document = finder.offers_document(result)
++    document['cpu_name_regex'] = plan['cpu_name_regex']
++    save(WORK/'offers.json', document)
++    search = result['search']
++    print('поиск до насыщения (без гарантии полноты):', ', '.join(f"{p['name']} +{p['new']}" for p in search['passes']))
++    for o in document['offers'][:15]:
++        est = (o['finder'].get('estimate') or {})
++        print(json.dumps({**{k: o.get(k) for k in ('id', 'machine_id', 'cpu_name', 'cpu_cores_effective',
++              'cpu_cores', 'cpu_ram', 'dph_total', 'reliability', 'verification', 'geolocation')},
++              'hours': est.get('hours'), 'usd': est.get('usd'), 'flags': o['finder']['flags']}, ensure_ascii=False))
++    print(f"подходящих предложений: {len(document['offers'])}; запросов {search['queries']}; "
++          f"отсеяно {result['rejected']}; сохранено в {WORK/'offers.json'}")
++    return document['offers']
+ 
+ 
+ def prepare():
+@@ -194,6 +239,25 @@ def prepare():
+     print(json.dumps(info))
+ 
+ 
++def _first_still_available(offers, plan, request=None):
++    """Бесплатная перепроверка перед create (W2-T017): машина свободна, цена и ядра в пределах."""
++    finder = _finder()
++    profile = search_profile(plan)
++    limits = profile['requirements']
++    for offer in offers:
++        check = finder.recheck(offer, limits, request=request)
++        if check['status'] == 'error':
++            raise RuntimeError(f"Перепроверка {offer['id']} не удалась ({check['reason']}); аренда запрещена")
++        fresh = check['offer'] or {}
++        if check['status'] == 'available':
++            row, reason = finder.evaluate(fresh, profile, finder.Catalog.load())
++            if reason is None and 'over_deadline' not in row['flags']:
++                return dict(fresh, dph_total=row['usd_per_hour'], finder=dict(estimate=row['estimate'], flags=row['flags']))
++            check.update(status='requirements_changed', reason=reason or 'over_deadline')
++        print(f"оффер {offer['id']} (машина {offer.get('machine_id')}) пропущен: {check['status']} {check['reason'] or ''}")
++    raise RuntimeError('Ни одно предложение из offers.json не прошло перепроверку; выполните offers заново')
++
++
+ def rent(offer_id=None):
+     plan = approval()
+     current = load(RENTAL)
+@@ -209,18 +273,19 @@ def rent(offer_id=None):
+     offers = [o for o in offers if o['id'] not in tried]
+     if not offers:
+         raise RuntimeError('Нет подходящего предложения в offers.json (выполните offers)')
+-    offer = offers[0]
++    offer = _first_still_available(offers, plan)
+     if float(offer['dph_total']) > float(plan['max_hourly_usd']):
+         raise RuntimeError('Цена выше предела approval')
+     result = vw.cli('create', 'instance', offer['id'], '--image', plan.get('image', 'ubuntu:22.04'),
+                     '--disk', int(plan.get('disk_gb', 60)), '--ssh', '--direct', '--cancel-unavail',
+-                    '--label', 'submoon-w2-p2-1')
++                    '--label', 'submoon-w2-'+scenario_of(plan).replace('_', '-'))
+     iid = result.get('new_contract') if isinstance(result, dict) else None
+     history['attempts'].append(dict(utc=vw.now(), offer_id=offer['id'], instance_id=iid))
+     save(WORK/'attempts.json', history)
+     if not isinstance(iid, int):
+         raise RuntimeError('Не подтверждён create instance')
+-    record = dict(instance_id=iid, status='created', created_utc=vw.now(), created_epoch=time.time(),
++    record = dict(instance_id=iid, scenario=scenario_of(plan), status='created', created_utc=vw.now(),
++                  created_epoch=time.time(),
+                   deadline_epoch=time.time()+float(plan['max_hours'])*3600, offer=offer,
+                   approval_ref=plan['user_message'], budget_usd=plan['budget_usd'])
+     save(RENTAL, record)
+@@ -328,6 +393,8 @@ def make_seed():
+ 
+ 
+ def _start_script(rental):
++    if scenario_of(rental) == 'p2_2a':
++        return _start_script_p2_2a(rental)
+     iid = int(rental['instance_id'])
+     workers = _workers(rental['offer'])
+     run_dir = f'runs/W2-P2-1-{iid}'
+@@ -373,6 +440,81 @@ echo "done exit=$? $(date -u +%FT%TZ)" > $STATUS
+ '''
+ 
+ 
++_SETUP_BLOCK = f'''set -uo pipefail
++export DEBIAN_FRONTEND=noninteractive
++STATUS=/workspace/p2_status
++fail() {{ echo "FAILED $1 $(date -u +%FT%TZ)" > $STATUS; exit 1; }}
++echo "setup $(date -u +%FT%TZ)" > $STATUS
++apt-get update -qq || fail apt-update
++apt-get install -y -qq python3 python3-venv python3-dev build-essential git || fail apt-install
++cd {REMOTE_ROOT}
++python3 -m venv .venv || fail venv
++.venv/bin/python -m pip install --disable-pip-version-check -q -r requirements-w2.txt || fail pip
++.venv/bin/python -m pip install --disable-pip-version-check -q --no-deps -e . || fail pip-project
++.venv/bin/python -m pip freeze > /workspace/p2_pip_freeze.txt
++export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMBA_NUM_THREADS=1
++'''
++
++# Физические ядра в пределах affinity контейнера (а не всей машины), квота cgroup и RAM.
++_HARDWARE_BLOCK = r"""PHYS=$(python3 - <<'PY'
++import os, subprocess
++allowed = os.sched_getaffinity(0)
++cores = set()
++for line in subprocess.check_output(['lscpu', '-p=CPU,CORE,SOCKET']).decode().splitlines():
++    if line.startswith('#'):
++        continue
++    cpu, core, socket = line.split(',')[:3]
++    if int(cpu) in allowed:
++        cores.add((socket, core))
++print(len(cores))
++PY
++)
++QUOTA=$(awk '$1!="max"{printf "%d", $1/$2}' /sys/fs/cgroup/cpu.max 2>/dev/null)
++MEMB=$(cat /sys/fs/cgroup/memory.max 2>/dev/null || echo max)
++if [ "$MEMB" = "max" ] || [ -z "$MEMB" ]; then MEMB=$(awk '/MemTotal/{printf "%d", $2*1024}' /proc/meminfo); fi
++MEMW=$(( MEMB / 483183820 ))
++"""
++
++
++def _start_script_p2_2a(rental):
++    """P2-2a (W2-T019): гейты → железо → базовый прогон и автоматическое решение → полный стенд.
++    Срок стенда — абсолютный (создание + run_deadline_hours); стенд сам останавливает задания к сроку."""
++    iid = int(rental['instance_id'])
++    workers = _workers(rental['offer'])
++    run_dir = run_dir_of(rental)
++    base_dir = f'runs/W2-P2-2a-baseline-{iid}'
++    deadline = rental['run_deadline_utc']
++    min_workers = int(rental['min_workers'])
++    margin = float(rental.get('baseline_margin', 1.15))
++    return f'''#!/bin/bash
++{_SETUP_BLOCK}export W2_REMOTE_EXECUTION=1 W2_INSTANCE_ID={iid}
++rm -f {STOP_FILE}
++echo "gates $(date -u +%FT%TZ)" > $STATUS
++.venv/bin/python -c "import rebound, reboundx" || fail reboundx
++.venv/bin/python -m pytest -q {P2_2A_GATE_TESTS} || fail pytest
++.venv/bin/python -m ruff check src scripts tests || fail ruff
++mkdir -p {run_dir} {base_dir}
++{{ date -u +%FT%TZ; lscpu; echo; nproc; cat /sys/fs/cgroup/cpu.max; cat /sys/fs/cgroup/memory.max; grep -E 'MemTotal|MemAvailable' /proc/meminfo; df -h /workspace; python3 -c "import os; print('affinity', sorted(os.sched_getaffinity(0)))"; }} > {run_dir}/hardware.txt 2>&1
++{_HARDWARE_BLOCK}W={workers}
++if [ "$PHYS" -gt 0 ] && [ "$PHYS" -lt "$W" ]; then W=$PHYS; fi
++if [ -n "$QUOTA" ] && [ "$QUOTA" -gt 0 ] && [ "$QUOTA" -lt "$W" ]; then W=$QUOTA; fi
++if [ "$MEMW" -gt 0 ] && [ "$MEMW" -lt "$W" ]; then W=$MEMW; fi
++echo "hardware physical=$PHYS quota=${{QUOTA:-none}} mem_workers=$MEMW offer_limit={workers} workers=$W min_workers={min_workers}" >> {run_dir}/hardware.txt
++[ "$W" -ge {min_workers} ] || fail hardware
++echo "baseline $(date -u +%FT%TZ) workers=$W" > $STATUS
++BDL=$(date -u -d '+30 min' +%Y-%m-%dT%H:%M:%SZ)
++.venv/bin/python -u scripts/admission_p2_2.py {P2_2A_BASELINE} --workers $W --run-dir {base_dir} --deadline-utc $BDL --stop-file {STOP_FILE} 2>&1 | tee {base_dir}/stand_stdout.log
++.venv/bin/python scripts/verify_p2_2_run.py --run {base_dir} {P2_2A_BASELINE} --expect-complete --output {base_dir}/acceptance.json || fail baseline-accept
++.venv/bin/python scripts/baseline_gate_p2_2.py --baseline {base_dir} --workers $W --deadline-utc {deadline} --margin {margin} --output {run_dir}/baseline_gate.json || fail baseline
++echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=none seed_rows=0 deadline={deadline}" > $STATUS
++.venv/bin/python -u scripts/admission_p2_2.py {P2_2A_FULL} --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir} 2>&1 | tee -a {run_dir}/stand_stdout.log
++EXIT=${{PIPESTATUS[0]}}
++.venv/bin/python scripts/verify_p2_2_run.py --run {run_dir} --expect-full --expect-decision-ready --output {run_dir}/acceptance.json > {run_dir}/acceptance_stdout.log 2>&1
++ACC=$?
++echo "done exit=$EXIT accept=$ACC $(date -u +%FT%TZ)" > $STATUS
++'''
++
++
+ def deploy():
+     rental = load(RENTAL)
+     if not rental or rental.get('status') not in ('running', 'created'):
+@@ -406,7 +548,7 @@ def deploy():
+             info = load(SEED_INFO)
+             if not info or not SEED.exists() or vw.digest(SEED) != info.get('seed_sha256'):
+                 raise RuntimeError('Нет согласованного seed: сначала действие seed')
+-            remote_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
++            remote_dir = f'{REMOTE_ROOT}/{run_dir_of(rental)}'
+             remote_jobs = remote_dir+'/jobs.jsonl'
+             vw.remote_command(client, 'mkdir -p '+remote_dir)
+             if vw.remote_command(client, 'test ! -e '+remote_jobs+' && echo absent').strip() != 'absent':
+@@ -416,6 +558,12 @@ def deploy():
+                 raise RuntimeError('SHA seed на сервере не совпал')
+             rental['seed'] = info
+         rental['pcores_only'] = bool(plan.get('pcores_only'))
++        rental['scenario'] = scenario_of(plan)
++        if rental['scenario'] == 'p2_2a':
++            if rental['pcores_only']:
++                raise ValueError('pcores_only для p2_2a не поддержан')
++            rental['min_workers'] = int(plan['min_workers'])
++            rental['baseline_margin'] = float(plan.get('baseline_margin', 1.15))
+         script = WORK/f'start_{rental["instance_id"]}.sh'
+         script.write_text(_start_script(rental), encoding='utf-8', newline='\n')
+         vw.put_if_missing_or_identical(client, sftp, script, '/workspace/p2_start.sh')
+@@ -435,7 +583,7 @@ def _parse_running_stage(text):
+     В rental.json прежде попадал только предел по предложению (32 при фактических 8, W2-C034)."""
+     if not text.startswith('running '):
+         return None
+-    fields = dict(m.groups() for m in re.finditer(r'(\w+)=(\S+)', text))
++    fields = {m.group(1): m.group(2) for m in re.finditer(r'(\w+)=(\S+)', text)}
+     actual = {}
+     if 'workers' in fields:
+         actual['workers'] = int(fields['workers'])
+@@ -467,13 +615,16 @@ def status():
+     if info.get('actual_status') == 'running':
+         try:
+             with vw.connection(info) as client:
+-                run_dir = f'{REMOTE_ROOT}/runs/W2-P2-1-{rental["instance_id"]}'
++                run_dir = f'{REMOTE_ROOT}/{run_dir_of(rental)}'
+                 out['remote_stage'] = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
+                 actual = _parse_running_stage(out['remote_stage'])
+                 if actual and any(rental.get(k) != v for k, v in actual.items()):
+                     rental.update(actual)  # фактические workers/pin/seed со строки этапа
+                     save(RENTAL, rental)
+                 out['progress'] = vw.remote_command(client, f'cat {run_dir}/progress.json 2>/dev/null || echo none', 20).strip()[:1500]
++                if scenario_of(rental) == 'p2_2a':
++                    out['baseline_gate'] = vw.remote_command(
++                        client, f'cat {run_dir}/baseline_gate.json 2>/dev/null || echo none', 20).strip()[:1500]
+                 out['log_tail'] = vw.remote_command(client, f'tail -n 15 {rental.get("remote_log", "/dev/null")} 2>/dev/null', 20)[-2500:]
+         except Exception as exc:
+             out['ssh'] = type(exc).__name__
+@@ -495,7 +646,7 @@ def wrapup():
+     vw.WORK = WORK
+     with vw.connection(info) as client:
+         stage = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
+-        if not stage.startswith('running'):
++        if not stage.startswith(('running', 'baseline')):  # baseline — только сценарий p2_2a
+             print(json.dumps(dict(stage=stage, action='стоп-файл не нужен'), ensure_ascii=False))
+             return
+         vw.remote_command(client, f'touch {STOP_FILE}', 20)
+@@ -512,8 +663,9 @@ def download():
+     vw.WORK = WORK
+     pack = f'''import hashlib, json, pathlib, tarfile
+ root = pathlib.Path("{REMOTE_ROOT}")
+-files = [p for d in sorted((root/"runs").glob("W2-P2-1*{iid}")) for p in d.rglob("*") if p.is_file()]
+-extra = [pathlib.Path(x) for x in ("/workspace/p2_status", "{rental.get('remote_log', '')}", "/workspace/p2_pip_freeze.txt")]
++files = [p for d in sorted((root/"runs").glob("{SCENARIOS[scenario_of(rental)]}*{iid}")) for p in d.rglob("*") if p.is_file()]
++extra = [pathlib.Path(x) for x in ("/workspace/p2_status", "{rental.get('remote_log', '')}", "/workspace/p2_pip_freeze.txt",
++                                   "/workspace/p2_start.sh")]
+ with tarfile.open("/workspace/p2_results.tar.gz", "w:gz", compresslevel=1) as tar:
+     for p in files:
+         tar.add(p, arcname=p.relative_to(root).as_posix())
+@@ -533,7 +685,7 @@ print(len(files))
+         sftp.close()
+     if vw.digest(target) != remote_hash:
+         raise RuntimeError('SHA выгруженного архива не совпал')
+-    stats = _extract_results(target, iid)
++    stats = _extract_results(target, iid, prefix='runs/'+SCENARIOS[scenario_of(rental)])
+     rental.update(downloaded_utc=vw.now(), result_archive_sha256=remote_hash, remote_files=int(count),
+                   extracted_files=stats['written'], extract_stats=stats,
+                   result_archive=str(target.relative_to(ROOT)))
+@@ -541,7 +693,7 @@ print(len(files))
+     print(json.dumps(dict(instance_id=iid, files=int(count), sha256=remote_hash, **stats)))
+ 
+ 
+-def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
++def _extract_results(archive, iid, *, root=None, work=None, stamp=None, prefix='runs/W2-P2-1'):
+     """Распаковка архива результатов со сверкой SHA-256 каждого файла.
+ 
+     Прежде существующий файл молча пропускался: устаревший jobs.jsonl (17:41, 9.1 МБ против
+@@ -555,7 +707,7 @@ def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
+     root = Path(root or ROOT)
+     work = Path(work or WORK)
+     stamp = stamp or datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+-    stats = dict(written=0, new=0, unchanged=0, replaced=0, superseded_dir=None)
++    stats: dict[str, Any] = dict(written=0, new=0, unchanged=0, replaced=0, superseded_dir=None)
+     with tarfile.open(archive, 'r:gz') as tar:
+         for member in tar.getmembers():
+             if not member.isfile():
+@@ -566,11 +718,14 @@ def _extract_results(archive, iid, *, root=None, work=None, stamp=None):
+                 raise ValueError('Путь вне разрешённой области: '+name)
+             if name.startswith('remote_logs/'):
+                 destination = work/f'remote_logs_{iid}'/Path(name).name
+-            elif name.startswith('runs/W2-P2-1'):
++            elif name.startswith(prefix):
+                 destination = root/name
+             else:
+                 raise ValueError('Путь вне разрешённой области: '+name)
+-            data = tar.extractfile(member).read()
++            stream = tar.extractfile(member)
++            if stream is None:
++                raise ValueError('Нет содержимого файла в архиве: '+name)
++            data = stream.read()
+             if destination.exists():
+                 if hashlib.sha256(destination.read_bytes()).hexdigest() == hashlib.sha256(data).hexdigest():
+                     stats['unchanged'] += 1
+@@ -618,10 +773,14 @@ def finish(partial=False):
+         save(RENTAL, rental)
+         raise SystemExit('Выгрузка не удалась; инстанс НЕ удалён. Повторите finish или по указанию — destroy.')
+     destroy()
++    rental = load(RENTAL)
++    if scenario_of(rental) == 'p2_2a':
++        print('Дальше локально в WSL (REBOUNDx): строгая приёмка выгруженного run — '
++              f"verify_p2_2_run.py --run {run_dir_of(rental)} --expect-full --expect-decision-ready")
+ 
+ 
+ def main(argv=None):
+-    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
++    parser = argparse.ArgumentParser(description=(__doc__ or '').splitlines()[0])
+     parser.add_argument('action', choices=('preflight', 'offers', 'prepare', 'seed', 'rent', 'wait', 'deploy',
+                                            'status', 'wrapup', 'download', 'finish', 'destroy'))
+     parser.add_argument('--offer-id', type=int, default=None)
+diff --git a/scripts/vast_w2.py b/scripts/vast_w2.py
+index c1b88b6..c765116 100644
+--- a/scripts/vast_w2.py
++++ b/scripts/vast_w2.py
+@@ -125,7 +125,8 @@ def offers(gpu=False, max_hourly_usd=None, offer_ids=None, machine_ids=None):
+                      '--limit', max(200, len(offer_ids or [])), '--order', 'dph_total')
+         source = 'cli'
+     clean = [{k: r.get(k) for k in SAFE_OFFER_FIELDS} for r in result if isinstance(r, dict)]
+-    clean = [o for o in clean if o.get('id') is not None]
++    clean = [o for o in clean if o.get('id') is not None
++             and o.get('verification') in ('verified', 'unverified')]  # W2-D029
+     save(WORK/'offers_classification.json', dict(utc=now(), source=source, all_offers=clean))
+     clean = [o for o in clean if (True if gpu else CPU_PATTERN.search(o['cpu_name'] or ''))]
+     # num_gpus=0 включает дисковые контракты! Имя CPU не даёт права вычислений.
+@@ -321,7 +322,8 @@ def rent(approval_path):
+                and o['cpu_cores_effective'] >= 16
+                and (o['resource_type'] == 'gpu' and o['num_gpus'] >= 1 and o['cpu_ram'] >= 30000
+                     if approval.get('gpu_fallback') else o['resource_type'] in ('cpu', 'compute') and o['num_gpus'] == 0)
+-               and (o['verification'] == 'verified' or approval.get('allow_unverified'))]
++               and (o['verification'] == 'verified'
++                    or o['verification'] == 'unverified' and approval.get('allow_unverified'))]
+     if approved_ids and len(allowed) != 1:
+         raise RuntimeError('Точный offer_id не найден или неоднозначен')
+     if not allowed:
+diff --git a/scripts/verify_p2_2_run.py b/scripts/verify_p2_2_run.py
+index e43bcc9..d7266d0 100644
+--- a/scripts/verify_p2_2_run.py
++++ b/scripts/verify_p2_2_run.py
+@@ -10,6 +10,12 @@
+ и summary.json. Любое расхождение — провал (код выхода 1).
+ 
+     python scripts/verify_p2_2_run.py --run runs/W2-P2-2a-<id> --expect-full --expect-complete
++
++--float-rtol (W2-D036) — допуск для производных float при пересчёте в другом окружении (версии
++Python/scipy дают расхождения в последних битах сумм и квантилей); по умолчанию 0.
++
++--expect-decision-ready (W2-D026) — вместо --expect-complete, когда задания B на финальном
++горизонте остановлены сроком: D и T должны быть завершены без отказов на всех горизонтах.
+ """
+ from __future__ import annotations
+ 
+@@ -42,24 +48,33 @@ def roundtrip(value):
+     return json.loads(json.dumps(value, ensure_ascii=False, default=float))
+ 
+ 
+-def differences(got, ref, path='', limit=10):
+-    """Пути, где пересчитанное расходится с сохранённым (первые limit)."""
++def floats_close(got, ref, rtol):
++    """W2-D036: производные float сравниваются точно (rtol=0) или с относительным допуском."""
++    if not (isinstance(got, float) and isinstance(ref, float)):
++        return False
++    if math.isnan(got) and math.isnan(ref):
++        return True
++    return rtol > 0 and math.isfinite(got) and math.isfinite(ref) and abs(got-ref) <= rtol*max(abs(got), abs(ref))
++
++
++def differences(got, ref, path='', limit=10, rtol=0.0):
++    """Пути, где пересчитанное расходится с сохранённым (первые limit). Целые, строки, булевы,
++    структура и состав сравниваются всегда точно; float — точно или с допуском rtol (W2-D036)."""
+     out = []
+     if isinstance(got, dict) and isinstance(ref, dict):
+         for k in sorted(set(got) | set(ref), key=str):
+             if k not in got or k not in ref:
+                 out.append(f'{path}/{k}: есть только в {"пересчёте" if k in got else "сохранённом"}')
+             else:
+-                out += differences(got[k], ref[k], f'{path}/{k}', limit)
++                out += differences(got[k], ref[k], f'{path}/{k}', limit, rtol)
+             if len(out) >= limit:
+                 break
+     elif isinstance(got, list) and isinstance(ref, list) and len(got) == len(ref):
+         for i, (a, b) in enumerate(zip(got, ref)):
+-            out += differences(a, b, f'{path}[{i}]', limit)
++            out += differences(a, b, f'{path}[{i}]', limit, rtol)
+             if len(out) >= limit:
+                 break
+-    elif got != ref and not (isinstance(got, float) and isinstance(ref, float)
+-                             and math.isnan(got) and math.isnan(ref)):
++    elif got != ref and not floats_close(got, ref, rtol):
+         out.append(f'{path}: пересчитано {str(got)[:80]}, сохранено {str(ref)[:80]}')
+     return out[:limit]
+ 
+@@ -114,8 +129,35 @@ def check_unit_row(row, unit, stand, summary):
+     return failures
+ 
+ 
++def numerics_of(run):
++    """Режим генератора для проверки run: 'exact-fsum-v1' у новых, 'legacy-blas' у run до W2-I035."""
++    from submoon_research.exact_linalg import LEGACY
++    try:
++        summary = json.loads((ROOT/run/'summary.json').read_text(encoding='utf-8'))
++    except (OSError, ValueError):
++        return None
++    return summary.get('generator_numerics', LEGACY)
++
++
+ def verify(args):
++    """Проверка в той численной схеме генератора, которой создан run (W2-D036)."""
++    from submoon_research.exact_linalg import LEGACY, NUMERICS_VERSION, numerics
++    name = numerics_of(args.run)
++    if name not in (None, LEGACY, NUMERICS_VERSION):
++        return dict(run=args.run, passed=False, checks=dict(generator_numerics=name),
++                    failures=[f'summary.generator_numerics = {name!r}: неизвестная численная схема генератора'])
++    with numerics(name or NUMERICS_VERSION):
++        report = _verify(args, name)
++    report['checks']['generator_numerics'] = name
++    return report
++
++
++def _verify(args, numerics_name):
+     failures, checks = [], {}
++    rtol = float(args.float_rtol)
++    if not 0 <= rtol <= 1e-9:
++        return dict(run=args.run, passed=False, failures=['--float-rtol вне [0, 1e-9]'], checks=checks)
++    checks['float_rtol'] = rtol
+     run = ROOT/args.run
+     stand = stand_module()
+     try:
+@@ -132,6 +174,24 @@ def verify(args):
+         stored = json.loads((run/'analysis.json').read_text(encoding='utf-8'))
+     except (OSError, ValueError) as exc:
+         return dict(run=args.run, passed=False, failures=[f'нет или повреждён summary/analysis: {exc}'], checks=checks)
++    units_file = run/'units.json'
++    if units_file.exists():
++        try:
++            doc = json.loads(units_file.read_text(encoding='utf-8'))
++            file_digest = stand.units_digest(doc['units'])
++        except (ValueError, KeyError, TypeError) as exc:
++            failures.append(f'units.json повреждён: {exc}')
++            checks['units_file'] = 'invalid'
++        else:
++            import hashlib
++            raw_sha = hashlib.sha256(units_file.read_bytes()).hexdigest()
++            if not (doc.get('units_sha256') == file_digest == summary.get('units_sha256')):
++                failures.append('units.json: стартовые векторы не совпадают с summary.units_sha256')
++            if summary.get('units_file_sha256') not in (None, raw_sha):
++                failures.append('units.json: SHA-256 файла не совпадает с summary.units_file_sha256')
++            checks['units_file'] = 'match' if not any(f.startswith('units.json') for f in failures) else 'mismatch'
++    else:
++        checks['units_file'] = 'absent'
+     raw = read_jsonl(run/'jobs.jsonl', failures)
+     implementations = summary.get('implementations') or {}
+     if set(implementations) != {'compiled', 'B'}:
+@@ -139,6 +199,11 @@ def verify(args):
+         implementations = dict(compiled=None, B=None)
+     found, final, superseded = accept_rows(raw, expected, by_id, implementations, stand)
+     failures += found
++    if found and numerics_name == 'legacy-blas':
++        failures.append('run создан до W2-I035 и проверен в режиме legacy-blas (прежние операции BLAS): '
++                        'несовпадение стартов означает другое ядро OpenBLAS, чем при расчёте; проверять на '
++                        'процессоре с тем же ядром (P2-2a 56220810 — AVX-512, OPENBLAS_CORETYPE=SkylakeX), '
++                        'см. W2-D036 и docs/compute/W2_P2-2a_56220810_acceptance.md')
+     for row in final.values():
+         failures += check_row(row)
+         failures += check_unit_row(row, by_id[row['orbit_id']], stand, summary)
+@@ -157,20 +222,28 @@ def verify(args):
+         if summary.get(name) != value:
+             failures.append(f'summary.{name} = {summary.get(name)!r}, пересчитано {value!r}')
+     analysis = roundtrip(stand.analyze(rows, unit_list, params, full_scope))
+-    diff = differences(analysis, stored)
++    diff = differences(analysis, stored, rtol=rtol)
+     if diff:
+         failures.append('analysis.json не совпадает с пересчётом: ' + '; '.join(diff))
+-    if summary.get('decision') != analysis['decision']:
+-        failures.append('summary.decision не совпадает с пересчётом: '
+-                        + '; '.join(differences(analysis['decision'], summary.get('decision') or {})))
++    decision_diff = differences(analysis['decision'], summary.get('decision') or {}, rtol=rtol)
++    if decision_diff:
++        failures.append('summary.decision не совпадает с пересчётом: ' + '; '.join(decision_diff))
+     if summary.get('complete') != analysis['complete']:
+         failures.append('summary.complete не совпадает с пересчётом')
+     if args.expect_full and not full_scope:
+         failures.append('ожидался полный объём P2-2a')
+     if args.expect_complete and not (analysis['complete'] and counts['failed'] == 0):
+         failures.append(f"ожидался завершённый run без отказов: завершён {analysis['complete']}, отказов {counts['failed']}")
++    # W2-D026: D/T завершены на всех горизонтах без отказов; B может быть остановлено сроком.
++    dt_complete = all(level['dt_complete'] for level in analysis['horizons'].values())
++    dt_failed = sum(1 for r in rows if r['run_status'] == 'failed' and r['variant'] in ('D', 'T'))
++    b_unfinished = sum(level['b_unfinished'] for level in analysis['horizons'].values())
++    if args.expect_decision_ready and not (dt_complete and dt_failed == 0):
++        failures.append(f'ожидались завершённые D/T без отказов (W2-D026): D/T завершены {dt_complete}, '
++                        f'отказов D/T {dt_failed}')
+     final_level = analysis['horizons'][f"{max(params['years']):g}"]
+-    checks['analysis'] = dict(complete=analysis['complete'], decision=analysis['decision']['verdict'],
++    checks['analysis'] = dict(complete=analysis['complete'], dt_complete=dt_complete, dt_failed=dt_failed,
++                              b_unfinished=b_unfinished, decision=analysis['decision']['verdict'],
+                               stratum_verdict=analysis['decision']['stratum_verdict'],
+                               discordant=analysis['decision']['discordant'], n=analysis['decision']['n'],
+                               final_pairs=sorted(final_level['pairs']))
+@@ -187,6 +260,11 @@ def parse(argv=None):
+     parser.add_argument('--b-years', type=float, nargs='*', default=[100.0, 1000.0])
+     parser.add_argument('--expect-full', action='store_true', help='требовать полный объём P2-2a')
+     parser.add_argument('--expect-complete', action='store_true', help='требовать все задания завершёнными без отказов')
++    parser.add_argument('--expect-decision-ready', action='store_true',
++                        help='W2-D026: требовать завершённые D/T без отказов на всех горизонтах; B может быть остановлено')
++    parser.add_argument('--float-rtol', type=float, default=0.0,
++                        help='W2-D036: относительный допуск для производных float в analysis/summary.decision '
++                             '(по умолчанию 0 — точно; не больше 1e-9). Отпечатки, состав и счётчики — всегда точно')
+     parser.add_argument('--output', default=None)
+     return parser.parse_args(argv)
+ 
+diff --git a/scripts/verify_p2_run.py b/scripts/verify_p2_run.py
+index f51ddea..34fe9d9 100644
+--- a/scripts/verify_p2_run.py
++++ b/scripts/verify_p2_run.py
+@@ -131,6 +131,25 @@ def check_row(row):
+ 
+ 
+ def verify(args):
++    """W2-D036: run до W2-I035 (нет generator_numerics в summary) проверяются в режиме legacy-blas."""
++    from submoon_research.exact_linalg import LEGACY, NUMERICS_VERSION, numerics
++    try:
++        name = json.loads((ROOT/args.run/'summary.json').read_text(encoding='utf-8')).get('generator_numerics', LEGACY)
++    except (OSError, ValueError):
++        name = NUMERICS_VERSION
++    if name not in (LEGACY, NUMERICS_VERSION):
++        return dict(run=args.run, passed=False, checks=dict(generator_numerics=name),
++                    failures=[f'summary.generator_numerics = {name!r}: неизвестная численная схема генератора'])
++    with numerics(name):
++        report = _verify(args)
++    report['checks']['generator_numerics'] = name
++    if name == LEGACY and any('отпечаток задания не совпал' in f for f in report['failures']):
++        report['failures'].append('run до W2-I035 проверен в режиме legacy-blas: несовпадение отпечатков означает '
++                                  'другое ядро OpenBLAS, чем при расчёте (W2-D036)')
++    return report
++
++
++def _verify(args):
+     failures, checks = [], {}
+     run = ROOT/args.run
+     stand = stand_module()
+diff --git a/src/submoon_research/cli.py b/src/submoon_research/cli.py
+index 28964a5..b4d51d5 100644
+--- a/src/submoon_research/cli.py
++++ b/src/submoon_research/cli.py
+@@ -108,7 +108,8 @@ def main(argv=None):
+         elif args.track_command == "add":
+             record = json.loads(args.input.read_text(encoding="utf-8-sig"))
+             event = tracking.add_record(root, args.stage, record, args.actor, args.expected_revision)
+-            print(json.dumps({"stage": args.stage, "revision": event["revision"], "id": record["id"]}))
++            print(json.dumps({"stage": args.stage, "revision": event["revision"], "id": record["id"],
++                              "event_id": event.get("event_id")}))
+         return 0
+     except (ValueError, KeyError, OSError, RuntimeError) as exc:
+         print(f"ERROR: {exc}")
+diff --git a/src/submoon_research/compute/market_search.py b/src/submoon_research/compute/market_search.py
+index 6bcde7a..d4a7b09 100644
+--- a/src/submoon_research/compute/market_search.py
++++ b/src/submoon_research/compute/market_search.py
+@@ -1,4 +1,4 @@
+-"""Read-only CLI, явная полнота поиска, квоты и безопасная диагностика ошибок."""
++"""Read-only CLI, ограничения поиска, квоты и безопасная диагностика ошибок."""
+ from dataclasses import dataclass
+ import hashlib
+ import json
+@@ -10,6 +10,7 @@ import re
+ import shutil
+ import subprocess
+ import time
++from typing import Any
+ import urllib.error
+ import urllib.request
+ 
+@@ -117,6 +118,13 @@ def query_to_body(query, config):
+     """Переводит CLI-строку фильтров в JSON-тело публичного endpoint."""
+     body = {}
+     for token in query.split():
++        # Исключение списка (только анонимный транспорт): machine_id~notin=[1,2,3]
++        excluded = re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)~notin=\[([0-9,]*)\]', token)
++        if excluded:
++            values = [int(x) for x in excluded.group(2).split(',') if x]
++            if values:
++                body.setdefault(excluded.group(1), {})['notin'] = values
++            continue
+         match = re.fullmatch(r'([A-Za-z_][A-Za-z0-9_]*)(>=|<=|!=|=|>|<)(.+)', token)
+         if not match:
+             raise SearchError('invalid_query_token')
+@@ -244,7 +252,7 @@ def collect_stratified(config, request, clock, sleep, seed=0):
+         remaining = config.cycle_budget-(clock()-started)
+         query = build_query(low, high, gpu_filter, config)
+         last_request = clock()
+-        receipt = dict(query=query, started_monotonic_seconds=last_request-started)
++        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last_request-started)
+         try:
+             from dataclasses import replace
+             result = request(query, replace(config, timeout=min(config.timeout, remaining)))
+@@ -315,7 +323,7 @@ def collect(config, request=None, clock=time.monotonic, sleep=time.sleep, seed=0
+                  f'cpu_cores_effective>={config.min_cores:g} disk_space>={config.min_disk:g} '
+                  f'dph_total>={low:.12g} dph_total{upper}{high:.12g}')
+         last_request = clock()
+-        receipt = dict(query=query, started_monotonic_seconds=last_request-started)
++        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last_request-started)
+         try:
+             from dataclasses import replace
+             result = request(query, replace(config, timeout=min(config.timeout, remaining)))
+@@ -405,3 +413,158 @@ def candidate(offer, targets, config):
+         location=offer.get('geolocation'), verification=offer.get('verification'),
+         reliability_reported=offer.get('reliability'), observed_configuration=offer,
+         hardware_validation='provider_advertisement_not_leased_or_benchmarked')
++
++
++def _filter_price(offer):
++    """Цена, по которой endpoint фильтрует dph_total: базовая без хранилища (W2-R018)."""
++    for key in ('dph_base', 'dph_total'):
++        value = offer.get(key)
++        if isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value):
++            return float(value)
++    return None
++
++
++def _subwindows(result, low, high, parts=4):
++    """Подокна насыщенного окна по квартилям цен полученной страницы.
++
++    Пустой список — окно уже точечное (одна цена) и делить нечего. Если вся страница —
++    одна цена p, окно режется на [low, p-δ], [p, p], [p+δ, high]: точка p проверяется сразу."""
++    prices = sorted(p for o in result if (p := _filter_price(o)) is not None and low <= p <= high)
++    if high-low <= 1e-9:
++        return []
++    if prices and prices[0] == prices[-1]:
++        point = prices[0]
++        below, above = math.nextafter(point, -math.inf), math.nextafter(point, math.inf)
++        return [w for w in ((low, below), (point, point), (above, high)) if w[0] <= w[1]]
++    cuts = []
++    for index in range(1, parts):
++        position = min(len(prices)-1, index*len(prices)//parts)
++        if position < 1:
++            continue
++        # Граница — посередине между соседними разными ценами, а не на цене предложения:
++        # значение на сервере может отличаться в последних знаках (W2-T017, live3).
++        below, above = prices[position-1], prices[position]
++        value = (below+above)/2 if below < above else None
++        if value is not None and low < value < high and (not cuts or value > cuts[-1]):
++            cuts.append(value)
++    if not cuts:
++        cuts = [(low+high)/2]
++    edges = [low, *cuts, high]
++    return [(edges[i], edges[i+1]) for i in range(len(edges)-1)]
++
++
++def initial_windows(prices, high, per_window=40, count=None):
++    """Начальные окна по прошлому снимку: примерно per_window предложений в каждом;
++    count — вместо этого разбить выборку на count равных по числу частей. Граница ставится
++    посередине между соседними РАЗНЫМИ ценами, поэтому повторяющиеся цены не рвут окно."""
++    prices = sorted(p for p in prices if p is not None and 0 <= p <= high)
++    if count and prices:
++        per_window = max(1, len(prices)//count)
++    cuts, in_window = [], 0
++    for index, price in enumerate(prices):
++        in_window += 1
++        following = prices[index+1] if index+1 < len(prices) else None
++        if in_window >= per_window and following is not None and following > price:
++            cuts.append((price+following)/2)
++            in_window = 0
++    edges = [0., *cuts, float(high)]
++    return [(edges[i], edges[i+1]) for i in range(len(edges)-1) if edges[i] < edges[i+1]]
++
++
++def scan_market(config, request=None, clock=time.monotonic, sleep=time.sleep, max_queries=200,
++                prior_prices=None, base_query='', split_at=None, per_window=None, prior_windows=None,
++                split_parts=4) -> dict[str, Any]:
++    """Снимок рынка до config.max_price по окнам базовой цены (W2-T017, W2-R019, W2-D024).
++
++    Свойства endpoint (замеры 2026-10-13): сервер берёт не больше «страницы» кандидатов окна
++    цены (64 анонимно, limit — через аккаунт), выбранных не по цене, и только ПОТОМ применяет
++    остальные фильтры — даже rentable/rented; фильтр цены работает по dph_base.
++    Без base_query запрос содержит только окно цены: полная страница — окно делится по ценам
++    страницы (границы посередине между соседними ценами). complete=True означает лишь, что
++    алгоритм обработал все окна, НЕ доказательство полноты рынка (W2-R020). С base_query
++    фильтры сокращают ответ, окно делится при split_at строк; complete=False, best_effort.
++    prior_prices — базовые цены прошлого снимка для начального разбиения.
++    """
++    config.validate()
++    if request is None:
++        request = default_request
++    from dataclasses import replace
++    cap = min(config.limit, config.anonymous_cap) if config.anonymous else config.limit
++    split_at = split_at or cap
++    per_window = per_window or max(1, int(cap*0.6))
++    started = clock()
++    offers, receipts, incomplete = {}, [], []
++    last = None
++    windows = initial_windows(prior_prices or [], config.max_price, per_window, prior_windows)
++    retried = set()
++    digits = '.17g' if config.anonymous else '.12g'
++    while windows:
++        low, high = windows.pop(0)
++        if len(receipts) >= max_queries or clock()-started >= config.cycle_budget:
++            incomplete.append(dict(low=low, high=high, reason='request_or_time_budget'))
++            incomplete.extend(dict(low=w[0], high=w[1], reason='request_or_time_budget') for w in windows)
++            break
++        if last is not None:
++            sleep(max(0, config.request_spacing-(clock()-last)))
++        remaining = config.cycle_budget-(clock()-started)
++        query = f'{base_query} dph_total>={low:{digits}} dph_total<={high:{digits}}'.strip()
++        last = clock()
++        receipt: dict[str, Any] = dict(query=query, started_monotonic_seconds=last-started)
++        try:
++            result = request(query, replace(config, timeout=max(1., min(config.timeout, remaining))))
++        except SearchError as exc:
++            receipt.update(status=exc.kind, reported_http_status=exc.status, count=None,
++                           elapsed_seconds=clock()-last)
++            receipts.append(receipt)
++            if exc.kind == 'timeout' and (low, high) not in retried:
++                retried.add((low, high))
++                receipt['continued'] = 'retry_after_timeout'
++                windows.insert(0, (low, high))
++                continue
++            incomplete.append(dict(low=low, high=high, reason=exc.kind))
++            if exc.kind in ('rate_limited', 'authentication_or_access_denied', 'daily_quota', 'cli_unavailable'):
++                incomplete.extend(dict(low=w[0], high=w[1], reason='stopped_after_'+exc.kind) for w in windows)
++                break
++            continue
++        receipt.update(status='ok', reported_http_status=None, count=len(result),
++                       transport='anonymous' if config.anonymous else 'cli', elapsed_seconds=clock()-last,
++                       response_sha256=hashlib.sha256(json.dumps(result, sort_keys=True).encode()).hexdigest())
++        receipts.append(receipt)
++        for offer in result:
++            if isinstance(offer.get('id'), int):
++                offers[offer['id']] = offer
++        if len(result) < split_at:
++            continue
++        parts = _subwindows(result, low, high, split_parts)
++        if not parts or len(parts) < 2:
++            incomplete.append(dict(low=low, high=high, reason='price_tie_over_page'))
++            continue
++        receipt['continued'] = f'split_into_{len(parts)}'
++        windows[:0] = parts
++    guaranteed = not base_query
++    return dict(offers=list(offers.values()), queries=receipts, complete=guaranteed and not incomplete,
++                best_effort=not guaranteed, incomplete=incomplete, elapsed_seconds=clock()-started,
++                strategy='price_scan' if guaranteed else 'quick_filtered',
++                transport='anonymous' if config.anonymous else 'cli', page=cap)
++
++
++def recheck(offer_id, machine_id, config, request=None) -> dict[str, Any]:
++    """Бесплатная перепроверка одной машины перед арендой: свободна ли, та же ли цена."""
++    if request is None:
++        request = default_request
++    # rentable/rented сервер применяет после предела страницы (probe3) — проверяем на клиенте.
++    query = f'machine_id={int(machine_id)}'
++    try:
++        result = request(query, config)
++    except SearchError as exc:
++        return dict(status='error', reason=exc.kind, offer=None)
++    match = [o for o in result if o.get('id') == int(offer_id)]
++    if not match:
++        return dict(status='gone', reason='offer_not_listed', offer=None,
++                    other_offers_on_machine=[o.get('id') for o in result])
++    offer = match[0]
++    if offer.get('machine_id') != int(machine_id):
++        return dict(status='error', reason='machine_identity_mismatch', offer=None)
++    if offer.get('rentable') is not True or offer.get('rented') is not False:
++        return dict(status='gone', reason='not_rentable', offer=offer)
++    return dict(status='available', reason=None, offer=offer)
+diff --git a/src/submoon_research/dynamics/initialization.py b/src/submoon_research/dynamics/initialization.py
+index 3c26897..2f6a123 100644
+--- a/src/submoon_research/dynamics/initialization.py
++++ b/src/submoon_research/dynamics/initialization.py
+@@ -1,42 +1,45 @@
+ """Общие номинальные входы из проверенной реализации W0."""
+-import numpy as np
+-
+-SETS = dict(
+-    iapetus=["iapetus", "sun", "jupiter", "saturn", "titan"],
+-    ganymede=["ganymede", "sun", "jupiter", "saturn", "io", "europa", "callisto"],
+-    himalia=["himalia", "sun", "jupiter", "saturn"],
+-)
+-PARENTS = dict(iapetus="saturn", ganymede="jupiter", himalia="jupiter")
+-
+-
+-def physical_inputs(host, model, states):
+-    names = SETS[host]
+-    selected = np.array([states["barycentric"][name][0] for name in names])
+-    relative = selected - selected[0]
+-    gms = np.array([model["bodies"][name]["gm"]["value"] for name in names])
+-    figures = []
+-    for name, figure in model["figures"].items():
+-        if name in names:
+-            figures.append(
+-                dict(
+-                    index=names.index(name),
+-                    j2=figure["j2"]["value"],
+-                    radius=figure["reference_radius"]["value"],
+-                    pole=figure["pole_icrf"]["value"],
+-                )
+-            )
+-    radii = [
+-        model["bodies"][name]["contact_radius"]["value"] + model["submoon_radius_km"]
+-        for name in names
+-    ]
+-    parent = relative[names.index(PARENTS[host])]
+-    central = model["bodies"][PARENTS[host]]["gm"]["value"] + gms[0]
+-    a_host = 1 / (2 / np.linalg.norm(parent[:3]) - np.dot(parent[3:], parent[3:]) / central)
+-    if not a_host > 0:
+-        raise ValueError("Неэллиптическая осцулирующая орбита хозяина")
+-    first = -parent[:3] / np.linalg.norm(parent[:3])
+-    normal = np.cross(parent[:3], parent[3:])
+-    normal /= np.linalg.norm(normal)
+-    basis = np.column_stack([first, np.cross(normal, first), normal])
+-    return names, relative, gms, figures, radii, float(a_host), basis
+-
++import numpy as np
++
++from submoon_research.exact_linalg import dot, norm
++
++SETS = dict(
++    iapetus=["iapetus", "sun", "jupiter", "saturn", "titan"],
++    ganymede=["ganymede", "sun", "jupiter", "saturn", "io", "europa", "callisto"],
++    himalia=["himalia", "sun", "jupiter", "saturn"],
++)
++PARENTS = dict(iapetus="saturn", ganymede="jupiter", himalia="jupiter")
++
++
++def physical_inputs(host, model, states):
++    names = SETS[host]
++    selected = np.array([states["barycentric"][name][0] for name in names])
++    relative = selected - selected[0]
++    gms = np.array([model["bodies"][name]["gm"]["value"] for name in names])
++    figures = []
++    for name, figure in model["figures"].items():
++        if name in names:
++            figures.append(
++                dict(
++                    index=names.index(name),
++                    j2=figure["j2"]["value"],
++                    radius=figure["reference_radius"]["value"],
++                    pole=figure["pole_icrf"]["value"],
++                )
++            )
++    radii = [
++        model["bodies"][name]["contact_radius"]["value"] + model["submoon_radius_km"]
++        for name in names
++    ]
++    parent = relative[names.index(PARENTS[host])]
++    central = model["bodies"][PARENTS[host]]["gm"]["value"] + gms[0]
++    # W2-I035: без BLAS — иначе a_host (и радиус Хилла) зависят от ядра OpenBLAS процессора.
++    a_host = 1 / (2 / norm(parent[:3]) - dot(parent[3:], parent[3:]) / central)
++    if not a_host > 0:
++        raise ValueError("Неэллиптическая осцулирующая орбита хозяина")
++    first = -parent[:3] / norm(parent[:3])
++    normal = np.cross(parent[:3], parent[3:])
++    normal /= norm(normal)
++    basis = np.column_stack([first, np.cross(normal, first), normal])
++    return names, relative, gms, figures, radii, float(a_host), basis
++
+diff --git a/src/submoon_research/sampling/design.py b/src/submoon_research/sampling/design.py
+index 9c8c618..4d986e0 100644
+--- a/src/submoon_research/sampling/design.py
++++ b/src/submoon_research/sampling/design.py
+@@ -10,6 +10,8 @@ from scipy.integrate import quad
+ from scipy.optimize import brentq
+ from scipy.stats import qmc
+ 
++from submoon_research.exact_linalg import matmul, matvec
++
+ 
+ class DomainSpec(BaseModel):
+     model_config = ConfigDict(extra='forbid', strict=True, allow_inf_nan=False, frozen=True)
+@@ -73,7 +75,9 @@ def elements_to_cartesian(gm,a,e,u,mean_anomaly,omega,node,basis):
+     si=math.sqrt(max(0,1-u*u))
+     rotation=np.array([[cn*co-sn*so*u,-cn*so-sn*co*u,sn*si],
+         [sn*co+cn*so*u,-sn*so+cn*co*u,-cn*si],[so*si,co*si,u]])
+-    return np.r_[basis@rotation@position,basis@rotation@velocity]
++    # W2-I035: произведения 3×3 без BLAS — иначе старт зависит от ядра OpenBLAS процессора.
++    frame=matmul(basis,rotation)
++    return np.r_[matvec(frame,position),matvec(frame,velocity)]
+ 
+ 
+ def generate(domain,measure,*,power,seed,randomization,basis):
+diff --git a/src/submoon_research/tracking.py b/src/submoon_research/tracking.py
+index 79fde30..21575ee 100644
+--- a/src/submoon_research/tracking.py
++++ b/src/submoon_research/tracking.py
+@@ -1,13 +1,21 @@
+-"""Harness-independent, revision-checked research journal and derived summaries."""
++"""Harness-independent, revision-checked research journal and derived summaries.
++
++Since S0-T006 (organization audit 2026-10-13) the journal is written WITHOUT a file lock:
++agents work sequentially, and the lock left stale files in sandboxes that cannot delete.
++Protection that remains: expected_revision (no write from a stale view), the active-task
++owner check, an idempotent event_id and a post-write check that the event is in place.
++"""
+ 
+ from __future__ import annotations
+ 
++import hashlib
+ import json
+ import os
+ import re
+ import socket
++import uuid
+ from contextlib import contextmanager
+-from datetime import datetime, timezone
++from datetime import datetime, timedelta, timezone
+ 
+ import yaml
+ 
+@@ -31,6 +39,9 @@ KINDS_RU = {
+     "result": "Результаты", "issue": "Ошибки и проблемы",
+     "hypothesis": "Гипотезы и альтернативы", "plan": "Дальнейшие планы",
+ }
++STAGE_LAG_WARN = 10            # событий после последнего обновления <stage>-STAGE
++IDLE_TASK_HOURS = 72           # active-задача без событий дольше этого — «возможно брошена»
++SNIPPET = 120                  # символов summary в строке SUMMARY
+ 
+ 
+ def utc_now():
+@@ -69,9 +80,15 @@ def current_records(events):
+     return records
+ 
+ 
++def last_revisions(events):
++    """ID записи -> revision её последнего события."""
++    return {event["record"]["id"]: event["revision"] for event in events}
++
++
+ def atomic_text(path, content):
+     path.parent.mkdir(parents=True, exist_ok=True)
+-    temp = path.with_name(path.name + ".tmp")
++    # Уникальное имя: два процесса не делят один временный файл.
++    temp = path.with_name(f"{path.name}.{os.getpid()}.{uuid.uuid4().hex[:8]}.tmp")
+     with temp.open("w", encoding="utf-8", newline="\n") as stream:
+         stream.write(content)
+         stream.flush()
+@@ -81,6 +98,11 @@ def atomic_text(path, content):
+ 
+ @contextmanager
+ def writer_lock(root):
++    """Файловая блокировка ТОЛЬКО для фонового монитора рынка (tracking/runtime.json).
++
++    Журнал и сводки ею больше не пользуются (S0-T006). Не применять там, где процесс
++    не может удалять файлы: оставшийся lock блокирует следующего писателя.
++    """
+     path = root / "tracking/.write.lock"
+     try:
+         fd = os.open(path, os.O_WRONLY | os.O_CREAT | os.O_EXCL)
+@@ -140,120 +162,255 @@ def validate_record(root, stage, record, old=None):
+             raise ValueError("Release the active task before transferring ownership")
+ 
+ 
++def event_id_for(stage, expected_revision, actor, record):
++    """Детерминированный ID события: повтор той же команды узнаётся и не создаёт дубля."""
++    canon = json.dumps(record, ensure_ascii=False, sort_keys=True)
++    return hashlib.sha256(f"{stage}|{expected_revision}|{actor}|{canon}".encode("utf-8")).hexdigest()[:16]
++
++
++def _write_journal(path, previous, event):
++    # Переписываем атомарно, сохраняя все прежние события байт в байт.
++    atomic_text(path, previous + json.dumps(event, ensure_ascii=False, allow_nan=False) + "\n")
++
++
+ def add_record(root, stage, record, actor, expected_revision):
+     if not actor.strip() or len(actor) > 100:
+         raise ValueError("actor must be a short nonempty identifier")
+-    with writer_lock(root):
+-        events = read_events(root, stage)
+-        if len(events) != expected_revision:
+-            raise ValueError(f"Revision conflict: expected {expected_revision}, actual {len(events)}; "
+-                             "reload the stage and reconcile before retrying")
+-        if not isinstance(record, dict):
+-            raise ValueError("Record must be a JSON object")
+-        old = current_records(events).get(record.get("id"))
+-        validate_record(root, stage, record, old)
+-        if (old and old["kind"] == "task" and old["status"] == "active"
+-                and old["owner"] != actor and not owner_transfer_allowed()):
+-            raise ValueError("Active task is owned by another actor; coordinate a release first")
+-        if record["kind"] == "task" and record["status"] == "active" and record["owner"] != actor:
+-            raise ValueError("An active task must be owned by the writing actor")
+-        event = {"schema_version": "1.0", "stage": stage, "revision": len(events) + 1,
+-                 "utc": utc_now(), "actor": actor, "record": record}
+-        path = stage_dir(root, stage) / "journal.jsonl"
+-        path.parent.mkdir(parents=True, exist_ok=True)
+-        # Rewrite atomically while preserving every previous event byte for byte.
+-        previous = path.read_text(encoding="utf-8") if path.exists() else ""
+-        atomic_text(path, previous + json.dumps(event, ensure_ascii=False, allow_nan=False) + "\n")
+-        render_unlocked(root)
+-        return event
++    if not isinstance(record, dict):
++        raise ValueError("Record must be a JSON object")
++    eid = event_id_for(stage, expected_revision, actor, record)
++    events = read_events(root, stage)
++    # Повтор после обрыва или ложной ошибки: событие уже записано — вернуть его.
++    for event in events[expected_revision:]:
++        if event.get("event_id") == eid:
++            return event
++    if len(events) != expected_revision:
++        raise ValueError(f"Revision conflict: expected {expected_revision}, actual {len(events)}; "
++                         "reload the stage and reconcile before retrying")
++    old = current_records(events).get(record.get("id"))
++    validate_record(root, stage, record, old)
++    if (old and old["kind"] == "task" and old["status"] == "active"
++            and old["owner"] != actor and not owner_transfer_allowed()):
++        raise ValueError("Active task is owned by another actor; coordinate a release first")
++    if record["kind"] == "task" and record["status"] == "active" and record["owner"] != actor:
++        raise ValueError("An active task must be owned by the writing actor")
++    event = {"schema_version": "1.0", "stage": stage, "revision": len(events) + 1,
++             "utc": utc_now(), "actor": actor, "event_id": eid, "record": record}
++    path = stage_dir(root, stage) / "journal.jsonl"
++    path.parent.mkdir(parents=True, exist_ok=True)
++    previous = path.read_text(encoding="utf-8") if path.exists() else ""
++    _write_journal(path, previous, event)
++    # Проверка после записи вместо блокировки: событие должно стоять на своём месте.
++    written = read_events(root, stage)
++    if len(written) <= expected_revision or written[expected_revision].get("event_id") != eid:
++        raise RuntimeError(
++            f"Запись потеряна: журнал {stage} одновременно изменил другой писатель "
++            f"(ожидалось событие {eid} на revision {expected_revision + 1}). "
++            "Перечитайте этап (track show) и повторите с актуальным expected_revision.")
++    try:
++        render(root)
++    except Exception as exc:  # noqa: BLE001 — событие уже записано; сводки восстановимы
++        raise RuntimeError(
++            f"Событие {record['id']} записано (revision {event['revision']}), но сводки не "
++            f"обновлены: {exc}. Не повторяйте запись; выполните track render.") from exc
++    return event
+ 
+ 
+ def cell(value):
+     return str(value).replace("|", "\\|").replace("\n", " ")
+ 
+ 
++def anchor(record_id):
++    return record_id.lower()
++
++
++def _parse_utc(value):
++    return datetime.fromisoformat(value.replace("Z", "+00:00"))
++
++
++def stage_overview(stage, meta, events):
++    """Сводные факты этапа для STATE/PLAN/SUMMARY (без файлового ввода-вывода)."""
++    records = current_records(events)
++    last = last_revisions(events)
++    stage_id = stage + "-STAGE"
++    state = records.get(stage_id, {"status": "planned", "summary": "Ещё не начат",
++                                   "next_action": meta.get("next_action", "—")})
++    stage_rev = last.get(stage_id, 0)
++    active = sorted((r for r in records.values() if r["kind"] in ("task", "plan")
++                     and r["status"] == "active"), key=lambda r: last[r["id"]], reverse=True)
++    newest = active[0] if active else None
++    if newest and last[newest["id"]] > stage_rev:
++        next_step, next_source = newest["next_action"], newest["id"]
++    else:
++        next_step, next_source = state["next_action"], stage_id
++    lag = len(events) - stage_rev if stage_id in records else 0
++    idle = []
++    if events:
++        latest = _parse_utc(events[-1]["utc"])
++        last_utc = {e["record"]["id"]: _parse_utc(e["utc"]) for e in events}
++        idle = [r["id"] for r in records.values() if r["kind"] == "task" and r["status"] == "active"
++                and latest - last_utc[r["id"]] > timedelta(hours=IDLE_TASK_HOURS)]
++    return {"records": records, "last": last, "state": state, "stage_rev": stage_rev,
++            "lag": lag, "active": active, "next_step": next_step, "next_source": next_source,
++            "idle_tasks": idle,
++            "active_tasks": [r["id"] for r in active if r["kind"] == "task"]}
++
++
++def _item(r, prefix=""):
++    return (f"- [`{r['id']}`]({prefix}RECORDS.md#{anchor(r['id'])}) [{r['status']}] "
++            f"{r['title']}. {r['summary'][:SNIPPET].rstrip()}")
++
++
++def _summary_sections(info):
++    """SUMMARY по смыслу: действующее и незакрытое, а не «последнее тронутое»."""
++    records, last = info["records"], info["last"]
++    by_rev = sorted(records.values(), key=lambda r: last[r["id"]], reverse=True)
++    superseded_targets = {r["supersedes"] for r in records.values() if r.get("supersedes")}
++    rules = {
++        "task": (lambda r: r["status"] in {"active", "blocked", "ready"}, 5,
++                 "Активные, заблокированные и готовые к работе"),
++        "decision": (lambda r: r["status"] in {"accepted", "proposed"}, 4,
++                     "Действующие и предложенные, новые сверху"),
++        "check": (lambda r: True, 3, "Последние проверки"),
++        "result": (lambda r: True, 2, "Последние результаты"),
++        "issue": (lambda r: r["status"] in {"open", "investigating"}, 5,
++                  "Открытые и исследуемые"),
++        "hypothesis": (lambda r: r["status"] in {"proposed", "testing"}, 3, "Проверяемые"),
++        "plan": (lambda r: r["status"] in {"active", "proposed"}, 3, "Действующие и предложенные"),
++    }
++    lines = []
++    for kind, label in KINDS_RU.items():
++        rows = [r for r in by_rev if r["kind"] == kind]
++        if not rows:
++            continue
++        keep, limit, caption = rules[kind]
++        shown = [r for r in rows if keep(r)]
++        lines += ["", f"## {label}", "", f"Всего: {len(rows)}. {caption}:", ""]
++        lines += [_item(r) for r in shown[:limit]] or ["- нет"]
++        if len(shown) > limit:
++            rest = shown[limit:]
++            lines.append(f"- … ещё {len(rest)}"
++                         + (": " + ", ".join(f"`{r['id']}`" for r in rest)
++                            if kind in {"task", "decision", "issue", "plan"} else " — в RECORDS.md"))
++        if kind == "task" and info["idle_tasks"]:
++            lines.append(f"- Возможно брошены (active без событий более {IDLE_TASK_HOURS} ч "
++                         "до последнего события этапа): "
++                         + ", ".join(f"`{x}`" for x in info["idle_tasks"]))
++        if kind == "decision":
++            other = [r for r in rows if r["status"] in {"superseded", "rejected"}]
++            if other:
++                lines.append("- Вытеснены или отклонены: "
++                             + ", ".join(f"`{r['id']}` ({r['status']})" for r in other))
++        if kind == "check":
++            pending = [r for r in rows if r["status"] in {"failed", "inconclusive"}
++                       and r["id"] not in superseded_targets]
++            if pending:
++                lines.append("- Провалы и неясные исходы без замещающей проверки: "
++                             + ", ".join(f"`{r['id']}`" for r in pending))
++        if kind == "issue":
++            fixed = [r for r in rows if r["status"] == "fixed"]
++            if fixed:
++                lines.append("- Исправлены, ждут подтверждения (fixed): "
++                             + ", ".join(f"`{r['id']}`" for r in fixed))
++    return lines
++
++
+ def render_unlocked(root):
++    """Совместимое имя: блокировки больше нет, см. render()."""
++    render(root)
++
++
++def render(root):
+     project = read_project(root)
+     index = {"schema_version": "1.0", "stages": {}}
+     decisions = ["# Решения проекта", "", "Производный индекс; не редактировать вручную. "
+-                 "Основания исходных решений: [bootstrap_decisions.md](docs/bootstrap_decisions.md).", "",
++                 "Основания исходных решений: [bootstrap_decisions.md](docs/bootstrap_decisions.md). "
++                 "Одна запись целиком: `scripts/project.py track show --stage <этап> --id <ID>`.", "",
+                  "| ID | Этап | Статус | Решение | Основание |", "|---|---|---|---|---|"]
+     plan = ["# План проекта", "", "Производная сводка журналов. Проценты не вычисляются: "
+-            "завершение определяется проверенными продуктами и воротами.", "",
++            "завершение определяется проверенными продуктами и воротами. Следующий шаг берётся "
++            "из самой свежей active-задачи или плана, если она новее записи этапа.", "",
+             "| Этап | Статус | Цель | Зависимости | Следующий шаг |", "|---|---|---|---|---|"]
++    overviews = {}
+     for stage, meta in project["stages"].items():
+         events = read_events(root, stage)
+-        records = current_records(events)
+-        state = records.get(stage + "-STAGE", {"status": "planned", "summary": "Ещё не начат",
+-                                               "next_action": meta["next_action"]})
++        info = stage_overview(stage, meta, events)
++        overviews[stage] = info
++        records, state = info["records"], info["state"]
+         index["stages"][stage] = {"revision": len(events), "status": state["status"],
+-                                    "records": list(records.values())}
++                                  "records": list(records.values())}
+         folder = stage_dir(root, stage)
++        stage_note = (f"Состояние (запись {stage}-STAGE, rev {info['stage_rev']}): {state['summary']}"
++                      if info["stage_rev"] else f"Состояние: {state['summary']}")
+         head = [f"# {stage} — {meta['title']}", "", "Производная сводка; источник — journal.jsonl.", "",
+-                f"Revision: {len(events)}. Статус: **{state['status']}**.", "",
+-                f"Состояние: {state['summary']}", "", f"Следующий шаг: {state['next_action']}", "",
+-                f"Зависимости: {', '.join(meta['depends_on']) or 'нет'}.", "",
+-                f"Критерий этапа: {meta['gate']}", "",
+-                "[Полный индекс записей](RECORDS.md) · [История](journal.jsonl)"]
++                f"Revision: {len(events)}. Статус: **{state['status']}**.", "", stage_note, ""]
++        if info["lag"] > STAGE_LAG_WARN:
++            head += [f"⚠ Запись {stage}-STAGE устарела — событий в журнале после неё: {info['lag']}. "
++                     "Актуальное состояние — в активных задачах и планах ниже.", ""]
++        head += [f"Следующий шаг ({info['next_source']}): {info['next_step']}", "",
++                 f"Зависимости: {', '.join(meta['depends_on']) or 'нет'}.", "",
++                 f"Критерий этапа: {meta['gate']}", "",
++                 "[Полный индекс записей](RECORDS.md) · [История](journal.jsonl)"]
+         if (root / f"docs/stages/{stage}.md").is_file():
+             head += ["", f"[Полное досье этапа](../../../docs/stages/{stage}.md) · "
+                      "[Общая картина исследования](../../../docs/context/project_overview.md)"]
++        head += _summary_sections(info)
+         full = [f"# Все записи {stage}", "", f"Revision: {len(events)}."]
+         for kind, label in KINDS_RU.items():
+             rows = [r for r in records.values() if r["kind"] == kind]
+             if not rows:
+                 continue
+-            # SUMMARY is bounded; full index and event history retain everything.
+-            head += ["", f"## {label}", "", f"Всего: {len(rows)}. Последние/действующие записи:", ""]
+-            priority = {"active", "blocked", "open", "investigating", "failed", "testing", "proposed"}
+-            recent = list(reversed(rows))
+-            recent.sort(key=lambda r: r["status"] not in priority)
+-            for r in recent[:3]:
+-                head += [f"- `{r['id']}` [{r['status']}] {r['title']}. {r['summary'][:180].rstrip()}"]
+             full += ["", f"## {label}", "", "| ID | Статус | Запись | Следующий шаг | Детали/доказательства |",
+                      "|---|---|---|---|---|"]
+             for r in rows:
+                 links = ", ".join(f"[{p}](../../../{p})" for p in r["refs"])
+-                full.append(f"| {r['id']} | {r['status']} | {cell(r['title'])}: "
+-                            f"{cell(r['summary'])} | {cell(r['next_action'])} | {links} |")
++                full.append(f"| <a id=\"{anchor(r['id'])}\"></a>{r['id']} | {r['status']} | "
++                            f"{cell(r['title'])}: {cell(r['summary'])} | {cell(r['next_action'])} | {links} |")
+                 if kind == "decision":
+-                    decisions.append(f"| {r['id']} | {stage} | {r['status']} | "
+-                                     f"{cell(r['title'])} | [Запись](tracking/stages/{stage}/RECORDS.md) |")
++                    decisions.append(
++                        f"| {r['id']} | {stage} | {r['status']} | {cell(r['title'])} | "
++                        f"[Запись](tracking/stages/{stage}/RECORDS.md#{anchor(r['id'])}) |")
+         atomic_text(folder / "SUMMARY.md", "\n".join(head) + "\n")
+         atomic_text(folder / "RECORDS.md", "\n".join(full) + "\n")
+         plan.append(f"| [{stage}](tracking/stages/{stage}/SUMMARY.md) | {state['status']} | "
+                     f"{cell(meta['title'])} | {', '.join(meta['depends_on']) or '—'} | "
+-                    f"{cell(state['next_action'])} |")
++                    f"{cell(info['next_step'])} ({info['next_source']}) |")
+     focus = project["focus_stage"]
+-    focus_state = index["stages"][focus]
+-    stage_state = next((r for r in focus_state["records"] if r["kind"] == "stage"), None)
++    focus_info = overviews[focus]
++    focus_rec = focus_info["records"].get(focus + "-STAGE")
+     state_lines = ["# Состояние исследования", "", "Производная точка входа. Не редактировать вручную; "
+-                   "обновлять журналы через `scripts/project.py track add`, затем сводки восстанавливаются автоматически.", "",
+-                   f"Текущий фокус: **{focus} — {project['stages'][focus]['title']}**.", "",
+-                   stage_state["summary"] if stage_state else "Этап ещё не начат.", "",
+-                   "Следующий шаг: " + (stage_state["next_action"] if stage_state else
+-                                         project["stages"][focus]["next_action"]), "",
+-                   "| Этап | Статус | Revision |", "|---|---|---|"]
++                   "обновлять журналы через `scripts/project.py track add`, затем сводки восстанавливаются автоматически.", ""]
++    working = [(s, i) for s, i in overviews.items() if i["active"]]
++    if working:
++        state_lines += ["## Где сейчас идёт работа", ""]
++        for stage, info in sorted(working, key=lambda x: -max(x[1]["last"].values())):
++            tasks = ", ".join(f"`{t}`" for t in info["active_tasks"]) or "нет active-задач"
++            state_lines.append(f"- **[{stage}](tracking/stages/{stage}/SUMMARY.md)** — "
++                               f"следующий шаг ({info['next_source']}): {info['next_step']} "
++                               f"Активные задачи: {tasks}.")
++            if info["idle_tasks"]:
++                state_lines.append("  Возможно брошены: "
++                                   + ", ".join(f"`{t}`" for t in info["idle_tasks"]) + ".")
++        state_lines.append("")
++    state_lines += [f"Научный приоритет (focus_stage): **{focus} — {project['stages'][focus]['title']}**.", "",
++                    focus_rec["summary"] if focus_rec else "Этап ещё не начат.", "",
++                    f"Следующий шаг {focus} ({focus_info['next_source']}): {focus_info['next_step']}", "",
++                    "| Этап | Статус | Revision | Активных задач |", "|---|---|---|---|"]
+     for stage, value in index["stages"].items():
+         state_lines.append(f"| [{stage}](tracking/stages/{stage}/SUMMARY.md) | "
+-                           f"{value['status']} | {value['revision']} |")
+-    state_lines += ["", "Читать сначала эту сводку, затем SUMMARY текущего этапа. "
++                           f"{value['status']} | {value['revision']} | "
++                           f"{len(overviews[stage]['active_tasks'])} |")
++    state_lines += ["", "Читать сначала эту сводку, затем SUMMARY этапа, где идёт работа. "
+                     "Подробные записи и исходы загружать по ID и ссылкам. "
+                     "[Протокол трекинга](docs/tracking_protocol.md) · [План](PLAN.md) · "
+                     "[Решения](DECISIONS.md).", "",
+                     "Активные исполнения проверять по `tracking/runtime.json`; файл является "
+                     "реестром, не монитором процессов. Завершение диалога не создаёт фоновую службу."]
+-    if (root / "docs/context/project_overview.md").is_file():
++    if (root / "docs/context/project_overview.md").is_file() and focus != "S0":
+         state_lines += ["", "Научный контекст: [общая картина](docs/context/project_overview.md), "
+-                        f"[досье текущего этапа](docs/stages/{focus}.md). "
+-                        "Досье содержит полный раздел программы и порядок работ; "
+-                        "для S0 вместо досье используются инфраструктурные протоколы."] if focus != "S0" else []
++                        f"[досье фокусного этапа](docs/stages/{focus}.md). "
++                        "Досье содержит полный раздел программы и порядок работ."]
+     atomic_text(root / "STATE.md", "\n".join(state_lines) + "\n")
+     atomic_text(root / "PLAN.md", "\n".join(plan) + "\n")
+     atomic_text(root / "DECISIONS.md", "\n".join(decisions) + "\n")
+     atomic_text(root / "tracking/index.json", json.dumps(index, ensure_ascii=False, indent=2) + "\n")
+-
+-
+-def render(root):
+-    with writer_lock(root):
+-        render_unlocked(root)
+diff --git a/tests/unit/test_p2_2_stand.py b/tests/unit/test_p2_2_stand.py
+index d052961..9add93a 100644
+--- a/tests/unit/test_p2_2_stand.py
++++ b/tests/unit/test_p2_2_stand.py
+@@ -185,6 +185,37 @@ def test_incomplete_or_failed_final_horizon_is_not_decided():
+     assert s.analyze(missing, unit_list, params, True)['decision']['verdict'] == 'not_decided'
+ 
+ 
++def test_stopped_or_missing_b_does_not_block_decision():
++    """W2-D026: остановленные сроком или недостающие B на финальном горизонте не блокируют решение D–T."""
++    s, unit_list, params = synthetic(n_per_cell=128, years=(100.0, 1000.0), b_per_cell=16, b_years=(100.0, 1000.0))
++    slow = {u['orbit_id'] for u in unit_list[:3]}
++    rows = rows_for(s, unit_list, params, lambda u, y, v: dict(status='partial', outcome='unresolved',
++                    reason='computational') if v == 'B' and y == 1000.0 and u['orbit_id'] in slow else {})
++    result = s.analyze(rows, unit_list, params, True)
++    final = result['horizons']['1000']
++    assert not result['complete'] and not final['complete'] and final['dt_complete']
++    assert (final['b_planned'], final['b_unfinished']) == (144, 3)
++    assert result['decision']['verdict'] == 'equivalent' and result['decision']['reasons'] == []
++    assert result['decision']['b_unfinished'] == 3 and result['decision']['rule'] == 'W2-D026'
++    assert any('B не завершено' in n for n in result['decision']['notes'])
++    assert final['pairs']['D-B']['units'] == 141  # пары с B — только по завершённым
++    assert result['analysis_version'] == s.ANALYSIS_VERSION
++    missing = [r for r in rows_for(s, unit_list, params)
++               if not (r['variant'] == 'B' and r['years'] == 1000.0 and r['orbit_id'] in slow)]
++    result = s.analyze(missing, unit_list, params, True)
++    assert result['decision']['verdict'] == 'equivalent' and result['horizons']['1000']['b_unfinished'] == 3
++    # Отказ B не блокирует (как прежде), отказ D/T — блокирует.
++    b_failed = rows_for(s, unit_list, params, lambda u, y, v: dict(status='failed', outcome='unresolved',
++                        reason='computational') if v == 'B' and y == 1000.0 and u['orbit_id'] in slow else {})
++    assert s.analyze(b_failed, unit_list, params, True)['decision']['verdict'] == 'equivalent'
++    # Остановленный D на финальном горизонте по-прежнему блокирует.
++    first = unit_list[0]['orbit_id']
++    d_stopped = rows_for(s, unit_list, params, lambda u, y, v: dict(status='partial', outcome='unresolved',
++                         reason='computational') if v == 'D' and y == 1000.0 and u['orbit_id'] == first else {})
++    result = s.analyze(d_stopped, unit_list, params, True)
++    assert result['decision']['verdict'] == 'not_decided' and not result['horizons']['1000']['dt_complete']
++
++
+ def test_b_pairs_are_descriptive_with_high_e_exclusion():
+     s, unit_list, params = synthetic(n_per_cell=4, years=(1000.0,), b_per_cell=2, b_years=(1000.0,))
+     first = unit_list[0]['orbit_id']
+diff --git a/tests/unit/test_tracking.py b/tests/unit/test_tracking.py
+index fe586fa..c741dea 100644
+--- a/tests/unit/test_tracking.py
++++ b/tests/unit/test_tracking.py
+@@ -3,6 +3,7 @@ import json
+ import pytest
+ import yaml
+ 
++from submoon_research import tracking
+ from submoon_research.tracking import (
+     add_record, current_records, read_events, render, writer_lock,
+ )
+@@ -13,15 +14,15 @@ def project(tmp_path):
+     (tmp_path / "tracking").mkdir()
+     (tmp_path / "tracking/project.yaml").write_text(yaml.safe_dump({
+         "focus_stage": "W0", "stages": {"W0": {"title": "Audit", "depends_on": [],
+-        "gate": "Audited data", "next_action": "Read source"}}}), encoding="utf-8")
++        "gate": "Audited data"}}}), encoding="utf-8")
+     (tmp_path / "evidence.md").write_text("Measured evidence", encoding="utf-8")
+     return tmp_path
+ 
+ 
+-def record(status="ready", owner="agent-a"):
+-    return {"id": "W0-T001", "kind": "task", "title": "Audit", "status": status,
++def record(status="ready", owner="agent-a", rid="W0-T001", kind="task", title="Audit"):
++    return {"id": rid, "kind": kind, "title": title, "status": status,
+             "summary": "Read the original source", "refs": ["evidence.md"],
+-            "next_action": "Check table", "owner": owner}
++            "next_action": f"Next for {rid}", "owner": owner}
+ 
+ 
+ def test_history_retained_and_summaries_recover(project):
+@@ -45,10 +46,41 @@ def test_stale_writer_cannot_lose_update(project):
+     assert (project / "tracking/stages/W0/journal.jsonl").read_bytes() == before
+ 
+ 
+-def test_concurrent_writer_rejected(project):
++def test_leftover_lock_file_does_not_block_journal(project):
++    # Песочница, которая не может удалять файлы, раньше оставляла .write.lock навсегда.
++    (project / "tracking/.write.lock").write_text('{"pid": 1, "host": "x"}', encoding="utf-8")
++    event = add_record(project, "W0", record(), "agent-a", 0)
++    assert event["revision"] == 1
++    assert len(read_events(project, "W0")) == 1
++
++
++def test_retry_with_same_input_is_idempotent(project):
++    first = add_record(project, "W0", record(), "agent-a", 0)
++    again = add_record(project, "W0", record(), "agent-a", 0)
++    assert again["event_id"] == first["event_id"]
++    assert len(read_events(project, "W0")) == 1
++    with pytest.raises(ValueError, match="Revision conflict"):
++        add_record(project, "W0", record("blocked"), "agent-a", 0)
++
++
++def test_lost_write_is_reported(project, monkeypatch):
++    add_record(project, "W0", record(), "agent-a", 0)
++    real = tracking._write_journal
++
++    def concurrent_overwrite(path, previous, event):
++        foreign = dict(event, event_id="foreign-writer", actor="agent-b")
++        real(path, previous, foreign)
++
++    monkeypatch.setattr(tracking, "_write_journal", concurrent_overwrite)
++    with pytest.raises(RuntimeError, match="потеряна"):
++        add_record(project, "W0", record("active"), "agent-a", 1)
++
++
++def test_monitor_lock_still_exclusive(project):
+     with writer_lock(project):
+         with pytest.raises(ValueError, match="locked"):
+-            add_record(project, "W0", record(), "agent-a", 0)
++            with writer_lock(project):
++                pass
+     assert not (project / "tracking/.write.lock").exists()
+ 
+ 
+@@ -84,3 +116,55 @@ def test_negative_result_is_retained(project):
+     value.update(id="W0-H001", kind="hypothesis", status="contradicted")
+     add_record(project, "W0", value, "agent-a", 0)
+     assert "contradicted" in (project / "tracking/stages/W0/RECORDS.md").read_text(encoding="utf-8")
++
++
++def test_next_step_follows_newer_active_work(project):
++    stage = record("active", rid="W0-STAGE", kind="stage", title="Audit stage")
++    stage["next_action"] = "Old stage step"
++    add_record(project, "W0", stage, "agent-a", 0)
++    add_record(project, "W0", record("active"), "agent-a", 1)
++    summary = (project / "tracking/stages/W0/SUMMARY.md").read_text(encoding="utf-8")
++    state = (project / "STATE.md").read_text(encoding="utf-8")
++    assert "Следующий шаг (W0-T001): Next for W0-T001" in summary
++    assert "Где сейчас идёт работа" in state and "`W0-T001`" in state
++    # Когда запись этапа обновлена позже, приоритет у неё.
++    stage["next_action"] = "Fresh stage step"
++    add_record(project, "W0", stage, "agent-a", 2)
++    summary = (project / "tracking/stages/W0/SUMMARY.md").read_text(encoding="utf-8")
++    assert "Следующий шаг (W0-STAGE): Fresh stage step" in summary
++
++
++def test_stage_lag_is_flagged(project):
++    add_record(project, "W0", record("active", rid="W0-STAGE", kind="stage", title="S"), "agent-a", 0)
++    for n in range(tracking.STAGE_LAG_WARN + 1):
++        add_record(project, "W0", record("passed", rid=f"W0-C{n:03d}", kind="check"), "agent-a", n + 1)
++    summary = (project / "tracking/stages/W0/SUMMARY.md").read_text(encoding="utf-8")
++    assert f"событий в журнале после неё: {tracking.STAGE_LAG_WARN + 1}" in summary
++
++
++def test_summary_shows_current_decisions_and_open_failures(project):
++    old = record("accepted", rid="W0-D001", kind="decision", title="Old rule")
++    add_record(project, "W0", old, "agent-a", 0)
++    new = record("accepted", rid="W0-D002", kind="decision", title="New rule")
++    new["supersedes"] = "W0-D001"
++    add_record(project, "W0", new, "agent-a", 1)
++    add_record(project, "W0", dict(old, status="superseded"), "agent-a", 2)
++    add_record(project, "W0", record("failed", rid="W0-C001", kind="check", title="Bad"), "agent-a", 3)
++    fixed = record("passed", rid="W0-C002", kind="check", title="Replacement")
++    fixed["supersedes"] = "W0-C001"
++    add_record(project, "W0", fixed, "agent-a", 4)
++    add_record(project, "W0", record("failed", rid="W0-C003", kind="check", title="Open"), "agent-a", 5)
++    summary = (project / "tracking/stages/W0/SUMMARY.md").read_text(encoding="utf-8")
++    decisions_part = summary.split("## Решения")[1].split("## ")[0]
++    assert "[`W0-D002`](RECORDS.md#w0-d002) [accepted] New rule" in decisions_part
++    assert "[`W0-D001`]" not in decisions_part
++    assert "`W0-D001` (superseded)" in decisions_part
++    assert "без замещающей проверки: `W0-C003`" in summary
++
++
++def test_decision_links_use_anchors(project):
++    add_record(project, "W0", record("accepted", rid="W0-D001", kind="decision"), "agent-a", 0)
++    decisions = (project / "DECISIONS.md").read_text(encoding="utf-8")
++    records = (project / "tracking/stages/W0/RECORDS.md").read_text(encoding="utf-8")
++    assert "tracking/stages/W0/RECORDS.md#w0-d001" in decisions
++    assert '<a id="w0-d001"></a>W0-D001' in records
+diff --git a/tests/unit/test_verify_p2_2_run.py b/tests/unit/test_verify_p2_2_run.py
+index 13922bb..accd21b 100644
+--- a/tests/unit/test_verify_p2_2_run.py
++++ b/tests/unit/test_verify_p2_2_run.py
+@@ -5,6 +5,8 @@ import shutil
+ import sys
+ from pathlib import Path
+ 
++import pytest
++
+ ROOT = Path(__file__).resolve().parents[2]
+ YEAR = 365.25*86400.0
+ PARAMS = ['--per-cell', '1', '--b-per-cell', '1', '--years', '0.0003', '--b-years', '0.0003']
+@@ -37,6 +39,10 @@ def variant(tmp_path, run, name):
+ 
+ 
+ def test_stand_run_accepted_and_tampering_rejected(tmp_path):
++    # Отпечаток B (admission_p2_horizons.b_fingerprint) читает версии rebound/reboundx;
++    # в Windows .venv REBOUNDx нет (W2-D011), проверка идёт в WSL (W2-I022).
++    pytest.importorskip('rebound')
++    pytest.importorskip('reboundx')
+     stand, v = load('admission_p2_2'), load('verify_p2_2_run')
+     run = tmp_path/'run'
+     assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(run)]) == 0
+@@ -93,6 +99,10 @@ def test_stand_run_accepted_and_tampering_rejected(tmp_path):
+ 
+ 
+ def test_stopped_run_resumes_and_superseded_rows_accepted(tmp_path):
++    # Отпечаток B (admission_p2_horizons.b_fingerprint) читает версии rebound/reboundx;
++    # в Windows .venv REBOUNDx нет (W2-D011), проверка идёт в WSL (W2-I022).
++    pytest.importorskip('rebound')
++    pytest.importorskip('reboundx')
+     stand, v = load('admission_p2_2'), load('verify_p2_2_run')
+     run = tmp_path/'run'
+     run.mkdir()
+@@ -111,3 +121,87 @@ def test_stopped_run_resumes_and_superseded_rows_accepted(tmp_path):
+     report = verify(v, run, '--expect-complete')
+     assert report['passed'], report['failures']
+     assert report['checks']['jobs']['superseded_partial'] == 27
++
++
++def test_stopped_b_accepted_as_decision_ready(tmp_path):
++    """W2-D026: B остановлено сроком, D/T завершены — --expect-decision-ready принимает, --expect-complete нет."""
++    pytest.importorskip('rebound')
++    pytest.importorskip('reboundx')
++    stand, v = load('admission_p2_2'), load('verify_p2_2_run')
++    done_run, stopped_run = tmp_path/'done', tmp_path/'stopped'
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(done_run)]) == 0
++    stopped_run.mkdir()
++    stop = stopped_run/'STOP'
++    stop.write_text('stop', encoding='utf-8')
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(stopped_run), '--stop-file', str(stop)]) == 1
++    mixed = tmp_path/'mixed'
++    mixed.mkdir()
++    rows = ([r for r in lines(done_run/'jobs.jsonl') if r['variant'] != 'B']
++            + [r for r in lines(stopped_run/'jobs.jsonl') if r['variant'] == 'B'])
++    assert sum(1 for r in rows if r['variant'] == 'B') == 9
++    write_lines(mixed/'jobs.jsonl', rows)
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(mixed), '--evaluate-only']) == 1
++    analysis = json.loads((mixed/'analysis.json').read_text(encoding='utf-8'))
++    level = analysis['horizons']['0.0003']
++    assert level['dt_complete'] and not level['complete'] and level['b_unfinished'] == 9
++    assert 'финальный горизонт D/T не завершён' not in ' '.join(analysis['decision']['reasons'])
++    ready = verify(v, mixed, '--expect-decision-ready')
++    assert ready['passed'], ready['failures']
++    assert ready['checks']['analysis']['b_unfinished'] == 9 and ready['checks']['analysis']['dt_complete']
++    assert not verify(v, mixed, '--expect-complete')['passed']
++    # Остановленные D/T приёмщик с --expect-decision-ready не пропускает.
++    assert not verify(v, stopped_run, '--expect-decision-ready')['passed']
++
++
++def test_float_tolerance_only_for_floats():
++    """W2-D036: допуск касается только float; целые, строки и состав — точно."""
++    v = load('verify_p2_2_run')
++    ref = dict(n=1152, verdict='inconclusive', cp=0.03975803115312412, cost=[17.895497290202314, 1.0])
++    got = dict(n=1152, verdict='inconclusive', cp=0.039758031153124124, cost=[17.8954972902023, 1.0])
++    assert v.differences(got, ref) != []                       # по умолчанию — точно
++    assert v.differences(got, ref, rtol=1e-12) == []
++    assert v.differences(dict(got, n=1151), ref, rtol=1e-12)    # целые не допускаются
++    assert v.differences(dict(got, verdict='equivalent'), ref, rtol=1e-12)
++    assert v.differences(dict(got, cp=0.0398), ref, rtol=1e-12)  # заметная разница — провал
++    assert v.differences(dict(got, extra=1), ref, rtol=1e-12)
++    assert v.floats_close(float('nan'), float('nan'), 0.0) and not v.floats_close(1.0, 2.0, 1e-9)
++    report = v.verify(v.parse(['--run', 'nonexistent', *PARAMS, '--float-rtol', '1e-6']))
++    assert not report['passed'] and 'float-rtol' in report['failures'][0]
++
++
++def test_stand_refuses_foreign_or_accepted_run_dir(tmp_path):
++    """W2-C067: стенд отказывает ДО записи при чужих строках, принятом run или других стартах."""
++    pytest.importorskip('rebound')
++    pytest.importorskip('reboundx')
++    stand, v = load('admission_p2_2'), load('verify_p2_2_run')
++    run = tmp_path/'run'
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(run)]) == 0
++    assert (run/'units.json').exists()
++    report = verify(v, run, '--expect-complete')
++    assert report['passed'] and report['checks']['units_file'] == 'match'
++    # принятый run: повторный разбор в тот же каталог запрещён, в отдельный — разрешён
++    (run/'acceptance.json').write_text('{}', encoding='utf-8')
++    before = {p.name: p.read_bytes() for p in run.iterdir()}
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(run), '--evaluate-only']) == 2
++    assert {p.name: p.read_bytes() for p in run.iterdir()} == before
++    other = tmp_path/'analysis'
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(run), '--evaluate-only',
++                       '--analysis-dir', str(other)]) == 0
++    assert (other/'analysis.json').exists() and {p.name: p.read_bytes() for p in run.iterdir()} == before
++    # чужие строки (другой отпечаток): отказ, ничего не записано
++    foreign = variant(tmp_path, run, 'foreign')
++    (foreign/'acceptance.json').unlink()
++    rows = lines(foreign/'jobs.jsonl')
++    rows[0]['job_fingerprint'] = '0'*64
++    write_lines(foreign/'jobs.jsonl', rows)
++    before = {p.name: p.read_bytes() for p in foreign.iterdir()}
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(foreign)]) == 2
++    assert {p.name: p.read_bytes() for p in foreign.iterdir()} == before
++    # подменённый units.json: отказ стенда и провал приёмки
++    tampered = variant(tmp_path, run, 'tampered')
++    (tampered/'acceptance.json').unlink()
++    doc = json.loads((tampered/'units.json').read_text(encoding='utf-8'))
++    doc['units'][0]['state'][-1] += 1e-9
++    (tampered/'units.json').write_text(json.dumps(doc), encoding='utf-8')
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(tampered)]) == 2
++    assert not verify(v, tampered)['passed']

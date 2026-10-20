@@ -1,0 +1,33 @@
+{
+ "run": "runs/W2-OPT06-short-20261018",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "float_rtol": 0.0,
+  "input_basis": "frozen; generator not called",
+  "inputs_manifest_sha256": "c46cabb9c62a73f29152e17b6ce72b08ab0d5ac8d2f75f4352b79b56f34c3c8b",
+  "units_file": "match",
+  "jobs": {
+   "rows": 27,
+   "accepted": 27,
+   "expected": 27,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "dt_complete": true,
+   "dt_failed": 0,
+   "b_unfinished": 0,
+   "decision": "not_decided",
+   "stratum_verdict": "inconclusive",
+   "discordant": 0,
+   "n": 9,
+   "final_pairs": [
+    "D-B",
+    "D-T",
+    "T-B"
+   ]
+  },
+  "generator_numerics": "exact-fsum-v1"
+ }
+}

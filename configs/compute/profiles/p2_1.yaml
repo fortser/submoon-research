@@ -1,0 +1,14 @@
+# P2-1 (перезапуск W2-D021): требования как в scratch/p2_rental/approval.json; модели нагрузки нет —
+# ранжирование по цене доступного vCPU.
+title: P2-1 стенд (i9 P-ядра)
+source: scratch/p2_rental/approval.json, W2-D021
+requirements:
+  min_effective_cpus: 16
+  min_ram_gb: 30
+  disk_gb: 60
+  max_hourly_usd: 0.2
+  min_reliability: 0.97
+  min_direct_ports: 1
+  cpu_regex: 'i9-1[34]900K'
+  require_known_cpu: true
+rank_by: ref_core_price

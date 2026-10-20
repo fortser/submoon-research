@@ -1,0 +1,8 @@
+# Обзор всех активных вычислительных предложений от 16 vCPU до $1/ч — для просмотра и фильтров в HTML.
+title: Все предложения от 16 vCPU
+source: W2-D023
+requirements:
+  min_effective_cpus: 16
+  disk_gb: 20
+  max_hourly_usd: 1.0
+rank_by: ref_core_price

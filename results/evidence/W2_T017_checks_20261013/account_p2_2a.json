@@ -1,0 +1,196 @@
+{
+ "utc": "2026-10-13T18:08:50+00:00",
+ "profile": {
+  "name": "p2_2a",
+  "title": "P2-2a полный стенд",
+  "source": "W2-R017, docs/compute/W2_P2-2a_rental_plan_v1.md",
+  "requirements": {
+   "min_effective_cpus": 32,
+   "min_share": 0.0,
+   "min_ram_gb": 32,
+   "disk_gb": 60,
+   "max_hourly_usd": 1.0,
+   "min_reliability": 0.95,
+   "verification": [
+    "verified",
+    "unverified",
+    "deverified"
+   ],
+   "min_direct_ports": 1,
+   "require_known_cpu": true,
+   "min_core_speed": 0.6,
+   "cpu_regex": null,
+   "allow_gpu": true,
+   "max_hours": 24
+  },
+  "workload": {
+   "core_hours": [
+    280.0,
+    350.0
+   ],
+   "critical_path_hours": [
+    12.0,
+    13.0
+   ],
+   "parallel_efficiency": 0.78,
+   "setup_hours": 1.0,
+   "ram_gb_per_process": 0.45,
+   "use_e_cores": false
+  },
+  "rank_by": "cost"
+ },
+ "catalog_reference": "P-ядро Core i9-14900K = 1.00 (W2-T006, прототип dop853)",
+ "server_query": "снимок: только окна dph_total (база) 0…1, лимит 1000 через аккаунт; быстрый режим: окна цены + rentable/rented/vCPU/диск (без гарантии); остальное — на клиенте",
+ "search": {
+  "mode": "snapshot",
+  "strategy": "price_scan",
+  "complete": true,
+  "snapshot_utc": "2026-10-13T18:05:47+00:00",
+  "age_minutes": 3.0,
+  "stale_snapshot_minutes": null,
+  "transport": "account",
+  "queries": 2,
+  "errors": [
+   "timeout"
+  ],
+  "incomplete": [],
+  "elapsed_seconds": 182.6,
+  "raw_offers": 512,
+  "receipts": [
+   {
+    "query": "dph_total>=0 dph_total<=1",
+    "status": "timeout",
+    "count": null,
+    "continued": "retry_after_timeout",
+    "elapsed_seconds": 180.04699999999866
+   },
+   {
+    "query": "dph_total>=0 dph_total<=1",
+    "status": "ok",
+    "count": 512,
+    "continued": null,
+    "elapsed_seconds": 2.514999999999418
+   }
+  ]
+ },
+ "rejected": {
+  "unavailable": 400,
+  "vcpu": 98,
+  "slow_cpu": 10,
+  "unknown_cpu": 1,
+  "reliability": 1
+ },
+ "rows": [
+  {
+   "offer_id": 55276269,
+   "machine_id": 139652,
+   "cpu_name": "AMD EPYC 9654 96-Core Processor",
+   "cpu_key": "epyc 9654",
+   "catalog_key": "EPYC 9654",
+   "core_speed": 0.64,
+   "speed_source": "measured",
+   "speed_confidence": "measured",
+   "speed_ref": "W2-T006",
+   "vcpu": 192.0,
+   "host_vcpu": 192.0,
+   "share": 1.0,
+   "ram_gb": 63.989,
+   "disk_gb": 305.0,
+   "num_gpus": 1,
+   "gpu_name": "RTX 5080",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.35,
+   "usd_per_vcpu_hour": 0.0018229166666666665,
+   "verification": "deverified",
+   "reliability": 0.9715288,
+   "location": "Rostov Oblast, RU",
+   "direct_ports": 14,
+   "physical_cores": 96.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 61.44,
+   "usd_per_ref_core_hour": 0.005696614583333333,
+   "flags": [
+    "deverified"
+   ],
+   "estimate": {
+    "hours": [
+     19.75,
+     21.3125
+    ],
+    "usd": [
+     6.9125,
+     7.459375
+    ],
+    "bound": "path",
+    "workers": 96.0,
+    "throughput_ref_cores": 61.44,
+    "ram_limits_workers": false
+   },
+   "rank": 1,
+   "history": {
+    "machine_first_seen": "2026-10-13T17:02:12+00:00",
+    "offer_runs_seen": 6,
+    "offer_price_min": 0.33888888888888885,
+    "offer_price_max": 0.35
+   }
+  },
+  {
+   "offer_id": 53285133,
+   "machine_id": 114318,
+   "cpu_name": "Xeon® Gold 5418Y",
+   "cpu_key": "xeon gold 5418y",
+   "catalog_key": "Xeon 5-го/4-го поколения",
+   "core_speed": 0.65,
+   "speed_source": "estimate",
+   "speed_confidence": "family",
+   "speed_ref": null,
+   "vcpu": 32.0,
+   "host_vcpu": 96.0,
+   "share": 0.3333333333333333,
+   "ram_gb": 128.477,
+   "disk_gb": 453.0,
+   "num_gpus": 1,
+   "gpu_name": "L40",
+   "resource_type": "gpu",
+   "usd_per_hour": 0.39333333333333337,
+   "usd_per_vcpu_hour": 0.012291666666666668,
+   "verification": "unverified",
+   "reliability": 0.997636,
+   "location": "Vietnam, VN",
+   "direct_ports": 165,
+   "physical_cores": 16.0,
+   "p_cores": null,
+   "e_cores": null,
+   "ref_cores": 10.4,
+   "usd_per_ref_core_hour": 0.037820512820512825,
+   "flags": [
+    "unverified",
+    "slice",
+    "family_estimate",
+    "over_deadline"
+   ],
+   "estimate": {
+    "hours": [
+     35.51676528599606,
+     44.145956607495066
+    ],
+    "usd": [
+     13.96992767915845,
+     17.364076265614727
+    ],
+    "bound": "volume",
+    "workers": 16.0,
+    "throughput_ref_cores": 10.4,
+    "ram_limits_workers": false
+   },
+   "rank": 2,
+   "history": {
+    "machine_first_seen": "2026-10-13T16:53:17+00:00",
+    "offer_runs_seen": 3,
+    "offer_price_min": 0.37111111111111117,
+    "offer_price_max": 0.39333333333333337
+   }
+  }
+ ]
+}

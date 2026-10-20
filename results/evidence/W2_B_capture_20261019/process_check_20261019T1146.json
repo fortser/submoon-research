@@ -1,0 +1,27 @@
+{
+  "checked_utc": "2026-10-19T11:46:57.801903+00:00",
+  "run_id": "W2-B-capture-20261019",
+  "heartbeat": {
+    "run_id": "W2-B-capture-20261019",
+    "utc": "2026-10-19T11:46:57.259452+00:00",
+    "pid": 376,
+    "supervisor_pid": 375,
+    "elapsed_seconds": 2561.2225096230004,
+    "rss_bytes": 399507456,
+    "peak_rss_bytes": 609579008,
+    "output_bytes": 6366,
+    "status": "running",
+    "stop_reason": "worker_exit"
+  },
+  "processes_verified": [
+    374,
+    375,
+    376
+  ],
+  "worker_threads": 1,
+  "worker_rss_kib": 372096,
+  "snapshot_exists": false,
+  "final_exists": false,
+  "worker_log_bytes": 0,
+  "supervisor_log_bytes": 0
+}

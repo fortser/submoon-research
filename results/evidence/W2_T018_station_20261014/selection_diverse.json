@@ -1,0 +1,188 @@
+{
+  "utc": "2026-10-14T08:28:04.573576+00:00",
+  "source_utc": "2026-10-14T08:28:04+00:00",
+  "source_age_seconds": 0.573576,
+  "approved": false,
+  "rental_enabled": false,
+  "approval_required": true,
+  "status": "candidate_found",
+  "profile": {
+    "name": "p2_2a_station",
+    "title": "P2-2a — кандидаты на одну целую станцию",
+    "source": "W2-T018; W2-R017; docs/tasks/W2_P2-2_plan_v1.md",
+    "requirements": {
+      "min_effective_cpus": 64,
+      "min_share": 0.95,
+      "min_ram_gb": 64,
+      "disk_gb": 60,
+      "max_hourly_usd": 0.4,
+      "min_reliability": 0.97,
+      "verification": [
+        "verified",
+        "deverified"
+      ],
+      "min_direct_ports": 1,
+      "require_known_cpu": true,
+      "min_core_speed": 0.6,
+      "cpu_regex": null,
+      "allow_gpu": true,
+      "max_hours": 22.5
+    },
+    "workload": {
+      "core_hours": [
+        280.0,
+        350.0
+      ],
+      "critical_path_hours": [
+        12.0,
+        13.0
+      ],
+      "parallel_efficiency": 0.78,
+      "setup_hours": 1.0,
+      "ram_gb_per_process": 0.45,
+      "use_e_cores": false
+    },
+    "rank_by": "cost"
+  },
+  "budget_usd": 12.0,
+  "max_hours": 24.0,
+  "max_paid_instances": 1,
+  "paid_retries": 0,
+  "mode": "on-demand",
+  "checks": [
+    {
+      "offer_id": 53991778,
+      "machine_id": 151327,
+      "status": "available",
+      "reason": null
+    }
+  ],
+  "candidates": [
+    {
+      "row": {
+        "offer_id": 53991778,
+        "machine_id": 151327,
+        "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+        "cpu_key": "threadripper pro 5975wx",
+        "catalog_key": "Threadripper PRO 59x5WX",
+        "core_speed": 0.75,
+        "speed_source": "estimate",
+        "speed_confidence": "model",
+        "speed_ref": null,
+        "vcpu": 64.0,
+        "host_vcpu": 64.0,
+        "share": 1.0,
+        "ram_gb": 64.124,
+        "disk_gb": 1273.0,
+        "num_gpus": 3,
+        "gpu_name": "RTX 5060 Ti",
+        "resource_type": "gpu",
+        "usd_per_hour": 0.3766666666666667,
+        "usd_per_vcpu_hour": 0.005885416666666667,
+        "verification": "deverified",
+        "reliability": 0.9845688,
+        "location": "Denmark, DK",
+        "direct_ports": 198,
+        "physical_cores": 32.0,
+        "p_cores": null,
+        "e_cores": null,
+        "ref_cores": 24.0,
+        "usd_per_ref_core_hour": 0.015694444444444445,
+        "flags": [
+          "deverified",
+          "speed_estimate"
+        ],
+        "estimate": {
+          "hours": [
+            17.0,
+            19.6965811965812
+          ],
+          "usd": [
+            6.403333333333334,
+            7.419045584045586
+          ],
+          "bound": "volume",
+          "workers": 32.0,
+          "throughput_ref_cores": 24.0,
+          "ram_limits_workers": false
+        }
+      },
+      "offer": {
+        "id": 53991778,
+        "ask_contract_id": 53991778,
+        "machine_id": 151327,
+        "resource_type": "gpu",
+        "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+        "cpu_arch": "amd64",
+        "cpu_cores": 64,
+        "cpu_cores_effective": 64.0,
+        "cpu_ram": 64124,
+        "cpu_ghz": 4.561833,
+        "has_avx": 1,
+        "mobo_name": "1046",
+        "num_gpus": 3,
+        "gpu_name": "RTX 5060 Ti",
+        "gpu_ram": 16311,
+        "gpu_total_ram": 48933,
+        "gpu_frac": 1.0,
+        "gpu_mem_bw": 368.3,
+        "pci_gen": 4.0,
+        "pcie_bw": 13.4,
+        "disk_space": 1273.0,
+        "disk_bw": 1771.0,
+        "disk_name": "SAMSUNG MZVLB2T0HALB-000L7",
+        "storage_cost": 0.19999999999999998,
+        "storage_total_cost": 0.016666666666666666,
+        "dph_base": 0.36000000000000004,
+        "dph_total": 0.3766666666666667,
+        "min_bid": 0.32,
+        "inet_down": 867.1,
+        "inet_up": 919.9,
+        "inet_down_cost": 0.0026041666666666665,
+        "inet_up_cost": 0.00390625,
+        "internet_down_cost_per_tb": 2.6666666666666665,
+        "internet_up_cost_per_tb": 4.0,
+        "direct_port_count": 198,
+        "geolocation": "Denmark, DK",
+        "reliability": 0.9845688,
+        "reliability2": 0.9845688,
+        "verification": "deverified",
+        "vericode": 4,
+        "rentable": true,
+        "rented": false,
+        "duration": 5186617.353276968,
+        "end_date": 1797153120.3129086,
+        "driver_version": "595.84",
+        "os_version": "24.04",
+        "vms_enabled": false,
+        "datacenter": null,
+        "external": null
+      },
+      "projected_compute_storage_usd": [
+        6.403333333333334,
+        7.419045584045586
+      ],
+      "max_compute_storage_usd": 9.040000000000001,
+      "transfer_reserve_usd": 2.4,
+      "transfer_rates": {
+        "inet_down_cost": 0.0026041666666666665,
+        "inet_up_cost": 0.00390625,
+        "internet_down_cost_per_tb": 2.6666666666666665,
+        "internet_up_cost_per_tb": 4.0
+      },
+      "risks": [
+        "hardware_and_parallel_speed_not_measured",
+        "deverified"
+      ]
+    }
+  ],
+  "recommended_offer_id": 53991778,
+  "limitations": [
+    "Endpoint неполон; не замечено != занято.",
+    "Не разрешает rent; перед create требуется новое явное согласие и перепроверка.",
+    "GPU не ускоряет этот CPU-стенд; цена учитывает диск 60 ГБ.",
+    "Ставки трафика и объём пакета сверить перед согласованием бюджета.",
+    "Долгий запуск требует базовой проверки и проверенного исполнителя контроля расходов."
+  ],
+  "source_sha256": "8fcc8f15674ab718c603ec935b4a5719916ce05b88a02304e5e4ab179770c906"
+}

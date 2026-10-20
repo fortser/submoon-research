@@ -1,0 +1,4338 @@
+{
+ "plan": "W2-P006",
+ "stage": "P2-2a",
+ "stand_version": "P2-2-v1",
+ "analysis_version": "P2-2-a2",
+ "margin": 0.005,
+ "alpha": 0.05,
+ "categories": [
+  "survived",
+  "host_contact",
+  "other_contact",
+  "operational_escape",
+  "unresolved"
+ ],
+ "levels": [
+  {
+   "level": "pooled",
+   "strata": 1
+  },
+  {
+   "level": "hosts",
+   "strata": 3
+  },
+  {
+   "level": "cells",
+   "strata": 9
+  }
+ ],
+ "params": {
+  "per_cell": 4,
+  "b_per_cell": 4,
+  "unit_start": 0,
+  "years": [
+   1.0,
+   10.0
+  ],
+  "b_years": [
+   1.0
+  ]
+ },
+ "full_scope": false,
+ "complete": true,
+ "horizons": {
+  "1": {
+   "years": 1.0,
+   "planned": 108,
+   "present": 108,
+   "stopped": 0,
+   "complete": true,
+   "dt_complete": true,
+   "b_planned": 36,
+   "b_unfinished": 0,
+   "failed": [],
+   "outcomes": {
+    "B": {
+     "all": {
+      "host_contact": 6,
+      "operational_escape": 12,
+      "survived": 12,
+      "unresolved:escape_not_resolved_at_horizon": 6
+     },
+     "ganymede": {
+      "host_contact": 4,
+      "operational_escape": 7,
+      "survived": 1
+     },
+     "ganymede:canonical_volume": {
+      "host_contact": 2,
+      "operational_escape": 1,
+      "survived": 1
+     },
+     "ganymede:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "ganymede:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "himalia": {
+      "survived": 6,
+      "unresolved:escape_not_resolved_at_horizon": 6
+     },
+     "himalia:canonical_volume": {
+      "survived": 1,
+      "unresolved:escape_not_resolved_at_horizon": 3
+     },
+     "himalia:uniform_a_e_cos_i_phases": {
+      "survived": 1,
+      "unresolved:escape_not_resolved_at_horizon": 3
+     },
+     "himalia:uniform_log_a": {
+      "survived": 4
+     },
+     "iapetus": {
+      "host_contact": 2,
+      "operational_escape": 5,
+      "survived": 5
+     },
+     "iapetus:canonical_volume": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_a_e_cos_i_phases": {
+      "operational_escape": 2,
+      "survived": 2
+     },
+     "iapetus:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 1,
+      "survived": 2
+     }
+    },
+    "D": {
+     "all": {
+      "host_contact": 6,
+      "operational_escape": 12,
+      "survived": 11,
+      "unresolved:escape_not_resolved_at_horizon": 1,
+      "unresolved:high_e_open_at_horizon": 5,
+      "unresolved:high_e_prolonged": 1
+     },
+     "ganymede": {
+      "host_contact": 4,
+      "operational_escape": 7,
+      "survived": 1
+     },
+     "ganymede:canonical_volume": {
+      "host_contact": 2,
+      "operational_escape": 1,
+      "survived": 1
+     },
+     "ganymede:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "ganymede:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "himalia": {
+      "survived": 6,
+      "unresolved:escape_not_resolved_at_horizon": 1,
+      "unresolved:high_e_open_at_horizon": 5
+     },
+     "himalia:canonical_volume": {
+      "survived": 1,
+      "unresolved:high_e_open_at_horizon": 3
+     },
+     "himalia:uniform_a_e_cos_i_phases": {
+      "survived": 1,
+      "unresolved:escape_not_resolved_at_horizon": 1,
+      "unresolved:high_e_open_at_horizon": 2
+     },
+     "himalia:uniform_log_a": {
+      "survived": 4
+     },
+     "iapetus": {
+      "host_contact": 2,
+      "operational_escape": 5,
+      "survived": 4,
+      "unresolved:high_e_prolonged": 1
+     },
+     "iapetus:canonical_volume": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_a_e_cos_i_phases": {
+      "operational_escape": 2,
+      "survived": 2
+     },
+     "iapetus:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 1,
+      "survived": 1,
+      "unresolved:high_e_prolonged": 1
+     }
+    },
+    "T": {
+     "all": {
+      "host_contact": 6,
+      "operational_escape": 12,
+      "survived": 11,
+      "unresolved:high_e_open_at_horizon": 6,
+      "unresolved:high_e_prolonged": 1
+     },
+     "ganymede": {
+      "host_contact": 4,
+      "operational_escape": 7,
+      "survived": 1
+     },
+     "ganymede:canonical_volume": {
+      "host_contact": 2,
+      "operational_escape": 1,
+      "survived": 1
+     },
+     "ganymede:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "ganymede:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "himalia": {
+      "survived": 6,
+      "unresolved:high_e_open_at_horizon": 6
+     },
+     "himalia:canonical_volume": {
+      "survived": 1,
+      "unresolved:high_e_open_at_horizon": 3
+     },
+     "himalia:uniform_a_e_cos_i_phases": {
+      "survived": 1,
+      "unresolved:high_e_open_at_horizon": 3
+     },
+     "himalia:uniform_log_a": {
+      "survived": 4
+     },
+     "iapetus": {
+      "host_contact": 2,
+      "operational_escape": 5,
+      "survived": 4,
+      "unresolved:high_e_prolonged": 1
+     },
+     "iapetus:canonical_volume": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_a_e_cos_i_phases": {
+      "operational_escape": 2,
+      "survived": 2
+     },
+     "iapetus:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 1,
+      "survived": 1,
+      "unresolved:high_e_prolonged": 1
+     }
+    }
+   },
+   "pairs": {
+    "D-T": {
+     "units": 36,
+     "levels": {
+      "pooled": [
+       {
+        "stratum": "all",
+        "n": 36,
+        "discordant": 1,
+        "discordance": 0.027777777777777776,
+        "alpha_cp": 0.05,
+        "cp_upper": 0.12511620483905223,
+        "cp_two_sided": [
+         0.0007030252059047799,
+         0.14528926474685327
+        ],
+        "alpha_newcombe": 0.01,
+        "categories": {
+         "survived": {
+          "count_a": 11,
+          "count_b": 11,
+          "fraction_a": 0.3055555555555556,
+          "fraction_b": 0.3055555555555556,
+          "delta": 0.0,
+          "newcombe": [
+           -0.08936111277502,
+           0.08936111277502
+          ]
+         },
+         "host_contact": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.12282654019818484,
+           0.12282654019818484
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.15562126637976392,
+           0.15562126637976392
+          ]
+         },
+         "operational_escape": {
+          "count_a": 12,
+          "count_b": 12,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.08374783257200856,
+           0.08374783257200856
+          ]
+         },
+         "unresolved": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.19444444444444445,
+          "fraction_b": 0.19444444444444445,
+          "delta": 0.0,
+          "newcombe": [
+           -0.11561652774331735,
+           0.11561652774331735
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ],
+      "hosts": [
+       {
+        "stratum": "ganymede",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         },
+         "host_contact": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.23287633447907105,
+           0.23287633447907105
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.5833333333333334,
+          "fraction_b": 0.5833333333333334,
+          "delta": 0.0,
+          "newcombe": [
+           -0.1991915403031881,
+           0.1991915403031881
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia",
+        "n": 12,
+        "discordant": 1,
+        "discordance": 0.08333333333333333,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.40981669685832356,
+        "cp_two_sided": [
+         0.0006971110443230065,
+         0.4497065901925821
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "unresolved": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.23287633447907105,
+           0.23287633447907105
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.33533245725490773,
+           0.33533245725490773
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 5,
+          "count_b": 5,
+          "fraction_a": 0.4166666666666667,
+          "fraction_b": 0.4166666666666667,
+          "delta": 0.0,
+          "newcombe": [
+           -0.19919154030318797,
+           0.19919154030318797
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ],
+      "cells": [
+       {
+        "stratum": "ganymede:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "ganymede:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "ganymede:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 1,
+        "discordance": 0.25,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.8850230914194464,
+        "cp_two_sided": [
+         0.0006951689984601336,
+         0.9093419882311514
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 1.0,
+          "fraction_b": 1.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ]
+     },
+     "transitions": {
+      "unresolved:escape_not_resolved_at_horizon -> unresolved:high_e_open_at_horizon": 1
+     },
+     "discordant_units": [
+      "himalia:uniform_a_e_cos_i_phases:0002"
+     ],
+     "event_time": {
+      "pairs": 18,
+      "dt_periods_quantiles": [
+       1.0068335105443809e-14,
+       1.569767648436049e-13,
+       7.942239601864383e-10,
+       4.7259367286014264e-07,
+       9.96729880696212e-07
+      ],
+      "over_1e_6": 0
+     },
+     "divergence": {
+      "threshold": 1e-06,
+      "grid": "0+geomspace31(1e-5H..H)",
+      "none": 27,
+      "tau_years_quantiles": [
+       0.0316227766016838,
+       0.06082792084497363,
+       0.316227766016838,
+       0.7450336552463688,
+       1.0
+      ]
+     }
+    },
+    "D-B": {
+     "units": 36,
+     "levels": {
+      "pooled": [
+       {
+        "stratum": "all",
+        "n": 36,
+        "discordant": 6,
+        "discordance": 0.16666666666666666,
+        "alpha_cp": 0.05,
+        "cp_upper": 0.30267742362657557,
+        "cp_two_sided": [
+         0.06372013360838565,
+         0.328115932042918
+        ],
+        "alpha_newcombe": 0.01,
+        "categories": {
+         "survived": {
+          "count_a": 11,
+          "count_b": 12,
+          "fraction_a": 0.3055555555555556,
+          "fraction_b": 0.3333333333333333,
+          "delta": -0.027777777777777735,
+          "newcombe": [
+           -0.13664443679813026,
+           0.0795087443143418
+          ]
+         },
+         "host_contact": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.12282654019818484,
+           0.12282654019818484
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.15562126637976392,
+           0.15562126637976392
+          ]
+         },
+         "operational_escape": {
+          "count_a": 12,
+          "count_b": 12,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.08374783257200856,
+           0.08374783257200856
+          ]
+         },
+         "unresolved": {
+          "count_a": 7,
+          "count_b": 6,
+          "fraction_a": 0.19444444444444445,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.02777777777777779,
+          "newcombe": [
+           -0.10384383412964554,
+           0.16726238180924963
+          ]
+         }
+        }
+       }
+      ],
+      "hosts": [
+       {
+        "stratum": "ganymede",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         },
+         "host_contact": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.23287633447907105,
+           0.23287633447907105
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.5833333333333334,
+          "fraction_b": 0.5833333333333334,
+          "delta": 0.0,
+          "newcombe": [
+           -0.1991915403031881,
+           0.1991915403031881
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia",
+        "n": 12,
+        "discordant": 5,
+        "discordance": 0.4166666666666667,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.7429295192115162,
+        "cp_two_sided": [
+         0.11636254498653481,
+         0.7724272453140887
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "unresolved": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus",
+        "n": 12,
+        "discordant": 1,
+        "discordance": 0.08333333333333333,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.40981669685832356,
+        "cp_two_sided": [
+         0.0006971110443230065,
+         0.4497065901925821
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 5,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.4166666666666667,
+          "delta": -0.08333333333333337,
+          "newcombe": [
+           -0.35133520097379123,
+           0.20677761983585863
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.33533245725490773,
+           0.33533245725490773
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 5,
+          "count_b": 5,
+          "fraction_a": 0.4166666666666667,
+          "fraction_b": 0.4166666666666667,
+          "delta": 0.0,
+          "newcombe": [
+           -0.19919154030318797,
+           0.19919154030318797
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 0,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.0,
+          "delta": 0.08333333333333333,
+          "newcombe": [
+           -0.34131767916326894,
+           0.5069519318361657
+          ]
+         }
+        }
+       }
+      ],
+      "cells": [
+       {
+        "stratum": "ganymede:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "ganymede:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "ganymede:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:canonical_volume",
+        "n": 4,
+        "discordant": 3,
+        "discordance": 0.75,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.9986082081794839,
+        "cp_two_sided": [
+         0.0906580117688487,
+         0.9993048310015399
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 2,
+        "discordance": 0.5,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.9689281813240305,
+        "cp_two_sided": [
+         0.021834099335824222,
+         0.9781659006641759
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 1.0,
+          "fraction_b": 1.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:uniform_log_a",
+        "n": 4,
+        "discordant": 1,
+        "discordance": 0.25,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.8850230914194464,
+        "cp_two_sided": [
+         0.0006951689984601336,
+         0.9093419882311514
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 2,
+          "fraction_a": 0.25,
+          "fraction_b": 0.5,
+          "delta": -0.25,
+          "newcombe": [
+           -0.7341872331663308,
+           0.4803228772419087
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 0,
+          "fraction_a": 0.25,
+          "fraction_b": 0.0,
+          "delta": 0.25,
+          "newcombe": [
+           -0.5120894963643065,
+           0.8430531494964213
+          ]
+         }
+        }
+       }
+      ]
+     },
+     "transitions": {
+      "unresolved:high_e_open_at_horizon -> unresolved:escape_not_resolved_at_horizon": 5,
+      "unresolved:high_e_prolonged -> survived": 1
+     },
+     "discordant_units": [
+      "himalia:uniform_a_e_cos_i_phases:0000",
+      "himalia:canonical_volume:0001",
+      "himalia:canonical_volume:0002",
+      "iapetus:uniform_log_a:0003",
+      "himalia:uniform_a_e_cos_i_phases:0003",
+      "himalia:canonical_volume:0003"
+     ],
+     "event_time": {
+      "pairs": 18,
+      "dt_periods_quantiles": [
+       5.5136120815525616e-15,
+       1.559545046890318e-13,
+       8.060120097289468e-10,
+       4.762512594525082e-07,
+       1.0083796542364853e-06
+      ],
+      "over_1e_6": 1
+     },
+     "divergence": {
+      "threshold": 1e-06,
+      "grid": "0+geomspace31(1e-5H..H)",
+      "none": 27,
+      "tau_years_quantiles": [
+       0.0316227766016838,
+       0.06082792084497363,
+       0.316227766016838,
+       0.7450336552463688,
+       1.0
+      ]
+     },
+     "excluding_high_e": {
+      "n": 30,
+      "discordant": 0,
+      "cp_two_sided": [
+       0.0,
+       0.11570330822202779
+      ]
+     }
+    },
+    "T-B": {
+     "units": 36,
+     "levels": {
+      "pooled": [
+       {
+        "stratum": "all",
+        "n": 36,
+        "discordant": 7,
+        "discordance": 0.19444444444444445,
+        "alpha_cp": 0.05,
+        "cp_upper": 0.33439333794874854,
+        "cp_two_sided": [
+         0.08194363976520887,
+         0.36024801617502533
+        ],
+        "alpha_newcombe": 0.01,
+        "categories": {
+         "survived": {
+          "count_a": 11,
+          "count_b": 12,
+          "fraction_a": 0.3055555555555556,
+          "fraction_b": 0.3333333333333333,
+          "delta": -0.027777777777777735,
+          "newcombe": [
+           -0.13664443679813026,
+           0.0795087443143418
+          ]
+         },
+         "host_contact": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.12282654019818484,
+           0.12282654019818484
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.15562126637976392,
+           0.15562126637976392
+          ]
+         },
+         "operational_escape": {
+          "count_a": 12,
+          "count_b": 12,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.08374783257200856,
+           0.08374783257200856
+          ]
+         },
+         "unresolved": {
+          "count_a": 7,
+          "count_b": 6,
+          "fraction_a": 0.19444444444444445,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.02777777777777779,
+          "newcombe": [
+           -0.10384383412964554,
+           0.16726238180924963
+          ]
+         }
+        }
+       }
+      ],
+      "hosts": [
+       {
+        "stratum": "ganymede",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         },
+         "host_contact": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.23287633447907105,
+           0.23287633447907105
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.5833333333333334,
+          "fraction_b": 0.5833333333333334,
+          "delta": 0.0,
+          "newcombe": [
+           -0.1991915403031881,
+           0.1991915403031881
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia",
+        "n": 12,
+        "discordant": 6,
+        "discordance": 0.5,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.8062203095033277,
+        "cp_two_sided": [
+         0.16834430957155927,
+         0.8316556904284408
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "unresolved": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus",
+        "n": 12,
+        "discordant": 1,
+        "discordance": 0.08333333333333333,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.40981669685832356,
+        "cp_two_sided": [
+         0.0006971110443230065,
+         0.4497065901925821
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 5,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.4166666666666667,
+          "delta": -0.08333333333333337,
+          "newcombe": [
+           -0.35133520097379123,
+           0.20677761983585863
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.16666666666666666,
+          "fraction_b": 0.16666666666666666,
+          "delta": 0.0,
+          "newcombe": [
+           -0.33533245725490773,
+           0.33533245725490773
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 5,
+          "count_b": 5,
+          "fraction_a": 0.4166666666666667,
+          "fraction_b": 0.4166666666666667,
+          "delta": 0.0,
+          "newcombe": [
+           -0.19919154030318797,
+           0.19919154030318797
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 0,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.0,
+          "delta": 0.08333333333333333,
+          "newcombe": [
+           -0.34131767916326894,
+           0.5069519318361657
+          ]
+         }
+        }
+       }
+      ],
+      "cells": [
+       {
+        "stratum": "ganymede:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "ganymede:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "ganymede:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:canonical_volume",
+        "n": 4,
+        "discordant": 3,
+        "discordance": 0.75,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.9986082081794839,
+        "cp_two_sided": [
+         0.0906580117688487,
+         0.9993048310015399
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 3,
+        "discordance": 0.75,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.9986082081794839,
+        "cp_two_sided": [
+         0.0906580117688487,
+         0.9993048310015399
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "himalia:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 1.0,
+          "fraction_b": 1.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        }
+       },
+       {
+        "stratum": "iapetus:uniform_log_a",
+        "n": 4,
+        "discordant": 1,
+        "discordance": 0.25,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.8850230914194464,
+        "cp_two_sided": [
+         0.0006951689984601336,
+         0.9093419882311514
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 2,
+          "fraction_a": 0.25,
+          "fraction_b": 0.5,
+          "delta": -0.25,
+          "newcombe": [
+           -0.7341872331663308,
+           0.4803228772419087
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 0,
+          "fraction_a": 0.25,
+          "fraction_b": 0.0,
+          "delta": 0.25,
+          "newcombe": [
+           -0.5120894963643065,
+           0.8430531494964213
+          ]
+         }
+        }
+       }
+      ]
+     },
+     "transitions": {
+      "unresolved:high_e_open_at_horizon -> unresolved:escape_not_resolved_at_horizon": 6,
+      "unresolved:high_e_prolonged -> survived": 1
+     },
+     "discordant_units": [
+      "himalia:uniform_a_e_cos_i_phases:0000",
+      "himalia:canonical_volume:0001",
+      "himalia:uniform_a_e_cos_i_phases:0002",
+      "himalia:canonical_volume:0002",
+      "iapetus:uniform_log_a:0003",
+      "himalia:uniform_a_e_cos_i_phases:0003",
+      "himalia:canonical_volume:0003"
+     ],
+     "event_time": {
+      "pairs": 18,
+      "dt_periods_quantiles": [
+       0.0,
+       2.696897786150866e-15,
+       7.299870658587144e-12,
+       3.657586592365446e-09,
+       1.1649773540273238e-08
+      ],
+      "over_1e_6": 0
+     },
+     "divergence": {
+      "threshold": 1e-06,
+      "grid": "0+geomspace31(1e-5H..H)",
+      "none": 34,
+      "tau_years_quantiles": [
+       0.6812920690579609,
+       0.7131628621521648,
+       0.8406460345289805,
+       0.9681292069057961,
+       1.0
+      ]
+     },
+     "excluding_high_e": {
+      "n": 29,
+      "discordant": 0,
+      "cp_two_sided": [
+       0.0,
+       0.11944486906950269
+      ]
+     }
+    }
+   }
+  },
+  "10": {
+   "years": 10.0,
+   "planned": 72,
+   "present": 72,
+   "stopped": 0,
+   "complete": true,
+   "dt_complete": true,
+   "b_planned": 0,
+   "b_unfinished": 0,
+   "failed": [],
+   "outcomes": {
+    "D": {
+     "all": {
+      "host_contact": 7,
+      "operational_escape": 18,
+      "survived": 10,
+      "unresolved:high_e_prolonged": 1
+     },
+     "ganymede": {
+      "host_contact": 4,
+      "operational_escape": 7,
+      "survived": 1
+     },
+     "ganymede:canonical_volume": {
+      "host_contact": 2,
+      "operational_escape": 1,
+      "survived": 1
+     },
+     "ganymede:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "ganymede:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "himalia": {
+      "operational_escape": 6,
+      "survived": 6
+     },
+     "himalia:canonical_volume": {
+      "operational_escape": 3,
+      "survived": 1
+     },
+     "himalia:uniform_a_e_cos_i_phases": {
+      "operational_escape": 3,
+      "survived": 1
+     },
+     "himalia:uniform_log_a": {
+      "survived": 4
+     },
+     "iapetus": {
+      "host_contact": 3,
+      "operational_escape": 5,
+      "survived": 3,
+      "unresolved:high_e_prolonged": 1
+     },
+     "iapetus:canonical_volume": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 1,
+      "survived": 1,
+      "unresolved:high_e_prolonged": 1
+     }
+    },
+    "T": {
+     "all": {
+      "host_contact": 7,
+      "operational_escape": 18,
+      "survived": 10,
+      "unresolved:high_e_prolonged": 1
+     },
+     "ganymede": {
+      "host_contact": 4,
+      "operational_escape": 7,
+      "survived": 1
+     },
+     "ganymede:canonical_volume": {
+      "host_contact": 2,
+      "operational_escape": 1,
+      "survived": 1
+     },
+     "ganymede:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "ganymede:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 3
+     },
+     "himalia": {
+      "operational_escape": 6,
+      "survived": 6
+     },
+     "himalia:canonical_volume": {
+      "operational_escape": 3,
+      "survived": 1
+     },
+     "himalia:uniform_a_e_cos_i_phases": {
+      "operational_escape": 3,
+      "survived": 1
+     },
+     "himalia:uniform_log_a": {
+      "survived": 4
+     },
+     "iapetus": {
+      "host_contact": 3,
+      "operational_escape": 5,
+      "survived": 3,
+      "unresolved:high_e_prolonged": 1
+     },
+     "iapetus:canonical_volume": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_a_e_cos_i_phases": {
+      "host_contact": 1,
+      "operational_escape": 2,
+      "survived": 1
+     },
+     "iapetus:uniform_log_a": {
+      "host_contact": 1,
+      "operational_escape": 1,
+      "survived": 1,
+      "unresolved:high_e_prolonged": 1
+     }
+    }
+   },
+   "pairs": {
+    "D-T": {
+     "units": 36,
+     "levels": {
+      "pooled": [
+       {
+        "stratum": "all",
+        "n": 36,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.05,
+        "cp_upper": 0.07984650951989439,
+        "cp_two_sided": [
+         0.0,
+         0.09739375591449193
+        ],
+        "alpha_newcombe": 0.01,
+        "categories": {
+         "survived": {
+          "count_a": 10,
+          "count_b": 10,
+          "fraction_a": 0.2777777777777778,
+          "fraction_b": 0.2777777777777778,
+          "delta": 0.0,
+          "newcombe": [
+           -0.09542856588580485,
+           0.09542856588580485
+          ]
+         },
+         "host_contact": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.19444444444444445,
+          "fraction_b": 0.19444444444444445,
+          "delta": 0.0,
+          "newcombe": [
+           -0.11561652774331735,
+           0.11561652774331735
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.15562126637976392,
+           0.15562126637976392
+          ]
+         },
+         "operational_escape": {
+          "count_a": 18,
+          "count_b": 18,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.06574810229195557,
+           0.06574810229195557
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.027777777777777776,
+          "fraction_b": 0.027777777777777776,
+          "delta": 0.0,
+          "newcombe": [
+           -0.16101134073876477,
+           0.16101134073876477
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ],
+      "hosts": [
+       {
+        "stratum": "ganymede",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         },
+         "host_contact": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 0.3333333333333333,
+          "fraction_b": 0.3333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.23287633447907105,
+           0.23287633447907105
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 7,
+          "count_b": 7,
+          "fraction_a": 0.5833333333333334,
+          "fraction_b": 0.5833333333333334,
+          "delta": 0.0,
+          "newcombe": [
+           -0.1991915403031881,
+           0.1991915403031881
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 6,
+          "count_b": 6,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.18661698007149852,
+           0.18661698007149852
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus",
+        "n": 12,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.016666666666666666,
+        "cp_upper": 0.28908000504385567,
+        "cp_two_sided": [
+         0.0,
+         0.32898087838909656
+        ],
+        "alpha_newcombe": 0.0033333333333333335,
+        "categories": {
+         "survived": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.280157544155357,
+           0.280157544155357
+          ]
+         },
+         "host_contact": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.280157544155357,
+           0.280157544155357
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.4179107670120728,
+           0.4179107670120728
+          ]
+         },
+         "operational_escape": {
+          "count_a": 5,
+          "count_b": 5,
+          "fraction_a": 0.4166666666666667,
+          "fraction_b": 0.4166666666666667,
+          "delta": 0.0,
+          "newcombe": [
+           -0.19919154030318797,
+           0.19919154030318797
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.08333333333333333,
+          "fraction_b": 0.08333333333333333,
+          "delta": 0.0,
+          "newcombe": [
+           -0.395107845005347,
+           0.395107845005347
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ],
+      "cells": [
+       {
+        "stratum": "ganymede:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "ganymede:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "ganymede:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 3,
+          "count_b": 3,
+          "fraction_a": 0.75,
+          "fraction_b": 0.75,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "himalia:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 4,
+          "count_b": 4,
+          "fraction_a": 1.0,
+          "fraction_b": 1.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "host_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:canonical_volume",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:uniform_a_e_cos_i_phases",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 2,
+          "count_b": 2,
+          "fraction_a": 0.5,
+          "fraction_b": 0.5,
+          "delta": 0.0,
+          "newcombe": [
+           -0.42621528233426287,
+           0.42621528233426287
+          ]
+         },
+         "unresolved": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       },
+       {
+        "stratum": "iapetus:uniform_log_a",
+        "n": 4,
+        "discordant": 0,
+        "discordance": 0.0,
+        "alpha_cp": 0.005555555555555556,
+        "cp_upper": 0.7269879137290935,
+        "cp_two_sided": [
+         0.0,
+         0.7704251153338569
+        ],
+        "alpha_newcombe": 0.0011111111111111111,
+        "categories": {
+         "survived": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "host_contact": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "other_contact": {
+          "count_a": 0,
+          "count_b": 0,
+          "fraction_a": 0.0,
+          "fraction_b": 0.0,
+          "delta": 0.0,
+          "newcombe": [
+           -0.7266378675811018,
+           0.7266378675811018
+          ]
+         },
+         "operational_escape": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         },
+         "unresolved": {
+          "count_a": 1,
+          "count_b": 1,
+          "fraction_a": 0.25,
+          "fraction_b": 0.25,
+          "delta": 0.0,
+          "newcombe": [
+           -0.5600536711298107,
+           0.5600536711298107
+          ]
+         }
+        },
+        "verdict": "inconclusive"
+       }
+      ]
+     },
+     "transitions": {},
+     "discordant_units": [],
+     "event_time": {
+      "pairs": 25,
+      "dt_periods_quantiles": [
+       1.0068335105443809e-14,
+       2.5840686605982116e-13,
+       1.0802699199209049e-09,
+       6.746384421313743e-07,
+       2.2382762148034174e-05
+      ],
+      "over_1e_6": 1
+     },
+     "divergence": {
+      "threshold": 1e-06,
+      "grid": "0+geomspace31(1e-5H..H)",
+      "none": 24,
+      "tau_years_quantiles": [
+       0.0316227766016838,
+       0.06812920690579609,
+       0.46415888336127736,
+       3.16227766016838,
+       4.641588833612774
+      ]
+     }
+    }
+   }
+  }
+ },
+ "cost": {
+  "B": {
+   "jobs": 36,
+   "core_hours": 0.014506867369766243,
+   "model_core_hours": 0.026077267874868706,
+   "measured_over_model": 0.5563031924731219,
+   "steps": 295706,
+   "us_per_step": 176.61029039369672,
+   "us_per_step_by_host": {
+    "iapetus": 177.53842939407156,
+    "ganymede": 199.10574068883767,
+    "himalia": 171.4707254624351
+   },
+   "steps_per_orbit_quantiles": [
+    41.418719017072014,
+    41.712884777219166,
+    48.19899670708259,
+    56.97463227726875,
+    65.99272417394093
+   ],
+   "max_wall_hours": 0.004117864313949313,
+   "max_wall_job": [
+    "iapetus:uniform_log_a:0001",
+    1.0,
+    "B"
+   ]
+  },
+  "D": {
+   "jobs": 72,
+   "core_hours": 0.006602525862399488,
+   "model_core_hours": 0.008958613893122067,
+   "measured_over_model": 0.737003061095037,
+   "steps": 2720623,
+   "us_per_step": 8.736636095717106,
+   "us_per_step_by_host": {
+    "iapetus": 9.154543984648807,
+    "ganymede": 12.172441271668461,
+    "himalia": 8.025207079310253
+   },
+   "steps_per_orbit_quantiles": [
+    40.00020162205315,
+    40.00232863800659,
+    43.846187951079614,
+    49.99917413117544,
+    54.63332108537101
+   ],
+   "max_wall_hours": 0.0020321337760995247,
+   "max_wall_job": [
+    "iapetus:uniform_log_a:0001",
+    10.0,
+    "D"
+   ]
+  },
+  "T": {
+   "jobs": 72,
+   "core_hours": 0.012769372028350417,
+   "model_core_hours": 0.01760858631089865,
+   "measured_over_model": 0.7251787169562242,
+   "steps": 5416397,
+   "us_per_step": 8.487143631100434,
+   "us_per_step_by_host": {
+    "iapetus": 9.013472007414885,
+    "ganymede": 11.728798674202292,
+    "himalia": 7.7474449284980995
+   },
+   "steps_per_orbit_quantiles": [
+    80.00020825219661,
+    80.00151643401675,
+    84.86102038835058,
+    93.95928626606154,
+    101.81203322781788
+   ],
+   "max_wall_hours": 0.004035124228620488,
+   "max_wall_job": [
+    "iapetus:uniform_log_a:0001",
+    10.0,
+    "T"
+   ]
+  }
+ },
+ "decision": {
+  "stage": "P2-2a",
+  "horizon_years": 10.0,
+  "level": "pooled",
+  "margin": 0.005,
+  "rule": "W2-D026",
+  "verdict": "not_decided",
+  "stratum_verdict": "inconclusive",
+  "reasons": [
+   "сокращённый объём — не решение P2-2a"
+  ],
+  "notes": [],
+  "b_unfinished": 0,
+  "n": 36,
+  "discordant": 0,
+  "cp_upper": 0.07984650951989439
+ }
+}

@@ -1,0 +1,36 @@
+{
+ "schema": "ias15-diagnostic-snapshot-v1",
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "packages": {
+   "rebound": "5.1.1",
+   "reboundx": "5.1.0",
+   "numpy": "2.2.6"
+  },
+  "native_adapter_sha256": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4"
+ },
+ "identity": {
+  "orbit": "himalia:uniform_log_a:0008",
+  "years": 1000.0,
+  "source_run": "runs/W2-P2-2a-56220810",
+  "job_fingerprint": "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+  "B_implementation": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587",
+  "source_summary_sha256": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+  "source_jobs_sha256": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+  "inputs_manifest_sha256": null,
+  "source_inputs_manifest": null,
+  "period_seconds": 165815.82478317557,
+  "gm_host": 0.1515524299611265,
+  "step_fraction": 0.025
+ },
+ "diagnostic_writer_sha256": "4fcdc7034637ed73509fd27743e8967537ec97f11e05799d9dd609ad4550330a",
+ "files": {
+  "physical.json": "d79aa9625ca22fa326774f0875857312f57e277002626452ebc4f48cfbd05408",
+  "simulation.bin": "f76dffbce0f7a61f9a45e5b67ca58e4ac168f0f9b7e129a55737b59e9efd207d",
+  "reboundx.bin": "1da11f741c5673ba39fca5e04cfe1673dbdaea6effe915e8303ec538dec469f0"
+ },
+ "time": 25525800914.631542,
+ "count": 5,
+ "scope": "native-step replay only; no event tracker"
+}

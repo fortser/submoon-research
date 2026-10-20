@@ -1,0 +1,26 @@
+{
+ "run": "runs/W2-P2-2a-baseline-56220810",
+ "passed": true,
+ "failures": [],
+ "checks": {
+  "jobs": {
+   "rows": 180,
+   "accepted": 180,
+   "expected": 180,
+   "superseded_partial": 0
+  },
+  "analysis": {
+   "complete": true,
+   "dt_complete": true,
+   "dt_failed": 0,
+   "b_unfinished": 0,
+   "decision": "not_decided",
+   "stratum_verdict": "inconclusive",
+   "discordant": 0,
+   "n": 36,
+   "final_pairs": [
+    "D-T"
+   ]
+  }
+ }
+}

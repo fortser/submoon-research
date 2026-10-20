@@ -1,0 +1,7 @@
+...............................................sss.s                     [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:45: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:105: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:129: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:183: could not import 'reboundx': No module named 'reboundx'
+48 passed, 4 skipped in 3.03s

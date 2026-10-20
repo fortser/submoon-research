@@ -1,0 +1,636 @@
+{
+ "utc": "2026-10-19T07:51:24.716481+00:00",
+ "status": "passed",
+ "steps": [
+  {
+   "name": "pytest",
+   "command": [
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "-m",
+    "pytest",
+    "-vv",
+    "-ra",
+    "--tb=long",
+    "--durations=20",
+    "--junitxml=/mnt/t/test_python/submoon-research/results/evidence/W2_OPT06_08_09_20261018/wsl_final/pytest.xml",
+    "tests/unit/test_p2_file_contracts.py",
+    "tests/unit/test_verify_p2_2_run.py",
+    "tests/unit/test_admission_evaluators.py",
+    "tests/unit/test_p2_2_stand.py",
+    "tests/unit/test_frozen_p2_inputs.py",
+    "tests/unit/test_ias15_replay.py",
+    "tests/unit/test_native_ias15_guard.py",
+    "tests/unit/test_ias15_dense_step.py",
+    "tests/unit/test_ias15_horizon_clip.py"
+   ],
+   "log": "pytest.log",
+   "status": "passed",
+   "exit_code": 0,
+   "pytest": {
+    "counts": {
+     "passed": 98,
+     "failure": 0,
+     "error": 0,
+     "skipped": 0
+    },
+    "tests": [
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[state]",
+      "status": "passed",
+      "seconds": 0.184,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[gm]",
+      "status": "passed",
+      "seconds": 0.139,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[radius]",
+      "status": "passed",
+      "seconds": 0.154,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[window]",
+      "status": "passed",
+      "seconds": 0.15,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[period]",
+      "status": "passed",
+      "seconds": 0.139,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[figure]",
+      "status": "passed",
+      "seconds": 0.124,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[dimension]",
+      "status": "passed",
+      "seconds": 0.129,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[missing]",
+      "status": "passed",
+      "seconds": 0.135,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[duplicate]",
+      "status": "passed",
+      "seconds": 0.137,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[seed]",
+      "status": "passed",
+      "seconds": 0.129,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[sha]",
+      "status": "passed",
+      "seconds": 0.145,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[full_sha]",
+      "status": "passed",
+      "seconds": 0.14,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[params]",
+      "status": "passed",
+      "seconds": 0.14,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[numerics]",
+      "status": "passed",
+      "seconds": 0.14,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[mode]",
+      "status": "passed",
+      "seconds": 0.13,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[nan]",
+      "status": "passed",
+      "seconds": 0.139,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[inf]",
+      "status": "passed",
+      "seconds": 0.13,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[type]",
+      "status": "passed",
+      "seconds": 0.135,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_units_tampering_rejected_without_writes[units]",
+      "status": "passed",
+      "seconds": 0.141,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[state]",
+      "status": "passed",
+      "seconds": 0.044,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[gm]",
+      "status": "passed",
+      "seconds": 0.047,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[radius]",
+      "status": "passed",
+      "seconds": 0.043,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[window]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[period]",
+      "status": "passed",
+      "seconds": 0.041,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_rehashed_tampering_and_legacy_rejected[figure]",
+      "status": "passed",
+      "seconds": 0.045,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_valid_units_and_bad_json",
+      "status": "passed",
+      "seconds": 0.325,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_completed_source_read_only_and_analysis_exclusive",
+      "status": "passed",
+      "seconds": 1.209,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_resume_only_partial_matching_contract",
+      "status": "passed",
+      "seconds": 0.47,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[tail]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[middle]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[blank]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[foreign]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[duplicate]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_jsonl_rejects_damage[schema]",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_aliases_and_atomic_writes",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[state]",
+      "status": "passed",
+      "seconds": 0.473,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[gm]",
+      "status": "passed",
+      "seconds": 0.361,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[params]",
+      "status": "passed",
+      "seconds": 0.387,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[missing_units]",
+      "status": "passed",
+      "seconds": 0.376,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_analysis_and_acceptor_reject_tampered_inputs[manifest]",
+      "status": "passed",
+      "seconds": 0.336,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_acceptor_cannot_overwrite_source_or_report[verify_p2_run]",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_acceptor_cannot_overwrite_source_or_report[verify_p2_2_run]",
+      "status": "passed",
+      "seconds": 0.011,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_run_lock_prevents_second_writer",
+      "status": "passed",
+      "seconds": 0.215,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_file_contracts::test_p21_entrypoint_protects_rows_and_analysis",
+      "status": "passed",
+      "seconds": 0.291,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_run_accepted_and_tampering_rejected",
+      "status": "passed",
+      "seconds": 2.521,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_run_resumes_and_superseded_rows_accepted",
+      "status": "passed",
+      "seconds": 2.204,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stopped_b_accepted_as_decision_ready",
+      "status": "passed",
+      "seconds": 2.852,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_float_tolerance_only_for_floats",
+      "status": "passed",
+      "seconds": 0.009,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_verify_p2_2_run::test_stand_refuses_foreign_or_accepted_run_dir",
+      "status": "passed",
+      "seconds": 3.94,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_start_only_comparison_cannot_pass_different_end_states",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_insufficient_coverage_is_inconclusive",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_dense_coverage_passes_identical_runs",
+      "status": "passed",
+      "seconds": 0.003,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p1_empty_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_empty_incomplete_or_reduced_set_is_not_passed",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_job_fingerprint_binds_implementation_mode_and_horizon",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_extension_stopped_is_incomplete_not_failure",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_truncated_pair_compares_events_only_on_common_interval",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_level_plan_separates_core_and_extension_and_orders_core_first",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_budget_stops_on_deadline_and_stop_file",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_admission_evaluators::test_p2_read_rows_rejects_foreign_and_broken_lines",
+      "status": "passed",
+      "seconds": 0.002,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_units_reproducible_and_match_plan_sample",
+      "status": "passed",
+      "seconds": 0.186,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_plan_keys_and_params",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_clopper_pearson_exact",
+      "status": "passed",
+      "seconds": 0.014,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_newcombe_paired_properties_and_coverage",
+      "status": "passed",
+      "seconds": 0.179,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_analyze_equivalent_inconclusive_not_equivalent",
+      "status": "passed",
+      "seconds": 0.169,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_unresolved_reason_is_a_separate_label",
+      "status": "passed",
+      "seconds": 0.018,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_incomplete_or_failed_final_horizon_is_not_decided",
+      "status": "passed",
+      "seconds": 0.304,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_stopped_or_missing_b_does_not_block_decision",
+      "status": "passed",
+      "seconds": 0.612,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_b_pairs_are_descriptive_with_high_e_exclusion",
+      "status": "passed",
+      "seconds": 0.035,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_p2_2_stand::test_divergence_time_on_grid",
+      "status": "passed",
+      "seconds": 0.008,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_run_and_acceptance_without_generator",
+      "status": "passed",
+      "seconds": 0.364,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_frozen_trust_failures[document]",
+      "status": "passed",
+      "seconds": 0.055,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_frozen_trust_failures[manifest]",
+      "status": "passed",
+      "seconds": 0.056,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_frozen_trust_failures[missing_anchor]",
+      "status": "passed",
+      "seconds": 0.05,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_frozen_trust_failures[wrong_anchor]",
+      "status": "passed",
+      "seconds": 0.053,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_frozen_trust_failures[params]",
+      "status": "passed",
+      "seconds": 0.052,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_generator_check_is_separate",
+      "status": "passed",
+      "seconds": 0.059,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_frozen_p2_inputs::test_diagnostic_identity_fails_before_execution",
+      "status": "passed",
+      "seconds": 0.305,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[\\u0413\\u0440\\u0430\\u043d\\u0438\\u0446\\u0430 IAS15 \\u0434\\u043e\\u043b\\u0436\\u043d\\u0430 \\u0431\\u044b\\u0442\\u044c \\u0432\\u043f\\u0435\\u0440\\u0435\\u0434\\u0438-2.0-2.0-bound_not_ahead]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[IAS15 \\u043d\\u0430\\u0440\\u0443\\u0448\\u0438\\u043b \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u0443\\u044e \\u0433\\u0440\\u0430\\u043d\\u0438\\u0446\\u0443-2.0-2.0-no_time_advance]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[IAS15 \\u043d\\u0430\\u0440\\u0443\\u0448\\u0438\\u043b \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u043d\\u0443\\u044e \\u0433\\u0440\\u0430\\u043d\\u0438\\u0446\\u0443-2.0-5.0-time_bound_exceeded]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[\\u0424\\u0430\\u043a\\u0442\\u0438\\u0447\\u0435\\u0441\\u043a\\u0438\\u0439 \\u0448\\u0430\\u0433 IAS15 \\u043d\\u0435 \\u0441\\u043e\\u0433\\u043b\\u0430\\u0441\\u043e\\u0432\\u0430\\u043d \\u0441 \\u043c\\u0435\\u0442\\u043a\\u043e\\u0439 \\u0432\\u0440\\u0435\\u043c\\u0435\\u043d\\u0438-2.0-3.0-inconsistent_dt_done]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[\\u041f\\u043e\\u043b\\u0438\\u043d\\u043e\\u043c IAS15 \\u043d\\u0435 \\u0432\\u043e\\u0441\\u043f\\u0440\\u043e\\u0438\\u0437\\u0432\\u0451\\u043b \\u043a\\u043e\\u043d\\u0435\\u0446 \\u043f\\u0440\\u0438\\u043d\\u044f\\u0442\\u043e\\u0433\\u043e \\u0448\\u0430\\u0433\\u0430-2.0-3.0-endpoint_mismatch]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_guard_reasons[unknown-2.0-2.0-other_exception]",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_native_snapshot_across_process_and_physical_restart",
+      "status": "passed",
+      "seconds": 7.332,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_trace_passive_and_bounded",
+      "status": "passed",
+      "seconds": 1.91,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_replay::test_no_advance_guard_is_not_removed",
+      "status": "passed",
+      "seconds": 1.249,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_time_label_error_on_zero_crossing_component_is_not_a_defect",
+      "status": "passed",
+      "seconds": 0.0,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_gross_defects_are_still_detected",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_native_ias15_steps_at_large_time_pass_guard",
+      "status": "passed",
+      "seconds": 0.152,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[0.0]",
+      "status": "passed",
+      "seconds": 0.154,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[2147483648.0]",
+      "status": "passed",
+      "seconds": 0.151,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[17179881529.0]",
+      "status": "passed",
+      "seconds": 0.152,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_endpoint_residual_independent_of_time_label[68719476736.0]",
+      "status": "passed",
+      "seconds": 0.149,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_native_ias15_guard::test_rejected_step_residual_is_reported",
+      "status": "passed",
+      "seconds": 0.001,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_dense_step::test_ias15_samples_match_step_endpoints_on_small_host_outer_orbit[himalia-outer-90-0.0-0.16]",
+      "status": "passed",
+      "seconds": 0.095,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_dense_step::test_ias15_samples_match_step_endpoints_on_small_host_outer_orbit[himalia-outer-0-0.0-0.2]",
+      "status": "passed",
+      "seconds": 0.12,
+      "detail": null
+     },
+     {
+      "name": "tests.unit.test_ias15_horizon_clip::test_b_ends_exactly_at_horizon",
+      "status": "passed",
+      "seconds": 0.215,
+      "detail": null
+     }
+    ]
+   },
+   "wall_seconds": 38.930040056999985
+  }
+ ],
+ "suite": "science",
+ "excluded_tests": [],
+ "not_run": [
+  "IAS15 long diagnostic (requires separate explicit command)"
+ ],
+ "scientific_admission": false
+}

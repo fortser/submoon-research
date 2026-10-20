@@ -1,6 +1,20 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-12T07:53:16+00:00",
-  "processes": [],
-  "note": "W2-P2-1-55404980 завершён: done exit=0 2026-10-12T06:17:48Z, 672/672; архив и 19 файлов проверены по SHA-256. Instance 55404980 уничтожен; отдельная проверка Vast подтвердила пустой список инстансов. Оценка аренды $2.717 за 16.833 ч (не окончательный счёт). Evidence: results/evidence/W2_P2-1_remote_55404980/."
+  "updated_utc": "2026-10-20T05:33:05+00:00",
+  "processes": [
+    {
+      "radar_id": "vast-radar",
+      "run_id": "vast-radar",
+      "kind": "read_only_market_monitor",
+      "task_id": "W2-T026",
+      "owner": "pi-vast-radar-20261015",
+      "pid": 9436,
+      "last_checked_utc": "2026-10-20T05:33:05+00:00",
+      "paid_actions": 0,
+      "heartbeat": "data/interim/vast_radar/heartbeat.json",
+      "command": "scripts/vast_radar.py --desktop",
+      "stop": "меню трея / локальная страница: Завершить"
+    }
+  ],
+  "note": "Instance56220810 удалён и отдельно проверен как отсутствующий16.10.2026; результаты сохранены вruns/W2-P2-2a-56220810 и scratch/p2_2a_56220810/results_56220810.tar.gz. Локальныйsupervisor18340 прекратился после09:07UTC, причина неизвестна; завершение выполнено оператором. Есть несогласованность локальнойприёмки стартов, научныйитог не принят. Чужойinstance56229721exited только наблюдался, не изменялся."
 }

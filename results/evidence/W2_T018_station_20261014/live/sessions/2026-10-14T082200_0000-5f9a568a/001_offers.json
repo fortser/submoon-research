@@ -1,0 +1,201 @@
+{
+ "utc": "2026-10-14T08:22:06+00:00",
+ "source": "vast_find",
+ "profile": "p2_2a_station",
+ "filter": "проходы до насыщения: rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 + окна цены / диапазоны vCPU / число GPU; остальные условия — на клиенте",
+ "search": {
+  "mode": "sweep",
+  "strategy": "sweep",
+  "complete": false,
+  "passes": [
+   {
+    "name": "price",
+    "status": "completed",
+    "found": 11,
+    "new": 11,
+    "queries": 1,
+    "reasons": []
+   },
+   {
+    "name": "exclude",
+    "status": "completed",
+    "found": 1,
+    "new": 1,
+    "queries": 2,
+    "reasons": []
+   },
+   {
+    "name": "vcpu_bands",
+    "status": "completed",
+    "found": 11,
+    "new": 0,
+    "queries": 2,
+    "reasons": []
+   },
+   {
+    "name": "gpu_count",
+    "status": "completed",
+    "found": 11,
+    "new": 0,
+    "queries": 2,
+    "reasons": []
+   }
+  ],
+  "stop_reason": "saturation_heuristic",
+  "saturated": true,
+  "last_two_passes_new_fraction": 0.0,
+  "queries": 7,
+  "errors": [],
+  "incomplete": [],
+  "elapsed_seconds": 6.9,
+  "raw_offers": 12,
+  "receipts": [
+   {
+    "sweep_pass": "price",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 11,
+    "continued": null,
+    "elapsed_seconds": 0.7959999999998217,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,152547,152693,153055,153723]",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.8440000000000509,
+    "excluded_machines": 11
+   },
+   {
+    "sweep_pass": "exclude",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002 machine_id~notin=[21091,139652,140107,144728,147430,149802,150930,151327,152547,152693,153055,153723]",
+    "status": "ok",
+    "count": 0,
+    "continued": null,
+    "elapsed_seconds": 1.0,
+    "excluded_machines": 12
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 cpu_cores_effective<96 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 10,
+    "continued": null,
+    "elapsed_seconds": 1.125,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "vcpu_bands",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=96 disk_space>=60 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 1,
+    "continued": null,
+    "elapsed_seconds": 0.8910000000000764,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus=1 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 4,
+    "continued": null,
+    "elapsed_seconds": 1.094000000000051,
+    "excluded_machines": null
+   },
+   {
+    "sweep_pass": "gpu_count",
+    "query": "rentable=true rented=false cpu_arch=amd64 cpu_cores_effective>=64 disk_space>=60 num_gpus>=2 dph_total>=0 dph_total<=0.40000000000000002",
+    "status": "ok",
+    "count": 7,
+    "continued": null,
+    "elapsed_seconds": 1.1089999999999236,
+    "excluded_machines": null
+   }
+  ]
+ },
+ "offers": [
+  {
+   "id": 53991778,
+   "ask_contract_id": 53991778,
+   "machine_id": 151327,
+   "resource_type": "gpu",
+   "cpu_name": "AMD Ryzen Threadripper PRO 5975WX 32-Cores",
+   "cpu_arch": "amd64",
+   "cpu_cores": 64,
+   "cpu_cores_effective": 64.0,
+   "cpu_ram": 64124,
+   "cpu_ghz": 4.561833,
+   "has_avx": 1,
+   "mobo_name": "1046",
+   "num_gpus": 3,
+   "gpu_name": "RTX 5060 Ti",
+   "gpu_ram": 16311,
+   "gpu_total_ram": 48933,
+   "gpu_frac": 1.0,
+   "gpu_mem_bw": 368.3,
+   "pci_gen": 4.0,
+   "pcie_bw": 13.4,
+   "disk_space": 1273.0,
+   "disk_bw": 1771.0,
+   "disk_name": "SAMSUNG MZVLB2T0HALB-000L7",
+   "storage_cost": 0.19999999999999998,
+   "storage_total_cost": 0.016666666666666666,
+   "dph_base": 0.36000000000000004,
+   "dph_total": 0.3766666666666667,
+   "min_bid": 0.381,
+   "inet_down": 867.1,
+   "inet_up": 919.9,
+   "inet_down_cost": 0.0026041666666666665,
+   "inet_up_cost": 0.00390625,
+   "internet_down_cost_per_tb": 2.6666666666666665,
+   "internet_up_cost_per_tb": 4.0,
+   "direct_port_count": 198,
+   "geolocation": "Denmark, DK",
+   "reliability": 0.9845688,
+   "reliability2": 0.9845688,
+   "verification": "deverified",
+   "vericode": 4,
+   "rentable": true,
+   "rented": false,
+   "duration": 5186980.837729692,
+   "end_date": 1797153120.3129086,
+   "driver_version": "595.84",
+   "os_version": "24.04",
+   "vms_enabled": false,
+   "datacenter": null,
+   "external": null,
+   "dph_total_snapshot": 0.3766666666666667,
+   "usd_per_effective_core_hour": 0.005885416666666667,
+   "finder": {
+    "rank": 1,
+    "catalog_key": "Threadripper PRO 59x5WX",
+    "core_speed": 0.75,
+    "speed_source": "estimate",
+    "share": 1.0,
+    "physical_cores": 32.0,
+    "p_cores": null,
+    "e_cores": null,
+    "estimate": {
+     "hours": [
+      17.0,
+      19.6965811965812
+     ],
+     "usd": [
+      6.403333333333334,
+      7.419045584045586
+     ],
+     "bound": "volume",
+     "workers": 32.0,
+     "throughput_ref_cores": 24.0,
+     "ram_limits_workers": false
+    },
+    "flags": [
+     "deverified",
+     "speed_estimate"
+    ]
+   }
+  }
+ ]
+}

@@ -1,0 +1,554 @@
+{
+  "run_id": "W2-B-controller-20261019",
+  "passive": {
+    "checks": {
+      "complete": true,
+      "passive_exact": true,
+      "expected_guard": true,
+      "controller_reconstruction": true,
+      "no_internal_rejection_predicted": true,
+      "unchanged_reference": true,
+      "unchanged_snapshot": true
+    },
+    "passed": true,
+    "mismatch_indices": [],
+    "steps": 417,
+    "failure": {
+      "reason": "no_time_advance",
+      "error": "IAS15 нарушил временную границу",
+      "left": 25526330757.864594,
+      "right": 25526330757.864594,
+      "dt_done": 1.839013869133714e-06,
+      "next_dt": 2.716361931203976e-06
+    },
+    "wall_seconds": 0.5730364859999995,
+    "max_controller_relative_error": 0.0
+  },
+  "limiting_body_counts": {
+    "4": 417
+  },
+  "radius_range_km": [
+    446.9320345749881,
+    498.1795776015389
+  ],
+  "iterations_max_exceeded_range": [
+    0,
+    0
+  ],
+  "external_max_step_range_s": [
+    3812.4192324293344,
+    4145.39561957939
+  ],
+  "subsecond": {
+    "count": 205,
+    "start_index": 212,
+    "model_time_span_s": 9.730365753173828,
+    "radius_range_km": [
+      496.0299517343731,
+      496.0335420921828
+    ],
+    "scaled_snap_median_km_s2": 6.701484832768016e-11
+  },
+  "thresholds": {
+    "1000": {
+      "index": 12,
+      "left_s": 25525834862.143898,
+      "dt_done_s": 869.7888960583837,
+      "next_dt_s": 783.7756813420121,
+      "max_step_s": 4145.39561957939,
+      "limiting_body": 4,
+      "radius_km": 495.48056405876775,
+      "local_period_s": 178007.52066811308,
+      "relative_motion_over_position_ulp": [
+        425612.9031329577,
+        172848.90455552013,
+        318770.45950802637
+      ],
+      "a0_km_s2": 7.920582901548059e-08,
+      "a_end_polynomial_km_s2": 7.042776097756929e-08,
+      "jerk_polynomial_km_s3": 2.1487482782292502e-11,
+      "snap_polynomial_km_s4": 4.716478060590812e-16,
+      "scaled_snap_km_s2": 3.5681699934805376e-10,
+      "monopole_terms": [
+        {
+          "body": 0,
+          "distance_km": 495.48056405876775,
+          "acceleration_km_s2": [
+            2.4666788623661974e-07,
+            -5.658950878971371e-07,
+            6.890887684576165e-10
+          ],
+          "magnitude_km_s2": 6.173190191869041e-07
+        },
+        {
+          "body": 1,
+          "distance_km": 765838980.4017006,
+          "acceleration_km_s2": [
+            7.020857002051643e-08,
+            -1.966546987287689e-07,
+            -8.716703104957989e-08
+          ],
+          "magnitude_km_s2": 2.2627506521582763e-07
+        },
+        {
+          "body": 2,
+          "distance_km": 12606447.512431009,
+          "acceleration_km_s2": [
+            -2.474833553498435e-07,
+            7.561951988430159e-07,
+            4.882047265723068e-08
+          ],
+          "magnitude_km_s2": 7.971590985988435e-07
+        },
+        {
+          "body": 3,
+          "distance_km": 1888351016.9073477,
+          "acceleration_km_s2": [
+            -4.962884447162743e-12,
+            -8.750219127029499e-12,
+            -3.4576707017797802e-12
+          ],
+          "magnitude_km_s2": 1.063729493287034e-11
+        }
+      ],
+      "monopole_sum_km_s2": [
+        6.938813802284552e-08,
+        -6.363338002017127e-09,
+        -3.7660927294593376e-08
+      ],
+      "monopole_term_sum_norm_over_actual_a0": 20.71519029206581,
+      "monopole_sum_minus_actual_a0_norm_km_s2": 5.151738665733135e-13,
+      "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+    },
+    "100": {
+      "index": 196,
+      "left_s": 25526330413.380165,
+      "dt_done_s": 77.79120969358638,
+      "next_dt_s": 55.94386821885074,
+      "max_step_s": 4145.39561957939,
+      "limiting_body": 4,
+      "radius_km": 496.153731249053,
+      "local_period_s": 178370.409312963,
+      "relative_motion_over_position_ulp": [
+        36825.94120903188,
+        18090.259373690205,
+        28451.773620095693
+      ],
+      "a0_km_s2": 7.390203783616097e-09,
+      "a_end_polynomial_km_s2": 5.7472289879183235e-09,
+      "jerk_polynomial_km_s3": 2.1315467289212703e-11,
+      "snap_polynomial_km_s4": 3.3506772313734634e-14,
+      "scaled_snap_km_s2": 2.0276530470632608e-10,
+      "monopole_terms": [
+        {
+          "body": 0,
+          "distance_km": 496.153731249053,
+          "acceleration_km_s2": [
+            2.793052417624399e-07,
+            -5.48475569400386e-07,
+            1.3488497805876519e-08
+          ],
+          "magnitude_km_s2": 6.156450339912698e-07
+        },
+        {
+          "body": 1,
+          "distance_km": 766287859.7518175,
+          "acceleration_km_s2": [
+            7.155783312268194e-08,
+            -1.9605015161796755e-07,
+            -8.674304306269683e-08
+          ],
+          "magnitude_km_s2": 2.2601004612719884e-07
+        },
+        {
+          "body": 2,
+          "distance_km": 12382090.087205855,
+          "acceleration_km_s2": [
+            -3.4451482907548514e-07,
+            7.472143249098786e-07,
+            7.594070959955065e-08
+          ],
+          "magnitude_km_s2": 8.263090863459747e-07
+        },
+        {
+          "body": 3,
+          "distance_km": 1886957306.5797982,
+          "acceleration_km_s2": [
+            -4.929669663540499e-12,
+            -8.783673620363853e-12,
+            -3.4687383952791917e-12
+          ],
+          "magnitude_km_s2": 1.065301418921384e-11
+        }
+      ],
+      "monopole_sum_km_s2": [
+        6.343316139973154e-09,
+        2.6798202179045978e-09,
+        2.6826956043350626e-09
+      ],
+      "monopole_term_sum_norm_over_actual_a0": 225.70078827548602,
+      "monopole_sum_minus_actual_a0_norm_km_s2": 5.632911648580295e-13,
+      "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+    },
+    "1": {
+      "index": 212,
+      "left_s": 25526330748.134228,
+      "dt_done_s": 0.9919399624135281,
+      "next_dt_s": 0.9646355465792115,
+      "max_step_s": 4145.39561957939,
+      "limiting_body": 4,
+      "radius_km": 496.0335420921828,
+      "local_period_s": 178305.60009336894,
+      "relative_motion_over_position_ulp": [
+        472.58620172162193,
+        224.68926352455918,
+        363.066044787485
+      ],
+      "a0_km_s2": 8.767343232867984e-10,
+      "a_end_polynomial_km_s2": 8.720198718118118e-10,
+      "jerk_polynomial_km_s3": 1.9423353889600175e-11,
+      "snap_polynomial_km_s4": 5.701055849526113e-11,
+      "scaled_snap_km_s2": 5.6095247652326304e-11,
+      "monopole_terms": [
+        {
+          "body": 0,
+          "distance_km": 496.0335420921828,
+          "acceleration_km_s2": [
+            2.7348380003251416e-07,
+            -5.517861536466172e-07,
+            1.117760733775699e-08
+          ],
+          "magnitude_km_s2": 6.159434122889452e-07
+        },
+        {
+          "body": 1,
+          "distance_km": 766288221.420169,
+          "acceleration_km_s2": [
+            7.155873100023038e-08,
+            -1.9604971323155554e-07,
+            -8.6742737304842e-08
+          ],
+          "magnitude_km_s2": 2.2600983278537977e-07
+        },
+        {
+          "body": 2,
+          "distance_km": 12381931.79500716,
+          "acceleration_km_s2": [
+            -3.445829468268752e-07,
+            7.472043546298601e-07,
+            7.595964294179533e-08
+          ],
+          "magnitude_km_s2": 8.263302137629749e-07
+        },
+        {
+          "body": 3,
+          "distance_km": 1886956405.1422014,
+          "acceleration_km_s2": [
+            -4.929646749911587e-12,
+            -8.783695956349038e-12,
+            -3.4687456584370327e-12
+          ],
+          "magnitude_km_s2": 1.0653024367540988e-11
+        }
+      ],
+      "monopole_sum_km_s2": [
+        4.54654559119453e-10,
+        -6.402959442690391e-10,
+        3.9104422905187214e-10
+      ],
+      "monopole_term_sum_norm_over_actual_a0": 1902.8502335888736,
+      "monopole_sum_minus_actual_a0_norm_km_s2": 5.633274762400582e-13,
+      "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+    },
+    "0.001": {
+      "index": 273,
+      "left_s": 25526330757.850964,
+      "dt_done_s": 0.0008217714303051744,
+      "next_dt_s": 0.0006067085549120799,
+      "max_step_s": 4145.39561957939,
+      "limiting_body": 4,
+      "radius_km": 496.02999348957053,
+      "local_period_s": 178303.68671090706,
+      "relative_motion_over_position_ulp": [
+        0.391584980050843,
+        0.18599916960158583,
+        0.30078745084857594
+      ],
+      "a0_km_s2": 8.519718324032832e-10,
+      "a_end_polynomial_km_s2": 8.519061484068214e-10,
+      "jerk_polynomial_km_s3": 4.987244706040955e-09,
+      "snap_polynomial_km_s4": 0.00014183416151830274,
+      "scaled_snap_km_s2": 9.578178418010461e-11,
+      "monopole_terms": [
+        {
+          "body": 0,
+          "distance_km": 496.02999348957053,
+          "acceleration_km_s2": [
+            2.733142128137716e-07,
+            -5.518813665699174e-07,
+            1.1110449851824005e-08
+          ],
+          "magnitude_km_s2": 6.159522252488426e-07
+        },
+        {
+          "body": 1,
+          "distance_km": 766288231.9183693,
+          "acceleration_km_s2": [
+            7.155875706234506e-08,
+            -1.960497005065718e-07,
+            -8.674272842970224e-08
+          ],
+          "magnitude_km_s2": 2.2600982659268002e-07
+        },
+        {
+          "body": 2,
+          "distance_km": 12381927.20124783,
+          "acceleration_km_s2": [
+            -3.4458492403360243e-07,
+            7.472040650205203e-07,
+            7.596019250353218e-08
+          ],
+          "magnitude_km_s2": 8.263308269086947e-07
+        },
+        {
+          "body": 3,
+          "distance_km": 1886956378.9767904,
+          "acceleration_km_s2": [
+            -4.92964608480705e-12,
+            -8.783696604682313e-12,
+            -3.4687458692602896e-12
+          ],
+          "magnitude_km_s2": 1.0653024662980528e-11
+        }
+      ],
+      "monopole_sum_km_s2": [
+        2.831161964294048e-10,
+        -7.3578575257356e-10,
+        3.2444517978468136e-10
+      ],
+      "monopole_term_sum_norm_over_actual_a0": 1958.1674749373453,
+      "monopole_sum_minus_actual_a0_norm_km_s2": 5.63328529888162e-13,
+      "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+    },
+    "1e-05": {
+      "index": 316,
+      "left_s": 25526330757.860474,
+      "dt_done_s": 9.139238314455658e-06,
+      "next_dt_s": 1.5842283071572257e-05,
+      "max_step_s": 4145.39561957939,
+      "limiting_body": 4,
+      "radius_km": 496.0299793677239,
+      "local_period_s": 178303.6790965168,
+      "relative_motion_over_position_ulp": [
+        0.004354968986943575,
+        0.0020685672216400465,
+        0.0033451737868147482
+      ],
+      "a0_km_s2": 8.519941090916135e-10,
+      "a_end_polynomial_km_s2": 8.519882665013124e-10,
+      "jerk_polynomial_km_s3": 1.0586500334510998e-07,
+      "snap_polynomial_km_s4": 0.2080699392298097,
+      "scaled_snap_km_s2": 1.737918253094668e-11,
+      "monopole_terms": [
+        {
+          "body": 0,
+          "distance_km": 496.0299793677239,
+          "acceleration_km_s2": [
+            2.733140466791527e-07,
+            -5.518814894969534e-07,
+            1.1110375009488306e-08
+          ],
+          "magnitude_km_s2": 6.159522603208478e-07
+        },
+        {
+          "body": 1,
+          "distance_km": 766288231.9286461,
+          "acceleration_km_s2": [
+            7.15587570878728e-08,
+            -1.960497004941116e-07,
+            -8.674272842100976e-08
+          ],
+          "magnitude_km_s2": 2.260098265866179e-07
+        },
+        {
+          "body": 2,
+          "distance_km": 12381927.196748331,
+          "acceleration_km_s2": [
+            -3.445849259734061e-07,
+            7.472040647353158e-07,
+            7.59601930425512e-08
+          ],
+          "magnitude_km_s2": 8.263308275092593e-07
+        },
+        {
+          "body": 3,
+          "distance_km": 1886956378.9511628,
+          "acceleration_km_s2": [
+            -4.929646084155412e-12,
+            -8.783696605317413e-12,
+            -3.468745869466833e-12
+          ],
+          "magnitude_km_s2": 1.0653024663269894e-11
+        }
+      ],
+      "monopole_sum_km_s2": [
+        2.829481475352378e-10,
+        -7.359089523545353e-10,
+        3.243708851602781e-10
+      ],
+      "monopole_term_sum_norm_over_actual_a0": 1958.1163175178697,
+      "monopole_sum_minus_actual_a0_norm_km_s2": 5.633285310805846e-13,
+      "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+    }
+  },
+  "first": {
+    "index": 0,
+    "left_s": 25525800914.631542,
+    "dt_done_s": 4145.39561957939,
+    "next_dt_s": 5241.835225193996,
+    "max_step_s": 4145.39561957939,
+    "limiting_body": 4,
+    "radius_km": 491.12678918213606,
+    "local_period_s": 175666.46108050345,
+    "relative_motion_over_position_ulp": [
+      141297.61719053492,
+      2318302.863974089,
+      548181.5087285454
+    ],
+    "a0_km_s2": 7.128151720036748e-07,
+    "a_end_polynomial_km_s2": 6.365311511544268e-07,
+    "jerk_polynomial_km_s3": 2.1646720815360044e-11,
+    "snap_polynomial_km_s4": 6.83863778774796e-16,
+    "scaled_snap_km_s2": 1.1751723645434379e-08,
+    "monopole_terms": [
+      {
+        "body": 0,
+        "distance_km": 491.12678918213606,
+        "acceleration_km_s2": [
+          5.989780076710319e-07,
+          -9.626118326601825e-09,
+          1.8949723592415352e-07
+        ],
+        "magnitude_km_s2": 6.283124368102949e-07
+      },
+      {
+        "body": 1,
+        "distance_km": 765813953.2535598,
+        "acceleration_km_s2": [
+          7.011501679728831e-08,
+          -1.9669311451648098e-07,
+          -8.719404565632692e-08
+        ],
+        "magnitude_km_s2": 2.262898550014895e-07
+      },
+      {
+        "body": 2,
+        "distance_km": 12621436.554889603,
+        "acceleration_km_s2": [
+          -2.4103967616003066e-07,
+          7.563966148028866e-07,
+          4.7046476341590576e-08
+        ],
+        "magnitude_km_s2": 7.9526683277046e-07
+      },
+      {
+        "body": 3,
+        "distance_km": 1888449879.5352943,
+        "acceleration_km_s2": [
+          -4.965112741658648e-12,
+          -8.747908445330107e-12,
+          -3.4568922547029446e-12
+        ],
+        "magnitude_km_s2": 1.0636181211594887e-11
+      }
+    ],
+    "monopole_sum_km_s2": [
+      4.280483831955479e-07,
+      5.500686340513584e-07,
+      1.4934620971716248e-07
+    ],
+    "monopole_term_sum_norm_over_actual_a0": 2.314596862642186,
+    "monopole_sum_minus_actual_a0_norm_km_s2": 5.122167517776994e-13,
+    "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+  },
+  "last": {
+    "index": 416,
+    "left_s": 25526330757.864594,
+    "dt_done_s": 1.839013869133714e-06,
+    "next_dt_s": 2.716361931203976e-06,
+    "max_step_s": 4145.39561957939,
+    "limiting_body": 4,
+    "radius_km": 496.0299793527765,
+    "local_period_s": 178303.67908845725,
+    "relative_motion_over_position_ulp": [
+      0.0008763147113789403,
+      0.00041624065691445183,
+      0.0006731218540684309
+    ],
+    "a0_km_s2": 8.519944286798675e-10,
+    "a_end_polynomial_km_s2": 8.519893742819436e-10,
+    "jerk_polynomial_km_s3": 5.017075666625134e-07,
+    "snap_polynomial_km_s4": 7.077493831559105,
+    "scaled_snap_km_s2": 2.393588604541074e-11,
+    "monopole_terms": [
+      {
+        "body": 0,
+        "distance_km": 496.0299793527765,
+        "acceleration_km_s2": [
+          2.733139709125901e-07,
+          -5.518815274424801e-07,
+          1.111035606267503e-08
+        ],
+        "magnitude_km_s2": 6.1595226035797e-07
+      },
+      {
+        "body": 1,
+        "distance_km": 766288231.9330735,
+        "acceleration_km_s2": [
+          7.155875709890966e-08,
+          -1.9604970048873323e-07,
+          -8.674272841725602e-08
+        ],
+        "magnitude_km_s2": 2.2600982658400627e-07
+      },
+      {
+        "body": 2,
+        "distance_km": 12381927.194803048,
+        "acceleration_km_s2": [
+          -3.4458492680994604e-07,
+          7.472040646129492e-07,
+          7.596019327590752e-08
+        ],
+        "magnitude_km_s2": 8.263308277689036e-07
+      },
+      {
+        "body": 3,
+        "distance_km": 1886956378.940078,
+        "acceleration_km_s2": [
+          -4.9296460838739325e-12,
+          -8.783696605591955e-12,
+          -3.468745869556048e-12
+        ],
+        "magnitude_km_s2": 1.0653024663395057e-11
+      }
+    ],
+    "monopole_sum_km_s2": [
+      2.8287155546986757e-10,
+      -7.359470148697643e-10,
+      3.2435217545697716e-10
+    ],
+    "monopole_term_sum_norm_over_actual_a0": 1958.1155833618718,
+    "monopole_sum_minus_actual_a0_norm_km_s2": 5.633285314845845e-13,
+    "monopole_scope": "Auxiliary Newtonian decomposition only; actual a0 includes REBOUNDx J2 and floating-point evaluation. Not an independent full-force validation."
+  },
+  "last_probe_position_ulp_km": [
+    3.0517578125e-05,
+    3.0517578125e-05,
+    1.52587890625e-05
+  ],
+  "inputs_sha256": {
+    "results\\evidence\\W2_B_controller_20261019\\passive_controller.json": "8b6fa8fd5778375ab4b47c211ff96ae7637b5e99d467c58cee76b0c728153148",
+    "results/evidence/W2_B_replay_20261019/native_replay.json": "fd3d85242b86559780fe433d326e7b462d474fbd81d18518049d3a14de71af12"
+  },
+  "root_cause_status": "hypothesis; no causal intervention performed"
+}

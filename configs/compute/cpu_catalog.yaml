@@ -1,0 +1,88 @@
+# Каталог скорости CPU для поиска станций Vast.ai под профиль задачи (W2-D023, W2-T017).
+#
+# speed — скорость ОДНОГО ядра относительно P-ядра Core i9-14900K = 1.00 на прототипе
+#   W2-T006 (dop853, 1 процесс). Для IAS15 (вариант B) соотношение может отличаться: после
+#   каждой аренды базовая проверка уточняет значение (source: measured, ref: <run>).
+# source — measured (замер проекта) | estimate (оценка по архитектуре/частоте, не замер).
+# confidence — model (оценка для конкретной модели) | family (оценка для семейства, грубая).
+# smt — true: на физическое ядро 2 потока (vCPU); false: 1 поток.
+# hybrid — Intel P+E: p, e — ядер на сокет; threads — потоков на сокет; e_speed — скорость
+#   E-ядра относительно P-ядра того же CPU (W2-D021: B на E-ядрах в 2–2.5 раза медленнее).
+# match — регулярное выражение по нормализованному имени (нижний регистр, без ®/™);
+#   записи проверяются по порядку, первая подходящая побеждает: модели раньше семейств.
+reference: "P-ядро Core i9-14900K = 1.00 (W2-T006, прототип dop853)"
+models:
+  # --- Измерено (W2-T006, reports/operations/W2_cpu_matrix_20261008.md) ---
+  - {key: Core i9-14900K, match: 'i9[- ]14900k\b', speed: 1.00, source: measured, ref: W2-T006,
+     hybrid: {p: 8, e: 16, threads: 32, e_speed: 0.45}}
+  - {key: Ryzen 9 9900X, match: 'ryzen 9 9900x\b', speed: 1.10, source: measured, ref: W2-T006}
+  - {key: Threadripper PRO 7995WX, match: 'threadripper pro 7995wx', speed: 0.94, source: measured, ref: W2-T006}
+  - {key: EPYC 9755, match: 'epyc 9755\b', speed: 0.79, source: measured, ref: W2-T006}
+  - {key: EPYC 9654, match: 'epyc 9654p?\b', speed: 0.64, source: measured, ref: W2-T006}
+
+  # --- Intel desktop, гибридные P+E (оценка) ---
+  - {key: Core i9-14900KF/KS, match: 'i9[- ]14900k[fs]\b', speed: 1.00, source: estimate, confidence: model,
+     note: 'тот же кристалл, что 14900K', hybrid: {p: 8, e: 16, threads: 32, e_speed: 0.45}}
+  - {key: Core i9-13900K/KF/KS, match: 'i9[- ]13900k[fs]?\b', speed: 0.97, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 16, threads: 32, e_speed: 0.45}}
+  - {key: Core i9-14900/13900 (не K), match: 'i9[- ]1[34]900f?\b', speed: 0.90, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 16, threads: 32, e_speed: 0.45}}
+  - {key: Core i9-12900K/KF, match: 'i9[- ]12900k[fs]?\b', speed: 0.85, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 8, threads: 24, e_speed: 0.45}}
+  - {key: Core i7-14700K/KF, match: 'i7[- ]14700k[f]?\b', speed: 0.95, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 12, threads: 28, e_speed: 0.45}}
+  - {key: Core i7-14700, match: 'i7[- ]14700f?\b', speed: 0.90, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 12, threads: 28, e_speed: 0.45}}
+  - {key: Core i7-13700K/KF, match: 'i7[- ]13700k[f]?\b', speed: 0.93, source: estimate, confidence: model,
+     hybrid: {p: 8, e: 8, threads: 24, e_speed: 0.45}}
+  - {key: Core Ultra 9 285K, match: 'ultra 9 285k', speed: 1.00, source: estimate, confidence: model,
+     note: 'без SMT', hybrid: {p: 8, e: 16, threads: 24, e_speed: 0.55}}
+  - {key: Core Ultra 7 265K/270K, match: 'ultra 7 2[67][05]k', speed: 0.97, source: estimate, confidence: model,
+     note: 'без SMT', hybrid: {p: 8, e: 12, threads: 20, e_speed: 0.55}}
+
+  # --- AMD desktop (оценка) ---
+  - {key: Ryzen 9 9950X/9950X3D, match: 'ryzen 9 9950x', speed: 1.10, source: estimate, confidence: model,
+     note: 'ядро как у измеренного 9900X'}
+  - {key: Ryzen 9 9900X3D, match: 'ryzen 9 9900x3d', speed: 1.07, source: estimate, confidence: model}
+  - {key: Ryzen 7 9700X/9800X3D, match: 'ryzen 7 9(?:700x|800x3d|850x3d)', speed: 1.05, source: estimate, confidence: model}
+  - {key: Ryzen 9 7950X, match: 'ryzen 9 7950x\b(?!3d)', speed: 1.00, source: estimate, confidence: model}
+  - {key: Ryzen 9 7950X3D/7900X3D, match: 'ryzen 9 79[05]0x3d', speed: 0.95, source: estimate, confidence: model}
+  - {key: Ryzen 9 7900X/7900, match: 'ryzen 9 7900x?\b', speed: 0.96, source: estimate, confidence: model}
+  - {key: Ryzen 7 7700X/7800X3D, match: 'ryzen 7 7(?:700x?|800x3d)\b', speed: 0.95, source: estimate, confidence: model}
+  - {key: Ryzen 9 5950X/5900X, match: 'ryzen 9 59[05]0x', speed: 0.78, source: estimate, confidence: model}
+  - {key: EPYC 4004/4005 (AM5), match: 'epyc 4\d\d[45]', speed: 1.00, source: estimate, confidence: family,
+     note: 'серверные версии десктопных ядер AM5'}
+
+  # --- HEDT: Threadripper, Xeon W (оценка) ---
+  - {key: Threadripper PRO 79x5WX, match: 'threadripper pro 79[0-9]5wx', speed: 0.94, source: estimate, confidence: model,
+     note: 'Zen 4, как измеренный 7995WX'}
+  - {key: Threadripper 79x0X, match: 'threadripper 79[0-9]0x', speed: 0.95, source: estimate, confidence: model}
+  - {key: Threadripper (PRO) 99xx, match: 'threadripper (?:pro )?99[0-9][05]w?x', speed: 1.05, source: estimate, confidence: family,
+     note: 'Zen 5'}
+  - {key: Threadripper PRO 59x5WX, match: 'threadripper pro 59[0-9]5wx', speed: 0.75, source: estimate, confidence: model,
+     note: 'Zen 3'}
+  - {key: Threadripper 3xxx/PRO 39xxWX, match: 'threadripper (?:pro )?39[0-9]{2}w?x', speed: 0.60, source: estimate, confidence: family,
+     note: 'Zen 2'}
+  - {key: Threadripper 1xxx/2xxx, match: 'threadripper [12]9[0-9]{2}w?x', speed: 0.45, source: estimate, confidence: family}
+  - {key: Xeon W-2400/3400, match: 'xeon w\s*[3579]?\s*[- ]?\s*[23]4[0-9]{2}', speed: 0.75, source: estimate, confidence: family,
+     note: 'Sapphire Rapids'}
+
+  # --- Серверные AMD (оценка) ---
+  - {key: 'EPYC 9xx4F (Zen 4, F)', match: 'epyc 9[0-9]74f', speed: 0.87, source: estimate, confidence: model}
+  - {key: 'EPYC 9xx5F (Zen 5, F)', match: 'epyc 9[0-9]75f', speed: 0.95, source: estimate, confidence: model}
+  - {key: EPYC 9684X, match: 'epyc 9684x', speed: 0.62, source: estimate, confidence: model}
+  - {key: EPYC 97x4 (Zen 4c), match: 'epyc 97[0-9]4', speed: 0.55, source: estimate, confidence: family}
+  - {key: EPYC 9004 (Zen 4), match: 'epyc 9[0-9]{2}4p?\b', speed: 0.66, source: estimate, confidence: family,
+     note: 'как измеренный 9654 ± частота'}
+  - {key: EPYC 9005 (Zen 5), match: 'epyc 9[0-9]{2}5p?\b', speed: 0.75, source: estimate, confidence: family}
+  - {key: EPYC 8004 (Zen 4c), match: 'epyc 8[0-9]{2}4p?', speed: 0.55, source: estimate, confidence: family}
+  - {key: 'EPYC 7xF3 (Zen 3, F)', match: 'epyc 7[0-9]f3', speed: 0.75, source: estimate, confidence: model}
+  - {key: EPYC 7003 (Zen 3), match: 'epyc 7[0-9a-z]{2}3p?\b', speed: 0.62, source: estimate, confidence: family}
+  - {key: EPYC 7002 (Zen 2), match: 'epyc 7[0-9a-z]{2}2p?\b', speed: 0.50, source: estimate, confidence: family}
+  - {key: EPYC 7001 (Zen 1), match: 'epyc 7[0-9]{2}1p?\b', speed: 0.40, source: estimate, confidence: family}
+
+  # --- Серверные и старые Intel (оценка, грубо) ---
+  - {key: Xeon 5-го/4-го поколения, match: 'xeon (?:gold|platinum|silver) [0-9]{1,2}[45][0-9]{2}', speed: 0.65, source: estimate, confidence: family}
+  - {key: Xeon Ice Lake, match: 'xeon (?:gold|platinum|silver) [0-9]3[0-9]{2}', speed: 0.55, source: estimate, confidence: family}
+  - {key: Xeon Skylake/Cascade Lake, match: 'xeon (?:gold|platinum|silver|bronze) [0-9]{1}[12][0-9]{2}', speed: 0.50, source: estimate, confidence: family}
+  - {key: Xeon E5 v3/v4, match: 'xeon.{0,8}e5-[0-9]{4}[a-z]* v[34]', speed: 0.40, source: estimate, confidence: family}

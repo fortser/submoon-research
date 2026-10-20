@@ -1,0 +1,13 @@
+{
+  "utc": "2026-10-14T10:45:43.118895+00:00",
+  "instance_id": 55911074,
+  "absent_verified": true,
+  "instances": [],
+  "deployment_started": false,
+  "scientific_run_created": false,
+  "planned_run_id": "W2-P2-2a-55911074",
+  "elapsed_hours": 0.151,
+  "estimated_compute_storage_usd": 0.053,
+  "final_invoice": false,
+  "destroyed_utc": "2026-10-14T10:45:15.345223+00:00"
+}

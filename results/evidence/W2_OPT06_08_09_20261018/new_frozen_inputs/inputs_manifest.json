@@ -1,0 +1,22 @@
+{
+ "schema": "p2-frozen-input-v1",
+ "units_file": "units.json",
+ "units_file_sha256": "8810e8c408c44a0e547d2889c2f19fed4cc676ce53b7e98ba0a0c8e52b3a34b2",
+ "units_sha256": "ac34199bcb0c2806cf1b14b4670d61e317564a4cc8078802952ce0c306675f76",
+ "contract_sha256": "d492c925e87746e49e99b417c7e598560ef2a4249aac0271426a56ffdab042da",
+ "provenance": {
+  "kind": "generated",
+  "python": "3.12.3",
+  "packages": {
+   "numpy": "2.2.6",
+   "scipy": "1.15.3"
+  },
+  "code_sha256": {
+   "scripts/freeze_p2_inputs.py": "d0d759a88bfc609976b88d018fa87a6a6477a8dea8e89aba90326b29a20cc2c9",
+   "scripts/admission_p2_2.py": "ee791a34dd713e19a75dd19036d9c259ae4bac7953f8f218e8b1a7ea4e33f129",
+   "src/submoon_research/sampling/design.py": "1d94f5a5ac0e2488346840b3a8c97a2e1d1b54e8372b63e6c4248751208087c3",
+   "src/submoon_research/dynamics/initialization.py": "a8dc974f375483e493353b1b1c48bc8e67aa7574c928874854bed82a4c65985d",
+   "src/submoon_research/exact_linalg.py": "33f4e58da9e3df6b61afb753f31129870cec2d78d09edb1a676efab01becc347"
+  }
+ }
+}

@@ -1,0 +1,13 @@
+{
+  "run_id": "W2-B-capture-20261019",
+  "approval": "W2-D037",
+  "started_utc": "2026-10-19T11:04:53.492003+00:00",
+  "finished_utc": "2026-10-19T12:05:19.470324+00:00",
+  "wall_seconds": 3684.559714287,
+  "returncode": 1,
+  "stop_reason": "worker_exit",
+  "peak_rss_bytes": 609579008,
+  "output_bytes": 457658,
+  "scientific_admission": false,
+  "status": "finished"
+}

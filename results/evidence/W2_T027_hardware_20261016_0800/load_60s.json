@@ -1,0 +1,234 @@
+{
+  "workers": 32,
+  "wall_seconds": 60.01918157283217,
+  "rows": [
+    {
+      "cpu": 0,
+      "iterations": 2453651456,
+      "wall_seconds": 60.00009249476716,
+      "cpu_seconds": 59.99622354,
+      "finite_value": true
+    },
+    {
+      "cpu": 1,
+      "iterations": 2451079168,
+      "wall_seconds": 60.00003232108429,
+      "cpu_seconds": 59.994371093999995,
+      "finite_value": true
+    },
+    {
+      "cpu": 2,
+      "iterations": 2452705280,
+      "wall_seconds": 60.000028315000236,
+      "cpu_seconds": 59.996808203,
+      "finite_value": true
+    },
+    {
+      "cpu": 3,
+      "iterations": 2450485248,
+      "wall_seconds": 60.00005024904385,
+      "cpu_seconds": 59.99693156,
+      "finite_value": true
+    },
+    {
+      "cpu": 4,
+      "iterations": 2457628672,
+      "wall_seconds": 60.000080816913396,
+      "cpu_seconds": 59.997076809999996,
+      "finite_value": true
+    },
+    {
+      "cpu": 5,
+      "iterations": 2461696000,
+      "wall_seconds": 60.0000433078967,
+      "cpu_seconds": 59.996940482,
+      "finite_value": true
+    },
+    {
+      "cpu": 6,
+      "iterations": 2449956864,
+      "wall_seconds": 60.0000640200451,
+      "cpu_seconds": 59.997051324,
+      "finite_value": true
+    },
+    {
+      "cpu": 7,
+      "iterations": 2454859776,
+      "wall_seconds": 60.0000705299899,
+      "cpu_seconds": 59.997059934,
+      "finite_value": true
+    },
+    {
+      "cpu": 8,
+      "iterations": 2178457600,
+      "wall_seconds": 60.00002396758646,
+      "cpu_seconds": 59.997002648999995,
+      "finite_value": true
+    },
+    {
+      "cpu": 9,
+      "iterations": 2174181376,
+      "wall_seconds": 60.00006724521518,
+      "cpu_seconds": 59.996985203,
+      "finite_value": true
+    },
+    {
+      "cpu": 10,
+      "iterations": 2168479744,
+      "wall_seconds": 60.00000878376886,
+      "cpu_seconds": 59.996990482,
+      "finite_value": true
+    },
+    {
+      "cpu": 11,
+      "iterations": 2178494464,
+      "wall_seconds": 60.00009545823559,
+      "cpu_seconds": 59.997075598,
+      "finite_value": true
+    },
+    {
+      "cpu": 12,
+      "iterations": 2176135168,
+      "wall_seconds": 60.000081457197666,
+      "cpu_seconds": 59.997071121,
+      "finite_value": true
+    },
+    {
+      "cpu": 13,
+      "iterations": 2181050368,
+      "wall_seconds": 60.000055386219174,
+      "cpu_seconds": 59.997048336,
+      "finite_value": true
+    },
+    {
+      "cpu": 14,
+      "iterations": 2153365504,
+      "wall_seconds": 60.000051060225815,
+      "cpu_seconds": 59.997029325,
+      "finite_value": true
+    },
+    {
+      "cpu": 15,
+      "iterations": 2176851968,
+      "wall_seconds": 60.00004688417539,
+      "cpu_seconds": 59.997031213,
+      "finite_value": true
+    },
+    {
+      "cpu": 16,
+      "iterations": 2185895936,
+      "wall_seconds": 60.000082448124886,
+      "cpu_seconds": 59.997068384,
+      "finite_value": true
+    },
+    {
+      "cpu": 17,
+      "iterations": 2188460032,
+      "wall_seconds": 60.00000470690429,
+      "cpu_seconds": 59.996842451000006,
+      "finite_value": true
+    },
+    {
+      "cpu": 18,
+      "iterations": 2188517376,
+      "wall_seconds": 60.00008909823373,
+      "cpu_seconds": 59.997078281,
+      "finite_value": true
+    },
+    {
+      "cpu": 19,
+      "iterations": 2188091392,
+      "wall_seconds": 60.00006492109969,
+      "cpu_seconds": 59.997053333000004,
+      "finite_value": true
+    },
+    {
+      "cpu": 20,
+      "iterations": 2179448832,
+      "wall_seconds": 60.000091671943665,
+      "cpu_seconds": 59.997081654999995,
+      "finite_value": true
+    },
+    {
+      "cpu": 21,
+      "iterations": 2180587520,
+      "wall_seconds": 60.00009686965495,
+      "cpu_seconds": 59.997086063000005,
+      "finite_value": true
+    },
+    {
+      "cpu": 22,
+      "iterations": 2170036224,
+      "wall_seconds": 60.00008845701814,
+      "cpu_seconds": 59.997074165,
+      "finite_value": true
+    },
+    {
+      "cpu": 23,
+      "iterations": 2154012672,
+      "wall_seconds": 60.0000982619822,
+      "cpu_seconds": 59.997091439,
+      "finite_value": true
+    },
+    {
+      "cpu": 24,
+      "iterations": 2163302400,
+      "wall_seconds": 60.000077720265836,
+      "cpu_seconds": 59.997063178000005,
+      "finite_value": true
+    },
+    {
+      "cpu": 25,
+      "iterations": 2165284864,
+      "wall_seconds": 60.00009984429926,
+      "cpu_seconds": 59.997087364,
+      "finite_value": true
+    },
+    {
+      "cpu": 26,
+      "iterations": 2165628928,
+      "wall_seconds": 60.000071950722486,
+      "cpu_seconds": 59.997028027,
+      "finite_value": true
+    },
+    {
+      "cpu": 27,
+      "iterations": 2168893440,
+      "wall_seconds": 60.00009916303679,
+      "cpu_seconds": 59.997090221,
+      "finite_value": true
+    },
+    {
+      "cpu": 28,
+      "iterations": 2173919232,
+      "wall_seconds": 60.00003074714914,
+      "cpu_seconds": 59.997025461,
+      "finite_value": true
+    },
+    {
+      "cpu": 29,
+      "iterations": 2152189952,
+      "wall_seconds": 60.000017998274416,
+      "cpu_seconds": 59.996817448,
+      "finite_value": true
+    },
+    {
+      "cpu": 30,
+      "iterations": 2168307712,
+      "wall_seconds": 60.00003947131336,
+      "cpu_seconds": 59.997019050999995,
+      "finite_value": true
+    },
+    {
+      "cpu": 31,
+      "iterations": 2164113408,
+      "wall_seconds": 60.00003013666719,
+      "cpu_seconds": 59.997005781999995,
+      "finite_value": true
+    }
+  ],
+  "sum_cpu_seconds": 1919.9012091770003,
+  "iterations_per_second": 1195880495.119738,
+  "cpu_stat_before": "usage_usec 1410518518\nuser_usec 1409377322\nsystem_usec 1141195\ncore_sched.force_idle_usec 0\nnr_periods 418\nnr_throttled 149\nthrottled_usec 37762007\nnr_bursts 0\nburst_usec 0",
+  "cpu_stat_after": "usage_usec 3330528035\nuser_usec 3329290817\nsystem_usec 1237217\ncore_sched.force_idle_usec 0\nnr_periods 1018\nnr_throttled 149\nthrottled_usec 37762007\nnr_bursts 0\nburst_usec 0"
+}

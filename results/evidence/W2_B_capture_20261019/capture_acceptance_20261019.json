@@ -1,0 +1,84 @@
+{
+  "run_id": "W2-B-capture-20261019",
+  "checked_utc": "2026-10-19T13:08:39.697704+00:00",
+  "checks": {
+    "snapshot_manifest_sha": true,
+    "snapshot_identity": true,
+    "snapshot_environment": true,
+    "snapshot_threshold": true,
+    "ring_starts_at_snapshot": true,
+    "source_summary_unchanged": true,
+    "source_jobs_unchanged": true,
+    "launch_code_unchanged": true,
+    "within_time_budget": true,
+    "within_memory_budget": true,
+    "within_output_budget": true,
+    "snapshot_file_physical.json": true,
+    "snapshot_file_simulation.bin": true,
+    "snapshot_file_reboundx.bin": true,
+    "historical_failure_matches": true,
+    "native_snapshot_load_without_integration": true
+  },
+  "all_passed": true,
+  "native_load_stdout": "{\"loaded\": true, \"time\": 25525800914.631542, \"dt\": 5561.8210226062565, \"count\": 5, \"steps_executed\": 0}\n",
+  "native_load_stderr": "",
+  "native_load_returncode": 0,
+  "diagnostic_sha256": "94f4dbca6c1dbcfa4efdba6509637d527730cb20d6e656646e6517a24d837dc9",
+  "snapshot_manifest_sha256": "9a634be5f9404ed88ccf66839aedc7133f4b38a27520e9d029e31dd78557b52a",
+  "final": {
+    "run_id": "W2-B-capture-20261019",
+    "approval": "W2-D037",
+    "started_utc": "2026-10-19T11:04:53.492003+00:00",
+    "finished_utc": "2026-10-19T12:05:19.470324+00:00",
+    "wall_seconds": 3684.559714287,
+    "returncode": 1,
+    "stop_reason": "worker_exit",
+    "peak_rss_bytes": 609579008,
+    "output_bytes": 457658,
+    "scientific_admission": false,
+    "status": "finished"
+  },
+  "failed_step": {
+    "n": 6683202,
+    "left": 25526330757.864594,
+    "proposed_dt": 1.839013869133714e-06,
+    "requested_dt": 1.839013869133714e-06,
+    "bound": 31557600000.0,
+    "max_step": 4145.39561957939,
+    "time_ulp": 3.814697265625e-06,
+    "adaptation_before": {
+      "epsilon": 1e-09,
+      "min_dt": 0.0,
+      "adaptive_mode": "PRS23",
+      "iterations_max_exceeded": 0
+    },
+    "min_pair_distance": 496.0299793527765,
+    "absolute_position_max": 273032532251.30664,
+    "failure": {
+      "type": "ArithmeticError",
+      "message": "IAS15 нарушил временную границу",
+      "reason": "no_time_advance"
+    },
+    "right": 25526330757.864594,
+    "actual_dt": 0.0,
+    "dt_done": 1.839013869133714e-06,
+    "next_dt": 2.716361931203976e-06,
+    "adaptation_after": {
+      "epsilon": 1e-09,
+      "min_dt": 0.0,
+      "adaptive_mode": "PRS23",
+      "iterations_max_exceeded": 0
+    },
+    "checked_endpoint_residual": 1.6197271552615127e-16
+  },
+  "ring_records": 417,
+  "snapshot_time": 25525800914.631542,
+  "snapshot_to_failure_seconds": 529843.2330513,
+  "replay_executed": false,
+  "processes_absent": [
+    374,
+    375,
+    376
+  ],
+  "scientific_admission": false
+}

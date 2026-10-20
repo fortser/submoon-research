@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-14T10:42:54.652418+00:00",
+  "instance_id": 55911074,
+  "user_instruction": "В личном кабинете на сайте я вижу, что сервер выдает ошибку при разворачивании. Давай откажемся от этого сервера, останови и удали его. После этого мы сделаем паузу и вернемся к работе только вечером с нового поиска сервера.",
+  "provider_before": {
+    "id": 55911074,
+    "actual_status": "created",
+    "intended_status": "stopped",
+    "status_msg": "Error response from daemon: failed to create task for container: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: error during container init: error setting cgroup config for procHooks process: openat2 /sys/fs/cgroup/docker/7ebcecc5c3acf1db7a842ab2ceab873f1c779e311daa92a4448702983d1dbc3d/io.weight: no such file or directory\nfailed to start containers: C.55911074\n"
+  },
+  "stop_error": "RuntimeError"
+}

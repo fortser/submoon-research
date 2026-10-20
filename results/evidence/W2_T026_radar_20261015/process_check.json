@@ -1,0 +1,115 @@
+{
+  "utc": "2026-10-15T10:15:29+00:00",
+  "heartbeat": {
+    "pid": 17260,
+    "utc": "2026-10-15T10:15:29+00:00",
+    "running": true,
+    "polling": false,
+    "last_cycle_utc": "2026-10-15T10:11:54+00:00",
+    "next_poll_epoch": 1792060014.5895731,
+    "errors": [],
+    "paused": false,
+    "review_required": false,
+    "paid_actions": 0
+  },
+  "pid": 17260,
+  "process_name": "pythonw.exe",
+  "cmdline": [
+    "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\pythonw.exe",
+    "-X",
+    "utf8",
+    "T:\\test_python\\submoon-research\\scripts\\vast_radar.py",
+    "--desktop"
+  ],
+  "memory_rss_mib": 39.65,
+  "cycles": 1,
+  "last_cycle": {
+    "utc": "2026-10-15T10:11:54+00:00",
+    "evaluation_sha256": "60cd304cce51c242a0c2ed9bec4cc6c7f0e07e643d6f2c412762525683e722a5",
+    "requests": 38,
+    "search": {
+      "mode": "sweep",
+      "strategy": "sweep",
+      "complete": false,
+      "passes": [
+        {
+          "name": "price",
+          "status": "completed",
+          "found": 36,
+          "new": 36,
+          "new_relevant": 36,
+          "queries": 1,
+          "reasons": []
+        },
+        {
+          "name": "relaxed",
+          "status": "completed",
+          "found": 452,
+          "new": 421,
+          "new_relevant": 14,
+          "queries": 14,
+          "reasons": []
+        },
+        {
+          "name": "exclude",
+          "status": "completed",
+          "found": 5,
+          "new": 5,
+          "new_relevant": 5,
+          "queries": 18,
+          "reasons": []
+        },
+        {
+          "name": "vcpu_bands",
+          "status": "completed",
+          "found": 37,
+          "new": 3,
+          "new_relevant": 3,
+          "queries": 2,
+          "reasons": []
+        },
+        {
+          "name": "gpu_count",
+          "status": "completed",
+          "found": 45,
+          "new": 2,
+          "new_relevant": 2,
+          "queries": 2,
+          "reasons": []
+        }
+      ],
+      "stop_reason": "passes_finished",
+      "saturated": false,
+      "relevant_offers": 60,
+      "exclude_drained": true,
+      "last_two_passes_new_fraction": 0.083,
+      "queries": 37,
+      "errors": [],
+      "incomplete": [],
+      "elapsed_seconds": 44.8,
+      "raw_offers": 467
+    },
+    "checks": [
+      {
+        "machine_id": 143224,
+        "status": "checked",
+        "offers": [
+          47034418
+        ]
+      }
+    ],
+    "errors": []
+  },
+  "exclusive_lock_verified": true,
+  "versions": {
+    "pystray": "0.19.5",
+    "Pillow": "12.3.0",
+    "six": "1.17.0"
+  },
+  "paid_actions": 0,
+  "limitations": [
+    "Фактическая перезагрузка/вход Windows ещё не проверены.",
+    "Слышимость звука проверяет пользователь кнопкой.",
+    "Watchdog платной аренды не реализован радаром."
+  ]
+}

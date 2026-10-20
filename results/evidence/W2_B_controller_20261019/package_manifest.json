@@ -1,0 +1,86 @@
+{
+  "run_id": "W2-B-controller-20261019",
+  "files": {
+    "results/evidence/W2_B_controller_20261019/analysis.json": {
+      "sha256": "d082cbb08588ea25360d24e061886b9db2cddbe7f107a7fa269cebff3391e3a8",
+      "bytes": 18363
+    },
+    "results/evidence/W2_B_controller_20261019/execution.json": {
+      "sha256": "83fd15714ee1439e5ec91d177249f444b1f804472307ac6c51d7325e878b3d7f",
+      "bytes": 179
+    },
+    "results/evidence/W2_B_controller_20261019/launch_manifest.json": {
+      "sha256": "2dec333787549b4d23da736a6a61ff3b194e2effc26543f08e36e0fd5b144e0a",
+      "bytes": 2875
+    },
+    "results/evidence/W2_B_controller_20261019/passive_controller.json": {
+      "sha256": "8b6fa8fd5778375ab4b47c211ff96ae7637b5e99d467c58cee76b0c728153148",
+      "bytes": 3612545
+    },
+    "results/evidence/W2_B_controller_20261019/ruff.log": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "results/evidence/W2_B_controller_20261019/smoke.log": {
+      "sha256": "7dbc87ddbb42608b9abc47aa0e900e929e4b121dfba03052d65e305c7b6dc7b3",
+      "bytes": 141
+    },
+    "results/evidence/W2_B_controller_20261019/stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "results/evidence/W2_B_controller_20261019/stdout.log": {
+      "sha256": "8b75e82c9ecf1741d068b6722cac89b48b5f744269a6cecf5e3eae38d4d6ab6b",
+      "bytes": 574
+    },
+    "results/evidence/W2_B_controller_20261019/validate.log": {
+      "sha256": "9e05cef4032d04a7961dfaa9e094191394d117d27bf7c9ece6dcafeeb03259f6",
+      "bytes": 197
+    },
+    "results/evidence/W2_B_controller_20261019/windows_tests.log": {
+      "sha256": "f035e45c22220a020a7d62d064b07603409166d821428956b7e48fafa7e73706",
+      "bytes": 2256
+    },
+    "results/evidence/W2_B_controller_20261019/windows_tests.xml": {
+      "sha256": "9465ae8656a63a94ec848432885aeeffcecc383f7c8036231bc41d35933f474d",
+      "bytes": 84782
+    },
+    "results/evidence/W2_B_controller_20261019/wsl_tests.xml": {
+      "sha256": "8fb858d8675b3023e6a31e5ebbfcf22b39c93ec39cca26a0a2aff0d1f4726a48",
+      "bytes": 3601
+    },
+    "src/submoon_research/diagnostics/ias15_controller.py": {
+      "sha256": "a734ba182081cf3d20eb5421fe0dd4e0febf797ed4a0998412b08e3f8192b989",
+      "bytes": 4749
+    },
+    "scripts/diag_ias15_controller.py": {
+      "sha256": "3f816be804cbbf0b94257092de20b9a22d0b4a6994dfd0e483d35e0a1622d853",
+      "bytes": 6717
+    },
+    "tests/unit/test_ias15_controller.py": {
+      "sha256": "00040147ddcc64b07a31a3cb0d5c01805fb0ea3a49b1b916924f82c0449d56e9",
+      "bytes": 2392
+    },
+    "reports/analysis/W2_B_controller_20261019.md": {
+      "sha256": "48a03724f532c2f8b117462c07b59ccc9f652ddef7f1b0759e5a267f798b513e",
+      "bytes": 10372
+    },
+    "docs/tasks/W2_B_controller_20261019.md": {
+      "sha256": "e0a484dccbcbadfbf0ecee9682d858754ede5b330787f4ca899ad0699651ae5f",
+      "bytes": 6197
+    },
+    "docs/tasks/W2_B_discriminating_controls_v1.md": {
+      "sha256": "3de711e017fbf0fb840aa656770b7a4ad9bdd2c2d437bbe2f2444b0f8db2c515",
+      "bytes": 6922
+    },
+    "data/raw/rebound_5_1_1_20261019/manifest.json": {
+      "sha256": "73e9def2546be2be3196742278ecd02e83533a2c53b1a94d2e6469f95ca72348",
+      "bytes": 465
+    },
+    "data/raw/rebound_5_1_1_20261019/integrator_ias15.c": {
+      "sha256": "7d3038a1f1f6ad079f86dd652d75fe16bea76df8c0ae1df630b6001e4871ef6b",
+      "bytes": 52628
+    }
+  },
+  "note": "Только пассивная диагностика; 2x2 physical restart контроли не выполнены"
+}

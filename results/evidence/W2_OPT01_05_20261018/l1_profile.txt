@@ -1,0 +1,55 @@
+Sun Oct 18 13:49:51 2026    results\evidence\W2_OPT01_05_20261018\l1_profile.pstats
+
+         1198279 function calls (1143489 primitive calls) in 7.464 seconds
+
+   Ordered by: cumulative time
+   List reduced from 2628 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    468/1    0.015    0.000    7.465    7.465 {built-in method builtins.exec}
+        1    0.000    0.000    7.465    7.465 verify_l1_specification.py:1(<module>)
+        1    0.000    0.000    7.219    7.219 verify_l1_specification.py:15(main)
+        1    0.000    0.000    5.827    5.827 execution.py:41(__enter__)
+       81    0.002    0.000    5.565    0.069 tracking.py:88(atomic_text)
+       79    0.001    0.000    5.284    0.067 smoke.py:34(write_json)
+       81    4.933    0.061    4.933    0.061 {built-in method nt.fsync}
+       73    0.002    0.000    4.529    0.062 execution.py:66(save_code)
+      657    1.187    0.002    1.187    0.002 {method '__exit__' of '_io._IOBase' objects}
+       90    0.001    0.000    0.811    0.009 pathlib.py:1137(write_bytes)
+        2    0.000    0.000    0.396    0.198 execution.py:78(save_config)
+       24    0.001    0.000    0.373    0.016 __init__.py:1(<module>)
+        1    0.000    0.000    0.320    0.320 execution.py:109(__exit__)
+    263/9    0.002    0.000    0.270    0.030 <frozen importlib._bootstrap>:1022(_find_and_load)
+    262/9    0.001    0.000    0.269    0.030 <frozen importlib._bootstrap>:987(_find_and_load_unlocked)
+   256/11    0.001    0.000    0.266    0.024 <frozen importlib._bootstrap>:664(_load_unlocked)
+   228/11    0.001    0.000    0.265    0.024 <frozen importlib._bootstrap_external>:877(exec_module)
+   358/10    0.000    0.000    0.264    0.026 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
+       81    0.253    0.003    0.254    0.003 {built-in method nt.replace}
+       28    0.001    0.000    0.226    0.008 provenance.py:45(read)
+        5    0.000    0.000    0.222    0.044 provenance.py:82(yaml)
+        6    0.000    0.000    0.214    0.036 __init__.py:117(safe_load)
+        6    0.000    0.000    0.214    0.036 __init__.py:74(load)
+        6    0.000    0.000    0.214    0.036 constructor.py:47(get_single_data)
+        6    0.000    0.000    0.205    0.034 composer.py:29(get_single_node)
+        6    0.000    0.000    0.204    0.034 composer.py:50(compose_document)
+   2085/6    0.005    0.000    0.204    0.034 composer.py:63(compose_node)
+    105/6    0.002    0.000    0.204    0.034 composer.py:117(compose_mapping_node)
+     5644    0.004    0.000    0.187    0.000 parser.py:94(check_event)
+        1    0.000    0.000    0.176    0.176 l1.py:1(<module>)
+  353/118    0.001    0.000    0.160    0.001 <frozen importlib._bootstrap>:1053(_handle_fromlist)
+   385/21    0.000    0.000    0.160    0.008 {built-in method builtins.__import__}
+        1    0.000    0.000    0.155    0.155 provenance.py:85(verify_all)
+    15184    0.012    0.000    0.153    0.000 scanner.py:113(check_token)
+        2    0.000    0.000    0.124    0.062 l1.py:36(validate_spec)
+        1    0.000    0.000    0.122    0.122 l1.py:31(schema)
+    445/1    0.001    0.000    0.122    0.122 l1.py:20(_annotation)
+       46    0.001    0.000    0.121    0.003 main.py:1735(create_model)
+       47    0.001    0.000    0.120    0.003 _model_construction.py:84(__new__)
+     3074    0.008    0.000    0.118    0.000 scanner.py:156(fetch_more_tokens)
+     46/1    0.000    0.000    0.117    0.117 l1.py:25(<dictcomp>)
+      976    0.002    0.000    0.084    0.000 parser.py:446(parse_block_mapping_value)
+     1080    0.002    0.000    0.082    0.000 parser.py:427(parse_block_mapping_key)
+     1944    0.002    0.000    0.077    0.000 scanner.py:668(fetch_plain)
+     1944    0.019    0.000    0.070    0.000 scanner.py:1270(scan_plain)
+
+

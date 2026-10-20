@@ -1,0 +1,37 @@
+# W2-D031: только поиск/уведомления. Не является командой аренды.
+schema_version: 1
+interval_seconds: 900
+review_after_days: 5
+search_seconds: 120
+max_requests_per_cycle: 64
+max_recheck_machines: 5
+request_spacing_seconds: 1
+request_timeout_seconds: 15
+retention_days: 14
+max_output_mib: 2048
+port: 8765
+sound_enabled: true
+profile: p2_2a_station
+watch:
+  - machine_id: 143224
+    offer_id: 47034418
+    label: Threadripper PRO 9975WX
+# Все 9975WX ищутся также в общей выдаче, не только машина из watch.
+target_cpu_regex: '(?i)\b9975wx\b'
+target_max_hourly_usd: 0.65
+max_hourly_usd: 0.75
+min_workers: 28
+max_estimated_hours: 16
+max_estimated_compute_usd: 11
+full_run_budget_usd: 13
+transfer_reserve_usd: 1
+wrapup_hours: 1.5
+trial_hours: 0.5
+trial_budget_usd: 1
+excluded_machine_ids: [139652]  # W2-I031: OCI/cgroup, исправление не подтверждено
+# Разрешение на ОДНУ попытку всего, а не одну на каждый сигнал/перезапуск.
+# Его исполнение — отдельным оператором после сообщения пользователя и проверенного guard.
+trial_approval_ref: W2-D031
+max_paid_attempts: 1
+paid_retries: 0
+automatic_rental: false

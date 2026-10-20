@@ -1,0 +1,1476 @@
+--- baseline/run_W2-C067_checks.bat
++++ package/run_W2-C067_checks.bat
+@@ -1,25 +1,10 @@
+-@echo off
+-rem W2-C067: guard of finished runs + units.json; W2-I034: repeat of the failed B job with step trace.
+-rem No network, no rental. Part 1 about 5 minutes, part 2 (B repeat) about 1 hour on one core.
+-rem Log: scratch\claude\W2-C067_checks_20261017.log
+-chcp 65001 >nul
+-cd /d "%~dp0"
+-set PYTHONUTF8=1
+-set PY=.venv\Scripts\python.exe
+-set LOG=scratch\claude\W2-C067_checks_20261017.log
+-echo === W2-C067 checks %DATE% %TIME% > "%LOG%"
+-echo === 1. pytest full suite (Windows .venv) >> "%LOG%"
+-%PY% -m pytest -q -rs --ignore=tests/integration/test_l1_acceptance.py >> "%LOG%" 2>&1
+-echo exit %ERRORLEVEL% >> "%LOG%"
+-echo === 2. ruff >> "%LOG%"
+-%PY% -m ruff check src scripts tests >> "%LOG%" 2>&1
+-echo exit %ERRORLEVEL% >> "%LOG%"
+-echo === 3. validate >> "%LOG%"
+-%PY% scripts\project.py validate >> "%LOG%" 2>&1
+-echo exit %ERRORLEVEL% >> "%LOG%"
+-echo === 4. WSL part >> "%LOG%"
+-wsl -d Ubuntu-24.04 --cd "%~dp0." -- bash scratch/claude/t019/wsl_c067.sh
+-type "%LOG%"
+-echo.
+-echo Done. Log: %LOG%
+-pause
++@echo off
++rem Historical entry point; runs only bounded OPT-01..05 checks, NOT the hour-long B diagnostic.
++rem Unique UTC output directory and aggregate exit code are managed by the Python runner.
++chcp 65001 >nul
++cd /d "%~dp0"
++set PYTHONUTF8=1
++.venv\Scripts\python.exe scripts\check_w2_stabilization.py --suite short %*
++set CHECK_EXIT=%ERRORLEVEL%
++echo Check exit code: %CHECK_EXIT%
++exit /b %CHECK_EXIT%
+--- baseline/scripts/admission_p2_2.py
++++ package/scripts/admission_p2_2.py
+@@ -36,6 +36,7 @@
+ import os
+ import sys
+ import time
++import traceback
+ from collections import Counter
+ from datetime import datetime, timezone
+ from pathlib import Path
+@@ -64,6 +65,10 @@
+ from submoon_research.sampling.design import MEASURES, DomainSpec, generate  # noqa: E402
+ from submoon_research.workflows.smoke import sha256 as file_sha256  # noqa: E402
+ from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
++from submoon_research.contracts.p2_files import (  # noqa: E402
++    atomic_json, contract_digest, digest, exclusive_run, preflight, read_json, source_manifest,
++    units_digest, validate_units_document,
++)
+ 
+ PLAN, STAGE, STAND_VERSION = 'W2-P006', 'P2-2a', 'P2-2-v1'
+ # Версия правила разбора (не входит в отпечаток заданий: счёт не меняется). a2 — W2-D026.
+@@ -129,17 +134,13 @@
+     return out
+ 
+ 
+-def units_digest(unit_list):
+-    payload = [(u['orbit_id'], u['seed'], u['state']) for u in unit_list]
+-    return hashlib.sha256(json.dumps(payload, default=float).encode()).hexdigest()
+-
+-
+ def normalize_params(per_cell, b_per_cell, unit_start, years, b_years):
+     params = dict(per_cell=int(per_cell), b_per_cell=int(b_per_cell), unit_start=int(unit_start),
+                   years=sorted({float(y) for y in years}), b_years=sorted({float(y) for y in b_years}))
+     if params['per_cell'] < 1 or not 0 <= params['b_per_cell'] <= params['per_cell'] or params['unit_start'] < 0:
+         raise ValueError('Нужно per_cell >= 1, 0 <= b_per_cell <= per_cell, unit_start >= 0')
+-    if not params['years'] or min(params['years']) <= 0 or not set(params['b_years']) <= set(params['years']):
++    if (not params['years'] or any(not math.isfinite(y) or y <= 0 for y in params['years'])
++            or not set(params['b_years']) <= set(params['years'])):
+         raise ValueError('Горизонты должны быть > 0, горизонты B — подмножество --years')
+     return params
+ 
+@@ -207,7 +208,8 @@
+     except Exception as exc:  # noqa: BLE001 — сбой одного задания записывается, стенд продолжает
+         probe = unit['state'][-6:]
+         return dict(base, wall=time.perf_counter()-started, cpu=time.process_time()-cpu,
+-                    run_status='failed', error=f'{type(exc).__name__}: {exc}', outcome='unresolved',
++                    run_status='failed', error=f'{type(exc).__name__}: {exc}',
++                    traceback=traceback.format_exc(), outcome='unresolved',
+                     unresolved_reason='computational', last_valid_time=0.0, event=None, steps=None,
+                     nfev=None, eccentricity=None, numerical_domain=None, endpoint_residual=None,
+                     stopped=False, crashed=True, final_probe=probe, samples=[(0.0, probe)])
+@@ -549,68 +551,41 @@
+     parser.add_argument('--stop-file', default=None,
+                         help='если файл появится, задания останавливаются (partial) и стенд подводит итог')
+     parser.add_argument('--evaluate-only', action='store_true')
++    parser.add_argument('--resume', action='store_true', help='продолжить незавершённый совместимый run')
+     parser.add_argument('--analysis-dir', default=None,
+-                        help='куда писать analysis.json/summary.json (по умолчанию --run-dir); обязателен для '
+-                             'нового разбора уже принятого run (W2-C067)')
++                        help='новый отдельный каталог; обязателен и разрешён только с --evaluate-only')
+     return parser.parse_args(argv)
+ 
+ 
+-def foreign_rows(jobs_file, expected_fp):
+-    """W2-C067: строки jobs.jsonl чужой постановки — ключ вне плана или другой отпечаток.
+-    Повреждённая (недописанная) строка — не чужая: допустима при продолжении после сбоя."""
+-    mismatched, unknown, corrupt = 0, 0, 0
+-    if not jobs_file.exists():
+-        return dict(mismatched=0, unknown=0, corrupt=0)
+-    for line in jobs_file.read_text(encoding='utf-8').splitlines():
+-        if not line.strip():
+-            continue
+-        try:
+-            row = json.loads(line)
+-            key = (row['orbit_id'], float(row['years']), row['variant'])
+-        except (ValueError, KeyError, TypeError):
+-            corrupt += 1
+-            continue
+-        if key not in expected_fp:
+-            unknown += 1
+-        elif row.get('job_fingerprint') != expected_fp[key]:
+-            mismatched += 1
+-    return dict(mismatched=mismatched, unknown=unknown, corrupt=corrupt)
+-
+-
+-def units_document(unit_list, params):
+-    """Буквальные стартовые векторы run с SHA (W2-C067): не зависят от будущего генератора."""
+-    return dict(plan=PLAN, stage=STAGE, generator_numerics=NUMERICS_VERSION, params=params,
+-                units_sha256=units_digest(unit_list), units=unit_list)
+-
+-
+-def guard_run_dir(run_dir, out_dir, foreign, unit_list):
+-    """Отказ ДО любой записи (W2-C067): чужие строки, принятый run или другие старты."""
+-    problems = []
+-    if foreign['mismatched'] or foreign['unknown']:
+-        problems.append(f"в jobs.jsonl строки другой постановки: другой отпечаток {foreign['mismatched']}, "
+-                        f"вне плана {foreign['unknown']} (другой код, окружение, генератор или параметры); "
+-                        'продолжение и разбор этого каталога текущим стендом запрещены — новый --run-dir')
+-    accepted = sorted(p.name for p in run_dir.glob('acceptance*.json'))
+-    if accepted and out_dir == run_dir:
+-        problems.append(f"run уже принят ({', '.join(accepted)}); новый разбор — только в отдельный --analysis-dir")
+-    stored = run_dir/'units.json'
+-    if stored.exists():
+-        try:
+-            digest = json.loads(stored.read_text(encoding='utf-8')).get('units_sha256')
+-        except ValueError:
+-            digest = None
+-        if digest != units_digest(unit_list):
+-            problems.append('units.json каталога не совпадает со стартами текущего генератора '
+-                            f'({str(digest)[:16]}… против {units_digest(unit_list)[:16]}…)')
+-    return problems
++def units_document(unit_list, params, implementations=None):
++    """Полный контракт новых run; legacy-хеш стартов сохраняет прежний смысл."""
++    doc = dict(plan=PLAN, stage=STAGE, generator_numerics=NUMERICS_VERSION, params=params,
++               units_sha256=units_digest(unit_list), units=unit_list,
++               contract=dict(version='p2-input-v1', stand=STAND_VERSION, grid=GRID_ID,
++                             modes=dict(D=NumericMode().__dict__, T=NumericMode.tight().__dict__),
++                             implementations=implementations,
++                             position_unit='km', time_unit='s', gm_unit='km^3/s^2',
++                             frame='host-relative, nonrotating ICRF axes',
++                             input_config_sha256=file_sha256(ROOT/'configs/experiments/W2_three_engines_v1.yaml')))
++    doc['contract_sha256'] = contract_digest(doc)
++    return doc
+ 
+ 
+ def main(argv=None):
+     args = parse(argv)
++    try:
++        with exclusive_run(ROOT/args.run_dir, ROOT/'scratch/p2_locks'):
++            return _main(args)
++    except (OSError, ValueError) as exc:
++        traceback.print_exc()
++        print(f'ОТКАЗ/ОШИБКА СТЕНДА: {exc}', flush=True)
++        return 2
++
++
++def _main(args):
+     params = normalize_params(args.per_cell, args.b_per_cell, args.unit_start, args.years, args.b_years)
+     full_scope = is_full_scope(params)
+-    run_dir = ROOT/args.run_dir
+-    run_dir.mkdir(parents=True, exist_ok=True)
++    run_dir = (ROOT/args.run_dir).resolve()
+     jobs_file = run_dir/'jobs.jsonl'
+     deadline = parse_deadline(args.deadline_utc)
+     unit_list = units(params['per_cell'], params['unit_start'])
+@@ -619,15 +594,41 @@
+     planned = plan_keys(unit_list, params)
+     expected_fp = {k: job_fingerprint(by_id[k[0]], k[1], k[2], implementations)
+                    for keys in planned.values() for k in keys}
+-    out_dir = ROOT/args.analysis_dir if args.analysis_dir else run_dir
+-    foreign = foreign_rows(jobs_file, expected_fp)
+-    problems = guard_run_dir(run_dir, out_dir, foreign, unit_list)
+-    if problems:
+-        print('ОТКАЗ СТЕНДА (ничего не записано):', flush=True)
+-        for problem in problems:
+-            print('  - '+problem, flush=True)
++    analysis_dir = (ROOT/args.analysis_dir).resolve() if args.analysis_dir else None
++    out_dir = analysis_dir or run_dir
++    document = units_document(unit_list, params, implementations)
++    contract = dict(version='p2-run-v1', input_contract_sha256=document['contract_sha256'],
++                    jobs_sha256=digest(sorted(expected_fp.items())))
++    try:
++        summary = read_json(run_dir/'summary.json') if (run_dir/'summary.json').exists() else None
++        if summary is not None:
++            for name, value in (('params', params), ('implementations', implementations),
++                                ('units_sha256', units_digest(unit_list))):
++                if not isinstance(summary, dict) or summary.get(name) != value:
++                    raise ValueError(f'summary.{name}: другая постановка')
++        if (run_dir/'units.json').exists():
++            validate_units_document(read_json(run_dir/'units.json'), document)
++            if summary is not None and summary.get('units_file_sha256') not in (
++                    None, file_sha256(run_dir/'units.json')):
++                raise ValueError('units.json: SHA файла не совпал с summary')
++        elif (args.resume or (run_dir/'run_contract.json').exists()
++              or (summary and (summary.get('units_file_sha256') or summary.get('input_contract_sha256')))):
++            raise ValueError('отсутствует обязательный units.json')
++        if summary and summary.get('input_contract_sha256') not in (None, document['contract_sha256']):
++            raise ValueError('summary.input_contract_sha256: другая постановка')
++        rows, ignored = read_rows(jobs_file, expected_fp)
++        preflight(run_dir, analysis_dir, evaluate=args.evaluate_only, resume=args.resume,
++                  rows=rows, expected_fp=expected_fp, contract=contract)
++    except (OSError, ValueError, TypeError, KeyError) as exc:
++        print(f'ОТКАЗ СТЕНДА (ничего не записано): {exc}', flush=True)
+         return 2
+-    rows, ignored = read_rows(jobs_file, expected_fp)
++    source = source_manifest(run_dir) if args.evaluate_only else None
++    if args.evaluate_only:
++        out_dir.mkdir(parents=True, exist_ok=False)
++    else:
++        run_dir.mkdir(parents=True, exist_ok=True)
++        if not args.resume:
++            atomic_json(run_dir/'run_contract.json', contract)
+     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
+     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
+     total = sum(len(k) for k in planned.values())
+@@ -641,9 +642,7 @@
+     started = time.perf_counter()
+     units_path = run_dir/'units.json'
+     if not units_path.exists() and not args.evaluate_only:
+-        tmp = units_path.with_suffix('.tmp')
+-        tmp.write_text(json.dumps(units_document(unit_list, params), ensure_ascii=False, default=float), encoding='utf-8')
+-        tmp.replace(units_path)
++        atomic_json(units_path, document)
+     if not args.evaluate_only:
+         jobs = [dict(unit=by_id[o], years=y, variant=v, fingerprint=expected_fp[(o, y, v)],
+                      deadline=deadline, stop_file=args.stop_file)
+@@ -660,19 +659,20 @@
+     report(analysis)
+     stopped = sum(1 for r in final_rows if r['run_status'] == 'partial')
+     failed = sum(1 for r in final_rows if r['run_status'] == 'failed')
+-    out_dir.mkdir(parents=True, exist_ok=True)
+-    (out_dir/'analysis.json').write_text(json.dumps(analysis, ensure_ascii=False, indent=1, default=float),
+-                                         encoding='utf-8')
++    atomic_json(out_dir/'analysis.json', analysis, replace=args.resume)
+     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+-    (out_dir/'summary.json').write_text(json.dumps(dict(plan=PLAN, stage=STAGE, utc=stamp,
++    atomic_json(out_dir/'summary.json', dict(plan=PLAN, stage=STAGE, utc=stamp,
+         stand_version=STAND_VERSION, prototype_version=PROTOTYPE_VERSION, machine=cpu_info(),
+         params=params, full_scope=full_scope, workers=args.workers, deadline_utc=args.deadline_utc,
+         stop_file=args.stop_file, evaluate_only=args.evaluate_only, units=len(unit_list),
+         units_sha256=units_digest(unit_list), generator_numerics=NUMERICS_VERSION,
++        input_contract_sha256=document['contract_sha256'], source=source,
+         units_file_sha256=file_sha256(units_path) if units_path.exists() else None, planned=total, done=len(final_rows), stopped=stopped,
+         failed=failed, complete=analysis['complete'], decision=analysis['decision'],
+-        implementations=implementations, wall_seconds=time.perf_counter()-started),
+-        ensure_ascii=False, indent=1, default=float), encoding='utf-8')
++        implementations=implementations, wall_seconds=time.perf_counter()-started), replace=args.resume)
++    if not args.evaluate_only and analysis['complete']:
++        atomic_json(run_dir/'sealed.json', dict(version=1, utc=stamp, scientific_admission=False,
++                                               summary_sha256=file_sha256(out_dir/'summary.json')))
+     ok = analysis['complete'] and not failed
+     b_left = sum(level['b_unfinished'] for level in analysis['horizons'].values())
+     print(f"\nИТОГ СТЕНДА: {'все задания завершены' if ok else 'НЕ ЗАВЕРШЕНО или есть отказы'} "
+--- baseline/scripts/admission_p2_horizons.py
++++ package/scripts/admission_p2_horizons.py
+@@ -34,6 +34,7 @@
+ import os
+ import sys
+ import time
++import traceback
+ from datetime import datetime, timezone
+ from pathlib import Path
+ 
+@@ -52,6 +53,9 @@
+ from submoon_research.exact_linalg import NUMERICS_VERSION  # noqa: E402
+ from submoon_research.dynamics.engine_compare import NumericMode, integrate_engine  # noqa: E402
+ from submoon_research.workflows.w2_comparison import load_cases, warmup  # noqa: E402
++from submoon_research.contracts.p2_files import (  # noqa: E402
++    atomic_json, digest, exclusive_run, file_digest, preflight, read_job_rows, read_json, source_manifest,
++)
+ 
+ YEAR = 365.25*86400.0
+ LIMIT = 1e-6
+@@ -312,25 +316,8 @@
+ 
+ 
+ def read_rows(jobs_file, expected_fp):
+-    """Строки jobs.jsonl с совпавшим отпечатком; для ключа берётся последняя строка.
+-    Повреждённая (недописанная) строка пропускается и учитывается как отброшенная."""
+-    rows, ignored = {}, 0
+-    if not jobs_file.exists():
+-        return rows, ignored
+-    for line in jobs_file.read_text(encoding='utf-8').splitlines():
+-        if not line.strip():
+-            continue
+-        try:
+-            row = json.loads(line)
+-            key = (row['orbit_id'], row['years'], row['variant'])
+-        except (ValueError, KeyError, TypeError):
+-            ignored += 1
+-            continue
+-        if expected_fp.get(key) is not None and row.get('job_fingerprint') == expected_fp[key]:
+-            rows[key] = row
+-        else:
+-            ignored += 1
+-    return rows, ignored
++    """Строгий общий reader: повреждения/чужие строки не пропускаются."""
++    return read_job_rows(jobs_file, expected_fp), 0
+ 
+ 
+ def run_jobs(jobs, workers, jobs_file, done, run_dir, planned, started):
+@@ -364,7 +351,7 @@
+                 print(f'  {k}/{len(jobs)} заданий, {time.perf_counter()-started:.0f} с с начала', flush=True)
+ 
+ 
+-def main():
++def main(argv=None):
+     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+     parser.add_argument('--years', type=float, nargs='*', default=list(FULL_YEARS))
+     parser.add_argument('--b-max-years', type=float, default=FULL_B_MAX)
+@@ -384,10 +371,20 @@
+                         help='если файл появится, задания останавливаются (partial) и стенд подводит итог')
+     parser.add_argument('--evaluate-only', action='store_true',
+                         help='только оценка имеющегося jobs.jsonl (остановленные строки учитываются)')
+-    args = parser.parse_args()
+-
+-    run_dir = ROOT/args.run_dir
+-    run_dir.mkdir(parents=True, exist_ok=True)
++    parser.add_argument('--resume', action='store_true')
++    parser.add_argument('--analysis-dir', help='новый отдельный каталог, только с --evaluate-only')
++    args = parser.parse_args(argv)
++    try:
++        with exclusive_run(ROOT/args.run_dir, ROOT/'scratch/p2_locks'):
++            return _main(args)
++    except (OSError, ValueError) as exc:
++        traceback.print_exc()
++        print(f'ОТКАЗ/ОШИБКА СТЕНДА: {exc}', flush=True)
++        return 2
++
++
++def _main(args):
++    run_dir = (ROOT/args.run_dir).resolve()
+     jobs_file = run_dir/'jobs.jsonl'
+     deadline = parse_deadline(args.deadline_utc)
+     _, cases = load_cases(ROOT)
+@@ -398,25 +395,37 @@
+                   and tuple(args.core_years) == FULL_YEARS and all(y in args.years for y in FULL_YEARS)
+                   and args.core_b_max >= FULL_B_MAX and args.b_max_years >= FULL_B_MAX)
+     implementations = dict(compiled=implementation_fingerprint(), B=b_fingerprint())
++    plan = level_plan(args.years, args.b_max_years, args.core_years, args.core_b_max)
+     expected_fp = {(c['orbit_id'], y, v): job_fingerprint(c, y, v, implementations)
+-                   for c in cases for y in args.years for v in ('D', 'T', 'B')}
+-    # W2-C067: строки с другим отпечатком (другой код, окружение или генератор) — отказ до записи;
+-    # иначе стенд отбросил бы их и перезаписал level_*.json и summary.json завершённого run.
+-    mismatched = 0
+-    if jobs_file.exists():
+-        for line in jobs_file.read_text(encoding='utf-8').splitlines():
+-            try:
+-                row = json.loads(line)
+-                key = (row['orbit_id'], float(row['years']), row['variant'])
+-            except (ValueError, KeyError, TypeError):
+-                continue
+-            if key in expected_fp and row.get('job_fingerprint') != expected_fp[key]:
+-                mismatched += 1
+-    if mismatched:
+-        print(f'ОТКАЗ СТЕНДА (ничего не записано): в jobs.jsonl {mismatched} строк с другим отпечатком; '
+-              'продолжение и разбор этого каталога текущим стендом запрещены — новый --run-dir', flush=True)
++                   for c in cases for y in args.years for v in plan[y]['variants']}
++    contract = dict(version='p2-1-run-v1', jobs_sha256=digest(sorted(expected_fp.items())),
++                    years=args.years, core_years=args.core_years, core_b_max=args.core_b_max,
++                    b_max_years=args.b_max_years, cases=[c['orbit_id'] for c in cases])
++    analysis_dir = (ROOT/args.analysis_dir).resolve() if args.analysis_dir else None
++    out_dir = analysis_dir or run_dir
++    try:
++        if not args.years or any(not math.isfinite(y) or y <= 0 for y in args.years):
++            raise ValueError('горизонты должны быть конечными и положительными')
++        if (run_dir/'summary.json').exists():
++            summary = read_json(run_dir/'summary.json')
++            for name in ('years', 'core_years', 'core_b_max', 'b_max_years', 'cases'):
++                if not isinstance(summary, dict) or summary.get(name) != contract[name]:
++                    raise ValueError(f'summary.{name}: другая постановка')
++            if summary.get('implementations') != implementations:
++                raise ValueError('summary.implementations: другая реализация')
++        rows, ignored = read_rows(jobs_file, expected_fp)
++        preflight(run_dir, analysis_dir, evaluate=args.evaluate_only, resume=args.resume,
++                  rows=rows, expected_fp=expected_fp, contract=contract)
++    except (OSError, ValueError, TypeError, KeyError) as exc:
++        print(f'ОТКАЗ СТЕНДА (ничего не записано): {exc}', flush=True)
+         return 2
+-    rows, ignored = read_rows(jobs_file, expected_fp)
++    source = source_manifest(run_dir) if args.evaluate_only else None
++    if args.evaluate_only:
++        out_dir.mkdir(parents=True, exist_ok=False)
++    else:
++        run_dir.mkdir(parents=True, exist_ok=True)
++        if not args.resume:
++            atomic_json(run_dir/'run_contract.json', contract)
+     # Остановленные сроком строки при продолжении пересчитываются; при --evaluate-only учитываются.
+     done = {k: r for k, r in rows.items() if args.evaluate_only or r['run_status'] != 'partial'}
+     info = cpu_info()
+@@ -428,7 +437,7 @@
+           f"(обязательные {args.core_years}, B до {args.b_max_years:g} лет, в обязательном — до {args.core_b_max:g}); "
+           f"процессов {args.workers}; режим {mode_text}; уже готово заданий {len(done)} "
+           f"(отброшено несовпавших по отпечатку {ignored}); срок {args.deadline_utc or 'нет'}; "
+-          f"объём {'полный' if full_scope else 'СОКРАЩЁННЫЙ'}; каталог {run_dir.relative_to(ROOT)}", flush=True)
++          f"объём {'полный' if full_scope else 'СОКРАЩЁННЫЙ'}; каталог {run_dir}", flush=True)
+     if args.stop_file and os.path.exists(args.stop_file) and not args.evaluate_only:
+         print(f'ВНИМАНИЕ: стоп-файл {args.stop_file} уже существует — задания будут сразу остановлены', flush=True)
+     by_id = {c['orbit_id']: c for c in cases}
+@@ -481,8 +490,7 @@
+                 record['extension'] = summary
+                 if core_stop is None and ext_stop is None and blocking(summary):
+                     ext_stop = years
+-        (run_dir/f'level_{years:g}y.json').write_text(json.dumps(record, ensure_ascii=False, indent=1,
+-                                                                 default=float), encoding='utf-8')
++        atomic_json(out_dir/f'level_{years:g}y.json', record, replace=args.resume)
+     core = [s for s in summaries if s['kind'] == 'core']
+     extension = [s for s in summaries if s['kind'] == 'extension']
+     core_levels = {s['years'] for s in core if s['counted'] and s['passed']}
+@@ -497,7 +505,9 @@
+                     Q2_violations=s['Q2_violations'], problems=s['problems'])
+ 
+     stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
+-    (run_dir/'summary.json').write_text(json.dumps(dict(plan='W2-P004', stage='P2-1', utc=stamp,
++    complete = set(done) == set(expected_fp) and all(r['run_status'] != 'partial' for r in done.values())
++    atomic_json(out_dir/'summary.json', dict(plan='W2-P004', stage='P2-1', utc=stamp,
++        complete=complete, source=source,
+         prototype_version=PROTOTYPE_VERSION, machine=info, years=args.years, b_max_years=args.b_max_years,
+         core_years=args.core_years, core_b_max=args.core_b_max, concurrent=args.concurrent,
+         evaluate_only=args.evaluate_only, deadline_utc=args.deadline_utc, stop_file=args.stop_file,
+@@ -505,15 +515,17 @@
+         extension_levels=[brief(s) for s in extension], verdict_passed=verdict,
+         extension_passed=extension_passed, full_scope=full_scope, stand_version=STAND_VERSION,
+         implementations=implementations, generator_numerics=NUMERICS_VERSION,
+-        wall_seconds=time.perf_counter()-started),
+-        ensure_ascii=False, indent=1, default=float), encoding='utf-8')
++        wall_seconds=time.perf_counter()-started), replace=args.resume)
++    if not args.evaluate_only and complete:
++        atomic_json(run_dir/'sealed.json', dict(version=1, utc=stamp, scientific_admission=False,
++                                               summary_sha256=file_digest(out_dir/'summary.json')))
+     clean = core_stop is None and ext_stop is None and all(s['counted'] for s in summaries)
+     if verdict:
+-        print(f"\nИТОГ P2-1 (обязательный набор): ПРОЙДЕНО; каталог {run_dir.relative_to(ROOT)}")
++        print(f"\nИТОГ P2-1 (обязательный набор): ПРОЙДЕНО; каталог {run_dir}")
+     elif clean and not full_scope:
+-        print(f"\nИТОГ: СОКРАЩЁННЫЙ ОБЪЁМ — нарушений не найдено, но это не допуск P2-1; каталог {run_dir.relative_to(ROOT)}")
++        print(f"\nИТОГ: СОКРАЩЁННЫЙ ОБЪЁМ — нарушений не найдено, но это не допуск P2-1; каталог {run_dir}")
+     else:
+-        print(f"\nИТОГ P2-1 (обязательный набор): НЕ ПРОЙДЕНО / НЕ ЗАВЕРШЕНО; каталог {run_dir.relative_to(ROOT)}")
++        print(f"\nИТОГ P2-1 (обязательный набор): НЕ ПРОЙДЕНО / НЕ ЗАВЕРШЕНО; каталог {run_dir}")
+     if extension:
+         stopped = sum(len(s['stopped']) for s in extension)
+         print(f"РАСШИРЕНИЕ: {'пройдено полностью' if extension_passed else 'не пройдено или не завершено'}; "
+--- baseline/scripts/diag_b_failure_p2_2.py
++++ package/scripts/diag_b_failure_p2_2.py
+@@ -136,8 +136,9 @@
+         last = ring[-1]
+         print('последний шаг:', {k: last[k] for k in ('left', 'proposed_dt', 'max_step', 'right', 'dt_last_done',
+                                                       'spacing_left', 'r_probe', 'error')})
+-    print('отчёт:', path)
+-    return 0
++    print('ДИАГНОСТИЧЕСКИЙ ОТЧЁТ СОХРАНЁН:', path)
++    print('ИНТЕГРАЦИЯ:', result['run_status'], '(совпадение отказа не является успешной интеграцией)')
++    return 0 if result['run_status'] == 'completed' else 1
+ 
+ 
+ if __name__ == '__main__':
+--- baseline/scripts/prepare_p2_2a.py
++++ package/scripts/prepare_p2_2a.py
+@@ -35,7 +35,8 @@
+               '--run-dir', 'runs/<NEW_RUN_ID>', '--deadline-utc', '<APPROVED_UTC_DEADLINE>',
+               '--stop-file', '<RUN_SPECIFIC_STOP_FILE>'],
+         accept=['.venv/bin/python', 'scripts/verify_p2_2_run.py', '--run', 'runs/<NEW_RUN_ID>',
+-                '--expect-full', '--expect-complete', '--output', 'runs/<NEW_RUN_ID>/acceptance.json'],
++                '--expect-full', '--expect-complete', '--output',
++                'results/evidence/<NEW_RUN_ID>-acceptance.json'],
+         baseline=['.venv/bin/python', '-u', 'scripts/admission_p2_2.py', '--per-cell', '4',
+                   '--b-per-cell', '4', '--years', '0.1', '--b-years', '0.1',
+                   '--workers', '<BASELINE_WORKERS>', '--run-dir', 'runs/<NEW_RUN_ID>-baseline',
+@@ -45,7 +46,8 @@
+                          'runs/<NEW_RUN_ID>-baseline', '--per-cell', '4', '--b-per-cell', '4',
+                          '--years', '0.1', '--b-years', '0.1', '--expect-complete'],
+         output_files=['jobs.jsonl', 'analysis.json', 'summary.json', 'progress.json',
+-                      'stand_stdout.log', 'acceptance.json'],
++                      'units.json', 'run_contract.json', 'sealed.json', 'stand_stdout.log'],
++        acceptance_output='results/evidence/<NEW_RUN_ID>-acceptance.json',
+         prerequisites=['Отдельное явное согласие на конкретную новую аренду.',
+                        'Проверенный оператор контроля срока/расходов, выгрузки и destroy.',
+                        'Подтверждённые CPU affinity/cgroup, RAM, топология; один поток на физическое ядро.',
+--- baseline/scripts/vast_p2.py
++++ package/scripts/vast_p2.py
+@@ -483,6 +483,7 @@
+     workers = _workers(rental['offer'])
+     run_dir = run_dir_of(rental)
+     base_dir = f'runs/W2-P2-2a-baseline-{iid}'
++    verification_dir = f'runs/W2-P2-2a-verification-{iid}'
+     deadline = rental['run_deadline_utc']
+     min_workers = int(rental['min_workers'])
+     margin = float(rental.get('baseline_margin', 1.15))
+@@ -493,7 +494,7 @@
+ .venv/bin/python -c "import rebound, reboundx" || fail reboundx
+ .venv/bin/python -m pytest -q {P2_2A_GATE_TESTS} || fail pytest
+ .venv/bin/python -m ruff check src scripts tests || fail ruff
+-mkdir -p {run_dir} {base_dir}
++mkdir -p {run_dir} {base_dir} {verification_dir}
+ {{ date -u +%FT%TZ; lscpu; echo; nproc; cat /sys/fs/cgroup/cpu.max; cat /sys/fs/cgroup/memory.max; grep -E 'MemTotal|MemAvailable' /proc/meminfo; df -h /workspace; python3 -c "import os; print('affinity', sorted(os.sched_getaffinity(0)))"; }} > {run_dir}/hardware.txt 2>&1
+ {_HARDWARE_BLOCK}W={workers}
+ if [ "$PHYS" -gt 0 ] && [ "$PHYS" -lt "$W" ]; then W=$PHYS; fi
+@@ -504,12 +505,12 @@
+ echo "baseline $(date -u +%FT%TZ) workers=$W" > $STATUS
+ BDL=$(date -u -d '+30 min' +%Y-%m-%dT%H:%M:%SZ)
+ .venv/bin/python -u scripts/admission_p2_2.py {P2_2A_BASELINE} --workers $W --run-dir {base_dir} --deadline-utc $BDL --stop-file {STOP_FILE} 2>&1 | tee {base_dir}/stand_stdout.log
+-.venv/bin/python scripts/verify_p2_2_run.py --run {base_dir} {P2_2A_BASELINE} --expect-complete --output {base_dir}/acceptance.json || fail baseline-accept
++.venv/bin/python scripts/verify_p2_2_run.py --run {base_dir} {P2_2A_BASELINE} --expect-complete --output {verification_dir}/baseline_acceptance.json || fail baseline-accept
+ .venv/bin/python scripts/baseline_gate_p2_2.py --baseline {base_dir} --workers $W --deadline-utc {deadline} --margin {margin} --output {run_dir}/baseline_gate.json || fail baseline
+ echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=none seed_rows=0 deadline={deadline}" > $STATUS
+ .venv/bin/python -u scripts/admission_p2_2.py {P2_2A_FULL} --workers $W --deadline-utc {deadline} --stop-file {STOP_FILE} --run-dir {run_dir} 2>&1 | tee -a {run_dir}/stand_stdout.log
+ EXIT=${{PIPESTATUS[0]}}
+-.venv/bin/python scripts/verify_p2_2_run.py --run {run_dir} --expect-full --expect-decision-ready --output {run_dir}/acceptance.json > {run_dir}/acceptance_stdout.log 2>&1
++.venv/bin/python scripts/verify_p2_2_run.py --run {run_dir} --expect-full --expect-decision-ready --output {verification_dir}/acceptance.json > {verification_dir}/acceptance_stdout.log 2>&1
+ ACC=$?
+ echo "done exit=$EXIT accept=$ACC $(date -u +%FT%TZ)" > $STATUS
+ '''
+--- baseline/scripts/verify_p2_2_run.py
++++ package/scripts/verify_p2_2_run.py
+@@ -31,6 +31,9 @@
+ sys.path.insert(0, str(ROOT/'scripts'))
+ 
+ from verify_p2_run import check_row, read_jsonl  # noqa: E402
++from submoon_research.contracts.p2_files import (  # noqa: E402
++    atomic_json, file_digest, output_path, read_json, validate_units_document,
++)
+ 
+ 
+ def stand_module():
+@@ -170,28 +173,36 @@
+     planned = stand.plan_keys(unit_list, params)
+     expected = {k for keys in planned.values() for k in keys}
+     try:
+-        summary = json.loads((run/'summary.json').read_text(encoding='utf-8'))
+-        stored = json.loads((run/'analysis.json').read_text(encoding='utf-8'))
++        summary = read_json(run/'summary.json')
++        stored = read_json(run/'analysis.json')
++        if not isinstance(summary, dict) or not isinstance(stored, dict):
++            raise ValueError('ожидались JSON-объекты')
+     except (OSError, ValueError) as exc:
+         return dict(run=args.run, passed=False, failures=[f'нет или повреждён summary/analysis: {exc}'], checks=checks)
+     units_file = run/'units.json'
+     if units_file.exists():
+         try:
+-            doc = json.loads(units_file.read_text(encoding='utf-8'))
+-            file_digest = stand.units_digest(doc['units'])
+-        except (ValueError, KeyError, TypeError) as exc:
++            doc = read_json(units_file)
++            expected_doc = stand.units_document(unit_list, params, summary.get('implementations'))
++            # Legacy проверяется в выбранной исторической схеме генератора.
++            expected_doc['generator_numerics'] = numerics_name
++            validate_units_document(doc, expected_doc)
++        except (OSError, ValueError, KeyError, TypeError) as exc:
+             failures.append(f'units.json повреждён: {exc}')
+             checks['units_file'] = 'invalid'
+         else:
+-            import hashlib
+-            raw_sha = hashlib.sha256(units_file.read_bytes()).hexdigest()
+-            if not (doc.get('units_sha256') == file_digest == summary.get('units_sha256')):
++            raw_sha = file_digest(units_file)
++            if doc.get('units_sha256') != summary.get('units_sha256'):
+                 failures.append('units.json: стартовые векторы не совпадают с summary.units_sha256')
+             if summary.get('units_file_sha256') not in (None, raw_sha):
+                 failures.append('units.json: SHA-256 файла не совпадает с summary.units_file_sha256')
++            if summary.get('input_contract_sha256') != doc.get('contract_sha256'):
++                failures.append('units.json: полный SHA контракта не совпадает с summary')
+             checks['units_file'] = 'match' if not any(f.startswith('units.json') for f in failures) else 'mismatch'
+     else:
+         checks['units_file'] = 'absent'
++        if summary.get('units_file_sha256') or summary.get('input_contract_sha256'):
++            failures.append('units.json: отсутствует заявленный файл входов')
+     raw = read_jsonl(run/'jobs.jsonl', failures)
+     implementations = summary.get('implementations') or {}
+     if set(implementations) != {'compiled', 'B'}:
+@@ -271,12 +282,15 @@
+ 
+ def main(argv=None):
+     args = parse(argv)
++    try:
++        path = output_path(ROOT/args.output, ROOT/args.run) if args.output else None
++    except ValueError as exc:
++        print(f'ОТКАЗ (ничего не записано): {exc}')
++        return 2
+     report = verify(args)
+-    text = json.dumps(report, ensure_ascii=False, indent=1, default=float)
+-    if args.output:
+-        path = ROOT/args.output
++    if path is not None:
+         path.parent.mkdir(parents=True, exist_ok=True)
+-        path.write_text(text, encoding='utf-8')
++        atomic_json(path, report)
+     print(('ПРИНЯТ' if report['passed'] else 'НЕ ПРИНЯТ') + f": {args.run}; проверки {report['checks']}")
+     for failure in report['failures']:
+         print('  -', failure)
+--- baseline/scripts/verify_p2_run.py
++++ package/scripts/verify_p2_run.py
+@@ -22,6 +22,8 @@
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+ sys.path.insert(0, str(ROOT/'src'))
++from submoon_research.contracts.p2_files import atomic_json, loads, output_path  # noqa: E402
++
+ YEAR = 365.25*86400.0
+ EVENT_OUTCOME = {'reference_contact': 'host_contact', 'other_contact': 'other_contact',
+                  'operational_escape': 'operational_escape'}
+@@ -52,11 +54,19 @@
+ 
+ def read_jsonl(path, failures):
+     rows = []
+-    for number, line in enumerate(Path(path).read_text(encoding='utf-8').splitlines(), 1):
+-        if not line.strip():
+-            continue
++    try:
++        raw = Path(path).read_bytes()
++    except OSError as exc:
++        failures.append(f'{path}: {exc}')
++        return rows
++    if raw and not raw.endswith(b'\n'):
++        failures.append(f'{path}: незавершённый хвост')
++    for number, line in enumerate(raw.decode('utf-8').splitlines(), 1):
+         try:
+-            rows.append(json.loads(line))
++            row = loads(line)
++            if not isinstance(row, dict):
++                raise ValueError('не объект')
++            rows.append(row)
+         except ValueError:
+             failures.append(f'{path}: строка {number} не разбирается')
+     return rows
+@@ -285,12 +295,15 @@
+ 
+ def main(argv=None):
+     args = parse(argv)
++    try:
++        path = output_path(ROOT/args.output, ROOT/args.run) if args.output else None
++    except ValueError as exc:
++        print(f'ОТКАЗ (ничего не записано): {exc}')
++        return 2
+     report = verify(args)
+-    text = json.dumps(report, ensure_ascii=False, indent=1, default=float)
+-    if args.output:
+-        path = ROOT/args.output
++    if path is not None:
+         path.parent.mkdir(parents=True, exist_ok=True)
+-        path.write_text(text, encoding='utf-8')
++        atomic_json(path, report)
+     print(('ПРИНЯТ' if report['passed'] else 'НЕ ПРИНЯТ') + f": {args.run}; проверки {report['checks']}")
+     for failure in report['failures']:
+         print('  -', failure)
+--- baseline/tests/unit/test_admission_evaluators.py
++++ package/tests/unit/test_admission_evaluators.py
+@@ -156,13 +156,17 @@
+     assert p2.parse_deadline('2026-10-10T06:00:00Z') == p2.parse_deadline('2026-10-10T06:00:00+00:00')
+ 
+ 
+-def test_p2_read_rows_keeps_last_matching_line_and_skips_broken(tmp_path):
++def test_p2_read_rows_rejects_foreign_and_broken_lines(tmp_path):
+     import json
++    import pytest
+     path = tmp_path/'jobs.jsonl'
+     first = dict(orbit_id='a', years=1., variant='D', job_fingerprint='f', run_status='partial')
+     second = dict(first, run_status='completed')
+     alien = dict(first, variant='T', job_fingerprint='other')
+     path.write_text('\n'.join([json.dumps(first), json.dumps(second), json.dumps(alien), '{"orbit_id": "a", "ye'])
+                     + '\n', encoding='utf-8')
+-    rows, ignored = p2.read_rows(path, {('a', 1., 'D'): 'f', ('a', 1., 'T'): 't'})
+-    assert rows[('a', 1., 'D')]['run_status'] == 'completed' and ignored == 2
++    with pytest.raises(ValueError, match='строка 3'):
++        p2.read_rows(path, {('a', 1., 'D'): 'f', ('a', 1., 'T'): 't'})
++    path.write_text(json.dumps(first)+'\n'+json.dumps(second)+'\n', encoding='utf-8')
++    rows, ignored = p2.read_rows(path, {('a', 1., 'D'): 'f'})
++    assert rows[('a', 1., 'D')]['run_status'] == 'completed' and ignored == 0
+--- baseline/tests/unit/test_vast_p2_2a.py
++++ package/tests/unit/test_vast_p2_2a.py
+@@ -37,6 +37,9 @@
+     assert '--deadline-utc 2026-10-16T10:30:00Z --stop-file /workspace/p2_stop --run-dir runs/W2-P2-2a-55' in script
+     assert '[ "$W" -ge 28 ] || fail hardware' in script and '--margin 1.15' in script
+     assert '|| fail baseline\n' in script and 'admission_p2_horizons' not in script
++    assert '--output runs/W2-P2-2a-verification-55/baseline_acceptance.json' in script
++    assert '--output runs/W2-P2-2a-verification-55/acceptance.json' in script
++    assert '--output runs/W2-P2-2a-55/acceptance.json' not in script
+     assert 'workers=$W' in script and 'pin=none seed_rows=0' in script  # формат строки этапа как у P2-1
+     if shutil.which('bash'):
+         assert subprocess.run(['bash', '-n'], input=script.encode(), check=False).returncode == 0
+@@ -84,13 +87,14 @@
+     archive = tmp_path/'r.tar.gz'
+     with tarfile.open(archive, 'w:gz') as tar:
+         for name in ('runs/W2-P2-2a-55/jobs.jsonl', 'runs/W2-P2-2a-baseline-55/summary.json',
+-                     'remote_logs/p2_status'):
++                     'runs/W2-P2-2a-verification-55/acceptance.json', 'remote_logs/p2_status'):
+             data = b'{}\n'
+             info = tarfile.TarInfo(name)
+             info.size = len(data)
+             tar.addfile(info, io.BytesIO(data))
+     root, work = tmp_path/'root', tmp_path/'work'
+     stats = vast._extract_results(archive, 55, root=root, work=work, prefix='runs/W2-P2-2a')
+-    assert stats['written'] == 3 and (root/'runs/W2-P2-2a-baseline-55/summary.json').exists()
++    assert stats['written'] == 4 and (root/'runs/W2-P2-2a-baseline-55/summary.json').exists()
++    assert (root/'runs/W2-P2-2a-verification-55/acceptance.json').exists()
+     with pytest.raises(ValueError):
+         vast._extract_results(archive, 55, root=tmp_path/'r2', work=tmp_path/'w2')  # прежний префикс P2-1
+--- baseline/tests/unit/test_verify_p2_2_run.py
++++ package/tests/unit/test_verify_p2_2_run.py
+@@ -117,7 +117,7 @@
+     assert report['checks']['analysis']['complete'] is False
+     assert not verify(v, run, '--expect-complete')['passed']
+     stop.unlink()
+-    assert stand.main(args) == 0
++    assert stand.main([*args, '--resume']) == 0
+     report = verify(v, run, '--expect-complete')
+     assert report['passed'], report['failures']
+     assert report['checks']['jobs']['superseded_partial'] == 27
+@@ -140,7 +140,15 @@
+             + [r for r in lines(stopped_run/'jobs.jsonl') if r['variant'] == 'B'])
+     assert sum(1 for r in rows if r['variant'] == 'B') == 9
+     write_lines(mixed/'jobs.jsonl', rows)
+-    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(mixed), '--evaluate-only']) == 1
++    analysis_dir = tmp_path/'mixed_analysis'
++    assert stand.main([*PARAMS, '--workers', '0', '--run-dir', str(mixed), '--evaluate-only',
++                       '--analysis-dir', str(analysis_dir)]) == 1
++    # Материализуем синтетический fixture для приёмщика; стенд источник не менял.
++    for name in ('analysis.json', 'summary.json'):
++        shutil.copyfile(analysis_dir/name, mixed/name)
++    summary = json.loads((mixed/'summary.json').read_text(encoding='utf-8'))
++    summary.pop('input_contract_sha256')  # synthetic legacy fixture без units.json
++    (mixed/'summary.json').write_text(json.dumps(summary), encoding='utf-8')
+     analysis = json.loads((mixed/'analysis.json').read_text(encoding='utf-8'))
+     level = analysis['horizons']['0.0003']
+     assert level['dt_complete'] and not level['complete'] and level['b_unfinished'] == 9
+--- /dev/null
++++ package/src/submoon_research/contracts/p2_files.py
+@@ -0,0 +1,276 @@
++"""Файловые контракты стендов P2; без импорта научных движков/REBOUNDx.
++
++Legacy units_sha256 остаётся хешем стартов. contract_sha256 покрывает весь
++документ (кроме самих хешей); SHA файла относится к буквальной сериализации.
++Повреждённый JSONL, включая оборванный хвост, не восстанавливается молча.
++"""
++from __future__ import annotations
++
++import hashlib
++import json
++from contextlib import contextmanager
++import math
++import os
++import tempfile
++from pathlib import Path
++
++
++def canonical(value):
++    return json.dumps(value, sort_keys=True, ensure_ascii=False, allow_nan=False,
++                      separators=(',', ':'), default=float).encode('utf-8')
++
++
++def digest(value):
++    return hashlib.sha256(canonical(value)).hexdigest()
++
++
++def file_digest(path):
++    h = hashlib.sha256()
++    with Path(path).open('rb') as stream:
++        for block in iter(lambda: stream.read(1024*1024), b''):
++            h.update(block)
++    return h.hexdigest()
++
++
++def units_digest(units):
++    # Исторический алгоритм — нельзя менять идентичность завершённых run.
++    payload = [(u['orbit_id'], u['seed'], u['state']) for u in units]
++    return hashlib.sha256(json.dumps(payload, default=float).encode()).hexdigest()
++
++
++def contract_digest(doc):
++    return digest({k: v for k, v in doc.items() if k not in ('units_sha256', 'contract_sha256')})
++
++
++def _pairs(pairs):
++    out = {}
++    for key, value in pairs:
++        if key in out:
++            raise ValueError(f'повтор ключа JSON: {key}')
++        out[key] = value
++    return out
++
++
++def _constant(value):
++    raise ValueError(f'неконечное число JSON: {value}')
++
++
++def loads(text):
++    return json.loads(text, object_pairs_hook=_pairs, parse_constant=_constant)
++
++
++def read_json(path):
++    return loads(Path(path).read_text(encoding='utf-8'))
++
++
++def _finite(value):
++    if isinstance(value, float) and not math.isfinite(value):
++        raise ValueError('NaN/Inf в контракте')
++    if isinstance(value, dict):
++        for item in value.values():
++            _finite(item)
++    elif isinstance(value, (list, tuple)):
++        for item in value:
++            _finite(item)
++
++
++def _vector(value, size, name, positive=False):
++    if not isinstance(value, list) or len(value) != size:
++        raise ValueError(f'{name}: неверная размерность')
++    if any(type(x) not in (int, float) or not math.isfinite(x)
++           or (positive and x <= 0) for x in value):
++        raise ValueError(f'{name}: недопустимые числа')
++
++
++def validate_units_document(doc, expected):
++    """Проверить структуру, фактические SHA и точное совпадение с ожидаемым входом.
++
++    Legacy без полного хеша допускается только при полном сравнении с заново
++    построенным ожидаемым документом. Это НЕ независимость от генератора (OPT-06).
++    """
++    if not isinstance(doc, dict):
++        raise ValueError('units.json: нужен объект')
++    _finite(doc)
++    base = {'plan', 'stage', 'generator_numerics', 'params', 'units_sha256', 'units'}
++    modern = {'contract', 'contract_sha256'}
++    if set(doc) not in (base, base | modern):
++        raise ValueError('units.json: неполный или неизвестный состав полей')
++    items = doc['units']
++    if not isinstance(items, list) or not items:
++        raise ValueError('units.json: пустой/неверный набор единиц')
++    ids, seeds = set(), set()
++    for u in items:
++        if not isinstance(u, dict):
++            raise ValueError('units.json: единица не объект')
++        for name in ('seed', 'cell', 'unit'):
++            if type(u.get(name)) is not int or u[name] < 0:
++                raise ValueError(f'units.json: неверный {name}')
++        if not isinstance(u.get('orbit_id'), str) or not u['orbit_id']:
++            raise ValueError('units.json: неверный orbit_id')
++        if u['orbit_id'] in ids or u['seed'] in seeds:
++            raise ValueError('units.json: повтор orbit_id или seed')
++        ids.add(u['orbit_id'])
++        seeds.add(u['seed'])
++        gms = u.get('gms')
++        if not isinstance(gms, list) or not gms:
++            raise ValueError('units.json: нет массивных тел')
++        _vector(gms, len(gms), 'gms', positive=True)
++        _vector(u.get('radii'), len(gms), 'radii', positive=True)
++        _vector(u.get('state'), 6*(len(gms)+1), 'state')
++        for name in ('a_km', 'hill_km', 'escape_window', 'period_seconds', 'a_over_rh'):
++            if type(u.get(name)) not in (int, float) or not u[name] > 0:
++                raise ValueError(f'units.json: неверный {name}')
++        figures = u.get('figures')
++        if not isinstance(figures, list):
++            raise ValueError('units.json: неверный figures')
++        for f in figures:
++            if (not isinstance(f, dict) or set(f) != {'index', 'j2', 'radius', 'pole'}
++                    or type(f['index']) is not int or not 0 <= f['index'] < len(gms)
++                    or type(f['radius']) not in (int, float) or f['radius'] <= 0
++                    or type(f['j2']) not in (int, float)):
++                raise ValueError('units.json: неверный контракт фигуры')
++            _vector(f['pole'], 3, 'pole')
++    if doc['units_sha256'] != units_digest(items):
++        raise ValueError('units.json: заявленный SHA стартов не совпал с содержимым')
++    if 'contract_sha256' in doc and doc['contract_sha256'] != contract_digest(doc):
++        raise ValueError('units.json: SHA полного контракта не совпал с содержимым')
++    # Canonical сохраняет типы (True != 1, 1 != 1.0), порядок единиц и все поля физики.
++    fields = base | modern if 'contract' in doc else base
++    if canonical({k: doc[k] for k in fields}) != canonical({k: expected[k] for k in fields}):
++        raise ValueError('units.json: содержимое не совпало с ожидаемым входным контрактом')
++    return doc
++
++
++def read_job_rows(path, expected_fp):
++    """Строгое продолжение: только известные задания, повтор только после partial."""
++    path = Path(path)
++    rows = {}
++    if not path.exists():
++        return rows
++    raw = path.read_bytes()
++    if raw and not raw.endswith(b'\n'):
++        raise ValueError('jobs.jsonl: незавершённый хвост; требуется отдельное восстановление')
++    for number, line in enumerate(raw.decode('utf-8').splitlines(), 1):
++        try:
++            row = loads(line)
++            if not isinstance(row, dict):
++                raise ValueError('строка не объект')
++            _finite(row)
++            key = (row['orbit_id'], float(row['years']), row['variant'])
++            if key not in expected_fp or row.get('job_fingerprint') != expected_fp[key]:
++                raise ValueError('чужой ключ или отпечаток')
++            if row.get('run_status') not in ('completed', 'failed', 'partial'):
++                raise ValueError('неверный run_status')
++            if key in rows and rows[key]['run_status'] != 'partial':
++                raise ValueError('повтор поверх завершённого задания')
++            rows[key] = row
++        except (ValueError, TypeError, KeyError) as exc:
++            raise ValueError(f'jobs.jsonl: строка {number}: {exc}') from exc
++    return rows
++
++
++def overlaps(a, b):
++    a, b = Path(a).resolve(), Path(b).resolve()
++    return a == b or a in b.parents or b in a.parents
++
++
++def source_manifest(run):
++    run = Path(run).resolve()
++    return dict(path=str(run), files={p.relative_to(run).as_posix(): file_digest(p)
++                                     for p in sorted(run.rglob('*')) if p.is_file()})
++
++
++def preflight(run, output, *, evaluate, resume, rows, expected_fp, contract):
++    """Не пишет ни одного файла. Run/анализ — непересекающиеся каталоги.
++
++    Закрытие определяется не только acceptance: seal, complete, progress и
++    фактический полный состав заданий. Legacy без manifest можно анализировать,
++    но нельзя продолжать с неподтверждённым численным контрактом.
++    """
++    run = Path(run).resolve()
++    output = Path(output).resolve() if output is not None else None
++    manifest = run/'run_contract.json'
++    if manifest.exists() and read_json(manifest) != contract:
++        raise ValueError('run_contract.json не совпадает с текущей постановкой')
++    if evaluate:
++        if resume or not run.is_dir() or not (run/'jobs.jsonl').is_file():
++            raise ValueError('анализ требует существующий run/jobs.jsonl и несовместим с --resume')
++        if output is None or overlaps(run, output):
++            raise ValueError('анализ требует отдельный непересекающийся --analysis-dir')
++        if output.exists():
++            raise ValueError('каталог анализа уже существует; нужен новый --analysis-dir')
++        return
++    if output is not None:
++        raise ValueError('--analysis-dir разрешён только с --evaluate-only')
++    protected = list(run.glob('acceptance*.json'))
++    if (run/'sealed.json').exists() or protected:
++        raise ValueError('run защищён (seal/отчёт приёмки); запись запрещена')
++    for name in ('summary.json', 'progress.json'):
++        path = run/name
++        if path.exists():
++            doc = read_json(path)
++            if not isinstance(doc, dict):
++                raise ValueError(f'{name}: неверный формат')
++            if doc.get('complete') is True or (
++                    doc.get('planned', 0) > 0 and doc.get('done') == doc['planned']
++                    and not any(r['run_status'] == 'partial' for r in rows.values())):
++                raise ValueError('run завершён; запись запрещена')
++    if expected_fp and set(rows) == set(expected_fp) and all(
++            r['run_status'] != 'partial' for r in rows.values()):
++        raise ValueError('все задания терминальны; запись запрещена')
++    if resume:
++        if not manifest.is_file():
++            raise ValueError('--resume: нет совместимого run_contract.json')
++    elif any((run/name).exists() for name in ('jobs.jsonl', 'units.json', 'summary.json',
++                                              'progress.json', 'run_contract.json', 'analysis.json')):
++        raise ValueError('run уже существует; для незавершённого нужен явный --resume')
++
++
++def atomic_json(path, value, *, replace=False):
++    """Атомарная публикация; по умолчанию не заменяет существующий файл."""
++    path = Path(path)
++    data = json.dumps(value, ensure_ascii=False, indent=1, default=float, allow_nan=False)
++    fd, tmp = tempfile.mkstemp(prefix='.'+path.name+'-', suffix='.tmp', dir=path.parent)
++    try:
++        with os.fdopen(fd, 'w', encoding='utf-8') as stream:
++            stream.write(data)
++            stream.flush()
++            os.fsync(stream.fileno())
++        if replace:
++            os.replace(tmp, path)
++        else:
++            # hard link публикует готовый inode и атомарно отклоняет существующий путь.
++            os.link(tmp, path)
++    finally:
++        if os.path.exists(tmp):
++            os.unlink(tmp)
++
++
++@contextmanager
++def exclusive_run(run, lock_root):
++    """Сериализация писателей/анализа без файлов внутри защищаемого run.
++
++    После аварийного убийства lock остаётся: удалять только после проверки процесса.
++    """
++    run = Path(run).resolve()
++    lock_root = Path(lock_root)
++    lock_root.mkdir(parents=True, exist_ok=True)
++    lock = lock_root/(digest(os.path.normcase(str(run)))+'.lock')
++    try:
++        fd = os.open(lock, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600)
++    except FileExistsError as exc:
++        raise ValueError(f'run занят или оставлен аварийный lock: {lock}') from exc
++    try:
++        with os.fdopen(fd, 'w', encoding='utf-8') as stream:
++            json.dump(dict(pid=os.getpid(), run=str(run)), stream)
++        yield
++    finally:
++        lock.unlink()
++
++
++def output_path(path, run):
++    """Приёмщик не должен менять источник или предыдущий отчёт."""
++    path, run = Path(path).resolve(), Path(run).resolve()
++    if overlaps(path, run) or path.exists():
++        raise ValueError('отчёт должен быть новым файлом вне исходного run')
++    return path
+--- /dev/null
++++ package/scripts/check_w2_stabilization.py
+@@ -0,0 +1,114 @@
++"""Короткие проверки OPT-01–05 с полным логом, JUnit и общим ненулевым кодом.
++
++short: Windows-набор БЕЗ L1 CLI (исключения перечислены отдельно).
++science: обязательные WSL-проверки стенда; любой skip означает неполноту.
++l1: отдельное расследование L1 с исходным внутренним timeout=30 s.
++Часовая диагностика IAS15 сюда намеренно не включена.
++"""
++from __future__ import annotations
++
++import argparse
++import os
++import subprocess
++import sys
++import time
++import traceback
++import uuid
++import xml.etree.ElementTree as ET
++from datetime import datetime, timezone
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT/'src'))
++from submoon_research.contracts.p2_files import atomic_json  # noqa: E402
++
++L1 = 'tests/integration/test_l1_acceptance.py'
++
++
++def pytest_results(path):
++    tests = []
++    for case in ET.parse(path).getroot().iter('testcase'):
++        state = next((tag for tag in ('failure', 'error', 'skipped') if case.find(tag) is not None), 'passed')
++        tests.append(dict(name=case.get('classname', '')+'::'+case.get('name', ''), status=state,
++                          seconds=float(case.get('time', 0)),
++                          detail=None if state == 'passed' else case.find(state).get('message')))
++    return dict(counts={s: sum(t['status'] == s for t in tests)
++                        for s in ('passed', 'failure', 'error', 'skipped')}, tests=tests)
++
++
++def run_step(name, command, out, *, timeout=600, junit=None, require_no_skips=False):
++    started = time.perf_counter()
++    log = out/(name+'.log')
++    record = dict(name=name, command=command, log=log.name, status='failed', exit_code=None)
++    env = dict(os.environ, PYTHONUTF8='1', OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1',
++               MKL_NUM_THREADS='1', NUMBA_NUM_THREADS='1')
++    with log.open('x', encoding='utf-8') as stream:
++        try:
++            result = subprocess.run(command, cwd=ROOT, env=env, stdout=stream,
++                                    stderr=subprocess.STDOUT, timeout=timeout)
++            record['exit_code'] = result.returncode
++            record['status'] = 'passed' if result.returncode == 0 else 'failed'
++        except (OSError, subprocess.TimeoutExpired):
++            traceback.print_exc(file=stream)
++        if junit is not None:
++            try:
++                record['pytest'] = pytest_results(junit)
++                counts = record['pytest']['counts']
++                if counts['failure'] or counts['error'] or not record['pytest']['tests']:
++                    record['status'] = 'failed'
++                elif counts['skipped'] and record['status'] == 'passed':
++                    record['status'] = 'incomplete' if require_no_skips else 'passed_with_skips'
++            except (OSError, ValueError, ET.ParseError):
++                traceback.print_exc(file=stream)
++                record['status'] = 'failed'
++    record['wall_seconds'] = time.perf_counter()-started
++    return record
++
++
++def finish(out, records, **metadata):
++    ok = all(r['status'] in ('passed', 'passed_with_skips') for r in records)
++    status = ('passed_with_skips' if any(r['status'] == 'passed_with_skips' for r in records)
++              else 'passed') if ok else 'failed_or_incomplete'
++    atomic_json(out/'checks.json', dict(utc=datetime.now(timezone.utc).isoformat(),
++                                      status=status, steps=records, **metadata))
++    print(f'ИТОГ ЗАЯВЛЕННОГО НАБОРА: {status}; {out}', flush=True)
++    return 0 if ok else 1
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
++    parser.add_argument('--suite', choices=['short', 'science', 'l1'], default='short')
++    parser.add_argument('--output-dir')
++    args = parser.parse_args(argv)
++    stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')
++    out = ROOT/(args.output_dir or f'results/evidence/W2_checks_{stamp}_{uuid.uuid4().hex[:8]}')
++    out.mkdir(parents=True, exist_ok=False)
++    py = sys.executable
++    excluded = []
++    records = []
++    if args.suite == 'short':
++        records.append(run_step('excluded_collection', [py, '-m', 'pytest', '--collect-only', '-q', L1], out))
++        excluded = [s for s in (out/'excluded_collection.log').read_text(encoding='utf-8').splitlines()
++                    if s.startswith('tests/') and '::' in s]
++        targets = ['--ignore='+L1]
++    elif args.suite == 'science':
++        targets = ['tests/unit/test_p2_file_contracts.py', 'tests/unit/test_verify_p2_2_run.py',
++                   'tests/unit/test_admission_evaluators.py', 'tests/unit/test_p2_2_stand.py']
++    else:
++        targets = [L1]
++    junit = out/'pytest.xml'
++    records.append(run_step('pytest', [py, '-m', 'pytest', '-vv', '-ra', '--tb=long', '--durations=20',
++                                      '--junitxml='+str(junit), *targets], out, junit=junit,
++                            require_no_skips=args.suite != 'short'))
++    if args.suite == 'short':
++        for name, command in [('ruff', [py, '-m', 'ruff', 'check', 'src', 'scripts', 'tests']),
++                              ('validate', [py, 'scripts/project.py', 'validate']),
++                              ('smoke', [py, 'scripts/project.py', 'smoke'])]:
++            records.append(run_step(name, command, out))
++    return finish(out, records, suite=args.suite, excluded_tests=excluded,
++                  not_run=['IAS15 long diagnostic (requires separate explicit command)'],
++                  scientific_admission=False)
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())
+--- /dev/null
++++ package/tests/unit/test_p2_file_contracts.py
+@@ -0,0 +1,294 @@
++"""OPT-03/04: файловые защиты без REBOUNDx и без научных интеграций.
++
++Synthetic worker используется только для проверки I/O, не численного допуска.
++"""
++import copy
++import importlib.util
++import json
++import os
++import sys
++from pathlib import Path
++
++import pytest
++
++from submoon_research.contracts.p2_files import (
++    atomic_json, contract_digest, exclusive_run, output_path, preflight, read_job_rows, read_json,
++    source_manifest, units_digest, validate_units_document,
++)
++
++ROOT = Path(__file__).resolve().parents[2]
++ARGS = ['--per-cell', '1', '--b-per-cell', '0', '--years', '0.0003', '--b-years', '--workers', '0']
++
++
++def load(name):
++    sys.path.insert(0, str(ROOT/'scripts'))
++    spec = importlib.util.spec_from_file_location(name, ROOT/'scripts'/f'{name}.py')
++    assert spec is not None and spec.loader is not None
++    module = importlib.util.module_from_spec(spec)
++    spec.loader.exec_module(module)
++    return module
++
++
++@pytest.fixture
++def stand(monkeypatch):
++    mod = load('admission_p2_2')
++    monkeypatch.setattr(mod, 'b_fingerprint', lambda: 'synthetic-B')
++    monkeypatch.setattr(mod, 'implementation_fingerprint', lambda: 'synthetic-D')
++    monkeypatch.setattr(mod, '_init', lambda: None)
++
++    def worker(job):
++        u = job['unit']
++        partial = job.get('stop_file') and Path(job['stop_file']).exists()
++        end = 0.0 if partial else job['years']*mod.YEAR
++        return dict(orbit_id=u['orbit_id'], host=u['host'], measure=u['measure'], unit=u['unit'],
++                    seed=u['seed'], years=job['years'], variant=job['variant'],
++                    stand_version=mod.STAND_VERSION, prototype_version=mod.PROTOTYPE_VERSION,
++                    job_fingerprint=job['fingerprint'], wall=0.0, cpu=0.0,
++                    run_status='partial' if partial else 'completed',
++                    error='stopped_by_deadline' if partial else None,
++                    outcome='unresolved' if partial else 'survived',
++                    unresolved_reason='computational' if partial else None,
++                    last_valid_time=end, event=None, steps=0, nfev=0,
++                    eccentricity=None, numerical_domain=None, endpoint_residual=None,
++                    stopped=bool(partial), final_probe=u['state'][-6:],
++                    samples=[(0.0, u['state'][-6:]), (end, u['state'][-6:])])
++
++    monkeypatch.setattr(mod, '_job', worker)
++    return mod
++
++
++@pytest.fixture
++def document(stand):
++    params = stand.normalize_params(1, 0, 0, [0.0003], [])
++    return stand.units_document(stand.units(1), params, {'compiled': 'synthetic-D', 'B': 'synthetic-B'})
++
++
++MUTATIONS = [
++    ('state', lambda d: d['units'][0]['state'].__setitem__(-1, 10.0)),
++    ('gm', lambda d: d['units'][0]['gms'].__setitem__(0, 99.0)),
++    ('radius', lambda d: d['units'][0]['radii'].__setitem__(0, 99.0)),
++    ('window', lambda d: d['units'][0].update(escape_window=1.0)),
++    ('period', lambda d: d['units'][0].update(period_seconds=1.0)),
++    ('figure', lambda d: d['units'][0]['figures'][0].update(j2=0.1)),
++    ('dimension', lambda d: d['units'][0]['state'].pop()),
++    ('missing', lambda d: d['units'].pop()),
++    ('duplicate', lambda d: d['units'].append(copy.deepcopy(d['units'][0]))),
++    ('seed', lambda d: d['units'][1].update(seed=d['units'][0]['seed'])),
++    ('sha', lambda d: d.update(units_sha256='0'*64)),
++    ('full_sha', lambda d: d.update(contract_sha256='0'*64)),
++    ('params', lambda d: d['params'].update(per_cell=2)),
++    ('numerics', lambda d: d.update(generator_numerics='other')),
++    ('mode', lambda d: d['contract']['modes']['D'].update(rtol=0.1)),
++    ('nan', lambda d: d['units'][0]['state'].__setitem__(0, float('nan'))),
++    ('inf', lambda d: d['units'][0]['gms'].__setitem__(0, float('inf'))),
++    ('type', lambda d: d['units'][0].update(seed=True)),
++    ('units', lambda d: d['contract'].update(time_unit='year')),
++]
++
++
++@pytest.mark.parametrize('name,change', MUTATIONS, ids=[x[0] for x in MUTATIONS])
++def test_units_tampering_rejected_without_writes(stand, document, tmp_path, name, change):
++    run = tmp_path/'run'
++    run.mkdir()
++    doc = copy.deepcopy(document)
++    change(doc)
++    (run/'units.json').write_text(json.dumps(doc), encoding='utf-8')
++    before = source_manifest(run)
++    assert stand.main([*ARGS, '--run-dir', str(run)]) == 2
++    assert source_manifest(run) == before
++    with pytest.raises(ValueError):
++        validate_units_document(doc, document)
++
++
++@pytest.mark.parametrize('name,change', MUTATIONS[:6], ids=[x[0] for x in MUTATIONS[:6]])
++def test_rehashed_tampering_and_legacy_rejected(document, name, change):
++    bad = copy.deepcopy(document)
++    change(bad)
++    bad['units_sha256'] = units_digest(bad['units'])
++    bad['contract_sha256'] = contract_digest(bad)
++    with pytest.raises(ValueError, match='ожидаемым'):
++        validate_units_document(bad, document)
++    bad.pop('contract')
++    bad.pop('contract_sha256')
++    with pytest.raises(ValueError):
++        validate_units_document(bad, document)
++
++
++def test_valid_units_and_bad_json(document, stand, tmp_path):
++    assert validate_units_document(document, document) == document
++    legacy = {k: v for k, v in document.items() if k not in ('contract', 'contract_sha256')}
++    assert validate_units_document(legacy, document) == legacy
++    run = tmp_path/'broken'
++    run.mkdir()
++    for text in ('{', '[]', '{"units":[],"units":[]}'):
++        (run/'units.json').write_text(text, encoding='utf-8')
++        before = source_manifest(run)
++        assert stand.main([*ARGS, '--run-dir', str(run)]) == 2
++        assert source_manifest(run) == before
++
++
++def test_completed_source_read_only_and_analysis_exclusive(stand, tmp_path):
++    run = tmp_path/'run'
++    assert stand.main([*ARGS, '--run-dir', str(run)]) == 0
++    before = source_manifest(run)
++    for extra in ([], ['--resume'], ['--evaluate-only'], ['--analysis-dir', str(tmp_path/'out')],
++                  ['--evaluate-only', '--analysis-dir', str(run/'..'/'run')],
++                  ['--evaluate-only', '--analysis-dir', str(run/'nested')],
++                  ['--evaluate-only', '--analysis-dir', str(tmp_path)]):
++        assert stand.main([*ARGS, '--run-dir', str(run), *extra]) == 2
++        assert source_manifest(run) == before
++    out = tmp_path/'analysis'
++    args = [*ARGS, '--run-dir', str(run), '--evaluate-only', '--analysis-dir', str(out)]
++    assert stand.main(args) == 0
++    assert read_json(out/'summary.json')['source'] == before
++    analysis_before = source_manifest(out)
++    assert stand.main(args) == 2
++    assert source_manifest(out) == analysis_before and source_manifest(run) == before
++    # Удаление seal/summary/progress/acceptance не снимает защиту полного состава.
++    for name in ('sealed.json', 'summary.json', 'progress.json'):
++        (run/name).unlink()
++    before = source_manifest(run)
++    assert stand.main([*ARGS, '--run-dir', str(run), '--resume']) == 2
++    assert source_manifest(run) == before
++
++
++def test_resume_only_partial_matching_contract(stand, tmp_path):
++    run, stop = tmp_path/'run', tmp_path/'STOP'
++    stop.touch()
++    args = [*ARGS, '--run-dir', str(run), '--stop-file', str(stop)]
++    assert stand.main(args) == 1
++    before = source_manifest(run)
++    assert stand.main(args) == 2
++    assert stand.main([*args, '--resume', '--unit-start', '1']) == 2
++    assert source_manifest(run) == before
++    stop.unlink()
++    assert stand.main([*args, '--resume']) == 0
++    assert len((run/'jobs.jsonl').read_text().splitlines()) == 36
++
++
++@pytest.mark.parametrize('corruption', ['tail', 'middle', 'blank', 'foreign', 'duplicate', 'schema'])
++def test_jsonl_rejects_damage(tmp_path, corruption):
++    path = tmp_path/'jobs.jsonl'
++    row = dict(orbit_id='x', years=1.0, variant='D', job_fingerprint='f', run_status='completed')
++    line = json.dumps(row)+'\n'
++    text = {'tail': line+'{', 'middle': '{\n'+line, 'blank': '\n'+line,
++            'foreign': json.dumps(dict(row, job_fingerprint='bad'))+'\n',
++            'duplicate': line+line, 'schema': '[]\n'}[corruption]
++    path.write_text(text, encoding='utf-8')
++    with pytest.raises(ValueError):
++        read_job_rows(path, {('x', 1.0, 'D'): 'f'})
++    assert path.read_text(encoding='utf-8') == text
++
++
++def test_aliases_and_atomic_writes(tmp_path, monkeypatch):
++    run = tmp_path/'run'
++    run.mkdir()
++    (run/'jobs.jsonl').touch()
++    alias = tmp_path/'alias'
++    try:
++        alias.symlink_to(run, target_is_directory=True)
++    except OSError:
++        # Windows без привилегии symlink: junction даёт тот же реальный alias.
++        if os.name != 'nt':
++            raise
++        import subprocess
++        subprocess.run(['cmd', '/c', 'mklink', '/J', str(alias), str(run)], check=True, capture_output=True)
++    with pytest.raises(ValueError):
++        preflight(run, alias, evaluate=True, resume=False, rows={}, expected_fp={}, contract={})
++    with pytest.raises(ValueError):
++        output_path(alias/'acceptance.json', run)
++    path = tmp_path/'output.json'
++    atomic_json(path, {'v': 1})
++    before = path.read_bytes()
++    with pytest.raises(FileExistsError):
++        atomic_json(path, {'v': 2})
++    assert path.read_bytes() == before
++    def fail(*args):
++        raise OSError('injected publication failure')
++    monkeypatch.setattr(os, 'replace', fail)
++    with pytest.raises(OSError):
++        atomic_json(path, {'v': 3}, replace=True)
++    assert path.read_bytes() == before and not list(tmp_path.glob('.*.tmp'))
++
++
++@pytest.mark.parametrize('change', ['state', 'gm', 'params', 'missing_units', 'manifest'])
++def test_analysis_and_acceptor_reject_tampered_inputs(stand, tmp_path, change):
++    run = tmp_path/'run'
++    assert stand.main([*ARGS, '--run-dir', str(run)]) == 0
++    verify = load('verify_p2_2_run')
++    verify_args = ['--run', str(run), '--per-cell', '1', '--b-per-cell', '0',
++                   '--years', '0.0003', '--b-years']
++    assert verify.verify(verify.parse(verify_args))['passed']
++    if change in ('state', 'gm'):
++        doc = read_json(run/'units.json')
++        field = 'state' if change == 'state' else 'gms'
++        doc['units'][0][field][0] += 1.0
++        doc['units_sha256'] = units_digest(doc['units'])
++        doc['contract_sha256'] = contract_digest(doc)
++        (run/'units.json').write_text(json.dumps(doc), encoding='utf-8')
++    elif change == 'missing_units':
++        (run/'units.json').unlink()
++    elif change == 'manifest':
++        (run/'run_contract.json').write_text('{}', encoding='utf-8')
++    else:
++        doc = read_json(run/'summary.json')
++        doc['params']['unit_start'] = 2
++        (run/'summary.json').write_text(json.dumps(doc), encoding='utf-8')
++    before = source_manifest(run)
++    out = tmp_path/'analysis'
++    assert stand.main([*ARGS, '--run-dir', str(run), '--evaluate-only', '--analysis-dir', str(out)]) == 2
++    assert not out.exists() and source_manifest(run) == before
++    if change != 'manifest':  # приёмщик проверяет входы и jobs, не управляющий manifest
++        assert not verify.verify(verify.parse(verify_args))['passed']
++
++
++@pytest.mark.parametrize('name', ['verify_p2_run', 'verify_p2_2_run'])
++def test_acceptor_cannot_overwrite_source_or_report(tmp_path, name):
++    mod = load(name)
++    run = tmp_path/'run'
++    run.mkdir()
++    sentinel = run/'acceptance.json'
++    sentinel.write_text('unchanged', encoding='utf-8')
++    args = ['--run', str(run)]
++    if name == 'verify_p2_run':
++        args += ['--years', '1', '--b-max-years', '1']
++    assert mod.main([*args, '--output', str(sentinel)]) == 2
++    assert sentinel.read_text(encoding='utf-8') == 'unchanged'
++    out = tmp_path/'report.json'
++    out.write_text('prior', encoding='utf-8')
++    assert mod.main([*args, '--output', str(out)]) == 2
++    assert out.read_text(encoding='utf-8') == 'prior'
++
++
++def test_run_lock_prevents_second_writer(stand, tmp_path):
++    run = tmp_path/'run'
++    with exclusive_run(run, ROOT/'scratch/p2_locks'):
++        assert stand.main([*ARGS, '--run-dir', str(run)]) == 2
++        assert not run.exists()
++    assert stand.main([*ARGS, '--run-dir', str(run)]) == 0
++
++
++def test_p21_entrypoint_protects_rows_and_analysis(monkeypatch, tmp_path):
++    mod = load('admission_p2_horizons')
++    case = dict(orbit_id='synthetic', period_seconds=1.0, a_km=1.0)
++    monkeypatch.setattr(mod, 'load_cases', lambda root: (None, [case]))
++    monkeypatch.setattr(mod, 'b_fingerprint', lambda: 'B')
++    monkeypatch.setattr(mod, 'implementation_fingerprint', lambda: 'D')
++    monkeypatch.setattr(mod, 'job_fingerprint', lambda *args: 'f')
++    run = tmp_path/'p21'
++    run.mkdir()
++    rows = [dict(orbit_id='synthetic', years=1.0, variant=v, job_fingerprint='f',
++                 run_status='completed', error=None, outcome='survived', last_valid_time=mod.YEAR,
++                 event=None, samples=[(0.0, [1.0, 0, 0, 0, 1.0, 0])], wall=0.0, steps=1)
++            for v in ('D', 'T')]
++    (run/'jobs.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in rows), encoding='utf-8')
++    args = ['--years', '1', '--core-years', '1', '--b-max-years', '0', '--limit', '1', '--run-dir', str(run)]
++    before = source_manifest(run)
++    assert mod.main(args) == 2
++    assert mod.main([*args, '--analysis-dir', str(tmp_path/'bypass')]) == 2
++    assert mod.main([*args, '--evaluate-only']) == 2
++    out = tmp_path/'p21_analysis'
++    assert mod.main([*args, '--evaluate-only', '--analysis-dir', str(out)]) == 0
++    assert source_manifest(run) == before
++    assert read_json(out/'summary.json')['source'] == before
++    assert mod.main([*args, '--evaluate-only', '--analysis-dir', str(out)]) == 2
+--- /dev/null
++++ package/tests/unit/test_w2_check_runner.py
+@@ -0,0 +1,37 @@
++"""OPT-05: ни failed, ни обязательный skip не могут дать общий зелёный итог."""
++import importlib.util
++import json
++import sys
++from pathlib import Path
++
++ROOT = Path(__file__).resolve().parents[2]
++spec = importlib.util.spec_from_file_location('check_w2', ROOT/'scripts/check_w2_stabilization.py')
++assert spec is not None and spec.loader is not None
++runner = importlib.util.module_from_spec(spec)
++spec.loader.exec_module(runner)
++
++
++def test_failure_traceback_and_aggregate_exit(tmp_path):
++    failed = runner.run_step('bad', [sys.executable, '-c', 'raise RuntimeError("injected")'], tmp_path)
++    good = runner.run_step('good', [sys.executable, '-c', 'print("ok")'], tmp_path)
++    assert failed['exit_code'] != 0 and good['exit_code'] == 0
++    assert 'Traceback' in (tmp_path/'bad.log').read_text(encoding='utf-8')
++    assert runner.finish(tmp_path, [failed, good]) == 1
++    assert json.loads((tmp_path/'checks.json').read_text(encoding='utf-8'))['status'] == 'failed_or_incomplete'
++
++
++def test_required_skip_and_xml_summary(tmp_path):
++    xml = tmp_path/'tests.xml'
++    xml.write_text('<testsuites><testsuite><testcase name="ok" time="0.1" />'
++                   '<testcase name="no_backend"><skipped message="missing backend"/></testcase>'
++                   '</testsuite></testsuites>', encoding='utf-8')
++    r = runner.run_step('skip', [sys.executable, '-c', 'pass'], tmp_path, junit=xml, require_no_skips=True)
++    assert r['status'] == 'incomplete'
++    assert r['pytest']['counts'] == dict(passed=1, failure=0, error=0, skipped=1)
++    assert runner.finish(tmp_path, [r]) == 1
++
++
++def test_timeout_not_success(tmp_path):
++    r = runner.run_step('timeout', [sys.executable, '-c', 'import time; time.sleep(5)'], tmp_path, timeout=0.1)
++    assert r['status'] == 'failed' and r['exit_code'] is None
++    assert 'TimeoutExpired' in (tmp_path/'timeout.log').read_text(encoding='utf-8')

@@ -1,0 +1,36 @@
+{
+ "task": "W2-T034",
+ "identity": {
+  "orbit": "himalia:uniform_log_a:0008",
+  "years": 1000.0,
+  "job_fingerprint": "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+  "B_implementation": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587",
+  "source_summary_sha256": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+  "source_jobs_sha256": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+  "inputs_manifest_sha256": null,
+  "period_seconds": 165815.82478317557,
+  "gm_host": 0.1515524299611265,
+  "step_fraction": 0.025
+ },
+ "preflight": {
+  "checks": {
+   "job_fingerprint_matches": true,
+   "implementation_B_matches": true,
+   "initial_probe_exact": true
+  },
+  "input_basis": "legacy generator; checked against trusted job fingerprint"
+ },
+ "environment": {
+  "python": "3.12.3",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "packages": {
+   "rebound": "5.1.1",
+   "reboundx": "5.1.0",
+   "numpy": "2.2.6"
+  },
+  "native_adapter_sha256": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4"
+ },
+ "diagnostic_source_sha256": "974fa71e187eb305958012510e9d30e120453f5c4dfa224d501c63850f8739fb",
+ "integration_status": "not_run",
+ "scientific_admission": false
+}

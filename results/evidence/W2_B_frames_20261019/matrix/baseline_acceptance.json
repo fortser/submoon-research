@@ -1,0 +1,13 @@
+{
+ "checks": {
+  "native": true,
+  "requested_steps": true,
+  "identity": true,
+  "snapshot": true,
+  "records_exact": true,
+  "failure_exact": true
+ },
+ "passed": true,
+ "baseline_sha256": "ee471b07e1136c144fd1de1cb506c4e68338ec7ee6b044ba0d1500e02e00221a",
+ "source_sha256": "fd3d85242b86559780fe433d326e7b462d474fbd81d18518049d3a14de71af12"
+}

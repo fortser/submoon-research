@@ -15,6 +15,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
+monitor = ["pystray>=0.19.5,<0.20", "Pillow>=10,<13"]
 geometry = ["spiceypy"]
 observations = ["photutils", "reproject", "scikit-image", "pvl", "pds4_tools"]
 extended_physics = ["reboundx"]
@@ -29,6 +30,7 @@ where = ["src"]
 
 [tool.setuptools.package-data]
 "submoon_research.contracts" = ["*.json"]
+"submoon_research.compute" = ["radar.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
