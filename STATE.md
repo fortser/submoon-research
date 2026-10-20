@@ -6,7 +6,6 @@
 
 - **[W2](tracking/stages/W2/SUMMARY.md)** — следующий шаг (W2-STAGE): Выполнить отдельный короткий W2-P012: M0 точный native контроль; MP полиномиальная память; MC csx/csv; MD dt_last_done; MA сочетание. До интеграции проверить маски/ABI/неизменность x/v и параметров, MA сравнить с P00. Не менять production B/guard; ≤600s, без аренды/часового прохода. Активные задачи: `W2-T008`.
   Возможно брошены: `W2-T008`.
-- **[S0](tracking/stages/S0/SUMMARY.md)** — следующий шаг (S0-T007): Проверить структуру проекта, записать итог задачи, создать коммит и выполнить обычный push без force. При сетевой ошибке сообщить пользователю точный результат. Активные задачи: `S0-T007`.
 
 Научный приоритет (focus_stage): **W1 — Мера и статистический дизайн**.
 
@@ -16,7 +15,7 @@
 
 | Этап | Статус | Revision | Активных задач |
 |---|---|---|---|
-| [S0](tracking/stages/S0/SUMMARY.md) | complete | 36 | 1 |
+| [S0](tracking/stages/S0/SUMMARY.md) | complete | 37 | 0 |
 | [W0](tracking/stages/W0/SUMMARY.md) | complete | 125 | 0 |
 | [W1](tracking/stages/W1/SUMMARY.md) | active | 28 | 0 |
 | [W2](tracking/stages/W2/SUMMARY.md) | active | 450 | 1 |
