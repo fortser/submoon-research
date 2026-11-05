@@ -1,0 +1,11 @@
+{
+  "measured_utc": "2026-11-02T08:32:41.677296+00:00",
+  "python": "3.10.6 (tags/v3.10.6:9c7b4bd, Aug  1 2022, 21:53:49) [MSC v.1932 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "packages": {
+    "pytest": "9.1.1",
+    "psutil": "7.2.2",
+    "pydantic": "2.13.5",
+    "numpy": "2.2.6"
+  }
+}

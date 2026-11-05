@@ -1,0 +1,17 @@
+orbit_id,role,high_e,v1_class,v1_confidence,v2_class,v2_confidence,flags,label_nonconvergence,archive_b_present
+iapetus:uniform_a_e_cos_i_phases:0011,target,True,K3,high,K3,medium,high_e_confidence_capped,True,True
+himalia:canonical_volume:0013,target,True,K3,high,K3,medium,high_e_confidence_capped,True,True
+iapetus:canonical_volume:0006,target,False,K3,high,K4,,perturbations_incomplete_or_unknown,False,True
+himalia:canonical_volume:0012,target,False,K4,,K4,,,False,True
+himalia:uniform_a_e_cos_i_phases:0097,target,False,K3,high,K4,,perturbations_incomplete_or_unknown,True,False
+ganymede:uniform_log_a:0086,target,False,K3,high,K4,,literal_k3_not_established,False,False
+ganymede:canonical_volume:0126,target,False,K3,high,K3,high,,True,False
+himalia:uniform_a_e_cos_i_phases:0012,target,False,K1,medium,K1,medium,,False,True
+ganymede:uniform_a_e_cos_i_phases:0014,control,False,K0,,K0,,,False,True
+ganymede:uniform_a_e_cos_i_phases:0011,control,False,K0,,K0,,,False,True
+himalia:uniform_log_a:0006,control,False,K4,,K4,,,False,True
+himalia:uniform_a_e_cos_i_phases:0005,control,False,K0,,K0,,,False,True
+himalia:uniform_a_e_cos_i_phases:0015,control,False,K0,,K0,,,False,True
+iapetus:uniform_log_a:0013,control,False,K0,,K0,,,False,True
+iapetus:uniform_a_e_cos_i_phases:0010,control,False,K0,,K0,,,False,True
+iapetus:uniform_a_e_cos_i_phases:0003,control,False,K0,,K0,,,False,True

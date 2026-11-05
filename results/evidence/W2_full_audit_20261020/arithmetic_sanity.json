@@ -1,0 +1,23 @@
+{
+  "circular_a": [
+    -1.0,
+    0.0,
+    0.0
+  ],
+  "circular_jerk": [
+    0.0,
+    -1.0,
+    0.0
+  ],
+  "circular_snap": [
+    1.0,
+    0.0,
+    0.0
+  ],
+  "equatorial_j2": [
+    -0.015,
+    0.0,
+    0.0
+  ],
+  "passed": true
+}

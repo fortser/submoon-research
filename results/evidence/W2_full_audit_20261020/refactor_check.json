@@ -1,0 +1,7 @@
+{
+  "statistics": true,
+  "snapshot_geometry": true,
+  "variants": true,
+  "exact": true,
+  "distances": true
+}

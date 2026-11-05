@@ -1,0 +1,13 @@
+{
+ "checks": {
+  "status": true,
+  "attempts": true,
+  "records_exact": true,
+  "samples_exact": true
+ },
+ "passed": true,
+ "first_record_mismatch": null,
+ "interpretation": "completeness of mask vs fresh restart only; not scientific accuracy",
+ "ma_sha256": "5384c724b84257281d85a40a30d32fbe721a3b5bd77a60342079b78487054dac",
+ "p00_sha256": "fa5d61d86d989b45b45a59806c1366f3393d65e0b6199be5f43ac0fc25e7823c"
+}

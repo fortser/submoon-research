@@ -1,0 +1,160 @@
+{
+  "run_id": "W2-B-memory-20261020",
+  "started_utc": "2026-10-20T08:56:30.647184+00:00",
+  "inputs_sha256": "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2",
+  "tests": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-rs",
+      "tests/unit/test_ias15_memory_controls.py",
+      "tests/unit/test_ias15_frame_controls.py",
+      "tests/unit/test_ias15_replay.py"
+    ],
+    "returncode": 0,
+    "wall_seconds": 9.669153099999999,
+    "finished_utc": "2026-10-20T08:56:28.286257+00:00",
+    "stdout_tail": "...................................                                      [100%]\n35 passed in 9.04s\n",
+    "stderr_tail": ""
+  },
+  "prepare": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "scripts/diag_ias15_memory.py",
+      "--directory",
+      "results/evidence/W2_B_memory_20261020",
+      "--prepare"
+    ],
+    "returncode": 0,
+    "wall_seconds": 2.1412873,
+    "finished_utc": "2026-10-20T08:56:30.647149+00:00",
+    "stdout_tail": "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2\n",
+    "stderr_tail": ""
+  },
+  "limits": {
+    "total_seconds": 600.0,
+    "process_seconds": 90.0,
+    "rlimit_as": "2 GiB",
+    "rlimit_fsize": "60 MiB",
+    "cpu": 1
+  },
+  "executions": [
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_memory.py",
+        "--directory",
+        "results/evidence/W2_B_memory_20261020",
+        "--variant",
+        "M0",
+        "--inputs-sha256",
+        "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.9895681000000014,
+      "finished_utc": "2026-10-20T08:56:33.637795+00:00",
+      "stdout_tail": "{'variant': 'M0', 'status': 'guard', 'attempts': 417, 'accepted_steps': 416, 'last_valid_elapsed': 529843.2330513, 'wall_seconds': 0.4131791000000007}\nM0 acceptance True {'accepted_count': True, 'status_guard': True, 'records_exact': True, 'failure_exact': True}\n",
+      "stderr_tail": "",
+      "variant": "M0",
+      "output_exists": true
+    },
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_memory.py",
+        "--directory",
+        "results/evidence/W2_B_memory_20261020",
+        "--variant",
+        "MP",
+        "--inputs-sha256",
+        "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.6978285,
+      "finished_utc": "2026-10-20T08:56:36.339511+00:00",
+      "stdout_tail": "{'variant': 'MP', 'status': 'guard', 'attempts': 417, 'accepted_steps': 416, 'last_valid_elapsed': 529843.2330513, 'wall_seconds': 0.43060700000000196}\n",
+      "stderr_tail": "",
+      "variant": "MP",
+      "output_exists": true
+    },
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_memory.py",
+        "--directory",
+        "results/evidence/W2_B_memory_20261020",
+        "--variant",
+        "MC",
+        "--inputs-sha256",
+        "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.8424914989999976,
+      "finished_utc": "2026-10-20T08:56:39.187507+00:00",
+      "stdout_tail": "{'variant': 'MC', 'status': 'guard', 'attempts': 607, 'accepted_steps': 606, 'last_valid_elapsed': 529852.4870796204, 'wall_seconds': 0.581101499999999}\n",
+      "stderr_tail": "",
+      "variant": "MC",
+      "output_exists": true
+    },
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_memory.py",
+        "--directory",
+        "results/evidence/W2_B_memory_20261020",
+        "--variant",
+        "MD",
+        "--inputs-sha256",
+        "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.613860373999998,
+      "finished_utc": "2026-10-20T08:56:41.805150+00:00",
+      "stdout_tail": "{'variant': 'MD', 'status': 'guard', 'attempts': 417, 'accepted_steps': 416, 'last_valid_elapsed': 529843.2330513, 'wall_seconds': 0.4120342959999981}\n",
+      "stderr_tail": "",
+      "variant": "MD",
+      "output_exists": true
+    },
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_memory.py",
+        "--directory",
+        "results/evidence/W2_B_memory_20261020",
+        "--variant",
+        "MA",
+        "--inputs-sha256",
+        "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.97412817,
+      "finished_utc": "2026-10-20T08:56:44.783060+00:00",
+      "stdout_tail": "{'variant': 'MA', 'status': 'target_reached', 'attempts': 262, 'accepted_steps': 262, 'last_valid_elapsed': 530843.2330513, 'wall_seconds': 0.27378739699999954}\nMA completeness vs P00 True {'status': True, 'attempts': True, 'records_exact': True, 'samples_exact': True}\n",
+      "stderr_tail": "",
+      "variant": "MA",
+      "output_exists": true
+    }
+  ],
+  "total_variant_wall_seconds": 14.117876642999997,
+  "stopped": null,
+  "analysis": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "scripts/diag_ias15_memory.py",
+      "--directory",
+      "results/evidence/W2_B_memory_20261020",
+      "--analyze",
+      "--inputs-sha256",
+      "8dd215b3f839be352fb1937c968d137d9b4ae9bd540213d468ee79a7a62837d2"
+    ],
+    "returncode": 0,
+    "wall_seconds": 2.222987178000004,
+    "finished_utc": "2026-10-20T08:56:47.010539+00:00",
+    "stdout_tail": "M0 guard attempts 417 elapsed 529843.2330513 div_vs_M0 None\nMP guard attempts 417 elapsed 529843.2330513 div_vs_M0 0\nMC guard attempts 607 elapsed 529852.4870796204 div_vs_M0 0\nMD guard attempts 417 elapsed 529843.2330513 div_vs_M0 None\nMA target_reached attempts 262 elapsed 530843.2330513 div_vs_M0 0\n",
+    "stderr_tail": ""
+  },
+  "finished_utc": "2026-10-20T08:56:47.010567+00:00",
+  "complete": true
+}

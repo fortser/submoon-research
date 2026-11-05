@@ -1,0 +1,14 @@
+{
+  "review_run": "6d055760-58c8-4cee-b0da-32533396e639",
+  "review_type": "static_read_only",
+  "reviewer_tests_run": false,
+  "parent_negative_tests_before": "3 failed as expected; not stored as standalone log",
+  "parent_tests_after": "54 passed, 6 xfailed, 2 deselected",
+  "python": "3.10.6",
+  "files": {
+    "src/submoon_research/diagnostics/phase3_v2_input.py": "139db08dcd6dc383ee7e6c748d277cd12a59e9c21736a38fcf6c1df0420fa776",
+    "tests/unit/test_phase3_v2_input.py": "3339b74f6e54fee8211b9cb8937008125855dda48a12c028d43797df065533b8",
+    "tests/unit/test_phase3_v2_archive_review.py": "362ff4183deb53d5226b9b5058f044f611edce0b01c81d6071a5d82066d7d644",
+    "reports/analysis/W2_T065_independent_review_20261030.md": "9927e49981b5d31e587054e64ab6ef50996c7ae031607d90b7ea1b3243c981a8"
+  }
+}

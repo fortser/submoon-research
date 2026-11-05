@@ -1,0 +1,7 @@
+legacy_0.2 => eligible_for_freeze
+complete_0.3 => eligible_for_freeze
+pending_with_nonempty_index => eligible_for_freeze
+complete_missing_expected => eligible_for_freeze
+complete_wrong_count => eligible_for_freeze
+empty_index => ValueError: Нет полного provenance пилота
+wrong_digest => ValueError: SHA-256 входа изменился: pilot/code/a.py

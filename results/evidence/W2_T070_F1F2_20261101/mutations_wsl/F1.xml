@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="5" skipped="0" tests="5" time="1.242" timestamp="2026-11-01T12:13:01.528431+03:00" hostname="HOME-PC"><testcase classname="tests.unit.test_warning_worker_demo_v2" name="test_missing_capture_is_unknown[None-None]" time="0.138"><failure message="AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}&#10;  &#10;  Differing items:&#10;  {'admissible': True} != {'admissible': False}&#10;  {'reasons': []} != {'reasons': ['output_capture_unknown']}&#10;  {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}&#10;  Use -v to get more diff">clean = PosixPath('/tmp/pytest-of-taras/pytest-0/test_missing_capture_is_unknow0/job')
+stdout = None, stderr = None
+
+    @pytest.mark.parametrize('stdout,stderr', [(None, None), (None, b''), (b'', None),
+                                             (None, ''), ('', None)])
+    def test_missing_capture_is_unknown(clean, stdout, stderr):
+        result = demo.evaluate(clean, CONTRACT, 0, stdout, stderr)
+&gt;       assert result == dict(admissible=False, outcome='unresolved', reasons=['output_capture_unknown'])
+E       AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}
+E         
+E         Differing items:
+E         {'admissible': True} != {'admissible': False}
+E         {'reasons': []} != {'reasons': ['output_capture_unknown']}
+E         {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}
+E         Use -v to get more diff
+
+tests/unit/test_warning_worker_demo_v2.py:49: AssertionError</failure></testcase><testcase classname="tests.unit.test_warning_worker_demo_v2" name="test_missing_capture_is_unknown[None-0]" time="0.123"><failure message="AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}&#10;  &#10;  Differing items:&#10;  {'admissible': True} != {'admissible': False}&#10;  {'reasons': []} != {'reasons': ['output_capture_unknown']}&#10;  {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}&#10;  Use -v to get more diff">clean = PosixPath('/tmp/pytest-of-taras/pytest-0/test_missing_capture_is_unknow1/job')
+stdout = None, stderr = b''
+
+    @pytest.mark.parametrize('stdout,stderr', [(None, None), (None, b''), (b'', None),
+                                             (None, ''), ('', None)])
+    def test_missing_capture_is_unknown(clean, stdout, stderr):
+        result = demo.evaluate(clean, CONTRACT, 0, stdout, stderr)
+&gt;       assert result == dict(admissible=False, outcome='unresolved', reasons=['output_capture_unknown'])
+E       AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}
+E         
+E         Differing items:
+E         {'admissible': True} != {'admissible': False}
+E         {'reasons': []} != {'reasons': ['output_capture_unknown']}
+E         {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}
+E         Use -v to get more diff
+
+tests/unit/test_warning_worker_demo_v2.py:49: AssertionError</failure></testcase><testcase classname="tests.unit.test_warning_worker_demo_v2" name="test_missing_capture_is_unknown[-None0]" time="0.126"><failure message="AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}&#10;  &#10;  Differing items:&#10;  {'admissible': True} != {'admissible': False}&#10;  {'reasons': []} != {'reasons': ['output_capture_unknown']}&#10;  {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}&#10;  Use -v to get more diff">clean = PosixPath('/tmp/pytest-of-taras/pytest-0/test_missing_capture_is_unknow2/job')
+stdout = b'', stderr = None
+
+    @pytest.mark.parametrize('stdout,stderr', [(None, None), (None, b''), (b'', None),
+                                             (None, ''), ('', None)])
+    def test_missing_capture_is_unknown(clean, stdout, stderr):
+        result = demo.evaluate(clean, CONTRACT, 0, stdout, stderr)
+&gt;       assert result == dict(admissible=False, outcome='unresolved', reasons=['output_capture_unknown'])
+E       AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}
+E         
+E         Differing items:
+E         {'admissible': True} != {'admissible': False}
+E         {'reasons': []} != {'reasons': ['output_capture_unknown']}
+E         {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}
+E         Use -v to get more diff
+
+tests/unit/test_warning_worker_demo_v2.py:49: AssertionError</failure></testcase><testcase classname="tests.unit.test_warning_worker_demo_v2" name="test_missing_capture_is_unknown[None-1]" time="0.116"><failure message="AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}&#10;  &#10;  Differing items:&#10;  {'admissible': True} != {'admissible': False}&#10;  {'reasons': []} != {'reasons': ['output_capture_unknown']}&#10;  {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}&#10;  Use -v to get more diff">clean = PosixPath('/tmp/pytest-of-taras/pytest-0/test_missing_capture_is_unknow3/job')
+stdout = None, stderr = ''
+
+    @pytest.mark.parametrize('stdout,stderr', [(None, None), (None, b''), (b'', None),
+                                             (None, ''), ('', None)])
+    def test_missing_capture_is_unknown(clean, stdout, stderr):
+        result = demo.evaluate(clean, CONTRACT, 0, stdout, stderr)
+&gt;       assert result == dict(admissible=False, outcome='unresolved', reasons=['output_capture_unknown'])
+E       AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}
+E         
+E         Differing items:
+E         {'admissible': True} != {'admissible': False}
+E         {'reasons': []} != {'reasons': ['output_capture_unknown']}
+E         {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}
+E         Use -v to get more diff
+
+tests/unit/test_warning_worker_demo_v2.py:49: AssertionError</failure></testcase><testcase classname="tests.unit.test_warning_worker_demo_v2" name="test_missing_capture_is_unknown[-None1]" time="0.114"><failure message="AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}&#10;  &#10;  Differing items:&#10;  {'admissible': True} != {'admissible': False}&#10;  {'reasons': []} != {'reasons': ['output_capture_unknown']}&#10;  {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}&#10;  Use -v to get more diff">clean = PosixPath('/tmp/pytest-of-taras/pytest-0/test_missing_capture_is_unknow4/job')
+stdout = '', stderr = None
+
+    @pytest.mark.parametrize('stdout,stderr', [(None, None), (None, b''), (b'', None),
+                                             (None, ''), ('', None)])
+    def test_missing_capture_is_unknown(clean, stdout, stderr):
+        result = demo.evaluate(clean, CONTRACT, 0, stdout, stderr)
+&gt;       assert result == dict(admissible=False, outcome='unresolved', reasons=['output_capture_unknown'])
+E       AssertionError: assert {'admissible'...'reasons': []} == {'admissible'...ure_unknown']}
+E         
+E         Differing items:
+E         {'admissible': True} != {'admissible': False}
+E         {'reasons': []} != {'reasons': ['output_capture_unknown']}
+E         {'outcome': 'preserve_synthetic_outcome'} != {'outcome': 'unresolved'}
+E         Use -v to get more diff
+
+tests/unit/test_warning_worker_demo_v2.py:49: AssertionError</failure></testcase></testsuite></testsuites>

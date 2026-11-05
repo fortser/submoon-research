@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "approval_ref": "W2-D043",
+  "user_found_station": false,
+  "source_ref": "synthetic-example-not-a-user-message",
+  "user_message": "СИНТЕТИЧЕСКИЙ ПРИМЕР, НЕ РАЗРЕШЕНИЕ АРЕНДЫ",
+  "episode_id": "synthetic-example-not-a-radar-event",
+  "offer_id": 1,
+  "machine_id": 1,
+  "task_id": "W2-T000",
+  "owner": "replace-with-active-task-owner"
+}

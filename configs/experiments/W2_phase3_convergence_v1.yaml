@@ -1,0 +1,112 @@
+# W2-P015, Фаза 3: адресная сходимость. Замороженная постановка (шаг 3.0, W2-D046).
+# Изменение любого поля = новая версия файла и новый запуск; правила разбора — в
+# src/submoon_research/diagnostics/convergence.py (их SHA входит в manifest каждого run).
+# Набор разработочный и апостериорный: долю ошибок ансамбля по нему не оценивать.
+schema: w2-phase3-convergence-v1
+plan: W2-P015
+decision: W2-D046
+task: W2-T061
+plan_document: docs/tasks/W2_phase3_convergence_plan_v1.md
+
+archives:
+  p2_2a:
+    run: runs/W2-P2-2a-56220810
+    summary_sha256: 7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f
+    jobs_sha256: 0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175
+  b144:
+    run: runs/W2-B144-57496493
+    manifest_sha256: eaf17a3b48b3722b098309fe738283bf5f06db34493a665650043fe856151205
+    units_file_sha256: 378c514a655a343f9bcd065f3e01d5ff26590f944c24bc64f360287c0828b1b1
+    jobs_sha256: dcca18c1459dbe7db95ea721e62ebc3c2dcefd6370c98bec8152a1007ff493f4
+    reference_sha256: 088ecc0d25d82377d90ca48a1f6b1d5b4959560814308e8e65144ddf614140f7
+expected_b_implementation: 0f5ef90438a14a7f2e5e3ad835b32cf28e645ec89227c78f8fa784ffce2b4c64
+
+# Лестница по одному фактору. D = NumericMode(), T = NumericMode.tight(), B = NumericMode()
+# (как P2-2a/B144); остальные отличаются от соседней ступени одним полем.
+modes:
+  D:  {family: dop853, rtol: 1.0e-11, atol_position: 1.0e-8,  atol_velocity: 1.0e-11, step_fraction: 0.025,   epsilon: 1.0e-9,  cache_epsilon: 1.0e-12}
+  Ds: {family: dop853, rtol: 1.0e-11, atol_position: 1.0e-8,  atol_velocity: 1.0e-11, step_fraction: 0.0125,  epsilon: 1.0e-9,  cache_epsilon: 1.0e-12}
+  T:  {family: dop853, rtol: 1.0e-13, atol_position: 1.0e-10, atol_velocity: 1.0e-13, step_fraction: 0.0125,  epsilon: 1.0e-12, cache_epsilon: 1.0e-13}
+  Ts: {family: dop853, rtol: 1.0e-13, atol_position: 1.0e-10, atol_velocity: 1.0e-13, step_fraction: 0.00625, epsilon: 1.0e-12, cache_epsilon: 1.0e-13}
+  U:  {family: dop853, rtol: 1.0e-14, atol_position: 1.0e-11, atol_velocity: 1.0e-14, step_fraction: 0.00625, epsilon: 1.0e-12, cache_epsilon: 1.0e-13}
+  B:  {family: ias15,  rtol: 1.0e-11, atol_position: 1.0e-8,  atol_velocity: 1.0e-11, step_fraction: 0.025,   epsilon: 1.0e-9,  cache_epsilon: 1.0e-12}
+  Bs: {family: ias15,  rtol: 1.0e-11, atol_position: 1.0e-8,  atol_velocity: 1.0e-11, step_fraction: 0.0125,  epsilon: 1.0e-9,  cache_epsilon: 1.0e-12}
+  Be: {family: ias15,  rtol: 1.0e-11, atol_position: 1.0e-8,  atol_velocity: 1.0e-11, step_fraction: 0.025,   epsilon: 1.0e-10, cache_epsilon: 1.0e-12}
+ladders:
+  dop853: [D, Ds, T, Ts, U]
+  ias15: [B, Bs, Be]
+
+horizon_years: 1000.0
+grid:
+  dense_step_p0: 0.05          # равномерная плотная сетка [0, min(окно, H, dense_max_points·шаг)] с шагом 0.05 P0
+  dense_max_points: 40000      # предел памяти: у Ганимеда (P0 < 1 сут) окно ≈ 2000 P0 вместо 50 лет
+  log_points: 200              # плюс 200 точек geomspace(1e-5 H, H); полное состояние всех тел — в этих точках
+  log_start_fraction: 1.0e-5
+  perturbation_dense: false    # возмущённые задания — только логарифмическая сетка (исход, время, τ)
+dense_window_years_default: 50.0
+
+# Целевые случаи (§2.1 плана). high_e: исход DOP853 в архиве не определён (high-e unresolved),
+# поэтому класс определяется по IAS15 с уверенностью не выше «средней».
+targets:
+  - {orbit_id: "iapetus:uniform_a_e_cos_i_phases:0011", block: P0, high_e: true,  codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: B}
+  - {orbit_id: "himalia:canonical_volume:0013",         block: P0, high_e: true,  codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: B}
+  - {orbit_id: "iapetus:canonical_volume:0006",         block: P0, high_e: false, codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: Ts, dense_window_years: 30.0}
+  - {orbit_id: "himalia:canonical_volume:0012",         block: P1, high_e: false, codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: Ts}
+  - {orbit_id: "himalia:uniform_a_e_cos_i_phases:0097", block: P1, high_e: false, codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: Ts}
+  - {orbit_id: "ganymede:uniform_log_a:0086",           block: P1, high_e: false, codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: Ts}
+  - {orbit_id: "ganymede:canonical_volume:0126",        block: P1, high_e: false, codes: [D, Ds, T, Ts, U, B, Bs, Be], perturb_family: Ts, b_horizon_fallback_years: 400.0}
+  - {orbit_id: "himalia:uniform_a_e_cos_i_phases:0012", block: P1, high_e: false, codes: [D, Ds, T, Ts, U],             perturb_family: Ts}
+
+# W2-D046 (2а): нет точного старта на AVX2 (W2-I035) — до аренды с AVX-512.
+# W2-D046 (1а): остальные high-e — Фаза 2.
+deferred:
+  avx512_starts: ["iapetus:canonical_volume:0037"]
+  phase2_high_e: ["iapetus:canonical_volume:0032", "himalia:uniform_log_a:0035", "iapetus:uniform_a_e_cos_i_phases:0057",
+                  "himalia:uniform_log_a:0063", "himalia:canonical_volume:0063", "himalia:canonical_volume:0073",
+                  "himalia:uniform_log_a:0077", "himalia:uniform_a_e_cos_i_phases:0088", "himalia:uniform_a_e_cos_i_phases:0099",
+                  "himalia:uniform_log_a:0108", "iapetus:uniform_log_a:0124", "himalia:canonical_volume:0009",
+                  "iapetus:canonical_volume:0008", "iapetus:canonical_volume:0009", "iapetus:uniform_log_a:0003"]
+
+# Уточнение §2.4 при freeze (до любых новых расчётов): ранние события почти у всех орбит,
+# поэтому для терминальных исходов берётся самая долгоживущая согласная орбита.
+controls:
+  source: "144 единицы B144 на 1000 лет; исключены цели и отложенные"
+  agreement: "одинаковая метка нового B (B144), D и T (P2-2a), не unresolved; для контакта/ухода max-min времени трёх методов <= 1 P0"
+  cost_cap_b_wall_seconds: 300.0   # wall нового B в B144 (9975WX)
+  pick_terminal: "наибольшее время события, затем наименьший номер единицы"
+  pick_survived: "наименьший wall нового B, затем наименьший номер единицы"
+  codes: [D, Ds, T, Ts, U, B]       # без Bs/Be (цена); любой сдвиг метки — правило 4
+  perturbed_controls: "по одному на исход (контакт, уход, survived): терминальные — наибольшее время события среди выбранных, survived — наименьший wall B"
+
+perturbation:
+  directions: ["+R", "-R", "+T", "-T", "+N", "-N", I0, I1, I2, I3]   # R, T, N — смещение положения; I* — изотропно в 6D (r/a0, v/(n0 a0))
+  isotropic_seed: 20261026
+  scales: [1.0e-12, 1.0e-10, 1.0e-8]
+  horizon_years: 1000.0
+
+thresholds:
+  divergence: [1.0e-9, 1.0e-6, 1.0e-3, 1.0e-1]   # max(|dr|/a0, |dv|/(n0 a0)) на общей сетке
+  event_time_tight_p0: 1.0e-6
+  event_time_p0: 1.0                              # «совпадение» времени для сходимости и согласия семейств
+  contraction: 0.1                                # |dt| финальной пары <= 0.1 |dt| предыдущей (или <= tight)
+  sigma_num_window_years: 1.0                     # σ_num — max Δ двух самых точных ступеней DOP853 при t <= 1 года
+  sensitive_scale_floor: 1.0e-10                  # s* = max(1e-10, 10 σ_num)
+  k2_event_margin_p0: 10.0
+  k3_min_directions: 2
+  k3_time_spread_p0: 10.0
+  # Классы применяются в порядке К0 → К2 → К1 → К3 → К4 (уточнения при freeze): К0 — грубая
+  # ступень совпадает со сошедшимся пределом (архивное расхождение здесь не воспроизвелось;
+  # не считается ни К1, ни подтверждением); пересечение К1/К2 трактуется как чувствительность
+  # события, а не как ошибка траектории.
+
+decision_rules:
+  - "1. Есть не-high-e цель К1 с ошибочным D и верным T, и нет К1 с ошибочным T -> кандидат P2-2b: T (или гибрид от T)"
+  - "2. Есть К1 с ошибочным T -> ни D, ни T как есть; кандидат Ts/U с измерением цены"
+  - "3. Все не-high-e цели К2/К3 (допускаются К0, но не все К0) -> выбор D/T по распределительному тесту P2-2b; К2 -> Фаза 4"
+  - "4. Любой контроль меняет метку на лестнице -> issue, пересмотр плана P2-2b"
+  - "5. Bs/Be меняют метку 0011 или 0013 -> B (epsilon 1e-9) не сошедшийся контроль; Фаза 2 на уточнённом B"
+
+budget:
+  block_wall_hours_max: 3.0      # блок должен закончиться днём; deadline и stop-file обязательны
+  total_hours_warn: 5.0          # выше — сужение, затем предложение аренды (AGENTS.md)
+  b_fallback_rule: "если бенчмарк предсказывает wall B для ganymede:canonical_volume:0126 на 1000 лет > 2 ч на этом ПК, B-ступени этой единицы считаются до 400 лет с пометкой"

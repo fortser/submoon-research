@@ -1,0 +1,17 @@
+{
+  "instance_id": 57496493,
+  "local_status": "deployed",
+  "run_deadline_utc": "2026-10-24T16:07:24Z",
+  "actual_status": "running",
+  "elapsed_hours": 1.11,
+  "hourly": 0.611111111111111,
+  "upper_cost_usd": 0.68,
+  "budget_usd": 8.0,
+  "remote_stage": "running 2026-10-24T09:45:32Z workers=32 physical=32 quota=61 offer_limit=64 pin=none seed_rows=0 manifest=eaf17a3b48b3722b098309fe738283bf5f06db34493a665650043fe856151205 deadline=2026-10-24T16:07:24Z",
+  "progress": "{\n \"updated_utc\": \"2026-10-24T10:34:13Z\",\n \"done\": 280,\n \"planned\": 288,\n \"counts\": {\n  \"completed\": 280\n },\n \"elapsed_s\": 2920.757460386958,\n \"last\": {\n  \"orbit_id\": \"iapetus:uniform_a_e_cos_i_phases:0014\",\n  \"years\": 1000.0,\n  \"status\": \"completed\",\n  \"wall\": 2920.2246995461173\n }\n}",
+  "identity": "{\n \"passed\": true,\n \"checked\": 288,\n \"mismatch_count\": 0,\n \"utc\": \"2026-10-24T09:45:15Z\",\n \"environment\": {\n  \"python\": \"3.10.12\",\n  \"platform\": \"Linux-6.8.0-139-generic-x86_64-with-glibc2.35\",\n  \"cpu_model\": \"AMD Ryzen Threadripper PRO 9975WX 32-Cores\",\n  \"avx512f\": true,\n  \"packages\": {\n   \"numpy\": \"2.2.6\",\n   \"scipy\": \"1.15.3\",\n   \"numba\": \"0.67.0\",\n   \"rebound\": \"5.1.1\",\n   \"reboundx\": \"5.1.0\"\n  },\n  \"openblas_coretype\": \"SkylakeX\",\n  \"threads\": {\n   \"OMP_NUM_THREADS\": \"1\",\n   \"OPENBLAS_NUM_THREADS\": \"1\",\n   \"MKL_NUM_THREADS\": \"1\",\n   \"NUMBA_NUM_THREADS\": \"1\"\n  }\n },\n \"mismatches\": []\n}",
+  "benchmark": "{\n \"utc\": \"2026-10-24T09:45:32Z\",\n \"jobs\": [\n  {\n   \"orbit_id\": \"himalia:uniform_a_e_cos_i_phases:0015\",\n   \"years\": 100.0,\n   \"status\": \"completed\",\n   \"wall\": 8.88620386691764,\n   \"archived_wall\": 9.30528182676062\n  },\n  {\n   \"orbit_id\": \"himalia:canonical_volume:0012\",\n   \"years\": 100.0,\n   \"status\": \"completed\",\n   \"wall\": 10.525650215800852,\n   \"archived_wall\": 11.123728333972394\n  },\n  {\n   \"orbit_id\": \"himalia:uniform_log_a:0014\",\n   \"years\": 100.0,\n   \"status\": \"completed\",\n   \"wall\": 15.889473075047135,\n   \"archived_wall\": 16.90252136392519\n  }\n ],\n \"wall_seconds\": 16.32876862678677,\n \"workers\": 32,\n \"remaining_s\": 22911.759842395782,\n \"deadline_utc\": \"2026-10-24T16:07:24Z\",\n \"ratio\": 0.9462340233224696,\n \"predicted_longest_s\": 13648.545414085587,\n \"predicted_total_worker_s\": 81647.30506677303,\n \"predicted_wall_s\": 13648.545414085587,\n \"with_margin_s\": 17060.681767606984,\n \"margin\": 1.25,\n \"verdict\": \"GO\"\n}",
+  "pid": 7336,
+  "checked_epoch": 1792838687.2442138,
+  "local_only_not_offline_safe": true
+}

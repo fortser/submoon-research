@@ -1,0 +1,7 @@
+legacy_0.2 => eligible_for_freeze
+complete_0.3 => eligible_for_freeze
+pending_with_nonempty_index => ValueError: RunContext snapshot 0.3: для допуска нужен complete
+complete_missing_expected => ValueError: RunContext snapshot 0.3: ожидаемые файлы отсутствуют в code_sha256
+complete_wrong_count => ValueError: RunContext snapshot 0.3: несогласованный published_count
+empty_index => ValueError: RunContext snapshot 0.3: для допуска нужен complete
+wrong_digest => ValueError: SHA-256 входа изменился: pilot/code/a.py

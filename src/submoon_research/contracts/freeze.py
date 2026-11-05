@@ -1,6 +1,7 @@
 """Freeze требует доказательств, а статус draft не открывает научные ворота."""
 from submoon_research.provenance import InputLedger
 from submoon_research.contracts.w1 import W1Design
+from submoon_research.contracts.run_manifest import validate_run_manifest_for_admission
 
 
 def validate_freeze(root, design):
@@ -16,6 +17,7 @@ def validate_freeze(root, design):
         ledger.bind(entry['path'],entry['sha256'])
         ledger.read(entry['path'])
     pilot=ledger.json(design['pilot']['manifest'])
+    validate_run_manifest_for_admission(pilot)
     if pilot['status']!='completed' or pilot['validation']['status']!='passed' or pilot.get('data_kind') in ('synthetic','source_audit','synthetic_analytic_control'):
         raise ValueError('Для freeze нужен проверенный реальный разработочный пилот')
     admission=pilot.get('scientific_admission',{})

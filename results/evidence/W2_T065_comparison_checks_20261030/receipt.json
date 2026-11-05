@@ -1,0 +1,11 @@
+{
+  "schema": "w2-t065-comparison-check-v1",
+  "tests": "58 passed, 6 xfailed, 2 deselected",
+  "files": {
+    "results/evidence/W2_T065_v1_v2_20261030_v1/analysis.json": "9b90652798fda958dd87bc4cf88ba9c76d51db8f88e008da2efd9d4b49f28e39",
+    "results/evidence/W2_T065_v1_v2_20261030_v1/cases.csv": "6e04ec974aa9edafd911579bc0660ec242c368a8fe0a26ef7c963b9cb5d46f9f",
+    "scripts/compare_phase3_v1_v2.py": "b457cb345f75f16fcf639cc7822b5a64191c185a4c529fdc2b70e5cf08ca0683",
+    "tests/unit/test_phase3_compare_v1_v2.py": "4853cea9351ddf499242878cb7de6c623e335f24291e0fac47128681d90adae4",
+    "reports/analysis/W2_T065_v1_v2_retrospective_20261030.md": "6fdd0ab1cf6c932e43a2f92362e9efd869dbd8b69a2f1cd8c518f340df15bd6a"
+  }
+}

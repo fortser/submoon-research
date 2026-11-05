@@ -1,0 +1,44 @@
+...........................................................s.ssssssss... [  8%]
+................sss..............................sssss.................. [ 16%]
+........................................................................ [ 25%]
+..............................................................ss........ [ 33%]
+..s..sss..ss............ss.........ssss...sssssssss.........sss......... [ 42%]
+.....ssssss............................................................. [ 50%]
+....xxxxxx.........................s.................................... [ 59%]
+........................................................................ [ 67%]
+........................................................................ [ 75%]
+........................................................................ [ 84%]
+........................................................................ [ 92%]
+.....................sss.s....................................           [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\unit\test_ias15_horizon_clip.py:10: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [9] tests\physics\test_w2_engines.py:28: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_b144_regress.py:111: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_b144_regress.py:126: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_b144_regress.py:142: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [5] tests\unit\test_capture_b_local_once.py:38: WSL/Linux supervisor uses /proc
+SKIPPED [2] tests\unit\test_horizon_independence.py:67: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_ias15_cm_frame.py:99: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [2] tests\unit\test_ias15_cm_start.py:41: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_ias15_cm_start.py:88: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_ias15_cm_start.py:117: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_ias15_cm_start.py:128: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [2] tests\unit\test_ias15_dense_step.py:21: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [4] tests\unit\test_ias15_frame_controls.py:61: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [9] tests\unit\test_ias15_memory_controls.py:31: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [3] tests\unit\test_ias15_replay.py:38: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_native_ias15_guard.py:42: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [4] tests\unit\test_native_ias15_guard.py:62: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_native_ias15_guard.py:80: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_phase3_convergence.py:353: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:45: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:105: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:129: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_verify_p2_2_run.py:183: could not import 'reboundx': No module named 'reboundx'
+XFAIL tests/unit/test_phase3_audit.py::test_k1_requires_complete_perturbation_grid - v1: число направлений/пустые масштабы не проверяются перед K1
+XFAIL tests/unit/test_phase3_audit.py::test_k1_cannot_ignore_available_contradictory_b - v1: единственная противоречащая строка B игнорируется как insufficient
+XFAIL tests/unit/test_phase3_audit.py::test_unknowns_alone_cannot_establish_k3[completed] - v1: unknown/failed считает сменой физического исхода
+XFAIL tests/unit/test_phase3_audit.py::test_unknowns_alone_cannot_establish_k3[failed] - v1: unknown/failed считает сменой физического исхода
+XFAIL tests/unit/test_phase3_audit.py::test_high_e_confidence_cap - v1: YAML требует уверенность high-e не выше medium, K3 возвращает high
+XFAIL tests/unit/test_phase3_audit.py::test_k3_distinguishes_time_only_from_label_nonconvergence - v1: K3 использует несходимость времени вместо несходимости метки (§6)
+794 passed, 55 skipped, 6 xfailed in 175.22s (0:02:55)

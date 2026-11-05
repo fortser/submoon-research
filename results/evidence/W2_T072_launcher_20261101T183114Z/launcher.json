@@ -1,0 +1,60 @@
+{
+  "schema": "W2-T072-owned-launcher-v1",
+  "utc": "2026-11-01T18:31:59.640718+00:00",
+  "argv": [
+    "C:\\WINDOWS\\System32\\wsl.exe",
+    "-d",
+    "Ubuntu-24.04",
+    "--exec",
+    "/usr/bin/python3",
+    "/mnt/t/test_python/submoon-research/scratch/W2_T072_linux_owned_20261101T183114Z.py"
+  ],
+  "cwd": "T:\\test_python\\submoon-research",
+  "parent_python": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+  "root_pid": 5208,
+  "elapsed_seconds": 6.297000000002299,
+  "timeout_seconds": 20,
+  "timed_out": false,
+  "returncode": 0,
+  "linux_script_sha256": "c16900379c2488d9f42387391d1ffc8c78543b8a00b77b3d63a6b944a64c54ac",
+  "linux_receipt": {
+    "schema": "owned-wsl-launcher-control-v1",
+    "token": "70c591fc59752416602da303c3bb174e",
+    "boot_id": "95c25413-19d6-404b-a707-c8a38dd28892",
+    "supervisor_pid": 285,
+    "leader": {
+      "pid": 380,
+      "state": "S",
+      "ppid": 285,
+      "pgrp": 380,
+      "session": 380,
+      "start": 471
+    },
+    "child": {
+      "pid": 381,
+      "state": "R",
+      "ppid": 380,
+      "pgrp": 380,
+      "session": 380,
+      "start": 485
+    },
+    "sentinel": {
+      "pid": 379,
+      "state": "S",
+      "ppid": 285,
+      "pgrp": 379,
+      "session": 379,
+      "start": 471
+    },
+    "deadline": true,
+    "leader_active": false,
+    "child_active": false,
+    "sentinel_active_before_cleanup": true,
+    "returncode": -15,
+    "child_scope": "только известная синтетическая группа",
+    "distribution": "Ubuntu-24.04",
+    "passed": true
+  },
+  "passed": true,
+  "limitation": "Контроль только этой явной команды; исторический pytest не перехватывается."
+}

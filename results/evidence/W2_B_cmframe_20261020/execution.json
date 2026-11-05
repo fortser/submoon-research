@@ -1,0 +1,103 @@
+{
+  "run_id": "W2-B-cmframe-20261020",
+  "started_utc": "2026-10-20T09:28:12.774322+00:00",
+  "inputs_sha256": "a9e647b8a1ba86cd48b85dbfc2b154baf97ac44d439f48c8c964b9c5d2ba9566",
+  "tests": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "-m",
+      "pytest",
+      "-q",
+      "-rs",
+      "tests/unit/test_ias15_cm_frame.py",
+      "tests/unit/test_ias15_memory_controls.py",
+      "tests/unit/test_ias15_frame_controls.py"
+    ],
+    "returncode": 0,
+    "wall_seconds": 4.984324242999946,
+    "finished_utc": "2026-10-20T09:28:10.118547+00:00",
+    "stdout_tail": ".................................                                        [100%]\n33 passed in 4.33s\n",
+    "stderr_tail": ""
+  },
+  "prepare": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "scripts/diag_ias15_cm_frame.py",
+      "--directory",
+      "results/evidence/W2_B_cmframe_20261020",
+      "--prepare"
+    ],
+    "returncode": 0,
+    "wall_seconds": 2.4656086239999695,
+    "finished_utc": "2026-10-20T09:28:12.774273+00:00",
+    "stdout_tail": "a9e647b8a1ba86cd48b85dbfc2b154baf97ac44d439f48c8c964b9c5d2ba9566\n",
+    "stderr_tail": ""
+  },
+  "limits": {
+    "total_seconds": 600.0,
+    "process_seconds": 90.0,
+    "rlimit_as": "2 GiB",
+    "rlimit_fsize": "60 MiB",
+    "cpu": 1
+  },
+  "executions": [
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_cm_frame.py",
+        "--directory",
+        "results/evidence/W2_B_cmframe_20261020",
+        "--variant",
+        "G",
+        "--inputs-sha256",
+        "a9e647b8a1ba86cd48b85dbfc2b154baf97ac44d439f48c8c964b9c5d2ba9566"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.832873076999931,
+      "finished_utc": "2026-10-20T09:28:15.608113+00:00",
+      "stdout_tail": "{'variant': 'G', 'status': 'target_reached', 'attempts': 224, 'accepted_steps': 224, 'last_valid_elapsed': 530843.2330513, 'wall_seconds': 0.2542435469999873} min dt 9.872890327160095\n",
+      "stderr_tail": "",
+      "variant": "G",
+      "output_exists": true
+    },
+    {
+      "command": [
+        "/home/taras/venvs/submoon-w2/bin/python",
+        "scripts/diag_ias15_cm_frame.py",
+        "--directory",
+        "results/evidence/W2_B_cmframe_20261020",
+        "--variant",
+        "GF",
+        "--inputs-sha256",
+        "a9e647b8a1ba86cd48b85dbfc2b154baf97ac44d439f48c8c964b9c5d2ba9566"
+      ],
+      "returncode": 0,
+      "wall_seconds": 2.8885493380000753,
+      "finished_utc": "2026-10-20T09:28:18.500407+00:00",
+      "stdout_tail": "{'variant': 'GF', 'status': 'target_reached', 'attempts': 312, 'accepted_steps': 312, 'last_valid_elapsed': 530843.2330513, 'wall_seconds': 0.3268841419999262} min dt 0.10861826678372263\n",
+      "stderr_tail": "",
+      "variant": "GF",
+      "output_exists": true
+    }
+  ],
+  "total_variant_wall_seconds": 5.721422415000006,
+  "stopped": null,
+  "analysis": {
+    "command": [
+      "/home/taras/venvs/submoon-w2/bin/python",
+      "scripts/diag_ias15_cm_frame.py",
+      "--directory",
+      "results/evidence/W2_B_cmframe_20261020",
+      "--analyze",
+      "--inputs-sha256",
+      "a9e647b8a1ba86cd48b85dbfc2b154baf97ac44d439f48c8c964b9c5d2ba9566"
+    ],
+    "returncode": 0,
+    "wall_seconds": 2.4475483589999385,
+    "finished_utc": "2026-10-20T09:28:20.952096+00:00",
+    "stdout_tail": "VERDICT confirm []\nG target_reached attempts 224 min dt 9.872890327160095 physical est 9.922 {'P00': 0.2812, 'P10': 0.0005, 'GF': 0.1849}\nGF target_reached attempts 312 min dt 0.10861826678372263 physical est 9.894 {'P00': 0.1158, 'P10': 0.1853}\n",
+    "stderr_tail": ""
+  },
+  "finished_utc": "2026-10-20T09:28:20.952128+00:00",
+  "complete": true
+}

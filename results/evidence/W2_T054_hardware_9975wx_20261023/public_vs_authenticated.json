@@ -1,0 +1,73 @@
+{
+  "utc": "2026-10-23T09:17:23.709030+00:00",
+  "query": {
+    "machine_id": {
+      "eq": 143224
+    },
+    "type": "on-demand",
+    "allocated_storage": 60,
+    "limit": 100
+  },
+  "public": {
+    "offers": [
+      {
+        "id": 47034418,
+        "machine_id": 143224,
+        "cpu_name": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+        "cpu_cores_effective": 64.0,
+        "cpu_cores": 64,
+        "cpu_ram": 257061,
+        "cpu_arch": "amd64",
+        "gpu_name": "RTX PRO 5000",
+        "num_gpus": 1,
+        "dph_total": 0.611111111111111,
+        "dph_base": 0.6,
+        "storage_total_cost": 0.01111111111111111,
+        "storage_cost": 0.1333333333333333,
+        "inet_down_cost": 0.0026041666666666665,
+        "inet_up_cost": 0.00390625,
+        "reliability": 0.995803,
+        "verification": "unverified",
+        "disk_space": 2788.0,
+        "geolocation": "Florida, US",
+        "direct_port_count": 99,
+        "rentable": false,
+        "rented": false,
+        "resource_type": "gpu",
+        "internet_down_cost_per_tb": 2.6666666666666665,
+        "internet_up_cost_per_tb": 4.0
+      }
+    ]
+  },
+  "authenticated": {
+    "offers": [
+      {
+        "id": 47034418,
+        "machine_id": 143224,
+        "cpu_name": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+        "cpu_cores_effective": 64.0,
+        "cpu_cores": 64,
+        "cpu_ram": 257061,
+        "cpu_arch": "amd64",
+        "gpu_name": "RTX PRO 5000",
+        "num_gpus": 1,
+        "dph_total": 0.611111111111111,
+        "dph_base": 0.6,
+        "storage_total_cost": 0.01111111111111111,
+        "storage_cost": 0.1333333333333333,
+        "inet_down_cost": 0.0026041666666666665,
+        "inet_up_cost": 0.00390625,
+        "reliability": 0.995803,
+        "verification": "unverified",
+        "disk_space": 2788.0,
+        "geolocation": "Florida, US",
+        "direct_port_count": 99,
+        "rentable": false,
+        "rented": false,
+        "resource_type": "gpu",
+        "internet_down_cost_per_tb": 2.6666666666666665,
+        "internet_up_cost_per_tb": 4.0
+      }
+    ]
+  }
+}

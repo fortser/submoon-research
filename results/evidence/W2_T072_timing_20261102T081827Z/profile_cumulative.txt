@@ -1,0 +1,55 @@
+Mon Nov  2 11:23:36 2026    results\evidence\W2_T072_timing_20261102T081827Z\cli.pstats
+
+         1003565 function calls (946414 primitive calls) in 19.704 seconds
+
+   Ordered by: cumulative time
+   List reduced from 2565 to 45 due to restriction <45>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+    468/1    0.016    0.000   19.705   19.705 {built-in method builtins.exec}
+        1    0.000    0.000   19.705   19.705 verify_l1_specification.py:1(<module>)
+        1    0.000    0.000   15.812   15.812 verify_l1_specification.py:15(main)
+       24    0.001    0.000    7.537    0.314 __init__.py:1(<module>)
+      207    0.002    0.000    7.205    0.035 __init__.py:919(read_text)
+      209    0.001    0.000    7.197    0.034 pathlib.py:1129(read_text)
+        1    0.001    0.001    6.936    6.936 execution.py:41(__enter__)
+      593    0.001    0.000    6.865    0.012 pathlib.py:1111(open)
+      620    6.860    0.011    6.864    0.011 {built-in method io.open}
+       92    0.003    0.000    6.605    0.072 execution.py:66(save_code)
+        1    0.000    0.000    6.590    6.590 l1.py:36(validate_spec)
+        1    0.000    0.000    6.564    6.564 l1.py:31(schema)
+    445/1    0.001    0.000    6.563    6.563 l1.py:20(_annotation)
+       46    0.001    0.000    6.562    0.143 main.py:1735(create_model)
+       47    0.001    0.000    6.561    0.140 _model_construction.py:84(__new__)
+     46/1    0.000    0.000    6.558    6.558 l1.py:25(<dictcomp>)
+       99    0.003    0.000    6.382    0.064 tracking.py:88(atomic_text)
+       46    0.002    0.000    6.214    0.135 _model_construction.py:600(complete_model_class)
+       97    0.002    0.000    6.203    0.064 smoke.py:34(write_json)
+       46    0.095    0.002    6.133    0.133 _schema_validator.py:22(create_schema_validator)
+       46    0.001    0.000    6.037    0.131 _loader.py:22(get_plugins)
+      188    0.001    0.000    6.035    0.032 __init__.py:629(entry_points)
+       99    5.650    0.057    5.650    0.057 {built-in method nt.fsync}
+    263/9    0.002    0.000    4.204    0.467 <frozen importlib._bootstrap>:1022(_find_and_load)
+    262/9    0.001    0.000    4.204    0.467 <frozen importlib._bootstrap>:987(_find_and_load_unlocked)
+   256/11    0.001    0.000    4.200    0.382 <frozen importlib._bootstrap>:664(_load_unlocked)
+   228/11    0.001    0.000    4.200    0.382 <frozen importlib._bootstrap_external>:877(exec_module)
+   358/10    0.000    0.000    4.038    0.404 <frozen importlib._bootstrap>:233(_call_with_frames_removed)
+        1    0.000    0.000    3.577    3.577 l1.py:1(<module>)
+   385/21    0.001    0.000    2.524    0.120 {built-in method builtins.__import__}
+  353/118    0.001    0.000    2.479    0.021 <frozen importlib._bootstrap>:1053(_handle_fromlist)
+      228    0.003    0.000    1.943    0.009 <frozen importlib._bootstrap_external>:950(get_code)
+      228    0.001    0.000    1.904    0.008 <frozen importlib._bootstrap_external>:1070(get_data)
+      684    1.801    0.003    1.801    0.003 {method '__exit__' of '_io._IOBase' objects}
+        1    0.000    0.000    1.241    1.241 execution.py:21(__init__)
+        1    0.000    0.000    1.240    1.240 smoke.py:38(environment)
+       20    0.000    0.000    1.228    0.061 __init__.py:977(version)
+       19    0.000    0.000    1.210    0.064 __init__.py:624(version)
+       19    0.000    0.000    1.210    0.064 __init__.py:597(metadata)
+       94    0.001    0.000    1.028    0.011 pathlib.py:1137(write_bytes)
+        1    0.000    0.000    0.942    0.942 _index_tricks_impl.py:1(<module>)
+      516    0.941    0.002    0.941    0.002 {method 'read' of '_io.BufferedReader' objects}
+        1    0.000    0.000    0.912    0.912 __config__.py:1(<module>)
+        1    0.000    0.000    0.860    0.860 defmatrix.py:1(<module>)
+  256/248    0.001    0.000    0.821    0.003 <frozen importlib._bootstrap>:564(module_from_spec)
+
+

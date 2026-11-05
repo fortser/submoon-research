@@ -1,0 +1,241 @@
+ M AGENTS.md
+ M DECISIONS.md
+ M PLAN.md
+ M STATE.md
+ D commit_snapshot_20261013.bat
+ M configs/compute/vast_radar.yaml
+ M docs/compute/interesting_stations.md
+ M docs/compute/trial_rental_approval.md
+ M docs/compute/vast_radar_guide.md
+ M docs/compute_policy.md
+ M docs/context/project_overview.md
+ M docs/tasks/W2_roadmap_to_W1_v1.md
+ D monitor_p2_2a.bat
+ M pyproject.toml
+ M results/evidence/claims.csv
+ D run_S0-T006_checks.bat
+ D run_W2-C067_checks.bat
+ D run_W2-D036_checks.bat
+ D run_W2-I022_checks.bat
+ D run_W2-I035_diag.bat
+ D run_W2-T014_checks_WSL.bat
+ D run_W2-T015_checks_WSL.bat
+ D run_W2-T016_checks_WSL.bat
+ D run_W2-T017_account.bat
+ D run_W2-T017_account2.bat
+ D run_W2-T017_checks.bat
+ D run_W2-T017_live.bat
+ D run_W2-T017_live3.bat
+ D run_W2-T017_live4.bat
+ D run_W2-T017_probe.bat
+ D run_W2-T017_probe2.bat
+ D run_W2-T017_probe3.bat
+ D run_W2-T017_sweep.bat
+ D run_W2-T019_checks.bat
+ M scripts/vast_p2.py
+ M src/submoon_research/compute/radar.py
+ M src/submoon_research/dynamics/engine_compare.py
+ M tests/unit/test_vast_p2_2a.py
+ M tests/unit/test_vast_p2_rerun.py
+ M tests/unit/test_vast_radar.py
+ M tracking/index.json
+ M tracking/runtime.json
+ M tracking/stages/S0/RECORDS.md
+ M tracking/stages/S0/SUMMARY.md
+ M tracking/stages/S0/journal.jsonl
+ M tracking/stages/W2/RECORDS.md
+ M tracking/stages/W2/SUMMARY.md
+ M tracking/stages/W2/journal.jsonl
+?? configs/experiments/W2_phase3_convergence_v1.yaml
+?? data/manifests/W2_B144_reference_v1.json
+?? data/manifests/W2_phase3_cases_v1.json
+?? docs/compute/W2_B144_approval_draft.json
+?? docs/compute/W2_B144_rental_plan_v1.md
+?? docs/compute/fast_trial_policy.md
+?? docs/compute/hardware_signal.example.json
+?? docs/compute/hardware_trial_guide.md
+?? docs/handoffs/W2_T072_start_clean_chat_20261101.md
+?? docs/handoffs/W2_next_after_F1F2_20261101.md
+?? docs/handoffs/W2_resume_20261026.md
+?? docs/handoffs/W2_resume_20261028.md
+?? docs/handoffs/W2_resume_20261030.md
+?? docs/handoffs/W2_resume_20261030_warning_worker.md
+?? docs/tasks/W2_B144_operator_task.md
+?? docs/tasks/W2_T065_input_layer_20261030.md
+?? docs/tasks/W2_T065_phase3_analysis_v2_proposal.md
+?? docs/tasks/W2_T069_warning_contract_v1.md
+?? docs/tasks/W2_T071_scientific_audit_20261031.md
+?? docs/tasks/W2_T072_pytest_timeout_medium_model_20261101.md
+?? docs/tasks/W2_fast_hardware_executor.md
+?? docs/tasks/W2_phase3_convergence_plan_v1.md
+?? old_temp_files/commit_snapshot_20261013.bat
+?? old_temp_files/monitor_p2_2a.bat
+?? old_temp_files/run_S0-T006_checks.bat
+?? old_temp_files/run_W2-C067_checks.bat
+?? old_temp_files/run_W2-D036_checks.bat
+?? old_temp_files/run_W2-I022_checks.bat
+?? old_temp_files/run_W2-I035_diag.bat
+?? old_temp_files/run_W2-P012_memory.bat
+?? old_temp_files/run_W2-P014_cmframe.bat
+?? old_temp_files/run_W2-P014_regress_1000.bat
+?? old_temp_files/run_W2-T014_checks_WSL.bat
+?? old_temp_files/run_W2-T015_checks_WSL.bat
+?? old_temp_files/run_W2-T016_checks_WSL.bat
+?? old_temp_files/run_W2-T017_account.bat
+?? old_temp_files/run_W2-T017_account2.bat
+?? old_temp_files/run_W2-T017_checks.bat
+?? old_temp_files/run_W2-T017_live.bat
+?? old_temp_files/run_W2-T017_live3.bat
+?? old_temp_files/run_W2-T017_live4.bat
+?? old_temp_files/run_W2-T017_probe.bat
+?? old_temp_files/run_W2-T017_probe2.bat
+?? old_temp_files/run_W2-T017_probe3.bat
+?? old_temp_files/run_W2-T017_sweep.bat
+?? old_temp_files/run_W2-T019_checks.bat
+?? old_temp_files/run_W2-T043_checks.bat
+?? old_temp_files/run_W2-T049_checks.bat
+?? old_temp_files/run_W2-T050_checks.bat
+?? old_temp_files/run_W2-T050_recheck.bat
+?? reports/analysis/W2_B144_57496493_result_20261024.md
+?? reports/analysis/W2_B144_scientific_review_20261024.md
+?? reports/analysis/W2_B_cmframe_20261020.md
+?? reports/analysis/W2_B_cmstart_20261020.md
+?? reports/analysis/W2_B_memory_20261020.md
+?? reports/analysis/W2_B_regress_20261020.md
+?? reports/analysis/W2_T065_independent_review_20261030.md
+?? reports/analysis/W2_T065_independent_review_final_20261030.md
+?? reports/analysis/W2_T065_independent_review_followup_20261030.md
+?? reports/analysis/W2_T065_v1_v2_retrospective_20261030.md
+?? reports/analysis/W2_T066_quality_review_20261030.md
+?? reports/analysis/W2_T067_k2_targeted_20261030.md
+?? reports/analysis/W2_T067_wsl_correction_20261030.md
+?? reports/analysis/W2_T068_ias15_warning_20261030.md
+?? reports/analysis/W2_T070_F1F2_20261101.md
+?? reports/analysis/W2_T070_independent_review_20261030.md
+?? reports/analysis/W2_T070_worker_review_20261031.md
+?? reports/analysis/W2_T071_scientific_audit_20261101.md
+?? reports/analysis/W2_T072_C120_20261101T095152Z.md
+?? reports/analysis/W2_T072_WSL_safety_design_20261101.md
+?? reports/analysis/W2_T072_bash_resolution_20261101.md
+?? reports/analysis/W2_T072_benign_process_trace_20261101.md
+?? reports/analysis/W2_T072_owned_launcher_20261101.md
+?? reports/analysis/W2_T072_process_attribution_20261101.md
+?? reports/analysis/W2_T072_synthetic_watchdog_20261101.md
+?? reports/analysis/W2_phase3_audit_20261030.md
+?? reports/analysis/W2_session_report_20261020.md
+?? reports/analysis/W2_session_report_20261020_independent_audit.md
+?? reports/operations/W2_B144_57496493_start_20261024.md
+?? reports/operations/W2_fast_trial_policy_20261023.md
+?? reports/operations/W2_station_reuse_assessment_20261024.md
+?? results/evidence/W2_B144_57496493_analysis_v1/
+?? results/evidence/W2_B144_57496493_live_20261024T1047.json
+?? results/evidence/W2_B144_57496493_live_20261024T141800Z.json
+?? results/evidence/W2_B144_57496493_progress_20261024T1046.json
+?? results/evidence/W2_B144_57496493_start/
+?? results/evidence/W2_B144_scientific_20261024/
+?? results/evidence/W2_B_cmframe_20261020/
+?? results/evidence/W2_B_cmstart_20261020/
+?? results/evidence/W2_B_memory_20261020/
+?? results/evidence/W2_B_regress_20261020/
+?? results/evidence/W2_B_version_20261021/
+?? results/evidence/W2_T051_hardware_7995wx_20261021/
+?? results/evidence/W2_T051_hardware_7995wx_20261021_repeat/
+?? results/evidence/W2_T053_hardware_7995wx_20261021/
+?? results/evidence/W2_T054_hardware_9975wx_20261023/
+?? results/evidence/W2_T056_fast_executor_20261023/
+?? results/evidence/W2_T057_final_instances.json
+?? results/evidence/W2_T057_readonly_gate_comparison.json
+?? results/evidence/W2_T058_radar_recheck/
+?? results/evidence/W2_T065_comparison_checks_20261030/
+?? results/evidence/W2_T065_input_20261030/
+?? results/evidence/W2_T065_review_20261030/
+?? results/evidence/W2_T065_review_final_20261030/
+?? results/evidence/W2_T065_review_followup_20261030/
+?? results/evidence/W2_T065_v1_v2_20261030_v1/
+?? results/evidence/W2_T066_quality_20261030/
+?? results/evidence/W2_T067_k2_20261030/
+?? results/evidence/W2_T067_wsl_ubuntu2404_20261030/
+?? results/evidence/W2_T068_ias15_warning_20261030/
+?? results/evidence/W2_T069_warning_policy_20261030/
+?? results/evidence/W2_T070_F1F2_20261101/
+?? results/evidence/W2_T070_warning_worker_20261030/
+?? results/evidence/W2_T070_worker_review_20261031/
+?? results/evidence/W2_T071_scientific_audit_20261031/
+?? results/evidence/W2_T072_C120_20261101T095152Z/
+?? results/evidence/W2_T072_attribution_20261101T100324Z/
+?? results/evidence/W2_T072_launcher_20261101T183114Z/
+?? results/evidence/W2_T072_resolution_20261101T183920Z/
+?? results/evidence/W2_T072_timing_20261102T081827Z/
+?? results/evidence/W2_T072_trace_20261101T095941Z/
+?? results/evidence/W2_T072_watchdog_20261101T095735Z/
+?? results/evidence/W2_full_audit_20261020/
+?? results/evidence/W2_phase3_analysis_20261028_pi/
+?? results/evidence/W2_phase3_audit_20261030/
+?? results/evidence/W2_report_receipt_20261020/
+?? run_W2-T061_P0.bat
+?? run_W2-T061_P1.bat
+?? run_W2-T061_bench.bat
+?? run_W2-T061_checks.bat
+?? scripts/analyze_b144_science.py
+?? scripts/audit_phase3_results.py
+?? scripts/audit_w2_cm_start_20261020.py
+?? scripts/audit_w2_physics_20261031.py
+?? scripts/audit_w2_quality_20261030.py
+?? scripts/audit_w2_session_20261020.py
+?? scripts/b144_regress.py
+?? scripts/check_b_numerics_unchanged.py
+?? scripts/check_phase3_review.py
+?? scripts/check_warning_f1f2_regressions.py
+?? scripts/compare_phase3_v1_v2.py
+?? scripts/demo_warning_contract_w2_t069.py
+?? scripts/diag_ias15_cm_frame.py
+?? scripts/diag_ias15_memory.py
+?? scripts/diagnose_w2_t068_circular.py
+?? scripts/diagnose_w2_t068_ias15_warning.py
+?? scripts/phase3_convergence.py
+?? scripts/regress_b_cm_start_1000.py
+?? scripts/review_k2_guard_20261030.py
+?? scripts/run_ias15_cm_frame.py
+?? scripts/run_ias15_memory_controls.py
+?? scripts/smoke_b_cm_start.py
+?? scripts/vast_hardware_probe.py
+?? scripts/vast_hardware_trial.py
+?? src/submoon_research/compute/hardware_trial.py
+?? src/submoon_research/compute/trial_transport.py
+?? src/submoon_research/diagnostics/b144_scientific.py
+?? src/submoon_research/diagnostics/convergence.py
+?? src/submoon_research/diagnostics/convergence_k2_guard_v1.py
+?? src/submoon_research/diagnostics/convergence_v2_guard.py
+?? src/submoon_research/diagnostics/ias15_cm_frame.py
+?? src/submoon_research/diagnostics/ias15_memory_controls.py
+?? src/submoon_research/diagnostics/phase3_audit.py
+?? src/submoon_research/diagnostics/phase3_v2_input.py
+?? src/submoon_research/diagnostics/physics_audit_v1.py
+?? src/submoon_research/diagnostics/w2_session_audit.py
+?? src/submoon_research/diagnostics/warning_contract_v1.py
+?? src/submoon_research/diagnostics/warning_worker_demo.py
+?? src/submoon_research/diagnostics/warning_worker_demo_v2.py
+?? tests/unit/test_b144_regress.py
+?? tests/unit/test_b144_scientific.py
+?? tests/unit/test_bash_syntax_selection.py
+?? tests/unit/test_convergence_k2_guard_v1.py
+?? tests/unit/test_hardware_trial.py
+?? tests/unit/test_ias15_cm_frame.py
+?? tests/unit/test_ias15_cm_start.py
+?? tests/unit/test_ias15_memory_controls.py
+?? tests/unit/test_phase3_audit.py
+?? tests/unit/test_phase3_compare_v1_v2.py
+?? tests/unit/test_phase3_convergence.py
+?? tests/unit/test_phase3_v2_archive_review.py
+?? tests/unit/test_phase3_v2_guard.py
+?? tests/unit/test_phase3_v2_input.py
+?? tests/unit/test_physics_audit_v1.py
+?? tests/unit/test_trial_recovery.py
+?? tests/unit/test_trial_ssh.py
+?? tests/unit/test_trial_transport.py
+?? tests/unit/test_vast_p2_b144.py
+?? tests/unit/test_w2_session_audit.py
+?? tests/unit/test_w2_t067_compiled_restart_process.py
+?? tests/unit/test_warning_contract_v1.py
+?? tests/unit/test_warning_worker_demo.py
+?? tests/unit/test_warning_worker_demo_v2.py

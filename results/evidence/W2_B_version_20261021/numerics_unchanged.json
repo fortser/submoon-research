@@ -1,0 +1,38 @@
+{
+ "task": "W2-T049",
+ "rule": "W2-T049: the B version with checkpoint implementation id (W2-I039) must not change numerics.\n\nRuns the previous engine_compare (B fingerprint 0a1e70cf, frozen copy in scratch/claude) and the\ncurrent one on identical inputs and requires bitwise-equal outputs except the checkpoint contract\nhash and timing fields. Cases: one synthetic 3-body system and three fast archived P2-2a units\n(legacy generator, accepted only on exact archived job fingerprint and initial probe).\n",
+ "old_engine_sha256": "740a933809f703cd00089ffbe7ae73b37031baefd3e9ef86bf9f747828032cee",
+ "new_engine_sha256": "f84370ea699f40fbf0576f3ebe7ba76840b8eed5b8e76a44f42ecdab21579437",
+ "b_implementation_new": "0f5ef90438a14a7f2e5e3ad835b32cf28e645ec89227c78f8fa784ffce2b4c64",
+ "results": {
+  "synthetic": {
+   "differing_fields": [],
+   "steps": 388,
+   "outcome": "survived",
+   "contract_old": "893a748e195573601a96ec3ea49ca40079d9e937230f96f3de2ca2361ff0e609",
+   "contract_new": "4a3a0f943a4061b9d46bbf8a04cd6bb4685d2f66696b821fe337d4a6db59632d"
+  },
+  "ganymede:uniform_log_a:0002": {
+   "years": 100.0,
+   "differing_fields": [],
+   "steps": 54,
+   "outcome": "host_contact",
+   "status": "completed"
+  },
+  "himalia:canonical_volume:0010": {
+   "years": 100.0,
+   "differing_fields": [],
+   "steps": 169,
+   "outcome": "operational_escape",
+   "status": "completed"
+  },
+  "himalia:uniform_a_e_cos_i_phases:0015": {
+   "years": 10.0,
+   "differing_fields": [],
+   "steps": 5102,
+   "outcome": "survived",
+   "status": "completed"
+  }
+ },
+ "passed": true
+}

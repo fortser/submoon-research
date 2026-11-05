@@ -1,0 +1,12 @@
+﻿{
+    "probe":  "owned_cmd_only",
+    "subscription":  "started",
+    "observed":  true,
+    "pid":  19796,
+    "parent_pid":  14960,
+    "process_name":  "cmd.exe",
+    "command_line_available":  false,
+    "error":  null,
+    "child_exited":  true,
+    "child_exitcode":  0
+}

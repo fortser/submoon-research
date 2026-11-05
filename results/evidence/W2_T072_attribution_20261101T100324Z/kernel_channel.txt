@@ -1,0 +1,13 @@
+name: Microsoft-Windows-Kernel-Process/Analytic
+enabled: false
+type: Analytic
+owningPublisher: Microsoft-Windows-Kernel-Process
+isolation: System
+channelAccess: O:BAG:SYD:(A;;0xf0007;;;SY)(A;;0x7;;;BA)(A;;0x3;;;BO)(A;;0x5;;;SO)(A;;0x1;;;IU)(A;;0x3;;;SU)(A;;0x1;;;S-1-5-3)(A;;0x2;;;S-1-5-33)(A;;0x1;;;S-1-5-32-573)
+logging:
+  logFileName: %SystemRoot%\System32\Winevt\Logs\Microsoft-Windows-Kernel-Process%4Analytic.etl
+  retention: true
+  autoBackup: false
+  maxSize: 1052672
+publishing:
+  fileMax: 1

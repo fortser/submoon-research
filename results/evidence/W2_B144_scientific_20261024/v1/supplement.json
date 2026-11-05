@@ -1,0 +1,538 @@
+{
+  "timing_case": {
+    "B": {
+      "outcome": "operational_escape",
+      "time_years": 48.81282503315671,
+      "trajectory": {
+        "common_samples": 23,
+        "last_common_years": 31.6227766016838,
+        "first_observed_crossing_years": 14.677992676220677,
+        "previous_saved_time_years": 10.000000000000002,
+        "max_dr_over_a": 0.10527822415348108,
+        "max_dv_over_na": 0.11742011191626166,
+        "max_radial_difference_over_a": 0.0059629387964769765,
+        "threshold": 1e-06,
+        "continuous_crossing_known": false
+      }
+    },
+    "D": {
+      "outcome": "operational_escape",
+      "time_years": 95.45056922126966,
+      "trajectory": {
+        "common_samples": 23,
+        "last_common_years": 31.6227766016838,
+        "first_observed_crossing_years": 6.812920690579623,
+        "previous_saved_time_years": 4.641588833612774,
+        "max_dr_over_a": 1.2369944515339861,
+        "max_dv_over_na": 1.7705767837598636,
+        "max_radial_difference_over_a": 0.05357536643393266,
+        "threshold": 1e-06,
+        "continuous_crossing_known": false
+      }
+    },
+    "T": {
+      "outcome": "operational_escape",
+      "time_years": 77.0264133065435,
+      "trajectory": {
+        "common_samples": 23,
+        "last_common_years": 31.6227766016838,
+        "first_observed_crossing_years": 21.54434690031887,
+        "previous_saved_time_years": 14.677992676220677,
+        "max_dr_over_a": 0.07973081487814337,
+        "max_dv_over_na": 0.08911274715699331,
+        "max_radial_difference_over_a": 0.004484331818098597,
+        "threshold": 1e-06,
+        "continuous_crossing_known": false
+      }
+    }
+  },
+  "contacts": [
+    {
+      "orbit_id": "himalia:uniform_log_a:0009",
+      "years": 100.0,
+      "residual_km": 8.469669410260394e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0009",
+      "years": 1000.0,
+      "residual_km": 8.469669410260394e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0000",
+      "years": 1000.0,
+      "residual_km": 7.51469997339882e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0000",
+      "years": 100.0,
+      "residual_km": 7.51469997339882e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0003",
+      "years": 1000.0,
+      "residual_km": 3.709033080667723e-12
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0003",
+      "years": 100.0,
+      "residual_km": 3.709033080667723e-12
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0010",
+      "years": 1000.0,
+      "residual_km": 4.0544989587942837e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "years": 1000.0,
+      "residual_km": 2.1407231542980298e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "years": 100.0,
+      "residual_km": 2.1407231542980298e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0012",
+      "years": 1000.0,
+      "residual_km": 2.66837218987348e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0007",
+      "years": 1000.0,
+      "residual_km": 2.8336444302112795e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0007",
+      "years": 100.0,
+      "residual_km": 2.8336444302112795e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0014",
+      "years": 100.0,
+      "residual_km": 2.8990143619012088e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0014",
+      "years": 1000.0,
+      "residual_km": 2.8990143619012088e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "years": 100.0,
+      "residual_km": 1.9952040020143613e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "years": 1000.0,
+      "residual_km": 1.9952040020143613e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0004",
+      "years": 1000.0,
+      "residual_km": 1.6996182239381596e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0004",
+      "years": 100.0,
+      "residual_km": 1.6996182239381596e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0007",
+      "years": 1000.0,
+      "residual_km": 1.4290435501607135e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0007",
+      "years": 100.0,
+      "residual_km": 1.4290435501607135e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+      "years": 1000.0,
+      "residual_km": 2.2168933355715126e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+      "years": 100.0,
+      "residual_km": 2.2168933355715126e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0006",
+      "years": 1000.0,
+      "residual_km": 7.682956493226811e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0005",
+      "years": 1000.0,
+      "residual_km": 2.304574309164309e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0005",
+      "years": 100.0,
+      "residual_km": 2.304574309164309e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0006",
+      "years": 100.0,
+      "residual_km": 7.682956493226811e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0012",
+      "years": 1000.0,
+      "residual_km": 3.501554601825774e-11
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0009",
+      "years": 1000.0,
+      "residual_km": 3.8539837987627834e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0012",
+      "years": 100.0,
+      "residual_km": 3.501554601825774e-11
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0009",
+      "years": 100.0,
+      "residual_km": 3.8539837987627834e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0002",
+      "years": 100.0,
+      "residual_km": 1.2732925824820995e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "years": 100.0,
+      "residual_km": 1.064108801074326e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0013",
+      "years": 100.0,
+      "residual_km": 7.73070496506989e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0013",
+      "years": 1000.0,
+      "residual_km": 7.73070496506989e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0007",
+      "years": 1000.0,
+      "residual_km": 3.128661774098873e-10
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0002",
+      "years": 1000.0,
+      "residual_km": 1.2732925824820995e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "years": 1000.0,
+      "residual_km": 1.064108801074326e-10
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+      "years": 1000.0,
+      "residual_km": 9.312373094871873e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+      "years": 100.0,
+      "residual_km": 9.312373094871873e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0011",
+      "years": 1000.0,
+      "residual_km": 5.120170953887282e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+      "years": 100.0,
+      "residual_km": 1.5279510989785194e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+      "years": 1000.0,
+      "residual_km": 1.5279510989785194e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0010",
+      "years": 1000.0,
+      "residual_km": 5.4569682106375694e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0007",
+      "years": 100.0,
+      "residual_km": 3.128661774098873e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0010",
+      "years": 100.0,
+      "residual_km": 5.4569682106375694e-12
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0001",
+      "years": 100.0,
+      "residual_km": 5.101696842757519e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+      "years": 1000.0,
+      "residual_km": 6.366462912410498e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0011",
+      "years": 100.0,
+      "residual_km": 5.120170953887282e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0006",
+      "years": 1000.0,
+      "residual_km": 6.366462912410498e-12
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0000",
+      "years": 100.0,
+      "residual_km": 1.184616849059239e-10
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0001",
+      "years": 1000.0,
+      "residual_km": 6.775735528208315e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0015",
+      "years": 1000.0,
+      "residual_km": 1.2166765372967348e-09
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0015",
+      "years": 100.0,
+      "residual_km": 1.2166765372967348e-09
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+      "years": 100.0,
+      "residual_km": 6.366462912410498e-11
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0000",
+      "years": 1000.0,
+      "residual_km": 1.184616849059239e-10
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0010",
+      "years": 1000.0,
+      "residual_km": 2.467004378559068e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0006",
+      "years": 100.0,
+      "residual_km": 6.366462912410498e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+      "years": 1000.0,
+      "residual_km": 4.001776687800884e-11
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0010",
+      "years": 100.0,
+      "residual_km": 2.467004378559068e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0009",
+      "years": 1000.0,
+      "residual_km": 6.775735528208315e-11
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0014",
+      "years": 1000.0,
+      "residual_km": 3.679190285765799e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0001",
+      "years": 100.0,
+      "residual_km": 6.775735528208315e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0003",
+      "years": 1000.0,
+      "residual_km": 1.3812950783176348e-10
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0014",
+      "years": 100.0,
+      "residual_km": 3.679190285765799e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0003",
+      "years": 100.0,
+      "residual_km": 1.3812950783176348e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+      "years": 1000.0,
+      "residual_km": 1.1459633242338896e-10
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+      "years": 100.0,
+      "residual_km": 1.1459633242338896e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+      "years": 100.0,
+      "residual_km": 4.001776687800884e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0006",
+      "years": 1000.0,
+      "residual_km": 7.275957614183426e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0009",
+      "years": 100.0,
+      "residual_km": 6.775735528208315e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0011",
+      "years": 1000.0,
+      "residual_km": 9.958966984413564e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+      "years": 100.0,
+      "residual_km": 2.9103830456733704e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0006",
+      "years": 100.0,
+      "residual_km": 7.275957614183426e-12
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+      "years": 1000.0,
+      "residual_km": 2.9103830456733704e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0000",
+      "years": 100.0,
+      "residual_km": 2.205524651799351e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0000",
+      "years": 1000.0,
+      "residual_km": 2.205524651799351e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0008",
+      "years": 1000.0,
+      "residual_km": 2.637534635141492e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0009",
+      "years": 1000.0,
+      "residual_km": 3.774403012357652e-11
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0011",
+      "years": 100.0,
+      "residual_km": 9.958966984413564e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+      "years": 100.0,
+      "residual_km": 4.297362465877086e-11
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0008",
+      "years": 1000.0,
+      "residual_km": 1.0845724318642169e-10
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0011",
+      "years": 1000.0,
+      "residual_km": 4.092726157978177e-12
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+      "years": 1000.0,
+      "residual_km": 4.297362465877086e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0011",
+      "years": 100.0,
+      "residual_km": 4.092726157978177e-12
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0008",
+      "years": 100.0,
+      "residual_km": 1.0845724318642169e-10
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0008",
+      "years": 100.0,
+      "residual_km": 2.637534635141492e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0009",
+      "years": 100.0,
+      "residual_km": 3.774403012357652e-11
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0004",
+      "years": 100.0,
+      "residual_km": 9.094947017729282e-13
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0004",
+      "years": 1000.0,
+      "residual_km": 9.094947017729282e-13
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+      "years": 1000.0,
+      "residual_km": 6.821210263296962e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+      "years": 100.0,
+      "residual_km": 6.821210263296962e-12
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0002",
+      "years": 1000.0,
+      "residual_km": 9.094947017729282e-13
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0002",
+      "years": 100.0,
+      "residual_km": 9.094947017729282e-13
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0001",
+      "years": 1000.0,
+      "residual_km": 5.101696842757519e-12
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0002",
+      "years": 1000.0,
+      "residual_km": 5.405809133662842e-11
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "years": 1000.0,
+      "residual_km": 1.5913315110083204e-10
+    }
+  ],
+  "max_contact_residual_km": 1.2166765372967348e-09,
+  "high_e_six_units_B1000_wall_s": 552.9311642232351,
+  "high_e_six_units_B1000_outcomes": {
+    "survived": 2,
+    "host_contact": 2,
+    "operational_escape": 2
+  }
+}

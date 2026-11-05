@@ -1,0 +1,14 @@
+{
+  "stage_revision": 616,
+  "final_ruff_exit": 0,
+  "final_validate_exit": 0,
+  "diff_check_note": "Default git whitespace treats CRLF as trailing whitespace in claims.csv including previous rows; cr-at-eol check passes. Existing line endings preserved.",
+  "sha256": {
+    "results/evidence/claims.csv": "9a2072dac4c6cfbbcf710f9f68e71b69711c001ad48da421c58000fedd03f438",
+    "tracking/stages/W2/SUMMARY.md": "58ca8b55293e5e038e430e5a182c6e5e9c06624d97435515a95b1e3444e10e99",
+    "scripts/audit_w2_quality_20261030.py": "ca0f1133a76de0cfd70ad4d6a2c1e7db009786182cd9902fcbff3d59793f53f1",
+    "results/evidence/W2_T066_quality_20261030/final_ruff.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_T066_quality_20261030/final_validate.txt": "9903adff1491c78a373c6db6634f38d57d74473466609aeefbc612a52a49e9e1",
+    "results/evidence/W2_T066_quality_20261030/diff_check_crlf.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

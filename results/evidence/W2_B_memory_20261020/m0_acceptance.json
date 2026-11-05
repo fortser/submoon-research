@@ -1,0 +1,12 @@
+{
+ "checks": {
+  "accepted_count": true,
+  "status_guard": true,
+  "records_exact": true,
+  "failure_exact": true
+ },
+ "passed": true,
+ "first_mismatch_step": null,
+ "m0_sha256": "812f6ce83191b2afd3a963fe3e4b641580553617c8823a16f1a25ccb385c748f",
+ "reference_sha256": "fd3d85242b86559780fe433d326e7b462d474fbd81d18518049d3a14de71af12"
+}

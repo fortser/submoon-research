@@ -1,0 +1,17 @@
+{
+  "schema": "w2-t065-input-check-v1",
+  "audit_path": "results/evidence/W2_phase3_audit_20261030/v1/audit.json",
+  "audit_sha256": "0febe080e713cca4ea7cd6530beb46b7a89aa3f3fcff9b6bb17d69769e236150",
+  "inventory_sha256": "4d064711745f5a1f279ae68155e4f2fb4b674cadbdce7e6d5cc53a9d3c64b833",
+  "rows": 439,
+  "cases": 16,
+  "with_b": 13,
+  "python": "3.10.6",
+  "files": {
+    "src/submoon_research/diagnostics/phase3_v2_input.py": "e9e5cd695058704baddb84e12562dea5de49f3caf345790dd6f4f49ba81c858f",
+    "src/submoon_research/diagnostics/phase3_audit.py": "996f4c6a9cee92138b92a52e1a0ca61e830ab3d8f0feea5475ac90a9118abbed",
+    "tests/unit/test_phase3_v2_input.py": "2aac6feb664b4a5cfadb11c00c7dbadc4b342e3189be74df28e72af47a047fe4",
+    "docs/tasks/W2_T065_input_layer_20261030.md": "fda5f0b33535fe8bfe3177121f2ad2ae332740c0f33159a2f4b5f71be03038de"
+  },
+  "note": "Только read-only проверка входов, научный классификатор не запускался."
+}

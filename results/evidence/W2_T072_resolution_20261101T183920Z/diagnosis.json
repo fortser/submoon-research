@@ -1,0 +1,335 @@
+{
+  "status": "scoped_lookup_fix_passed_full_pytest_inconclusive",
+  "check_ids": [
+    "W2-C124",
+    "W2-C125"
+  ],
+  "changed_existing_inputs": [
+    "tests/unit/test_vast_p2_2a.py",
+    "tests/unit/test_vast_p2_b144.py",
+    "tests/unit/test_vast_p2_rerun.py"
+  ],
+  "full_pytest": {
+    "attempt_id": "full",
+    "argv": [
+      "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe",
+      "-m",
+      "pytest",
+      "-vv",
+      "-rA",
+      "--tb=long",
+      "--durations=30"
+    ],
+    "cwd": "T:\\test_python\\submoon-research",
+    "utc": "2026-11-01T18:42:21.324594+00:00",
+    "timeout_seconds": 180.0,
+    "prior_budget_reserve_seconds": 180,
+    "elapsed_seconds": 180.15699999999924,
+    "returncode": 15,
+    "timed_out": true,
+    "stop_reason": "timeout",
+    "root_pid": 3476,
+    "peak_observed_rss_bytes": 529195008,
+    "observed_processes": [
+      {
+        "pid": 3476,
+        "created": 1793558541.3258576,
+        "ppid": 15616,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 15812,
+        "created": 1793558541.3305285,
+        "ppid": 3476,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 6880,
+        "created": 1793558558.564826,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 14420,
+        "created": 1793558558.568564,
+        "ppid": 6880,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 15864,
+        "created": 1793558565.6458251,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 11204,
+        "created": 1793558565.6493273,
+        "ppid": 15864,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 16256,
+        "created": 1793558572.5904918,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 14564,
+        "created": 1793558572.594309,
+        "ppid": 16256,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 16180,
+        "created": 1793558579.952196,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 4700,
+        "created": 1793558579.956072,
+        "ppid": 16180,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 8392,
+        "created": 1793558587.2544131,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 3736,
+        "created": 1793558587.2581506,
+        "ppid": 8392,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 15748,
+        "created": 1793558594.6162205,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 8884,
+        "created": 1793558594.6199937,
+        "ppid": 15748,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 15976,
+        "created": 1793558602.3536375,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 6920,
+        "created": 1793558602.3573482,
+        "ppid": 15976,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 12908,
+        "created": 1793558610.0299213,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 15504,
+        "created": 1793558610.0335417,
+        "ppid": 12908,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 8880,
+        "created": 1793558618.3275328,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 15932,
+        "created": 1793558618.3311293,
+        "ppid": 8880,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 1432,
+        "created": 1793558626.0538075,
+        "ppid": 15932,
+        "name": "git.exe",
+        "exe": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
+      },
+      {
+        "pid": 15668,
+        "created": 1793558626.5189712,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 2832,
+        "created": 1793558626.5232856,
+        "ppid": 15668,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 10564,
+        "created": 1793558634.3280685,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 16176,
+        "created": 1793558634.3317504,
+        "ppid": 10564,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 2592,
+        "created": 1793558644.0054896,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 8688,
+        "created": 1793558644.0090494,
+        "ppid": 2592,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 15576,
+        "created": 1793558652.4378445,
+        "ppid": 8688,
+        "name": "git.exe",
+        "exe": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
+      },
+      {
+        "pid": 3584,
+        "created": 1793558652.9133048,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 4120,
+        "created": 1793558652.9171584,
+        "ppid": 3584,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 2644,
+        "created": 1793558662.090381,
+        "ppid": 4120,
+        "name": "git.exe",
+        "exe": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
+      },
+      {
+        "pid": 15236,
+        "created": 1793558662.578349,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 9476,
+        "created": 1793558662.5820184,
+        "ppid": 15236,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 6880,
+        "created": 1793558672.7144303,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 16140,
+        "created": 1793558672.7180219,
+        "ppid": 6880,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 7216,
+        "created": 1793558680.5734773,
+        "ppid": 16140,
+        "name": "git.exe",
+        "exe": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
+      },
+      {
+        "pid": 7916,
+        "created": 1793558689.5053606,
+        "ppid": 15812,
+        "name": "git.exe",
+        "exe": "C:\\Program Files\\Git\\mingw64\\bin\\git.exe"
+      },
+      {
+        "pid": 16244,
+        "created": 1793558702.257743,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 16192,
+        "created": 1793558702.2613995,
+        "ppid": 16244,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      },
+      {
+        "pid": 13224,
+        "created": 1793558704.7256637,
+        "ppid": 15812,
+        "name": "python.exe",
+        "exe": "T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe"
+      },
+      {
+        "pid": 14520,
+        "created": 1793558704.7292712,
+        "ppid": 13224,
+        "name": "python.exe",
+        "exe": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\python.exe"
+      }
+    ],
+    "observed_survivors": [],
+    "cleanup_scope": "наблюдаемые Windows identity; не общая гарантия всех потомков",
+    "stdout_path": "full.stdout.txt",
+    "stderr_path": "full.stderr.txt"
+  },
+  "measured_windows_subprocess_seconds": 223.68800000000556,
+  "measured_wsl_seconds": 7.875,
+  "prior_unmeasured_reserve_seconds": 180,
+  "limitations": [
+    "Исторические argv/дистрибутив не восстановлены.",
+    "Полный pytest не завершён.",
+    "Polling не даёт полного охвата всех потомков."
+  ]
+}

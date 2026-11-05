@@ -1,0 +1,78 @@
+FF                                                                       [100%]
+================================== FAILURES ===================================
+_____________ test_verified_document_is_the_hashed_snapshot[True] _____________
+
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-429/test_verified_document_is_the_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002742A6BBFD0>
+warnings_first = True
+
+    @pytest.mark.parametrize('warnings_first', [True, False])
+    def test_verified_document_is_the_hashed_snapshot(tmp_path, monkeypatch, warnings_first):
+        first = checkpoint([event()] if warnings_first else [])
+        second = checkpoint([] if warnings_first else [event()])
+        raw, replacement = demo.encode(first), demo.encode(second)
+        cp = tmp_path / 'checkpoint.json'
+        cp.write_bytes(raw)
+        reads, original = replace_after_read(monkeypatch, cp, replacement)
+>       doc = demo.verify_checkpoint(cp, demo.sha(raw), CONTRACT)
+
+tests\unit\test_warning_worker_demo_v2.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<in-memory-F2-mutation>:5: in verify_checkpoint
+    ???
+src\submoon_research\diagnostics\warning_worker_demo_v2.py:47: in read_json
+    return parse_json(path.read_bytes())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-429/test_verified_document_is_the_0/checkpoint.json')
+
+    def read(path):
+        raw = original(path)
+        if path == target:
+            reads.append(raw)
+>           assert len(reads) == 1, 'checkpoint must be read once per verification'
+E           AssertionError: checkpoint must be read once per verification
+E           assert 2 == 1
+E            +  where 2 = len([b'{"capture_complete":true,"contract":"demo-f1f2-fingerprint","events":[{"category":"RuntimeWarning","filename":"synt...:[],"overflow":false,"physical_state":{"synthetic_time":1.0},"schema":"W2-warning-worker-demo-v2","status":"partial"}'])
+
+tests\unit\test_warning_worker_demo_v2.py:150: AssertionError
+____________ test_verified_document_is_the_hashed_snapshot[False] _____________
+
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-429/test_verified_document_is_the_1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002742A28ADA0>
+warnings_first = False
+
+    @pytest.mark.parametrize('warnings_first', [True, False])
+    def test_verified_document_is_the_hashed_snapshot(tmp_path, monkeypatch, warnings_first):
+        first = checkpoint([event()] if warnings_first else [])
+        second = checkpoint([] if warnings_first else [event()])
+        raw, replacement = demo.encode(first), demo.encode(second)
+        cp = tmp_path / 'checkpoint.json'
+        cp.write_bytes(raw)
+        reads, original = replace_after_read(monkeypatch, cp, replacement)
+>       doc = demo.verify_checkpoint(cp, demo.sha(raw), CONTRACT)
+
+tests\unit\test_warning_worker_demo_v2.py:166: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<in-memory-F2-mutation>:5: in verify_checkpoint
+    ???
+src\submoon_research\diagnostics\warning_worker_demo_v2.py:47: in read_json
+    return parse_json(path.read_bytes())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-429/test_verified_document_is_the_1/checkpoint.json')
+
+    def read(path):
+        raw = original(path)
+        if path == target:
+            reads.append(raw)
+>           assert len(reads) == 1, 'checkpoint must be read once per verification'
+E           AssertionError: checkpoint must be read once per verification
+E           assert 2 == 1
+E            +  where 2 = len([b'{"capture_complete":true,"contract":"demo-f1f2-fingerprint","events":[],"overflow":false,"physical_state":{"synthet..."}],"overflow":false,"physical_state":{"synthetic_time":1.0},"schema":"W2-warning-worker-demo-v2","status":"partial"}'])
+
+tests\unit\test_warning_worker_demo_v2.py:150: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_warning_worker_demo_v2.py::test_verified_document_is_the_hashed_snapshot[True]
+FAILED tests/unit/test_warning_worker_demo_v2.py::test_verified_document_is_the_hashed_snapshot[False]
+2 failed, 52 deselected in 0.25s

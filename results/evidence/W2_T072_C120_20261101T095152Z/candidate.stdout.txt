@@ -1,0 +1,18 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.1.1, pluggy-1.6.0 -- T:\test_python\submoon-research\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: T:\test_python\submoon-research
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 1 item
+
+tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands PASSED [100%]
+
+=================================== PASSES ====================================
+============================ slowest 10 durations =============================
+2.33s call     tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+0.00s teardown tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+0.00s setup    tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+=========================== short test summary info ===========================
+PASSED tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+============================== 1 passed in 2.46s ==============================

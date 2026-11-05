@@ -1,0 +1,438 @@
+scripts\acquire_geometric_states.py-98-            "import json,sys,platform,importlib.metadata as m; print(json.dumps(dict(python=sys.version,platform=platform.platform(),packages={k:m.version(k) for k in ['astrobridge','astropy','requests','jsonschema']})))"],
+scripts\acquire_geometric_states.py-99-            env=env, text=True, encoding="utf-8", capture_output=True, check=True, timeout=10)
+scripts\acquire_geometric_states.py-100-        manifest["astrobridge_environment"] = json.loads(probe.stdout)
+scripts\acquire_geometric_states.py:101:        manifest["astrobridge_code_sha256"] = {p.relative_to(bridge_root).as_posix(): sha256(p)
+scripts\acquire_geometric_states.py-102-            for p in sorted((bridge_root / "src/astrobridge").rglob("*.py"))}
+scripts\acquire_geometric_states.py-103-        schema_check = run.subprocess([str(python), "-X", "utf8", "-c",
+scripts\acquire_geometric_states.py-104-            "import json,sys; from jsonschema import Draft202012Validator; d=json.load(sys.stdin); v=Draft202012Validator(d['schema']); [v.validate(j['request']) for j in d['jobs']]; print(json.dumps(dict(status='passed',queries=len(d['jobs']))))"],
+--
+scripts\acquire_planetary_alignment.py-83-                str(workspace),
+scripts\acquire_planetary_alignment.py-84-                "--quiet",
+scripts\acquire_planetary_alignment.py-85-            ]
+scripts\acquire_planetary_alignment.py:86:            run.manifest["astrobridge_code_sha256"] = {
+scripts\acquire_planetary_alignment.py-87-                p.relative_to(bridge).as_posix(): sha256(p)
+scripts\acquire_planetary_alignment.py-88-                for p in (bridge / "src/astrobridge").rglob("*.py")
+scripts\acquire_planetary_alignment.py-89-            }
+--
+scripts\audit_phase3_results.py-26-    result: dict[str, Any] = audit(ROOT)
+scripts\audit_phase3_results.py-27-    result['utc'] = datetime.now(timezone.utc).isoformat()
+scripts\audit_phase3_results.py-28-    result['environment'] = dict(python=platform.python_version(), platform=platform.platform())
+scripts\audit_phase3_results.py:29:    result['audit_code_sha256'] = {p: sha(ROOT / p) for p in (
+scripts\audit_phase3_results.py-30-        'scripts/audit_phase3_results.py', 'src/submoon_research/diagnostics/phase3_audit.py')}
+scripts\audit_phase3_results.py-31-    out.mkdir(parents=True, exist_ok=False)
+scripts\audit_phase3_results.py-32-    (out / 'audit.json').write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False), encoding='utf-8')
+--
+scripts\b144_regress.py-187-                    scientific=scientific, reference_sha256=reference_sha,
+scripts\b144_regress.py-188-                    units_file_sha256=file_digest(run_dir/'units.json'), units_sha256=units_digest(units),
+scripts\b144_regress.py-189-                    b_implementation=new_b, archived_implementations=reference['implementations'],
+scripts\b144_regress.py:190:                    plan=[dict(orbit_id=o, years=y) for o, y in plan], code_sha256=code_hashes(),
+scripts\b144_regress.py-191-                    environment=environment(),
+scripts\b144_regress.py-192-                    limits=dict(cpu_per_worker=1, small_step_fraction=SMALL_STEP_FRACTION, ramp_steps=RAMP_STEPS,
+scripts\b144_regress.py-193-                                coordinate_every=COORDINATE_EVERY))
+--
+scripts\b144_regress.py-382-
+scripts\b144_regress.py-383-def run(run_dir, manifest_sha, deadline_utc, stop_file, workers):
+scripts\b144_regress.py-384-    manifest = load_manifest(run_dir, manifest_sha)
+scripts\b144_regress.py:385:    if (manifest['code_sha256'] != code_hashes()
+scripts\b144_regress.py-386-            or engine_compare.b_implementation_fingerprint() != manifest['b_implementation']):
+scripts\b144_regress.py-387-        raise ValueError('Code or B implementation changed after the manifest')
+scripts\b144_regress.py-388-    jobs_file = run_dir/'jobs.jsonl'
+--
+scripts\capture_b_local_once.py-94-    _, _, identity, checks = diag.prepare_identity(args)
+scripts\capture_b_local_once.py-95-    BASE.mkdir(parents=True, exist_ok=True)
+scripts\capture_b_local_once.py-96-    report = dict(run_id=RUN_ID, approval=APPROVAL, utc=utc(), identity=identity, preflight=checks,
+scripts\capture_b_local_once.py:97:                  environment=diag.environment(), code_sha256=code_hashes(), python=sys.executable,
+scripts\capture_b_local_once.py-98-                  affinity=sorted(os.sched_getaffinity(0)), memory_address_limit_bytes=MEMORY,
+scripts\capture_b_local_once.py-99-                  free_disk_bytes=shutil.disk_usage(ROOT).free, thread_environment=THREAD_ENV,
+scripts\capture_b_local_once.py-100-                  integration_status='not_run', scientific_admission=False)
+--
+scripts\capture_b_local_once.py-175-
+scripts\capture_b_local_once.py-176-def launch():
+scripts\capture_b_local_once.py-177-    pre = json.loads((BASE/'preflight.json').read_text(encoding='utf-8'))
+scripts\capture_b_local_once.py:178:    if pre['code_sha256'] != code_hashes() or pre['python'] != sys.executable:
+scripts\capture_b_local_once.py-179-        raise ValueError('Код/Python изменился после preflight')
+scripts\capture_b_local_once.py-180-    timeout = shutil.which('timeout')
+scripts\capture_b_local_once.py-181-    if timeout is None or shutil.disk_usage(ROOT).free < 5*1024**3:
+--
+scripts\capture_b_local_once.py-186-               sys.executable, str(Path(__file__).resolve()), '--supervise']
+scripts\capture_b_local_once.py-187-    manifest = dict(run_id=RUN_ID, approval=APPROVAL, created_utc=utc(), command=command,
+scripts\capture_b_local_once.py-188-                    diagnostic_arguments=arguments(), preflight_sha256=sha(BASE/'preflight.json'),
+scripts\capture_b_local_once.py:189:                    code_sha256=code_hashes(), environment=pre['environment'],
+scripts\capture_b_local_once.py-190-                    max_wall_seconds=5400, worker_wall_seconds=5370,
+scripts\capture_b_local_once.py-191-                    memory_bytes=MEMORY, output_bytes=OUTPUT, workers=1, retries=0,
+scripts\capture_b_local_once.py-192-                    stop_file=(ATTEMPT/'STOP').relative_to(ROOT).as_posix())
+--
+scripts\capture_b_local_once.py-213-    if args.launch:
+scripts\capture_b_local_once.py-214-        return launch()
+scripts\capture_b_local_once.py-215-    manifest = json.loads((ATTEMPT/'launch_manifest.json').read_text(encoding='utf-8'))
+scripts\capture_b_local_once.py:216:    if manifest['code_sha256'] != code_hashes():
+scripts\capture_b_local_once.py-217-        raise ValueError('Код изменился после фиксации запуска')
+scripts\capture_b_local_once.py-218-    if args.supervise:
+scripts\capture_b_local_once.py-219-        # Повторный supervisor также запрещён, независимо от worker marker.
+--
+scripts\diag_ias15_controller.py-102-    report = dict(run_id='W2-B-controller-20261019', task='W2-T037',
+scripts\diag_ias15_controller.py-103-                  identity=reference['identity'], environment=environment(),
+scripts\diag_ias15_controller.py-104-                  snapshot_sha256=SNAPSHOT_SHA, reference_sha256=REFERENCE_SHA,
+scripts\diag_ias15_controller.py:105:                  code_sha256={path.relative_to(ROOT).as_posix(): file_digest(path) for path in (
+scripts\diag_ias15_controller.py-106-                      Path(__file__), ROOT/'src/submoon_research/diagnostics/ias15_controller.py',
+scripts\diag_ias15_controller.py-107-                      ROOT/'scripts/replay_ias15_snapshot.py',
+scripts\diag_ias15_controller.py-108-                      ROOT/'data/raw/rebound_5_1_1_20261019/integrator_ias15.c')},
+--
+scripts\diag_ias15_cm_frame.py-79-                  identity=reference['identity'], environment=manifest['environment'], grid=frames['grid'],
+scripts\diag_ias15_cm_frame.py-80-                  variants=configs, predictions=PREDICTIONS,
+scripts\diag_ias15_cm_frame.py-81-                  radius_scale_km=scales['radius_scale_km'], speed_scale_km_s=scales['speed_scale_km_s'],
+scripts\diag_ias15_cm_frame.py:82:                  code_sha256=code_hashes(), max_steps=10000, wall_seconds=60., scientific_admission=False)
+scripts\diag_ias15_cm_frame.py-83-    atomic_json(directory/'inputs.json', inputs)
+scripts\diag_ias15_cm_frame.py-84-    print(file_digest(directory/'inputs.json'))
+scripts\diag_ias15_cm_frame.py-85-    return 0
+--
+scripts\diag_ias15_cm_frame.py-90-        raise ValueError('Execution requires pinned inputs SHA')
+scripts\diag_ias15_cm_frame.py-91-    inputs = read_json(directory/'inputs.json')
+scripts\diag_ias15_cm_frame.py-92-    _pinned()
+scripts\diag_ias15_cm_frame.py:93:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_cm_frame.py-94-            or inputs['identity']['B_implementation'] != replay.b_fingerprint()):
+scripts\diag_ias15_cm_frame.py-95-        raise ValueError('Inputs/environment/code identity changed')
+scripts\diag_ias15_cm_frame.py-96-    return inputs
+--
+scripts\diag_ias15_cm_frame.py-103-        handle.write(inputs_sha+'\n')
+scripts\diag_ias15_cm_frame.py-104-    result = run_cm(inputs['variants'][variant], inputs['identity'], inputs['grid'],
+scripts\diag_ias15_cm_frame.py-105-                    wall_seconds=inputs['wall_seconds'], max_steps=inputs['max_steps'])
+scripts\diag_ias15_cm_frame.py:106:    result.update(run_id=RUN_ID+'-'+variant, inputs_sha256=inputs_sha, code_sha256=inputs['code_sha256'],
+scripts\diag_ias15_cm_frame.py-107-                  environment=environment())
+scripts\diag_ias15_cm_frame.py-108-    atomic_json(output, result)
+scripts\diag_ias15_cm_frame.py-109-    print({k: result[k] for k in ('variant', 'status', 'attempts', 'accepted_steps',
+--
+scripts\freeze_p2_inputs.py-63-    params = stand.normalize_params(args.per_cell, args.b_per_cell, args.unit_start, args.years, args.b_years)
+scripts\freeze_p2_inputs.py-64-    provenance = dict(kind='generated', python=platform.python_version(),
+scripts\freeze_p2_inputs.py-65-                      packages={n: importlib.metadata.version(n) for n in ('numpy', 'scipy')},
+scripts\freeze_p2_inputs.py:66:                      code_sha256={n: file_digest(ROOT/n) for n in (
+scripts\freeze_p2_inputs.py-67-                          'scripts/freeze_p2_inputs.py', 'scripts/admission_p2_2.py',
+scripts\freeze_p2_inputs.py-68-                          'src/submoon_research/sampling/design.py',
+scripts\freeze_p2_inputs.py-69-                          'src/submoon_research/dynamics/initialization.py',
+--
+scripts\diag_ias15_frames.py-47-    inputs = dict(run_id='W2-B-frames-20261019', task='W2-T038', snapshot_sha256=SNAPSHOT_SHA,
+scripts\diag_ias15_frames.py-48-                  reference_sha256=REFERENCE_SHA, identity=reference['identity'],
+scripts\diag_ias15_frames.py-49-                  environment=manifest['environment'], variants=variants, grid=grid,
+scripts\diag_ias15_frames.py:50:                  code_sha256=code_hashes(), physical_source_sha256=file_digest(SNAPSHOT.parent/'physical.json'),
+scripts\diag_ias15_frames.py-51-                  max_steps=10000, wall_seconds=60., scientific_admission=False)
+scripts\diag_ias15_frames.py-52-    atomic_json(directory/'inputs.json', inputs)
+scripts\diag_ias15_frames.py-53-    print(file_digest(directory/'inputs.json'))
+--
+scripts\diag_ias15_frames.py-84-    if not args.variant or not args.inputs_sha256 or file_digest(directory/'inputs.json') != args.inputs_sha256:
+scripts\diag_ias15_frames.py-85-        raise ValueError('Execution requires pinned inputs SHA')
+scripts\diag_ias15_frames.py-86-    inputs = read_json(directory/'inputs.json')
+scripts\diag_ias15_frames.py:87:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_frames.py-88-            or file_digest(REFERENCE) != REFERENCE_SHA or file_digest(SNAPSHOT) != SNAPSHOT_SHA
+scripts\diag_ias15_frames.py-89-            or inputs['identity']['B_implementation'] != replay.b_fingerprint()):
+scripts\diag_ias15_frames.py-90-        raise ValueError('Inputs/environment/code identity changed')
+--
+scripts\diag_ias15_frames.py-106-    verify_baseline(directory, reference)
+scripts\diag_ias15_frames.py-107-    result = run_physical(inputs['variants'][args.variant], inputs['identity'], inputs['grid'])
+scripts\diag_ias15_frames.py-108-    result.update(run_id=inputs['run_id']+'-'+args.variant, inputs_sha256=args.inputs_sha256,
+scripts\diag_ias15_frames.py:109:                  code_sha256=inputs['code_sha256'], environment=environment())
+scripts\diag_ias15_frames.py-110-    atomic_json(output, result)
+scripts\diag_ias15_frames.py-111-    print({k: result[k] for k in ('variant', 'status', 'attempts', 'last_valid_elapsed', 'wall_seconds')})
+scripts\diag_ias15_frames.py-112-    # guard/partial are data, not acceptance of a successful trajectory.
+--
+scripts\diag_ias15_memory.py-77-                                                       snapshot=SNAPSHOT_SHA, identity=reference['identity']))
+scripts\diag_ias15_memory.py-78-                                        for v in VARIANTS},
+scripts\diag_ias15_memory.py-79-                  radius_scale_km=scales['radius_scale_km'], speed_scale_km_s=scales['speed_scale_km_s'],
+scripts\diag_ias15_memory.py:80:                  code_sha256=code_hashes(), max_steps=10000, wall_seconds=60., scientific_admission=False)
+scripts\diag_ias15_memory.py-81-    atomic_json(directory/'inputs.json', inputs)
+scripts\diag_ias15_memory.py-82-    print(file_digest(directory/'inputs.json'))
+scripts\diag_ias15_memory.py-83-    return 0
+--
+scripts\diag_ias15_memory.py-87-    if not inputs_sha or file_digest(directory/'inputs.json') != inputs_sha:
+scripts\diag_ias15_memory.py-88-        raise ValueError('Execution requires pinned inputs SHA')
+scripts\diag_ias15_memory.py-89-    inputs = read_json(directory/'inputs.json')
+scripts\diag_ias15_memory.py:90:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_memory.py-91-            or file_digest(REFERENCE) != REFERENCE_SHA or file_digest(SNAPSHOT) != SNAPSHOT_SHA
+scripts\diag_ias15_memory.py-92-            or file_digest(FRAMES/'matrix/P00.json') != P00_SHA
+scripts\diag_ias15_memory.py-93-            or inputs['identity']['B_implementation'] != replay.b_fingerprint()):
+--
+scripts\diag_ias15_memory.py-110-                              wall_seconds=inputs['wall_seconds'], max_steps=inputs['max_steps'])
+scripts\diag_ias15_memory.py-111-    result.update(variant=variant, run_id=RUN_ID+'-'+variant, inputs_sha256=inputs_sha, mask=mask,
+scripts\diag_ias15_memory.py-112-                  experimental_fingerprint=inputs['variant_fingerprints'][variant],
+scripts\diag_ias15_memory.py:113:                  code_sha256=inputs['code_sha256'], environment=environment(),
+scripts\diag_ias15_memory.py-114-                  restart_kind='native_snapshot_with_selective_reset')
+scripts\diag_ias15_memory.py-115-    atomic_json(output, result)
+scripts\diag_ias15_memory.py-116-    print({k: result[k] for k in ('variant', 'status', 'attempts', 'accepted_steps',
+--
+scripts\review_w0_independent.py-168-    write_json(folder / "validation.json", dict(status="failed", audit_execution="completed_with_findings",
+scripts\review_w0_independent.py-169-        unbound_input_rejected=process.returncode != 0))
+scripts\review_w0_independent.py-170-    science = dict(config=config, inputs=inputs, code=sha256(Path(__file__)), environment=environment())
+scripts\review_w0_independent.py:171:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+scripts\review_w0_independent.py-172-        experiment_id=config["experiment_id"], status="completed", started_utc=started,
+scripts\review_w0_independent.py-173-        finished_utc=utc_now(), data_kind=config["data_kind"], validation={"status":"failed"},
+scripts\review_w0_independent.py-174-        scientific_id=hashlib.sha256(json.dumps(science, sort_keys=True).encode()).hexdigest(),
+scripts\review_w0_independent.py:175:        inputs_sha256=inputs, code_sha256={"scripts/review_w0_independent.py":sha256(Path(__file__))},
+scripts\review_w0_independent.py-176-        environment=environment(), resources=dict(workers=1,network_calls=0,paid_calls=0),
+scripts\review_w0_independent.py-177-        artifacts_sha256={p.relative_to(folder).as_posix():sha256(p) for p in folder.rglob("*") if p.is_file()}))
+scripts\review_w0_independent.py-178-    print(json.dumps(dict(run_id=run_id, unbound_input_probe=result, archive=metrics), ensure_ascii=False))
+--
+scripts\review_k2_guard_20261030.py-41-        raise ValueError('Вход изменён или не совпадает')
+scripts\review_k2_guard_20261030.py-42-    doc = dict(schema=guard.VERSION, utc=datetime.now(timezone.utc).isoformat(),
+scripts\review_k2_guard_20261030.py-43-               baseline_sha256=BASE_SHA, previous_sha256=old_sha, inventory_sha256=snapshot['inventory_sha256'],
+scripts\review_k2_guard_20261030.py:44:               code_sha256={p: sha(ROOT / p) for p in ('scripts/review_k2_guard_20261030.py',
+scripts\review_k2_guard_20261030.py-45-                   'src/submoon_research/diagnostics/convergence_k2_guard_v1.py')},
+scripts\review_k2_guard_20261030.py-46-               counts=dict(Counter(f"{r['previous']}->{r['current']}" for r in rows)), cases=rows,
+scripts\review_k2_guard_20261030.py-47-               integrations=0, production_allowed=False,
+--
+scripts\phase3_convergence.py-434-                    units_file_sha256=file_digest(run_dir/'units.json'), implementations=impl,
+scripts\phase3_convergence.py-435-                    b_horizon_years=b_years,
+scripts\phase3_convergence.py-436-                    benchmark=dict(path=rel(benchmark_path), sha256=file_digest(benchmark_path)) if benchmark_path else None,
+scripts\phase3_convergence.py:437:                    plan=plan, code_sha256=code_hashes(), environment=environment())
+scripts\phase3_convergence.py-438-    atomic_json(run_dir/'manifest.json', manifest)
+scripts\phase3_convergence.py-439-    print('manifest', file_digest(run_dir/'manifest.json'), 'block', block, 'jobs', len(plan), flush=True)
+scripts\phase3_convergence.py-440-    return 0
+--
+scripts\review_w0_quality.py-50-                changed_inputs.append(key)
+scripts\review_w0_quality.py-51-            if not hash_check(current, digest) and not hash_check(folder / "inputs" / key, digest):
+scripts\review_w0_quality.py-52-                unrecoverable_inputs.append(key)
+scripts\review_w0_quality.py:53:        code_not_recoverable = [key for key, digest in (data.get("code_sha256") or {}).items()
+scripts\review_w0_quality.py-54-                                if not hash_check(folder / "code" / key, digest)
+scripts\review_w0_quality.py-55-                                and not hash_check(ROOT / key, digest)]
+scripts\review_w0_quality.py-56-        unlisted = [p.relative_to(folder).as_posix() for p in folder.rglob("*")
+--
+scripts\review_w0_quality.py-59-                      else dict(status="missing"))
+scripts\review_w0_quality.py-60-        records.append(dict(run_id=data["run_id"], status=data["status"],
+scripts\review_w0_quality.py-61-            validation=validation["status"], artifacts_count=len(artifacts),
+scripts\review_w0_quality.py:62:            code_hashes_recorded=bool(data.get("code_sha256")),
+scripts\review_w0_quality.py-63-            bad_artifacts=bad_artifacts, unlisted_artifacts=unlisted,
+scripts\review_w0_quality.py-64-            missing_original_inputs=missing_original_inputs, changed_current_inputs=changed_inputs,
+scripts\review_w0_quality.py-65-            unrecoverable_inputs=unrecoverable_inputs, code_not_recoverable=code_not_recoverable,
+--
+scripts\review_w0_quality.py-212-    inputs = {p.relative_to(ROOT).as_posix(): sha256(p) for p in historical}
+scripts\review_w0_quality.py-213-    env_info = environment()
+scripts\review_w0_quality.py-214-    scientific = dict(config=config, inputs=inputs, code=code, environment=env_info)
+scripts\review_w0_quality.py:215:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+scripts\review_w0_quality.py-216-        experiment_id=config["experiment_id"], started_utc=started, finished_utc=utc_now(),
+scripts\review_w0_quality.py-217-        status="completed", validation={"status": "failed"}, data_kind="implementation_quality_audit",
+scripts\review_w0_quality.py-218-        scientific_id=hashlib.sha256(json.dumps(scientific, sort_keys=True).encode()).hexdigest(),
+scripts\review_w0_quality.py:219:        inputs_sha256=inputs, code_sha256=code, environment=env_info,
+scripts\review_w0_quality.py-220-        resources=dict(workers=1, network_calls=0, paid_calls=0, free_disk_before_bytes=free),
+scripts\review_w0_quality.py-221-        wall_seconds=time.perf_counter() - start,
+scripts\review_w0_quality.py-222-        artifacts_sha256={p.relative_to(folder).as_posix(): sha256(p) for p in folder.rglob("*") if p.is_file()}))
+--
+tests\unit\test_capture_b_local_once.py-65-    launcher = load('capture_b_local_once')
+tests\unit\test_capture_b_local_once.py-66-    attempt = tmp_path/'attempt'
+tests\unit\test_capture_b_local_once.py-67-    attempt.mkdir()
+tests\unit\test_capture_b_local_once.py:68:    (tmp_path/'preflight.json').write_text(json.dumps(dict(code_sha256={}, python=sys.executable)))
+tests\unit\test_capture_b_local_once.py-69-    monkeypatch.setattr(launcher, 'BASE', tmp_path)
+tests\unit\test_capture_b_local_once.py-70-    monkeypatch.setattr(launcher, 'ATTEMPT', attempt)
+tests\unit\test_capture_b_local_once.py-71-    monkeypatch.setattr(launcher, 'code_hashes', lambda: {})
+--
+scripts\verify_l1_specification.py-29-            run.save_code(root / ('src/submoon_research/contracts/l1_v'+spec['schema_version'].replace('.','_')+'.json'))
+scripts\verify_l1_specification.py-30-            for path, digest in spec['inputs_sha256'].items():
+scripts\verify_l1_specification.py-31-                ledger.bind(path, digest)
+scripts\verify_l1_specification.py:32:            sources = ledger.json('references/manifests/L1_sources_v'+spec['schema_version'].replace('.','_')+'.json', registered=True)
+scripts\verify_l1_specification.py-33-            ledger.bind_manifest(sources)
+scripts\verify_l1_specification.py-34-            route = spec['routes']['independent_reproduction']
+scripts\verify_l1_specification.py-35-            states = ledger.json(route['states']['path'])
+--
+src\submoon_research\release.py-37-            data=project_path(root,name).read_bytes()
+src\submoon_research\release.py-38-            archive.writestr(name,data)
+src\submoon_research\release.py-39-            entries.append(dict(path=name,sha256=hashlib.sha256(data).hexdigest(),bytes=len(data)))
+src\submoon_research\release.py:40:        manifest=dict(schema_version='0.1',created_utc=utc_now(),files=entries,
+src\submoon_research\release.py-41-            scope='workspace_release_with_registered_scientific_originals_and_runs',
+src\submoon_research\release.py-42-            excludes=['environment','secrets','local_paths','git_object_store','scratch'],
+src\submoon_research\release.py-43-            backup_status='local_package_only_until_independent_copy_restore_verified')
+--
+src\submoon_research\execution.py-28-        self.started_wall, self.started_cpu = time.perf_counter(), time.process_time()
+src\submoon_research\execution.py-29-        self.next_disk_check = 0.0
+src\submoon_research\execution.py-30-        self._initial_code_committed = False
+src\submoon_research\execution.py:31:        self.manifest = dict(schema_version='0.3', run_id=self.run_id,
+src\submoon_research\execution.py-32-            experiment_id=self.config.get('experiment_id', prefix), scientific_id=None,
+src\submoon_research\execution.py-33-            started_utc=utc_now(), finished_utc=None, status='running',
+src\submoon_research\execution.py-34-            data_kind=self.config.get('data_kind', 'source_audit'),
+src\submoon_research\execution.py:35:            validation=dict(status='not_run'), inputs_sha256={}, code_sha256={},
+src\submoon_research\execution.py-36-            environment=environment(), artifacts_sha256={}, error=None,
+src\submoon_research\execution.py-37-            resources=dict(workers=1, threads=1, network_calls=0, paid_calls=0,
+src\submoon_research\execution.py-38-                wall_seconds=wall_seconds, output_mib=output_mib,
+--
+src\submoon_research\execution.py-66-                staged[name] = self._copy_code(path, name)
+src\submoon_research\execution.py-67-                self.check_budget()
+src\submoon_research\execution.py-68-            self.check_budget(force=True)
+src\submoon_research\execution.py:69:            committed = dict(self.manifest, code_sha256=staged,
+src\submoon_research\execution.py-70-                initial_code_snapshot=dict(state='complete', expected_paths=names, published_count=len(names)))
+src\submoon_research\execution.py-71-            write_json(self.folder / 'manifest.json', committed)
+src\submoon_research\execution.py-72-            self.manifest = committed
+--
+src\submoon_research\execution.py-97-
+src\submoon_research\execution.py-98-    def save_code(self, path):
+src\submoon_research\execution.py-99-        name = self._code_name(path)
+src\submoon_research\execution.py:100:        self.manifest['code_sha256'][name] = self._copy_code(path, name)
+src\submoon_research\execution.py-101-        write_json(self.folder / 'manifest.json', self.manifest)
+src\submoon_research\execution.py-102-
+src\submoon_research\execution.py-103-    def save_config(self, config):
+--
+src\submoon_research\execution.py-148-        self.manifest.update(finished_utc=utc_now(), wall_seconds=time.perf_counter()-self.started_wall,
+src\submoon_research\execution.py-149-            cpu_seconds=time.process_time()-self.started_cpu, inputs_sha256=dict(self.ledger.used))
+src\submoon_research\execution.py-150-        identity = dict(config_sha256=sha256(self.folder / 'config.resolved.yaml') if (self.folder / 'config.resolved.yaml').is_file() else None, inputs=self.ledger.used,
+src\submoon_research\execution.py:151:            code=self.manifest['code_sha256'], environment=self.manifest['environment'])
+src\submoon_research\execution.py-152-        self.manifest['scientific_id'] = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False, allow_nan=False).encode('utf-8')).hexdigest()
+src\submoon_research\execution.py-153-        for command, field in ((['git','rev-parse','HEAD'],'git_commit'), (['git','status','--porcelain'],'git_dirty')):
+src\submoon_research\execution.py-154-            try:
+--
+tests\unit\test_provenance_batch.py-47-            assert manifest['initial_code_snapshot'] == {
+tests\unit\test_provenance_batch.py-48-                'state': 'pending', 'expected_paths': expected, 'published_count': 0,
+tests\unit\test_provenance_batch.py-49-            }
+tests\unit\test_provenance_batch.py:50:            assert manifest['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-51-            seen.append(path)
+tests\unit\test_provenance_batch.py-52-        return original(path)
+tests\unit\test_provenance_batch.py-53-
+--
+tests\unit\test_provenance_batch.py-58-        assert disk['initial_code_snapshot'] == {
+tests\unit\test_provenance_batch.py-59-            'state': 'complete', 'expected_paths': expected, 'published_count': len(expected),
+tests\unit\test_provenance_batch.py-60-        }
+tests\unit\test_provenance_batch.py:61:        assert set(disk['code_sha256']) == set(expected)
+tests\unit\test_provenance_batch.py-62-        for name in expected:
+tests\unit\test_provenance_batch.py:63:            assert hashlib.sha256((run.folder / 'code' / name).read_bytes()).hexdigest() == disk['code_sha256'][name]
+tests\unit\test_provenance_batch.py-64-    assert len(seen) == len(expected)
+tests\unit\test_provenance_batch.py-65-
+tests\unit\test_provenance_batch.py-66-
+--
+tests\unit\test_provenance_batch.py-82-    with run:
+tests\unit\test_provenance_batch.py-83-        assert len(calls) == 2
+tests\unit\test_provenance_batch.py-84-        assert [entry['initial_code_snapshot']['state'] for entry in calls] == ['pending', 'complete']
+tests\unit\test_provenance_batch.py:85:        assert len(calls[-1]['code_sha256']) == 3 + additional_files
+tests\unit\test_provenance_batch.py-86-
+tests\unit\test_provenance_batch.py-87-
+tests\unit\test_provenance_batch.py-88-@pytest.mark.parametrize('failure_at', [1, 2])
+--
+tests\unit\test_provenance_batch.py-108-    assert disk['validation']['status'] == 'not_run'
+tests\unit\test_provenance_batch.py-109-    assert disk['initial_code_snapshot']['state'] == 'failed'
+tests\unit\test_provenance_batch.py-110-    assert disk['initial_code_snapshot']['published_count'] == 0
+tests\unit\test_provenance_batch.py:111:    assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-112-
+tests\unit\test_provenance_batch.py-113-
+tests\unit\test_provenance_batch.py-114-def test_short_copy_is_rejected(synthetic_package, monkeypatch):
+--
+tests\unit\test_provenance_batch.py-127-        with run:
+tests\unit\test_provenance_batch.py-128-            pytest.fail('тело не должно запускаться')
+tests\unit\test_provenance_batch.py-129-    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:130:    assert disk['status'] == 'failed' and disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-131-
+tests\unit\test_provenance_batch.py-132-
+tests\unit\test_provenance_batch.py-133-def test_commit_and_finalization_failure_preserves_first_error(synthetic_package, monkeypatch):
+--
+tests\unit\test_provenance_batch.py-152-    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py-153-    assert disk['status'] == 'running'
+tests\unit\test_provenance_batch.py-154-    assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:155:    assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-156-
+tests\unit\test_provenance_batch.py-157-
+tests\unit\test_provenance_batch.py-158-@pytest.mark.parametrize('failure', ['fsync', 'replace_before', 'replace_after'])
+--
+tests\unit\test_provenance_batch.py-214-    if not finalization_fails:
+tests\unit\test_provenance_batch.py-215-        assert disk['status'] == 'failed'
+tests\unit\test_provenance_batch.py-216-        assert disk['initial_code_snapshot']['state'] == 'failed'
+tests\unit\test_provenance_batch.py:217:        assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-218-    elif failure == 'replace_after':
+tests\unit\test_provenance_batch.py-219-        # replace уже случился; не угадывать status, полный индекс остаётся на диске.
+tests\unit\test_provenance_batch.py-220-        assert disk['status'] == 'running'
+tests\unit\test_provenance_batch.py-221-        assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:222:        assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py:223:        for name, digest in disk['code_sha256'].items():
+tests\unit\test_provenance_batch.py-224-            assert hashlib.sha256((run.folder / 'code' / name).read_bytes()).hexdigest() == digest
+tests\unit\test_provenance_batch.py-225-    else:
+tests\unit\test_provenance_batch.py-226-        assert disk['status'] == 'running'
+tests\unit\test_provenance_batch.py-227-        assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:228:        assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-229-
+tests\unit\test_provenance_batch.py-230-
+tests\unit\test_provenance_batch.py-231-@pytest.mark.parametrize('error,status', [(RuntimeError('injected'), 'failed'),
+--
+tests\unit\test_provenance_batch.py-239-    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py-240-    assert disk['status'] == status
+tests\unit\test_provenance_batch.py-241-    assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:242:    assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py-243-    assert disk['validation']['status'] == 'not_run'
+tests\unit\test_provenance_batch.py-244-
+tests\unit\test_provenance_batch.py-245-
+--
+tests\unit\test_provenance_batch.py-305-        assert not (root / 'body_started').exists()
+tests\unit\test_provenance_batch.py-306-        if barrier == 'before_commit':
+tests\unit\test_provenance_batch.py-307-            assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:308:            assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py-309-        else:
+tests\unit\test_provenance_batch.py-310-            assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:311:            assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py:312:            for name, digest in disk['code_sha256'].items():
+tests\unit\test_provenance_batch.py-313-                assert hashlib.sha256((folder / 'code' / name).read_bytes()).hexdigest() == digest
+tests\unit\test_provenance_batch.py-314-    finally:
+tests\unit\test_provenance_batch.py-315-        if process.poll() is None:
+--
+tests\unit\test_provenance_batch.py-325-    with run:
+tests\unit\test_provenance_batch.py-326-        run.save_code(extra)
+tests\unit\test_provenance_batch.py-327-        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:328:        assert disk['code_sha256']['late.py'] == hashlib.sha256(extra.read_bytes()).hexdigest()
+tests\unit\test_provenance_batch.py-329-        assert disk['initial_code_snapshot']['published_count'] == 3
+--
+src\submoon_research\diagnostics\b144_scientific.py-238-    unit_list = read_json(run/'units.json')['units']
+src\submoon_research\diagnostics\b144_scientific.py-239-    units = {u['orbit_id']: u for u in unit_list}
+src\submoon_research\diagnostics\b144_scientific.py-240-    integrity = independently_validate(new, manifest, units, old, reference)
+src\submoon_research\diagnostics\b144_scientific.py:241:    integrity['code_hashes_match_current'] = {p: digest(root/p) == h for p, h in manifest['code_sha256'].items()}
+src\submoon_research\diagnostics\b144_scientific.py-242-    cells = sorted({(r['host'], r['measure']) for r in rows})
+src\submoon_research\diagnostics\b144_scientific.py-243-    outcome_tables, pairs_table, full_archive = [], [], []
+src\submoon_research\diagnostics\b144_scientific.py-244-    for years in (100., 1000.):
+--
+src\submoon_research\diagnostics\phase3_audit.py-205-        record(run / 'units.json', m['units_file_sha256'])
+src\submoon_research\diagnostics\phase3_audit.py-206-        for name in ('jobs.jsonl', 'identity.json', 'progress.json'):
+src\submoon_research\diagnostics\phase3_audit.py-207-            record(run / name)
+src\submoon_research\diagnostics\phase3_audit.py:208:        for name, expected in m['code_sha256'].items():
+src\submoon_research\diagnostics\phase3_audit.py-209-            record(root / name, expected)
+src\submoon_research\diagnostics\phase3_audit.py-210-        if m['benchmark']:
+src\submoon_research\diagnostics\phase3_audit.py-211-            record(root / m['benchmark']['path'], m['benchmark']['sha256'])
+--
+src\submoon_research\compute\radar.py-226-        self.cfg, self.store, self.findings = cfg, store, Path(findings)
+src\submoon_research\compute\radar.py-227-        self.profile, self.catalog = profile_for(cfg), finder.Catalog.load()
+src\submoon_research\compute\radar.py-228-        identity = dict(config=cfg, profile=self.profile, catalog=finder.CATALOG.read_text(encoding='utf-8'),
+src\submoon_research\compute\radar.py:229:                        code_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in
+src\submoon_research\compute\radar.py-230-                                     (Path(__file__), Path(finder.__file__),
+src\submoon_research\compute\radar.py-231-                                      Path(__file__).with_name('market_search.py'))})
+src\submoon_research\compute\radar.py-232-        self.identity = hashlib.sha256(json.dumps(identity, sort_keys=True).encode()).hexdigest()
+--
+src\submoon_research\diagnostics\physics_audit_v1.py-214-    for run in RUNS:
+src\submoon_research\diagnostics\physics_audit_v1.py-215-        base = 'runs/'+run+'/'
+src\submoon_research\diagnostics\physics_audit_v1.py-216-        manifest = load(base+'manifest.json')
+src\submoon_research\diagnostics\physics_audit_v1.py:217:        for path, expected in manifest['code_sha256'].items():
+src\submoon_research\diagnostics\physics_audit_v1.py-218-            remember(path)
+src\submoon_research\diagnostics\physics_audit_v1.py-219-            sha_checks[path] = snapshots[path] == expected
+src\submoon_research\diagnostics\physics_audit_v1.py-220-        remember(base+'manifest.json')
+--
+src\submoon_research\contracts\freeze.py-45-    for path, digest in pilot.get('artifacts_sha256', {}).items():
+src\submoon_research\contracts\freeze.py-46-        ledger.bind((parent/path).as_posix(), digest)
+src\submoon_research\contracts\freeze.py-47-        ledger.read((parent/path).as_posix())
+src\submoon_research\contracts\freeze.py:48:    if not pilot.get('artifacts_sha256') or not pilot.get('code_sha256'):
+src\submoon_research\contracts\freeze.py-49-        raise ValueError('Нет полного provenance пилота')
+src\submoon_research\contracts\freeze.py:50:    for path, digest in pilot['code_sha256'].items():
+src\submoon_research\contracts\freeze.py-51-        ledger.bind((parent/'code'/path).as_posix(), digest)
+src\submoon_research\contracts\freeze.py-52-        ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\contracts\freeze.py-53-    for path, digest in pilot.get('inputs_sha256', {}).items():
+--
+src\submoon_research\compute\market_monitor.py-74-        manifest = json.loads(manifest_path.read_text(encoding='utf-8'))
+src\submoon_research\compute\market_monitor.py-75-        if manifest['status'] == 'completed' or manifest['identity'] != identity:
+src\submoon_research\compute\market_monitor.py-76-            raise ValueError('Нельзя менять область/источник или продолжать завершённую сессию')
+src\submoon_research\compute\market_monitor.py:77:        if manifest['code_sha256'] != code_hashes:
+src\submoon_research\compute\market_monitor.py-78-            raise ValueError('Версия кода изменилась; создать новую сессию, не смешивать статистику')
+src\submoon_research\compute\market_monitor.py-79-        if time.time() >= manifest['deadline_epoch']:
+src\submoon_research\compute\market_monitor.py-80-            raise ValueError('Истёк исходный срок сессии')
+--
+src\submoon_research\compute\market_monitor.py-83-        (folder/'stop.requested').unlink(missing_ok=True)
+src\submoon_research\compute\market_monitor.py-84-    else:
+src\submoon_research\compute\market_monitor.py-85-        folder.mkdir(parents=True, exist_ok=False)
+src\submoon_research\compute\market_monitor.py:86:        manifest = dict(schema_version='2.0', status='running', session_id=folder.name,
+src\submoon_research\compute\market_monitor.py-87-            started_utc=utc_now(), deadline_epoch=time.time()+duration_hours*3600,
+src\submoon_research\compute\market_monitor.py:88:            identity=identity, code_sha256=code_hashes, pid=os.getpid(),
+src\submoon_research\compute\market_monitor.py-89-            mode='read_only_market_monitor', paid_actions=0, max_output_mib=2048,
+src\submoon_research\compute\market_monitor.py-90-            metadata_validation='provider_advertisement_only')
+src\submoon_research\compute\market_monitor.py-91-        save(manifest_path, manifest)
+--
+src\submoon_research\compute\hardware_trial.py-222-        run_id = PREFIX + source_key(signal)
+src\submoon_research\compute\hardware_trial.py-223-        self.folder = self.base / run_id
+src\submoon_research\compute\hardware_trial.py-224-        self.folder.mkdir(exist_ok=False)
+src\submoon_research\compute\hardware_trial.py:225:        self.manifest = dict(schema_version=1, run_id=run_id, label=run_id, signal=signal,
+src\submoon_research\compute\hardware_trial.py-226-                             status='preflight', create_requests=0, instance_id=None,
+src\submoon_research\compute\hardware_trial.py-227-                             scientific_series_started=False, independent_watchdog=False,
+src\submoon_research\compute\hardware_trial.py-228-                             created_utc=utc(self.clock.time()))

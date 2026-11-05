@@ -1,0 +1,516 @@
+{
+  "checks": {
+    "inventory_unchanged": true,
+    "classifications_exact": true,
+    "decision_exact": true,
+    "replay_only_descriptive_fit_roundoff": true,
+    "control_selection_exact": true,
+    "control_candidate_counts": true,
+    "P0_archive_bitwise_9": true,
+    "candidate_time_contraction": true,
+    "candidate_D_time_differs_T_within_budget": true,
+    "candidate_B144_not_contradictory": true,
+    "candidate_perturbations_complete_stable": true,
+    "rule5_b_labels_differ": true,
+    "controls_no_label_changes": true
+  },
+  "passed": true,
+  "source_sha256": {
+    "results/evidence/W2_phase3_audit_20261030/typed_recheck/audit.json": "08cd2d165febb17eec4734959c845dbb45ecb544b8ba85936905c983e75b4d51",
+    "results/evidence/W2_phase3_audit_20261030/replay/analysis.json": "979b0b38887289de75b7428346544b302f11a673a3f983ef430968ea2f9a1098",
+    "T:\\test_python\\submoon-research\\results\\evidence\\W2_phase3_analysis_20261028_pi\\analysis.json": "31ddffa28878ffb30af49e2345ceadd12f52306046e07d7a289f7d38ea455ea9",
+    "T:\\test_python\\submoon-research\\scripts\\check_phase3_review.py": "c1c330d5b3871aece0abd88bd8bfa948611a98cb3c7bc96d25563f16196e15fc"
+  },
+  "replay_differences": 601,
+  "replay_max_relative_difference": 1.810042805708039e-14,
+  "replay_difference_fields": {
+    "exponential/slope": 245,
+    "power/slope": 268,
+    "exponential/r2": 60,
+    "power/r2": 28
+  },
+  "candidate": {
+    "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+    "role": "target",
+    "high_e": false,
+    "p0_seconds": 33129.14428190741,
+    "labels": {
+      "Ts": "host_contact",
+      "U": "host_contact",
+      "Ds": "host_contact",
+      "D": "host_contact",
+      "T": "host_contact"
+    },
+    "times_years": {
+      "Ts": 212.8729712204737,
+      "U": 212.87297122059346,
+      "Ds": 212.87391982446198,
+      "D": 212.89039252298033,
+      "T": 212.872917652804
+    },
+    "dt_from_U_p0": {
+      "Ts": -1.1408116321259746e-07,
+      "U": 0.0,
+      "Ds": 0.9036050308776474,
+      "D": 16.594889609174444,
+      "T": -0.051026698955474056
+    },
+    "sigma_num": 1.581662055577632e-10,
+    "perturbation": {
+      "1e-12": {
+        "n": 10,
+        "unique_directions": 10,
+        "outcomes": {
+          "host_contact": 10
+        },
+        "unresolved_or_incomplete": 0,
+        "physical_flips": 0,
+        "max_abs_dt_p0": 6.751025585823456e-07,
+        "same_outcome_range_p0": 9.97828756103524e-07
+      },
+      "1e-10": {
+        "n": 10,
+        "unique_directions": 10,
+        "outcomes": {
+          "host_contact": 10
+        },
+        "unresolved_or_incomplete": 0,
+        "physical_flips": 0,
+        "max_abs_dt_p0": 6.333038882295938e-05,
+        "same_outcome_range_p0": 0.00011861568074769076
+      },
+      "1e-08": {
+        "n": 10,
+        "unique_directions": 10,
+        "outcomes": {
+          "host_contact": 10
+        },
+        "unresolved_or_incomplete": 0,
+        "physical_flips": 0,
+        "max_abs_dt_p0": 0.0063384007545400625,
+        "same_outcome_range_p0": 0.011867713747647054
+      }
+    },
+    "archived_class": "K1",
+    "archived_confidence": "medium",
+    "b144": {
+      "outcome": "host_contact",
+      "time_years": 212.87293899051494,
+      "dt_from_U_p0": -0.03070118313500841
+    }
+  },
+  "rule5_units": [
+    "iapetus:uniform_a_e_cos_i_phases:0011",
+    "himalia:canonical_volume:0013"
+  ],
+  "controls": {
+    "iapetus:host_contact": "iapetus:uniform_log_a:0013",
+    "iapetus:survived": "iapetus:uniform_a_e_cos_i_phases:0003",
+    "himalia:host_contact": "himalia:uniform_log_a:0006",
+    "himalia:survived": "himalia:uniform_a_e_cos_i_phases:0015",
+    "ganymede:host_contact": "ganymede:uniform_a_e_cos_i_phases:0014",
+    "iapetus:operational_escape": "iapetus:uniform_a_e_cos_i_phases:0010",
+    "himalia:operational_escape": "himalia:uniform_a_e_cos_i_phases:0005",
+    "ganymede:operational_escape": "ganymede:uniform_a_e_cos_i_phases:0011"
+  },
+  "archive_platform": [
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "code": "B",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "code": "D",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "code": "B",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "code": "T",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "code": "D",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "code": "T",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "code": "T",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "code": "D",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "code": "B",
+      "block": "P0",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "code": "B",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": false,
+      "same_steps": true,
+      "same_final_probe": false
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "code": "T",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": false,
+      "same_steps": true,
+      "same_final_probe": false
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "code": "D",
+      "block": "P1",
+      "same_label": true,
+      "same_time": true,
+      "same_steps": true,
+      "same_final_probe": true
+    }
+  ],
+  "candidate_D_minus_U_days": 6.363130696813266,
+  "limitations": "Кандидат T поддержан для времени одного контакта; не эталон, не допуск W1/W3. Классификатор v1 не исправлен."
+}

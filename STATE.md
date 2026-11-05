@@ -4,8 +4,8 @@
 
 ## Где сейчас идёт работа
 
-- **[W2](tracking/stages/W2/SUMMARY.md)** — следующий шаг (W2-STAGE): Выполнить отдельный короткий W2-P012: M0 точный native контроль; MP полиномиальная память; MC csx/csv; MD dt_last_done; MA сочетание. До интеграции проверить маски/ABI/неизменность x/v и параметров, MA сравнить с P00. Не менять production B/guard; ≤600s, без аренды/часового прохода. Активные задачи: `W2-T008`.
-  Возможно брошены: `W2-T008`.
+- **[W2](tracking/stages/W2/SUMMARY.md)** — следующий шаг (W2-STAGE): T073/I046: согласовать общий контракт и проверку копий для analyze_w1, обоих acquisition replay и verify_w0_completion. Политику status частичного анализа определить отдельно; диагностику pending/failed не запрещать. Общий pytest — после адресной приёмки/оценки; T073 не принят. Активные задачи: `W2-T061`, `W2-T008`.
+  Возможно брошены: `W2-T008`, `W2-T061`.
 
 Научный приоритет (focus_stage): **W1 — Мера и статистический дизайн**.
 
@@ -15,10 +15,10 @@
 
 | Этап | Статус | Revision | Активных задач |
 |---|---|---|---|
-| [S0](tracking/stages/S0/SUMMARY.md) | complete | 37 | 0 |
+| [S0](tracking/stages/S0/SUMMARY.md) | complete | 40 | 0 |
 | [W0](tracking/stages/W0/SUMMARY.md) | complete | 125 | 0 |
 | [W1](tracking/stages/W1/SUMMARY.md) | active | 28 | 0 |
-| [W2](tracking/stages/W2/SUMMARY.md) | active | 450 | 1 |
+| [W2](tracking/stages/W2/SUMMARY.md) | active | 718 | 2 |
 | [W3](tracking/stages/W3/SUMMARY.md) | blocked | 1 | 0 |
 | [W4](tracking/stages/W4/SUMMARY.md) | planned | 1 | 0 |
 | [W5](tracking/stages/W5/SUMMARY.md) | planned | 1 | 0 |

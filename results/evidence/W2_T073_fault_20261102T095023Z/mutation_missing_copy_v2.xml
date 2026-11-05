@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.271" timestamp="2026-11-02T13:17:41.237933+03:00" hostname="HOME-PC"><testcase classname="tests.unit.test_provenance_batch" name="test_pending_precedes_copy_complete_has_exact_saved_bytes" time="0.102"><failure message="FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-442\\test_pending_precedes_copy_com0\\project\\runs\\synthetic-20261102T101741Z-22ed0871\\code\\src\\submoon_research\\module.py'">synthetic_package = (WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-442/test_pending_precedes_copy_com0/project'), ...ers/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-442/test_pending_precedes_copy_com0/project/src/submoon_research'))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x0000020152957160&gt;
+
+    def test_pending_precedes_copy_complete_has_exact_saved_bytes(synthetic_package, monkeypatch):
+        root, package = synthetic_package
+        expected = sorted(p.relative_to(root).as_posix() for p in package.iterdir()
+                          if p.suffix in ('.py', '.json'))
+        run = execution.RunContext(root, 'synthetic', output_mib=1)
+        original = Path.read_bytes
+        seen = []
+    
+        def observe_read(path):
+            if path.parent == package:
+                manifest = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+                assert manifest['status'] == 'running'
+                assert manifest['validation']['status'] == 'not_run'
+                assert manifest['initial_code_snapshot'] == {
+                    'state': 'pending', 'expected_paths': expected, 'published_count': 0,
+                }
+                assert manifest['code_sha256'] == {}
+                seen.append(path)
+            return original(path)
+    
+        monkeypatch.setattr(Path, 'read_bytes', observe_read)
+        with run:
+            disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+            assert disk['schema_version'] == '0.3'
+            assert disk['initial_code_snapshot'] == {
+                'state': 'complete', 'expected_paths': expected, 'published_count': len(expected),
+            }
+            assert set(disk['code_sha256']) == set(expected)
+            for name in expected:
+&gt;               assert hashlib.sha256((run.folder / 'code' / name).read_bytes()).hexdigest() == disk['code_sha256'][name]
+
+tests\unit\test_provenance_batch.py:63: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+tests\unit\test_provenance_batch.py:52: in observe_read
+    return original(path)
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+self = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-442/test_pending_precedes_copy_com0/project/runs/synthetic-20261102T101741Z-22ed0871/code/src/submoon_research/module.py')
+mode = 'rb', buffering = -1, encoding = None, errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+&gt;       return self._accessor.open(self, mode, buffering, encoding, errors,
+                                   newline)
+E       FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-442\\test_pending_precedes_copy_com0\\project\\runs\\synthetic-20261102T101741Z-22ed0871\\code\\src\\submoon_research\\module.py'
+
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: FileNotFoundError</failure></testcase></testsuite></testsuites>

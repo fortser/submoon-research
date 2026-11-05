@@ -1,0 +1,515 @@
+blocking_inputs:
+- Совместный эфемеридный маршрут или количественная проверка влияния DE441/DE442.
+- 'Аудит внешних GM: физические центры/системные и эффективные константы не взаимозаменяемы.'
+- J2, опорные радиусы и полюса планет; независимая проверка силы и относительной записи.
+- Генератор субспутников, область, фазы и стартовый freeze.
+- Численный режим, локализация событий, restart и измеренная стоимость W2.
+- Определение года и горизонт разработочного пилота; производственный дизайн W1.
+data_kind: real_source_inputs_with_explicit_model_choices
+decision_id: W0-D008
+experiment_id: L1-baseline-spec-v0.2
+gates:
+  W0: false
+  W1: false
+  W2: false
+  analytic_controls_allowed: true
+  configuration_contract: requires_offline_verification
+  production: false
+inputs_sha256:
+  configs/experiments/L1_baseline_spec_v0_1.yaml: 7f52c3a9f6dbf710fb0b03963d56e31cb9e5abce7a0f1168d8b7f29027972b13
+  data/processed/W0-geometric-states-v1/geometric_states.json: bc6f0ec26770bb514115ac89be63434608c133577ed4934b9434eba8a1ecd1b6
+  data/processed/host_passports/ganymede_v1.yaml: 19c23a8395e665b527d4cb5629bda058a00f756a925406274b94cc93ab30ebe8
+  data/processed/host_passports/himalia_v1.yaml: 00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4
+  data/processed/host_passports/iapetus_v1.yaml: e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92
+  data/raw/W0-baseline-inputs-20261004T075626Z/public_files.zip: 534066c632ee4c2daad431ea3ee91e17893f16b3362fb8a33c69cfc13e8682d1
+  data/raw/W0-ganymede-sources-20261004/jup365.cmt: 3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a
+  data/raw/W0-himalia-sources-20261004/jup344.cmt: e493a3878c7ca5fa0b6dfb9fa77a59b3457b7530f1674359f5435a2255dcb29d
+  data/raw/W0-iapetus-sources-20261004/sat441.tpc: 33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f
+  data/raw/W0-l1-sources-20261004/jup347.cmt: 227f9dccfae4e90ad41a8a82ebc3a5586eac2e7b89ca1ddf0b2d38117ebca71b
+  data/raw/W0-l1-sources-20261004/receipt.json: d43bf44d92269e1a03c981d96f086096fea9eedb661f7454087396fffcb4a4e3
+  references/manifests/ganymede_sources_v1.json: e6460275b55af922571adc2e810a45222c2707a2c7c83dbb1cdf5b497c0c097a
+  references/manifests/geometric_states_v1.json: ac84d92c62e8ad7ad5b46e11e63f12e919909268065ead930dfe6ffdf9012964
+  references/manifests/himalia_sources_v1.json: 61c6f8822cdaa9a8776fd2bc67090908b1e97e29e598488db83818bba7fb14b1
+  references/manifests/iapetus_sources_v1.json: c51187fa472783343cc033bb48e8ef0204f9c1049243c03655722c8be219e91c
+integration_allowed: false
+physics_level: L1
+production_allowed: false
+purpose: Явный контракт независимой L1 и входы аналитической подготовки W2; не точное
+  исполнение авторского кода.
+routes:
+  archive_literal:
+    epoch:
+      declared_in_archive: false
+      geometric_vs_apparent: null
+      paper_calendar_statement: 2000-01-01 12:00
+      time_scale: null
+    events:
+      energy_definition: reduced_mass_v2_over_2_minus_G_m_host_m_sub_over_r
+      host_contact: r_le_R_host_plus_R_sub
+      intermediate_loss_types: must_remain_separate
+      localization: original_step_monitoring_code_details_unknown
+      numerical_failure: not_physical_loss
+      operational_ejection: instantaneous_two_body_energy_gt_zero
+      permanent_escape_interpretation: forbidden
+    frame:
+      axes_motion: fixed
+      global_frame_name: null
+      origin: host_satellite
+      planet_spin_axis: native_archive_vector_for_each_host
+      planet_spin_evolution: fixed
+      source_to_global_rotation: null
+      submoon_reference_plane: osculating_host_orbit_around_planet
+    ganymede_nonmodal_policy: preserve_all_130_original_members
+    initial_measure:
+      circular_orbit_phase_degeneracy: must_use_native_vectors_or_nondegenerate_generator
+      count_per_host: 130
+      domain_inference_limit: checked_on_pilot_hosts_and_Hyperion_under_circular_start_assumption
+      domain_inferred_from_archive: rigid_Roche_to_0.9309_circular_Hill_with_factor3
+      domain_paper: Roche_to_0.9309_Hill
+      eccentricity_paper: 0
+      ganymede_six_nonmodal_files: preserve_as_source_anomalies_not_silently_replace
+      inclination_count: 13
+      inclination_degrees: &id001
+      - 0
+      - 15
+      - 30
+      - 45
+      - 60
+      - 75
+      - 90
+      - 105
+      - 120
+      - 135
+      - 150
+      - 165
+      - 180
+      inclination_measure: uniform_in_i_not_cos_i
+      kind: deterministic_grid_for_reproduction_only
+      phase_angles_paper_rad:
+        Omega: 0
+        mean_anomaly: 0
+        omega: 0
+      seed: null
+      seed_status: deterministic_grid_no_random_seed
+      semimajor_axis_count: 10
+      weights: equal_for_original_grid_only
+    integration:
+      LL_meaning: accuracy_parameter_not_order
+      independent_integrator: null
+      independent_tolerances: null
+      independent_year_days: null
+      main_horizon_years: 1000000
+      original_G_mapping_and_timestep_policy: null
+      original_LL: 13
+      original_code_version: null
+      original_family: Gauss_Radau_Everhart_1985
+      original_order: null
+      selected_extended_horizon_years: 2000000
+      year_definition_in_original_code: null
+    known_discrepancies:
+    - AUD-002
+    - AUD-004
+    - AUD-007
+    - AUD-011
+    - AUD-014
+    physics:
+      J2_values: preserve_archive_for_literal_route_and_version_independent_route
+      amalthea_thebe_extra_body: io
+      base_bodies:
+      - sun
+      - jupiter
+      - saturn
+      - host
+      - one_submoon
+      force_verification_status: not_run_requires_W2
+      galilean_extra_bodies: other_three_galilean_moons
+      harmonic_basis: unnormalized_Legendre_P2_as_written_in_appendix
+      normalization_status: formula_read_implementation_not_verified
+      planet_figure: J2_only
+      radiation_forces: false
+      satellite_shape: point_mass_with_contact_radius
+      saturnian_extra_body: titan_except_when_host_is_titan
+      submoon_mass: finite_in_archive_backreaction_in_code_not_verified
+      tides: false
+    preserve_original_members: true
+    scientific_status: Опубликованные файлы прочитаны; выполнение авторским кодом
+      не удостоверено.
+    source_specification: configs/experiments/L1_baseline_spec_v0_1.yaml
+    status: blocked_exact_reproduction
+    units:
+      angle: rad
+      au_m: 149597870700
+      au_source_id: jpl_astrodynamic_parameters_20261004
+      au_uncertainty: null
+      au_uncertainty_status: exact_IAU_definition
+      gravitational_constant_au3_solar_day2: null
+      gravitational_constant_status: inferred_diagnostic_value_is_not_author_code_confirmation
+      length: au
+      mass: solar_mass
+      solar_mass_unit_kg: null
+      solar_mass_unit_status: not_explicit_in_archive
+      time: day
+      velocity: au/day
+  independent_reproduction:
+    epoch:
+      elapsed_time: seconds_from_selected_TDB_epoch
+      initial_epoch_index: 0
+      jd_tdb: 2451545.0
+      second_epoch_role: coordinate_check_only_not_time_dependent_forcing
+      time_scale: TDB
+    events:
+      article_energy_crossing:
+        formula: specific_E2=v_rel^2/2-GM_host/r
+        name: article_operational_ejection
+        physical_permanent_escape: false
+        terminal_in_article_comparison: true
+      hill_or_roche_crossing: diagnostic_only
+      numerical_failure: incomplete_computation_not_physical_loss
+      other_body_contact: requires_body_radii_and_localization
+      permanent_escape:
+        radius: null
+        status: not_calibrated
+        window: null
+      physical_disruption: not_modeled
+      reference_contact:
+        formula: r_le_reference_R_host_plus_R_sub
+        localization: root_or_refined_close_passage_required_W2_V05
+        radius_source_id: baseline_2609_03564v1
+        radius_source_locator: article_100_m_radius
+        radius_source_version: 2609.03564v1_directory_label
+        radius_uncertainty: null
+        radius_uncertainty_status: chosen_model_size_not_measurement
+        status: operational_reference_surface_not_verified_physical_contact
+        submoon_radius_km: 0.1
+      temporary_exit_and_return: separate_record
+    external_parameters:
+      callisto:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      europa:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      io:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      jupiter:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      saturn:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      sun:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+      titan:
+        covariance_ref: null
+        gm: null
+        source_id: null
+        source_locator: null
+        source_version: null
+        status: requires_separate_center_or_system_audit
+        uncertainty: null
+        uncertainty_status: not_adopted_for_this_model
+        unit: km3/s2
+    frame:
+      axes: ICRF
+      axes_motion: fixed
+      geometric_corrections: NONE
+      integration_origin: initial_SSB_inertial_axes
+      output_origin: host_satellite
+      output_rule: subtract_host_position_and_velocity
+      rotating_frame: true
+    hosts:
+      ganymede:
+        gm:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          notes: Первичный номинал из комментария решения; ошибка 0.00247 из сводки
+            JPL, её первичный sigma неизвестен.
+          source_id: jup365_comments_20261004
+          source_locator: Satellite Ephemeris JUP365.26; Ganymede503 in both segments,
+            lines 77/144
+          source_version: JUP365.26_20210114_NAIF_merge_20210314
+          status: audited_nominal
+          uncertainty: 0.00247
+          uncertainty_distribution: null
+          uncertainty_primary_source_id: null
+          uncertainty_sigma_level: null
+          uncertainty_source_id: jpl_satellite_parameters_20261004
+          uncertainty_source_locator: Ganymede row, GM, JUP365
+          uncertainty_status: reported_aggregator_sigma_unverified
+          uncertainty_unit: km3 / s2
+          unit: km3 / s2
+          value: 9887.832752719638
+        joint_parameter_sampling: false
+        passport: data/processed/host_passports/ganymede_v1.yaml
+        passport_sha256: 19c23a8395e665b527d4cb5629bda058a00f756a925406274b94cc93ab30ebe8
+        physical_contact_surface: null
+        reference_contact_model: sphere_of_reference_radius_not_measured_surface
+        reference_radius:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          definition: iau_compiled_mean_radius
+          notes: IAU Table5 Same задаёт сводочную сферу; не три независимые измеренные
+            полуоси. JPL equivalent volume не устанавливает метод первичного измерения.
+          primary_measurement_source_id: null
+          primary_measurement_status: Anderson2001_DPS35_09_not_acquired
+          source_id: archinal2018_wgccre
+          source_locator: Table 5 p.29; section 7 p.36
+          source_version: published_2018_USGS_reprint
+          status: compiled_reference_only
+          uncertainty: 1.7
+          uncertainty_distribution: null
+          uncertainty_sigma_level: null
+          uncertainty_status: reported_sigma_not_established
+          uncertainty_unit: km
+          unit: km
+          value: 2631.2
+      himalia:
+        gm:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          notes: Точный номинал из комментариев первичного решения; погрешность сводки
+            не объявлена первично проверенной.
+          source_id: jup344_comments_20261004
+          source_locator: Satellite Ephemeris File Summary JUP344; Himalia 506, local
+            line 146
+          source_version: JUP344_20210107_NAIF_merge_20210314
+          status: audited_nominal
+          uncertainty: 0.05763
+          uncertainty_distribution: null
+          uncertainty_primary_source_id: null
+          uncertainty_sigma_level: null
+          uncertainty_source_id: jpl_satellite_parameters_20261004
+          uncertainty_source_locator: Himalia row, GM, JUP344
+          uncertainty_status: reported_aggregator_sigma_unverified
+          uncertainty_unit: km3 / s2
+          unit: km3 / s2
+          value: 0.1515524299611265
+        joint_parameter_sampling: false
+        passport: data/processed/host_passports/himalia_v1.yaml
+        passport_sha256: 00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4
+        physical_contact_surface: null
+        reference_contact_model: sphere_of_reference_radius_not_measured_surface
+        reference_radius:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          definition: iau_compiled_mean_radius
+          notes: Число компиляции сохранено; объёмный радиус и контактная поверхность
+            не удостоверены. Общая подпись JPL equivalent volume не заменяет метод
+            измерения.
+          primary_measurement_source_id: null
+          primary_measurement_status: Cruikshank1977_not_acquired
+          source_id: archinal2018_wgccre
+          source_locator: Table 5 p.29; section 7 p.36
+          source_version: published_2018_USGS_reprint
+          status: compiled_reference_only
+          uncertainty: 10.0
+          uncertainty_distribution: null
+          uncertainty_sigma_level: null
+          uncertainty_status: reported_sigma_not_established
+          uncertainty_unit: km
+          unit: km
+          value: 85.0
+      iapetus:
+        gm:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          notes: Точное номинальное GM взято из PCK; статья округляет его до 120.51511.
+            Число знаков файла не означает точность измерения.
+          source_id: sat441_pck_20261004
+          source_locator: BODY608_GM
+          source_version: SAT441_sha256_33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f
+          status: audited_nominal
+          uncertainty: 0.00727
+          uncertainty_distribution: null
+          uncertainty_sigma_level: 3
+          uncertainty_source_id: jacobson2022_sat441
+          uncertainty_source_locator: Table 4, p.6, Current, GMIapetus and note
+          uncertainty_status: reported_3sigma
+          uncertainty_unit: km3 / s2
+          unit: km3 / s2
+          value: 120.5151060137642
+        joint_parameter_sampling: false
+        passport: data/processed/host_passports/iapetus_v1.yaml
+        passport_sha256: e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92
+        physical_contact_surface: null
+        reference_contact_model: sphere_of_reference_radius_not_measured_surface
+        reference_radius:
+          covariance_ref: null
+          covariance_status: not_available_in_acquired_sources
+          definition: volume_equivalent_mean
+          notes: Погрешность получена поиском допустимых форм при покрытии и разрешении
+            изображений; не назначать автоматически Gaussian sigma=1.4 km.
+          source_id: thomas2010_shapes
+          source_locator: Table 1 and notes, p.396; uncertainty method, section 1
+          source_version: published_2010_archived_20110927185355
+          status: audited_nominal
+          uncertainty: 2.8
+          uncertainty_distribution: null
+          uncertainty_sigma_level: 2
+          uncertainty_status: reported_2sigma_estimated_accuracy
+          uncertainty_unit: km
+          unit: km
+          value: 734.3
+    initial_measure:
+      W1_design_frozen: false
+      count_per_host: 130
+      domain: audited_article_domain_requires_new_generator_freeze
+      eccentricity: 0
+      frozen_domain_parameters: null
+      frozen_initial_states: null
+      inclination_count: 13
+      inclination_degrees: *id001
+      inclination_measure: uniform_in_i_not_cos_i
+      independent_population_fraction: false
+      kind: development_reproduction_grid_only
+      phases: nondegenerate_cartesian_generator_to_be_verified
+      seed: null
+      seed_status: deterministic_no_random_seed
+      semimajor_axis_count: 10
+      weights: equal_grid_weights_only
+    integration:
+      accepted_numeric_mode: null
+      article_LL: 13
+      article_LL_role: accuracy_parameter_not_transferable_to_other_integrator
+      checkpoint_verified: false
+      development_horizon_seconds: null
+      extended_horizon_years: 2000000
+      horizon_status: article_target_only_not_authorized_runtime
+      integrator: null
+      production_horizon_years: 1000000
+      timestep_policy: null
+      tolerances: null
+      year_days: null
+    massive_body_sets:
+      ganymede:
+      - sun
+      - jupiter
+      - saturn
+      - io
+      - europa
+      - ganymede
+      - callisto
+      himalia:
+      - sun
+      - jupiter
+      - saturn
+      - himalia
+      iapetus:
+      - sun
+      - jupiter
+      - saturn
+      - titan
+      - iapetus
+    physics:
+      correspondence: massless_limit_of_article_not_verified_finite_mass_archive
+      figure_external_force: field_at_submoon_minus_field_at_host
+      harmonic_basis: unnormalized_Legendre_P2
+      host_figure: false
+      massive_bodies: self_consistent_integration_of_selected_set
+      pairwise_monopoles: true
+      planet_figure: J2_only_pending_primary_parameter_audit
+      planet_figure_parameters:
+        jupiter:
+          j2: null
+          pole_icrf: null
+          reference_radius_km: null
+          source_id: null
+          status: not_adopted
+        saturn:
+          j2: null
+          pole_icrf: null
+          reference_radius_km: null
+          source_id: null
+          status: not_adopted
+      planet_pole_evolution: fixed_at_initial_epoch_after_audit
+      radiation_forces: false
+      relative_external_force: GM_j*((R_j-r)/abs(R_j-r)^3-R_j/abs(R_j)^3)
+      relativistic_terms: false
+      submoon: one_massless_test_particle_per_orbit
+      submoon_backreaction: false
+      tides: false
+    pilot_hosts:
+    - iapetus
+    - ganymede
+    - himalia
+    states:
+      compatibility: explicit_initial_snapshot_not_joint_fitted_solution
+      covariance_ref: null
+      ephemeris_forcing: false
+      future_state_change_requires_new_version: true
+      himalia_source: jup347_merged_DE442
+      path: data/processed/W0-geometric-states-v1/geometric_states.json
+      planetary_center_source: DE441
+      replay_run_id: W0-states-20261004T104637Z-9b627c86
+      source_run_id: W0-states-20261004T104417Z-eacbd97e
+      uncertainty: null
+      uncertainty_status: ephemeris_covariance_not_supplied
+      use: initial_conditions_only
+      version: W0-geometric-states-v1
+    status: contract_ready_W2_analytical_only
+    units:
+      angle: rad
+      gm: km3/s2
+      gravitational_constant: null
+      gravitational_constant_status: not_needed_in_massless_GM_equations
+      length: km
+      mass: not_used_GM_parameterization
+      time: s
+      velocity: km/s
+schema_version: '0.2'
+status: working_specification_not_executable
+supersedes: L1-baseline-spec-v0.1
+synthetic: false
+unresolved:
+- W0-I002
+- W0-I003
+- W0-I004
+- W0-I005
+- W0-I006
+- W0-I007
+version_policy: Изменение входов, меры, сил, событий или горизонта требует новой версии
+  и нового run.

@@ -1,0 +1,10 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+_______________________ test_missing_snapshot_rejected ________________________
+tests\unit\test_run_manifest_freeze.py:118: in test_missing_snapshot_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_run_manifest_freeze.py::test_missing_snapshot_rejected
+1 failed in 0.36s
+MUTATION_DETECTED= True

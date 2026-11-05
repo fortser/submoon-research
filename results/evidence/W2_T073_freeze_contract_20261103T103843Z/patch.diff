@@ -1,0 +1,33 @@
+diff --git a/src/submoon_research/contracts/freeze.py b/src/submoon_research/contracts/freeze.py
+index 45952d7..1f2efa1 100644
+--- a/src/submoon_research/contracts/freeze.py
++++ b/src/submoon_research/contracts/freeze.py
+@@ -1,6 +1,7 @@
+ """Freeze требует доказательств, а статус draft не открывает научные ворота."""
+ from submoon_research.provenance import InputLedger
+ from submoon_research.contracts.w1 import W1Design
++from submoon_research.contracts.run_manifest import validate_run_manifest_for_admission
+ 
+ 
+ def validate_freeze(root, design):
+@@ -16,6 +17,7 @@ def validate_freeze(root, design):
+         ledger.bind(entry['path'],entry['sha256'])
+         ledger.read(entry['path'])
+     pilot=ledger.json(design['pilot']['manifest'])
++    validate_run_manifest_for_admission(pilot)
+     if pilot['status']!='completed' or pilot['validation']['status']!='passed' or pilot.get('data_kind') in ('synthetic','source_audit','synthetic_analytic_control'):
+         raise ValueError('Для freeze нужен проверенный реальный разработочный пилот')
+     admission=pilot.get('scientific_admission',{})
+diff --git a/tests/unit/test_w1_protocol.py b/tests/unit/test_w1_protocol.py
+index b88bcbb..929a29b 100644
+--- a/tests/unit/test_w1_protocol.py
++++ b/tests/unit/test_w1_protocol.py
+@@ -139,7 +139,7 @@ def test_freeze_rejects_short_real_benchmark(tmp_path):
+     import json
+     from submoon_research.contracts.freeze import validate_freeze
+     spec = W1Design(design_id='test', status='ready_for_freeze')
+-    manifest = dict(status='completed', validation={'status': 'passed'},
++    manifest = dict(schema_version='0.2', status='completed', validation={'status': 'passed'},
+         data_kind='real_nominal_cost_benchmark', resources={'integration_calls': 36},
+         scientific_admission=dict(audited_physics=True, validated_generator=True,
+                                   validated_dynamics=True, validated_events=True))

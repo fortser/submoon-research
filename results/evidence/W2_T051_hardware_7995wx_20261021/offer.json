@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-21T10:28:54.857731+00:00",
+  "offer": {
+    "id": 54621118,
+    "machine_id": 153489,
+    "cpu_name": "AMD Ryzen Threadripper PRO 7995WX 96-Cores",
+    "cpu_cores_effective": 192.0,
+    "cpu_cores": 192,
+    "cpu_ram": 515223,
+    "cpu_arch": "amd64",
+    "gpu_name": "L40S",
+    "num_gpus": 1,
+    "dph_total": 0.6588888888888889,
+    "dph_base": 0.6533333333333333,
+    "storage_total_cost": 0.005555555555555555,
+    "storage_cost": 0.06666666666666665,
+    "inet_down_cost": 0.0013020833333333333,
+    "inet_up_cost": 0.0013020833333333333,
+    "reliability": 0.98837,
+    "verification": "unverified",
+    "disk_space": 2036.6,
+    "geolocation": "Taiwan, TW",
+    "direct_port_count": 198,
+    "rentable": true,
+    "rented": false,
+    "resource_type": "gpu",
+    "internet_down_cost_per_tb": 1.3333333333333333,
+    "internet_up_cost_per_tb": 1.3333333333333333
+  }
+}

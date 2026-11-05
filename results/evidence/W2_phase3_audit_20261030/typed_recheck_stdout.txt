@@ -1,0 +1,97 @@
+{
+  "integrity_passed": true,
+  "checks": {
+    "sha": 587,
+    "freeze_config": 1,
+    "freeze_run": 3,
+    "b_version": 3,
+    "units_digest": 3,
+    "unique_units": 3,
+    "b144_exact_unit": 21,
+    "archive_unit_fingerprints": 16,
+    "plan_exact": 3,
+    "rows_exact": 3,
+    "identity_claim": 3,
+    "row_spec": 439,
+    "row_completed": 439,
+    "row_units": 439,
+    "valid_time": 439,
+    "event_time": 439,
+    "event_label": 439,
+    "checkpoint": 439,
+    "sample_path": 439,
+    "sample_structure": 439,
+    "sample_grid": 439,
+    "sample_full_probe": 439,
+    "sample_initial": 439,
+    "cross_run_unit": 11,
+    "sigma_num": 16,
+    "labels_times": 16,
+    "P1_repeat": 1
+  },
+  "failures": [],
+  "runs": [
+    {
+      "run": "runs/W2-PH3-P0-20261026T113011Z",
+      "block": "P0",
+      "rows": 24,
+      "planned": 24,
+      "outcomes": {
+        "operational_escape": 12,
+        "host_contact": 2,
+        "survived": 4,
+        "unresolved": 6
+      },
+      "samples": 24,
+      "cpu_seconds": 2183.6340081,
+      "worker_wall_seconds": 2074.22492325
+    },
+    {
+      "run": "runs/W2-PH3-P1-20261028T091305Z",
+      "block": "P1",
+      "rows": 85,
+      "planned": 85,
+      "outcomes": {
+        "survived": 22,
+        "host_contact": 27,
+        "operational_escape": 36
+      },
+      "samples": 85,
+      "cpu_seconds": 6657.3957024999945,
+      "worker_wall_seconds": 6167.590277094001
+    },
+    {
+      "run": "runs/W2-PH3-perturb-20261028T093615Z",
+      "block": "perturb",
+      "rows": 330,
+      "planned": 330,
+      "outcomes": {
+        "operational_escape": 153,
+        "survived": 71,
+        "host_contact": 97,
+        "unresolved": 9
+      },
+      "samples": 330,
+      "cpu_seconds": 32531.843136200026,
+      "worker_wall_seconds": 29833.030862045987
+    }
+  ],
+  "previous_p1": {
+    "available": true,
+    "rows": 85,
+    "compared_fields": [
+      "outcome",
+      "event",
+      "last_valid_time",
+      "steps",
+      "nfev",
+      "final_state",
+      "checkpoint",
+      "grid_diagnostics",
+      "massive_energy_relative_drift",
+      "eccentricity",
+      "numerical_domain"
+    ],
+    "mismatches": []
+  }
+}

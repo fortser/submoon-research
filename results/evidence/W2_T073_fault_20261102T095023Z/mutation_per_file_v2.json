@@ -1,0 +1,10 @@
+{
+  "mode": "per_file",
+  "pytest_returncode": 1,
+  "counts": {
+    "tests": 1,
+    "failures": 1,
+    "errors": 0
+  },
+  "mutation_detected": true
+}

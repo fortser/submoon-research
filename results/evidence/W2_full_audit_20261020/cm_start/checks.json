@@ -1,0 +1,1459 @@
+{
+  "identities": [
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0000",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0000",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0000",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0000",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0000",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0000",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0000",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0000",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0000",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0001",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0001",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0001",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0001",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0001",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0001",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0001",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0001",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0001",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0002",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0002",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0002",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0002",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0002",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0002",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0002",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0002",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0002",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0003",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0003",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0003",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0003",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0003",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0003",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0003",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0003",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0004",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0004",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0004",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0004",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0004",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0004",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0004",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0004",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0004",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0005",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0005",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0005",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0005",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0005",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0005",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0005",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0005",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0005",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0006",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0006",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0006",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0006",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0006",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0006",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0006",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0006",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0006",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0007",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0007",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0007",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0007",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0007",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0007",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0007",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0007",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0007",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0008",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0008",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0008",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0008",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0008",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0008",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0008",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0008",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0008",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0009",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0009",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0009",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0009",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0009",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0009",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0009",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0009",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0009",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0010",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0010",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0010",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0010",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0010",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0010",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0010",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0010",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0011",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0011",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0011",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0011",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0011",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0011",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0011",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0012",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0012",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0012",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0012",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0012",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0012",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0012",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0012",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0012",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0013",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0013",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0013",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0013",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0013",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0013",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0013",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0013",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0013",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0014",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0014",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0014",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0014",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0014",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0014",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0014",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0014",
+      "matches": true
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0015",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0015",
+      "matches": false
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0015",
+      "matches": false
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0015",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0015",
+      "matches": true
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0015",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0015",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0015",
+      "matches": true
+    },
+    {
+      "orbit": "himalia:canonical_volume:0015",
+      "matches": true
+    }
+  ],
+  "rounding": [
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.6936261609817758e-15,
+      "velocity_error_km_s": 1.0315407380583415e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.567497549234739e-15,
+      "velocity_error_km_s": 2.728538609085807e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.2459381624484645e-15,
+      "velocity_error_km_s": 3.260541871072589e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0207952764994705e-16,
+      "velocity_error_km_s": 7.850462293418876e-17
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.829339737481552e-17,
+      "velocity_error_km_s": 5.551115123125783e-17
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.510439519738515e-16,
+      "velocity_error_km_s": 2.2887833992611187e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1843768720601398e-13,
+      "velocity_error_km_s": 7.70905629786374e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.7770913735835738e-14,
+      "velocity_error_km_s": 5.078497877445864e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0000",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.52579362815569e-13,
+      "velocity_error_km_s": 9.670514763450815e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.690121129002178e-15,
+      "velocity_error_km_s": 1.7910547349592614e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.887439737066392e-16,
+      "velocity_error_km_s": 2.5476231888929306e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.993771191434367e-15,
+      "velocity_error_km_s": 1.5316734030160287e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.6739353020414108e-16,
+      "velocity_error_km_s": 1.1443916996305594e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.5938941880741636e-17,
+      "velocity_error_km_s": 2.7809732887839817e-17
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.787446478390535e-16,
+      "velocity_error_km_s": 1.6711069443220838e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.179113635088914e-14,
+      "velocity_error_km_s": 3.530831012502066e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.5978471924305476e-14,
+      "velocity_error_km_s": 6.345705554514269e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0001",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0984018766448832e-13,
+      "velocity_error_km_s": 4.69259133342564e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.5393029243918928e-15,
+      "velocity_error_km_s": 2.6376925378252274e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.5867704353069892e-15,
+      "velocity_error_km_s": 1.4190843872370323e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.547815107104082e-15,
+      "velocity_error_km_s": 3.4338762476989256e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.207460699690014e-16,
+      "velocity_error_km_s": 1.1102230246251565e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.064170394439799e-16,
+      "velocity_error_km_s": 1.2719202621569003e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.5083527702778862e-16,
+      "velocity_error_km_s": 2.482534153247273e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.082698618743809e-13,
+      "velocity_error_km_s": 5.840987439145421e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.942565577627499e-14,
+      "velocity_error_km_s": 5.452581107770568e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0002",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0422346685557098e-13,
+      "velocity_error_km_s": 5.867418479112382e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.711113730779686e-15,
+      "velocity_error_km_s": 1.7512976435879405e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.733652566124606e-15,
+      "velocity_error_km_s": 4.0239602392960703e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.559278425506852e-15,
+      "velocity_error_km_s": 2.538630157467958e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.55511266283159e-16,
+      "velocity_error_km_s": 1.7554167342883506e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.2713172941393432e-16,
+      "velocity_error_km_s": 1.1857187100668868e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.080811992051046e-16,
+      "velocity_error_km_s": 1.3597399555105182e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.79108074800239e-13,
+      "velocity_error_km_s": 8.3553751838472e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.6628358432196465e-14,
+      "velocity_error_km_s": 9.445947644944373e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0003",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.5039120594100568e-13,
+      "velocity_error_km_s": 6.589282499372596e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.5489719364912127e-15,
+      "velocity_error_km_s": 2.403515561318519e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.72223643013582e-15,
+      "velocity_error_km_s": 3.173738112879707e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.524590010075467e-15,
+      "velocity_error_km_s": 4.243659822162457e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.602641715980052e-16,
+      "velocity_error_km_s": 1.1102230246251565e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.379024203080794e-16,
+      "velocity_error_km_s": 1.7554167342883506e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.233220109946601e-17,
+      "velocity_error_km_s": 2.7755575615628914e-17
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.791546570711981e-13,
+      "velocity_error_km_s": 9.480113328489394e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.177009902352037e-14,
+      "velocity_error_km_s": 4.4176650053345335e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0004",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1370802881044253e-13,
+      "velocity_error_km_s": 5.340307990953094e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.9191296897476885e-15,
+      "velocity_error_km_s": 1.444307055654865e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 7.33670641625776e-15,
+      "velocity_error_km_s": 4.45899286523459e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.4183385744491938e-15,
+      "velocity_error_km_s": 2.4978963946379914e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.745459407781733e-17,
+      "velocity_error_km_s": 5.551115123125783e-17
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.9201715191860397e-16,
+      "velocity_error_km_s": 1.5700924586837752e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.4642338088784623e-16,
+      "velocity_error_km_s": 2.2887833992611187e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.046955997643764e-14,
+      "velocity_error_km_s": 3.7474870541655362e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.7643751051284735e-14,
+      "velocity_error_km_s": 4.2426602879561738e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0005",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.135237261923265e-13,
+      "velocity_error_km_s": 1.0542995998370914e-15
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.2208826862363825e-15,
+      "velocity_error_km_s": 4.087068885578925e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.0675373513325587e-15,
+      "velocity_error_km_s": 4.149000190910596e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.38716998398926e-15,
+      "velocity_error_km_s": 4.234226901638687e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.107192191602738e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.062007870381219e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1464794074433644e-16,
+      "velocity_error_km_s": 2.220446049250313e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.44068578350824e-14,
+      "velocity_error_km_s": 7.847256097150567e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.4139561059266076e-14,
+      "velocity_error_km_s": 6.347423260962853e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0006",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0873709997702685e-13,
+      "velocity_error_km_s": 5.623028280954836e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.1274584140044674e-15,
+      "velocity_error_km_s": 4.2440852730454916e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.4175204679471438e-15,
+      "velocity_error_km_s": 3.1585308470752477e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.5931748674685932e-15,
+      "velocity_error_km_s": 1.0432887160956926e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.568920544353928e-16,
+      "velocity_error_km_s": 1.760893866893587e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.6766386108236185e-16,
+      "velocity_error_km_s": 2.0014830212433605e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.4822148193517007e-16,
+      "velocity_error_km_s": 8.326672684688674e-17
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.609209226812955e-14,
+      "velocity_error_km_s": 1.013798580167648e-15
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.485558116143264e-14,
+      "velocity_error_km_s": 7.104915731281033e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0007",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0878159998317816e-13,
+      "velocity_error_km_s": 4.3959690720386556e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.432498738888705e-15,
+      "velocity_error_km_s": 3.25037374023038e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.052936164785296e-15,
+      "velocity_error_km_s": 3.4197049637751663e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1843502282201172e-15,
+      "velocity_error_km_s": 8.777190812922478e-17
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.337439383875339e-17,
+      "velocity_error_km_s": 5.551115123125783e-17
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.777230893087715e-17,
+      "velocity_error_km_s": 7.850462293418876e-17
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.1857425110439446e-16,
+      "velocity_error_km_s": 1.6653345369377348e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.3678009586557276e-13,
+      "velocity_error_km_s": 9.94549213482654e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.118400128576071e-14,
+      "velocity_error_km_s": 9.49327323169173e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0008",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.414899957165899e-13,
+      "velocity_error_km_s": 8.380830897317368e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.816655632795018e-15,
+      "velocity_error_km_s": 3.400235020906588e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.7825489238425166e-15,
+      "velocity_error_km_s": 3.1327011943158907e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.755775060193928e-15,
+      "velocity_error_km_s": 2.3724523730670963e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.2371498546145117e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.014458574465502e-17,
+      "velocity_error_km_s": 1.1102230246251565e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.334894477974891e-16,
+      "velocity_error_km_s": 2.1228933251263786e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.268785093398391e-14,
+      "velocity_error_km_s": 7.142502723767076e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.924700784389156e-14,
+      "velocity_error_km_s": 5.765095163243295e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0009",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.521771018214453e-14,
+      "velocity_error_km_s": 7.426741597397696e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.785742402777863e-15,
+      "velocity_error_km_s": 4.838603712483317e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 7.0902016143439695e-15,
+      "velocity_error_km_s": 4.093690126909125e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.2195042473479274e-15,
+      "velocity_error_km_s": 1.4667392178541161e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.2568832026731625e-16,
+      "velocity_error_km_s": 1.5700924586837752e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.590840585578016e-17,
+      "velocity_error_km_s": 2.7755575615628914e-17
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 7.98223743642158e-17,
+      "velocity_error_km_s": 5.551115123125783e-17
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.728298670125195e-14,
+      "velocity_error_km_s": 9.45396045047975e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.567281595658752e-14,
+      "velocity_error_km_s": 4.896087991568124e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0010",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.4913738119491687e-13,
+      "velocity_error_km_s": 6.17128828969241e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.6104176003792566e-15,
+      "velocity_error_km_s": 1.414863480193738e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.9771382041032726e-15,
+      "velocity_error_km_s": 4.534908589933033e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 7.749608543443855e-15,
+      "velocity_error_km_s": 4.3849146469238027e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.1623388580198058e-16,
+      "velocity_error_km_s": 1.2177709378935645e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.9673738919274256e-16,
+      "velocity_error_km_s": 2.238801616996866e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.8749962736433689e-16,
+      "velocity_error_km_s": 1.3597399555105182e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.556247993455559e-14,
+      "velocity_error_km_s": 4.256838504209471e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.062463694579676e-14,
+      "velocity_error_km_s": 5.25431533071615e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0011",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.1682100154970763e-14,
+      "velocity_error_km_s": 1.4021031437922608e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.838466448086075e-15,
+      "velocity_error_km_s": 2.243098744975721e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.4912199929844722e-15,
+      "velocity_error_km_s": 3.483297094656094e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.678852101636855e-15,
+      "velocity_error_km_s": 4.684138863380502e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.284815863875845e-17,
+      "velocity_error_km_s": 1.1102230246251565e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.072285986260153e-17,
+      "velocity_error_km_s": 1.1102230246251565e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.9434069551491122e-16,
+      "velocity_error_km_s": 2.2693074087393234e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.0587277871507196e-14,
+      "velocity_error_km_s": 8.923533736230932e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.266068570350193e-14,
+      "velocity_error_km_s": 1.0641765049748017e-15
+    },
+    {
+      "orbit": "himalia:canonical_volume:0012",
+      "position_exact": true,
+      "relative_probe_velocity_error": 9.524087634097999e-14,
+      "velocity_error_km_s": 8.455740495797426e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.393568744599954e-15,
+      "velocity_error_km_s": 4.4027814947209824e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.2403171589764002e-15,
+      "velocity_error_km_s": 3.4650314393335606e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.700829315835605e-15,
+      "velocity_error_km_s": 3.02479271059268e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.6655994681616113e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0502090344975022e-16,
+      "velocity_error_km_s": 1.4526172914154867e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.81155083168541e-16,
+      "velocity_error_km_s": 1.6883057536160649e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1280527881298891e-13,
+      "velocity_error_km_s": 7.72032496392199e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.660581047306627e-14,
+      "velocity_error_km_s": 4.677613579701518e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0013",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.1569640281614023e-13,
+      "velocity_error_km_s": 6.877106601482846e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.52205676300993e-16,
+      "velocity_error_km_s": 1.9078803932353506e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.196211091322867e-16,
+      "velocity_error_km_s": 2.023315308605685e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 5.316832197608444e-15,
+      "velocity_error_km_s": 4.543195742811555e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.455533888769579e-16,
+      "velocity_error_km_s": 1.3459486817628835e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 8.737764669453049e-17,
+      "velocity_error_km_s": 7.850462293418876e-17
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.9678329301500376e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 7.893164506882579e-14,
+      "velocity_error_km_s": 3.687266864873913e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0594759184014203e-13,
+      "velocity_error_km_s": 7.720426977245959e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0014",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.7313161108547666e-14,
+      "velocity_error_km_s": 5.543332210607783e-16
+    },
+    {
+      "orbit": "iapetus:uniform_a_e_cos_i_phases:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.92647809718611e-15,
+      "velocity_error_km_s": 3.082784698270312e-16
+    },
+    {
+      "orbit": "iapetus:uniform_log_a:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.7298896481495483e-15,
+      "velocity_error_km_s": 1.9129210371407775e-16
+    },
+    {
+      "orbit": "iapetus:canonical_volume:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 4.4910711251971375e-15,
+      "velocity_error_km_s": 4.495846390430176e-16
+    },
+    {
+      "orbit": "ganymede:uniform_a_e_cos_i_phases:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 3.141767292819678e-16,
+      "velocity_error_km_s": 2.237726045655905e-16
+    },
+    {
+      "orbit": "ganymede:uniform_log_a:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.9873738258142396e-16,
+      "velocity_error_km_s": 1.2412670766236366e-16
+    },
+    {
+      "orbit": "ganymede:canonical_volume:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 2.6602313406162146e-16,
+      "velocity_error_km_s": 1.7772239894833365e-16
+    },
+    {
+      "orbit": "himalia:uniform_a_e_cos_i_phases:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.0745189117998972e-13,
+      "velocity_error_km_s": 6.755616669238432e-16
+    },
+    {
+      "orbit": "himalia:uniform_log_a:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 6.881596914438532e-14,
+      "velocity_error_km_s": 5.031746656257298e-16
+    },
+    {
+      "orbit": "himalia:canonical_volume:0015",
+      "position_exact": true,
+      "relative_probe_velocity_error": 1.7472649588036093e-13,
+      "velocity_error_km_s": 7.687043885442242e-16
+    }
+  ],
+  "checkpoint": {
+    "old_status": "partial",
+    "new_status": "completed",
+    "contract_equal": true,
+    "scope": "synthetic use of real initial state at t=0; old checkpoint accepted by new code"
+  },
+  "guard": {
+    "before": 5.000000002919336e-08,
+    "translated": 5.773541396324108e-14,
+    "threshold": 1e-09,
+    "scope": "synthetic residual, not a real failed integration"
+  },
+  "max_relative_probe_velocity_error": 2.3678009586557276e-13
+}

@@ -1,0 +1,18 @@
+{
+  "scope": "static_specification_only",
+  "evidence_id": "W2_T073_spec_20261102T091811Z",
+  "created_utc": "2026-11-02T09:29:32.542212+00:00",
+  "tracking_revision": 692,
+  "source_sha256": {
+    "docs/tasks/W2_T073_batched_provenance_20261102.md": "2543d7d127a1a6f5bf45618b01088547abe52081300bae6f3182a934621e7868",
+    "scratch/W2_T073_spec_finish_20261102T091811Z.py": "719ae6497a7c83533ba0dc999194bed27502142561d9ad42db97afd6f838192d"
+  },
+  "evidence_sha256": {
+    "results/evidence/W2_T073_spec_20261102T091811Z/git_status.txt": "e60422acbd377e4f734019392486991f0d6b9fe647e746bc91a32b7a8bdfccc8",
+    "results/evidence/W2_T073_spec_20261102T091811Z/static_review.json": "4eeb47caeae590a340bf11c1245bc58bea164a3742835bae72753fce0590d23c",
+    "results/evidence/W2_T073_spec_20261102T091811Z/validate.stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/evidence/W2_T073_spec_20261102T091811Z/validate.stdout.txt": "d436e3dae8445e9434812bac25510e38ae6d3f1b67dda776a8dc78e99dad099a"
+  },
+  "validate_returncode": 0,
+  "production_changed": false
+}

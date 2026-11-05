@@ -1,0 +1,74 @@
+{
+  "evidence_id": "W2-T072-C120-20261101T095152Z",
+  "utc": "2026-11-01T09:53:57.430154+00:00",
+  "scientific_run_id": null,
+  "status": "inconclusive",
+  "revision": 666,
+  "files": {
+    "reports/analysis/W2_T072_C120_20261101T095152Z.md": {
+      "sha256": "b0a141090b0328b5cb9d71202f79b88084e5699ae6b002aca5724a0c774688e7",
+      "bytes": 5773
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/attempts.jsonl": {
+      "sha256": "6212015aad8569bc3bde5893eda7a6dc5377f05d1900ea0dcf2a85f96b178476",
+      "bytes": 1932
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/candidate.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/candidate.stdout.txt": {
+      "sha256": "ed3af6d149e04eeda0900144d32b4c74a66aea08c7afd488152f2ac72d2bebbb",
+      "bytes": 1092
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/collection.stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/collection.stdout.txt": {
+      "sha256": "83bef7249cc413c0e88908339f91a9c9cb0c0d32acc8c72f8bac39886a21fd8c",
+      "bytes": 83151
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/collection_compare.json": {
+      "sha256": "3b9cf981d3a2adc3b503ddf13528486142a5b0384837edf144e403b5efe4f039",
+      "bytes": 336
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/diagnosis.json": {
+      "sha256": "7a246855e42aebe1d8d12e577dfc1591ab3aea7a97c9aa22e5b96fea2294328a",
+      "bytes": 2562
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/environment.json": {
+      "sha256": "d186b35ba28fef260f0e9344022ceedbbe946c22b0a3d254eaa3eec84c8f2d14",
+      "bytes": 364
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/git_head.txt": {
+      "sha256": "ec73ef86f1c12b27950286ee13f52703d333b0ae4b5d7466ce24e6d421907736",
+      "bytes": 41
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/git_status_before.txt": {
+      "sha256": "6ad2c5826843099e303912701c81e2a7b0050e7930ad49c64cf95d0836d8cf5c",
+      "bytes": 9498
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/input_sha256.txt": {
+      "sha256": "7b45ddef94f25ca997fac2b7a5c774ad744876a91df4615bfc3714b3092564bf",
+      "bytes": 306
+    },
+    "results/evidence/W2_T072_C120_20261101T095152Z/validate_final.txt": {
+      "sha256": "cf64a767602ce27d2aea2e9c19fa3c3f77a5b279e350b1fd0432c46538966a2d",
+      "bytes": 197
+    },
+    "scratch/W2_T072_probe_20261101T095152Z.py": {
+      "sha256": "b3cc51fe4f76c999bdcb2bd400f0faa1c19490e040b7d91457ece1490eb89344",
+      "bytes": 4840
+    },
+    "scripts/vast_p2.py": {
+      "sha256": "0b4f0efb82715f367c0b27e898509554f5fafa5460fd30ef0359c7a47da9cca1",
+      "bytes": 51851
+    },
+    "tests/unit/test_vast_p2_2a.py": {
+      "sha256": "d3b487e3cb528ca45d1ca5ae583a6163f7d4c526497a5db1d6ca433b2eb25c24",
+      "bytes": 4957
+    }
+  },
+  "limits": "Наблюдаемые Windows-потомки завершились; Linux-потомки не идентифицированы"
+}

@@ -41,8 +41,10 @@ def test_p2_2a_script_order_and_commands():
     assert '--output runs/W2-P2-2a-verification-55/acceptance.json' in script
     assert '--output runs/W2-P2-2a-55/acceptance.json' not in script
     assert 'workers=$W' in script and 'pin=none seed_rows=0' in script  # формат строки этапа как у P2-1
-    if shutil.which('bash'):
-        assert subprocess.run(['bash', '-n'], input=script.encode(), check=False).returncode == 0
+    # Не повторять Windows CreateProcess lookup по bare name: он может выбрать WSL.
+    bash = shutil.which('bash')
+    if bash:
+        assert subprocess.run([bash, '-n'], input=script.encode(), check=False, timeout=10).returncode == 0
 
 
 def test_p2_1_script_unchanged_by_default():

@@ -1,0 +1,825 @@
+{
+  "schema": "w2-t066-independent-v1",
+  "integrations": 0,
+  "production_allowed": false,
+  "blocks": [
+    {
+      "block": "P0",
+      "rows": 24,
+      "outcomes": {
+        "operational_escape": 12,
+        "host_contact": 2,
+        "survived": 4,
+        "unresolved": 6
+      }
+    },
+    {
+      "block": "P1",
+      "rows": 85,
+      "outcomes": {
+        "survived": 22,
+        "host_contact": 27,
+        "operational_escape": 36
+      }
+    },
+    {
+      "block": "perturb",
+      "rows": 330,
+      "outcomes": {
+        "operational_escape": 153,
+        "survived": 71,
+        "host_contact": 97,
+        "unresolved": 9
+      }
+    }
+  ],
+  "outcomes": {
+    "operational_escape": 201,
+    "host_contact": 126,
+    "survived": 97,
+    "unresolved": 15
+  },
+  "base_orbits": 16,
+  "replay_b144_exact_except_utc": {
+    "schema": true,
+    "integrations": true,
+    "scientific_admission": true,
+    "analysis_design": true,
+    "sources": true,
+    "integrity": true,
+    "outcomes": true,
+    "pairs": true,
+    "archive_full": true,
+    "discordant_dossiers": true,
+    "discordant_unique_units": true,
+    "event_pairs": true,
+    "high_e_resolution": true,
+    "horizon_checks": true,
+    "diagnostics": true,
+    "small_step_jobs": true,
+    "cost": true,
+    "cost_cells": true,
+    "full_DT_discordance_1000": true,
+    "unique_initial_units": true,
+    "jobs": true,
+    "hypothetical_iid_zero_failure_upper95": true,
+    "hypothetical_iid_n_for_half_percent": true
+  },
+  "inventory_unchanged_files": 565,
+  "replay_v2_cases_exact": true,
+  "cases": [
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "range_by_outcome_p0": {
+            "survived": 0.0,
+            "operational_escape": 1717.8439020494873
+          },
+          "spread_p0": 1717.8439020494873,
+          "max_shift_p0": 0.0
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 4,
+          "range_by_outcome_p0": {
+            "survived": 0.0,
+            "host_contact": 0.0,
+            "operational_escape": 11294.370318633422
+          },
+          "spread_p0": 11294.370318633422,
+          "max_shift_p0": 0.0
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "range_by_outcome_p0": {
+            "operational_escape": 6229.374917208827,
+            "survived": 0.0
+          },
+          "spread_p0": 6229.374917208827,
+          "max_shift_p0": 0.0
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "B",
+            "Be"
+          ],
+          "covered": false,
+          "tau_1e6": 374247984.1482197,
+          "gap_to_last_common_p0": 265.88084386074974
+        }
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 7,
+          "range_by_outcome_p0": {
+            "host_contact": 382.74193960990124,
+            "operational_escape": 230.46828201353915
+          },
+          "spread_p0": 382.74193960990124,
+          "max_shift_p0": 555.7365491077766
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 4,
+          "range_by_outcome_p0": {
+            "operational_escape": 559.5684332439482,
+            "host_contact": 583.1418838249028
+          },
+          "spread_p0": 583.1418838249028,
+          "max_shift_p0": 612.5737393424487
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "range_by_outcome_p0": {
+            "operational_escape": 1439.3572432698613,
+            "host_contact": 461.95895193810577
+          },
+          "spread_p0": 1439.3572432698613,
+          "max_shift_p0": 744.5418628176128
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "B",
+            "Be"
+          ],
+          "covered": false,
+          "tau_1e6": 390150971.4847249,
+          "gap_to_last_common_p0": 15.797887945481378
+        }
+      ]
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 685.7469177182417
+          },
+          "spread_p0": 685.7469177182417,
+          "max_shift_p0": 2151.8330178496462
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 1,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 774.0331725368037
+          },
+          "spread_p0": 774.0331725368037,
+          "max_shift_p0": 2187.711019151369
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 1,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 2633.6478921951652
+          },
+          "spread_p0": 2633.6478921951652,
+          "max_shift_p0": 2277.945833789746
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": false,
+          "tau_1e6": 80299096.52691121,
+          "gap_to_last_common_p0": 31.21243897860063
+        }
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "range_by_outcome_p0": {
+            "operational_escape": 4704.823481223369,
+            "survived": 0.0
+          },
+          "spread_p0": 4704.823481223369,
+          "max_shift_p0": 0.0
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 2,
+          "physical_flips": 2,
+          "range_by_outcome_p0": {
+            "survived": 0.0,
+            "operational_escape": 1729.2594015366558
+          },
+          "spread_p0": 1729.2594015366558,
+          "max_shift_p0": 0.0
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 4,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "survived": 0.0
+          },
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": false,
+          "tau_1e6": 99101944.55556999,
+          "gap_to_last_common_p0": 427.95868278683116
+        }
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 1,
+          "range_by_outcome_p0": {
+            "operational_escape": 5156.232697427444,
+            "survived": 0.0
+          },
+          "spread_p0": 5156.232697427444,
+          "max_shift_p0": 4069.911851732906
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 1,
+          "physical_flips": 2,
+          "range_by_outcome_p0": {
+            "operational_escape": 2531.1644637816453,
+            "survived": 0.0
+          },
+          "spread_p0": 2531.1644637816453,
+          "max_shift_p0": 1424.1960501048097
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "range_by_outcome_p0": {
+            "operational_escape": 4862.424241014373,
+            "host_contact": 0.0,
+            "survived": 0.0
+          },
+          "spread_p0": 4862.424241014373,
+          "max_shift_p0": 3707.3238795934617
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": false,
+          "tau_1e6": 315410504.8622927,
+          "gap_to_last_common_p0": 21.175177666144478
+        }
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 1,
+          "range_by_outcome_p0": {
+            "operational_escape": 11.049714555549743,
+            "host_contact": 0.0
+          },
+          "spread_p0": 11.049714555549743,
+          "max_shift_p0": 10.156250471682316
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "range_by_outcome_p0": {
+            "host_contact": 101.12798681010186,
+            "operational_escape": 85.25311441075253
+          },
+          "spread_p0": 101.12798681010186,
+          "max_shift_p0": 84.28641371339931
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 6,
+          "range_by_outcome_p0": {
+            "host_contact": 193.49024095578406,
+            "operational_escape": 129.04153866863973
+          },
+          "spread_p0": 193.49024095578406,
+          "max_shift_p0": 126.2999771468978
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": true,
+          "tau_1e6": 5970207.251990681,
+          "gap_to_last_common_p0": 0.049950742972965964
+        }
+      ]
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "range_by_outcome_p0": {
+            "operational_escape": 72545.6467279975,
+            "host_contact": 269.299921865134
+          },
+          "spread_p0": 72545.6467279975,
+          "max_shift_p0": 72757.42954808721
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "range_by_outcome_p0": {
+            "operational_escape": 21492.908545150483,
+            "host_contact": 131.09531928691777
+          },
+          "spread_p0": 21492.908545150483,
+          "max_shift_p0": 21439.120356586176
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "range_by_outcome_p0": {
+            "operational_escape": 231.770595254044,
+            "host_contact": 457.5066865666215
+          },
+          "spread_p0": 457.5066865666215,
+          "max_shift_p0": 300.3087527710753
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": true,
+          "tau_1e6": 8159181.638943545,
+          "gap_to_last_common_p0": 0.005129175948405293
+        }
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 9.97828756103524e-07
+          },
+          "spread_p0": 9.97828756103524e-07,
+          "max_shift_p0": 6.751025585823456e-07
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 0.00011861568074769076
+          },
+          "spread_p0": 0.00011861568074769076,
+          "max_shift_p0": 6.333038882295938e-05
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 0.011867713747647054
+          },
+          "spread_p0": 0.011867713747647054,
+          "max_shift_p0": 0.0063384007545400625
+        }
+      },
+      "k2": [
+        {
+          "pair": [
+            "D",
+            "U"
+          ],
+          "covered": false,
+          "tau_1e6": 8371734.760038002,
+          "gap_to_last_common_p0": 3018.0352471646656
+        }
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "perturbation": {
+        "1e-12": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-10": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-08": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "perturbation": {
+        "1e-12": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-10": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-08": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 6.891174799385513e-08
+          },
+          "spread_p0": 6.891174799385513e-08,
+          "max_shift_p0": 4.3321269805413326e-08
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 7.072181796790004e-06
+          },
+          "spread_p0": 7.072181796790004e-06,
+          "max_shift_p0": 4.000637868373637e-06
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "host_contact": 0.0007061623571906199
+          },
+          "spread_p0": 0.0007061623571906199,
+          "max_shift_p0": 0.00039990354612840575
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 2.8336612634183675e-08
+          },
+          "spread_p0": 2.8336612634183675e-08,
+          "max_shift_p0": 1.4491222208000834e-08
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 2.8577764507295227e-06
+          },
+          "spread_p0": 2.8577764507295227e-06,
+          "max_shift_p0": 1.4303381619399297e-06
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "operational_escape": 0.00028588216742272445
+          },
+          "spread_p0": 0.00028588216742272445,
+          "max_shift_p0": 0.0001429803519792106
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "perturbation": {
+        "1e-12": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "survived": 0.0
+          },
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0
+        },
+        "1e-10": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "survived": 0.0
+          },
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0
+        },
+        "1e-08": {
+          "n": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "range_by_outcome_p0": {
+            "survived": 0.0
+          },
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "perturbation": {
+        "1e-12": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-10": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-08": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "perturbation": {
+        "1e-12": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-10": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-08": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        }
+      },
+      "k2": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "perturbation": {
+        "1e-12": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-10": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        },
+        "1e-08": {
+          "n": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "range_by_outcome_p0": {},
+          "spread_p0": null,
+          "max_shift_p0": null
+        }
+      },
+      "k2": []
+    }
+  ],
+  "b144": [
+    {
+      "years": 100.0,
+      "outcomes": {
+        "survived": 32,
+        "host_contact": 46,
+        "operational_escape": 66
+      },
+      "pairs": {
+        "B": {
+          "determined": 144,
+          "different": 1
+        },
+        "D": {
+          "determined": 139,
+          "different": 0
+        },
+        "T": {
+          "determined": 139,
+          "different": 0
+        }
+      }
+    },
+    {
+      "years": 1000.0,
+      "outcomes": {
+        "survived": 27,
+        "host_contact": 50,
+        "operational_escape": 67
+      },
+      "pairs": {
+        "B": {
+          "determined": 143,
+          "different": 1
+        },
+        "D": {
+          "determined": 139,
+          "different": 2
+        },
+        "T": {
+          "determined": 138,
+          "different": 0
+        }
+      }
+    }
+  ],
+  "b144_steps": 467946905,
+  "b144_worker_hours": 24.461574757200562,
+  "b144_contact_max_residual_km": 1.2166765372967348e-09,
+  "synthetic_k2": {
+    "synthetic": true,
+    "coarse_outcome": "unresolved",
+    "last_valid_time": 115.0,
+    "event_time": 120.0,
+    "common_times": [
+      0.0,
+      110.0
+    ],
+    "v1_class": "K2",
+    "v2_class": "K2",
+    "k2": [
+      {
+        "pair": [
+          "D",
+          "U"
+        ],
+        "tau_1e6": null,
+        "event_time": 120.0,
+        "covered": true,
+        "agree_to_event": true
+      }
+    ],
+    "physical_event_sensitivity_established": false,
+    "limitation": "Прямой API классификатора; это не новая орбита и не результат production."
+  },
+  "sources_sha256": {
+    "configs/experiments/W2_phase3_convergence_v1.yaml": "3e6ebdaedd39110702e873d1cfa31f107acc69123e9e53d8df340832f968adbb",
+    "results/evidence/W2_phase3_analysis_20261028_pi/analysis.json": "31ddffa28878ffb30af49e2345ceadd12f52306046e07d7a289f7d38ea455ea9",
+    "results/evidence/W2_T066_quality_20261030/comparison/analysis.json": "ac0ee1d4df83f3461256bb31e6f085e3124be1c27952ee8dd7166d882eea119d",
+    "results/evidence/W2_T065_v1_v2_20261030_v1/analysis.json": "9b90652798fda958dd87bc4cf88ba9c76d51db8f88e008da2efd9d4b49f28e39",
+    "results/evidence/W2_B144_scientific_20261024/v1/analysis.json": "caa980f91011a9b4feacb5dc65134f510b2dc5b0865028a45ee82a4ce8b80718",
+    "results/evidence/W2_T066_quality_20261030/b144.json": "d4b9b3d19961d15616b9b1edc9c213832c35ce3536a04a24a60b011a39793f7f",
+    "results/evidence/W2_T066_quality_20261030/phase3/audit.json": "eefbcf6c3b1517b8552b7c7b5be394ca88d873c90a0d1227679d8b56575d1002",
+    "results/evidence/W2_phase3_audit_20261030/v1/audit.json": "0febe080e713cca4ea7cd6530beb46b7a89aa3f3fcff9b6bb17d69769e236150",
+    "runs/W2-PH3-P0-20261026T113011Z/jobs.jsonl": "6e53f0313cc7748b1efc560369a5ece8aa464a5d5b332f43b671b07b1921ef3a",
+    "runs/W2-PH3-P1-20261028T091305Z/jobs.jsonl": "424b70f2bfa1d43c3a52c71c7579473760141796b433e9b99d294f24876944b1",
+    "runs/W2-PH3-perturb-20261028T093615Z/jobs.jsonl": "042444f5650fb8368bc5c25ba1769b37196473acc1a602b885aef3db7cbdf803",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/29df34025e35da6318f779b2.npz": "f7fdf02fb7b68baa52925cba519c4105556d354a096c5757bba19e8038eba1a3",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/002596d1ceb1e659b2de01f0.npz": "f6e9e8b25c8080019d9392a66e2b9fc118bf113afd7976fc63299e0a4bdd46dd",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/42f3b666b2f048ee1a66487a.npz": "7fa46f760ae342e597b8672b0a9bdd954333717863ff5ced89c083f4cc57a965",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/ec3cbd908cb0e07437b18f28.npz": "78759f7ce7b49997a1fa33682525a627d18a03fbe814696ec11f1d1879503784",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/1b788223bf0056a298995ae4.npz": "d4b51e644f14df3347ba8cefd86d437e1c4cb2abb62a11a60c3403c08cf96cec",
+    "runs/W2-PH3-P0-20261026T113011Z/samples/368995ff18c28cce9b7e60ef.npz": "4b7f298bd4d5fb8f4ebd22d06be62f77767ff06a9202b561e95352e8aebe9ec1",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/d32df1d2cf24792f47de252e.npz": "6954f5126f87ade1e0e30ae7e27c66cc4d38737b7dd8e7c8fb733321d76caeec",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/b33a96107f8bfaa96d7bf31d.npz": "443ffff543286450f92893786a2f760046b84093f8d0551c11b53cecc29e3806",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/8d5e7a4ec492ebb55d822b03.npz": "1282e599588b9311ec26eb67614454617014ebb030b120f277b81a16ab2bcb72",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/647bc14c6e1d4da23e32e781.npz": "c4657dde27cb1517a37bb2bf66c79a75b00aef6d9359774bdd926ec3b8a85806",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/18737fe0d737f14396d78206.npz": "0e1b1d1ec6e112c36d8a1f8b5e04e850f09ddd10f0b7f1fe4404925e0bffcf11",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/8083a41dba953ee9860ab3f9.npz": "3ea041a566b7f6b89157a25497eeac0dcd9ff212db6a7e59bd0be568352e172b",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/ab478925a3fad7b76aca0cb7.npz": "15aa262ae7ea5b7f5ba926afa597e375bf33178ed5545fdbb8f1255e795d2629",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/c25b90bec32fd866fc1545f7.npz": "4619e93e0e823013aa1ea70b16fdf96dd06c05ed85aa906bd589d1a353d2905b",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/78ffeca0ca5edf972b2caf14.npz": "f6e9443de9f7ccc5ff8d83df7214b9ae1210d41f8c2e62a06f9688589dee2a6f",
+    "runs/W2-PH3-P1-20261028T091305Z/samples/7e5d02429fec1b2020b063b1.npz": "5e622fae42698e2cccb763751baea9a8b24142931b8489217579a9a9c0b24092",
+    "runs/W2-B144-57496493/jobs.jsonl": "dcca18c1459dbe7db95ea721e62ebc3c2dcefd6370c98bec8152a1007ff493f4",
+    "runs/W2-P2-2a-56220810/jobs.jsonl": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+    "runs/W2-B144-57496493/units.json": "378c514a655a343f9bcd065f3e01d5ff26590f944c24bc64f360287c0828b1b1"
+  },
+  "script_sha256": "ca0f1133a76de0cfd70ad4d6a2c1e7db009786182cd9902fcbff3d59793f53f1"
+}

@@ -1,0 +1,96 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________ test_engine_circular_and_restart_contract[hierarchical_cached] ________
+
+engine = 'hierarchical_cached'
+
+    @pytest.mark.parametrize('engine', ENGINES)
+    def test_engine_circular_and_restart_contract(engine):
+        if engine != 'dop853_jit':
+            require_native()
+        initial = binary()
+        args = dict(period=2*math.pi, mode=NumericMode.tight(), times=np.linspace(0, 2, 21))
+>       full = integrate_engine(engine, initial, [1.], [], [0.01], 2., **args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/physics/test_w2_engines.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/submoon_research/dynamics/engine_compare.py:192: in integrate_engine
+    cache.extend(horizon, budget)
+src/submoon_research/dynamics/native_ias15.py:176: in extend
+    segment = self.native.step(stop, self.max_step)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/submoon_research/dynamics/native_ias15.py:101: in step
+    self.sim.steps(1)
+/home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:1295: in steps
+    self.process_messages()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <rebound.simulation.Simulation object at 0x7cb150dc2820, N=1, t=2.0>
+
+    def process_messages(self):
+        clibrebound.reb_pop_message.restype = c_int
+        clibrebound.reb_pop_message.argtypes = [c_void_p, c_char*string_size_max]
+        buf = create_string_buffer(string_size_max)
+        if self.messages:
+            while clibrebound.reb_pop_message(self.messages, buf):
+                msg = buf.value.decode("ascii")
+                if msg[0]=='i':
+                    print(msg[1:])
+                elif msg[0]=='w':
+>                   warnings.warn(msg[1:], RuntimeWarning)
+E                   RuntimeWarning: At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.
+
+/home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:264: RuntimeWarning
+____ test_separate_process_restart_with_escape_history[hierarchical_cached] ____
+
+engine = 'hierarchical_cached'
+tmp_path = PosixPath('/tmp/pytest-of-taras/pytest-0/test_separate_process_restart_0')
+
+    @pytest.mark.parametrize('engine', ENGINES)
+    def test_separate_process_restart_with_escape_history(engine, tmp_path):
+        require_native()
+        initial = binary()
+        checkpoint_path = tmp_path/'checkpoint.json'
+    
+        def save_and_interrupt(value):
+            if value['time'] > .8:
+                checkpoint_path.write_text(json.dumps(value))
+                raise TimeoutError('Тестовое прерывание')
+    
+>       partial = integrate_engine(engine, initial, [1.], [], [.01], 2., period=2*math.pi,
+            mode=NumericMode.tight(), hill_km=10., escape_window=3., progress=save_and_interrupt)
+
+tests/physics/test_w2_engines.py:190: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/submoon_research/dynamics/engine_compare.py:192: in integrate_engine
+    cache.extend(horizon, budget)
+src/submoon_research/dynamics/native_ias15.py:176: in extend
+    segment = self.native.step(stop, self.max_step)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/submoon_research/dynamics/native_ias15.py:101: in step
+    self.sim.steps(1)
+/home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:1295: in steps
+    self.process_messages()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <rebound.simulation.Simulation object at 0x7cb15016e350, N=1, t=2.0>
+
+    def process_messages(self):
+        clibrebound.reb_pop_message.restype = c_int
+        clibrebound.reb_pop_message.argtypes = [c_void_p, c_char*string_size_max]
+        buf = create_string_buffer(string_size_max)
+        if self.messages:
+            while clibrebound.reb_pop_message(self.messages, buf):
+                msg = buf.value.decode("ascii")
+                if msg[0]=='i':
+                    print(msg[1:])
+                elif msg[0]=='w':
+>                   warnings.warn(msg[1:], RuntimeWarning)
+E                   RuntimeWarning: At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.
+
+/home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:264: RuntimeWarning
+=========================== short test summary info ============================
+FAILED tests/physics/test_w2_engines.py::test_engine_circular_and_restart_contract[hierarchical_cached]
+FAILED tests/physics/test_w2_engines.py::test_separate_process_restart_with_escape_history[hierarchical_cached]
+2 failed in 2.65s

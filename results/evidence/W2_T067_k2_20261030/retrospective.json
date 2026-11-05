@@ -1,0 +1,144 @@
+{
+  "schema": "W2-PH3-k2-fail-closed-prototype-v1",
+  "utc": "2026-10-30T11:35:46.501950+00:00",
+  "baseline_sha256": "0febe080e713cca4ea7cd6530beb46b7a89aa3f3fcff9b6bb17d69769e236150",
+  "previous_sha256": "9b90652798fda958dd87bc4cf88ba9c76d51db8f88e008da2efd9d4b49f28e39",
+  "inventory_sha256": "4d064711745f5a1f279ae68155e4f2fb4b674cadbdce7e6d5cc53a9d3c64b833",
+  "code_sha256": {
+    "scripts/review_k2_guard_20261030.py": "f1a63d3217d5c52f95727fe9119b47a1e5b310942b5b9635d22c192d0b4a402a",
+    "src/submoon_research/diagnostics/convergence_k2_guard_v1.py": "e816530dac6ba52adb32bceb2fc661256c87aa48563140e2145f4b0d38bfbdd4"
+  },
+  "counts": {
+    "K3->K3": 3,
+    "K4->K4": 5,
+    "K1->K1": 1,
+    "K0->K0": 7
+  },
+  "cases": [
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "previous": "K3",
+      "current": "K3",
+      "k2_status": "not_assessed",
+      "flags": [
+        "high_e_confidence_capped"
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "previous": "K3",
+      "current": "K3",
+      "k2_status": "not_assessed",
+      "flags": [
+        "high_e_confidence_capped"
+      ]
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "previous": "K4",
+      "current": "K4",
+      "k2_status": "not_assessed",
+      "flags": [
+        "perturbations_incomplete_or_unknown"
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "previous": "K4",
+      "current": "K4",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "previous": "K4",
+      "current": "K4",
+      "k2_status": "not_assessed",
+      "flags": [
+        "perturbations_incomplete_or_unknown"
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "previous": "K4",
+      "current": "K4",
+      "k2_status": "not_assessed",
+      "flags": [
+        "literal_k3_not_established"
+      ]
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "previous": "K3",
+      "current": "K3",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "previous": "K1",
+      "current": "K1",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "previous": "K4",
+      "current": "K4",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "previous": "K0",
+      "current": "K0",
+      "k2_status": "not_assessed",
+      "flags": []
+    }
+  ],
+  "integrations": 0,
+  "production_allowed": false,
+  "note": "Только повтор просмотренных данных; K2 блокируется, остальные классы не переоценены."
+}

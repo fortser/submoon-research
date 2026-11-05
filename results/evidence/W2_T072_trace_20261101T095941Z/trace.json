@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-01T10:00:07.914785+00:00",
+  "purpose": "безвредный bash -n в контролируемой среде",
+  "argv": [
+    "C:\\Program Files\\Git\\usr\\bin\\bash.EXE",
+    "--noprofile",
+    "--norc",
+    "-n"
+  ],
+  "cwd": "T:\\test_python\\submoon-research",
+  "root_pid": 4620,
+  "input_sha256": "f641ea251753ca1ab1bc8409d505df295549128c1b9ef8f0daa4388785a02f78",
+  "removed_env": [
+    "BASH_ENV",
+    "ENV"
+  ],
+  "timeout_seconds": 10,
+  "elapsed_seconds": 0.04700000000048021,
+  "returncode": 0,
+  "timed_out": false,
+  "samples": [
+    {
+      "pid": 4620,
+      "ppid": 13108,
+      "name": "bash.exe",
+      "create_time": 1793527207.8787267,
+      "observed_seconds": 0.01600000000144064
+    }
+  ],
+  "observed_survivors": [],
+  "caveat": "sampling 5ms may miss short-lived descendants; Linux processes not identified"
+}

@@ -1,0 +1,28 @@
+{
+  "scope": "synthetic reproduction of missing capture defect",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "results": {
+    "real_uncaptured_process": {
+      "admissible": true,
+      "outcome": "preserve_synthetic_outcome",
+      "reasons": []
+    },
+    "unknown_stderr": {
+      "admissible": true,
+      "outcome": "preserve_synthetic_outcome",
+      "reasons": []
+    },
+    "unknown_stdout": {
+      "admissible": true,
+      "outcome": "preserve_synthetic_outcome",
+      "reasons": []
+    },
+    "known_output_control": {
+      "admissible": false,
+      "outcome": "unresolved",
+      "reasons": [
+        "unclassified_output"
+      ]
+    }
+  }
+}

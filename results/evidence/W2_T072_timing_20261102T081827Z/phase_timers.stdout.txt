@@ -1,0 +1,1 @@
+{"run_id": "W0-L1-20261102T082527Z-6c34d785", "validation": "not_run", "error": "Поле противоречит утверждённой L1 v0.2: routes.independent_reproduction.frame.rotating_frame"}

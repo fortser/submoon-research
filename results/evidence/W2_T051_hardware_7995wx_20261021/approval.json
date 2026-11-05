@@ -1,0 +1,22 @@
+{
+  "approval_ref": "user-20261021-hardware-7995wx",
+  "approved": true,
+  "user_message": "арендуй для тестов",
+  "context": "Прямой ответ на предложение аренды оффера 54621118, machine 153489, Threadripper PRO 7995WX, 192 vCPU API, 515 GB RAM, $0.659/h including 60 GB disk. Новое разрешение на аппаратный тест; не повтор W2-D031 и не разрешение B144.",
+  "owner": "pi-hw7995-20261021",
+  "task_id": "W2-T051",
+  "run_id": "W2-hardware-7995wx-20261021",
+  "offer_id": 54621118,
+  "machine_id": 153489,
+  "mode": "on-demand",
+  "disk_gb": 60,
+  "max_hourly_usd": 0.70,
+  "budget_usd": 1.0,
+  "max_test_minutes": 30,
+  "max_paid_attempts": 1,
+  "max_upload_gb": 0.01,
+  "max_download_gb": 0.01,
+  "image": "python:3.11-slim-bookworm",
+  "scientific_series_authorized": false,
+  "termination": "После аппаратного теста сохранить малую диагностику, удалить только созданный этим разрешением инстанс и проверить отсутствие; при отказе запуска завершить раньше. Не изменять личный инстанс 56229721. Не создавать платные повторы."
+}

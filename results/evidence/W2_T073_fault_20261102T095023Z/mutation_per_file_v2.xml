@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="0.279" timestamp="2026-11-02T13:17:40.050830+03:00" hostname="HOME-PC"><testcase classname="tests.unit.test_provenance_batch" name="test_initial_manifest_publications_are_constant[8]" time="0.138"><failure message="AssertionError: assert 13 == 2&#10; +  where 13 = len([{'schema_version': '0.3', 'run_id': 'synthetic-20261102T101740Z-8e85fd2b', 'experiment_id': 'synthetic', 'scientific_...'0.3', 'run_id': 'synthetic-20261102T101740Z-8e85fd2b', 'experiment_id': 'synthetic', 'scientific_id': None, ...}, ...])">synthetic_package = (WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-441/test_initial_manifest_publicat0/project'), ...ers/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-441/test_initial_manifest_publicat0/project/src/submoon_research'))
+monkeypatch = &lt;_pytest.monkeypatch.MonkeyPatch object at 0x000002034D9B72E0&gt;
+additional_files = 8
+
+    @pytest.mark.parametrize('additional_files', [0, 8])
+    def test_initial_manifest_publications_are_constant(synthetic_package, monkeypatch, additional_files):
+        root, package = synthetic_package
+        for index in range(additional_files):
+            (package / f'extra_{index}.py').write_text(f'VALUE = {index}\n', encoding='utf-8')
+        run = execution.RunContext(root, 'synthetic', output_mib=1)
+        publish = execution.write_json
+        calls = []
+    
+        def observe_write(path, data):
+            if path == run.folder / 'manifest.json':
+                calls.append(json.loads(json.dumps(data)))
+            return publish(path, data)
+    
+        monkeypatch.setattr(execution, 'write_json', observe_write)
+        with run:
+&gt;           assert len(calls) == 2
+E           AssertionError: assert 13 == 2
+E            +  where 13 = len([{'schema_version': '0.3', 'run_id': 'synthetic-20261102T101740Z-8e85fd2b', 'experiment_id': 'synthetic', 'scientific_...'0.3', 'run_id': 'synthetic-20261102T101740Z-8e85fd2b', 'experiment_id': 'synthetic', 'scientific_id': None, ...}, ...])
+
+tests\unit\test_provenance_batch.py:83: AssertionError</failure></testcase></testsuite></testsuites>

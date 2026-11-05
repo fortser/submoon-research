@@ -1,0 +1,19 @@
+{
+  "src/submoon_research/diagnostics/b144_scientific.py": "d6d57b59c3dea45dc387a7533d67e3e37ac45da651d652a5d870572cb91962cc",
+  "scripts/analyze_b144_science.py": "55962f8a308cf23bd0448dd35f853dfc3d7dae87d1bf35fb23ee2245a676562e",
+  "tests/unit/test_b144_scientific.py": "01a516ba10be9694425ab9e5197737ba43faa6abf29b73f20c0e88d26098315f",
+  "reports/analysis/W2_B144_scientific_review_20261024.md": "9317b3e32efca26d5f0d2c4fedf196fd472991b0a6b9de638e7437b9fe1d8176",
+  "results/evidence/W2_B144_scientific_20261024/v1/analysis.json": "caa980f91011a9b4feacb5dc65134f510b2dc5b0865028a45ee82a4ce8b80718",
+  "results/evidence/W2_B144_scientific_20261024/v1/cost_cells.csv": "f5de2602bb35057cdcaea92fd155c99ed0d7c6b9ed2c97719352d970ac46ddc8",
+  "results/evidence/W2_B144_scientific_20261024/v1/event_pairs.csv": "9e3ddd6b3b2d9fb275ae0e81fcfc6d68edc60c337a06814488548bece85efb62",
+  "results/evidence/W2_B144_scientific_20261024/v1/high_e_resolution.csv": "63adb32e84b9d4719ac17242b44dc7502a637b53434130ffea2cf915a451d052",
+  "results/evidence/W2_B144_scientific_20261024/v1/horizon_checks.csv": "7c7f757dfa64872493240d7b7b402908ed3016eb3395d38e4f9669f0cc09aff5",
+  "results/evidence/W2_B144_scientific_20261024/v1/outcomes.csv": "f09a9b163f1c926eee79cf101dafdc53a0d05edaec04d3202ec3c0c92e57ad0d",
+  "results/evidence/W2_B144_scientific_20261024/v1/pairs.csv": "fd5e20300e6f118f45fa098b1b3592100c16f00cb209f6e25f93cd774de4f2cd",
+  "results/evidence/W2_B144_scientific_20261024/v1/pytest_focused.txt": "dd5db912c1c48b5183ac3ae99ee0474802323156c6fd4e173f7895d9d99cdade",
+  "results/evidence/W2_B144_scientific_20261024/v1/pytest_full.txt": "fb5bcecb05723c52aaf754ee668f61899ff5ef24d549d55420a62603e193361b",
+  "results/evidence/W2_B144_scientific_20261024/v1/ruff.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+  "results/evidence/W2_B144_scientific_20261024/v1/smoke.txt": "565cf9fcaea05ec0caeed3767ebf7e247d7111fb0a17206fbaec0e0218ed1fce",
+  "results/evidence/W2_B144_scientific_20261024/v1/supplement.json": "07904f539c3c77ba3db614276c0add5fb8d2d48c7ea612975e9c0e40914cb685",
+  "results/evidence/W2_B144_scientific_20261024/v1/validate.txt": "848e4df3093ac72dd05ff719094ca9f7a02133d0d37b38ae7b9fbc08fc76a8be"
+}

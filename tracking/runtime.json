@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "updated_utc": "2026-10-20T05:33:05+00:00",
+  "updated_utc": "2026-11-05T06:01:37+00:00",
   "processes": [
     {
       "radar_id": "vast-radar",
@@ -8,8 +8,8 @@
       "kind": "read_only_market_monitor",
       "task_id": "W2-T026",
       "owner": "pi-vast-radar-20261015",
-      "pid": 9436,
-      "last_checked_utc": "2026-10-20T05:33:05+00:00",
+      "pid": 13704,
+      "last_checked_utc": "2026-11-05T06:01:37+00:00",
       "paid_actions": 0,
       "heartbeat": "data/interim/vast_radar/heartbeat.json",
       "command": "scripts/vast_radar.py --desktop",

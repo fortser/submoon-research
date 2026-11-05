@@ -1,0 +1,4 @@
+wsl-python-path: /usr/bin/python3
+recorded-w2-python=missing
+system rebound= False
+system reboundx= False

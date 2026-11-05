@@ -1,0 +1,5201 @@
+{
+ "schema": "w2-b144-reference-v1",
+ "task": "W2-T050",
+ "source_run": "runs/W2-P2-2a-56220810",
+ "source_summary_sha256": "7308d42f368bb94753904c3f1085b0afb2039c9d9c86ad4ae26776e1518f135f",
+ "source_jobs_sha256": "0c17c36ac24b7bf0f8cd6ab939ef8464e3a51daf82265ab1f637b6a5fef41175",
+ "implementations": {
+  "compiled": "58bea7890bd1d93754b55b289412903f4ec0ef2bd05856607dd1d1f190f15ad5",
+  "B": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587"
+ },
+ "generator_numerics": null,
+ "archived_machine": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+ "archived_b_worker_hours": 23.968496591739434,
+ "archived_longest_hours": 4.006686001113849,
+ "jobs": [
+  {
+   "orbit_id": "ganymede:canonical_volume:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "526a13df2122668975de1d2e728b791dd55a0f768e6ab8200c41c23941b79bc4",
+   "initial_probe": [
+    22622.005671151608,
+    -10410.758316533234,
+    5162.702574268577,
+    -0.41340074530326376,
+    -0.302778571399043,
+    0.4031381334082761
+   ],
+   "archived_wall": 0.0610437523573637,
+   "archived_steps": 302,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "9da4f079717fce0792133613963ea7b12a5acbb9b922b26842f3875a62ec5ecf",
+   "initial_probe": [
+    6314.4247291318925,
+    -4161.413164690679,
+    -5874.696175265044,
+    0.41757784894415717,
+    -0.10096256989382736,
+    0.8303599290396623
+   ],
+   "archived_wall": 0.4803644330240786,
+   "archived_steps": 2598,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "e3ec44e3229010154772be0f5f986dfb001c008d64d76fbe5ec85352a87af465",
+   "initial_probe": [
+    3425.4806669411023,
+    -2500.847360817258,
+    834.0200982363847,
+    -1.1070730160966915,
+    -1.1290800014700584,
+    0.4565255129339708
+   ],
+   "archived_wall": 1.6207982911728323,
+   "archived_steps": 8056,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "1daeac2c734fc6ff0247a9614ef5d2417b6e7293f1efed846ed62431d1e2e8c8",
+   "initial_probe": [
+    13407.079298684153,
+    7969.43199159917,
+    5537.583908644369,
+    -0.4011021450156023,
+    0.4918647937517476,
+    0.15557618306711152
+   ],
+   "archived_wall": 359.0885583749041,
+   "archived_steps": 1826978,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "c25b557a967e51e1c2282e0625f7671879f3aef3fa477e29d7f05f6c4db9d523",
+   "initial_probe": [
+    12037.706381801721,
+    -980.2460163143519,
+    17938.70368407799,
+    0.4330872242634847,
+    -0.17108307400577696,
+    -0.4615814732669764
+   ],
+   "archived_wall": 0.05132327415049076,
+   "archived_steps": 251,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "b48d9d4e6877e4ca4c91b45929338191c085db6979d511688228ba228673718a",
+   "initial_probe": [
+    -24466.45029740173,
+    4487.153755317448,
+    -7123.780719759262,
+    0.06125026164061681,
+    0.5993753124660317,
+    -0.2711244085832223
+   ],
+   "archived_wall": 0.06891909474506974,
+   "archived_steps": 338,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "139de38e9c7fbe6861312f9866ee170778d481e57f2bd679e5b0b6c9d1502039",
+   "initial_probe": [
+    -2544.316049187791,
+    208.27155899709902,
+    2073.217465156793,
+    0.5361340968577062,
+    -1.4953406904527513,
+    1.1079368039577089
+   ],
+   "archived_wall": 0.7168890526518226,
+   "archived_steps": 3783,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "b02dbae225d8620e1564c69e878593f3f9a9d404ff72afc18b82bb1ad8350574",
+   "initial_probe": [
+    -10593.125940686532,
+    251.54364805100494,
+    24526.390259534353,
+    -0.23110762862969622,
+    -0.5106032206692599,
+    -0.03823300449183986
+   ],
+   "archived_wall": 0.03689351584762335,
+   "archived_steps": 185,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "635d3ae8b94962261f31dfb994444b01257f9830b02f2d40a8889001a2789716",
+   "initial_probe": [
+    15726.730692405175,
+    24446.05014897518,
+    -14299.370396465343,
+    0.43180617524003934,
+    -0.2589922543217849,
+    -0.14046332329560962
+   ],
+   "archived_wall": 0.066705871373415,
+   "archived_steps": 328,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "a44b79941da3b9019f385c7dedfb9acab612971966f8a3ce67975d592018cc3d",
+   "initial_probe": [
+    -8408.205874874264,
+    14352.431573615779,
+    -4065.7656890955723,
+    0.10439788265600909,
+    -0.09494628428625008,
+    -0.6207314050908684
+   ],
+   "archived_wall": 0.06030285498127341,
+   "archived_steps": 291,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "36a5d969514caa8449bef5c6ed452c5c0be56401ef6dec11d43316e0c0498f21",
+   "initial_probe": [
+    -2558.634125826209,
+    10790.278311130012,
+    -16926.943412382694,
+    -0.2977148154307242,
+    -0.5273939262108907,
+    -0.34183220180834567
+   ],
+   "archived_wall": 0.040504137985408306,
+   "archived_steps": 216,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "bb9e321661d27a314b0a278b6c6fc1f092b67dc347928ed1f1a2a19cea1934c5",
+   "initial_probe": [
+    693.3263262547983,
+    13182.355920633187,
+    9667.444200194106,
+    0.36575466270040863,
+    -0.37870495175943686,
+    0.4987137924153278
+   ],
+   "archived_wall": 0.08477401826530695,
+   "archived_steps": 413,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "88c2a684c18c2e90040e4b61f6d500859c91d7044b2c2d0d69748032816ba109",
+   "initial_probe": [
+    1071.7292593156064,
+    7529.8802714283265,
+    -516.8947007263187,
+    -1.0674750309865126,
+    -0.014279162732155506,
+    -0.4730811423564478
+   ],
+   "archived_wall": 647.9864128800109,
+   "archived_steps": 3258194,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "d5622c112544012c5b0e973d7a0ef445c89e6e179f6db561ec537ac71d54ff29",
+   "initial_probe": [
+    18100.026090473908,
+    9894.495714562594,
+    -20140.959337179764,
+    0.31914709198902536,
+    -0.48835857350608675,
+    -0.1422612034654314
+   ],
+   "archived_wall": 0.07772815227508545,
+   "archived_steps": 394,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "e59ce639913df83a50a86ed81ec4747a094f2598e5e99a741fa2ba156da469be",
+   "initial_probe": [
+    13036.87379340115,
+    -5525.955489188667,
+    -17925.897510950705,
+    0.47987550337523877,
+    -0.34394001110749606,
+    0.2220507262126838
+   ],
+   "archived_wall": 0.04637480387464166,
+   "archived_steps": 228,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "8c911e1786a6d34e6223c430c3e247c938ccbc23d729818afcf7a60928f9d861",
+   "initial_probe": [
+    -16795.423165366166,
+    7427.800566016223,
+    -320.2213058556346,
+    -0.12022855607310015,
+    -0.43319497831813497,
+    -0.4941723951994182
+   ],
+   "archived_wall": 0.08319247281178832,
+   "archived_steps": 400,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "2c3d63762f0bb253f46c3a2c1119953646edab207781aca7df7423f441f711fa",
+   "initial_probe": [
+    -8892.528411699446,
+    16971.1879122347,
+    -7547.978835390063,
+    -0.5980982622257179,
+    -0.07918705202171467,
+    0.47691848303426904
+   ],
+   "archived_wall": 0.039351257029920816,
+   "archived_steps": 195,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "9fa1869d1dfe95a4713dcfe141dd17563c27145e2e7cda51a477777de610e2b6",
+   "initial_probe": [
+    -22701.193117252416,
+    -10168.977535347438,
+    2241.81773585251,
+    0.17648145925088968,
+    -0.5925812978227566,
+    -0.2916912492504219
+   ],
+   "archived_wall": 0.035812629852443933,
+   "archived_steps": 174,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "6d9353f4f52db761cb4f7c58c95ad461d9d1a8ba4530ef21043f637f3776a49c",
+   "initial_probe": [
+    5934.07115784283,
+    7615.969948918066,
+    -5153.597462142697,
+    0.6957856084340278,
+    -0.543462196787026,
+    0.2568170387744557
+   ],
+   "archived_wall": 0.26477647200226784,
+   "archived_steps": 1401,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "be1241686ca8863e39d6b94c6052ecd59397a30826bd8bf8ff2ddbe8f9fab928",
+   "initial_probe": [
+    -1783.7640627300168,
+    23165.726270553336,
+    -2959.036675849231,
+    0.4041297986905554,
+    -0.08608801319361109,
+    -0.5488771981054811
+   ],
+   "archived_wall": 0.06281054113060236,
+   "archived_steps": 304,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "c5fcdaee8679d8e87e9bcacad3661376a96fa8ff248235e5e841ce749ec56efd",
+   "initial_probe": [
+    545.7612319850379,
+    19899.356659401503,
+    -12107.52295652428,
+    0.41773971019794776,
+    -0.3237427250039947,
+    -0.4478623366917657
+   ],
+   "archived_wall": 0.05991411814466119,
+   "archived_steps": 294,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "e6951444ffa775272e38e1dc4a6c4eedcb0ff0600b98ce5ccbac4399a375b123",
+   "initial_probe": [
+    -11061.948201286881,
+    20379.2455599638,
+    6920.048346369109,
+    0.41986753163871926,
+    0.4427149316909786,
+    -0.1749652478883864
+   ],
+   "archived_wall": 0.06664927117526531,
+   "archived_steps": 322,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "3963a51afb86ba08fc579a6c83ef1b9c7a7db1233e30ec19e6a00f07bbded23d",
+   "initial_probe": [
+    21406.24269685735,
+    -4276.530114560742,
+    -19585.22869992017,
+    0.2394908670505363,
+    0.3987033326292311,
+    0.3614885136545657
+   ],
+   "archived_wall": 0.036060784943401814,
+   "archived_steps": 178,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "f1f8c96257da112ffa533cd3cb88734f8675e36c2977068f820305c4a8562a14",
+   "initial_probe": [
+    -24189.85205411453,
+    23105.13746308459,
+    -9764.367894628444,
+    -0.03734634348425024,
+    -0.14753443717724474,
+    -0.4693391231798408
+   ],
+   "archived_wall": 0.03785899514332414,
+   "archived_steps": 185,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "9619f5bbe4f083a5a935c17329df5ae81938ea868d7cd53fbc15484568901be5",
+   "initial_probe": [
+    -3931.948956982737,
+    2403.2589635932045,
+    3800.2551669421027,
+    0.30933455344069,
+    -0.6492968568260811,
+    1.0586072410643272
+   ],
+   "archived_wall": 0.722576096188277,
+   "archived_steps": 3588,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "6de4b13fa7ca14637e4c39e1b554cb51edba63c361302743aa29478221bdc3ab",
+   "initial_probe": [
+    4517.020098356167,
+    26686.320547379662,
+    16373.607448887813,
+    -0.28998342027123203,
+    0.27306607033025176,
+    -0.3862581535908924
+   ],
+   "archived_wall": 0.012110503390431404,
+   "archived_steps": 51,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "796442f4d0703da46b9087c6bec3fdd5bc94219cbe56a892148e693b0d50e2ed",
+   "initial_probe": [
+    1350.2647203240824,
+    -6435.70933157861,
+    1328.1190340895469,
+    0.9847193010401386,
+    0.18558554370039493,
+    0.7459051828356008
+   ],
+   "archived_wall": 810.4975794441998,
+   "archived_steps": 4094682,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "36a0c1d5aee57b1308ef6241e0a667c6cab03eeca258fb6af54b1407e11dbaa1",
+   "initial_probe": [
+    17094.56187927122,
+    6708.004917242863,
+    15129.145454148142,
+    -0.0911751759479958,
+    0.505700904211749,
+    -0.23047245040219247
+   ],
+   "archived_wall": 0.11314555024728179,
+   "archived_steps": 552,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "64cd6ffb5d6fe523300fe66bf7c1803f751101f5d260ca85e9239d8267e4f734",
+   "initial_probe": [
+    5266.016888791118,
+    -269.1654871542418,
+    -2416.873259564205,
+    0.5497278080465142,
+    0.4944063316363817,
+    1.117653062167874
+   ],
+   "archived_wall": 941.6520725539885,
+   "archived_steps": 4694872,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "9644516c09ebda2252b6a2c5a934c9de88b6b426c1212efe9f2070f341b7ec06",
+   "initial_probe": [
+    19424.427595894973,
+    -231.88661839157808,
+    2724.812100593057,
+    -0.11755778659799648,
+    -0.2620101621156684,
+    0.687684286128089
+   ],
+   "archived_wall": 0.061697016935795546,
+   "archived_steps": 303,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "84a5c8d8ce2d18f90e0b96e96c6478b07ac9688a2bfb497dd48551d0fc8e765b",
+   "initial_probe": [
+    -3990.690910992208,
+    -1720.0757042110604,
+    -7288.81115165259,
+    0.39729448943568185,
+    -0.834589413429821,
+    0.02662044483555776
+   ],
+   "archived_wall": 1.6001645210199058,
+   "archived_steps": 7935,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "b0b2710631ea27f71c1c5c842f27e27a83f0eea04c5e03708be21acc68af6b71",
+   "initial_probe": [
+    -12832.422222173076,
+    2894.091575700689,
+    -16881.841415237555,
+    0.4497642839127147,
+    -0.5188975475039002,
+    -0.1890992478141527
+   ],
+   "archived_wall": 0.041530372109264135,
+   "archived_steps": 205,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "7a3526ac3890676fb693ebb9725d51c29d2add9ab492943ccf0ab2a4c03d2916",
+   "initial_probe": [
+    -17806.424153070297,
+    14949.418914395363,
+    -7752.41660937796,
+    -0.4657062728095577,
+    -0.313524379335743,
+    0.28301833300957524
+   ],
+   "archived_wall": 0.03595672361552715,
+   "archived_steps": 189,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "38f49660f7a1f1fdc5c53d3f1e525cb4273afb225118703193195db22c379417",
+   "initial_probe": [
+    16148.970369018172,
+    -8237.881019895009,
+    6655.315809491183,
+    0.17343870760373856,
+    0.7539833066214467,
+    -0.014225490984380642
+   ],
+   "archived_wall": 0.06551481131464243,
+   "archived_steps": 321,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "c6a43a229ca772065baf9fc0990a720d256b46a72edcbd1e58ec7aca57daee5a",
+   "initial_probe": [
+    8349.957676514048,
+    17095.653559191993,
+    17324.845648082777,
+    -0.12598880174462654,
+    0.4631934379240997,
+    -0.38635248638075065
+   ],
+   "archived_wall": 0.011727349832654,
+   "archived_steps": 54,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "96c584863a53ee5db42ff490e21a0e8dc0fccd52ff6569c82bde801ecb5bb4b2",
+   "initial_probe": [
+    6869.3053743977525,
+    -10942.888172245002,
+    -6069.629972234071,
+    0.6929255532534956,
+    -0.045141141004687094,
+    0.622646467784629
+   ],
+   "archived_wall": 0.03746929485350847,
+   "archived_steps": 190,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "3af771a31e8e4a7174ce5fdd71d54b20b7fae3b18b32eb21387ba118d5354c7d",
+   "initial_probe": [
+    17014.334465813223,
+    -2376.094944549663,
+    5969.438280030953,
+    -0.22360848675139494,
+    0.4428778683937325,
+    0.5461816432459397
+   ],
+   "archived_wall": 0.0844453671015799,
+   "archived_steps": 412,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "8a9e5adddb90cabc7452ccf7687be4ab92700b4e941d92a48d0a23c3a8d7c458",
+   "initial_probe": [
+    -1623.1757161143764,
+    11335.38806300739,
+    10643.111208742079,
+    0.62672465532147,
+    -0.3525225569092295,
+    0.3892945748461586
+   ],
+   "archived_wall": 215.19532041391358,
+   "archived_steps": 1068697,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "57d42a1fc3b6d09552ce0bef0c6584b392e0955ea0714a77d23e2c63144b28ce",
+   "initial_probe": [
+    -2229.5585642868605,
+    -5728.44420251839,
+    4746.372983491835,
+    0.5429872352474425,
+    -0.9608608339025545,
+    -0.38469177619501843
+   ],
+   "archived_wall": 0.17957165278494358,
+   "archived_steps": 971,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "20d31158de369cb6dea3cb39d9f2ba9835b10e4215f3f5861c344e239d147cc4",
+   "initial_probe": [
+    5870.810681876495,
+    2917.485303772152,
+    -2817.768323674658,
+    -0.5242821567377165,
+    0.2532593613639535,
+    -1.0421232299071481
+   ],
+   "archived_wall": 1.0600297171622515,
+   "archived_steps": 5624,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "4c07405d594941000f0fec3efd57711eb395962ea033bc11c3e1e7c8cc35e528",
+   "initial_probe": [
+    -2578.6884751074126,
+    -10104.592470270398,
+    8624.378325312255,
+    0.616256192149933,
+    -0.24562565146880205,
+    -0.45232499960038314
+   ],
+   "archived_wall": 0.07252533594146371,
+   "archived_steps": 378,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "78874e6b49fb5e3a3db11d31c02a845a28a5d41408c1fa5200aa47bcf10b76cb",
+   "initial_probe": [
+    -3734.9283546778565,
+    6156.168685359582,
+    20.166670517653312,
+    -0.5932496170800549,
+    -0.6571846023544007,
+    0.8561589531361611
+   ],
+   "archived_wall": 0.26136231096461415,
+   "archived_steps": 1398,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "96445aa05707d32e668e84045a1f450e41e68b4551dccac67057481b16918c25",
+   "initial_probe": [
+    1175.8697566280835,
+    -1705.2555972748344,
+    3177.0522144062647,
+    1.698432855180283,
+    0.12251244794618318,
+    -0.37991326731634656
+   ],
+   "archived_wall": 0.7916641929186881,
+   "archived_steps": 4211,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "5015c0e9095ff98f4c3ecb0339a2cd19de7574fd81646c43764e2585653dde34",
+   "initial_probe": [
+    -6779.8477131346035,
+    -2791.0953080925415,
+    -13091.89942872423,
+    0.17058932609412195,
+    0.7337383346501041,
+    -0.0419034277226119
+   ],
+   "archived_wall": 0.09915177756920457,
+   "archived_steps": 484,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "857d0fc8e1d6ef975759807d761761b1aa8daecd9259c4d6d77967b6d5f6ae30",
+   "initial_probe": [
+    1569.1093392381913,
+    2511.6224968555102,
+    1393.2771788110174,
+    0.9421604623754037,
+    -1.2502102464315368,
+    0.9445376377247924
+   ],
+   "archived_wall": 2.156784427817911,
+   "archived_steps": 11218,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "f280c0fc2c07b189c589971ec1574b935bf05d52e857cac2fc1921002e855c3d",
+   "initial_probe": [
+    -3474.2012803785915,
+    -3323.7087163516703,
+    2217.959302840873,
+    -0.6538617397526809,
+    1.2188409699855165,
+    -0.0070619801959085175
+   ],
+   "archived_wall": 1.1962518277578056,
+   "archived_steps": 5886,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "050065c26a8731251428c64cf23c145ca7be5c6f346061d64de9894608eeabca",
+   "initial_probe": [
+    8941.205609060422,
+    7396.264021891452,
+    -2539.386971337859,
+    -0.08931666274006195,
+    0.3555707264161963,
+    0.8202487546783765
+   ],
+   "archived_wall": 383.476890404243,
+   "archived_steps": 1906620,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "0c290672550329d8eaf662bc33cacffa07846774e2027e0f3b3f4cfc165fe296",
+   "initial_probe": [
+    5252.010131994897,
+    10031.405101248389,
+    19293.4650639295,
+    -0.48854151572649257,
+    -0.32051428988861497,
+    0.2206663482380531
+   ],
+   "archived_wall": 0.05844747181981802,
+   "archived_steps": 287,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "013266f6f9dba133ca2fa46e5c7b44d632953010734b5b0587b3c6a49edd2a15",
+   "initial_probe": [
+    -2650.6209737742925,
+    1531.793926001988,
+    -47.43124866823281,
+    -0.00198144096773533,
+    -0.005825065694231262,
+    0.0015208662107994736
+   ],
+   "archived_wall": 13.373327105306089,
+   "archived_steps": 72978,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "e1dc5b1d6f66bca157eedaffb5ee703adcf6bc7fcb004ac3813dfa48c1d84b1c",
+   "initial_probe": [
+    6267.09179512308,
+    -2067.032402508463,
+    2634.229676059321,
+    -0.0012869782099863406,
+    -0.003538419660914469,
+    0.002018652316713673
+   ],
+   "archived_wall": 0.04070218186825514,
+   "archived_steps": 207,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "972600c3edcadb88278e83286a2c411a9c15a5233e2d894aebbc00d34eb9f04b",
+   "initial_probe": [
+    -1523.8303095740696,
+    -1411.1364227257075,
+    -4810.047013244365,
+    -0.002662844841849093,
+    -0.004838855048934604,
+    0.0010898260076959779
+   ],
+   "archived_wall": 0.058819330763071775,
+   "archived_steps": 277,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "0a301503b6daba9ba7564675273abd35799e4eec57b5e01218c8878113e94afa",
+   "initial_probe": [
+    4289.3313561363175,
+    5341.080067617022,
+    -2156.085901261091,
+    -0.00028750020569950484,
+    -0.00037223268936034665,
+    -0.004356110457302728
+   ],
+   "archived_wall": 0.05978814698755741,
+   "archived_steps": 295,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "a730d1bb525302c65121d61152a8d3ce940e84008db95c2d0832847069477ddc",
+   "initial_probe": [
+    2549.1092181635518,
+    -2729.676354119524,
+    -4270.330104858243,
+    0.0041837153122711935,
+    0.0021178977729915957,
+    0.0002612154614257346
+   ],
+   "archived_wall": 0.07438058126717806,
+   "archived_steps": 390,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "6afa251246fe5cfaea471bbbc8a19975f5811387d2c96a775a1b73e8ad1b5df5",
+   "initial_probe": [
+    -4495.933915358336,
+    -369.7894522541294,
+    3718.456032390253,
+    -0.0027151683221521544,
+    -0.00378449078743809,
+    -0.0016387826276811107
+   ],
+   "archived_wall": 0.0372924730181694,
+   "archived_steps": 209,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "e73260038424c33814833018435020be922dfae596df2ba1b47ae9a2363b4817",
+   "initial_probe": [
+    1223.5156230168855,
+    -3785.0132495839975,
+    4359.917459364224,
+    0.002077794912596618,
+    0.0036416055245159823,
+    0.0030270337140593396
+   ],
+   "archived_wall": 0.0551918251439929,
+   "archived_steps": 302,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "360063ffdc0cdc6e0af377f870ac10417b4c663f347fc3c502256f6ead8bd81b",
+   "initial_probe": [
+    -4688.264905177238,
+    5041.819292950423,
+    -2615.065559530995,
+    0.0029705048589559867,
+    0.002298018182442287,
+    0.0014918684868556525
+   ],
+   "archived_wall": 0.05104685900732875,
+   "archived_steps": 261,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "66e697bf6faa9c62387ad581f7f4d470efebad7ecd183a641df6e6cd8ad92945",
+   "initial_probe": [
+    -350.5217180843856,
+    843.5232752397187,
+    -4727.546701895334,
+    -0.0030051080144253453,
+    0.004544205089847255,
+    0.0023247846156025953
+   ],
+   "archived_wall": 0.04842346487566829,
+   "archived_steps": 272,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "d1ad034ca471f72553d739e6be90da161f876fbda86f37365c9c045b8feecbcd",
+   "initial_probe": [
+    -2050.123134416149,
+    1669.6798467864905,
+    1551.3894293942328,
+    0.005420424982496874,
+    0.00015684437180175988,
+    0.005606287916520777
+   ],
+   "archived_wall": 1.6459402688778937,
+   "archived_steps": 8879,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "a1e281f13968a02dc4f62b9a879dbc9fdc136147092cc48848ebe62ff08dfdb9",
+   "initial_probe": [
+    3152.4745070871186,
+    6865.268498712105,
+    4068.542872348701,
+    0.0029786253157387645,
+    -0.002664897873030561,
+    0.001071943444079925
+   ],
+   "archived_wall": 0.03256482630968094,
+   "archived_steps": 169,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "88584698f852499af3d8d8a5c55ed1e93741032c5feab002c3799645a444d55b",
+   "initial_probe": [
+    3005.7267706081166,
+    -6529.303334103648,
+    1017.6056073906257,
+    0.0005492961485859107,
+    0.0016729528341769613,
+    0.004060157940617957
+   ],
+   "archived_wall": 0.03704481991007924,
+   "archived_steps": 188,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "a771963d66af8c841a13ce652026947fdbf5d396b50f9392d16b834f7e2a9e5d",
+   "initial_probe": [
+    1100.6413086925008,
+    65.08360307967361,
+    -2015.218258205835,
+    0.007275232471773047,
+    0.0023261392566817068,
+    0.004525893940058931
+   ],
+   "archived_wall": 11.123728333972394,
+   "archived_steps": 60863,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "05f8ffb93b36436af4765022cb1eccbfc730ad463da394268d2313d20a173d6b",
+   "initial_probe": [
+    -2498.4922856394674,
+    2909.327592278482,
+    -744.3983640380847,
+    0.004671516234899585,
+    0.002787586622629259,
+    -0.0023955350159513044
+   ],
+   "archived_wall": 5.535693137906492,
+   "archived_steps": 29340,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "854ee3a788351fc6b0f6e5f1d0cf67355ef418290ead01ee4cf8cf3dd7af80de",
+   "initial_probe": [
+    -412.54115793064994,
+    349.9837160578971,
+    -1300.021960996928,
+    0.0017094371773074507,
+    -0.010700495490207532,
+    -0.004455101748955203
+   ],
+   "archived_wall": 0.4450259953737259,
+   "archived_steps": 2431,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "6a821a3138acf4da3190c0b6102a56a248fee268699778c196ab3f860a90e9e8",
+   "initial_probe": [
+    -548.2758960057521,
+    3498.663485556735,
+    -5818.701607767851,
+    0.004213379601639778,
+    0.0011776617341928888,
+    0.00046465275897595014
+   ],
+   "archived_wall": 0.06109778210520744,
+   "archived_steps": 321,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "754043d82324eb90189a5bc77786356ce2b6457d523fc0bdf52a82e796e60815",
+   "initial_probe": [
+    2789.2342681651476,
+    573.78462319628,
+    -2782.3757204023955,
+    -0.0005468537984076701,
+    0.006208524305401128,
+    0.0018766134232267079
+   ],
+   "archived_wall": 0.06422134116292,
+   "archived_steps": 362,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "6e6df7195391ded0a9ef98b44fdc5d4e022664718e9621cce87dd25d7b109b51",
+   "initial_probe": [
+    -157.68982677868988,
+    -393.8967704564007,
+    -390.30290359850403,
+    0.01265589766272301,
+    0.00025723218898226076,
+    -0.01011440835640718
+   ],
+   "archived_wall": 119.27106841094792,
+   "archived_steps": 655016,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "428081a28d2c6046a65a4c020a0158535eff5cca065f6259de5ab437ae0f792a",
+   "initial_probe": [
+    1660.8700500116565,
+    2259.456496708745,
+    -4988.706838536117,
+    0.004114402383026083,
+    0.002966632049994733,
+    0.001837145097207882
+   ],
+   "archived_wall": 0.03305753832682967,
+   "archived_steps": 184,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "b54bdc90238b3b3da98a2428fb1136e1f8869c1c464955ff0b1b92b02ba68d7b",
+   "initial_probe": [
+    4398.127295483133,
+    4033.1311984447366,
+    3485.4290723793515,
+    0.0015079328653216345,
+    0.0017884479448261681,
+    -0.0040360539444398566
+   ],
+   "archived_wall": 0.056909949984401464,
+   "archived_steps": 284,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "3e0c140d7c635bcd59f17882a525d65d87a73e01f264bd362a849b1fb683c590",
+   "initial_probe": [
+    -2143.6216650560746,
+    -4984.325890331335,
+    271.1667997171422,
+    -0.0017420150438447058,
+    0.0001623300166522702,
+    -0.0049939823068592595
+   ],
+   "archived_wall": 0.04232923733070493,
+   "archived_steps": 239,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "d46c1936fae817d3392d05ecde16ad4e02435b8461be453a137ff408cab51d42",
+   "initial_probe": [
+    321.3490063037278,
+    3970.475447270583,
+    -923.9494790757,
+    -0.0015731045325345734,
+    0.0018794740957072723,
+    0.0056920638002358704
+   ],
+   "archived_wall": 0.15564627386629581,
+   "archived_steps": 893,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "25116b9dbc8f8df9ffdfbb9dbbefa0cd3451078e9979736966516f5d8c08d616",
+   "initial_probe": [
+    923.7027220294534,
+    -626.8637889102263,
+    1156.132144086935,
+    0.0070263209225409256,
+    0.004001330207533227,
+    -0.004588386422753664
+   ],
+   "archived_wall": 1.1258663381449878,
+   "archived_steps": 6115,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "5a66ebf5645f0ff6311847b85515f8f2772c088e66df867c2eaca968a8763ce4",
+   "initial_probe": [
+    179.05543513643175,
+    48.725671033483415,
+    88.68219533115378,
+    0.012772217515224614,
+    -0.02133575951877263,
+    -0.013063685853826015
+   ],
+   "archived_wall": 476.87845893902704,
+   "archived_steps": 2583613,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "23710f24a48d21dd98adc585dff1e51e08f5775ae7d31218784b2f75139840a7",
+   "initial_probe": [
+    5721.7207275627825,
+    2260.431520729206,
+    2716.1773662178543,
+    -0.0023226950894494635,
+    0.0032342516447330582,
+    0.001336894516736521
+   ],
+   "archived_wall": 0.04282462177798152,
+   "archived_steps": 239,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "b1b5d72be0cda0feb184ec2840bfaad3f10d2b094e3de9a2d69798057c2f2e4d",
+   "initial_probe": [
+    -91.11708314034222,
+    -2331.3365816166875,
+    -707.9333480073617,
+    0.0020331820981768813,
+    0.0006027218141704039,
+    -0.007408437715174783
+   ],
+   "archived_wall": 13.321185280103236,
+   "archived_steps": 78186,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "8161df6bb342bfc42f0788b80823b5519a9e37a867a0967afcd1cb44d160127e",
+   "initial_probe": [
+    -591.9417551456552,
+    -168.52099941835138,
+    419.97531424564283,
+    -0.007015044249920792,
+    -0.00581497174102204,
+    -0.010696122093597781
+   ],
+   "archived_wall": 72.36738533899188,
+   "archived_steps": 426170,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "9daa523c451f8bf5f22acdd129c67dc42806e6f904fc2b5b147e0eed5573201e",
+   "initial_probe": [
+    -374.6073689927348,
+    -6663.152988198258,
+    2360.5630926634426,
+    -0.004323191905008935,
+    0.0010714439930621135,
+    6.828484811743467e-05
+   ],
+   "archived_wall": 0.03969373367726803,
+   "archived_steps": 203,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "3dea112b288697aa265d9a314a1beb791b20bb46609161c7a098116c41ecc351",
+   "initial_probe": [
+    141.82500926685526,
+    85.343025312573,
+    -35.96189233151921,
+    0.01656677247725044,
+    -0.02363178175247904,
+    -0.00426655164845263
+   ],
+   "archived_wall": 807.6186036020517,
+   "archived_steps": 4393645,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "735a832c1f94786a6d3388055deccdc44c7564b8c15a9cb1c7247f42b609e079",
+   "initial_probe": [
+    -1162.009867440256,
+    417.58561782162667,
+    3509.5322164794125,
+    -0.0016843900102887224,
+    -0.006500350550746384,
+    -0.0013220363197237882
+   ],
+   "archived_wall": 0.07221548585221171,
+   "archived_steps": 382,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "634b0d364531a518dfa3b487baf21dcd7ecb34cd76a6e4f3b9cb6dc2810de963",
+   "initial_probe": [
+    2757.6301541847056,
+    5728.511706301578,
+    1893.2700606696094,
+    0.0005251199034608592,
+    -0.0019438204188781802,
+    0.0042152613645722765
+   ],
+   "archived_wall": 0.05216204188764095,
+   "archived_steps": 200,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "5d3ddebb974191900c98632b44588a3a38ae9a5f88e70f545cb4a8027e87569d",
+   "initial_probe": [
+    -1828.1072639276856,
+    -2696.797713081067,
+    -762.6586331910825,
+    0.004920698903419484,
+    -0.003711865270136954,
+    -0.0012395596508819092
+   ],
+   "archived_wall": 9.30528182676062,
+   "archived_steps": 51018,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "346a689a739ad1998af94ba2e25201593476dfaae285248d0a5c713ca5e3ce89",
+   "initial_probe": [
+    38.63258388986894,
+    100.74927157525478,
+    -100.62688226967933,
+    0.026060197822536116,
+    -0.011575866259589522,
+    0.0018824828920128171
+   ],
+   "archived_wall": 675.2790059410036,
+   "archived_steps": 3562394,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "bea7fa276ce611b3548c377c17707a7aee9cb53efde80942a55a687cb9f9baea",
+   "initial_probe": [
+    -313.2358655747805,
+    344.25946040819065,
+    -74.13083382059584,
+    0.0036340659404656794,
+    -0.0010885230703164559,
+    -0.017224701459807156
+   ],
+   "archived_wall": 50.10870936792344,
+   "archived_steps": 274112,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "d35354f8ca877c621925d511af9a65a6b2150ce493ab12901828c466da80bf99",
+   "initial_probe": [
+    182.89918536366974,
+    -81.4401205839477,
+    -33.80770625834676,
+    -0.009406952739312129,
+    -0.008723083793213635,
+    -0.024965656712326232
+   ],
+   "archived_wall": 486.56886862171814,
+   "archived_steps": 2633274,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "66a5caae339107b40dcfe995d6e4b24980e382a295671cfe008fb5e443a399d5",
+   "initial_probe": [
+    -7.504831082052959,
+    -141.3700963841593,
+    -116.51192595550107,
+    -0.00804372339017664,
+    -0.010706556096804078,
+    0.022039079345004136
+   ],
+   "archived_wall": 751.6142079941928,
+   "archived_steps": 4013755,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "121f796a8678d14d31bdbe7c6ab9d2ee791ee82fb30d58b7bea7ae352cb3fa34",
+   "initial_probe": [
+    -509.5210338174255,
+    577.2986240410277,
+    -153.10688306853035,
+    0.009082885013942051,
+    0.005689675554561762,
+    -0.008858932355436694
+   ],
+   "archived_wall": 18.118633462116122,
+   "archived_steps": 107538,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "a7e12c67d2c8df97382216a60627fbe583d1e236e31702cca98494029b3abf91",
+   "initial_probe": [
+    933.1688695099846,
+    -459.00955053257155,
+    369.8876661694802,
+    0.008151700526569675,
+    0.006886216898165297,
+    -0.0036270156588455427
+   ],
+   "archived_wall": 3.0877548991702497,
+   "archived_steps": 18118,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "351442d9921dc4fc0b3a8d5671fa995c5f90141525bf6c97e740838e71308890",
+   "initial_probe": [
+    -102.93864823679398,
+    -360.5213978904866,
+    -94.70872124253047,
+    0.015870759119015667,
+    -0.001509212562536612,
+    0.00956687525309498
+   ],
+   "archived_wall": 125.17988680722192,
+   "archived_steps": 676387,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "79762e945b322d36ab1b5ab9d222fe1212ace5736ee4bb9e8b6e66f0c69c2ee3",
+   "initial_probe": [
+    187.31008225126928,
+    -227.00933550924626,
+    114.18326808512468,
+    -0.01307332910635655,
+    -0.010104669782037369,
+    0.01193674152712847
+   ],
+   "archived_wall": 160.3597701974213,
+   "archived_steps": 878740,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "1fca4be425e57af778461ac2361eaedb9a0ce401fa4cab7af53ddeb6867857d1",
+   "initial_probe": [
+    -165.5098206843871,
+    219.3706818263262,
+    363.90730059703895,
+    0.017465669010977132,
+    0.004527133341425131,
+    0.004296448657803729
+   ],
+   "archived_wall": 151.3663775702007,
+   "archived_steps": 830122,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "6422d8d92482be8fdf8524e2309f19fdb9c1b39c0ce35101ab48421704f72b2b",
+   "initial_probe": [
+    85.20745160029429,
+    -20.504612510467425,
+    131.04709715700844,
+    0.002642292714528424,
+    -0.02969604919754,
+    0.002890894159582371
+   ],
+   "archived_wall": 658.2620933051221,
+   "archived_steps": 3517637,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "c52e70b87b9e4ce5696b81aabf4a927d5f8815453e58d96f49ed084e2d0ed0b4",
+   "initial_probe": [
+    320.84944815521567,
+    -128.4037922402089,
+    -244.0518108341217,
+    -0.003196781080068605,
+    -0.016622025258401438,
+    0.008786106133285693
+   ],
+   "archived_wall": 231.71329877432436,
+   "archived_steps": 1345966,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "fa239d19b32b9be83faf724010bddc7ea1500c3be41873125439ea0811f2b356",
+   "initial_probe": [
+    -327.34311487615986,
+    -1807.767186771338,
+    -610.1376328354015,
+    -0.004953413782411552,
+    0.0036704350889080464,
+    -0.006091622071446228
+   ],
+   "archived_wall": 0.7807472487911582,
+   "archived_steps": 4222,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "a6f7153f8bfbeaed815d63265fd6fd1854c7fe01dd470a691bf6efb3230de5aa",
+   "initial_probe": [
+    -389.4222211729249,
+    -43.80501568794275,
+    -366.2905034124389,
+    0.012530009441781806,
+    0.0044361405563372825,
+    -0.010571058281468515
+   ],
+   "archived_wall": 154.74538718909025,
+   "archived_steps": 840376,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "728c296cee1e48cc898147dad84602cb32f5e02538c1cd8a2a56aa72e87a077e",
+   "initial_probe": [
+    264.5879253579846,
+    375.0430877214446,
+    -371.84333610559094,
+    -0.010018559439437217,
+    0.011419007657801267,
+    0.008850557980238528
+   ],
+   "archived_wall": 86.60303993104026,
+   "archived_steps": 467086,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "e22d9ea2440908e75b31c94897135b6657e1178aa058154b2a6b97089493fcd9",
+   "initial_probe": [
+    1195.973392255783,
+    1855.3269805907016,
+    -841.3497591563802,
+    0.00226256262012937,
+    -0.003518236299994541,
+    -0.005966871024922846
+   ],
+   "archived_wall": 16.90252136392519,
+   "archived_steps": 91826,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "031e3fdd2e6434c7d7cc0e3830a36eda220b0962a08ca4fdb7b2b927ffdcdc0e",
+   "initial_probe": [
+    -1410.8598443144388,
+    -791.3417739117053,
+    1767.834977383077,
+    -0.00013067026589074588,
+    -0.006562003342421864,
+    -0.0032228473356993685
+   ],
+   "archived_wall": 15.158351259771734,
+   "archived_steps": 88489,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "bfd33897eb57286474ec7b19af2f5ebe577b4a881f6e148c58107d2232d38e06",
+   "initial_probe": [
+    8431.202262376855,
+    2705.179608519033,
+    3744.942042948684,
+    -0.017426699628065347,
+    -0.06959059993225858,
+    0.07031104032942917
+   ],
+   "archived_wall": 0.7384759918786585,
+   "archived_steps": 3904,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "ae69b54585757b32e544f6d934ff27e2e2c71e9ebfd2f0f16d080772451324bf",
+   "initial_probe": [
+    -1812.222491675839,
+    -23391.64029401882,
+    -6079.6194144957535,
+    -0.038262557940164,
+    0.02799889340774174,
+    -0.06044667786182281
+   ],
+   "archived_wall": 0.060007570777088404,
+   "archived_steps": 311,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "a0ca9ad3266a34cde79105e92b5232a0849af51d0b8b718d3c45413e5837a460",
+   "initial_probe": [
+    20083.276201179753,
+    -2051.713337365852,
+    -6690.739566913457,
+    -0.01824996851768235,
+    0.04185331908167806,
+    -0.060136546614211375
+   ],
+   "archived_wall": 0.09595174994319677,
+   "archived_steps": 503,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "9c640f2ad0e2a340f57e971efa5f82da8840938f3181611e462d94f10baf1374",
+   "initial_probe": [
+    13021.155470575226,
+    19039.42378716961,
+    -2514.063291020199,
+    0.06294091126536844,
+    -0.02222022432573283,
+    -0.025136786392126322
+   ],
+   "archived_wall": 17.428810412995517,
+   "archived_steps": 93697,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "5e24fb8dc1a33333f614279b598f99ba3ed65133a355b75d8d9aee3690a15753",
+   "initial_probe": [
+    -13561.606998905952,
+    20787.662462171695,
+    18687.058329740976,
+    0.03104542501756266,
+    0.049969783135997266,
+    -0.027740520894360486
+   ],
+   "archived_wall": 0.10505896620452404,
+   "archived_steps": 549,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "5fb41652f6934b6e0668b62f84bcb6050b0069e47ad42edec281368f5d288be6",
+   "initial_probe": [
+    -7386.895291669277,
+    -24260.40078854247,
+    -5175.275685308674,
+    -0.04273483817926867,
+    -0.007097650674619033,
+    0.05884793535450215
+   ],
+   "archived_wall": 0.08645478496327996,
+   "archived_steps": 441,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "234de242d6fc79b68672e4503489a49632c36cdfb790590fd8f21e204e5598d0",
+   "initial_probe": [
+    4467.817311044639,
+    16491.56685170571,
+    -8049.789963225488,
+    -0.06490398332144089,
+    0.0031980526626296953,
+    -0.044214777659882895
+   ],
+   "archived_wall": 9.254850467666984,
+   "archived_steps": 48763,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "9613d7239010fbced9d940f7299d5796de40a3566f30cd8f637d30debbd76d35",
+   "initial_probe": [
+    17300.467143197027,
+    -13235.44603364093,
+    -8316.814110806905,
+    0.038675318838058644,
+    0.010331378836337727,
+    0.05182424504834649
+   ],
+   "archived_wall": 0.08597346022725105,
+   "archived_steps": 486,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "824d5dc559aded9b8ccfb23ed814a6b7867756f6dcf14a9371cee53afd8f4674",
+   "initial_probe": [
+    5835.757807097657,
+    13196.935441899743,
+    -9550.124596354006,
+    0.06708127992928327,
+    -0.003586035868157202,
+    0.03129693877352483
+   ],
+   "archived_wall": 34.9054351830855,
+   "archived_steps": 184643,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "6f92f55da037ffb906842c647b56e41a75166c56e8df2ca35bfbaa9d605a7785",
+   "initial_probe": [
+    -4353.368945651516,
+    -10088.579187213261,
+    -9895.289663624042,
+    -0.03892232637394979,
+    0.04838153460282639,
+    -0.059630553042498986
+   ],
+   "archived_wall": 1.9970404538325965,
+   "archived_steps": 10653,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "89841348ed4ba8cc702529acb9ee7bc557809af67d66cd1669499956fed40474",
+   "initial_probe": [
+    -4124.74688997053,
+    7112.48768093647,
+    -4033.7118597514914,
+    -0.007068676144730745,
+    -0.02956790861633062,
+    -0.11636779311582632
+   ],
+   "archived_wall": 0.4797069001942873,
+   "archived_steps": 2538,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "b449fc4d1c36a0e0ed8d0c25e86d3180335f40707d41238c4ef13d74f7232478",
+   "initial_probe": [
+    10777.976741733615,
+    28783.439836554528,
+    -3987.862887507547,
+    0.039676253761417785,
+    -0.0004354571108692248,
+    0.04033823821539183
+   ],
+   "archived_wall": 0.062285703141242266,
+   "archived_steps": 322,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "1b65a5de6a996671a4d42ff081fd507b3d2c6e270ae381086c0fe7619746d6c9",
+   "initial_probe": [
+    14452.43609817176,
+    -25862.11319014993,
+    24514.967835055155,
+    -0.008631782137990693,
+    0.040877285325277055,
+    0.03416873928441937
+   ],
+   "archived_wall": 0.06622799206525087,
+   "archived_steps": 342,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "67a447e4a7fbdf6b8928abc138873180326c5ab09ea990391cfc00d66a9fbeb5",
+   "initial_probe": [
+    14607.959457152809,
+    -5317.689529265463,
+    -14730.043489334821,
+    0.04012713813207496,
+    -0.014054573153311193,
+    0.06980356754285022
+   ],
+   "archived_wall": 0.05943525768816471,
+   "archived_steps": 307,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "18636e867947aaaf2bf1430434e68bdde5c26a45def317a3f9eaaf8ff6c5ee84",
+   "initial_probe": [
+    -3731.1692776708965,
+    713.430166489588,
+    18022.93074731403,
+    0.0137336222242319,
+    0.08400044266957803,
+    -0.007542919403581978
+   ],
+   "archived_wall": 0.13284706603735685,
+   "archived_steps": 687,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "91fc0229c17a6e80d2620b81935ff39ac3bbc9795980e7f0f6cb81cfaf40d0d2",
+   "initial_probe": [
+    -9778.621125014546,
+    -230.96223479614744,
+    -90.65783283289613,
+    -0.010222033897327834,
+    -0.09307025162474174,
+    -0.03542195911099572
+   ],
+   "archived_wall": 67.32913837209344,
+   "archived_steps": 356982,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "f5bcc1ee507b46f93b14686cea37c43041ce3d5cd2b4b7a116dea973e22489db",
+   "initial_probe": [
+    28403.222092515753,
+    877.7957909777676,
+    18823.036386818127,
+    0.02271000628611738,
+    0.04403284621442937,
+    -0.03542674730552124
+   ],
+   "archived_wall": 0.03827439108863473,
+   "archived_steps": 214,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "468653a177aa8e8ec5ab5a2dc5e8f05dae97097640cba6a5ab7ffd86f28a2bdd",
+   "initial_probe": [
+    -18767.367941286215,
+    -19194.443270342505,
+    3174.47406927078,
+    0.026697802788357056,
+    -0.014843310129818599,
+    0.059157938645278595
+   ],
+   "archived_wall": 0.058599845971912146,
+   "archived_steps": 307,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "4dfe1c8ccb7c54a3d7c8850403232c75920b27f12459760260ef355fcbdf34b1",
+   "initial_probe": [
+    -1843.9687536969595,
+    2200.546632688066,
+    -2683.5929124155114,
+    -0.1529666584477746,
+    -0.033994231154305665,
+    0.06934389099949788
+   ],
+   "archived_wall": 13.725637728814036,
+   "archived_steps": 72799,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "78688c0a78863d24d0b75c708755a237c99549730a760c66a26143269ca4fa6f",
+   "initial_probe": [
+    -13007.165377151756,
+    17849.71565010673,
+    10786.107954769539,
+    0.03691574796493298,
+    0.04518973277875952,
+    -0.027710749951206575
+   ],
+   "archived_wall": 14.283379954751581,
+   "archived_steps": 82329,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "81a2238abe6ea4348838f29fc64aec9888780e41cf25f8540c1982955bdf5252",
+   "initial_probe": [
+    -10640.490152035603,
+    642.5334813683423,
+    1211.4757077502734,
+    0.026305226545305163,
+    -0.010145848815787143,
+    0.08997980991015442
+   ],
+   "archived_wall": 0.8962672790512443,
+   "archived_steps": 4711,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "912ecf83811767b7d9148f8dd2526d22a31f307166194bb07fc587d5280bdad4",
+   "initial_probe": [
+    12214.676132834204,
+    20312.29918586549,
+    10372.574356364541,
+    -0.06753890416741731,
+    0.025463119214223326,
+    0.021306306418728247
+   ],
+   "archived_wall": 0.06616311287507415,
+   "archived_steps": 350,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "88fbf2c417d12b91ae86a8eb1a3902707016d3489b0caa819d76e442072cbc46",
+   "initial_probe": [
+    445.7537077142216,
+    -16837.02867367492,
+    1950.2388445665356,
+    0.019610514556327105,
+    -0.009054219071415306,
+    0.07524422101171536
+   ],
+   "archived_wall": 0.09087406704202294,
+   "archived_steps": 476,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "1befab29d63f9158e517ccd39be5995e791db4e509c2b320b94febcc0604ba94",
+   "initial_probe": [
+    4340.583271101142,
+    -2155.766388656664,
+    6562.029705140831,
+    -0.1114454958402191,
+    0.04857883056594652,
+    0.060295659406707176
+   ],
+   "archived_wall": 0.27319945488125086,
+   "archived_steps": 1437,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "7f821ebf6b73497dbb99005ad2d16b8856403c63d18b4d1758e02ac28b7f98b8",
+   "initial_probe": [
+    -14244.003479045241,
+    15427.225131443198,
+    3323.6433739152367,
+    -0.05035565323991624,
+    -0.051173578193260114,
+    -0.01493104642765376
+   ],
+   "archived_wall": 0.054857946932315826,
+   "archived_steps": 305,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "babfd729eed2d5b5b16fc7d0d0444b3ffe8cfc9df3553db9a5655ba9c8dc349b",
+   "initial_probe": [
+    -25146.965852807432,
+    -9888.194424820906,
+    -5086.906075650579,
+    0.016148084982549573,
+    0.03448314591951068,
+    -0.0594437773230345
+   ],
+   "archived_wall": 0.08093922073021531,
+   "archived_steps": 424,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "349d12f22cf23dfe22e2cbe91f62d75c8697aba55286be23c6d2b44b64f421c5",
+   "initial_probe": [
+    16955.80082862317,
+    -5737.156476879911,
+    -2691.089046011453,
+    0.031130341932205773,
+    0.020108797348172554,
+    0.07496984983752453
+   ],
+   "archived_wall": 0.23195891687646508,
+   "archived_steps": 1291,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "e536a7508f36c1a2cb2e905f201b909ee85434e12606c84ff4690abf43e9f897",
+   "initial_probe": [
+    -15330.908271417977,
+    3941.62267884506,
+    8587.209601918501,
+    -0.004353759264969104,
+    0.07310332813157983,
+    -0.04853646591432294
+   ],
+   "archived_wall": 15.767151690088212,
+   "archived_steps": 90796,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "ecbb659131c528c4343a63bc23ea8a058960c72078f26e4cd18f1f317ca07814",
+   "initial_probe": [
+    -9934.551885494857,
+    3911.589433140799,
+    -10816.632678731467,
+    0.04726589947266273,
+    0.0483680441471971,
+    -0.04088301859834884
+   ],
+   "archived_wall": 0.23209562804549932,
+   "archived_steps": 1204,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "a8066dad54fc1ba21af3eaf0603cc57221a27493cf0f07263ca3451a4c1c79ed",
+   "initial_probe": [
+    5036.168489985069,
+    25851.770101962255,
+    13789.856510904867,
+    0.05201838662282515,
+    -0.02710944258682893,
+    0.03607258644424794
+   ],
+   "archived_wall": 0.11841336404904723,
+   "archived_steps": 589,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "f06deed439e8a3023a62a8ca97980c9c0ad5ee6d1dd375d239e15f91e5f458a5",
+   "initial_probe": [
+    -308.1442331657707,
+    -1851.4250891381505,
+    -1966.299728609543,
+    0.19343368134756406,
+    -0.09639696497113875,
+    0.0584064294188527
+   ],
+   "archived_wall": 281.5794894681312,
+   "archived_steps": 1495241,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "f46591c3b88351d4b43037dfcd0446ed239c2b75a20003a86cc5028e56637c3c",
+   "initial_probe": [
+    -19632.762892074414,
+    13943.95458233946,
+    17824.62848254564,
+    -0.009713910784080012,
+    0.027758500387698566,
+    -0.055234413614025535
+   ],
+   "archived_wall": 0.10748171294108033,
+   "archived_steps": 602,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0000",
+   "years": 100.0,
+   "unit": 0,
+   "job_fingerprint": "f345fcf650c00ae075b487400bd984c95214feff9778efe4c474e3fce324d4e9",
+   "initial_probe": [
+    18508.377776194102,
+    24684.624778811052,
+    10938.36603835101,
+    -0.044734632560147564,
+    0.037743609112827856,
+    0.01195321606456575
+   ],
+   "archived_wall": 0.11858132621273398,
+   "archived_steps": 615,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0001",
+   "years": 100.0,
+   "unit": 1,
+   "job_fingerprint": "7ab54c37a8de1112f6ae91acbf485d7da17acda6fe8045abdfd1859c96c879f7",
+   "initial_probe": [
+    -814.6639095141254,
+    -351.2829457397389,
+    56.639284272497356,
+    0.07108008057131335,
+    -0.27157151204108865,
+    -0.24086960543081862
+   ],
+   "archived_wall": 1604.0461714449339,
+   "archived_steps": 8457251,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0002",
+   "years": 100.0,
+   "unit": 2,
+   "job_fingerprint": "f95dcbc2d5c84fc3972622af0cfcc8b67325e111399b93c2e243fb265469d9bd",
+   "initial_probe": [
+    -10125.126829067183,
+    2733.715845301177,
+    -12359.759635300214,
+    0.029810149966599402,
+    -0.06600419223336972,
+    -0.05246834861053806
+   ],
+   "archived_wall": 0.1313872868195176,
+   "archived_steps": 674,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0003",
+   "years": 100.0,
+   "unit": 3,
+   "job_fingerprint": "818a5237946c3aa8b6ca9b43df3097017cc7d9693579a28502b9f49e5a10cf01",
+   "initial_probe": [
+    -3527.1093637588515,
+    -11453.830424431886,
+    11729.544216487273,
+    0.05289733165399942,
+    0.039402372989430605,
+    0.053624642482690534
+   ],
+   "archived_wall": 0.3946416429243982,
+   "archived_steps": 2257,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0004",
+   "years": 100.0,
+   "unit": 4,
+   "job_fingerprint": "0842bf70ad693569f984120a4f9ca4ccba3a16a9ee3d840f508ca94ed9553e92",
+   "initial_probe": [
+    6618.859683453241,
+    5972.289635370149,
+    340.0845645081072,
+    -0.06323665872367965,
+    0.0676262097236619,
+    -0.070852267123285
+   ],
+   "archived_wall": 56.88293032022193,
+   "archived_steps": 302946,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0005",
+   "years": 100.0,
+   "unit": 5,
+   "job_fingerprint": "0cb9e59e1ed5513b455dd9f07b34d81227145b2cbfbdd96ba27a05f995c2269d",
+   "initial_probe": [
+    -21900.657002518263,
+    18356.421500600663,
+    -3677.9100686826578,
+    -0.042695902533036456,
+    -0.04325106446157701,
+    0.0004329403931971553
+   ],
+   "archived_wall": 0.042922176886349916,
+   "archived_steps": 222,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0006",
+   "years": 100.0,
+   "unit": 6,
+   "job_fingerprint": "fcf7aba263758ad254e67d0d3b5e78c168fc5f88091a228d81927e71c583143e",
+   "initial_probe": [
+    2862.8540509648233,
+    1883.0839363272703,
+    4836.522039078812,
+    0.015644113380249583,
+    -0.11990419519920023,
+    0.0605985409910695
+   ],
+   "archived_wall": 2.2800375442020595,
+   "archived_steps": 12921,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0007",
+   "years": 100.0,
+   "unit": 7,
+   "job_fingerprint": "66ea3f5aa853a438b451219dfdf8ce72ac04a5174448c8ecf84add4caee67059",
+   "initial_probe": [
+    74.41279879099824,
+    214.10922362696004,
+    2382.128077877875,
+    0.014753676904285959,
+    -0.21947424567429638,
+    0.03553176042176426
+   ],
+   "archived_wall": 35.6698715928942,
+   "archived_steps": 186919,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0008",
+   "years": 100.0,
+   "unit": 8,
+   "job_fingerprint": "8754d7ec06e15b711b94e3d4dfd791307adf803e939644c0d3422dfae3b0154e",
+   "initial_probe": [
+    11211.391792333656,
+    -15589.888123858274,
+    5583.677539234467,
+    -0.0014132501193427315,
+    -0.008980336023532078,
+    -0.06706423229702908
+   ],
+   "archived_wall": 0.08084468077868223,
+   "archived_steps": 444,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0009",
+   "years": 100.0,
+   "unit": 9,
+   "job_fingerprint": "862fe7dbb4e27d799247599086f8b128fd946b6d5571441646ecb0898ee435d7",
+   "initial_probe": [
+    -3229.4838920228276,
+    1846.2473707517152,
+    1791.7931197884818,
+    0.09627339129882743,
+    0.1467118824472506,
+    0.009622139436840305
+   ],
+   "archived_wall": 159.27611937792972,
+   "archived_steps": 847900,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0010",
+   "years": 100.0,
+   "unit": 10,
+   "job_fingerprint": "26f37b7320ce5a3465fa27f322b84a1489021ae9bdd088dee02e617de4f4626f",
+   "initial_probe": [
+    6110.344250620283,
+    2249.4658002323836,
+    -31274.03060331718,
+    -0.009679505083348168,
+    0.05509562153867037,
+    -0.014295946835439747
+   ],
+   "archived_wall": 0.04373946925625205,
+   "archived_steps": 224,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0011",
+   "years": 100.0,
+   "unit": 11,
+   "job_fingerprint": "ea33f6fce84ca4d89ee469f057a5dd6e62f4dcf0aae9b25c6929174f6af051f9",
+   "initial_probe": [
+    5045.027705378438,
+    -15241.293063472283,
+    -24013.101009715265,
+    0.057275091757341474,
+    0.006344837881414279,
+    0.03006453141942828
+   ],
+   "archived_wall": 0.04245816916227341,
+   "archived_steps": 241,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0012",
+   "years": 100.0,
+   "unit": 12,
+   "job_fingerprint": "a1e9eb8cf2a4c7396b086acebf8af9902f6b8aa8328a87e5a7df7378a23f229b",
+   "initial_probe": [
+    1962.9041166902093,
+    -595.7073344531103,
+    1357.4204311616356,
+    -0.06891054008906017,
+    0.20496293331104887,
+    0.0883428145675896
+   ],
+   "archived_wall": 371.56231214897707,
+   "archived_steps": 2153922,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0013",
+   "years": 100.0,
+   "unit": 13,
+   "job_fingerprint": "974ae67ca925016a22a743bc54121da3bdc5d47a87cc0e5347bbfcb72d537964",
+   "initial_probe": [
+    189.75091635294356,
+    -1201.026307417266,
+    962.079774464814,
+    0.2755228908155131,
+    0.04595268534294265,
+    0.004600528230890162
+   ],
+   "archived_wall": 231.36913971183822,
+   "archived_steps": 1209969,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0014",
+   "years": 100.0,
+   "unit": 14,
+   "job_fingerprint": "2ff708961df9ce9be564fb68c9c47a9d565098ce9db4809eee0adbc8e13349a9",
+   "initial_probe": [
+    -856.9693328921521,
+    -784.1905589437383,
+    1605.345752691992,
+    0.019133162099738057,
+    -0.2220084201583685,
+    -0.10623540407758297
+   ],
+   "archived_wall": 89.11619924614206,
+   "archived_steps": 467316,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0015",
+   "years": 100.0,
+   "unit": 15,
+   "job_fingerprint": "7fe037f1144dde21614f983c95991d378a4475b60154347d6510ee1a6cbda33e",
+   "initial_probe": [
+    5711.919635789346,
+    -7280.146241290268,
+    2849.3723829501287,
+    0.03701499038863092,
+    -0.018629834483816374,
+    -0.10252254404068968
+   ],
+   "archived_wall": 0.49991800729185343,
+   "archived_steps": 2644,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "c76a877548912ff6bfdf15fac7efbbd5466c68abad7fc19c5b2eb7a424b57936",
+   "initial_probe": [
+    22622.005671151608,
+    -10410.758316533234,
+    5162.702574268577,
+    -0.41340074530326376,
+    -0.302778571399043,
+    0.4031381334082761
+   ],
+   "archived_wall": 0.06107236910611391,
+   "archived_steps": 302,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "501b1870b539763cea56217c888bed64e55474f58e30acad2479087e625e7477",
+   "initial_probe": [
+    6314.4247291318925,
+    -4161.413164690679,
+    -5874.696175265044,
+    0.41757784894415717,
+    -0.10096256989382736,
+    0.8303599290396623
+   ],
+   "archived_wall": 0.5627001239918172,
+   "archived_steps": 2598,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "db674d7f3c5a7535abe812063ed96c23ad9e5c2bf0a23bcb1e51f57d1e4a63c7",
+   "initial_probe": [
+    3425.4806669411023,
+    -2500.847360817258,
+    834.0200982363847,
+    -1.1070730160966915,
+    -1.1290800014700584,
+    0.4565255129339708
+   ],
+   "archived_wall": 1.523667173460126,
+   "archived_steps": 8056,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "f5eb60cf810aee411b1dc4b2bdd50d5f963f30b071600f867ef1cc9da5718d17",
+   "initial_probe": [
+    13407.079298684153,
+    7969.43199159917,
+    5537.583908644369,
+    -0.4011021450156023,
+    0.4918647937517476,
+    0.15557618306711152
+   ],
+   "archived_wall": 3647.2153741628863,
+   "archived_steps": 18269775,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "eea8e0cd0abec9f1157ebca8d4957497f96a84bc2ba3a916f7626a39aa4e8d82",
+   "initial_probe": [
+    12037.706381801721,
+    -980.2460163143519,
+    17938.70368407799,
+    0.4330872242634847,
+    -0.17108307400577696,
+    -0.4615814732669764
+   ],
+   "archived_wall": 0.047368351835757494,
+   "archived_steps": 251,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "0341d649f81ab9be8c9db239933149b61b6d8db9091c5e063dcbca53695f25f1",
+   "initial_probe": [
+    -24466.45029740173,
+    4487.153755317448,
+    -7123.780719759262,
+    0.06125026164061681,
+    0.5993753124660317,
+    -0.2711244085832223
+   ],
+   "archived_wall": 0.06919634388759732,
+   "archived_steps": 338,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "9ae429d4478a96efdf0d9d078029696ac0f1c01679b60116979224b3942d4886",
+   "initial_probe": [
+    -2544.316049187791,
+    208.27155899709902,
+    2073.217465156793,
+    0.5361340968577062,
+    -1.4953406904527513,
+    1.1079368039577089
+   ],
+   "archived_wall": 0.7525632241740823,
+   "archived_steps": 3783,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "14e24815bfe8b1d4139c7f423ff5040ebdbb0ba86ea8ba5b587aede95b967e82",
+   "initial_probe": [
+    -10593.125940686532,
+    251.54364805100494,
+    24526.390259534353,
+    -0.23110762862969622,
+    -0.5106032206692599,
+    -0.03823300449183986
+   ],
+   "archived_wall": 0.03825189406052232,
+   "archived_steps": 185,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "bdbdefafb38279c30650f429f96792ef4b3a99c954ef0efe05839eb457202a59",
+   "initial_probe": [
+    15726.730692405175,
+    24446.05014897518,
+    -14299.370396465343,
+    0.43180617524003934,
+    -0.2589922543217849,
+    -0.14046332329560962
+   ],
+   "archived_wall": 0.06781444977968931,
+   "archived_steps": 328,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "9d305f15f4ea0571ef548d78fc950c759b6cce0d8e9f2dc95dce5132d6788e56",
+   "initial_probe": [
+    -8408.205874874264,
+    14352.431573615779,
+    -4065.7656890955723,
+    0.10439788265600909,
+    -0.09494628428625008,
+    -0.6207314050908684
+   ],
+   "archived_wall": 0.09249942610040307,
+   "archived_steps": 291,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "3bd6bbf84b81b7086293fe0d623092b23572c0fe7c1be5a7ec9125006c650636",
+   "initial_probe": [
+    -2558.634125826209,
+    10790.278311130012,
+    -16926.943412382694,
+    -0.2977148154307242,
+    -0.5273939262108907,
+    -0.34183220180834567
+   ],
+   "archived_wall": 0.040315340738743544,
+   "archived_steps": 216,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "839b3952bb286fb0ce42802a09762f7ad6eb3f1dc9ab8a7e3f38853eec9181b9",
+   "initial_probe": [
+    693.3263262547983,
+    13182.355920633187,
+    9667.444200194106,
+    0.36575466270040863,
+    -0.37870495175943686,
+    0.4987137924153278
+   ],
+   "archived_wall": 0.08675203425809741,
+   "archived_steps": 413,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "9207e5a77d3b9e663f1500a9a54a2d571a4ff3b8d308a2d8cae151888ff062db",
+   "initial_probe": [
+    1071.7292593156064,
+    7529.8802714283265,
+    -516.8947007263187,
+    -1.0674750309865126,
+    -0.014279162732155506,
+    -0.4730811423564478
+   ],
+   "archived_wall": 6398.070768540259,
+   "archived_steps": 32582056,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "2976a2ef890fc22650621b07b69184bbafb9dfc1e9158ab5d3dbd103111ec9a6",
+   "initial_probe": [
+    18100.026090473908,
+    9894.495714562594,
+    -20140.959337179764,
+    0.31914709198902536,
+    -0.48835857350608675,
+    -0.1422612034654314
+   ],
+   "archived_wall": 0.08683610102161765,
+   "archived_steps": 394,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "30a6b30d12bf68853598c7499c056c352cbcea4941ef2009f046e0c3f62f63e9",
+   "initial_probe": [
+    13036.87379340115,
+    -5525.955489188667,
+    -17925.897510950705,
+    0.47987550337523877,
+    -0.34394001110749606,
+    0.2220507262126838
+   ],
+   "archived_wall": 0.04281492391601205,
+   "archived_steps": 228,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "1f7e8319fce881fbeb56636a9cdada3685e384853a8a18211d64a4abf737e150",
+   "initial_probe": [
+    -16795.423165366166,
+    7427.800566016223,
+    -320.2213058556346,
+    -0.12022855607310015,
+    -0.43319497831813497,
+    -0.4941723951994182
+   ],
+   "archived_wall": 0.08382943598553538,
+   "archived_steps": 400,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "4ba08b1ea0084e42b97dd6a47f6d0fe032ffbc23ffbbfdd6391025c3d07b9b68",
+   "initial_probe": [
+    -8892.528411699446,
+    16971.1879122347,
+    -7547.978835390063,
+    -0.5980982622257179,
+    -0.07918705202171467,
+    0.47691848303426904
+   ],
+   "archived_wall": 0.039219291880726814,
+   "archived_steps": 195,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "85e3e8d27ca63af524ba7a0832bb8d7b455bbe81d6e6fdf86bc5f00c1bea029a",
+   "initial_probe": [
+    -22701.193117252416,
+    -10168.977535347438,
+    2241.81773585251,
+    0.17648145925088968,
+    -0.5925812978227566,
+    -0.2916912492504219
+   ],
+   "archived_wall": 0.03640913404524326,
+   "archived_steps": 174,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "2c6073782a3393a96ef194f604b67e4b729ffb466523daa87000bef37cf7914d",
+   "initial_probe": [
+    5934.07115784283,
+    7615.969948918066,
+    -5153.597462142697,
+    0.6957856084340278,
+    -0.543462196787026,
+    0.2568170387744557
+   ],
+   "archived_wall": 0.32063148403540254,
+   "archived_steps": 1401,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "9eab7247a9fb5841d292741aeb1443f89d7f5ee7f3a3b5aeced02cbd15e90d30",
+   "initial_probe": [
+    -1783.7640627300168,
+    23165.726270553336,
+    -2959.036675849231,
+    0.4041297986905554,
+    -0.08608801319361109,
+    -0.5488771981054811
+   ],
+   "archived_wall": 0.06281410763040185,
+   "archived_steps": 304,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "0f31900c96f7222eb2aec87a99ced542165fec6a66f6fabb3dce7894b00f0969",
+   "initial_probe": [
+    545.7612319850379,
+    19899.356659401503,
+    -12107.52295652428,
+    0.41773971019794776,
+    -0.3237427250039947,
+    -0.4478623366917657
+   ],
+   "archived_wall": 0.05983217665925622,
+   "archived_steps": 294,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "0e6f8af7b43151ab8ff481782567310aeb406040bb897c05f6d76308566b6268",
+   "initial_probe": [
+    -11061.948201286881,
+    20379.2455599638,
+    6920.048346369109,
+    0.41986753163871926,
+    0.4427149316909786,
+    -0.1749652478883864
+   ],
+   "archived_wall": 0.066403036005795,
+   "archived_steps": 322,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "e0a85f2b3c21f3796a1853762960c5c2f434b9f868aa04e14ed75342e0131fb8",
+   "initial_probe": [
+    21406.24269685735,
+    -4276.530114560742,
+    -19585.22869992017,
+    0.2394908670505363,
+    0.3987033326292311,
+    0.3614885136545657
+   ],
+   "archived_wall": 0.03472614800557494,
+   "archived_steps": 178,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "7d57c85c2ee7098ad4c5576771cdbeb44cf8f4fb6fff182382fd8593f057f630",
+   "initial_probe": [
+    -24189.85205411453,
+    23105.13746308459,
+    -9764.367894628444,
+    -0.03734634348425024,
+    -0.14753443717724474,
+    -0.4693391231798408
+   ],
+   "archived_wall": 0.03878967510536313,
+   "archived_steps": 185,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "82676b5bd7f16bcc4e8868fe030737ba27477f7a534fb00029891262af6bb452",
+   "initial_probe": [
+    -3931.948956982737,
+    2403.2589635932045,
+    3800.2551669421027,
+    0.30933455344069,
+    -0.6492968568260811,
+    1.0586072410643272
+   ],
+   "archived_wall": 0.7535436199977994,
+   "archived_steps": 3588,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "9922d7149e6e707a72e30fd0b10862dd19a5029c33f733919508b1c36fd12178",
+   "initial_probe": [
+    4517.020098356167,
+    26686.320547379662,
+    16373.607448887813,
+    -0.28998342027123203,
+    0.27306607033025176,
+    -0.3862581535908924
+   ],
+   "archived_wall": 0.01296693505719304,
+   "archived_steps": 51,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "9e8f5348b670cc97a0b9a8e8064a465a8bc18d1f8c6e14a0a179c87bfdebd096",
+   "initial_probe": [
+    1350.2647203240824,
+    -6435.70933157861,
+    1328.1190340895469,
+    0.9847193010401386,
+    0.18558554370039493,
+    0.7459051828356008
+   ],
+   "archived_wall": 7888.411007755902,
+   "archived_steps": 40946147,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "0ee1d45aa603b0515265bbb8f12fe8f026af0edfb8904661a0cd831463410f75",
+   "initial_probe": [
+    17094.56187927122,
+    6708.004917242863,
+    15129.145454148142,
+    -0.0911751759479958,
+    0.505700904211749,
+    -0.23047245040219247
+   ],
+   "archived_wall": 0.11495692608878016,
+   "archived_steps": 552,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "e279fb8e2790080d15dce3a9349e840e0b340cebe9ca0aee81f69dc3e8870c51",
+   "initial_probe": [
+    5266.016888791118,
+    -269.1654871542418,
+    -2416.873259564205,
+    0.5497278080465142,
+    0.4944063316363817,
+    1.117653062167874
+   ],
+   "archived_wall": 8763.402986045927,
+   "archived_steps": 46947615,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "4ef682a542a2ca8dd64aec24d2c9edfbfb33d4ee1c836c71613d04d5cf2a0cb0",
+   "initial_probe": [
+    19424.427595894973,
+    -231.88661839157808,
+    2724.812100593057,
+    -0.11755778659799648,
+    -0.2620101621156684,
+    0.687684286128089
+   ],
+   "archived_wall": 0.06207739468663931,
+   "archived_steps": 303,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "876c1f7af36debe48cbe9317aaee322b97c4519668afcfc4636ab5011eaa073b",
+   "initial_probe": [
+    -3990.690910992208,
+    -1720.0757042110604,
+    -7288.81115165259,
+    0.39729448943568185,
+    -0.834589413429821,
+    0.02662044483555776
+   ],
+   "archived_wall": 1.500821493100375,
+   "archived_steps": 7935,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "a310d0275e498a9ced553daddc7090e0f69a3e296f52ab02edd67411287cd1de",
+   "initial_probe": [
+    -12832.422222173076,
+    2894.091575700689,
+    -16881.841415237555,
+    0.4497642839127147,
+    -0.5188975475039002,
+    -0.1890992478141527
+   ],
+   "archived_wall": 0.04205883573740721,
+   "archived_steps": 205,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "157b004c0cc1656feb00f60d805209c1e512ae79430f53fcfbe1b0e27833706c",
+   "initial_probe": [
+    -17806.424153070297,
+    14949.418914395363,
+    -7752.41660937796,
+    -0.4657062728095577,
+    -0.313524379335743,
+    0.28301833300957524
+   ],
+   "archived_wall": 0.039140821900218725,
+   "archived_steps": 189,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "8252cdc899178ee8c7dfe07bae4ea590eac80c09704c64e94a4243558f82d8bb",
+   "initial_probe": [
+    16148.970369018172,
+    -8237.881019895009,
+    6655.315809491183,
+    0.17343870760373856,
+    0.7539833066214467,
+    -0.014225490984380642
+   ],
+   "archived_wall": 0.06773597002029419,
+   "archived_steps": 321,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "fe35c70fd89d15bad58c90f607e31381005aa1b7c1d91b91c1eeab7e895a4468",
+   "initial_probe": [
+    8349.957676514048,
+    17095.653559191993,
+    17324.845648082777,
+    -0.12598880174462654,
+    0.4631934379240997,
+    -0.38635248638075065
+   ],
+   "archived_wall": 0.011906538158655167,
+   "archived_steps": 54,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "7502458d631341284f6d51590e08465028813d7667fbf5b0205404abcf28a904",
+   "initial_probe": [
+    6869.3053743977525,
+    -10942.888172245002,
+    -6069.629972234071,
+    0.6929255532534956,
+    -0.045141141004687094,
+    0.622646467784629
+   ],
+   "archived_wall": 0.0407615602016449,
+   "archived_steps": 190,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "e37723da022449128c1721bdd3a0ba4ae11c7079f37b58deee8c4158f2d7a7c5",
+   "initial_probe": [
+    17014.334465813223,
+    -2376.094944549663,
+    5969.438280030953,
+    -0.22360848675139494,
+    0.4428778683937325,
+    0.5461816432459397
+   ],
+   "archived_wall": 0.08742101583629847,
+   "archived_steps": 412,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "2baa31f8d8ad07f640f4022bdd2e3348d38cf9e4aff6cea6a0cd1f5a8f097b9f",
+   "initial_probe": [
+    -1623.1757161143764,
+    11335.38806300739,
+    10643.111208742079,
+    0.62672465532147,
+    -0.3525225569092295,
+    0.3892945748461586
+   ],
+   "archived_wall": 2016.6259674220346,
+   "archived_steps": 10687996,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "8718ab4ceda649735574d16270bf0246455cb12ef813c38d54b3a1bed5ebc8e7",
+   "initial_probe": [
+    -2229.5585642868605,
+    -5728.44420251839,
+    4746.372983491835,
+    0.5429872352474425,
+    -0.9608608339025545,
+    -0.38469177619501843
+   ],
+   "archived_wall": 0.2312764683738351,
+   "archived_steps": 971,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "5be5410d344aeca03e54e395606ac355595a476ab133c14b4fcc546ad2edcfdb",
+   "initial_probe": [
+    5870.810681876495,
+    2917.485303772152,
+    -2817.768323674658,
+    -0.5242821567377165,
+    0.2532593613639535,
+    -1.0421232299071481
+   ],
+   "archived_wall": 1.1807461977005005,
+   "archived_steps": 5624,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "3e83a20b124bb9552df258002a7c057cf152a745cde67d2c0393916d5812b8e5",
+   "initial_probe": [
+    -2578.6884751074126,
+    -10104.592470270398,
+    8624.378325312255,
+    0.616256192149933,
+    -0.24562565146880205,
+    -0.45232499960038314
+   ],
+   "archived_wall": 0.1032115020789206,
+   "archived_steps": 378,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "a6537e41a3dfcc3433cb6d79b1d254e67862afe87c824d8dec08e72de0792ae2",
+   "initial_probe": [
+    -3734.9283546778565,
+    6156.168685359582,
+    20.166670517653312,
+    -0.5932496170800549,
+    -0.6571846023544007,
+    0.8561589531361611
+   ],
+   "archived_wall": 0.31586388498544693,
+   "archived_steps": 1398,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "40e2bb989438f5b485f8817c3c30e653fcb306ad27b7db7e7d95c8d21c7a0344",
+   "initial_probe": [
+    1175.8697566280835,
+    -1705.2555972748344,
+    3177.0522144062647,
+    1.698432855180283,
+    0.12251244794618318,
+    -0.37991326731634656
+   ],
+   "archived_wall": 0.8202999983914196,
+   "archived_steps": 4211,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "6d13a438b70cc3ae948543581e8fac0396e38d95cecfb691c0ee6566c21688dd",
+   "initial_probe": [
+    -6779.8477131346035,
+    -2791.0953080925415,
+    -13091.89942872423,
+    0.17058932609412195,
+    0.7337383346501041,
+    -0.0419034277226119
+   ],
+   "archived_wall": 0.13332185987383127,
+   "archived_steps": 484,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "80b8d3af431a77a14110337ffed0daf9c9d2a31327b5a863932a118c1772c8fd",
+   "initial_probe": [
+    1569.1093392381913,
+    2511.6224968555102,
+    1393.2771788110174,
+    0.9421604623754037,
+    -1.2502102464315368,
+    0.9445376377247924
+   ],
+   "archived_wall": 2.186548543162644,
+   "archived_steps": 11218,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "a27a5d3484f163ed96c1b3e74faeb83aeb8c39fd0a91ecf19653ab49d8043d5d",
+   "initial_probe": [
+    -3474.2012803785915,
+    -3323.7087163516703,
+    2217.959302840873,
+    -0.6538617397526809,
+    1.2188409699855165,
+    -0.0070619801959085175
+   ],
+   "archived_wall": 1.2095475038513541,
+   "archived_steps": 5886,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "905ea5f6e1365746716651f57a37400245dd9ce648b1aecf9635c4cfd0ab741f",
+   "initial_probe": [
+    8941.205609060422,
+    7396.264021891452,
+    -2539.386971337859,
+    -0.08931666274006195,
+    0.3555707264161963,
+    0.8202487546783765
+   ],
+   "archived_wall": 3796.038352619391,
+   "archived_steps": 19067119,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "549fa23743e392d90361ad86134935ce9d3ede9355ccdb3e06ce530cac29b2f2",
+   "initial_probe": [
+    5252.010131994897,
+    10031.405101248389,
+    19293.4650639295,
+    -0.48854151572649257,
+    -0.32051428988861497,
+    0.2206663482380531
+   ],
+   "archived_wall": 0.05878247320652008,
+   "archived_steps": 287,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "8aca82a0e4ce1652a420c9b685b241e4477256f0db9b8002d6a56f8450281a4b",
+   "initial_probe": [
+    -2650.6209737742925,
+    1531.793926001988,
+    -47.43124866823281,
+    -0.00198144096773533,
+    -0.005825065694231262,
+    0.0015208662107994736
+   ],
+   "archived_wall": 133.13493504282087,
+   "archived_steps": 725244,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "eb4b021dfd3548256f0572bd7193edbc841aaba29193ecec95a8fa45d5a86dfa",
+   "initial_probe": [
+    6267.09179512308,
+    -2067.032402508463,
+    2634.229676059321,
+    -0.0012869782099863406,
+    -0.003538419660914469,
+    0.002018652316713673
+   ],
+   "archived_wall": 0.040872523095458746,
+   "archived_steps": 207,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "0eefe3c2a0251fe770b56161b657f9c29d849d9487b0f989a92ea06bb376b7d2",
+   "initial_probe": [
+    -1523.8303095740696,
+    -1411.1364227257075,
+    -4810.047013244365,
+    -0.002662844841849093,
+    -0.004838855048934604,
+    0.0010898260076959779
+   ],
+   "archived_wall": 0.05375494062900543,
+   "archived_steps": 277,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "2d55fb623997077ec335e48f24272c1de919654ac15f7e75d4f1639a8fa58d3a",
+   "initial_probe": [
+    4289.3313561363175,
+    5341.080067617022,
+    -2156.085901261091,
+    -0.00028750020569950484,
+    -0.00037223268936034665,
+    -0.004356110457302728
+   ],
+   "archived_wall": 0.05985341174528003,
+   "archived_steps": 295,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "f9c59fbfc5c273cd7da2785d73999bfdfb1c025e193ba7870e8e201d717cde42",
+   "initial_probe": [
+    2549.1092181635518,
+    -2729.676354119524,
+    -4270.330104858243,
+    0.0041837153122711935,
+    0.0021178977729915957,
+    0.0002612154614257346
+   ],
+   "archived_wall": 0.06851350190117955,
+   "archived_steps": 390,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "2b308a10f5432a71eb885f2f1b5eb52921809b2f40ba9c837ab572899e91c156",
+   "initial_probe": [
+    -4495.933915358336,
+    -369.7894522541294,
+    3718.456032390253,
+    -0.0027151683221521544,
+    -0.00378449078743809,
+    -0.0016387826276811107
+   ],
+   "archived_wall": 0.037408932112157345,
+   "archived_steps": 209,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "f1d6b8ca35c9aea5558e7db1c310e47dd463381684f00a74e6c30c7e15d99f93",
+   "initial_probe": [
+    1223.5156230168855,
+    -3785.0132495839975,
+    4359.917459364224,
+    0.002077794912596618,
+    0.0036416055245159823,
+    0.0030270337140593396
+   ],
+   "archived_wall": 0.05491224816069007,
+   "archived_steps": 302,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "95a4b0abd06879763fa9ef7b58a55953f69b92a9c1b6c3f436f99168a55de7e9",
+   "initial_probe": [
+    -4688.264905177238,
+    5041.819292950423,
+    -2615.065559530995,
+    0.0029705048589559867,
+    0.002298018182442287,
+    0.0014918684868556525
+   ],
+   "archived_wall": 0.05174035392701626,
+   "archived_steps": 261,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "02187fe4dd37d1f23fe4d67a5eef0d748028d561d8cddbb679d988a85bf6cb17",
+   "initial_probe": [
+    -350.5217180843856,
+    843.5232752397187,
+    -4727.546701895334,
+    -0.0030051080144253453,
+    0.004544205089847255,
+    0.0023247846156025953
+   ],
+   "archived_wall": 0.05186332995072007,
+   "archived_steps": 272,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "764788141500906161151e181f3ab0358bfe619bb8876968244454a456f06d5e",
+   "initial_probe": [
+    -2050.123134416149,
+    1669.6798467864905,
+    1551.3894293942328,
+    0.005420424982496874,
+    0.00015684437180175988,
+    0.005606287916520777
+   ],
+   "archived_wall": 1.648194221779704,
+   "archived_steps": 8879,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "0afb19a0f6329791060e5a200e59b8aced98fdc1cb2a5bfd4939c60fedb29442",
+   "initial_probe": [
+    3152.4745070871186,
+    6865.268498712105,
+    4068.542872348701,
+    0.0029786253157387645,
+    -0.002664897873030561,
+    0.001071943444079925
+   ],
+   "archived_wall": 0.03459856705740094,
+   "archived_steps": 169,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "1b1784a7f4916f381eebfd7f8e882f9bbd8c4c193ef9150a750bfcfa7cc912aa",
+   "initial_probe": [
+    3005.7267706081166,
+    -6529.303334103648,
+    1017.6056073906257,
+    0.0005492961485859107,
+    0.0016729528341769613,
+    0.004060157940617957
+   ],
+   "archived_wall": 0.03709310805425048,
+   "archived_steps": 188,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "c6c8109162d593d570ec4e4e7bf90c60d195a1db23bf9f8264ddae99824a6680",
+   "initial_probe": [
+    1100.6413086925008,
+    65.08360307967361,
+    -2015.218258205835,
+    0.007275232471773047,
+    0.0023261392566817068,
+    0.004525893940058931
+   ],
+   "archived_wall": 116.26523069711402,
+   "archived_steps": 634361,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "6f29fb803d3ca0cbe8f710dadce8b636210897416fdabc9ef0eecf7c732d5210",
+   "initial_probe": [
+    -2498.4922856394674,
+    2909.327592278482,
+    -744.3983640380847,
+    0.004671516234899585,
+    0.002787586622629259,
+    -0.0023955350159513044
+   ],
+   "archived_wall": 4.995680496096611,
+   "archived_steps": 29340,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "7ab3b1682ada70ff211aa606dd9ae48ab4438fef7078142bd2e8828f69fecfb2",
+   "initial_probe": [
+    -412.54115793064994,
+    349.9837160578971,
+    -1300.021960996928,
+    0.0017094371773074507,
+    -0.010700495490207532,
+    -0.004455101748955203
+   ],
+   "archived_wall": 0.4510256410576403,
+   "archived_steps": 2431,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "15e30eb60b5178ce911eba471795f586e07c2f5d8eaeb20e6888999b2c546da9",
+   "initial_probe": [
+    -548.2758960057521,
+    3498.663485556735,
+    -5818.701607767851,
+    0.004213379601639778,
+    0.0011776617341928888,
+    0.00046465275897595014
+   ],
+   "archived_wall": 0.06152925733476877,
+   "archived_steps": 321,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "5b07e071b54cd559a208a158ba0f21b7f05b523c03936f4a96f10f1fe3b8091a",
+   "initial_probe": [
+    2789.2342681651476,
+    573.78462319628,
+    -2782.3757204023955,
+    -0.0005468537984076701,
+    0.006208524305401128,
+    0.0018766134232267079
+   ],
+   "archived_wall": 0.06847161008045077,
+   "archived_steps": 362,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "1b04069bac9532b6bdc492c5e2c15b12986138df42f834304654b720932a3375",
+   "initial_probe": [
+    -157.68982677868988,
+    -393.8967704564007,
+    -390.30290359850403,
+    0.01265589766272301,
+    0.00025723218898226076,
+    -0.01011440835640718
+   ],
+   "archived_wall": 1234.0679574189708,
+   "archived_steps": 6577888,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "b9caf32691941ae20d9f68251a4d770c84b223da511ec1dd135d8d3d338bb7f0",
+   "initial_probe": [
+    1660.8700500116565,
+    2259.456496708745,
+    -4988.706838536117,
+    0.004114402383026083,
+    0.002966632049994733,
+    0.001837145097207882
+   ],
+   "archived_wall": 0.03550437418743968,
+   "archived_steps": 184,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "86204b2385cd703014970c40a2a4f3b183ccf9385aebecfb657dfa2f4963207d",
+   "initial_probe": [
+    4398.127295483133,
+    4033.1311984447366,
+    3485.4290723793515,
+    0.0015079328653216345,
+    0.0017884479448261681,
+    -0.0040360539444398566
+   ],
+   "archived_wall": 0.05288001103326678,
+   "archived_steps": 284,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "dea1245a5b89e74e5a81ffd12ab45ace88672622c57081459353b76892f443e4",
+   "initial_probe": [
+    -2143.6216650560746,
+    -4984.325890331335,
+    271.1667997171422,
+    -0.0017420150438447058,
+    0.0001623300166522702,
+    -0.0049939823068592595
+   ],
+   "archived_wall": 0.04548151372000575,
+   "archived_steps": 239,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "a0ec876db5991d581a37392be65f595de2840bf2efb649102c286bc2a68d3fee",
+   "initial_probe": [
+    321.3490063037278,
+    3970.475447270583,
+    -923.9494790757,
+    -0.0015731045325345734,
+    0.0018794740957072723,
+    0.0056920638002358704
+   ],
+   "archived_wall": 0.1647390890866518,
+   "archived_steps": 893,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "057f8930866abe39c38b3d2da13de380c6e94513fa11d9c9fd251f567cc92e63",
+   "initial_probe": [
+    923.7027220294534,
+    -626.8637889102263,
+    1156.132144086935,
+    0.0070263209225409256,
+    0.004001330207533227,
+    -0.004588386422753664
+   ],
+   "archived_wall": 1.1730218194425106,
+   "archived_steps": 6115,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "0dd834217cae6465d9274e24d8c98c718923ac6710f2420394ee556c3709c6bc",
+   "initial_probe": [
+    179.05543513643175,
+    48.725671033483415,
+    88.68219533115378,
+    0.012772217515224614,
+    -0.02133575951877263,
+    -0.013063685853826015
+   ],
+   "archived_wall": 5152.44540758105,
+   "archived_steps": 28201698,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "3f42318123b088efeb9f78c9ec614a8c6a56ca9dee924a537ea658eea4594c47",
+   "initial_probe": [
+    5721.7207275627825,
+    2260.431520729206,
+    2716.1773662178543,
+    -0.0023226950894494635,
+    0.0032342516447330582,
+    0.001336894516736521
+   ],
+   "archived_wall": 0.05821964517235756,
+   "archived_steps": 239,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "48dc510dee7927b5b5443c2be96eb8e904aae01c50f443fb7975b0f22c3229c2",
+   "initial_probe": [
+    -91.11708314034222,
+    -2331.3365816166875,
+    -707.9333480073617,
+    0.0020331820981768813,
+    0.0006027218141704039,
+    -0.007408437715174783
+   ],
+   "archived_wall": 148.19309522304684,
+   "archived_steps": 802829,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "0100544494edf59c25e5ac39562d94ca5292da56ee3f7128d79ec05adb2437b4",
+   "initial_probe": [
+    -591.9417551456552,
+    -168.52099941835138,
+    419.97531424564283,
+    -0.007015044249920792,
+    -0.00581497174102204,
+    -0.010696122093597781
+   ],
+   "archived_wall": 760.9076579981484,
+   "archived_steps": 4452765,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "88b2d25621a937c17bac13d335bc970c40391cc6bc8daacf350275ad2895b981",
+   "initial_probe": [
+    -374.6073689927348,
+    -6663.152988198258,
+    2360.5630926634426,
+    -0.004323191905008935,
+    0.0010714439930621135,
+    6.828484811743467e-05
+   ],
+   "archived_wall": 0.03984326031059027,
+   "archived_steps": 203,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "3e2852117aa124394cb84677062caadf4354190dbd837540b2c60c6bec1a968f",
+   "initial_probe": [
+    141.82500926685526,
+    85.343025312573,
+    -35.96189233151921,
+    0.01656677247725044,
+    -0.02363178175247904,
+    -0.00426655164845263
+   ],
+   "archived_wall": 1906.423371464014,
+   "archived_steps": 10268995,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "99089dc47d34959803a66eff127d6d824907aa552ca3b9b832a83fa8c8cdea32",
+   "initial_probe": [
+    -1162.009867440256,
+    417.58561782162667,
+    3509.5322164794125,
+    -0.0016843900102887224,
+    -0.006500350550746384,
+    -0.0013220363197237882
+   ],
+   "archived_wall": 0.07219288684427738,
+   "archived_steps": 382,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "e94488ec38f046eaca4735e1e825140b39f2ef84bf5be70f232aecb8d7baa4ad",
+   "initial_probe": [
+    2757.6301541847056,
+    5728.511706301578,
+    1893.2700606696094,
+    0.0005251199034608592,
+    -0.0019438204188781802,
+    0.0042152613645722765
+   ],
+   "archived_wall": 0.03975208988413215,
+   "archived_steps": 200,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "5d05792ebd863a6e8452ff6593367a588ca618e2fb9d13aca6fd3ca254c2ccf7",
+   "initial_probe": [
+    -1828.1072639276856,
+    -2696.797713081067,
+    -762.6586331910825,
+    0.004920698903419484,
+    -0.003711865270136954,
+    -0.0012395596508819092
+   ],
+   "archived_wall": 86.09734800597653,
+   "archived_steps": 510054,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "055254b97c0ae22251321c2326b28abd05a04c8712f6f2fe0e3c4a790b78bf56",
+   "initial_probe": [
+    38.63258388986894,
+    100.74927157525478,
+    -100.62688226967933,
+    0.026060197822536116,
+    -0.011575866259589522,
+    0.0018824828920128171
+   ],
+   "archived_wall": 627.0698175076395,
+   "archived_steps": 3562394,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "e2bb696e15f441bf4adec041ad136fcd196f2be8db43ff833c3b1068465aa91e",
+   "initial_probe": [
+    -313.2358655747805,
+    344.25946040819065,
+    -74.13083382059584,
+    0.0036340659404656794,
+    -0.0010885230703164559,
+    -0.017224701459807156
+   ],
+   "archived_wall": 46.919187697116286,
+   "archived_steps": 274112,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "8157576d45fcb3513a7feaab1cac6ea2fbd3c6675ed8bbe52fffe93d93ae2d19",
+   "initial_probe": [
+    182.89918536366974,
+    -81.4401205839477,
+    -33.80770625834676,
+    -0.009406952739312129,
+    -0.008723083793213635,
+    -0.024965656712326232
+   ],
+   "archived_wall": 1623.0495840432122,
+   "archived_steps": 8750966,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "3b2af1111c7ebacdbfed244a4a85c024986599ee028e1273e2fa8a71813f962b",
+   "initial_probe": [
+    -7.504831082052959,
+    -141.3700963841593,
+    -116.51192595550107,
+    -0.00804372339017664,
+    -0.010706556096804078,
+    0.022039079345004136
+   ],
+   "archived_wall": 763.0172218978405,
+   "archived_steps": 4013755,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "e25a7ffc7d8a4aa26d46b91f99c183a1766aec18b1b7c6832a42228975ea3dc1",
+   "initial_probe": [
+    -509.5210338174255,
+    577.2986240410277,
+    -153.10688306853035,
+    0.009082885013942051,
+    0.005689675554561762,
+    -0.008858932355436694
+   ],
+   "archived_wall": 19.923802034929395,
+   "archived_steps": 107538,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "a068e31a9559bbd8b7531b15e00527d99884cd69ccbd1d085eb42556ee423249",
+   "initial_probe": [
+    933.1688695099846,
+    -459.00955053257155,
+    369.8876661694802,
+    0.008151700526569675,
+    0.006886216898165297,
+    -0.0036270156588455427
+   ],
+   "archived_wall": 3.370482333935797,
+   "archived_steps": 18118,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "e2d13bcad6d6e8fe549d012801acbdb6be6ff69019fc341d6716ac7e40224840",
+   "initial_probe": [
+    -102.93864823679398,
+    -360.5213978904866,
+    -94.70872124253047,
+    0.015870759119015667,
+    -0.001509212562536612,
+    0.00956687525309498
+   ],
+   "archived_wall": 125.09875353891402,
+   "archived_steps": 676387,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "0c7a9b1aac5897e5f0f935ff58e3dc838be3de502609f9ba6fa8844144efeae3",
+   "initial_probe": [
+    187.31008225126928,
+    -227.00933550924626,
+    114.18326808512468,
+    -0.01307332910635655,
+    -0.010104669782037369,
+    0.01193674152712847
+   ],
+   "archived_wall": 165.8076092870906,
+   "archived_steps": 878740,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "eb2e42cc5a0a42c16b6e484830f76aad576e0e5c8799cfb941c47e2903b01e7e",
+   "initial_probe": [
+    -165.5098206843871,
+    219.3706818263262,
+    363.90730059703895,
+    0.017465669010977132,
+    0.004527133341425131,
+    0.004296448657803729
+   ],
+   "archived_wall": 1140.589084670879,
+   "archived_steps": 6683202,
+   "archived_status": "failed",
+   "archived_outcome": "unresolved"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "57e373b09581514ce975b42c88794bfeb45e9c0ed0bca1dbd633003990d348e8",
+   "initial_probe": [
+    85.20745160029429,
+    -20.504612510467425,
+    131.04709715700844,
+    0.002642292714528424,
+    -0.02969604919754,
+    0.002890894159582371
+   ],
+   "archived_wall": 655.576017589774,
+   "archived_steps": 3517637,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "34ceb13dcd9d16cba748aea1c92c88170688905ab23324298379d33fbe2ab8eb",
+   "initial_probe": [
+    320.84944815521567,
+    -128.4037922402089,
+    -244.0518108341217,
+    -0.003196781080068605,
+    -0.016622025258401438,
+    0.008786106133285693
+   ],
+   "archived_wall": 864.0825571180321,
+   "archived_steps": 4654108,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "3d59a9df54b45615866ef211b40e77e82683c1f626a960f57c4ce2c60172a842",
+   "initial_probe": [
+    -327.34311487615986,
+    -1807.767186771338,
+    -610.1376328354015,
+    -0.004953413782411552,
+    0.0036704350889080464,
+    -0.006091622071446228
+   ],
+   "archived_wall": 0.7819341509602964,
+   "archived_steps": 4222,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "fdc6cfde8b9f13a9aeb50cee06f3faf81a68d09d44cac362db53af8e5af2bb01",
+   "initial_probe": [
+    -389.4222211729249,
+    -43.80501568794275,
+    -366.2905034124389,
+    0.012530009441781806,
+    0.0044361405563372825,
+    -0.010571058281468515
+   ],
+   "archived_wall": 408.8258656808175,
+   "archived_steps": 2194864,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "ffe69c8a284dcac75c2e554792248b739a7a41a767be310d3c96af68d68f3f76",
+   "initial_probe": [
+    264.5879253579846,
+    375.0430877214446,
+    -371.84333610559094,
+    -0.010018559439437217,
+    0.011419007657801267,
+    0.008850557980238528
+   ],
+   "archived_wall": 858.8857351820916,
+   "archived_steps": 4606043,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "419706c79966c83102eacb52c2b1cfac7e976a9845db744971516fb14942a26a",
+   "initial_probe": [
+    1195.973392255783,
+    1855.3269805907016,
+    -841.3497591563802,
+    0.00226256262012937,
+    -0.003518236299994541,
+    -0.005966871024922846
+   ],
+   "archived_wall": 155.56913810269907,
+   "archived_steps": 918438,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "420ce48d5942b29dd3552f63272523533ffa4e971042f153196a32c6e59adf91",
+   "initial_probe": [
+    -1410.8598443144388,
+    -791.3417739117053,
+    1767.834977383077,
+    -0.00013067026589074588,
+    -0.006562003342421864,
+    -0.0032228473356993685
+   ],
+   "archived_wall": 163.56540751177818,
+   "archived_steps": 883322,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "29fd69ca23df5e0a9e2dcd598df7b16d887e667e519c695e66d64d88fd17b8e3",
+   "initial_probe": [
+    8431.202262376855,
+    2705.179608519033,
+    3744.942042948684,
+    -0.017426699628065347,
+    -0.06959059993225858,
+    0.07031104032942917
+   ],
+   "archived_wall": 0.6864514336921275,
+   "archived_steps": 3904,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "320ee58736a2e8a5786dcf3bd30e676c1c5642c72737c79b42495fff52ecad9f",
+   "initial_probe": [
+    -1812.222491675839,
+    -23391.64029401882,
+    -6079.6194144957535,
+    -0.038262557940164,
+    0.02799889340774174,
+    -0.06044667786182281
+   ],
+   "archived_wall": 0.05991305084899068,
+   "archived_steps": 311,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "098a23fdf8f4047d5118b0c3ebc3b7b2d46ceafcfb543ecd80cb612e848b8b2f",
+   "initial_probe": [
+    20083.276201179753,
+    -2051.713337365852,
+    -6690.739566913457,
+    -0.01824996851768235,
+    0.04185331908167806,
+    -0.060136546614211375
+   ],
+   "archived_wall": 0.08818750502541661,
+   "archived_steps": 503,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "ab5caebd22b7a920940a44561d8adb8dd58a6660981f1acfafe62fc470afc937",
+   "initial_probe": [
+    13021.155470575226,
+    19039.42378716961,
+    -2514.063291020199,
+    0.06294091126536844,
+    -0.02222022432573283,
+    -0.025136786392126322
+   ],
+   "archived_wall": 175.98731545219198,
+   "archived_steps": 936906,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "fc277664440b7993c33375e2583701a59b4d502ed5a7d0fc2d69168283e9083f",
+   "initial_probe": [
+    -13561.606998905952,
+    20787.662462171695,
+    18687.058329740976,
+    0.03104542501756266,
+    0.049969783135997266,
+    -0.027740520894360486
+   ],
+   "archived_wall": 0.10908749978989363,
+   "archived_steps": 549,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "3680a822441262a57d3777076cf7928ca7c4baf7ef13348228796745f6e16bdc",
+   "initial_probe": [
+    -7386.895291669277,
+    -24260.40078854247,
+    -5175.275685308674,
+    -0.04273483817926867,
+    -0.007097650674619033,
+    0.05884793535450215
+   ],
+   "archived_wall": 0.08524938812479377,
+   "archived_steps": 441,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "a4922539ecf9fac52a38e7f62c201de753a887acc7c42b34e3758d4c6e529596",
+   "initial_probe": [
+    4467.817311044639,
+    16491.56685170571,
+    -8049.789963225488,
+    -0.06490398332144089,
+    0.0031980526626296953,
+    -0.044214777659882895
+   ],
+   "archived_wall": 8.577499686740339,
+   "archived_steps": 48763,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "de5b91f09e13001055d2b9eb489ad434c03b6472edf63bb39f7e804408fa44c1",
+   "initial_probe": [
+    17300.467143197027,
+    -13235.44603364093,
+    -8316.814110806905,
+    0.038675318838058644,
+    0.010331378836337727,
+    0.05182424504834649
+   ],
+   "archived_wall": 0.09454210568219423,
+   "archived_steps": 486,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "560a4ac16fa7d34e20885898298a64bf12114fcc9c3a3b924fdf533f4da7f6f5",
+   "initial_probe": [
+    5835.757807097657,
+    13196.935441899743,
+    -9550.124596354006,
+    0.06708127992928327,
+    -0.003586035868157202,
+    0.03129693877352483
+   ],
+   "archived_wall": 352.6519442698918,
+   "archived_steps": 1844275,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "8152db1b2d87ce28fb1ee2e5ca53710e89c081c253a640a912fc2bf62db9beef",
+   "initial_probe": [
+    -4353.368945651516,
+    -10088.579187213261,
+    -9895.289663624042,
+    -0.03892232637394979,
+    0.04838153460282639,
+    -0.059630553042498986
+   ],
+   "archived_wall": 2.0292290882207453,
+   "archived_steps": 10653,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "3f72aaf2f0fc565a39b88a60fa6baff25e24e4e89c81ac43f2c21538a2b7f4de",
+   "initial_probe": [
+    -4124.74688997053,
+    7112.48768093647,
+    -4033.7118597514914,
+    -0.007068676144730745,
+    -0.02956790861633062,
+    -0.11636779311582632
+   ],
+   "archived_wall": 0.4900397341698408,
+   "archived_steps": 2538,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "2e3d2fa8d0ec0faaef195e2dacd0cc0ab14759e486a7b5f143b177391a144238",
+   "initial_probe": [
+    10777.976741733615,
+    28783.439836554528,
+    -3987.862887507547,
+    0.039676253761417785,
+    -0.0004354571108692248,
+    0.04033823821539183
+   ],
+   "archived_wall": 0.06195366196334362,
+   "archived_steps": 322,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "93007ea23bd1778ab034de9f66d9ad9c9c112e58a0fac1131f8a4b7c231922ea",
+   "initial_probe": [
+    14452.43609817176,
+    -25862.11319014993,
+    24514.967835055155,
+    -0.008631782137990693,
+    0.040877285325277055,
+    0.03416873928441937
+   ],
+   "archived_wall": 0.06520598940551281,
+   "archived_steps": 342,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "bfdf0dae0c9d5a0abc47f0ac95f91e03e929e5826135effa747739928e41baea",
+   "initial_probe": [
+    14607.959457152809,
+    -5317.689529265463,
+    -14730.043489334821,
+    0.04012713813207496,
+    -0.014054573153311193,
+    0.06980356754285022
+   ],
+   "archived_wall": 0.058515018317848444,
+   "archived_steps": 307,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "b286a0f7ab482d8ea76f4d00fb0aea202a4a9bbd1c33677a6652b396ae81cead",
+   "initial_probe": [
+    -3731.1692776708965,
+    713.430166489588,
+    18022.93074731403,
+    0.0137336222242319,
+    0.08400044266957803,
+    -0.007542919403581978
+   ],
+   "archived_wall": 0.1322726788930595,
+   "archived_steps": 687,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "935844ec9e98e337af54c80e05bca74fa7d143d444646f9666c4e562a618287b",
+   "initial_probe": [
+    -9778.621125014546,
+    -230.96223479614744,
+    -90.65783283289613,
+    -0.010222033897327834,
+    -0.09307025162474174,
+    -0.03542195911099572
+   ],
+   "archived_wall": 633.0972992978059,
+   "archived_steps": 3569428,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "ed879f93767d94ee527d29fef2d027df92ea614a6d720c4002030f94e29f9efc",
+   "initial_probe": [
+    28403.222092515753,
+    877.7957909777676,
+    18823.036386818127,
+    0.02271000628611738,
+    0.04403284621442937,
+    -0.03542674730552124
+   ],
+   "archived_wall": 0.04139127675443888,
+   "archived_steps": 214,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "6cbe888cc8036d53790f5c403e7e35034b1b3a4ce40a2296c4dcf7d1e3a0be7b",
+   "initial_probe": [
+    -18767.367941286215,
+    -19194.443270342505,
+    3174.47406927078,
+    0.026697802788357056,
+    -0.014843310129818599,
+    0.059157938645278595
+   ],
+   "archived_wall": 0.054169582668691874,
+   "archived_steps": 307,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "1f99124a27197e26d6fcb975eaea6203d00a99ffcd16e7d1c12d8e5d82d4f137",
+   "initial_probe": [
+    -1843.9687536969595,
+    2200.546632688066,
+    -2683.5929124155114,
+    -0.1529666584477746,
+    -0.033994231154305665,
+    0.06934389099949788
+   ],
+   "archived_wall": 13.835639257915318,
+   "archived_steps": 72799,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "78866beb782c7bfb2233794c5f7022f1c05bb266526724dbaab9e874ae89693a",
+   "initial_probe": [
+    -13007.165377151756,
+    17849.71565010673,
+    10786.107954769539,
+    0.03691574796493298,
+    0.04518973277875952,
+    -0.027710749951206575
+   ],
+   "archived_wall": 154.41684470511973,
+   "archived_steps": 823254,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "53280f80b889595f28a7d8ee9651a695f8c4e1a842b5ac52ce8372a837e8c881",
+   "initial_probe": [
+    -10640.490152035603,
+    642.5334813683423,
+    1211.4757077502734,
+    0.026305226545305163,
+    -0.010145848815787143,
+    0.08997980991015442
+   ],
+   "archived_wall": 0.8302116398699582,
+   "archived_steps": 4711,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "439c6f38e6a107e64f3a02b7b85c0924d299213b78dcbe50652c69f2d122392d",
+   "initial_probe": [
+    12214.676132834204,
+    20312.29918586549,
+    10372.574356364541,
+    -0.06753890416741731,
+    0.025463119214223326,
+    0.021306306418728247
+   ],
+   "archived_wall": 0.06202671630308032,
+   "archived_steps": 350,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "a9e417635722146188f48cf6c5c93452ea7f63dcf062647488db3ca1056942da",
+   "initial_probe": [
+    445.7537077142216,
+    -16837.02867367492,
+    1950.2388445665356,
+    0.019610514556327105,
+    -0.009054219071415306,
+    0.07524422101171536
+   ],
+   "archived_wall": 0.08598068403080106,
+   "archived_steps": 476,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "2e627f5c0fcd68baa6776685d0ff2a071136476f2e418be07cbfe85ab8ece96c",
+   "initial_probe": [
+    4340.583271101142,
+    -2155.766388656664,
+    6562.029705140831,
+    -0.1114454958402191,
+    0.04857883056594652,
+    0.060295659406707176
+   ],
+   "archived_wall": 0.2778263748623431,
+   "archived_steps": 1437,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "5aa2d319d5f4b0709a17be370f6e70c79f3493af37dfefa0cf6be640afdc7fdc",
+   "initial_probe": [
+    -14244.003479045241,
+    15427.225131443198,
+    3323.6433739152367,
+    -0.05035565323991624,
+    -0.051173578193260114,
+    -0.01493104642765376
+   ],
+   "archived_wall": 0.05910875787958503,
+   "archived_steps": 305,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "5b1639771fc7ab9ed654e0bf26dc4a414ef0f10aa6d290bdaa6d6c29b9af231c",
+   "initial_probe": [
+    -25146.965852807432,
+    -9888.194424820906,
+    -5086.906075650579,
+    0.016148084982549573,
+    0.03448314591951068,
+    -0.0594437773230345
+   ],
+   "archived_wall": 0.08269499288871884,
+   "archived_steps": 424,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "954d6bf45a9b99a808bc52cfc15bc41e75160819b64cc501bf35297f3d57cbc1",
+   "initial_probe": [
+    16955.80082862317,
+    -5737.156476879911,
+    -2691.089046011453,
+    0.031130341932205773,
+    0.020108797348172554,
+    0.07496984983752453
+   ],
+   "archived_wall": 0.25019081495702267,
+   "archived_steps": 1291,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "4f4cd3d6b450ee3c9fca97d1d0fcbdaab9792a92dc92051db8a84716d52d9091",
+   "initial_probe": [
+    -15330.908271417977,
+    3941.62267884506,
+    8587.209601918501,
+    -0.004353759264969104,
+    0.07310332813157983,
+    -0.04853646591432294
+   ],
+   "archived_wall": 61.366072861943394,
+   "archived_steps": 325726,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "2192bc6dcd71943422f9d0d94acf255f642862f38b6d1b17bab0e8b0216629d6",
+   "initial_probe": [
+    -9934.551885494857,
+    3911.589433140799,
+    -10816.632678731467,
+    0.04726589947266273,
+    0.0483680441471971,
+    -0.04088301859834884
+   ],
+   "archived_wall": 0.230320923961699,
+   "archived_steps": 1204,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "6e9456a8812da72f85a37e80c88ef65d6626a76847e68af0ff51510fbde87ee9",
+   "initial_probe": [
+    5036.168489985069,
+    25851.770101962255,
+    13789.856510904867,
+    0.05201838662282515,
+    -0.02710944258682893,
+    0.03607258644424794
+   ],
+   "archived_wall": 0.1179944733157754,
+   "archived_steps": 589,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "a154456dbc2e18b052d5c5d3540edb6ad86705fabb371d78d22e6544dce22691",
+   "initial_probe": [
+    -308.1442331657707,
+    -1851.4250891381505,
+    -1966.299728609543,
+    0.19343368134756406,
+    -0.09639696497113875,
+    0.0584064294188527
+   ],
+   "archived_wall": 2689.7083351579495,
+   "archived_steps": 15296172,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "abf195ecbed03dbac531a66ee2b9760d5eb6092bec70217bdce65d7c8152176d",
+   "initial_probe": [
+    -19632.762892074414,
+    13943.95458233946,
+    17824.62848254564,
+    -0.009713910784080012,
+    0.027758500387698566,
+    -0.055234413614025535
+   ],
+   "archived_wall": 0.11729036876931787,
+   "archived_steps": 602,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0000",
+   "years": 1000.0,
+   "unit": 0,
+   "job_fingerprint": "2175a35eb25423dbc59f91844d85afbc59d2620262798e0226f23400557caefd",
+   "initial_probe": [
+    18508.377776194102,
+    24684.624778811052,
+    10938.36603835101,
+    -0.044734632560147564,
+    0.037743609112827856,
+    0.01195321606456575
+   ],
+   "archived_wall": 0.1156954881735146,
+   "archived_steps": 615,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0001",
+   "years": 1000.0,
+   "unit": 1,
+   "job_fingerprint": "abb247cddfffcd3158d6b01231cdf8212636811805ec4338e5480f56332a6ecc",
+   "initial_probe": [
+    -814.6639095141254,
+    -351.2829457397389,
+    56.639284272497356,
+    0.07108008057131335,
+    -0.27157151204108865,
+    -0.24086960543081862
+   ],
+   "archived_wall": 14424.069604009856,
+   "archived_steps": 84547798,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0002",
+   "years": 1000.0,
+   "unit": 2,
+   "job_fingerprint": "52e22500e20aa9491efbdaf0f1f1224f239e1d65bf598e2c929efa14c0f030cc",
+   "initial_probe": [
+    -10125.126829067183,
+    2733.715845301177,
+    -12359.759635300214,
+    0.029810149966599402,
+    -0.06600419223336972,
+    -0.05246834861053806
+   ],
+   "archived_wall": 0.12339306296780705,
+   "archived_steps": 674,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0003",
+   "years": 1000.0,
+   "unit": 3,
+   "job_fingerprint": "c4e233855076eb7540217a62fbe8fa0d4388ab075d0bfe78f9cf41743912f0f5",
+   "initial_probe": [
+    -3527.1093637588515,
+    -11453.830424431886,
+    11729.544216487273,
+    0.05289733165399942,
+    0.039402372989430605,
+    0.053624642482690534
+   ],
+   "archived_wall": 0.4008479528129101,
+   "archived_steps": 2257,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0004",
+   "years": 1000.0,
+   "unit": 4,
+   "job_fingerprint": "9d204dc744ca4a7899ad5d8fae655e51fdd0cc39bee92f2bd12717e20e8c069f",
+   "initial_probe": [
+    6618.859683453241,
+    5972.289635370149,
+    340.0845645081072,
+    -0.06323665872367965,
+    0.0676262097236619,
+    -0.070852267123285
+   ],
+   "archived_wall": 532.2020807745866,
+   "archived_steps": 3041403,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0005",
+   "years": 1000.0,
+   "unit": 5,
+   "job_fingerprint": "e3f9e269691c9929742f7f4e89adf6d34c5156bdc4dd5e15bc7465761c96daf6",
+   "initial_probe": [
+    -21900.657002518263,
+    18356.421500600663,
+    -3677.9100686826578,
+    -0.042695902533036456,
+    -0.04325106446157701,
+    0.0004329403931971553
+   ],
+   "archived_wall": 0.04330100305378437,
+   "archived_steps": 222,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0006",
+   "years": 1000.0,
+   "unit": 6,
+   "job_fingerprint": "5c1406844653ceee3dc79036b2e9334f231a37f8eec382bce7b49769d0107f69",
+   "initial_probe": [
+    2862.8540509648233,
+    1883.0839363272703,
+    4836.522039078812,
+    0.015644113380249583,
+    -0.11990419519920023,
+    0.0605985409910695
+   ],
+   "archived_wall": 2.495638553984463,
+   "archived_steps": 12921,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0007",
+   "years": 1000.0,
+   "unit": 7,
+   "job_fingerprint": "cd4969b515e9c4f2626f0bc585b9f36ed732e9e8d14a512acb97c7cd7a14e26b",
+   "initial_probe": [
+    74.41279879099824,
+    214.10922362696004,
+    2382.128077877875,
+    0.014753676904285959,
+    -0.21947424567429638,
+    0.03553176042176426
+   ],
+   "archived_wall": 35.92726995283738,
+   "archived_steps": 186919,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0008",
+   "years": 1000.0,
+   "unit": 8,
+   "job_fingerprint": "86bebb666545d71475375ca44e8fa336b8659edb4c860b690e4c7530d1df08cb",
+   "initial_probe": [
+    11211.391792333656,
+    -15589.888123858274,
+    5583.677539234467,
+    -0.0014132501193427315,
+    -0.008980336023532078,
+    -0.06706423229702908
+   ],
+   "archived_wall": 0.08679562574252486,
+   "archived_steps": 444,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0009",
+   "years": 1000.0,
+   "unit": 9,
+   "job_fingerprint": "a4a6c88298f8e646c92e408ceed1891d296831401e5d73db8d258143ef3d6fcb",
+   "initial_probe": [
+    -3229.4838920228276,
+    1846.2473707517152,
+    1791.7931197884818,
+    0.09627339129882743,
+    0.1467118824472506,
+    0.009622139436840305
+   ],
+   "archived_wall": 1615.2432011230849,
+   "archived_steps": 8478781,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0010",
+   "years": 1000.0,
+   "unit": 10,
+   "job_fingerprint": "3ad86733fd5facc6068e0ff375f97b7169be42b967d339fd2ddcac123bc58dd1",
+   "initial_probe": [
+    6110.344250620283,
+    2249.4658002323836,
+    -31274.03060331718,
+    -0.009679505083348168,
+    0.05509562153867037,
+    -0.014295946835439747
+   ],
+   "archived_wall": 0.04475953569635749,
+   "archived_steps": 224,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0011",
+   "years": 1000.0,
+   "unit": 11,
+   "job_fingerprint": "b849ce5b0469b79f8a40d17421029eb4a436cfcd04dfd054570b4306c77c619d",
+   "initial_probe": [
+    5045.027705378438,
+    -15241.293063472283,
+    -24013.101009715265,
+    0.057275091757341474,
+    0.006344837881414279,
+    0.03006453141942828
+   ],
+   "archived_wall": 0.046258481219410896,
+   "archived_steps": 241,
+   "archived_status": "completed",
+   "archived_outcome": "operational_escape"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0012",
+   "years": 1000.0,
+   "unit": 12,
+   "job_fingerprint": "51a8beab8e4088d53b8dbd7a8acb0a302de6fd2556897896651c525d643320e9",
+   "initial_probe": [
+    1962.9041166902093,
+    -595.7073344531103,
+    1357.4204311616356,
+    -0.06891054008906017,
+    0.20496293331104887,
+    0.0883428145675896
+   ],
+   "archived_wall": 4065.318948896136,
+   "archived_steps": 21526048,
+   "archived_status": "completed",
+   "archived_outcome": "survived"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0013",
+   "years": 1000.0,
+   "unit": 13,
+   "job_fingerprint": "459a2e2c30c9cc1eab509e5cdf7a40e9736fc3582e42094efcfec581f9f54653",
+   "initial_probe": [
+    189.75091635294356,
+    -1201.026307417266,
+    962.079774464814,
+    0.2755228908155131,
+    0.04595268534294265,
+    0.004600528230890162
+   ],
+   "archived_wall": 231.50703888898715,
+   "archived_steps": 1209969,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0014",
+   "years": 1000.0,
+   "unit": 14,
+   "job_fingerprint": "886cca3de503e01d00b1508d940ff5b73d3c2398be33b9f3cab7ff9769bd748e",
+   "initial_probe": [
+    -856.9693328921521,
+    -784.1905589437383,
+    1605.345752691992,
+    0.019133162099738057,
+    -0.2220084201583685,
+    -0.10623540407758297
+   ],
+   "archived_wall": 88.94311309605837,
+   "archived_steps": 467316,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0015",
+   "years": 1000.0,
+   "unit": 15,
+   "job_fingerprint": "24303e864103b792c1eae87e50ea03231fb8a668db477536aa79b2afa714a658",
+   "initial_probe": [
+    5711.919635789346,
+    -7280.146241290268,
+    2849.3723829501287,
+    0.03701499038863092,
+    -0.018629834483816374,
+    -0.10252254404068968
+   ],
+   "archived_wall": 0.5092809461057186,
+   "archived_steps": 2644,
+   "archived_status": "completed",
+   "archived_outcome": "host_contact"
+  }
+ ]
+}

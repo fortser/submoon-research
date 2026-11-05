@@ -1,0 +1,139 @@
+{
+  "synthetic": true,
+  "units": "dimensionless GM=1 and period=2π",
+  "results": [
+    {
+      "name": "cached_unlimited",
+      "engine": "hierarchical_cached",
+      "cache_max_step": null,
+      "n_samples": 21,
+      "max_component_error": 2.1538326677728037e-14,
+      "final_error": 8.992806499463768e-15,
+      "physical_outcome": "survived",
+      "final_state": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.41614683654713974,
+        0.9092974268256871,
+        0.0,
+        -0.9092974268256814,
+        -0.4161468365471334,
+        0.0
+      ],
+      "accepted_steps": 37,
+      "warnings": [
+        "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large."
+      ]
+    },
+    {
+      "name": "cached_0_05",
+      "engine": "hierarchical_cached",
+      "cache_max_step": 0.05,
+      "n_samples": 21,
+      "max_component_error": 6.661338147750939e-16,
+      "final_error": 6.661338147750939e-16,
+      "physical_outcome": "survived",
+      "final_state": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.4161468365471431,
+        0.9092974268256815,
+        0.0,
+        -0.9092974268256816,
+        -0.41614683654714274,
+        0.0
+      ],
+      "accepted_steps": 86,
+      "warnings": [
+        "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large."
+      ]
+    },
+    {
+      "name": "cached_0_2",
+      "engine": "hierarchical_cached",
+      "cache_max_step": 0.2,
+      "n_samples": 21,
+      "max_component_error": 2.2315482794965646e-14,
+      "final_error": 7.66053886991358e-15,
+      "physical_outcome": "survived",
+      "final_state": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.4161468365471398,
+        0.9092974268256865,
+        0.0,
+        -0.9092974268256817,
+        -0.41614683654713475,
+        0.0
+      ],
+      "accepted_steps": 47,
+      "warnings": [
+        "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large."
+      ]
+    },
+    {
+      "name": "direct_B",
+      "engine": "ias15_reboundx",
+      "cache_max_step": null,
+      "n_samples": 21,
+      "max_component_error": 2.7755575615628914e-16,
+      "final_error": 2.7755575615628914e-16,
+      "physical_outcome": "survived",
+      "final_state": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.41614683654714246,
+        0.9092974268256815,
+        0.0,
+        -0.9092974268256818,
+        -0.4161468365471427,
+        0.0
+      ],
+      "accepted_steps": 36,
+      "warnings": []
+    },
+    {
+      "name": "direct_DOP853",
+      "engine": "dop853_jit",
+      "cache_max_step": null,
+      "n_samples": 21,
+      "max_component_error": 1.865174681370263e-14,
+      "final_error": 1.1268763699945339e-14,
+      "physical_outcome": "survived",
+      "final_state": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -0.4161468365471376,
+        0.9092974268256891,
+        0.0,
+        -0.9092974268256813,
+        -0.41614683654713114,
+        0.0
+      ],
+      "accepted_steps": 27,
+      "warnings": []
+    }
+  ],
+  "script_sha256": "4d08068a8102cd4f6e58230b578218a568907b9901712258f1767df56429e204",
+  "limitation": "Одно аналитическое двухтельное состояние; не допуск реальной многотельной физики."
+}

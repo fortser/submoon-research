@@ -1,0 +1,50 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___________ test_compiled_restart_other_process_with_escape_tracker ___________
+
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-418/test_compiled_restart_other_pr0')
+
+    def test_compiled_restart_other_process_with_escape_tracker(tmp_path):
+        initial = np.array([[0., 0., 0., 0., 0., 0.], [1., 0., 0., 0., 1., 0.]])
+        args = dict(period=2 * math.pi, mode=NumericMode.tight(), hill_km=10., escape_window=3.)
+        checkpoints = []
+    
+        def interrupt(value):
+            if value['time'] > .8:
+                checkpoints.append(json.loads(json.dumps(value)))
+                raise TimeoutError('synthetic interruption')
+    
+        full = integrate_engine('dop853_jit', initial, [1.], [], [.01], 2., **args)
+        partial = integrate_engine('dop853_jit', initial, [1.], [], [.01], 2., progress=interrupt, **args)
+        assert full['run_status'] == 'completed' and partial['run_status'] == 'partial'
+        cp = checkpoints[0]
+        assert cp['escape'] is not None
+        cp_path, result_path = tmp_path / 'checkpoint.json', tmp_path / 'result.json'
+        cp_path.write_text(json.dumps(cp), encoding='utf-8')
+        program = '''
+    import json, math, sys
+    import numpy as np
+    from pathlib import Path
+    from submoon_research.dynamics.engine_compare import NumericMode, integrate_engine
+    initial = np.array([[0.,0.,0.,0.,0.,0.],[1.,0.,0.,0.,1.,0.]])
+    checkpoint = json.loads(Path(sys.argv[1]).read_text(encoding='utf-8'))
+    result = integrate_engine('dop853_jit', initial, [1.], [], [.01], 2., period=2*math.pi,
+        mode=NumericMode.tight(), hill_km=10., escape_window=3., resume=checkpoint)
+    Path(sys.argv[2]).write_text(json.dumps(result), encoding='utf-8')
+    '''
+        env = os.environ.copy()
+        env.update(OPENBLAS_NUM_THREADS='1', OMP_NUM_THREADS='1', NUMBA_NUM_THREADS='1')
+        child = subprocess.run([sys.executable, '-c', program, str(cp_path), str(result_path)],
+                               capture_output=True, text=True, timeout=90, env=env, check=False)
+>       assert child.returncode == 0, child.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 5, in <module>
+E         ModuleNotFoundError: No module named 'submoon_research'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['T:\\test_python\\submoon-research\\.venv\\Scripts\\python.exe', '-c', "\nimport json, math, sy...cent call last):\n  File "<string>", line 5, in <module>\nModuleNotFoundError: No module named \'submoon_research\'\n').returncode
+
+tests\unit\test_w2_t067_compiled_restart_process.py:46: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_w2_t067_compiled_restart_process.py::test_compiled_restart_other_process_with_escape_tracker
+1 failed in 1.18s

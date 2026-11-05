@@ -1,0 +1,191 @@
+{
+  "schema": "W2-T071-audit-package-v1",
+  "run_id": "W2-T071-physics-20261101-v5",
+  "sealed_utc": "2026-11-01T08:56:15.964249+00:00",
+  "git_head": "208d8ead3f54d044928518f50bd5a9809f1352cc",
+  "git_scope": "Фактическое рабочее дерево; новые audit-файлы untracked. HEAD не полный provenance.",
+  "final_attempt": "checks_v5",
+  "earlier_attempts": {
+    "checks_v1": "failed_json_numpy_bool",
+    "checks_v2": "completed_initial_controls",
+    "checks_v3": "completed_extra_endpoint_diagnostic",
+    "checks_v4": "failed_boost_array_shape"
+  },
+  "scientific_admission": false,
+  "production_files_unchanged": true,
+  "source_verification": "PyPI SHA плюс точные версии; воспроизводимая сборка не выполнена",
+  "stage_revision": 650,
+  "tracking_ids": [
+    "W2-T071",
+    "W2-C118",
+    "W2-R036",
+    "W2-R037"
+  ],
+  "files": {
+    "docs/tasks/W2_T071_scientific_audit_20261031.md": {
+      "sha256": "1757f91ebfb82a4231c8003f34b95204c4750fcfa5c0ee376b71e27ab48dc818",
+      "bytes": 6895
+    },
+    "reports/analysis/W2_T071_scientific_audit_20261101.md": {
+      "sha256": "d47660989dd82598858b6bc57e9353d8b772d8f24673d55d1d3209bfdc484731",
+      "bytes": 29272
+    },
+    "results/evidence/claims.csv": {
+      "sha256": "44de5ad5bdade0b59646ee22a997f639e703a9b2c39555944441e42f2796cd78",
+      "bytes": 48420
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v1/audit_script.py": {
+      "sha256": "a387a16af5cf3d4c6bf6cb857672d3f8964f6f49119c42720093653029d23613",
+      "bytes": 25810
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v2/audit.json": {
+      "sha256": "a7199d7d4382480f614eb4fee9759b1aa3ce253845f7b2ac185fe2e1184339b1",
+      "bytes": 31144
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v2/audit_script.py": {
+      "sha256": "22f5835bb52e92a42532a443a9d072b005a3b0a9efab0733d1d91bf440edc1fb",
+      "bytes": 25855
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v3/audit.json": {
+      "sha256": "77dec47016d5d7420409c7a20f7d7257c70b0df3b0e4a81d0269b6238cc7c5ac",
+      "bytes": 32146
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v3/audit_script.py": {
+      "sha256": "ae9507e0743cdc276fd1231e6cbd01c232264b3ead88c4f329dd6c20d9cfaf31",
+      "bytes": 352
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v3/physics_audit_v1.py": {
+      "sha256": "a6a1d19261ff637b5ac4326066c25d7ce6ccc23123016b6ca3977b7597aff177",
+      "bytes": 26607
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v4/audit.json": {
+      "sha256": "8f5974dd549f5a2f409e7db53914a88a22b16085141d446886ff5fb2e19d4b6c",
+      "bytes": 6588
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v4/physics_audit_v1.py": {
+      "sha256": "b3642d1db2e980fb8ae33634abd8f16c53ea60dcfc9dfc68afd88b83744c0b9b",
+      "bytes": 28062
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v5/audit.json": {
+      "sha256": "04a2283155219d52f2f2e305809e7d4a12cbfc1adbb176086ab0255b9788c2a0",
+      "bytes": 34069
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v5/audit_script.py": {
+      "sha256": "ae9507e0743cdc276fd1231e6cbd01c232264b3ead88c4f329dd6c20d9cfaf31",
+      "bytes": 352
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v5/physics_audit_v1.py": {
+      "sha256": "635deaa2b90ac8b4c9fe63ea1d777bd204981d3f147f669bd0af00d691489608",
+      "bytes": 28077
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/checks_v5/test_physics_audit_v1.py": {
+      "sha256": "58ddb42eab35baf6a42b1d9d0008808f6401cb7e9ffe7e3bd19e43f5f0a2f377",
+      "bytes": 2244
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/execution_v1.txt": {
+      "sha256": "5e2380f6a069c5466f7bc711c9d4303ee862c49a644d5569dc4771aa38f1172a",
+      "bytes": 1488
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/execution_v2.txt": {
+      "sha256": "94e204974c46a1ec1ae85ec4dcf5ae48df62facb321a84c152e2caa2ff3caebd",
+      "bytes": 568
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/execution_v3.txt": {
+      "sha256": "a46f198438b5882bb7abce23679164c15f95f38cb4e8aedaa07cfd9dd605c780",
+      "bytes": 578
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/execution_v4.txt": {
+      "sha256": "c5788d0fffbabce2a8466457c4bcf94865fc23129e82c3f9392b2a0352db5048",
+      "bytes": 450
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/execution_v5.txt": {
+      "sha256": "78d6bf90867078e1a4539d13beb8e3223be5666f38d66112bcb1f802e0bc6a71",
+      "bytes": 608
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/ruff.txt": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/ruff_final.txt": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/ruff_v5.txt": {
+      "sha256": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+      "bytes": 19
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/smoke.txt": {
+      "sha256": "85f38c9274ee637fa6de91e547f12f2be99058e0bdaed1111e465bcd08e48b82",
+      "bytes": 141
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/manifest.json": {
+      "sha256": "c007022cae8737b1844ed887a07a85e9141ffc6fcb16a5ec2db46086659dcc31",
+      "bytes": 1265
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/rebound-5.1.1.tar.gz": {
+      "sha256": "dd97b95bfc050d8f4db51a3667b8894c261ae9d844622bbb7756428909f58a86",
+      "bytes": 384938
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/rebound_5.1.1_integrator_ias15.c": {
+      "sha256": "7d3038a1f1f6ad079f86dd652d75fe16bea76df8c0ae1df630b6001e4871ef6b",
+      "bytes": 52628
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/rebound_pypi.json": {
+      "sha256": "35bb559a4a6b0237e9de4941b0348b220f87d9280cbbe9e47a92c240ae572698",
+      "bytes": 46575
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/reboundx-5.1.0.tar.gz": {
+      "sha256": "25fcccc8194a83b548a8e11d81f295fb12a21ece2538e61be93d8256d9cbc1b2",
+      "bytes": 99005
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/reboundx_5.1.0_gravitational_harmonics.c": {
+      "sha256": "6929ceff45c2ceb9da421fd9255fa8364c4004e5c2c2b246c9766ab468e7853c",
+      "bytes": 11681
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/sources/reboundx_pypi.json": {
+      "sha256": "6933cadbbfb557dc1659c784cd8ad467b7e7b4047d8871c2f5daa4ce7309fa47",
+      "bytes": 4298
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/tests_windows.txt": {
+      "sha256": "3c97d37d2136f6464a35cac58c9daafe867bd3bd396cf74e3b5c6af78c5c2cc5",
+      "bytes": 102
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/tests_windows_final.txt": {
+      "sha256": "f035fb0ce863c701ebb82be120e0c0dcd8a13f569e888bfd009d120ee08c6fe1",
+      "bytes": 101
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/tests_wsl.txt": {
+      "sha256": "6dffedd48b02d47acf900f431ab989894abd1b4e77f04971250223cad25ae3d6",
+      "bytes": 744
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/tests_wsl_final.txt": {
+      "sha256": "37724020825501ea28ce4c4eac19aa1ac39f2ba8778662a3f8c318f41977abbc",
+      "bytes": 743
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/validate_final.txt": {
+      "sha256": "989684266a271fbdb7d3e8d73818b29cd3d1bb1e23969eb4e78ce182ac32066e",
+      "bytes": 197
+    },
+    "results/evidence/W2_T071_scientific_audit_20261031/validate_pretracking.txt": {
+      "sha256": "ecaf9666de9deda5db9a0de719b86ae530359d88373b7f0a4f0fa463cfc1c6ae",
+      "bytes": 197
+    },
+    "scratch/package_W2_T071_20261101.py": {
+      "sha256": "b38035af80488a62443f8b424dac058dfd0362b5fefedb05aa070d15b233b5d7",
+      "bytes": 2750
+    },
+    "scripts/audit_w2_physics_20261031.py": {
+      "sha256": "ae9507e0743cdc276fd1231e6cbd01c232264b3ead88c4f329dd6c20d9cfaf31",
+      "bytes": 352
+    },
+    "src/submoon_research/diagnostics/physics_audit_v1.py": {
+      "sha256": "635deaa2b90ac8b4c9fe63ea1d777bd204981d3f147f669bd0af00d691489608",
+      "bytes": 28077
+    },
+    "tests/unit/test_physics_audit_v1.py": {
+      "sha256": "58ddb42eab35baf6a42b1d9d0008808f6401cb7e9ffe7e3bd19e43f5f0a2f377",
+      "bytes": 2244
+    }
+  },
+  "total_bytes": 965680
+}

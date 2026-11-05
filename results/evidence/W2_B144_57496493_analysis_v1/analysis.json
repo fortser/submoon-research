@@ -1,0 +1,445 @@
+{
+ "task": "W2-T050",
+ "manifest_sha256": "eaf17a3b48b3722b098309fe738283bf5f06db34493a665650043fe856151205",
+ "jobs_file_sha256": "dcca18c1459dbe7db95ea721e62ebc3c2dcefd6370c98bec8152a1007ff493f4",
+ "scientific": true,
+ "rule": "W2-P014 step 4 (W2-T050): the 144 archived P2-2a B units at 100 and 1000 years with the current B.\n\nModes\n  reference  (local, once)   archived identities of the 288 B jobs -> data/manifests/W2_B144_reference_v1.json\n  prepare    (server)        legacy regeneration of the starts (OPENBLAS_CORETYPE=SkylakeX on an AVX-512 CPU),\n                             exact check of all 288 archived job fingerprints and initial probes; on any mismatch\n                             nothing is integrated (exit 3). Writes units.json and the pre-run manifest.json.\n  benchmark  (server)        3 short archived jobs -> speed ratio -> prediction of the longest job and total;\n                             NO-GO (exit 4) if it does not fit the deadline with the margin.\n  run        (server)        all 288 jobs once, longest archived first, 1 CPU per worker, absolute deadline and\n                             stop file (stopped jobs are 'partial'); full stand rows + cheap B diagnostics.\n  analyze    (local)         pre-registered rule below, comparisons with archived B/D/T, diagnostics, cost.\n  devcheck   (local)         end-to-end pipeline check on a few archived jobs that match locally (scratch only;\n                             not part of the scientific run).\n\nPRE-REGISTERED RULE (fixed 2026-10-21 before any rental; W2-T050)\n  Primary, G-B development regression: PASSED iff all 288 planned jobs are present exactly once with the\n  expected job fingerprints, every run_status is 'completed', and every job without a terminal event ends at\n  its horizon (last_valid_time == H). Any 'failed' -> NOT_PASSED (G-B stays closed; failure_context analysed).\n  Any 'partial' (deadline/stop) or missing job -> INCOMPLETE, no verdict on those jobs.\n  Secondary, descriptive only: one-sided 95% Clopper-Pearson upper bound of the failure frequency (a\n  development regression, not an admission of a failure rate); outcome agreement with archived B (where it\n  completed), D and T at the same horizon, with D/T high-e unresolved shown separately; |dt_event|/P0 for the\n  same event; diagnostics (max endpoint residual, flag >= 1e-10; min dt/ULP(t), flag < 1e4; small-step events\n  dt < 0.01*max_step away from start/horizon with the probe acceleration-cancellation ratio; max |x| on a\n  grid of the first step and every 1000th step); cost (worker-hours, longest job, per-job wall ratio to the archive).\nNot a scientific admission of B, D/T, W1 or W3.\n",
+ "primary": {
+  "verdict": "PASSED",
+  "planned": 288,
+  "rows": 288,
+  "duplicates": 0,
+  "missing": [],
+  "extra": [],
+  "wrong_fingerprint": [],
+  "failed": [],
+  "partial": [],
+  "not_at_horizon": [],
+  "failure_upper_95": 0.010347936039890815
+ },
+ "comparisons": {
+  "B_old": {
+   "pairs": 287,
+   "discordant": 2,
+   "discordant_other_high_e": 0,
+   "max_event_dt_over_P0": 506.05968084284007
+  },
+  "D": {
+   "pairs": 288,
+   "discordant": 12,
+   "discordant_other_high_e": 10,
+   "max_event_dt_over_P0": 1276.1475973340846
+  },
+  "T": {
+   "pairs": 288,
+   "discordant": 11,
+   "discordant_other_high_e": 11,
+   "max_event_dt_over_P0": 865.9616075999618
+  }
+ },
+ "discordant": {
+  "B_old": [
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "operational_escape",
+     null
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0013",
+    "years": 100.0,
+    "period_s": 3466467.982982895
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "operational_escape",
+     null
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+    "years": 1000.0,
+    "period_s": 1775791.1466107697
+   }
+  ],
+  "D": [
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0008",
+    "years": 1000.0,
+    "period_s": 977083.2439399832
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "operational_escape",
+     null
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0012",
+    "years": 1000.0,
+    "period_s": 2459105.323959553
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0008",
+    "years": 100.0,
+    "period_s": 977083.2439399832
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0009",
+    "years": 1000.0,
+    "period_s": 903544.9619896031
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0009",
+    "years": 1000.0,
+    "period_s": 4058938.6207187674
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0009",
+    "years": 100.0,
+    "period_s": 903544.9619896031
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0009",
+    "years": 100.0,
+    "period_s": 4058938.6207187674
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0013",
+    "years": 100.0,
+    "period_s": 3466467.982982895
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_log_a:0003",
+    "years": 1000.0,
+    "period_s": 1253261.2163571287
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_log_a:0003",
+    "years": 100.0,
+    "period_s": 1253261.2163571287
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0013",
+    "years": 1000.0,
+    "period_s": 3466467.982982895
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "operational_escape",
+     null
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+    "years": 1000.0,
+    "period_s": 1775791.1466107697
+   }
+  ],
+  "T": [
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0008",
+    "years": 1000.0,
+    "period_s": 977083.2439399832
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0008",
+    "years": 100.0,
+    "period_s": 977083.2439399832
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0009",
+    "years": 1000.0,
+    "period_s": 903544.9619896031
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0009",
+    "years": 1000.0,
+    "period_s": 4058938.6207187674
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:canonical_volume:0009",
+    "years": 100.0,
+    "period_s": 903544.9619896031
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0009",
+    "years": 100.0,
+    "period_s": 4058938.6207187674
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0013",
+    "years": 100.0,
+    "period_s": 3466467.982982895
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_log_a:0003",
+    "years": 1000.0,
+    "period_s": 1253261.2163571287
+   },
+   {
+    "same_label": false,
+    "new": [
+     "host_contact",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_log_a:0003",
+    "years": 100.0,
+    "period_s": 1253261.2163571287
+   },
+   {
+    "same_label": false,
+    "new": [
+     "operational_escape",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "himalia:canonical_volume:0013",
+    "years": 1000.0,
+    "period_s": 3466467.982982895
+   },
+   {
+    "same_label": false,
+    "new": [
+     "survived",
+     null
+    ],
+    "other": [
+     "unresolved",
+     "high_e_prolonged"
+    ],
+    "event_dt_s": null,
+    "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+    "years": 1000.0,
+    "period_s": 1775791.1466107697
+   }
+  ]
+ },
+ "diagnostics": {
+  "max_endpoint_residual": 8.778358922196044e-16,
+  "jobs_endpoint_residual_ge_1e10": 0,
+  "min_dt_over_ulp_t": 417700.7105305524,
+  "jobs_dt_over_ulp_lt_1e4": 0,
+  "jobs_with_small_step_events": 15,
+  "small_step_events": 632,
+  "min_cancellation_ratio": 0.0004107189141843473,
+  "max_abs_coordinate_km": 2379170092.3107595,
+  "jobs_without_coordinate_sample": 0,
+  "coordinate_every_steps": 1000,
+  "jobs_with_diagnostic_error": 0,
+  "failure_contexts": {}
+ },
+ "cost": {
+  "worker_hours": 24.461574757200562,
+  "longest_hours": 4.163324103515543,
+  "median_wall_ratio_to_archive": 1.051323335683818,
+  "ratio_jobs": 107
+ },
+ "b_implementation": "0f5ef90438a14a7f2e5e3ad835b32cf28e645ec89227c78f8fa784ffce2b4c64",
+ "scientific_admission": false
+}

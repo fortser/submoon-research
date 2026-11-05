@@ -1,0 +1,9 @@
+...........................                                              [100%]
+=============================== warnings summary ===============================
+tests/physics/test_w2_engines.py::test_engine_circular_and_restart_contract[hierarchical_cached]
+tests/physics/test_w2_engines.py::test_separate_process_restart_with_escape_history[hierarchical_cached]
+  /home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:264: RuntimeWarning: At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.
+    warnings.warn(msg[1:], RuntimeWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+27 passed, 2 warnings in 10.81s

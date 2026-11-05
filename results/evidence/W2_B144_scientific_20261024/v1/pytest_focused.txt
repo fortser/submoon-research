@@ -1,0 +1,6 @@
+....................sss                                                  [100%]
+=========================== short test summary info ===========================
+SKIPPED [1] tests\unit\test_b144_regress.py:111: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_b144_regress.py:126: could not import 'reboundx': No module named 'reboundx'
+SKIPPED [1] tests\unit\test_b144_regress.py:142: could not import 'reboundx': No module named 'reboundx'
+20 passed, 3 skipped in 11.88s

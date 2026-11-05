@@ -1,0 +1,23 @@
+{
+  "files": {
+    "results/evidence/W2_T069_warning_policy_20261030/full_pytest.txt": "9e7caed59bec0af9cd3fcdb8aa1559c4637bb2884d2e166709a87bbab0b0e970",
+    "results/evidence/W2_T069_warning_policy_20261030/full_pytest_v2.txt": "7748f52ec4b5dd04d38ed0d8657982719df90bb290086455e6c781adb8eff4ed",
+    "results/evidence/W2_T069_warning_policy_20261030/native_demo.json": "f352e5c37b045c988f97f397c72a1d396384f09479c1b263aee9916d1a9134b8",
+    "results/evidence/W2_T069_warning_policy_20261030/native_demo.log": "e0cc4815ea6c1d7d353c932a04a72d42b6e053d32a737c2d297e1c67dd23e090",
+    "results/evidence/W2_T069_warning_policy_20261030/native_demo_v2.json": "f8e8bc68cd4487ab948e7ee4c19746812d42d69980917effa8e9edfb472a1cec",
+    "results/evidence/W2_T069_warning_policy_20261030/policy_tests.txt": "1022a07401c192132a0c7f5eeed4ba640aa7c18632a8ee43d211102a8668d0bc",
+    "results/evidence/W2_T069_warning_policy_20261030/policy_tests_v2.txt": "89d1675399eb504b33300b62819aa8ed7419a76d2096ebd21d1a9f8f4cf2fb30",
+    "results/evidence/W2_T069_warning_policy_20261030/ruff.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_T069_warning_policy_20261030/ruff_v2.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_T069_warning_policy_20261030/smoke.txt": "83d10f2afd645e37aa3519dd013dba39ef6fe34567caaa14ab047c57aea71cbe",
+    "results/evidence/W2_T069_warning_policy_20261030/validate.txt": "0537cb671cb57b7d4e4342d952f19a7f615a2bed5811b7b733c774d2d2593b2b",
+    "results/evidence/W2_T069_warning_policy_20261030/validate_v2.txt": "0537cb671cb57b7d4e4342d952f19a7f615a2bed5811b7b733c774d2d2593b2b",
+    "results/evidence/W2_T069_warning_policy_20261030/wsl_tests.txt": "0af82d5b4584bc087027118d6cf18ec2f87dfe6e04c676b6b16d6431066f90ef",
+    "results/evidence/W2_T069_warning_policy_20261030/wsl_v2.txt": "77f0828d4cc380f7ddd1ba4ec99632e53fe7ac2fca6f9785cd7b4c234104f8b0",
+    "docs/tasks/W2_T069_warning_contract_v1.md": "21b25c616f14e2d18c2a06b26f499854369433c8b3ec51a670fa8b6ee304ced9",
+    "src/submoon_research/diagnostics/warning_contract_v1.py": "1ebc065cc1e4afa0a29967ab4f06777005ef34919bc0cfb99e9a460688d2e03b",
+    "tests/unit/test_warning_contract_v1.py": "bcec3c249fd7491f3b85c736e89d77c61c46e21f5766650cbb44fb5f192b1cb7",
+    "scripts/demo_warning_contract_w2_t069.py": "b5556a4ed6693c8c217161569b1975af220669e7595b54eb9be4449337c1ed3b"
+  },
+  "limitation": "Prototype only; no production capture"
+}

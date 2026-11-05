@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-23T09:12:41.320142+00:00",
+  "passed": true,
+  "credit_usd": 28.900498495376752,
+  "paramiko_version": "5.0.0",
+  "image": "python:3.11-slim-bookworm"
+}

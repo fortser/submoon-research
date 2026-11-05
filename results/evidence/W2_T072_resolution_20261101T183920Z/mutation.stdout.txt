@@ -1,0 +1,162 @@
+FFF                                                                      [100%]
+================================== FAILURES ===================================
+_ test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002072AB2D750>
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-433/test_syntax_call_uses_resolved0')
+filename = 'test_vast_p2_2a.py'
+function = 'test_p2_2a_script_order_and_commands', count = 1
+outcome = 'success'
+
+    @pytest.mark.parametrize('filename,function,count', CASES)
+    @pytest.mark.parametrize('outcome', ['success', 'nonzero', 'timeout', 'missing_executable'])
+    def test_syntax_call_uses_resolved_path_and_does_not_hide_failures(monkeypatch, tmp_path,
+                                                                   filename, function, count, outcome):
+        module = load_case(filename)
+        resolved = str(tmp_path / 'Git with spaces' / 'bin' / 'bash.exe')
+        original_which = module.shutil.which
+        monkeypatch.setattr(module.shutil, 'which',
+                            lambda name, *a, **kw: resolved if name == 'bash' else original_which(name, *a, **kw))
+        calls = []
+    
+        def fake_run(argv, **kwargs):
+            # При возврате bare 'bash' тест падает ДО запуска процесса.
+            assert argv == [resolved, '-n']
+            assert kwargs['timeout'] == 10 and kwargs['check'] is False
+            assert not kwargs.get('shell', False)
+            assert isinstance(kwargs['input'], bytes) and kwargs['input'].startswith(b'#!/bin/bash')
+            calls.append(argv)
+            if outcome == 'timeout':
+                raise subprocess.TimeoutExpired(argv, kwargs['timeout'])
+            if outcome == 'missing_executable':
+                raise FileNotFoundError(resolved)
+            return subprocess.CompletedProcess(argv, 0 if outcome == 'success' else 2)
+    
+        monkeypatch.setattr(module.subprocess, 'run', fake_run)
+        check = getattr(module, function)
+        if outcome == 'success':
+>           check()
+
+tests\unit\test_bash_syntax_selection.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<bare-name-mutant>:22: in test_p2_2a_script_order_and_commands
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+argv = ['bash', '-n']
+kwargs = {'input': b'#!/bin/bash\nset -uo pipefail\nexport DEBIAN_FRONTEND=noninteractive\nSTATUS=/workspace/p2_status\nfail() ...ut.log 2>&1\nACC=$?\necho "done exit=$EXIT accept=$ACC $(date -u +%FT%TZ)" > $STATUS\n', 'check': False, 'timeout': 10}
+
+    def fake_run(argv, **kwargs):
+        # При возврате bare 'bash' тест падает ДО запуска процесса.
+>       assert argv == [resolved, '-n']
+E       AssertionError
+
+tests\unit\test_bash_syntax_selection.py:37: AssertionError
+_ test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_b144.py-test_b144_script_order_and_pins-1] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002072B063EB0>
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-433/test_syntax_call_uses_resolved1')
+filename = 'test_vast_p2_b144.py', function = 'test_b144_script_order_and_pins'
+count = 1, outcome = 'success'
+
+    @pytest.mark.parametrize('filename,function,count', CASES)
+    @pytest.mark.parametrize('outcome', ['success', 'nonzero', 'timeout', 'missing_executable'])
+    def test_syntax_call_uses_resolved_path_and_does_not_hide_failures(monkeypatch, tmp_path,
+                                                                   filename, function, count, outcome):
+        module = load_case(filename)
+        resolved = str(tmp_path / 'Git with spaces' / 'bin' / 'bash.exe')
+        original_which = module.shutil.which
+        monkeypatch.setattr(module.shutil, 'which',
+                            lambda name, *a, **kw: resolved if name == 'bash' else original_which(name, *a, **kw))
+        calls = []
+    
+        def fake_run(argv, **kwargs):
+            # При возврате bare 'bash' тест падает ДО запуска процесса.
+            assert argv == [resolved, '-n']
+            assert kwargs['timeout'] == 10 and kwargs['check'] is False
+            assert not kwargs.get('shell', False)
+            assert isinstance(kwargs['input'], bytes) and kwargs['input'].startswith(b'#!/bin/bash')
+            calls.append(argv)
+            if outcome == 'timeout':
+                raise subprocess.TimeoutExpired(argv, kwargs['timeout'])
+            if outcome == 'missing_executable':
+                raise FileNotFoundError(resolved)
+            return subprocess.CompletedProcess(argv, 0 if outcome == 'success' else 2)
+    
+        monkeypatch.setattr(module.subprocess, 'run', fake_run)
+        check = getattr(module, function)
+        if outcome == 'success':
+>           check()
+
+tests\unit\test_bash_syntax_selection.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<bare-name-mutant>:20: in test_b144_script_order_and_pins
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+argv = ['bash', '-n']
+kwargs = {'input': b'#!/bin/bash\nset -uo pipefail\nexport DEBIAN_FRONTEND=noninteractive\nSTATUS=/workspace/p2_status\nfail() ....log 2>&1\nEXIT=$?\necho "done exit=$EXIT accept=local $(date -u +%FT%TZ)" > $STATUS\n', 'check': False, 'timeout': 10}
+
+    def fake_run(argv, **kwargs):
+        # При возврате bare 'bash' тест падает ДО запуска процесса.
+>       assert argv == [resolved, '-n']
+E       AssertionError
+
+tests\unit\test_bash_syntax_selection.py:37: AssertionError
+_ test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2] _
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x000002072B005690>
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-433/test_syntax_call_uses_resolved2')
+filename = 'test_vast_p2_rerun.py'
+function = 'test_start_script_pcores_mode_pins_stand_and_fails_without_pcores'
+count = 2, outcome = 'success'
+
+    @pytest.mark.parametrize('filename,function,count', CASES)
+    @pytest.mark.parametrize('outcome', ['success', 'nonzero', 'timeout', 'missing_executable'])
+    def test_syntax_call_uses_resolved_path_and_does_not_hide_failures(monkeypatch, tmp_path,
+                                                                   filename, function, count, outcome):
+        module = load_case(filename)
+        resolved = str(tmp_path / 'Git with spaces' / 'bin' / 'bash.exe')
+        original_which = module.shutil.which
+        monkeypatch.setattr(module.shutil, 'which',
+                            lambda name, *a, **kw: resolved if name == 'bash' else original_which(name, *a, **kw))
+        calls = []
+    
+        def fake_run(argv, **kwargs):
+            # При возврате bare 'bash' тест падает ДО запуска процесса.
+            assert argv == [resolved, '-n']
+            assert kwargs['timeout'] == 10 and kwargs['check'] is False
+            assert not kwargs.get('shell', False)
+            assert isinstance(kwargs['input'], bytes) and kwargs['input'].startswith(b'#!/bin/bash')
+            calls.append(argv)
+            if outcome == 'timeout':
+                raise subprocess.TimeoutExpired(argv, kwargs['timeout'])
+            if outcome == 'missing_executable':
+                raise FileNotFoundError(resolved)
+            return subprocess.CompletedProcess(argv, 0 if outcome == 'success' else 2)
+    
+        monkeypatch.setattr(module.subprocess, 'run', fake_run)
+        check = getattr(module, function)
+        if outcome == 'success':
+>           check()
+
+tests\unit\test_bash_syntax_selection.py:51: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+<bare-name-mutant>:12: in test_start_script_pcores_mode_pins_stand_and_fails_without_pcores
+    ???
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+argv = ['bash', '-n']
+kwargs = {'input': b'#!/bin/bash\nset -uo pipefail\nexport DEBIAN_FRONTEND=noninteractive\nSTATUS=/workspace/p2_status\nfail() ...e/p2_stop --run-dir runs/W2-P2-1-7\necho "done exit=$? $(date -u +%FT%TZ)" > $STATUS\n', 'check': False, 'timeout': 10}
+
+    def fake_run(argv, **kwargs):
+        # При возврате bare 'bash' тест падает ДО запуска процесса.
+>       assert argv == [resolved, '-n']
+E       AssertionError
+
+tests\unit\test_bash_syntax_selection.py:37: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+FAILED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+FAILED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+3 failed, 9 deselected in 0.23s

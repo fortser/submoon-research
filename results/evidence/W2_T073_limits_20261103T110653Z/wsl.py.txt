@@ -1,0 +1,16 @@
+"""T073: адресные readers/лимиты на явной Ubuntu-24.04; не полный pytest."""
+import os
+from pathlib import Path
+import subprocess
+
+root = Path(__file__).resolve().parents[1]
+wsl = str(Path(os.environ['SystemRoot']) / 'System32/wsl.exe')
+argv = [wsl, '-d', 'Ubuntu-24.04', '--cd', '/mnt/t/test_python/submoon-research',
+        '--exec', '/usr/bin/timeout', '--kill-after=2s', '45s',
+        '/usr/bin/env', 'OMP_NUM_THREADS=1', 'OPENBLAS_NUM_THREADS=1', 'MKL_NUM_THREADS=1', 'NUMBA_NUM_THREADS=1',
+        '/home/taras/venvs/submoon-w2/bin/python', '-m', 'pytest',
+        'tests/unit/test_run_manifest_freeze.py', 'tests/unit/test_w1_protocol.py',
+        'tests/unit/test_release_freeze.py', 'tests/unit/test_provenance_batch.py',
+        'tests/unit/test_provenance_execution.py', '-q', '--tb=short']
+result = subprocess.run(argv, cwd=root, stdin=subprocess.DEVNULL, timeout=55, check=False)
+raise SystemExit(result.returncode)

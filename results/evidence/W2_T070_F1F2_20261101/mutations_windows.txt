@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "module_unchanged": true,
+  "module_sha256": "0d2eeafb0ec5783d4d96a4e57014040003a27588c4eb6085d89cdd2094653e3d",
+  "controls": [
+    {
+      "defect": "F1",
+      "regression_detected": true,
+      "returncode": 1,
+      "tests": 5,
+      "failures": 5,
+      "errors": 0
+    },
+    {
+      "defect": "F2",
+      "regression_detected": true,
+      "returncode": 1,
+      "tests": 2,
+      "failures": 2,
+      "errors": 0
+    }
+  ]
+}

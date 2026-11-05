@@ -1,0 +1,60 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+__________ test_pending_precedes_copy_complete_has_exact_saved_bytes __________
+
+synthetic_package = (WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-443/test_pending_precedes_copy_com0/project'), ...ers/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-443/test_pending_precedes_copy_com0/project/src/submoon_research'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x00000237989371C0>
+
+    def test_pending_precedes_copy_complete_has_exact_saved_bytes(synthetic_package, monkeypatch):
+        root, package = synthetic_package
+        expected = sorted(p.relative_to(root).as_posix() for p in package.iterdir()
+                          if p.suffix in ('.py', '.json'))
+        run = execution.RunContext(root, 'synthetic', output_mib=1)
+        original = Path.read_bytes
+        seen = []
+    
+        def observe_read(path):
+            if path.parent == package:
+                manifest = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+                assert manifest['status'] == 'running'
+                assert manifest['validation']['status'] == 'not_run'
+                assert manifest['initial_code_snapshot'] == {
+                    'state': 'pending', 'expected_paths': expected, 'published_count': 0,
+                }
+                assert manifest['code_sha256'] == {}
+                seen.append(path)
+            return original(path)
+    
+        monkeypatch.setattr(Path, 'read_bytes', observe_read)
+>       with run:
+
+tests\unit\test_provenance_batch.py:55: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+src\submoon_research\execution.py:66: in __enter__
+    staged[name] = self._copy_code(path, name)
+src\submoon_research\execution.py:91: in _copy_code
+    data = path.read_bytes()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-443/test_pending_precedes_copy_com0/project/src/submoon_research/contract.json')
+
+    def observe_read(path):
+        if path.parent == package:
+            manifest = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+            assert manifest['status'] == 'running'
+            assert manifest['validation']['status'] == 'not_run'
+>           assert manifest['initial_code_snapshot'] == {
+                'state': 'pending', 'expected_paths': expected, 'published_count': 0,
+            }
+E           AssertionError: assert {'state': 'co...hed_count': 0} == {'state': 'pe...hed_count': 0}
+E             
+E             Omitting 2 identical items, use -vv to show
+E             Differing items:
+E             {'state': 'complete'} != {'state': 'pending'}
+E             Use -v to get more diff
+
+tests\unit\test_provenance_batch.py:47: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_provenance_batch.py::test_pending_precedes_copy_complete_has_exact_saved_bytes
+1 failed in 0.28s
+{"mode": "early_complete", "pytest_returncode": 1, "counts": {"tests": 1, "failures": 1, "errors": 0}, "mutation_detected": true}

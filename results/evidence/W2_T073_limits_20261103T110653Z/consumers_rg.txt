@@ -1,0 +1,319 @@
+tests\integration\test_smoke.py:17:    before = sha256(first / "manifest.json")
+tests\integration\test_smoke.py:20:    assert sha256(first / "manifest.json") == before
+tests\integration\test_smoke.py:21:    manifest = json.loads((first / "manifest.json").read_text())
+tests\integration\test_smoke.py:24:    for path, digest in manifest["artifacts_sha256"].items():
+tests\integration\test_smoke.py:26:    other = json.loads((second / "manifest.json").read_text())
+tests\integration\test_l1_acceptance.py:26:    manifest=json.loads((ROOT/'runs'/outcome['run_id']/'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_b144_scientific.py:87:    manifest = json.loads((run/'manifest.json').read_text(encoding='utf-8'))
+src\submoon_research\workflows\w2_longbench.py:24:from submoon_research.execution import RunContext
+src\submoon_research\workflows\w2_longbench.py:109:    run = RunContext(root, 'W2-longbench-'+name, wall_seconds=cfg['stage_wall_seconds'],
+src\submoon_research\workflows\w2_longbench.py:211:    write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_longbench.py:241:            write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_longbench.py:251:        manifest['artifacts_sha256'] = {p.name: sha256(p) for p in folder.iterdir()
+src\submoon_research\workflows\w2_longbench.py:252:                                        if p.is_file() and p.name != 'manifest.json'}
+src\submoon_research\workflows\w2_longbench.py:253:        write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_campaign.py:18:from submoon_research.execution import RunContext
+src\submoon_research\workflows\w2_campaign.py:99:    run = RunContext(root, 'W2-'+name, wall_seconds=min(600, seconds), output_mib=256)
+src\submoon_research\workflows\w2_campaign.py:261:        stages={}, commands=[], production_allowed=False, artifacts_sha256={})
+src\submoon_research\workflows\w2_campaign.py:262:    write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_campaign.py:298:            write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_campaign.py:315:        manifest['artifacts_sha256'] = {p.name: sha256(p) for p in folder.iterdir() if p.is_file() and p.name != 'manifest.json'}
+src\submoon_research\workflows\w2_campaign.py:316:        write_json(folder/'manifest.json', manifest)
+src\submoon_research\workflows\w2_campaign.py:339:    manifest = json.loads((folder/'manifest.json').read_text())
+src\submoon_research\workflows\smoke.py:91:    from submoon_research.execution import RunContext
+src\submoon_research\workflows\smoke.py:92:    run = RunContext(root, 'L0', wall_seconds=120, output_mib=64)
+src\submoon_research\workflows\audit_runner.py:7:from submoon_research.execution import RunContext
+src\submoon_research\workflows\audit_runner.py:24:            registry=ledger.json('references/source_manifest.json', registered=True)
+src\submoon_research\workflows\audit_runner.py:38:    run = RunContext(root, prefix, wall_seconds=120, output_mib=64)
+tests\unit\test_capture_b_local_once.py:68:    (tmp_path/'preflight.json').write_text(json.dumps(dict(code_sha256={}, python=sys.executable)))
+src\submoon_research\release.py:44:        archive.writestr('release.manifest.json',json.dumps(manifest,ensure_ascii=False,indent=2,allow_nan=False))
+src\submoon_research\release.py:55:        manifest=json.loads(archive.read('release.manifest.json'))
+src\submoon_research\release.py:57:        if len(names)!=len(set(names)) or set(archive.namelist())!=set(names)|{'release.manifest.json'}:
+src\submoon_research\execution.py:20:class RunContext:
+src\submoon_research\execution.py:35:            validation=dict(status='not_run'), inputs_sha256={}, code_sha256={},
+src\submoon_research\execution.py:36:            environment=environment(), artifacts_sha256={}, error=None,
+src\submoon_research\execution.py:51:        self.manifest['initial_code_snapshot'] = dict(state='pending', expected_paths=names, published_count=0)
+src\submoon_research\execution.py:52:        write_json(self.folder / 'manifest.json', self.manifest)
+src\submoon_research\execution.py:69:            committed = dict(self.manifest, code_sha256=staged,
+src\submoon_research\execution.py:70:                initial_code_snapshot=dict(state='complete', expected_paths=names, published_count=len(names)))
+src\submoon_research\execution.py:71:            write_json(self.folder / 'manifest.json', committed)
+src\submoon_research\execution.py:76:            self.manifest['initial_code_snapshot']['state'] = 'failed'
+src\submoon_research\execution.py:100:        self.manifest['code_sha256'][name] = self._copy_code(path, name)
+src\submoon_research\execution.py:101:        write_json(self.folder / 'manifest.json', self.manifest)
+src\submoon_research\execution.py:151:            code=self.manifest['code_sha256'], environment=self.manifest['environment'])
+src\submoon_research\execution.py:160:        self.manifest['artifacts_sha256'] = {p.relative_to(self.folder).as_posix():sha256(p)
+src\submoon_research\execution.py:161:            for p in self.folder.rglob('*') if p.is_file() and p != self.folder / 'manifest.json'}
+src\submoon_research\execution.py:162:        write_json(self.folder / 'manifest.json', self.manifest)
+tests\unit\test_frozen_p2_inputs.py:19:    path = inputs/'inputs_manifest.json'
+tests\unit\test_frozen_p2_inputs.py:35:    assert (run/'inputs_manifest.json').exists()
+tests\unit\test_frozen_p2_inputs.py:49:    path = inputs/'inputs_manifest.json'
+tests\unit\test_frozen_p2_inputs.py:70:    path = inputs/'inputs_manifest.json'
+tests\unit\test_w1_protocol.py:147:    for name, content in [('manifest.json', manifest), ('cost.json', {}), ('variance.json', {})]:
+tests\unit\test_w1_protocol.py:152:        pilot=dict(manifest='manifest.json', cost_evidence='cost.json', variance_evidence='variance.json'))
+tests\unit\test_phase3_v2_input.py:67:    path = inp.RUNS['P0'] + '/manifest.json'
+tests\unit\test_phase3_v2_input.py:134:    m = inp._json(changed[b + '/manifest.json'])
+tests\unit\test_phase3_v2_input.py:136:    changed[b + '/manifest.json'] = json.dumps(m).encode()
+tests\unit\test_phase3_v2_input.py:137:    cfg['archives']['b144']['manifest_sha256'] = inp._hash(changed[b + '/manifest.json'])
+tests\unit\test_run_manifest_freeze.py:36:                 sampling_design=sampling, code_sha256={'a.py': code['sha256']},
+tests\unit\test_run_manifest_freeze.py:37:                 artifacts_sha256={'result.json': artifact['sha256']}, inputs_sha256={},
+tests\unit\test_run_manifest_freeze.py:38:                 initial_code_snapshot=dict(state='complete', expected_paths=['a.py'], published_count=1))
+tests\unit\test_run_manifest_freeze.py:49:        pilot=dict(manifest='pilot/manifest.json', cost_evidence='cost.json', variance_evidence='variance.json'),
+tests\unit\test_run_manifest_freeze.py:58:        design['inputs'] = inputs + [put('pilot/manifest.json', pilot)]
+tests\unit\test_run_manifest_freeze.py:69:        del pilot['initial_code_snapshot']
+tests\unit\test_run_manifest_freeze.py:75:    assert result['inputs_sha256']['pilot/code/a.py'] == pilot['code_sha256']['a.py']
+tests\unit\test_run_manifest_freeze.py:82:    pilot['code_sha256']['later.py'] = late['sha256']
+tests\unit\test_run_manifest_freeze.py:86:    assert pilot['initial_code_snapshot']['published_count'] == 1
+tests\unit\test_run_manifest_freeze.py:110:    pilot['initial_code_snapshot'] = snapshot
+tests\unit\test_run_manifest_freeze.py:117:    del pilot['initial_code_snapshot']
+tests\unit\test_run_manifest_freeze.py:128:    pilot['initial_code_snapshot']['expected_paths'] = [path]
+tests\unit\test_run_manifest_freeze.py:129:    pilot['code_sha256'][path] = pilot['code_sha256']['a.py']
+tests\unit\test_run_manifest_freeze.py:138:    with pytest.raises(ValueError, match='версия RunContext'):
+tests\unit\test_run_manifest_freeze.py:145:    with pytest.raises(ValueError, match='версия RunContext'):
+tests\unit\test_run_manifest_freeze.py:160:    pilot['code_sha256'] = index
+tests\unit\test_run_manifest_freeze.py:171:        del pilot['initial_code_snapshot']
+tests\unit\test_run_manifest_freeze.py:193:    with execution.RunContext(tmp_path, 'synthetic-contract', output_mib=1) as run:
+tests\unit\test_run_manifest_freeze.py:194:        path = run.folder / 'manifest.json'
+tests\unit\test_run_manifest_freeze.py:201:        assert manifest['initial_code_snapshot']['published_count'] == 2
+tests\unit\test_run_manifest_freeze.py:202:        assert len(manifest['code_sha256']) == 3
+tests\unit\test_phase3_v2_archive_review.py:15:    if not all((ROOT / B / name).is_file() for name in ('manifest.json', 'units.json', 'jobs.jsonl')):
+tests\unit\test_phase3_v2_archive_review.py:19:                for name in ('manifest.json', 'units.json', 'jobs.jsonl')}
+tests\unit\test_phase3_v2_archive_review.py:26:    manifest = inp._json(snapshot[f'{B}/manifest.json'])
+tests\unit\test_phase3_v2_archive_review.py:30:    snapshot[f'{B}/manifest.json'] = json.dumps(manifest).encode()
+tests\unit\test_release_freeze.py:16:        archive.writestr('release.manifest.json',json.dumps(dict(files=[dict(path='../escape',sha256='0'*64,bytes=3)])))
+tests\unit\test_provenance_execution.py:10:from submoon_research.execution import RunContext
+tests\unit\test_provenance_execution.py:43:    run=RunContext(root,'test',output_mib=1)
+tests\unit\test_provenance_execution.py:46:            assert json.loads((run.folder/'manifest.json').read_text())['status']=='running'
+tests\unit\test_provenance_execution.py:48:    manifest=json.loads((run.folder/'manifest.json').read_text())
+tests\unit\test_provenance_execution.py:57:    run=RunContext(root,'overflow',output_mib=1)
+tests\unit\test_provenance_execution.py:62:    run=RunContext(root,'timeout',wall_seconds=5,output_mib=1)
+tests\unit\test_provenance_execution.py:73:    run=RunContext(root,'disk',output_mib=1)
+tests\unit\test_provenance_batch.py:38:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:44:            manifest = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:47:            assert manifest['initial_code_snapshot'] == {
+tests\unit\test_provenance_batch.py:50:            assert manifest['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:56:        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:58:        assert disk['initial_code_snapshot'] == {
+tests\unit\test_provenance_batch.py:61:        assert set(disk['code_sha256']) == set(expected)
+tests\unit\test_provenance_batch.py:63:            assert hashlib.sha256((run.folder / 'code' / name).read_bytes()).hexdigest() == disk['code_sha256'][name]
+tests\unit\test_provenance_batch.py:72:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:77:        if path == run.folder / 'manifest.json':
+tests\unit\test_provenance_batch.py:84:        assert [entry['initial_code_snapshot']['state'] for entry in calls] == ['pending', 'complete']
+tests\unit\test_provenance_batch.py:85:        assert len(calls[-1]['code_sha256']) == 3 + additional_files
+tests\unit\test_provenance_batch.py:91:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:106:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:109:    assert disk['initial_code_snapshot']['state'] == 'failed'
+tests\unit\test_provenance_batch.py:110:    assert disk['initial_code_snapshot']['published_count'] == 0
+tests\unit\test_provenance_batch.py:111:    assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:116:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:129:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:130:    assert disk['status'] == 'failed' and disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:135:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:140:        if path == run.folder / 'manifest.json':
+tests\unit\test_provenance_batch.py:141:            attempted.append(data['initial_code_snapshot']['state'])
+tests\unit\test_provenance_batch.py:152:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:154:    assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:155:    assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:164:    run = execution.RunContext(root, 'fault', output_mib=1)
+tests\unit\test_provenance_batch.py:172:        committing = (path == run.folder / 'manifest.json'
+tests\unit\test_provenance_batch.py:173:                      and data.get('initial_code_snapshot', {}).get('state') == 'complete')
+tests\unit\test_provenance_batch.py:192:        target = Path(dst) == run.folder / 'manifest.json'
+tests\unit\test_provenance_batch.py:212:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:216:        assert disk['initial_code_snapshot']['state'] == 'failed'
+tests\unit\test_provenance_batch.py:217:        assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:221:        assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:222:        assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py:223:        for name, digest in disk['code_sha256'].items():
+tests\unit\test_provenance_batch.py:227:        assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:228:        assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:235:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:239:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:241:    assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:242:    assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py:257:r = e.RunContext(root, 'kill-test', output_mib=1)
+tests\unit\test_provenance_batch.py:277:    if (str(barrier) == 'after_commit' and path == r.folder/'manifest.json'
+tests\unit\test_provenance_batch.py:278:            and data.get('initial_code_snapshot', {}).get('state') == 'complete'):
+tests\unit\test_provenance_batch.py:302:        disk = json.loads((folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:307:            assert disk['initial_code_snapshot']['state'] == 'pending'
+tests\unit\test_provenance_batch.py:308:            assert disk['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:310:            assert disk['initial_code_snapshot']['state'] == 'complete'
+tests\unit\test_provenance_batch.py:311:            assert len(disk['code_sha256']) == 3
+tests\unit\test_provenance_batch.py:312:            for name, digest in disk['code_sha256'].items():
+tests\unit\test_provenance_batch.py:324:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:327:        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:328:        assert disk['code_sha256']['late.py'] == hashlib.sha256(extra.read_bytes()).hexdigest()
+tests\unit\test_provenance_batch.py:329:        assert disk['initial_code_snapshot']['published_count'] == 3
+tests\unit\test_vast_market_monitor.py:277:    manifest = json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_vast_market_monitor.py:297:    assert json.loads((folder/'manifest.json').read_text(encoding='utf-8'))['status'] == 'completed'
+src\submoon_research\diagnostics\physics_audit_v1.py:216:        manifest = load(base+'manifest.json')
+src\submoon_research\diagnostics\physics_audit_v1.py:217:        for path, expected in manifest['code_sha256'].items():
+src\submoon_research\diagnostics\physics_audit_v1.py:220:        remember(base+'manifest.json')
+src\submoon_research\diagnostics\phase3_v2_input.py:152:    manifest_bytes = _get(snapshot, bpath + '/manifest.json')
+src\submoon_research\diagnostics\phase3_v2_input.py:219:        mb = _get(snapshot, run + '/manifest.json')
+src\submoon_research\diagnostics\phase3_audit.py:193:    for name, key in [('manifest.json', 'manifest_sha256'), ('units.json', 'units_file_sha256'), ('jobs.jsonl', 'jobs_sha256')]:
+src\submoon_research\diagnostics\phase3_audit.py:203:        record(run / 'manifest.json', ref['manifest_sha256'])
+src\submoon_research\diagnostics\phase3_audit.py:204:        m = read(run / 'manifest.json')
+src\submoon_research\diagnostics\phase3_audit.py:208:        for name, expected in m['code_sha256'].items():
+src\submoon_research\diagnostics\ias15_replay.py:71:    atomic_json(directory/'snapshot_manifest.json', manifest)
+src\submoon_research\diagnostics\ias15_replay.py:72:    return dict(manifest=str(directory/'snapshot_manifest.json'),
+src\submoon_research\diagnostics\ias15_replay.py:73:                sha256=file_digest(directory/'snapshot_manifest.json'), time=physical['time'])
+src\submoon_research\diagnostics\b144_scientific.py:223:    manifest = read_json(run/'manifest.json')
+src\submoon_research\diagnostics\b144_scientific.py:224:    if digest(run/'manifest.json') != MANIFEST_SHA or digest(old_run/'jobs.jsonl') != ARCHIVE_SHA:
+src\submoon_research\diagnostics\b144_scientific.py:241:    integrity['code_hashes_match_current'] = {p: digest(root/p) == h for p, h in manifest['code_sha256'].items()}
+src\submoon_research\diagnostics\b144_scientific.py:356:    source_paths = [run/'manifest.json', run/'units.json', run/'jobs.jsonl', run/'summary.json',
+src\submoon_research\contracts\run_manifest.py:1:"""Структурный допуск RunContext; не проверка физики или байтов файлов.
+src\submoon_research\contracts\run_manifest.py:20:    Дополнительные code_sha256 после save_code допустимы; начальный список
+src\submoon_research\contracts\run_manifest.py:25:        raise ValueError('Неизвестная версия RunContext: ожидается объект manifest')
+src\submoon_research\contracts\run_manifest.py:28:        if 'initial_code_snapshot' in manifest:
+src\submoon_research\contracts\run_manifest.py:29:            raise ValueError('RunContext 0.2 не допускает initial_code_snapshot формата 0.3')
+src\submoon_research\contracts\run_manifest.py:32:        raise ValueError(f'Неизвестная версия RunContext: {version!r}')
+src\submoon_research\contracts\run_manifest.py:34:    snapshot = manifest.get('initial_code_snapshot')
+src\submoon_research\contracts\run_manifest.py:36:        raise ValueError('RunContext snapshot 0.3: для допуска нужен complete')
+src\submoon_research\contracts\run_manifest.py:39:        raise ValueError('RunContext snapshot 0.3: неверные expected_paths')
+src\submoon_research\contracts\run_manifest.py:41:        raise ValueError('RunContext snapshot 0.3: повторяющиеся expected_paths')
+src\submoon_research\contracts\run_manifest.py:44:        raise ValueError('RunContext snapshot 0.3: несогласованный published_count')
+src\submoon_research\contracts\run_manifest.py:45:    code = manifest.get('code_sha256')
+src\submoon_research\contracts\run_manifest.py:47:        raise ValueError('RunContext snapshot 0.3: пустой или неверный code_sha256')
+src\submoon_research\contracts\run_manifest.py:51:            raise ValueError('RunContext snapshot 0.3: неверный путь или SHA-256 в code_sha256')
+src\submoon_research\contracts\run_manifest.py:53:        raise ValueError('RunContext snapshot 0.3: ожидаемые файлы отсутствуют в code_sha256')
+src\submoon_research\contracts\frozen_p2.py:87:    atomic_json(directory/'inputs_manifest.json', manifest)
+src\submoon_research\contracts\frozen_p2.py:88:    return file_digest(directory/'inputs_manifest.json')
+src\submoon_research\contracts\freeze.py:47:    for path, digest in pilot.get('artifacts_sha256', {}).items():
+src\submoon_research\contracts\freeze.py:50:    if not pilot.get('artifacts_sha256') or not pilot.get('code_sha256'):
+src\submoon_research\contracts\freeze.py:52:    for path, digest in pilot['code_sha256'].items():
+src\submoon_research\compute\radar.py:229:                        code_sha256={p.name: hashlib.sha256(p.read_bytes()).hexdigest() for p in
+src\submoon_research\compute\market_monitor.py:67:    manifest_path = folder/'manifest.json'
+src\submoon_research\compute\market_monitor.py:77:        if manifest['code_sha256'] != code_hashes:
+src\submoon_research\compute\market_monitor.py:88:            identity=identity, code_sha256=code_hashes, pid=os.getpid(),
+src\submoon_research\compute\market_monitor.py:214:        if not folder.is_relative_to(root) or not (folder/'manifest.json').is_file():
+src\submoon_research\compute\hardware_trial.py:163:                             manifest=(folder / 'manifest.json').relative_to(root).as_posix(),
+src\submoon_research\compute\hardware_trial.py:191:        save(self.folder / 'manifest.json', self.manifest)
+src\submoon_research\compute\hardware_trial.py:232:        for path in self.base.glob(PREFIX + '*/manifest.json'):
+src\submoon_research\compute\hardware_trial.py:481:            self.manifest = load(self.folder / 'manifest.json')
+src\submoon_research\cli.py:22:    manifest = json.loads((root / "references/source_manifest.json").read_text(encoding="utf-8"))
+scripts\audit_w2_session_20261020.py:142:                native, _ = load_snapshot(ROOT/snap/'snapshot_manifest.json', inputs['snapshot_sha256'],
+scripts\capture_b_local_once.py:97:                  environment=diag.environment(), code_sha256=code_hashes(), python=sys.executable,
+scripts\capture_b_local_once.py:178:    if pre['code_sha256'] != code_hashes() or pre['python'] != sys.executable:
+scripts\capture_b_local_once.py:189:                    code_sha256=code_hashes(), environment=pre['environment'],
+scripts\capture_b_local_once.py:193:    save(ATTEMPT/'launch_manifest.json', manifest)
+scripts\capture_b_local_once.py:215:    manifest = json.loads((ATTEMPT/'launch_manifest.json').read_text(encoding='utf-8'))
+scripts\capture_b_local_once.py:216:    if manifest['code_sha256'] != code_hashes():
+scripts\w2_remote_preflight.py:17:    manifest = json.loads((ROOT/'bundle_manifest.json').read_text(encoding='utf-8'))
+scripts\verify_w1_statistics.py:10:from submoon_research.execution import RunContext
+scripts\verify_w1_statistics.py:23:    with RunContext(root, 'W1-coverage', config, wall_seconds=120, output_mib=16) as run:
+scripts\audit_phase3_results.py:29:    result['audit_code_sha256'] = {p: sha(ROOT / p) for p in (
+scripts\verify_w1_restart.py:15:from submoon_research.execution import RunContext
+scripts\verify_w1_restart.py:56:    with RunContext(root, 'W1-restart', config, wall_seconds=120, output_mib=16) as run:
+scripts\run_w1_pilot.py:13:from submoon_research.execution import RunContext
+scripts\run_w1_pilot.py:29:    with RunContext(root, 'W1-pilot', wall_seconds=resources['pilot_wall_seconds'],
+scripts\adopt_nominal_model.py:14:from submoon_research.execution import RunContext
+scripts\adopt_nominal_model.py:32:    run = RunContext(root, "W0-nominal", wall_seconds=120, output_mib=32)
+scripts\verify_w0_completion.py:11:from submoon_research.execution import RunContext
+scripts\verify_w0_completion.py:37:    with RunContext(
+scripts\verify_w0_completion.py:52:        manifest = run.ledger.json(args.baseline_run / "manifest.json", registered=True)
+scripts\verify_w0_completion.py:57:        for path, digest in manifest["artifacts_sha256"].items():
+scripts\benchmark_w1.py:11:from submoon_research.execution import RunContext  # noqa: E402
+scripts\benchmark_w1.py:17:    with RunContext(root, 'W1-cost', wall_seconds=240, output_mib=64) as run:
+scripts\verify_sampling_controls.py:6:from submoon_research.execution import RunContext
+scripts\verify_sampling_controls.py:17:    with RunContext(root,'W1-sampling',config,wall_seconds=120,output_mib=16) as run:
+scripts\verify_remediation.py:7:from submoon_research.execution import RunContext
+scripts\verify_remediation.py:14:    with RunContext(root,'W0-remediation',config,wall_seconds=600,output_mib=64) as run:
+scripts\run_w0_baseline.py:13:from submoon_research.execution import RunContext
+scripts\run_w0_baseline.py:104:    run = RunContext(root, "W0-baseline", wall_seconds=600, output_mib=128)
+scripts\vast_p2.py:56:MANIFEST = WORK/'bundle_manifest.json'
+scripts\vast_p2.py:251:        tar.add(MANIFEST, arcname='bundle_manifest.json')
+scripts\vast_p2.py:571:MSHA=$(sha256sum {run_dir}/manifest.json | cut -d' ' -f1)
+scripts\vast_p2.py:604:        remote_manifest = vw.remote_command(client, 'sha256sum '+REMOTE_ROOT+'/bundle_manifest.json').split()[0]
+scripts\vast_p2.py:861:              f'{run_dir_of(rental)} --manifest-sha256 <SHA manifest.json> --output <новый файл>')
+scripts\verify_p2_2_run.py:224:            local_doc, _ = load_frozen_inputs(run/'inputs_manifest.json', summary['inputs_manifest_sha256'], params=params)
+scripts\verify_nominal_controls.py:11:from submoon_research.execution import RunContext
+scripts\verify_nominal_controls.py:19:    run = RunContext(root, "W2-nominal-controls", wall_seconds=120, output_mib=16)
+scripts\admission_p2_2.py:637:        local_manifest = run_dir/'inputs_manifest.json'
+scripts\admission_p2_2.py:673:    inputs_manifest_path = run_dir/'inputs_manifest.json'
+scripts\analyze_w1.py:9:from submoon_research.execution import RunContext
+scripts\analyze_w1.py:19:    with RunContext(root, 'W1-analysis', dict(data_kind='development_analysis'), wall_seconds=120, output_mib=32) as run:
+scripts\analyze_w1.py:21:        manifest = run.ledger.json(args.pilot_run/'manifest.json', registered=True)
+scripts\analyze_w1.py:25:            run.ledger.bind(args.pilot_run/path, manifest['artifacts_sha256'][path])
+scripts\verify_l1_specification.py:10:from submoon_research.execution import RunContext
+scripts\verify_l1_specification.py:20:    run = RunContext(root, 'W0-L1', wall_seconds=120, output_mib=64)
+scripts\b144_regress.py:7:                             nothing is integrated (exit 3). Writes units.json and the pre-run manifest.json.
+scripts\b144_regress.py:190:                    plan=[dict(orbit_id=o, years=y) for o, y in plan], code_sha256=code_hashes(),
+scripts\b144_regress.py:194:    atomic_json(run_dir/'manifest.json', manifest)
+scripts\b144_regress.py:195:    print('manifest', file_digest(run_dir/'manifest.json'), 'jobs', len(plan), flush=True)
+scripts\b144_regress.py:220:    if not sha or file_digest(run_dir/'manifest.json') != sha:
+scripts\b144_regress.py:222:    manifest = read_json(run_dir/'manifest.json')
+scripts\b144_regress.py:385:    if (manifest['code_sha256'] != code_hashes()
+scripts\b144_regress.py:563:    sha = file_digest(run_dir/'manifest.json')
+scripts\acquire_planetary_alignment.py:13:from submoon_research.execution import RunContext
+scripts\acquire_planetary_alignment.py:31:    run = RunContext(root, "W0-alignment", wall_seconds=180, output_mib=64)
+scripts\acquire_planetary_alignment.py:49:                (source / "manifest.json").relative_to(root).as_posix(), registered=True
+scripts\acquire_planetary_alignment.py:53:            for path, digest in old["artifacts_sha256"].items():
+scripts\acquire_planetary_alignment.py:86:            run.manifest["astrobridge_code_sha256"] = {
+scripts\verify_analytic_controls.py:10:from submoon_research.execution import RunContext
+scripts\verify_analytic_controls.py:22:    run = RunContext(root, "W2-analytic", wall_seconds=120, output_mib=16)
+scripts\acquire_geometric_states.py:20:from submoon_research.execution import RunContext
+scripts\acquire_geometric_states.py:31:    run=RunContext(root,'W0-states',wall_seconds=600,output_mib=64)
+scripts\acquire_geometric_states.py:101:        manifest["astrobridge_code_sha256"] = {p.relative_to(bridge_root).as_posix(): sha256(p)
+scripts\acquire_geometric_states.py:134:        old = ledger.json((source_run / "manifest.json").relative_to(root).as_posix(), registered=True)
+scripts\acquire_geometric_states.py:135:        for path, digest in old['artifacts_sha256'].items():
+scripts\acquire_geometric_states.py:161:    checks.update(source_artifacts_sha256=True, headers_units_epochs_finite=True,
+scripts\vast_w2.py:176:    save(WORK/'bundle_manifest.json', dict(created_utc=now(), files=index))
+scripts\vast_w2.py:180:        tar.add(WORK/'bundle_manifest.json', arcname='bundle_manifest.json')
+scripts\vast_w2.py:277:    expected_manifest = digest(WORK/'bundle_manifest.json')
+scripts\vast_w2.py:283:            'echo MANIFEST=$(sha256sum /workspace/submoon-research/bundle_manifest.json 2>/dev/null | cut -d" " -f1); '
+scripts\vast_w2.py:378:            expected_manifest = digest(WORK/'bundle_manifest.json')
+scripts\vast_w2.py:380:                client, 'sha256sum '+project_root+'/bundle_manifest.json'
+scripts\vast_w2.py:401:            expected_manifest = digest(WORK/'bundle_manifest.json')
+scripts\vast_w2.py:403:                client, 'sha256sum '+project_root+'/bundle_manifest.json'
+scripts\vast_w2.py:480:pathlib.Path('/workspace/w2_results_manifest.json').write_text(json.dumps(hashes))
+scripts\vast_w2.py:483: tar.add('/workspace/w2_results_manifest.json',arcname='w2_results_manifest.json')
+scripts\vast_w2.py:501:        entries = json.load(tar.extractfile('w2_results_manifest.json'))
+scripts\review_w0_quality.py:41:        artifacts = data.get("artifacts_sha256", {})
+scripts\review_w0_quality.py:53:        code_not_recoverable = [key for key, digest in (data.get("code_sha256") or {}).items()
+scripts\review_w0_quality.py:62:            code_hashes_recorded=bool(data.get("code_sha256")),
+scripts\review_w0_quality.py:75:    source_ids = {row["source_id"] for row in read_json(ROOT / "references/source_manifest.json")["sources"]}
+scripts\review_w0_quality.py:84:            missing_runs=[r for r in row["run_ids"].split(";") if not (ROOT / "runs" / r / "manifest.json").is_file()],
+scripts\review_w0_quality.py:132:    historical = sorted((ROOT / "runs").glob("W0-*/manifest.json"))
+scripts\review_w0_quality.py:196:    new_manifests = [ROOT / "runs" / r / "manifest.json" for e in executions
+scripts\review_w0_quality.py:215:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+scripts\review_w0_quality.py:219:        inputs_sha256=inputs, code_sha256=code, environment=env_info,
+scripts\review_w0_quality.py:222:        artifacts_sha256={p.relative_to(folder).as_posix(): sha256(p) for p in folder.rglob("*") if p.is_file()}))
+scripts\diag_ias15_controller.py:21:SNAPSHOT = ROOT/'results/evidence/W2_B_capture_20261019/attempt/diagnostic_artifacts/pre_step_snapshot/snapshot_manifest.json'
+scripts\diag_ias15_controller.py:105:                  code_sha256={path.relative_to(ROOT).as_posix(): file_digest(path) for path in (
+scripts\diag_ias15_cm_frame.py:82:                  code_sha256=code_hashes(), max_steps=10000, wall_seconds=60., scientific_admission=False)
+scripts\diag_ias15_cm_frame.py:93:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_cm_frame.py:106:    result.update(run_id=RUN_ID+'-'+variant, inputs_sha256=inputs_sha, code_sha256=inputs['code_sha256'],
+scripts\review_w0_independent.py:154:    probe_manifest = json.loads((ROOT / "runs" / outcome["run_id"] / "manifest.json").read_text(encoding="utf-8"))
+scripts\review_w0_independent.py:171:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+scripts\review_w0_independent.py:175:        inputs_sha256=inputs, code_sha256={"scripts/review_w0_independent.py":sha256(Path(__file__))},
+scripts\review_w0_independent.py:177:        artifacts_sha256={p.relative_to(folder).as_posix():sha256(p) for p in folder.rglob("*") if p.is_file()}))
+scripts\prepare_p2_2a.py:27:    module.MANIFEST = output/'bundle_manifest.json'
+scripts\review_k2_guard_20261030.py:44:               code_sha256={p: sha(ROOT / p) for p in ('scripts/review_k2_guard_20261030.py',
+scripts\freeze_p2_inputs.py:66:                      code_sha256={n: file_digest(ROOT/n) for n in (
+scripts\freeze_p2_inputs.py:100:    load_frozen_inputs(out/'inputs_manifest.json', sha, params=params)
+scripts\freeze_p2_inputs.py:101:    print('INPUTS MANIFEST:', out/'inputs_manifest.json')
+scripts\diag_ias15_memory.py:80:                  code_sha256=code_hashes(), max_steps=10000, wall_seconds=60., scientific_admission=False)
+scripts\diag_ias15_memory.py:90:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_memory.py:113:                  code_sha256=inputs['code_sha256'], environment=environment(),
+scripts\phase3_convergence.py:8:                            run-каталог блока P0 | P1 | perturb: units.json, identity.json, manifest.json
+scripts\phase3_convergence.py:138:    if file_digest(root/b['run']/'manifest.json') != b['manifest_sha256']:
+scripts\phase3_convergence.py:437:                    plan=plan, code_sha256=code_hashes(), environment=environment())
+scripts\phase3_convergence.py:438:    atomic_json(run_dir/'manifest.json', manifest)
+scripts\phase3_convergence.py:439:    print('manifest', file_digest(run_dir/'manifest.json'), 'block', block, 'jobs', len(plan), flush=True)
+scripts\phase3_convergence.py:445:    if not sha or file_digest(run_dir/'manifest.json') != sha:
+scripts\phase3_convergence.py:447:    manifest = read_json(run_dir/'manifest.json')
+scripts\phase3_convergence.py:620:        m = read_json(d/'manifest.json')
+scripts\phase3_convergence.py:623:        manifests.append(dict(run=rel(d), block=m['block'], manifest_sha256=file_digest(d/'manifest.json')))
+scripts\phase3_convergence.py:725:            m = read_json(Path(a.run_dir)/'manifest.json')
+scripts\vast_cpu_matrix.py:134:    vw.save(SHARED/'bundle_manifest.json', dict(created_utc=vw.now(), files=index))
+scripts\vast_cpu_matrix.py:138:        tar.add(SHARED/'bundle_manifest.json', arcname='bundle_manifest.json')
+scripts\vast_cpu_matrix.py:155:    expected = vw.digest(SHARED/'bundle_manifest.json')
+scripts\vast_cpu_matrix.py:161:            'echo MANIFEST=$(sha256sum /workspace/submoon-research/bundle_manifest.json 2>/dev/null | cut -d" " -f1)',
+scripts\vast_cpu_matrix.py:359:        expected = vw.digest(SHARED/'bundle_manifest.json')
+scripts\vast_cpu_matrix.py:360:        actual = vw.remote_command(client, 'sha256sum '+project_root+'/bundle_manifest.json').split()[0]
+scripts\vast_cpu_matrix.py:407:        expected = vw.digest(SHARED/'bundle_manifest.json')
+scripts\vast_cpu_matrix.py:408:        actual = vw.remote_command(client, 'sha256sum '+project_root+'/bundle_manifest.json').split()[0]
+scripts\diag_ias15_frames.py:50:                  code_sha256=code_hashes(), physical_source_sha256=file_digest(SNAPSHOT.parent/'physical.json'),
+scripts\diag_ias15_frames.py:87:    if (inputs['code_sha256'] != code_hashes() or inputs['environment'] != environment()
+scripts\diag_ias15_frames.py:109:                  code_sha256=inputs['code_sha256'], environment=environment())
+scripts\vast_p2_continue.py:92:m = json.loads((root/'bundle_manifest.json').read_text())
+scripts\vast_p2_continue.py:113:    vp.BUNDLE, vp.MANIFEST = work/'bundle.tar.gz', work/'bundle_manifest.json'

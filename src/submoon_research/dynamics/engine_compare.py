@@ -4,6 +4,7 @@ import hashlib
 import json
 import math
 import time
+from pathlib import Path
 
 import numpy as np
 from scipy.integrate import DOP853
@@ -38,6 +39,65 @@ def fingerprint(value):
         separators=(',', ':')).encode()).hexdigest()
 
 
+def ias15_start_state(state, gms):
+    """W2-I034/W2-R029: старт B без дрейфа центра масс массивных тел.
+
+    Вход B — состояние относительно хозяина (хозяин в начале координат и покоится). Как
+    инерциальная N-body система оно дрейфует со скоростью центра масс (у Гималии ~14.5 км/с):
+    к ~800 годам координаты ~3.7e11 км, ULP ~3e-5 км, коэффициенты IAS15 шумовые, и PRS23
+    коллапсирует в окнах почти нулевого абсолютного ускорения пробы. Вычитается только скорость
+    центра масс (проба безмассовая, последняя): положения не меняются вовсе; координаты не
+    дрейфуют и остаются порядка размера системы. Галилеево преобразование: силы зависят от
+    разностей положений, оси J2 постоянны. Выходы B (сегменты, события, checkpoint) строятся
+    относительно хозяина и по смыслу не меняются.
+
+    Проверка округления (W2-T047): абсолютная ошибка попарных разностей скоростей не более
+    4·spacing(max|v|) — оценка худшего случая ~2.5 ULP наибольшей скорости системы. Это защита
+    от грубого нарушения преобразования, а не относительный допуск для малых скоростей: малая
+    относительная скорость пробы теряет до ~1e-13 относительных (максимум на 144 регенерированных
+    стартах P2-2a 2.4e-13). Численная реализация B не инвариантна целиком: PRS23 и нормировка
+    endpoint_residual зависят от абсолютных координат (W2-T047, §3.4 аудита).
+    """
+    state = np.asarray(state, dtype=float).reshape(-1, 6)
+    gms = np.asarray(gms, dtype=float)
+    if (state.shape[0] != len(gms)+1 or not np.isfinite(state).all()
+            or not np.isfinite(gms).all() or np.any(gms <= 0)):
+        raise ValueError('Старт B: ожидаются массивные тела и безмассовая проба последней')
+    weights = np.r_[gms, 0.0]
+    v_cm = (weights[:, None]*state[:, 3:]).sum(axis=0)/weights.sum()
+    out = state.copy()
+    out[:, 3:] -= v_cm
+    before = state[:, None, 3:]-state[None, :, 3:]
+    after = out[:, None, 3:]-out[None, :, 3:]
+    # Округление вычитания и двух разностей: не более ~2.5 ULP наибольшей скорости.
+    limit = 4*np.spacing(max(np.max(np.abs(state[:, 3:])), np.max(np.abs(out[:, 3:]))))
+    if np.max(np.abs(after-before)) > limit:
+        raise ArithmeticError('Старт B: вычитание скорости центра масс исказило относительные скорости')
+    return out.ravel()
+
+
+_B_MODULES = ('dynamics/engine_compare.py', 'dynamics/native_ias15.py', 'dynamics/dense_segments.py',
+              'dynamics/fast_forces.py', 'events/dense_contact.py', 'events/escape.py')
+
+
+def b_implementation_fingerprint():
+    """W2-I039: отпечаток исполняемой реализации B для контракта checkpoint.
+
+    Тот же состав, что у scripts/admission_p2_horizons.b_fingerprint (исходники пути B и версии
+    пакетов), поэтому checkpoint B совпадает по версии с отпечатками заданий. Checkpoint другой
+    реализации отклоняется как чужой контракт; переход между версиями — только новым run.
+    """
+    import importlib.metadata as metadata
+    root = Path(__file__).resolve().parents[1]
+    digest = hashlib.sha256()
+    for name in _B_MODULES:
+        digest.update(name.encode())
+        digest.update((root/name).read_bytes())
+    for package in ('rebound', 'reboundx', 'numpy', 'scipy', 'numba'):
+        digest.update(f'{package}={metadata.version(package)}'.encode())
+    return digest.hexdigest()
+
+
 def ias15_step_limit(native, period, gm_host, fraction):
     """W2-I019: предел шага B — fraction·min(P0, 2π·sqrt(r³/GM хозяина)) по текущему r пробы.
 
@@ -67,9 +127,13 @@ def integrate_engine(engine, initial, gms, figures, radii, horizon, *, period,
             or not np.isfinite(radii).all() or not horizon > 0 or not period > 0):
         raise ValueError('Неверные физические входы движка')
     fs = fast_forces.figure_array(figures, len(gms))
-    contract = fingerprint(dict(initial=initial.tolist(), gms=gms.tolist(),
+    payload = dict(initial=initial.tolist(), gms=gms.tolist(),
         figures=figures, radii=radii.tolist(), horizon=horizon, period=period,
-        mode=asdict(mode), engine=engine, hill=hill_km, escape_window=escape_window))
+        mode=asdict(mode), engine=engine, hill=hill_km, escape_window=escape_window)
+    if engine == 'ias15_reboundx':
+        # W2-I039: версия реализации B входит в контракт; контракты A/C не меняются.
+        payload['b_implementation'] = b_implementation_fingerprint()
+    contract = fingerprint(payload)
     state, t = initial.ravel().copy(), 0.0
     tracker = EscapeTracker(hill_km, escape_window) if hill_km is not None else None
     if resume:
@@ -127,7 +191,9 @@ def integrate_engine(engine, initial, gms, figures, radii, horizon, *, period,
         if cache:
             cache.extend(horizon, budget)
         if engine == 'ias15_reboundx':
-            native = NativeIAS15(state, gms, figures, epsilon=mode.epsilon, t0=t,
+            # W2-I034: старт без дрейфа центра масс (см. ias15_start_state).
+            native = NativeIAS15(ias15_start_state(state, gms), gms, figures,
+                                 epsilon=mode.epsilon, t0=t,
                                  initial_dt=min(period*1e-5, horizon-t))
         while t < horizon:
             budget()

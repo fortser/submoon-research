@@ -27,7 +27,8 @@ class RunContext:
         self.output_bytes = output_mib * 2**20
         self.started_wall, self.started_cpu = time.perf_counter(), time.process_time()
         self.next_disk_check = 0.0
-        self.manifest = dict(schema_version='0.2', run_id=self.run_id,
+        self._initial_code_committed = False
+        self.manifest = dict(schema_version='0.3', run_id=self.run_id,
             experiment_id=self.config.get('experiment_id', prefix), scientific_id=None,
             started_utc=utc_now(), finished_utc=None, status='running',
             data_kind=self.config.get('data_kind', 'source_audit'),
@@ -42,6 +43,12 @@ class RunContext:
         self.folder.mkdir(parents=True, exist_ok=False)
         for name in ('results','initial_conditions','logs','checkpoints'):
             (self.folder/name).mkdir()
+        source = Path(__file__).resolve().parent
+        paths = sorted(p for p in source.rglob('*') if p.suffix in ('.py', '.json'))
+        names = [self._code_name(path) for path in paths]
+        if len(set(names)) != len(names):
+            raise ValueError('Коллизия путей начального снимка кода')
+        self.manifest['initial_code_snapshot'] = dict(state='pending', expected_paths=names, published_count=0)
         write_json(self.folder / 'manifest.json', self.manifest)
         write_json(self.folder / 'validation.json', dict(status='not_run'))
         try:
@@ -54,25 +61,43 @@ class RunContext:
                 raise RuntimeError('Недостаточный резерв диска для планируемых выходов')
             self.ledger.read('configs/resources.yaml', registered=True)
             self.save_config(self.config)
-            source=Path(__file__).resolve().parent
-            for path in sorted(p for p in source.rglob('*') if p.suffix in ('.py','.json')):
-                self.save_code(path)
-            self.check_budget()
+            staged = {}
+            for path, name in zip(paths, names):
+                staged[name] = self._copy_code(path, name)
+                self.check_budget()
+            self.check_budget(force=True)
+            committed = dict(self.manifest, code_sha256=staged,
+                initial_code_snapshot=dict(state='complete', expected_paths=names, published_count=len(names)))
+            write_json(self.folder / 'manifest.json', committed)
+            self.manifest = committed
+            self._initial_code_committed = True
             return self
         except BaseException as exc:
-            self.__exit__(type(exc), exc, exc.__traceback__)
+            self.manifest['initial_code_snapshot']['state'] = 'failed'
+            try:
+                self.__exit__(type(exc), exc, exc.__traceback__)
+            except BaseException as finalization_error:
+                raise exc from finalization_error
             raise
 
-    def save_code(self, path):
+    def _code_name(self, path):
         if path.is_relative_to(self.root):
             name = path.relative_to(self.root).as_posix()
         else:
             name = 'src/submoon_research/'+path.relative_to(Path(__file__).resolve().parent).as_posix()
+        return name
+
+    def _copy_code(self, path, name):
         data = path.read_bytes()
         target = self.folder / 'code' / name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(data)
-        self.manifest['code_sha256'][name] = hashlib.sha256(data).hexdigest()
+        if target.write_bytes(data) != len(data):
+            raise OSError(f'Неполная запись снимка кода: {name}')
+        return hashlib.sha256(data).hexdigest()
+
+    def save_code(self, path):
+        name = self._code_name(path)
+        self.manifest['code_sha256'][name] = self._copy_code(path, name)
         write_json(self.folder / 'manifest.json', self.manifest)
 
     def save_config(self, config):
@@ -108,6 +133,8 @@ class RunContext:
 
     def __exit__(self, exc_type, exc, traceback):
         if exc is None:
+            if not self._initial_code_committed:
+                raise RuntimeError('Начальный снимок кода не опубликован')
             try:
                 self.check_budget(force=True)
             except BaseException as error:

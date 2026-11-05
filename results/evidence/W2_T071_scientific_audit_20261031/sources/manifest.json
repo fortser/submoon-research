@@ -1,0 +1,23 @@
+{
+  "utc": "2026-10-31T17:49:02.603163+00:00",
+  "sources": [
+    {
+      "package": "reboundx",
+      "version": "5.1.0",
+      "metadata_url": "https://pypi.org/pypi/reboundx/5.1.0/json",
+      "archive_url": "https://files.pythonhosted.org/packages/0e/ea/4ede0a174e85ab986795d6dd37dc7fbd5f526ebed75a949dc8f3063a14b9/reboundx-5.1.0.tar.gz",
+      "archive_sha256": "25fcccc8194a83b548a8e11d81f295fb12a21ece2538e61be93d8256d9cbc1b2",
+      "source_path": "results/evidence/W2_T071_scientific_audit_20261031/sources/reboundx_5.1.0_gravitational_harmonics.c",
+      "source_sha256": "6929ceff45c2ceb9da421fd9255fa8364c4004e5c2c2b246c9766ab468e7853c"
+    },
+    {
+      "package": "rebound",
+      "version": "5.1.1",
+      "metadata_url": "https://pypi.org/pypi/rebound/5.1.1/json",
+      "archive_url": "https://files.pythonhosted.org/packages/7b/f1/e04ee8c67ecc1a2675e64c80c2e6c7f4d9d69a3b9eafc0797fe55f325648/rebound-5.1.1.tar.gz",
+      "archive_sha256": "dd97b95bfc050d8f4db51a3667b8894c261ae9d844622bbb7756428909f58a86",
+      "source_path": "results/evidence/W2_T071_scientific_audit_20261031/sources/rebound_5.1.1_integrator_ias15.c",
+      "source_sha256": "7d3038a1f1f6ad079f86dd652d75fe16bea76df8c0ae1df630b6001e4871ef6b"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "utc": "2026-10-23T10:34:24+00:00",
+  "last_cycle_utc": "2026-10-23T10:21:46+00:00",
+  "heartbeat_errors": [],
+  "paid_actions": 0,
+  "automatic_rental": false,
+  "rows": [
+    {
+      "offer_id": 47034418,
+      "machine_id": 143224,
+      "cpu_name": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+      "state": "unavailable",
+      "checked_utc": "2026-10-23T10:33:50+00:00",
+      "rentable": false,
+      "rented": false,
+      "usd_per_hour": 0.611111111111111,
+      "reason": "unavailable",
+      "kind": "target"
+    },
+    {
+      "offer_id": 54621118,
+      "machine_id": 153489,
+      "cpu_name": "AMD Ryzen Threadripper PRO 7995WX 96-Cores",
+      "state": "unavailable",
+      "checked_utc": "2026-10-21T14:56:57+00:00",
+      "rentable": false,
+      "rented": false,
+      "usd_per_hour": 0.4833333333333333,
+      "reason": "unavailable",
+      "kind": "analog"
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+diff --git a/results/evidence/W2_T073_limits_20261103T110653Z/tests_before.py.txt b/tests/unit/test_provenance_batch.py
+index c9531a2..a373ac0 100644
+--- a/results/evidence/W2_T073_limits_20261103T110653Z/tests_before.py.txt
++++ b/tests/unit/test_provenance_batch.py
+@@ -1,4 +1,5 @@
+ """Контракт начального снимка кода: реальные записи в синтетический каталог."""
++import errno
+ import hashlib
+ import json
+ import os
+@@ -327,3 +328,200 @@ def test_later_save_code_is_immediately_published(synthetic_package):
+         disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+         assert disk['code_sha256']['late.py'] == hashlib.sha256(extra.read_bytes()).hexdigest()
+         assert disk['initial_code_snapshot']['published_count'] == 3
++
++
++@pytest.mark.parametrize('defer_disk_check', [False, True])
++def test_snapshot_output_budget_rejects_before_commit(synthetic_package, monkeypatch, defer_disk_check):
++    root, package = synthetic_package
++    (package / '000_large.py').write_bytes(b'#' * (2**20 + 1))
++    run = execution.RunContext(root, 'budget', output_mib=1)
++    original = run._copy_code
++    copied = []
++
++    def copy(path, name):
++        digest = original(path, name)
++        copied.append(name)
++        # Проверяем и обычный опрос, и обязательный force после всего staging.
++        run.next_disk_check = float('inf') if defer_disk_check else 0
++        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++        assert disk['code_sha256'] == {}
++        assert disk['initial_code_snapshot']['state'] == 'pending'
++        return digest
++
++    monkeypatch.setattr(run, '_copy_code', copy)
++    with pytest.raises(RuntimeError, match='дисковый бюджет'):
++        with run:
++            pytest.fail('тело не должно запускаться при превышении бюджета')
++    assert len(copied) == (4 if defer_disk_check else 1)
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == 'failed'
++    assert disk['initial_code_snapshot']['state'] == 'failed'
++    assert disk['initial_code_snapshot']['published_count'] == 0
++    assert disk['code_sha256'] == {}
++    assert not run._initial_code_committed
++
++
++def test_wall_exhaustion_during_copy_rejects_before_commit(synthetic_package, monkeypatch):
++    root, _ = synthetic_package
++    run = execution.RunContext(root, 'wall', output_mib=1)
++    original = run._copy_code
++    copied = []
++
++    def copy(path, name):
++        digest = original(path, name)
++        copied.append(name)
++        # Детерминированная имитация истёкшего времени, без долгого sleep.
++        run.started_wall = execution.time.perf_counter() - run.wall_seconds - 1
++        return digest
++
++    monkeypatch.setattr(run, '_copy_code', copy)
++    with pytest.raises(TimeoutError, match='wall budget'):
++        with run:
++            pytest.fail('тело не должно запускаться')
++    assert len(copied) == 1
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == 'failed' and disk['code_sha256'] == {}
++    assert disk['initial_code_snapshot']['state'] == 'failed'
++    assert not run._initial_code_committed
++
++
++@pytest.mark.parametrize('options', [dict(wall_seconds=601, output_mib=1),
++                                     dict(wall_seconds=120, output_mib=257)])
++def test_initial_global_limits_do_not_allow_copy(synthetic_package, options):
++    root, _ = synthetic_package
++    run = execution.RunContext(root, 'limits', **options)
++    with pytest.raises(ValueError, match='выше глобального'):
++        with run:
++            pytest.fail('тело не должно запускаться')
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == 'failed'
++    assert disk['initial_code_snapshot']['state'] == 'failed'
++    assert disk['code_sha256'] == {}
++    assert not (run.folder / 'code').exists()
++
++
++@pytest.mark.parametrize('failure_at', [1, 2])
++@pytest.mark.parametrize('interrupt', [False, True])
++def test_read_failure_or_interrupt_during_snapshot(synthetic_package, monkeypatch, failure_at, interrupt):
++    root, package = synthetic_package
++    run = execution.RunContext(root, 'read-failure', output_mib=1)
++    original = Path.read_bytes
++    reads = []
++    error = KeyboardInterrupt('injected read interrupt') if interrupt else OSError('injected source read')
++
++    def read(path):
++        if path.parent == package:
++            reads.append(path)
++            if len(reads) == failure_at:
++                raise error
++        return original(path)
++
++    monkeypatch.setattr(Path, 'read_bytes', read)
++    with pytest.raises(type(error)) as caught:
++        with run:
++            pytest.fail('тело не должно запускаться')
++    assert caught.value is error
++    assert len(reads) == failure_at
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == ('cancelled' if interrupt else 'failed')
++    assert disk['validation']['status'] == 'not_run'
++    assert disk['initial_code_snapshot']['state'] == 'failed'
++    assert disk['code_sha256'] == {}
++
++
++def test_enospc_during_copy_preserves_partial_run_and_foreign_files(synthetic_package, monkeypatch):
++    root, _ = synthetic_package
++    run = execution.RunContext(root, 'no-space', output_mib=1)
++    foreign = root / 'runs/foreign/manifest.json'
++    foreign.parent.mkdir(parents=True)
++    foreign.write_bytes(b'{"foreign":true}')
++    temporary = foreign.parent / '.manifest.json.foreign.tmp'
++    temporary.write_bytes(b'foreign temporary file')
++    original = Path.write_bytes
++    copies = []
++
++    def write(path, data):
++        if path.is_relative_to(run.folder / 'code'):
++            copies.append(path)
++            if len(copies) == 2:
++                original(path, data[:1])
++                raise OSError(errno.ENOSPC, 'injected disk full')
++        return original(path, data)
++
++    monkeypatch.setattr(Path, 'write_bytes', write)
++    with pytest.raises(OSError) as caught:
++        with run:
++            pytest.fail('тело не должно запускаться')
++    assert caught.value.errno == errno.ENOSPC
++    assert len(copies) == 2 and copies[0].is_file() and copies[1].stat().st_size == 1
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == 'failed' and disk['code_sha256'] == {}
++    assert disk['initial_code_snapshot']['state'] == 'failed'
++    assert foreign.read_bytes() == b'{"foreign":true}'
++    assert temporary.read_bytes() == b'foreign temporary file'
++
++
++def test_existing_run_directory_is_never_overwritten(synthetic_package):
++    root, _ = synthetic_package
++    run = execution.RunContext(root, 'collision', output_mib=1)
++    run.folder.mkdir(parents=True)
++    (run.folder / 'manifest.json').write_bytes(b'{"existing":true}')
++    (run.folder / '.foreign.tmp').write_bytes(b'untouched')
++    before = {p: p.read_bytes() for p in run.folder.iterdir()}
++    with pytest.raises(FileExistsError):
++        with run:
++            pytest.fail('тело не должно запускаться')
++    assert {p: p.read_bytes() for p in run.folder.iterdir()} == before
++
++
++def test_duplicate_snapshot_names_rejected_before_copy(synthetic_package, monkeypatch):
++    root, _ = synthetic_package
++    run = execution.RunContext(root, 'name-collision', output_mib=1)
++    monkeypatch.setattr(run, '_code_name', lambda path: 'duplicate.py')
++    with pytest.raises(ValueError, match='Коллизия путей'):
++        with run:
++            pytest.fail('тело не должно запускаться')
++    assert not (run.folder / 'code').exists()
++    assert not (run.folder / 'manifest.json').exists()
++    assert not run._initial_code_committed
++
++
++def test_installed_package_outside_workspace_keeps_canonical_names(synthetic_package, monkeypatch):
++    root, package = synthetic_package
++    installed = package.rename(root.parent / 'installed-package')
++    monkeypatch.setattr(execution, '__file__', str(installed / 'execution.py'))
++    run = execution.RunContext(root, 'installed', output_mib=1)
++    with run:
++        names = ['src/submoon_research/' + p.name for p in sorted(installed.iterdir())
++                 if p.suffix in ('.py', '.json')]
++        assert run.manifest['initial_code_snapshot']['expected_paths'] == names
++        assert set(run.manifest['code_sha256']) == set(names)
++        for name, digest in run.manifest['code_sha256'].items():
++            assert hashlib.sha256((run.folder / 'code' / name).read_bytes()).hexdigest() == digest
++
++
++def test_final_provenance_and_scientific_id_reconstruct_from_saved_bytes(synthetic_package):
++    root, _ = synthetic_package
++    source = root / 'input.json'
++    source.write_bytes(b'{"synthetic":true}')
++    run = execution.RunContext(root, 'identity', dict(data_kind='synthetic'), output_mib=1)
++    with run:
++        run.ledger.read('input.json', registered=True)
++        run.validate({'synthetic_contract': True}, scope='synthetic_not_science')
++    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
++    assert disk['status'] == 'completed' and disk['validation']['status'] == 'passed'
++    assert disk['initial_code_snapshot']['state'] == 'complete'
++    assert disk['inputs_sha256']['input.json'] == hashlib.sha256(source.read_bytes()).hexdigest()
++    for path, digest in disk['artifacts_sha256'].items():
++        assert hashlib.sha256((run.folder / path).read_bytes()).hexdigest() == digest
++    identity = dict(config_sha256=hashlib.sha256((run.folder / 'config.resolved.yaml').read_bytes()).hexdigest(),
++                    inputs=disk['inputs_sha256'], code=disk['code_sha256'], environment=disk['environment'])
++    expected = hashlib.sha256(json.dumps(identity, sort_keys=True, ensure_ascii=False,
++                                         allow_nan=False).encode('utf-8')).hexdigest()
++    assert disk['scientific_id'] == expected
++    assert {'git_commit', 'git_dirty', 'finished_utc'} <= disk.keys()
++    before = (run.folder / 'manifest.json').read_bytes()
++    with pytest.raises(FileExistsError):
++        with run:
++            pytest.fail('завершённый run нельзя открыть повторно')
++    assert (run.folder / 'manifest.json').read_bytes() == before

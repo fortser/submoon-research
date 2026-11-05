@@ -1,0 +1,9 @@
+{
+  "check_utc_date": "2026-10-23",
+  "command": "vastai show invoices --start_date 2026-10-23 --only_charges --instance_label submoon-hw9975-20261023 --raw",
+  "status": "inconclusive",
+  "error_type": "RuntimeError",
+  "message": "Транспорт vast_w2.cli не смог разобрать ответ CLI как структурированный JSON/Python literal. Ответ целиком не сохранялся во избежание секретов/лишних данных аккаунта.",
+  "invoice_verified": false,
+  "limitation": "Пустой inventory и отсутствие подтверждённого create не заменяют окончательную проверку начислений. Оплачиваемый контракт в этой попытке не установлен."
+}

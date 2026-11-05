@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-21T11:35:46.678673+00:00",
+  "request_number": 2,
+  "max_paid_contracts": 1,
+  "reason": "No rental manifest, empty live inventory and no accepted create in audit after >180s.",
+  "previous_request": "attempt.json",
+  "automatic_further_requests": false
+}

@@ -1,0 +1,1208 @@
+{
+ "schema": "w2-b144-manifest-v1",
+ "task": "W2-T050",
+ "created_utc": "2026-10-24T09:45:15Z",
+ "rule": "W2-P014 step 4 (W2-T050): the 144 archived P2-2a B units at 100 and 1000 years with the current B.\n\nModes\n  reference  (local, once)   archived identities of the 288 B jobs -> data/manifests/W2_B144_reference_v1.json\n  prepare    (server)        legacy regeneration of the starts (OPENBLAS_CORETYPE=SkylakeX on an AVX-512 CPU),\n                             exact check of all 288 archived job fingerprints and initial probes; on any mismatch\n                             nothing is integrated (exit 3). Writes units.json and the pre-run manifest.json.\n  benchmark  (server)        3 short archived jobs -> speed ratio -> prediction of the longest job and total;\n                             NO-GO (exit 4) if it does not fit the deadline with the margin.\n  run        (server)        all 288 jobs once, longest archived first, 1 CPU per worker, absolute deadline and\n                             stop file (stopped jobs are 'partial'); full stand rows + cheap B diagnostics.\n  analyze    (local)         pre-registered rule below, comparisons with archived B/D/T, diagnostics, cost.\n  devcheck   (local)         end-to-end pipeline check on a few archived jobs that match locally (scratch only;\n                             not part of the scientific run).\n\nPRE-REGISTERED RULE (fixed 2026-10-21 before any rental; W2-T050)\n  Primary, G-B development regression: PASSED iff all 288 planned jobs are present exactly once with the\n  expected job fingerprints, every run_status is 'completed', and every job without a terminal event ends at\n  its horizon (last_valid_time == H). Any 'failed' -> NOT_PASSED (G-B stays closed; failure_context analysed).\n  Any 'partial' (deadline/stop) or missing job -> INCOMPLETE, no verdict on those jobs.\n  Secondary, descriptive only: one-sided 95% Clopper-Pearson upper bound of the failure frequency (a\n  development regression, not an admission of a failure rate); outcome agreement with archived B (where it\n  completed), D and T at the same horizon, with D/T high-e unresolved shown separately; |dt_event|/P0 for the\n  same event; diagnostics (max endpoint residual, flag >= 1e-10; min dt/ULP(t), flag < 1e4; small-step events\n  dt < 0.01*max_step away from start/horizon with the probe acceleration-cancellation ratio; max |x| on a\n  grid of the first step and every 1000th step); cost (worker-hours, longest job, per-job wall ratio to the archive).\nNot a scientific admission of B, D/T, W1 or W3.\n",
+ "scientific": true,
+ "reference_sha256": "088ecc0d25d82377d90ca48a1f6b1d5b4959560814308e8e65144ddf614140f7",
+ "units_file_sha256": "378c514a655a343f9bcd065f3e01d5ff26590f944c24bc64f360287c0828b1b1",
+ "units_sha256": "1b2777687d849986471172217c13f600eb86c8f98985b3953a90387f787ccbf7",
+ "b_implementation": "0f5ef90438a14a7f2e5e3ad835b32cf28e645ec89227c78f8fa784ffce2b4c64",
+ "archived_implementations": {
+  "compiled": "58bea7890bd1d93754b55b289412903f4ec0ef2bd05856607dd1d1f190f15ad5",
+  "B": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587"
+ },
+ "plan": [
+  {
+   "orbit_id": "iapetus:uniform_log_a:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0012",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0012",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0013",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0013",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0008",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0014",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0004",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0008",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0004",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0015",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0003",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0014",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0000",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0007",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0003",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0005",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0005",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0011",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0011",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0007",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0001",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0006",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0000",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0001",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0006",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0010",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0002",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0010",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0009",
+   "years": 100.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0002",
+   "years": 1000.0
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0002",
+   "years": 100.0
+  }
+ ],
+ "code_sha256": {
+  "scripts/b144_regress.py": "709cdaf05f22dae37e0bf763906b94a3af969c9835f3ce4083dfef908bdaa08a",
+  "scripts/admission_p2_2.py": "ee791a34dd713e19a75dd19036d9c259ae4bac7953f8f218e8b1a7ea4e33f129",
+  "scripts/admission_p2_horizons.py": "fbce2d4408c560c638e608db89aa0cace284ef9fead0e215c73b13fde4ed133e",
+  "src/submoon_research/dynamics/engine_compare.py": "f84370ea699f40fbf0576f3ebe7ba76840b8eed5b8e76a44f42ecdab21579437",
+  "src/submoon_research/dynamics/native_ias15.py": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4",
+  "src/submoon_research/dynamics/dense_segments.py": "2cad414cc7e53812d1e1f53e8497ac5f43d652bd551bddb7d86ff9fad498bb4f",
+  "src/submoon_research/dynamics/fast_forces.py": "d18822c3268d1ae11967d76a91889b711f49508235811fe17eb565c6eb2eb59c",
+  "src/submoon_research/events/dense_contact.py": "449556bd5c36f05d68e8d4ba419a88673c101c76b708eb9024740d2330b90009",
+  "src/submoon_research/events/escape.py": "01b21d049fbd84c63632063a582543e7cccd6d215ff2cf68e171927602fa2086",
+  "src/submoon_research/exact_linalg.py": "33f4e58da9e3df6b61afb753f31129870cec2d78d09edb1a676efab01becc347",
+  "requirements-w2.txt": "488e7c2f13d1daec2f350394de8ac850b79f8bcdd1c8892cac1dc4a888a68695"
+ },
+ "environment": {
+  "python": "3.10.12",
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.35",
+  "cpu_model": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+  "avx512f": true,
+  "packages": {
+   "numpy": "2.2.6",
+   "scipy": "1.15.3",
+   "numba": "0.67.0",
+   "rebound": "5.1.1",
+   "reboundx": "5.1.0"
+  },
+  "openblas_coretype": "SkylakeX",
+  "threads": {
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "NUMBA_NUM_THREADS": "1"
+  }
+ },
+ "limits": {
+  "cpu_per_worker": 1,
+  "small_step_fraction": 0.01,
+  "ramp_steps": 50,
+  "coordinate_every": 1000
+ }
+}

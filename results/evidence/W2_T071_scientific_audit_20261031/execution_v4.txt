@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/mnt/t/test_python/submoon-research/scripts/audit_w2_physics_20261031.py", line 9, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/mnt/t/test_python/submoon-research/src/submoon_research/diagnostics/physics_audit_v1.py", line 337, in main
+    boosted[:, 3:] += [.2, -.3, .4]
+    ~~~~~~~^^^^^^^
+IndexError: too many indices for array: array is 1-dimensional, but 2 were indexed

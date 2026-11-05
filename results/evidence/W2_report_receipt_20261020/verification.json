@@ -1,0 +1,312 @@
+{
+  "utc": "2026-10-20T16:07:11.399460+00:00",
+  "scope": "Передача отчёта: SHA и наличие refs, не независимый научный аудит; научные расчёты и тесты не запускались.",
+  "report_sha256": "d470bf53c3ab305ffaffca635b29bf4f090725a5abdc9b826e2afaae2af0bc07",
+  "checks": [
+    {
+      "path": "src/submoon_research/dynamics/engine_compare.py",
+      "expected_prefix": "740a933809f703cd",
+      "sha256": "740a933809f703cd00089ffbe7ae73b37031baefd3e9ef86bf9f747828032cee",
+      "passed": true
+    },
+    {
+      "path": "src/submoon_research/diagnostics/ias15_memory_controls.py",
+      "expected_prefix": "6297c6ddd5d7c71d",
+      "sha256": "6297c6ddd5d7c71dbe74e980ce2174adb6f59fa21bdad321caa5f21480f2b8ef",
+      "passed": true
+    },
+    {
+      "path": "src/submoon_research/diagnostics/ias15_cm_frame.py",
+      "expected_prefix": "d3dd58e09535ebb1",
+      "sha256": "d3dd58e09535ebb1258c7dbc2799b6130ed69d6dc1f7136831ed6c764754d323",
+      "passed": true
+    },
+    {
+      "path": "scripts/diag_ias15_memory.py",
+      "expected_prefix": "4b1bce0e",
+      "sha256": "4b1bce0e2ceeb987d354f37df5e66378eb57363667f7673fb398320b184c1e68",
+      "passed": true
+    },
+    {
+      "path": "scripts/run_ias15_memory_controls.py",
+      "expected_prefix": "ac342321",
+      "sha256": "ac3423218bbbb1bc6f62791ea08f3f895f65abb036c1491bba83fa8f0a4989f7",
+      "passed": true
+    },
+    {
+      "path": "scripts/diag_ias15_cm_frame.py",
+      "expected_prefix": "39e4762d",
+      "sha256": "39e4762da4ba622fa2f75afd0b718721deab782f98452e7ec06908920da26a96",
+      "passed": true
+    },
+    {
+      "path": "scripts/run_ias15_cm_frame.py",
+      "expected_prefix": "9b022837",
+      "sha256": "9b0228373b9b6a2c513c8f122538d8e023c9954bca19e067c383e5bcaeeaf088",
+      "passed": true
+    },
+    {
+      "path": "scripts/smoke_b_cm_start.py",
+      "expected_prefix": "5e06c080",
+      "sha256": "5e06c080eaf4eb4bbec8d3defa1e3d82b237258f4f6fd6c05d16e2e99f8193f7",
+      "passed": true
+    },
+    {
+      "path": "scripts/regress_b_cm_start_1000.py",
+      "expected_prefix": "ce5bc1d4",
+      "sha256": "ce5bc1d4c4547b83f0b3c012e252d249b5954a6030fa8f8debe4f3c7509c8ab8",
+      "passed": true
+    },
+    {
+      "path": "tests/unit/test_ias15_memory_controls.py",
+      "expected_prefix": "a2d7ba8a",
+      "sha256": "a2d7ba8a2c0b0b9af850347c02d65a061fa5ff121fa5fd730d96059d2878e8c7",
+      "passed": true
+    },
+    {
+      "path": "tests/unit/test_ias15_cm_frame.py",
+      "expected_prefix": "405e0aef",
+      "sha256": "405e0aef6beecd3aef4880aea93e24d2a9ea113017a5a8aea5ebc11fb407c4ca",
+      "passed": true
+    },
+    {
+      "path": "tests/unit/test_ias15_cm_start.py",
+      "expected_prefix": "a019dcc6",
+      "sha256": "a019dcc6d58af0d49ee7057d0a6a3aa1a3f26550da42bcb69f5f8e544898ace5",
+      "passed": true
+    },
+    {
+      "path": "docs/tasks/W2_roadmap_to_W1_v1.md",
+      "expected_prefix": "c202437c77dab1d1",
+      "sha256": "c202437c77dab1d1e5aa9ac01eccc377dc4cf8caf33ff2df5b4d86be36c32b1a",
+      "passed": true
+    },
+    {
+      "path": "reports/forum/2026-10-20_PROJECT_STATUS_FORUM.md",
+      "expected_prefix": "da9f4dd1a7947b74",
+      "sha256": "da9f4dd1a7947b74cb91cd35ad6fefdff7b3795eef3a7baa86add14566d1b85b",
+      "passed": true
+    },
+    {
+      "path": "results/evidence/W2_B_regress_20261020/regress.json",
+      "expected_prefix": "9315ee50",
+      "sha256": "9315ee5077a28fc011df7890d1eb4b1fbe4b79d7db3470db7535967f4534ba97",
+      "passed": true
+    },
+    {
+      "path": "scratch/claude/engine_compare.before_W2-T043.py",
+      "expected_prefix": "dabbd6e1",
+      "sha256": "dabbd6e1e8c59be42bfae28efc6c7216f28e83c93674e44faf0c0a9d8f83732d",
+      "passed": true
+    }
+  ],
+  "journal_revisions": [
+    449,
+    450,
+    451,
+    452,
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473,
+    474,
+    475,
+    476,
+    477,
+    478,
+    479,
+    480,
+    481,
+    482
+  ],
+  "journal_records": [
+    {
+      "revision": 449,
+      "id": "W2-T040",
+      "status": "done"
+    },
+    {
+      "revision": 450,
+      "id": "W2-P013",
+      "status": "proposed"
+    },
+    {
+      "revision": 451,
+      "id": "W2-D038",
+      "status": "accepted"
+    },
+    {
+      "revision": 452,
+      "id": "W2-D039",
+      "status": "accepted"
+    },
+    {
+      "revision": 453,
+      "id": "W2-T041",
+      "status": "active"
+    },
+    {
+      "revision": 454,
+      "id": "W2-T041",
+      "status": "active"
+    },
+    {
+      "revision": 455,
+      "id": "W2-I034",
+      "status": "investigating"
+    },
+    {
+      "revision": 456,
+      "id": "W2-P014",
+      "status": "proposed"
+    },
+    {
+      "revision": 457,
+      "id": "W2-T041",
+      "status": "done"
+    },
+    {
+      "revision": 458,
+      "id": "W2-STAGE",
+      "status": "active"
+    },
+    {
+      "revision": 459,
+      "id": "W2-C079",
+      "status": "passed"
+    },
+    {
+      "revision": 460,
+      "id": "W2-R028",
+      "status": "validated"
+    },
+    {
+      "revision": 461,
+      "id": "W2-D040",
+      "status": "accepted"
+    },
+    {
+      "revision": 462,
+      "id": "W2-T042",
+      "status": "active"
+    },
+    {
+      "revision": 463,
+      "id": "W2-C080",
+      "status": "passed"
+    },
+    {
+      "revision": 464,
+      "id": "W2-R029",
+      "status": "validated"
+    },
+    {
+      "revision": 465,
+      "id": "W2-I034",
+      "status": "investigating"
+    },
+    {
+      "revision": 466,
+      "id": "W2-T042",
+      "status": "done"
+    },
+    {
+      "revision": 467,
+      "id": "W2-P014",
+      "status": "proposed"
+    },
+    {
+      "revision": 468,
+      "id": "W2-STAGE",
+      "status": "active"
+    },
+    {
+      "revision": 469,
+      "id": "W2-D041",
+      "status": "accepted"
+    },
+    {
+      "revision": 470,
+      "id": "W2-T043",
+      "status": "active"
+    },
+    {
+      "revision": 471,
+      "id": "W2-C081",
+      "status": "passed"
+    },
+    {
+      "revision": 472,
+      "id": "W2-I034",
+      "status": "fixed"
+    },
+    {
+      "revision": 473,
+      "id": "W2-T043",
+      "status": "done"
+    },
+    {
+      "revision": 474,
+      "id": "W2-P014",
+      "status": "proposed"
+    },
+    {
+      "revision": 475,
+      "id": "W2-STAGE",
+      "status": "active"
+    },
+    {
+      "revision": 476,
+      "id": "W2-T044",
+      "status": "done"
+    },
+    {
+      "revision": 477,
+      "id": "W2-C082",
+      "status": "passed"
+    },
+    {
+      "revision": 478,
+      "id": "W2-R030",
+      "status": "validated"
+    },
+    {
+      "revision": 479,
+      "id": "W2-I034",
+      "status": "verified"
+    },
+    {
+      "revision": 480,
+      "id": "W2-P014",
+      "status": "proposed"
+    },
+    {
+      "revision": 481,
+      "id": "W2-STAGE",
+      "status": "active"
+    },
+    {
+      "revision": 482,
+      "id": "W2-T045",
+      "status": "done"
+    }
+  ],
+  "missing_refs": []
+}

@@ -1,0 +1,97 @@
+{
+ "task": "W2-T044",
+ "orbit": "himalia:uniform_log_a:0008",
+ "years": 1000.0,
+ "rule": "W2-P014 step 3: himalia:uniform_log_a:0008 from t=0 to 1000 years with the drift-free B start.\n\nThe archived B job of run W2-P2-2a-56220810 failed at ~808.9 years (W2-I034). The unit is\nregenerated with the legacy generator and accepted only if the archived job fingerprint and\ninitial probe state match exactly. One attempt, 1 CPU, deadline 7200 s (then 'partial', not a\nnumerical outcome). Pre-registered pass rule: identity matches AND the new B job is 'completed'\nat 1000 years (no guard/failure). Descriptive: outcome and trajectory vs archived D/T (both\nsurvived), small-step windows (dt < 10 s / < 1 s), minimum dt, maximum |x|, steps and wall.\nNot a scientific admission of B.\n",
+ "identity": {
+  "job_fingerprint": true,
+  "initial_probe_exact": true
+ },
+ "passed": true,
+ "new_status": "completed",
+ "new_outcome": "survived",
+ "new_error": null,
+ "last_valid_years": 1000.0,
+ "new_steps": 8347851,
+ "wall_seconds": 4306.851823115,
+ "old_B": {
+  "status": "failed",
+  "last_valid_years": 808.8806106251614,
+  "steps": 6683202,
+  "wall_server": 1140.589084670879,
+  "error": "IAS15 нарушил временную границу"
+ },
+ "versus": {
+  "D": {
+   "same_outcome_event": true,
+   "old_outcome": "survived",
+   "new_outcome": "survived",
+   "new_status": "completed",
+   "new_error": null,
+   "event_dt_over_P0": null,
+   "event_flag": false,
+   "common_samples": 31,
+   "max_dr_over_a": 0.04981676414701784,
+   "max_dv_over_na": 0.04855923999002323,
+   "tau_1e6_s": 67988788.17415014,
+   "old_wall": 62.40333505207673,
+   "new_wall": 4306.850638438999,
+   "old_steps": 7612692,
+   "new_steps": 8347851
+  },
+  "T": {
+   "same_outcome_event": true,
+   "old_outcome": "survived",
+   "new_outcome": "survived",
+   "new_status": "completed",
+   "new_error": null,
+   "event_dt_over_P0": null,
+   "event_flag": false,
+   "common_samples": 31,
+   "max_dr_over_a": 0.03986444979757585,
+   "max_dv_over_na": 0.03901466968263789,
+   "tau_1e6_s": 99793893.48852967,
+   "old_wall": 124.36892360122874,
+   "new_wall": 4306.850638438999,
+   "old_steps": 15225379,
+   "new_steps": 8347851
+  },
+  "B_old": {
+   "same_outcome_event": false,
+   "old_outcome": "unresolved",
+   "new_outcome": "survived",
+   "new_status": "completed",
+   "new_error": null,
+   "event_dt_over_P0": null,
+   "event_flag": false,
+   "common_samples": 30,
+   "max_dr_over_a": 0.8530636698686318,
+   "max_dv_over_na": 0.8994277894928714,
+   "tau_1e6_s": 99793893.48852967,
+   "old_wall": 1140.589084670879,
+   "new_wall": 4306.850638438999,
+   "old_steps": 6683202,
+   "new_steps": 8347851
+  }
+ },
+ "step_stats": {
+  "steps": 8347851,
+  "min_dt": 1.6581582478317558,
+  "min_dt_time": 1.6581582478317558,
+  "below_10s": 2,
+  "below_1s": 0,
+  "windows": [
+   {
+    "start_s": 0.0,
+    "min_dt": 1.6581582478317558,
+    "steps": 2,
+    "end_s": 8.290791239158779
+   }
+  ],
+  "max_abs_coordinate_km": 2013763217.0659409,
+  "open_window": null
+ },
+ "B_implementation_old": "ad1b4aa10748496527bf80bbf8bfcc8b4e48204f5b591679ca3dae18719be587",
+ "B_implementation_new": "0a1e70cf9eb6f8adb2f29570b468993ff2bd4c84710aaa7bd30b8175668d6e67",
+ "scientific_admission": false
+}

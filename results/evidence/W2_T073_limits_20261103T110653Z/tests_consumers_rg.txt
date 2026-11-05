@@ -1,0 +1,150 @@
+tests\integration\test_smoke.py:17:    before = sha256(first / "manifest.json")
+tests\integration\test_smoke.py:20:    assert sha256(first / "manifest.json") == before
+tests\integration\test_smoke.py:21:    manifest = json.loads((first / "manifest.json").read_text())
+tests\integration\test_smoke.py:22:    assert manifest["data_kind"] == "synthetic"
+tests\integration\test_smoke.py:23:    assert manifest["status"] == "completed"
+tests\integration\test_smoke.py:24:    for path, digest in manifest["artifacts_sha256"].items():
+tests\integration\test_smoke.py:26:    other = json.loads((second / "manifest.json").read_text())
+tests\integration\test_smoke.py:27:    assert manifest["scientific_id"] == other["scientific_id"]
+tests\integration\test_l1_acceptance.py:26:    manifest=json.loads((ROOT/'runs'/outcome['run_id']/'manifest.json').read_text(encoding='utf-8'))
+tests\integration\test_l1_acceptance.py:27:    return result,manifest
+tests\integration\test_l1_acceptance.py:42:    result,manifest=cli(spec)
+tests\integration\test_l1_acceptance.py:44:    assert manifest['status']=='failed' and manifest['finished_utc']
+tests\integration\test_l1_acceptance.py:56:    result,manifest=cli(spec)
+tests\integration\test_l1_acceptance.py:58:    assert manifest['validation']['status']!='passed'
+tests\integration\test_l1_acceptance.py:104:    result,manifest=cli(canonical())
+tests\integration\test_l1_acceptance.py:105:    assert result.returncode==0 and manifest['validation']['status']=='passed'
+tests\integration\test_l1_acceptance.py:107:    assert states in manifest['inputs_sha256']
+tests\integration\test_l1_acceptance.py:108:    assert (ROOT/'runs'/manifest['run_id']/'inputs'/states).is_file()
+tests\unit\test_b144_scientific.py:87:    manifest = json.loads((run/'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_b144_scientific.py:92:    reference = json.loads((root/'data/manifests/W2_B144_reference_v1.json').read_text())
+tests\unit\test_b144_scientific.py:93:    return new, manifest, {u['orbit_id']: u for u in units}, old, reference
+tests\unit\test_run_manifest_freeze.py:9:from submoon_research.contracts.run_manifest import validate_run_manifest_for_admission
+tests\unit\test_run_manifest_freeze.py:49:        pilot=dict(manifest='pilot/manifest.json', cost_evidence='cost.json', variance_evidence='variance.json'),
+tests\unit\test_run_manifest_freeze.py:58:        design['inputs'] = inputs + [put('pilot/manifest.json', pilot)]
+tests\unit\test_run_manifest_freeze.py:65:def test_valid_run_manifest_is_eligible_without_rewriting(tmp_path, freeze_case, version):
+tests\unit\test_run_manifest_freeze.py:138:    with pytest.raises(ValueError, match='версия RunContext'):
+tests\unit\test_run_manifest_freeze.py:145:    with pytest.raises(ValueError, match='версия RunContext'):
+tests\unit\test_run_manifest_freeze.py:193:    with execution.RunContext(tmp_path, 'synthetic-contract', output_mib=1) as run:
+tests\unit\test_run_manifest_freeze.py:194:        path = run.folder / 'manifest.json'
+tests\unit\test_run_manifest_freeze.py:195:        validate_run_manifest_for_admission(json.loads(path.read_text(encoding='utf-8')))
+tests\unit\test_run_manifest_freeze.py:199:        manifest = json.loads(path.read_text(encoding='utf-8'))
+tests\unit\test_run_manifest_freeze.py:200:        validate_run_manifest_for_admission(manifest)
+tests\unit\test_run_manifest_freeze.py:201:        assert manifest['initial_code_snapshot']['published_count'] == 2
+tests\unit\test_run_manifest_freeze.py:202:        assert len(manifest['code_sha256']) == 3
+tests\unit\test_run_manifest_freeze.py:204:        assert manifest['status'] == 'running'
+tests\unit\test_run_manifest_freeze.py:205:        assert manifest['validation']['status'] == 'not_run'
+tests\unit\test_run_manifest_freeze.py:206:    validate_run_manifest_for_admission(json.loads(path.read_text(encoding='utf-8')))
+tests\unit\test_release_freeze.py:16:        archive.writestr('release.manifest.json',json.dumps(dict(files=[dict(path='../escape',sha256='0'*64,bytes=3)])))
+tests\unit\test_release_freeze.py:37:    manifest=build_release(root,package)
+tests\unit\test_release_freeze.py:38:    names={item['path'] for item in manifest['files']}
+tests\unit\test_w1_protocol.py:142:    manifest = dict(schema_version='0.2', status='completed', validation={'status': 'passed'},
+tests\unit\test_w1_protocol.py:147:    for name, content in [('manifest.json', manifest), ('cost.json', {}), ('variance.json', {})]:
+tests\unit\test_w1_protocol.py:152:        pilot=dict(manifest='manifest.json', cost_evidence='cost.json', variance_evidence='variance.json'))
+tests\unit\test_w1_protocol.py:196:        manifest = {'resources':{}}
+tests\unit\test_vast_market_monitor.py:277:    manifest = json.loads((folder/'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_vast_market_monitor.py:278:    assert manifest['status'] == 'completed' and manifest['paid_actions'] == 0
+tests\unit\test_vast_market_monitor.py:297:    assert json.loads((folder/'manifest.json').read_text(encoding='utf-8'))['status'] == 'completed'
+tests\unit\test_provenance_execution.py:10:from submoon_research.execution import RunContext
+tests\unit\test_provenance_execution.py:41:def test_manifest_exists_before_work_and_failed_runs_are_finalized(tmp_path,error,status):
+tests\unit\test_provenance_execution.py:43:    run=RunContext(root,'test',output_mib=1)
+tests\unit\test_provenance_execution.py:46:            assert json.loads((run.folder/'manifest.json').read_text())['status']=='running'
+tests\unit\test_provenance_execution.py:48:    manifest=json.loads((run.folder/'manifest.json').read_text())
+tests\unit\test_provenance_execution.py:49:    assert manifest['status']==status
+tests\unit\test_provenance_execution.py:50:    assert manifest['started_utc'] and manifest['finished_utc']
+tests\unit\test_provenance_execution.py:51:    assert manifest['validation']['status']=='not_run'
+tests\unit\test_provenance_execution.py:52:    assert manifest['error'] is not None
+tests\unit\test_provenance_execution.py:57:    run=RunContext(root,'overflow',output_mib=1)
+tests\unit\test_provenance_execution.py:61:    assert run.manifest['status']=='failed'
+tests\unit\test_provenance_execution.py:62:    run=RunContext(root,'timeout',wall_seconds=5,output_mib=1)
+tests\unit\test_provenance_execution.py:66:    assert run.manifest['status']=='failed'
+tests\unit\test_provenance_execution.py:73:    run=RunContext(root,'disk',output_mib=1)
+tests\unit\test_provenance_execution.py:77:    assert run.manifest['status']=='failed'
+tests\unit\test_provenance_batch.py:38:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:44:            manifest = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:45:            assert manifest['status'] == 'running'
+tests\unit\test_provenance_batch.py:46:            assert manifest['validation']['status'] == 'not_run'
+tests\unit\test_provenance_batch.py:47:            assert manifest['initial_code_snapshot'] == {
+tests\unit\test_provenance_batch.py:50:            assert manifest['code_sha256'] == {}
+tests\unit\test_provenance_batch.py:56:        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:68:def test_initial_manifest_publications_are_constant(synthetic_package, monkeypatch, additional_files):
+tests\unit\test_provenance_batch.py:72:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:77:        if path == run.folder / 'manifest.json':
+tests\unit\test_provenance_batch.py:91:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:106:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:116:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:129:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:135:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:140:        if path == run.folder / 'manifest.json':
+tests\unit\test_provenance_batch.py:152:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:164:    run = execution.RunContext(root, 'fault', output_mib=1)
+tests\unit\test_provenance_batch.py:172:        committing = (path == run.folder / 'manifest.json'
+tests\unit\test_provenance_batch.py:192:        target = Path(dst) == run.folder / 'manifest.json'
+tests\unit\test_provenance_batch.py:212:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:235:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:239:    disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:257:r = e.RunContext(root, 'kill-test', output_mib=1)
+tests\unit\test_provenance_batch.py:277:    if (str(barrier) == 'after_commit' and path == r.folder/'manifest.json'
+tests\unit\test_provenance_batch.py:302:        disk = json.loads((folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_provenance_batch.py:324:    run = execution.RunContext(root, 'synthetic', output_mib=1)
+tests\unit\test_provenance_batch.py:327:        disk = json.loads((run.folder / 'manifest.json').read_text(encoding='utf-8'))
+tests\unit\test_trial_recovery.py:106:    def registry(root, manifest, folder, active):
+tests\unit\test_trial_recovery.py:107:        if manifest.get('instance_id'):
+tests\unit\test_trial_recovery.py:109:        return original(root, manifest, folder, active)
+tests\unit\test_trial_recovery.py:119:    again = h.Runner(r.root, api, probe, clock=r.clock).recover(r.manifest['run_id'])
+tests\unit\test_phase3_v2_input.py:66:def test_manifest_sha_and_unlisted_file(snapshot, monkeypatch):
+tests\unit\test_phase3_v2_input.py:67:    path = inp.RUNS['P0'] + '/manifest.json'
+tests\unit\test_phase3_v2_input.py:71:    with pytest.raises(ValueError, match='SHA manifest'):
+tests\unit\test_phase3_v2_input.py:134:    m = inp._json(changed[b + '/manifest.json'])
+tests\unit\test_phase3_v2_input.py:136:    changed[b + '/manifest.json'] = json.dumps(m).encode()
+tests\unit\test_phase3_v2_input.py:137:    cfg['archives']['b144']['manifest_sha256'] = inp._hash(changed[b + '/manifest.json'])
+tests\unit\test_ias15_replay.py:55:    physical, _ = load_snapshot(snapshot['manifest'], snapshot['sha256'], expected_identity=identity, physical_only=True)
+tests\unit\test_ias15_replay.py:61:        args = [sys.executable, str(ROOT/'scripts/replay_ias15_snapshot.py'), '--snapshot', snapshot['manifest'],
+tests\unit\test_ias15_replay.py:75:        load_snapshot(snapshot['manifest'], '0'*64, expected_identity=identity)
+tests\unit\test_ias15_replay.py:77:        load_snapshot(snapshot['manifest'], snapshot['sha256'], expected_identity={'wrong': True})
+tests\unit\test_ias15_replay.py:81:        load_snapshot(snapshot['manifest'], snapshot['sha256'], expected_identity=identity)
+tests\unit\test_ias15_replay.py:100:    manifest = Path(report['snapshot']['manifest'])
+tests\unit\test_ias15_replay.py:101:    assert file_digest(manifest) == report['snapshot']['sha256']
+tests\unit\test_phase3_v2_archive_review.py:15:    if not all((ROOT / B / name).is_file() for name in ('manifest.json', 'units.json', 'jobs.jsonl')):
+tests\unit\test_phase3_v2_archive_review.py:19:                for name in ('manifest.json', 'units.json', 'jobs.jsonl')}
+tests\unit\test_phase3_v2_archive_review.py:23:def test_freeze_rejects_joint_removal_from_manifest_and_jobs(archive_snapshot):
+tests\unit\test_phase3_v2_archive_review.py:26:    manifest = inp._json(snapshot[f'{B}/manifest.json'])
+tests\unit\test_phase3_v2_archive_review.py:28:    removed = manifest['plan'].pop()
+tests\unit\test_phase3_v2_archive_review.py:30:    snapshot[f'{B}/manifest.json'] = json.dumps(manifest).encode()
+tests\unit\test_phase3_v2_archive_review.py:32:    with pytest.raises(ValueError, match='Архивный B: SHA manifest'):
+tests\unit\test_phase3_v2_archive_review.py:36:def test_freeze_rejects_b_results_changed_without_manifest_change(archive_snapshot):
+tests\unit\test_phase3_convergence.py:334:    frozen = ROOT/'data/manifests/W2_phase3_cases_v1.json'
+tests\unit\test_p2_file_contracts.py:16:    source_manifest, units_digest, validate_units_document,
+tests\unit\test_p2_file_contracts.py:96:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:98:    assert source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:125:        before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:127:        assert source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:133:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:139:        assert source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:144:    analysis_before = source_manifest(out)
+tests\unit\test_p2_file_contracts.py:146:    assert source_manifest(out) == analysis_before and source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:150:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:152:    assert source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:160:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:163:    assert source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:214:@pytest.mark.parametrize('change', ['state', 'gm', 'params', 'missing_units', 'manifest'])
+tests\unit\test_p2_file_contracts.py:231:    elif change == 'manifest':
+tests\unit\test_p2_file_contracts.py:237:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:240:    assert not out.exists() and source_manifest(run) == before
+tests\unit\test_p2_file_contracts.py:241:    if change != 'manifest':  # приёмщик проверяет входы и jobs, не управляющий manifest
+tests\unit\test_p2_file_contracts.py:286:    before = source_manifest(run)
+tests\unit\test_p2_file_contracts.py:292:    assert source_manifest(run) == before
+tests\unit\test_frozen_p2_inputs.py:10:from submoon_research.contracts.p2_files import file_digest, source_manifest
+tests\unit\test_frozen_p2_inputs.py:19:    path = inputs/'inputs_manifest.json'
+tests\unit\test_frozen_p2_inputs.py:20:    anchor = ['--inputs-manifest', str(path), '--inputs-manifest-sha256', sha]
+tests\unit\test_frozen_p2_inputs.py:21:    before = source_manifest(inputs)
+tests\unit\test_frozen_p2_inputs.py:34:    assert source_manifest(inputs) == before
+tests\unit\test_frozen_p2_inputs.py:35:    assert (run/'inputs_manifest.json').exists()
+tests\unit\test_frozen_p2_inputs.py:37:    assert source_manifest(inputs) == before
+tests\unit\test_frozen_p2_inputs.py:40:    assert source_manifest(inputs) == before
+tests\unit\test_frozen_p2_inputs.py:45:@pytest.mark.parametrize('mutation', ['document', 'manifest', 'missing_anchor', 'wrong_anchor', 'params'])
+tests\unit\test_frozen_p2_inputs.py:49:    path = inputs/'inputs_manifest.json'
+tests\unit\test_frozen_p2_inputs.py:53:    elif mutation == 'manifest':
+tests\unit\test_frozen_p2_inputs.py:70:    path = inputs/'inputs_manifest.json'
+tests\unit\test_frozen_p2_inputs.py:95:    before = source_manifest(run)
+tests\unit\test_frozen_p2_inputs.py:98:    assert source_manifest(run) == before and not (tmp_path/'diag.json').exists()

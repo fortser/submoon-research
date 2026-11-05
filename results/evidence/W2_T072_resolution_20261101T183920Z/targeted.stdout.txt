@@ -1,0 +1,77 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.1.1, pluggy-1.6.0 -- T:\test_python\submoon-research\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: T:\test_python\submoon-research
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 27 items
+
+tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands PASSED [  3%]
+tests/unit/test_vast_p2_2a.py::test_p2_1_script_unchanged_by_default PASSED [  7%]
+tests/unit/test_vast_p2_2a.py::test_approval_requires_p2_2a_fields PASSED [ 11%]
+tests/unit/test_vast_p2_2a.py::test_extract_accepts_only_scenario_prefix PASSED [ 14%]
+tests/unit/test_vast_p2_b144.py::test_b144_script_order_and_pins PASSED  [ 18%]
+tests/unit/test_vast_p2_b144.py::test_b144_script_requires_full_hashes PASSED [ 22%]
+tests/unit/test_vast_p2_b144.py::test_approval_requires_b144_fields PASSED [ 25%]
+tests/unit/test_vast_p2_b144.py::test_draft_approval_is_not_approved_and_consistent PASSED [ 29%]
+tests/unit/test_vast_p2_b144.py::test_destroy_refuses_personal_instance PASSED [ 33%]
+tests/unit/test_vast_p2_rerun.py::test_seed_selects_only_completed_requested_rows PASSED [ 37%]
+tests/unit/test_vast_p2_rerun.py::test_seed_rejects_incomplete_or_unfingerprinted_rows[{"orbit_id": "a", "years": 10000.0, "variant": "D", "run_status": "partial", "job_fingerprint": "xaD10000.0"}] PASSED [ 40%]
+tests/unit/test_vast_p2_rerun.py::test_seed_rejects_incomplete_or_unfingerprinted_rows[{"orbit_id": "a", "years": 10000.0, "variant": "D", "run_status": "completed", "job_fingerprint": ""}] PASSED [ 44%]
+tests/unit/test_vast_p2_rerun.py::test_seed_rejects_duplicates PASSED    [ 48%]
+tests/unit/test_vast_p2_rerun.py::test_start_script_pcores_mode_pins_stand_and_fails_without_pcores PASSED [ 51%]
+tests/unit/test_vast_p2_rerun.py::test_running_stage_reports_actual_workers_pin_and_seed PASSED [ 55%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1] PASSED [ 59%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_b144.py-test_b144_script_order_and_pins-1] PASSED [ 62%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2] PASSED [ 66%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1] PASSED [ 70%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_b144.py-test_b144_script_order_and_pins-1] PASSED [ 74%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2] PASSED [ 77%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1] PASSED [ 81%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_b144.py-test_b144_script_order_and_pins-1] PASSED [ 85%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2] PASSED [ 88%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1] PASSED [ 92%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_b144.py-test_b144_script_order_and_pins-1] PASSED [ 96%]
+tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2] PASSED [100%]
+
+=================================== PASSES ====================================
+============================ slowest 10 durations =============================
+0.06s call     tests/unit/test_vast_p2_rerun.py::test_start_script_pcores_mode_pins_stand_and_fails_without_pcores
+0.05s call     tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+0.05s call     tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+0.03s call     tests/unit/test_vast_p2_b144.py::test_b144_script_order_and_pins
+0.02s call     tests/unit/test_vast_p2_b144.py::test_draft_approval_is_not_approved_and_consistent
+0.02s call     tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+0.01s call     tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+0.01s call     tests/unit/test_vast_p2_2a.py::test_extract_accepts_only_scenario_prefix
+0.00s setup    tests/unit/test_vast_p2_2a.py::test_approval_requires_p2_2a_fields
+0.00s call     tests/unit/test_vast_p2_b144.py::test_approval_requires_b144_fields
+=========================== short test summary info ===========================
+PASSED tests/unit/test_vast_p2_2a.py::test_p2_2a_script_order_and_commands
+PASSED tests/unit/test_vast_p2_2a.py::test_p2_1_script_unchanged_by_default
+PASSED tests/unit/test_vast_p2_2a.py::test_approval_requires_p2_2a_fields
+PASSED tests/unit/test_vast_p2_2a.py::test_extract_accepts_only_scenario_prefix
+PASSED tests/unit/test_vast_p2_b144.py::test_b144_script_order_and_pins
+PASSED tests/unit/test_vast_p2_b144.py::test_b144_script_requires_full_hashes
+PASSED tests/unit/test_vast_p2_b144.py::test_approval_requires_b144_fields
+PASSED tests/unit/test_vast_p2_b144.py::test_draft_approval_is_not_approved_and_consistent
+PASSED tests/unit/test_vast_p2_b144.py::test_destroy_refuses_personal_instance
+PASSED tests/unit/test_vast_p2_rerun.py::test_seed_selects_only_completed_requested_rows
+PASSED tests/unit/test_vast_p2_rerun.py::test_seed_rejects_incomplete_or_unfingerprinted_rows[{"orbit_id": "a", "years": 10000.0, "variant": "D", "run_status": "partial", "job_fingerprint": "xaD10000.0"}]
+PASSED tests/unit/test_vast_p2_rerun.py::test_seed_rejects_incomplete_or_unfingerprinted_rows[{"orbit_id": "a", "years": 10000.0, "variant": "D", "run_status": "completed", "job_fingerprint": ""}]
+PASSED tests/unit/test_vast_p2_rerun.py::test_seed_rejects_duplicates
+PASSED tests/unit/test_vast_p2_rerun.py::test_start_script_pcores_mode_pins_stand_and_fails_without_pcores
+PASSED tests/unit/test_vast_p2_rerun.py::test_running_stage_reports_actual_workers_pin_and_seed
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[success-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[nonzero-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[timeout-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_2a.py-test_p2_2a_script_order_and_commands-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_b144.py-test_b144_script_order_and_pins-1]
+PASSED tests/unit/test_bash_syntax_selection.py::test_syntax_call_uses_resolved_path_and_does_not_hide_failures[missing_executable-test_vast_p2_rerun.py-test_start_script_pcores_mode_pins_stand_and_fails_without_pcores-2]
+============================= 27 passed in 0.59s ==============================

@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-23T09:12:41.420368+00:00",
+  "started_epoch": 1792746761.4203687,
+  "offer_id": 47034418,
+  "attempt_consumed": true,
+  "max_paid_attempts": 1,
+  "max_http_create_requests": 1
+}

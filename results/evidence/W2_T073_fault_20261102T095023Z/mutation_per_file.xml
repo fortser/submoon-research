@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="0" failures="0" skipped="0" tests="1" time="0.193" timestamp="2026-11-02T13:17:12.988083+03:00" hostname="HOME-PC"><testcase classname="tests.unit.test_provenance_batch" name="test_initial_manifest_publications_are_constant[8]" time="0.135" /></testsuite></testsuites>

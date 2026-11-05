@@ -1,0 +1,19 @@
+{
+  "run_id": "W2-T071-physics-20261101-v5",
+  "checks": {
+    "primary_parameters": true,
+    "declared_code_units_and_sources_unchanged": true,
+    "actual_physical_inputs": true,
+    "force_gradient_all_backends": true,
+    "potential_and_reaction": true,
+    "isolated_j2_sign_normalization": true,
+    "rotation_and_units": true,
+    "galilean_boost": true,
+    "cr3bp_L4_Jacobi": true,
+    "J2_precession_energy_Laxis": true,
+    "declared_terminal_Kepler_controls": true,
+    "zero_force_PC_counter_prediction": true,
+    "audited_files_unchanged_at_end": true
+  },
+  "elapsed_seconds": 6.948385541
+}

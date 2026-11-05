@@ -1,0 +1,73 @@
+{
+  "checked_utc": "2026-10-24T14:19:05.186887+00:00",
+  "instance_id": 57496493,
+  "instance_present": false,
+  "archive_sha256": "21f25fb4e93efea0fe21ba1f9efe5148c297ccdd7f7220d3404eceffed71aa0a",
+  "file_checks": [
+    {
+      "path": "runs/W2-B144-57496493/identity.json",
+      "sha256": "85e15f68add04e0df91d866fbcb54da0184a0010effde071a66efd7fe38d55d7"
+    },
+    {
+      "path": "runs/W2-B144-57496493/units.json",
+      "sha256": "378c514a655a343f9bcd065f3e01d5ff26590f944c24bc64f360287c0828b1b1"
+    },
+    {
+      "path": "runs/W2-B144-57496493/manifest.json",
+      "sha256": "eaf17a3b48b3722b098309fe738283bf5f06db34493a665650043fe856151205"
+    },
+    {
+      "path": "runs/W2-B144-57496493/benchmark.json",
+      "sha256": "c12154c0950c44cfb01fbc2d218e88c00ab786482778ab868ed0e05d2ff8f4a4"
+    },
+    {
+      "path": "runs/W2-B144-57496493/jobs.jsonl",
+      "sha256": "dcca18c1459dbe7db95ea721e62ebc3c2dcefd6370c98bec8152a1007ff493f4"
+    },
+    {
+      "path": "runs/W2-B144-57496493/progress.json",
+      "sha256": "f4f655b8f2e76237cc6d11f32663a00184e687042f44d375135117886e13be5a"
+    },
+    {
+      "path": "runs/W2-B144-57496493/summary.json",
+      "sha256": "5fa1832075aeb9c749af6b2fbd6cd17fa31c23a6c24dd6c2b6c80dd1d6ffbd64"
+    },
+    {
+      "path": "runs/W2-B144-logs-57496493/hardware.txt",
+      "sha256": "eaeb89b9fcc7edcc1322b5eb2d8550eab97b92c6675b910af4b3cd1b478788d3"
+    },
+    {
+      "path": "runs/W2-B144-logs-57496493/prepare_stdout.log",
+      "sha256": "d64bc58c08898d78bab8a6345a410113d94bb4c2c534548ad257d9e42a9e5cb9"
+    },
+    {
+      "path": "runs/W2-B144-logs-57496493/benchmark_stdout.log",
+      "sha256": "e7b70d7ae087c188c191f43425d153392e153abe937098dd57c689a0ea969cd6"
+    },
+    {
+      "path": "runs/W2-B144-logs-57496493/run_stdout.log",
+      "sha256": "d100a321a77227523578e090314f8791fb0fb762100cbd973f9b5f29d74a71dd"
+    },
+    {
+      "path": "scratch/p2_rental/remote_logs_57496493/p2_status",
+      "sha256": "8ec8052ba9418d62b4c7b9fc6baba0b509e7625b997733c7ea71309e4167509d"
+    },
+    {
+      "path": "scratch/p2_rental/remote_logs_57496493/p2_57496493.log",
+      "sha256": "9e5229786095a780d31e4c90dd7de6abc1fe4e8681cca7b405857929cc028440"
+    },
+    {
+      "path": "scratch/p2_rental/remote_logs_57496493/p2_pip_freeze.txt",
+      "sha256": "f744f27df3cbf46f76cf0f090f280f56d6b174ad096f9cee2a5e076c34513f3b"
+    },
+    {
+      "path": "scratch/p2_rental/remote_logs_57496493/p2_start.sh",
+      "sha256": "e608cf3bda8caddc9b0a5594d9ff914a934796c97c68dc42347782a8d496cb7a"
+    }
+  ],
+  "jobs_sha_matches_summary": true,
+  "rental_status": "destroyed_verified",
+  "elapsed_hours": 4.46,
+  "compute_disk_estimate_usd": 2.725,
+  "cost_is_final_invoice": false
+}

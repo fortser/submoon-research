@@ -1,0 +1,19 @@
+{
+  "approval.json": "d386c9859b2df2d5e810f3f8f324233c96b4bd7b9f90a654a1a10da1aef9bcf8",
+  "attempt.json": "c6de959733ea855832257c4a9085b8f5217e6265f309b6774aa6eb6ec75ea9cc",
+  "audit_after_request.json": "0ae2309c38c64d73f27bc9b624bfe3a61187eef8cc38d18afd22398725e177df",
+  "authenticated_offer_check.json": "b7a3dd0b8010221fe857824031ebd3890c18c543b02be4d8dcf33dfb92046dba",
+  "billing_check_error.json": "2660019e2988851dd43fdab93db36ca68c8c22fe95cc150b12d7c84de39dac68",
+  "controller.py": "d67f3297284571589b26a24547fd0ac770f4af9435caff0f0d9224c74bd92cfe",
+  "create_error.json": "9d3a371eacc1faaa8fdba086d0053368fc41941e4af452c938ee4ab3baa3ad31",
+  "final_account_check.json": "783f2bbb3bf8164100d351c1394a8bdbc296a42b61a81129fbb00c8008dd684f",
+  "final_instances.json": "67d1bdcc3c23f0ad3039194c8333fd8f4b7c9b412b461abe4ea4886fbe573aaf",
+  "hardware_probe.py": "da540b7c1c7ca55283a6723a08744690134b8c08636ae66376c981f8972d2c1f",
+  "instances_after_request.json": "9cf1c98ca98a6964a8e0e88de438d67b07094248929a6386a1e001b774949c62",
+  "instances_before.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "offer.json": "6d69c5bb544fa5e0d6e128fd0c6a19cf2e27d57a9495d6983928f74968cbab54",
+  "outcome.md": "eb9d908ff68f7295db031d3b2f5121de519a846df726051693d876c8bddaa263",
+  "preflight.json": "6b39afabb7873a5dae732b5509ca05392cfb671275e7355b51c06d182284741e",
+  "public_vs_authenticated.json": "7b77dea28a2e391217c9b66a2ebebdc356a5e6225dd8001bd4627276fbfd5510",
+  "reconcile_instances.json": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+}

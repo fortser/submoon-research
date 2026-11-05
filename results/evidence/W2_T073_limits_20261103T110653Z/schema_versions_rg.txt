@@ -1,0 +1,43 @@
+src\submoon_research\execution.py:31:        self.manifest = dict(schema_version='0.3', run_id=self.run_id,
+scripts\audit_baseline.py:65:    write_json(run.folder / 'results/audit.json', dict(schema_version='0.2', run_id=run.run_id,
+src\submoon_research\catalog\nominal_model.py:107:        "schema_version",
+src\submoon_research\catalog\nominal_model.py:141:        model["schema_version"] != "0.4"
+scripts\adopt_nominal_model.py:214:            schema_version="0.4",
+scripts\adopt_nominal_model.py:254:                    schema_version="0.1",
+src\submoon_research\contracts\w1.py:16:    schema_version: Literal['1.0'] = '1.0'
+src\submoon_research\contracts\run_manifest.py:26:    version = manifest.get('schema_version')
+src\submoon_research\workflows\smoke.py:65:    expected = {"schema_version", "experiment_id", "status", "data_kind", "physics_level", "units",
+src\submoon_research\dynamics\engine_compare.py:182:        return dict(schema_version='W2-state-1', contract_sha256=contract, engine=engine,
+scripts\acquire_planetary_alignment.py:211:                    schema_version="0.1",
+src\submoon_research\contracts\orbit.py:57:    schema_version: Literal['0.2']='0.2'
+src\submoon_research\workflows\l1_specification.py:84:        if spec.get('schema_version')=='0.3':
+src\submoon_research\acquisition\geometric_states.py:125:    return dict(schema_version="0.1", experiment_id=config["experiment_id"],
+src\submoon_research\dynamics\compiled_dop853.py:579:        return dict(schema_version='W2-state-compiled-2', contract_sha256=contract, engine=ENGINE,
+src\submoon_research\contracts\nominal_states.py:16:        schema_version="0.1",
+src\submoon_research\dynamics\baseline.py:95:            schema_version="0.1",
+scripts\review_w0_quality.py:215:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+src\submoon_research\contracts\l1.py:37:    version=spec.get('schema_version')
+src\submoon_research\contracts\l1.py:61:    fixed = dict(schema_version='0.1', experiment_id='W0-geometric-states-v1',
+src\submoon_research\contracts\l1.py:103:    return ('schema_version','experiment_id','data_kind','synthetic','production_allowed',
+src\submoon_research\tracking.py:197:    event = {"schema_version": "1.0", "stage": stage, "revision": len(events) + 1,
+src\submoon_research\tracking.py:325:    index = {"schema_version": "1.0", "stages": {}}
+scripts\review_w0_independent.py:171:    write_json(folder / "manifest.json", dict(schema_version="0.1", run_id=run_id,
+scripts\build_stage_briefs.py:72:    index = {"schema_version": "1.0", "source": source_path.name, "source_sha256": digest,
+src\submoon_research\contracts\checkpoint.py:10:        cp["schema_version"] != "0.1"
+src\submoon_research\contracts\baseline.py:9:    schema_version: Literal["0.4"]
+src\submoon_research\sampling\design.py:115:    return dict(schema_version='0.1',generator_version='conditional-sobol-v1',
+src\submoon_research\release.py:40:        manifest=dict(schema_version='0.1',created_utc=utc_now(),files=entries,
+src\submoon_research\compute\trial_transport.py:229:    value = dict(schema_version=1, kind='offline_preparation_not_rental_approval',
+src\submoon_research\compute\trial_transport.py:244:    if (value.get('schema_version') != 1 or value.get('kind') != 'offline_preparation_not_rental_approval'
+scripts\verify_l1_specification.py:29:            run.save_code(root / ('src/submoon_research/contracts/l1_v'+spec['schema_version'].replace('.','_')+'.json'))
+scripts\verify_l1_specification.py:32:            sources = ledger.json('references/manifests/L1_sources_v'+spec['schema_version'].replace('.','_')+'.json', registered=True)
+scripts\vast_hardware_probe.py:80:    data = dict(schema_version=1, started_epoch=start, python=command(['python3', '--version']),
+src\submoon_research\compute\radar.py:54:    if set(cfg) != expected or cfg['schema_version'] != 1:
+src\submoon_research\compute\radar.py:397:        return dict(schema_version=1, utc=utc(now), status=status, rows=rows,
+scripts\verify_analytic_controls.py:41:            if config["schema_version"] == "0.1":
+src\submoon_research\compute\market_monitor.py:37:        existing = json.loads(path.read_text(encoding='utf-8-sig')) if path.exists() else dict(schema_version='1.0',processes=[])
+src\submoon_research\compute\market_monitor.py:86:        manifest = dict(schema_version='2.0', status='running', session_id=folder.name,
+src\submoon_research\compute\hardware_trial.py:60:    required = {'schema_version', 'approval_ref', 'user_found_station', 'source_ref',
+src\submoon_research\compute\hardware_trial.py:64:    if type(value['schema_version']) is not int or value['schema_version'] != 1 or value['approval_ref'] != APPROVAL or value['user_found_station'] is not True:
+src\submoon_research\compute\hardware_trial.py:154:        value = load(path) if path.exists() else dict(schema_version='1.0', processes=[])
+src\submoon_research\compute\hardware_trial.py:225:        self.manifest = dict(schema_version=1, run_id=run_id, label=run_id, signal=signal,

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "results/evidence/W2_T068_ias15_warning_20261030/cache_controls.json": "0ba41b54f63fc13656795bef1c70b51f28da92944353ae2c2b2e4c88eb6566b0",
+    "results/evidence/W2_T068_ias15_warning_20261030/cache_controls.log": "ffc64cee303eae377292cb0511b793666292b506b476a9827da6628c4360065b",
+    "results/evidence/W2_T068_ias15_warning_20261030/circular.json": "3a012fbd8214788fdad621a325698c06e127b351e27f26c6dbc1d43fcd889a88",
+    "results/evidence/W2_T068_ias15_warning_20261030/circular.log": "bae761a3d53345b1581a04623860ca3e47f8fadf8a2ab126d1806c328b42097e",
+    "results/evidence/W2_T068_ias15_warning_20261030/error_probe.txt": "868a6a969e644c0dfa34790fb75bfea6d643067a5b6dc209d4671ad6d09e9982",
+    "scripts/diagnose_w2_t068_ias15_warning.py": "0cfc4e6f7bdebdd24d4b01de7083a119e59a06c844a6b2989a8a9dc5490c3de8",
+    "scripts/diagnose_w2_t068_circular.py": "4d08068a8102cd4f6e58230b578218a568907b9901712258f1767df56429e204",
+    "reports/analysis/W2_T068_ias15_warning_20261030.md": "e8cf1b8b48ddc4a5330ff6f3dd835f3079da9c926d6af29841fef1224270a203",
+    "src/submoon_research/dynamics/native_ias15.py": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4",
+    "src/submoon_research/dynamics/engine_compare.py": "f84370ea699f40fbf0576f3ebe7ba76840b8eed5b8e76a44f42ecdab21579437",
+    "tests/physics/test_w2_engines.py": "88f1aca68a8488ccb3873f6514b9688542143823f7f34d20e8417399fd3186c6"
+  },
+  "scope": "synthetic; no new long science runs"
+}

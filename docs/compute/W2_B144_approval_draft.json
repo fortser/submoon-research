@@ -1,0 +1,32 @@
+{
+  "approved": false,
+  "user_message": "",
+  "user_message_context": "W2-P014 шаг 4 (W2-T050): 144 архивные B-единицы P2-2a на 100/1000 лет текущим B (fingerprint 0f5ef904) по docs/compute/W2_B144_rental_plan_v1.md; сценарий b144 транспорта vast_p2: гейты, AVX-512, точные архивные старты (иначе FAILED inputs без расчёта), замер скорости GO/NO-GO, один прогон со сроком; дневной ручной контроль оператором (W2-I033).",
+  "approved_utc": "",
+  "scenario": "b144",
+  "plan": "docs/compute/W2_B144_rental_plan_v1.md",
+  "task": "docs/tasks/W2_B144_operator_task.md",
+  "expected_b_fingerprint": "0f5ef90438a14a7f2e5e3ad835b32cf28e645ec89227c78f8fa784ffce2b4c64",
+  "reference_sha256": "088ecc0d25d82377d90ca48a1f6b1d5b4959560814308e8e65144ddf614140f7",
+  "budget_usd": 8.0,
+  "max_hourly_usd": 0.7,
+  "max_hours": 8,
+  "run_deadline_hours": 6.5,
+  "max_rent_attempts": 1,
+  "max_instances": 1,
+  "min_effective_cpus": 32,
+  "min_workers": 16,
+  "min_ram_gb": 32,
+  "disk_gb": 60,
+  "min_reliability": 0.97,
+  "verification": [
+    "verified",
+    "deverified"
+  ],
+  "image": "ubuntu:22.04",
+  "cpu_name_regex": "Threadripper PRO (79|99)\\d5WX|Threadripper (79|99)\\d0X|EPYC 9\\d\\d[45]|Ryzen 9 (79|99)\\d0X",
+  "allow_gpu": true,
+  "mode": "on-demand",
+  "benchmark_margin": 1.25,
+  "pcores_only": false
+}

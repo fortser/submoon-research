@@ -1,0 +1,27 @@
+{
+ "passed": true,
+ "checked": 288,
+ "mismatch_count": 0,
+ "utc": "2026-10-24T09:45:15Z",
+ "environment": {
+  "python": "3.10.12",
+  "platform": "Linux-6.8.0-139-generic-x86_64-with-glibc2.35",
+  "cpu_model": "AMD Ryzen Threadripper PRO 9975WX 32-Cores",
+  "avx512f": true,
+  "packages": {
+   "numpy": "2.2.6",
+   "scipy": "1.15.3",
+   "numba": "0.67.0",
+   "rebound": "5.1.1",
+   "reboundx": "5.1.0"
+  },
+  "openblas_coretype": "SkylakeX",
+  "threads": {
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "NUMBA_NUM_THREADS": "1"
+  }
+ },
+ "mismatches": []
+}

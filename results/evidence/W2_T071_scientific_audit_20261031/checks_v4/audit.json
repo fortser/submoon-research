@@ -1,0 +1,310 @@
+{
+  "run_id": "W2-T071-physics-20261101-v4",
+  "utc": "2026-11-01T08:47:18.177036+00:00",
+  "scope": "targeted_physics_audit_not_production_admission",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "checks": {
+    "primary_parameters": true,
+    "declared_code_units_and_sources_unchanged": true,
+    "actual_physical_inputs": true
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.67.0",
+    "mpmath": "1.3.0",
+    "rebound": "5.1.1",
+    "reboundx": "5.1.0"
+  },
+  "primary_parameters": {
+    "sun_gm": true,
+    "jupiter_gm": true,
+    "saturn_gm": true,
+    "titan_gm": true,
+    "io_gm": true,
+    "europa_gm": true,
+    "ganymede_gm": true,
+    "callisto_gm": true,
+    "iapetus_gm": true,
+    "himalia_gm": true,
+    "jupiter_j2_radius": true,
+    "saturn_j2_radius": true,
+    "jupiter_pole": true,
+    "saturn_pole": true
+  },
+  "sha_checks": {
+    "scripts/phase3_convergence.py": true,
+    "src/submoon_research/diagnostics/convergence.py": true,
+    "scripts/b144_regress.py": true,
+    "scripts/admission_p2_2.py": true,
+    "scripts/admission_p2_horizons.py": true,
+    "src/submoon_research/dynamics/engine_compare.py": true,
+    "src/submoon_research/dynamics/native_ias15.py": true,
+    "src/submoon_research/dynamics/compiled_dop853.py": true,
+    "src/submoon_research/dynamics/dense_segments.py": true,
+    "src/submoon_research/dynamics/fast_forces.py": true,
+    "src/submoon_research/events/dense_contact.py": true,
+    "src/submoon_research/events/escape.py": true,
+    "src/submoon_research/exact_linalg.py": true,
+    "configs/experiments/W2_phase3_convergence_v1.yaml": true,
+    "requirements-w2.txt": true,
+    "runs/W2-PH3-P0-20261026T113011Z/units.json": true,
+    "runs/W2-PH3-P1-20261028T091305Z/units.json": true,
+    "runs/W2-PH3-perturb-20261028T093615Z/units.json": true
+  },
+  "source_sha_checks": {
+    "data/raw/W0-completion-sources-20261005/gm_de440.tpc": true,
+    "data/raw/W0-completion-sources-20261005/pck00011.tpc": true,
+    "data/raw/W0-iapetus-sources-20261004/sat441.tpc": true,
+    "data/raw/W0-ganymede-sources-20261004/jup365.cmt": true,
+    "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf": true,
+    "data/processed/host_passports/iapetus_v1.yaml": true,
+    "data/processed/host_passports/ganymede_v1_0_1.yaml": true,
+    "data/processed/host_passports/himalia_v1.yaml": true,
+    "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf": true,
+    "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf": true
+  },
+  "physical_inputs": [
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "archived_phase3_scope": {
+    "jobs": 439,
+    "base_orbits": 16,
+    "outcomes": {
+      "operational_escape": 201,
+      "host_contact": 126,
+      "survived": 97,
+      "unresolved": 15
+    },
+    "high_e_phases": {
+      "none": 239,
+      "terminal": 185,
+      "prolonged": 15
+    }
+  },
+  "elapsed_seconds": 0.32244269999999986
+}

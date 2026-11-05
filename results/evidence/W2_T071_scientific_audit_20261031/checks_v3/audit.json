@@ -1,0 +1,970 @@
+{
+  "run_id": "W2-T071-physics-20261101-v3",
+  "utc": "2026-11-01T08:43:10.833386+00:00",
+  "scope": "targeted_physics_audit_not_production_admission",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "checks": {
+    "primary_parameters": true,
+    "declared_code_units_and_sources_unchanged": true,
+    "actual_physical_inputs": true,
+    "force_gradient_all_backends": true,
+    "potential_and_reaction": true,
+    "isolated_j2_sign_normalization": true,
+    "rotation_and_units": true,
+    "cr3bp_L4_Jacobi": true,
+    "J2_precession_energy_Laxis": true,
+    "declared_terminal_Kepler_controls": true,
+    "zero_force_PC_counter_prediction": true,
+    "audited_files_unchanged_at_end": true
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.67.0",
+    "mpmath": "1.3.0",
+    "rebound": "5.1.1",
+    "reboundx": "5.1.0"
+  },
+  "primary_parameters": {
+    "sun_gm": true,
+    "jupiter_gm": true,
+    "saturn_gm": true,
+    "titan_gm": true,
+    "io_gm": true,
+    "europa_gm": true,
+    "ganymede_gm": true,
+    "callisto_gm": true,
+    "iapetus_gm": true,
+    "himalia_gm": true,
+    "jupiter_j2_radius": true,
+    "saturn_j2_radius": true,
+    "jupiter_pole": true,
+    "saturn_pole": true
+  },
+  "sha_checks": {
+    "scripts/phase3_convergence.py": true,
+    "src/submoon_research/diagnostics/convergence.py": true,
+    "scripts/b144_regress.py": true,
+    "scripts/admission_p2_2.py": true,
+    "scripts/admission_p2_horizons.py": true,
+    "src/submoon_research/dynamics/engine_compare.py": true,
+    "src/submoon_research/dynamics/native_ias15.py": true,
+    "src/submoon_research/dynamics/compiled_dop853.py": true,
+    "src/submoon_research/dynamics/dense_segments.py": true,
+    "src/submoon_research/dynamics/fast_forces.py": true,
+    "src/submoon_research/events/dense_contact.py": true,
+    "src/submoon_research/events/escape.py": true,
+    "src/submoon_research/exact_linalg.py": true,
+    "configs/experiments/W2_phase3_convergence_v1.yaml": true,
+    "requirements-w2.txt": true,
+    "runs/W2-PH3-P0-20261026T113011Z/units.json": true,
+    "runs/W2-PH3-P1-20261028T091305Z/units.json": true,
+    "runs/W2-PH3-perturb-20261028T093615Z/units.json": true
+  },
+  "source_sha_checks": {
+    "data/raw/W0-completion-sources-20261005/gm_de440.tpc": true,
+    "data/raw/W0-completion-sources-20261005/pck00011.tpc": true,
+    "data/raw/W0-iapetus-sources-20261004/sat441.tpc": true,
+    "data/raw/W0-ganymede-sources-20261004/jup365.cmt": true,
+    "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf": true,
+    "data/processed/host_passports/iapetus_v1.yaml": true,
+    "data/processed/host_passports/ganymede_v1_0_1.yaml": true,
+    "data/processed/host_passports/himalia_v1.yaml": true,
+    "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf": true,
+    "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf": true
+  },
+  "physical_inputs": [
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "passed": true,
+      "checks": [
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true,
+        true
+      ]
+    }
+  ],
+  "archived_phase3_scope": {
+    "jobs": 439,
+    "base_orbits": 16,
+    "outcomes": {
+      "operational_escape": 201,
+      "host_contact": 126,
+      "survived": 97,
+      "unresolved": 15
+    },
+    "high_e_phases": {
+      "none": 239,
+      "terminal": 185,
+      "prolonged": 15
+    }
+  },
+  "elapsed_seconds": 6.6487628,
+  "forces": [
+    {
+      "orbit_id": "synthetic_two_oblate_sources",
+      "relative_errors": {
+        "fast": 2.670922697154132e-16,
+        "compiled": 2.670922697154132e-16,
+        "original": 4.473740150004627e-16,
+        "native": 4.826635188141843e-16
+      },
+      "potential_relative_error": 1.7659067532842461e-16,
+      "momentum_relative_residual": 0.0,
+      "warnings": []
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "relative_errors": {
+        "fast": 1.6795666132038823e-15,
+        "compiled": 1.6795666132038823e-15,
+        "original": 2.9780820003395637e-15,
+        "native": 3.4190519751731848e-15
+      },
+      "potential_relative_error": 2.8993364557304266e-16,
+      "momentum_relative_residual": 2.771794584896308e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "relative_errors": {
+        "fast": 2.2098708625700556e-15,
+        "compiled": 2.2098708625700556e-15,
+        "original": 3.6194354901849314e-15,
+        "native": 1.7987412151586844e-15
+      },
+      "potential_relative_error": 2.8993364557304266e-16,
+      "momentum_relative_residual": 2.771794584896308e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "relative_errors": {
+        "fast": 5.623520040873705e-16,
+        "compiled": 5.623520040873705e-16,
+        "original": 6.261155937753208e-16,
+        "native": 6.997582364081399e-16
+      },
+      "potential_relative_error": 2.8993364557304266e-16,
+      "momentum_relative_residual": 2.771794584896308e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "relative_errors": {
+        "fast": 1.0602310076157966e-15,
+        "compiled": 1.0602310076157966e-15,
+        "original": 2.3849448311902116e-15,
+        "native": 4.0374484232497484e-15
+      },
+      "potential_relative_error": 2.8993364557304266e-16,
+      "momentum_relative_residual": 2.771794584896308e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "relative_errors": {
+        "fast": 6.317845288277426e-15,
+        "compiled": 6.317845288277426e-15,
+        "original": 7.195556101136126e-15,
+        "native": 2.8180251773103573e-15
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "relative_errors": {
+        "fast": 2.330325666790787e-14,
+        "compiled": 2.330325666790787e-14,
+        "original": 2.2659059049235984e-14,
+        "native": 2.728790938451187e-14
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "relative_errors": {
+        "fast": 2.123415525835514e-14,
+        "compiled": 2.123415525835514e-14,
+        "original": 1.2392917542131898e-14,
+        "native": 1.6087675795713374e-14
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "relative_errors": {
+        "fast": 1.5946146258411236e-16,
+        "compiled": 1.5946146258411236e-16,
+        "original": 1.6529011722603524e-16,
+        "native": 2.2560583146625324e-16
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "relative_errors": {
+        "fast": 5.761208131507102e-15,
+        "compiled": 5.761208131507102e-15,
+        "original": 1.2626269094156958e-14,
+        "native": 1.557633305100432e-14
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "relative_errors": {
+        "fast": 8.358213604922948e-15,
+        "compiled": 8.358213604922948e-15,
+        "original": 8.199664440398893e-15,
+        "native": 2.1577182915309108e-14
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "relative_errors": {
+        "fast": 2.3361187207680597e-16,
+        "compiled": 2.3361187207680597e-16,
+        "original": 2.3361187207680597e-16,
+        "native": 2.813059452341586e-16
+      },
+      "potential_relative_error": 0.0,
+      "momentum_relative_residual": 3.671919401270415e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "relative_errors": {
+        "fast": 1.159404374998673e-15,
+        "compiled": 1.159404374998673e-15,
+        "original": 1.1219111808058594e-15,
+        "native": 1.931279760827413e-15
+      },
+      "potential_relative_error": 1.45008681898171e-16,
+      "momentum_relative_residual": 1.1722716049455964e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "relative_errors": {
+        "fast": 2.5438359679836718e-15,
+        "compiled": 2.5438359679836718e-15,
+        "original": 6.202808931345196e-16,
+        "native": 1.4527972052605416e-15
+      },
+      "potential_relative_error": 1.45008681898171e-16,
+      "momentum_relative_residual": 1.1722716049455964e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "relative_errors": {
+        "fast": 1.521497457799808e-15,
+        "compiled": 1.521497457799808e-15,
+        "original": 1.7894481343378434e-15,
+        "native": 3.0872195345277036e-15
+      },
+      "potential_relative_error": 1.45008681898171e-16,
+      "momentum_relative_residual": 1.1722716049455964e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "relative_errors": {
+        "fast": 1.897326882404911e-15,
+        "compiled": 1.897326882404911e-15,
+        "original": 2.066043656144912e-15,
+        "native": 3.9383402422589615e-15
+      },
+      "potential_relative_error": 1.45008681898171e-16,
+      "momentum_relative_residual": 1.1722716049455964e-17,
+      "warnings": []
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "relative_errors": {
+        "fast": 3.1953021258520965e-16,
+        "compiled": 3.1953021258520965e-16,
+        "original": 3.409250443457403e-16,
+        "native": 3.0972049527845285e-16
+      },
+      "potential_relative_error": 1.45008681898171e-16,
+      "momentum_relative_residual": 1.1722716049455964e-17,
+      "warnings": []
+    }
+  ],
+  "j2_gradient_relative_errors": [
+    3.6160117918974744e-16,
+    2.0148595787761286e-16,
+    1.2046690805394493e-16,
+    1.4830421655963295e-16,
+    1.2046690805394493e-16,
+    2.0258702906186e-16
+  ],
+  "symmetries": {
+    "rotation_relative_error": 7.790609007000197e-16,
+    "unit_scaling_relative_error": 2.9046284331551185e-16
+  },
+  "cr3bp": [
+    {
+      "code": "T",
+      "status": "completed",
+      "outcome": "survived",
+      "state_error": 9.248157795127554e-14,
+      "jacobi_drift": 2.220446049250313e-16,
+      "warnings": []
+    },
+    {
+      "code": "B",
+      "status": "completed",
+      "outcome": "survived",
+      "state_error": 2.7922109069322687e-13,
+      "jacobi_drift": 2.220446049250313e-16,
+      "warnings": []
+    }
+  ],
+  "j2_precession": [
+    {
+      "code": "T",
+      "j2": 0.0001,
+      "status": "completed",
+      "outcome": "survived",
+      "node_relative_error": 0.00011955466909663315,
+      "peri_relative_error": 7.084083837927135e-05,
+      "specific_energy_drift": 4.569677969357144e-13,
+      "axial_angular_momentum_drift": 1.6786572132332367e-13,
+      "warnings": []
+    },
+    {
+      "code": "B",
+      "j2": 0.0001,
+      "status": "completed",
+      "outcome": "survived",
+      "node_relative_error": 0.00011955466858282193,
+      "peri_relative_error": 7.084232427512216e-05,
+      "specific_energy_drift": 2.886579864025407e-15,
+      "axial_angular_momentum_drift": 1.1102230246251565e-15,
+      "warnings": []
+    },
+    {
+      "code": "T",
+      "j2": 5e-05,
+      "status": "completed",
+      "outcome": "survived",
+      "node_relative_error": 5.7937090858217744e-05,
+      "peri_relative_error": 0.0001444004120693121,
+      "specific_energy_drift": 4.583000645652646e-13,
+      "axial_angular_momentum_drift": 1.7119639039719914e-13,
+      "warnings": []
+    },
+    {
+      "code": "B",
+      "j2": 5e-05,
+      "status": "completed",
+      "outcome": "survived",
+      "node_relative_error": 5.793709011658876e-05,
+      "peri_relative_error": 0.0001444033620860985,
+      "specific_energy_drift": 4.440892098500626e-15,
+      "axial_angular_momentum_drift": 1.7763568394002505e-15,
+      "warnings": []
+    }
+  ],
+  "high_e_contacts": [
+    {
+      "e": 0.9,
+      "code": "D",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 3.187622580755658e-14,
+      "state_error_a_na": 1.7988277534186636e-11,
+      "endpoint_state_error_a_na": 5.764899668747603e-11,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 63.0214517065323,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.119061395871747,
+      "numeric_contact_time": 3.119061395871947
+    },
+    {
+      "e": 0.9,
+      "code": "T",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 3.5339496460705744e-16,
+      "state_error_a_na": 5.53335155473178e-13,
+      "endpoint_state_error_a_na": 4.192202140984591e-13,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 62.85013985050643,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.119061395871747,
+      "numeric_contact_time": 3.119061395871749
+    },
+    {
+      "e": 0.9,
+      "code": "B",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 2.1203697876423444e-16,
+      "state_error_a_na": 3.4333647036532966e-14,
+      "endpoint_state_error_a_na": 6.439293542825908e-14,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": null,
+      "warnings": [],
+      "analytic_contact_time": 3.119061395871747,
+      "numeric_contact_time": 3.119061395871748
+    },
+    {
+      "e": 0.99,
+      "code": "D",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 2.4094468686909173e-13,
+      "state_error_a_na": 3.576117180159599e-11,
+      "endpoint_state_error_a_na": 7.994316320036887e-09,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 62.83185307179586,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.1409145158412897,
+      "numeric_contact_time": 3.1409145158428036
+    },
+    {
+      "e": 0.99,
+      "code": "T",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 3.3219126673063397e-15,
+      "state_error_a_na": 4.162226119319712e-13,
+      "endpoint_state_error_a_na": 1.0914469328326959e-10,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 62.83185307179586,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.1409145158412897,
+      "numeric_contact_time": 3.1409145158413105
+    },
+    {
+      "e": 0.99,
+      "code": "B",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 0.0,
+      "state_error_a_na": 4.929390229335695e-14,
+      "endpoint_state_error_a_na": 9.769962616701378e-13,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": null,
+      "warnings": [],
+      "analytic_contact_time": 3.1409145158412897,
+      "numeric_contact_time": 3.1409145158412897
+    },
+    {
+      "e": 0.999,
+      "code": "D",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 2.7006443195271325e-13,
+      "state_error_a_na": 4.300160227899141e-11,
+      "endpoint_state_error_a_na": 8.786790672843381e-07,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 62.83185307179587,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.1415713092078756,
+      "numeric_contact_time": 3.1415713092095725
+    },
+    {
+      "e": 0.999,
+      "code": "T",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 4.028702596520454e-15,
+      "state_error_a_na": 4.4164671919588727e-13,
+      "endpoint_state_error_a_na": 1.3207788640556828e-08,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": {
+        "eccentricity_limit": 0.9,
+        "outside_validated_domain": true,
+        "high_e_phase": "terminal",
+        "high_e_stop_time": 62.83185307179587,
+        "high_e_terminal_periods": 10.0,
+        "rule": "W2-D022: контакт/уход не позже t1 + K·P0 — исход принимается (terminal); иначе останов в t1 + K·P0, unresolved (prolonged); фаза открыта на горизонте — unresolved (open_at_horizon)"
+      },
+      "warnings": [],
+      "analytic_contact_time": 3.1415713092078756,
+      "numeric_contact_time": 3.141571309207901
+    },
+    {
+      "e": 0.999,
+      "code": "B",
+      "status": "completed",
+      "outcome": "host_contact",
+      "contact_time_error_p0": 4.2407395752846884e-16,
+      "state_error_a_na": 4.8627768478581856e-14,
+      "endpoint_state_error_a_na": 1.3011387522965379e-09,
+      "samples": 64,
+      "expected_samples": 64,
+      "numerical_domain": null,
+      "warnings": [],
+      "analytic_contact_time": 3.1415713092078756,
+      "numeric_contact_time": 3.1415713092078783
+    }
+  ],
+  "zero_force_warning": [
+    {
+      "speed": 0.0,
+      "steps": [
+        {
+          "step": 1,
+          "time": 0.05,
+          "iterations_max_exceeded": 1
+        },
+        {
+          "step": 2,
+          "time": 0.1,
+          "iterations_max_exceeded": 2
+        },
+        {
+          "step": 3,
+          "time": 0.15000000000000002,
+          "iterations_max_exceeded": 3
+        },
+        {
+          "step": 4,
+          "time": 0.2,
+          "iterations_max_exceeded": 4
+        },
+        {
+          "step": 5,
+          "time": 0.25,
+          "iterations_max_exceeded": 5
+        },
+        {
+          "step": 6,
+          "time": 0.3,
+          "iterations_max_exceeded": 6
+        },
+        {
+          "step": 7,
+          "time": 0.35,
+          "iterations_max_exceeded": 7
+        },
+        {
+          "step": 8,
+          "time": 0.39999999999999997,
+          "iterations_max_exceeded": 8
+        },
+        {
+          "step": 9,
+          "time": 0.44999999999999996,
+          "iterations_max_exceeded": 9
+        },
+        {
+          "step": 10,
+          "time": 0.49999999999999994,
+          "iterations_max_exceeded": 10
+        },
+        {
+          "step": 11,
+          "time": 0.5499999999999999,
+          "iterations_max_exceeded": 11
+        },
+        {
+          "step": 12,
+          "time": 0.6,
+          "iterations_max_exceeded": 12
+        }
+      ],
+      "warnings": [
+        "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large."
+      ],
+      "ballistic_error": 0.0
+    },
+    {
+      "speed": 0.1,
+      "steps": [
+        {
+          "step": 1,
+          "time": 0.05,
+          "iterations_max_exceeded": 1
+        },
+        {
+          "step": 2,
+          "time": 0.1,
+          "iterations_max_exceeded": 2
+        },
+        {
+          "step": 3,
+          "time": 0.15000000000000002,
+          "iterations_max_exceeded": 3
+        },
+        {
+          "step": 4,
+          "time": 0.2,
+          "iterations_max_exceeded": 4
+        },
+        {
+          "step": 5,
+          "time": 0.25,
+          "iterations_max_exceeded": 5
+        },
+        {
+          "step": 6,
+          "time": 0.3,
+          "iterations_max_exceeded": 6
+        },
+        {
+          "step": 7,
+          "time": 0.35,
+          "iterations_max_exceeded": 7
+        },
+        {
+          "step": 8,
+          "time": 0.39999999999999997,
+          "iterations_max_exceeded": 8
+        },
+        {
+          "step": 9,
+          "time": 0.44999999999999996,
+          "iterations_max_exceeded": 9
+        },
+        {
+          "step": 10,
+          "time": 0.49999999999999994,
+          "iterations_max_exceeded": 10
+        },
+        {
+          "step": 11,
+          "time": 0.5499999999999999,
+          "iterations_max_exceeded": 11
+        },
+        {
+          "step": 12,
+          "time": 0.6,
+          "iterations_max_exceeded": 12
+        }
+      ],
+      "warnings": [
+        "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large."
+      ],
+      "ballistic_error": 1.3877787807814457e-17
+    }
+  ],
+  "inputs_sha256": {
+    "data/processed/L1-nominal-v0_4_1/model.json": "aba50d41746348dde7d0cb94e5f1144a2cf55976f56e4c46a8a6e160ffbef8c5",
+    "data/processed/W0-geometric-states-aligned-v3/geometric_states.json": "8c4c0e88cbd57d4e3c98431f5afd2c485442271ae451df531211d5db6b466330",
+    "scripts/audit_w2_physics_20261031.py": "ae9507e0743cdc276fd1231e6cbd01c232264b3ead88c4f329dd6c20d9cfaf31",
+    "src/submoon_research/diagnostics/physics_audit_v1.py": "a6a1d19261ff637b5ac4326066c25d7ce6ccc23123016b6ca3977b7597aff177",
+    "src/submoon_research/forces/gravity.py": "272f67bd682272b8a0d619e2033a950050b48f5fb58ef44fb93d8087cd918b16",
+    "src/submoon_research/dynamics/nominal.py": "34a9b3245dad97992917e99afe57d78219cc32df7a85c4fd5c46268308f94cff",
+    "arXiv-2609.03564v1/aa57101-25.tex": "3080ec6ada61d17c40cc255162e7232b098ade2d47b058a373e27a1f92668dbb",
+    "docs/tasks/W2_T071_scientific_audit_20261031.md": "1757f91ebfb82a4231c8003f34b95204c4750fcfa5c0ee376b71e27ab48dc818",
+    "scripts/phase3_convergence.py": "7ef67a95d4f37c32ad166ad4d990c27456a5d1c9e0bd7d53657aab96efaba21a",
+    "src/submoon_research/diagnostics/convergence.py": "0b3886ef4007e59247d19288770be36befbdec36d62ea0c7727abd415fb49db5",
+    "scripts/b144_regress.py": "709cdaf05f22dae37e0bf763906b94a3af969c9835f3ce4083dfef908bdaa08a",
+    "scripts/admission_p2_2.py": "ee791a34dd713e19a75dd19036d9c259ae4bac7953f8f218e8b1a7ea4e33f129",
+    "scripts/admission_p2_horizons.py": "fbce2d4408c560c638e608db89aa0cace284ef9fead0e215c73b13fde4ed133e",
+    "src/submoon_research/dynamics/engine_compare.py": "f84370ea699f40fbf0576f3ebe7ba76840b8eed5b8e76a44f42ecdab21579437",
+    "src/submoon_research/dynamics/native_ias15.py": "39030abcf5043d946c179da3bc9ab9461c078d240515ecde9b52e3ab804ae2d4",
+    "src/submoon_research/dynamics/compiled_dop853.py": "ce1ea53c4b84b2901d0feb63807318c5f5f898deb431d4f752b80032ae8199f4",
+    "src/submoon_research/dynamics/dense_segments.py": "2cad414cc7e53812d1e1f53e8497ac5f43d652bd551bddb7d86ff9fad498bb4f",
+    "src/submoon_research/dynamics/fast_forces.py": "d18822c3268d1ae11967d76a91889b711f49508235811fe17eb565c6eb2eb59c",
+    "src/submoon_research/events/dense_contact.py": "449556bd5c36f05d68e8d4ba419a88673c101c76b708eb9024740d2330b90009",
+    "src/submoon_research/events/escape.py": "01b21d049fbd84c63632063a582543e7cccd6d215ff2cf68e171927602fa2086",
+    "src/submoon_research/exact_linalg.py": "33f4e58da9e3df6b61afb753f31129870cec2d78d09edb1a676efab01becc347",
+    "configs/experiments/W2_phase3_convergence_v1.yaml": "3e6ebdaedd39110702e873d1cfa31f107acc69123e9e53d8df340832f968adbb",
+    "requirements-w2.txt": "488e7c2f13d1daec2f350394de8ac850b79f8bcdd1c8892cac1dc4a888a68695",
+    "runs/W2-PH3-P0-20261026T113011Z/manifest.json": "89431343cdfe3cc06b8ff70f6b2c4b8e07ea915deb5374662630a024c76f9f66",
+    "runs/W2-PH3-P0-20261026T113011Z/units.json": "b87846a47e532822072a998f458b5755f150d95e292fac5dc2f2ef12518c0f8e",
+    "runs/W2-PH3-P0-20261026T113011Z/jobs.jsonl": "6e53f0313cc7748b1efc560369a5ece8aa464a5d5b332f43b671b07b1921ef3a",
+    "runs/W2-PH3-P1-20261028T091305Z/manifest.json": "d351445d63d32d8f8f84a20b3ed4a2a1aee9db7b02ffab87a0aa38e623efab1e",
+    "runs/W2-PH3-P1-20261028T091305Z/units.json": "9362da0118c38a5ffb786dcadbd46e37120bf41fd024ec1fb546f3b062ccaccd",
+    "runs/W2-PH3-P1-20261028T091305Z/jobs.jsonl": "424b70f2bfa1d43c3a52c71c7579473760141796b433e9b99d294f24876944b1",
+    "runs/W2-PH3-perturb-20261028T093615Z/manifest.json": "b817c6e161f3102c11137bdaf740fe2a2bf9daf24b160969401a77b6aa829c70",
+    "runs/W2-PH3-perturb-20261028T093615Z/units.json": "6d17e675eace306cfaf61944eef1a7f00757a24669b97d8dd989b213382ef70e",
+    "runs/W2-PH3-perturb-20261028T093615Z/jobs.jsonl": "042444f5650fb8368bc5c25ba1769b37196473acc1a602b885aef3db7cbdf803",
+    "data/raw/W0-completion-sources-20261005/gm_de440.tpc": "924ddf4fb9ead9fe8a1aa55780bcabde40b09d00065d58226e24b68d8092f140",
+    "data/raw/W0-completion-sources-20261005/pck00011.tpc": "3dff7b1dbeceaa01f25467767d3fa25816051c85d162d1edf04acb310ee28bb1",
+    "data/raw/W0-iapetus-sources-20261004/sat441.tpc": "33aeff07e6ca3716fa4b6fc63390817b21dc76655d58f5709c3dffab1fc6e79f",
+    "data/raw/W0-ganymede-sources-20261004/jup365.cmt": "3c851a4b5d1223e155320e7f63558ebcc81908c8f68fb1c7b43985a69663e08a",
+    "data/raw/W0-iapetus-sources-20261004/jacobson2022-wayback.pdf": "235f33d3028c5dd20f15b88d84a513f6196ea7ae59c38af0d6c8ecf56ac5caff",
+    "data/processed/host_passports/iapetus_v1.yaml": "e89d9a2d41cf4a74269fd168911a15e161009a92d13b1f969a88bbba5b6f9e92",
+    "data/processed/host_passports/ganymede_v1_0_1.yaml": "2ade82b04d398ad193012afc6a00260747ed7fb73708f5334098bd762006cdd2",
+    "data/processed/host_passports/himalia_v1.yaml": "00fbeb468c8e8434682a755b0d2694931dbf6af2c1893571c6d74d5ee83027f4",
+    "data/raw/W0-iapetus-sources-20261004/thomas2010-wayback.pdf": "d603de945994c63c7fdb5cfb593ba04f4a09da37195103527ce68740b940a6ec",
+    "data/raw/W0-himalia-sources-20261004/archinal2018-usgs.pdf": "4e446975d238b38aad5c1b4ed7ba6d62a4411d503fe5ebbd6100493a4ace7980"
+  },
+  "limitations": [
+    "Контроли короткие и адресные; не допуск W1/W3, high-e или полного горизонта.",
+    "Ковариации и физические поверхности не восстановлены; внешняя наблюдательная валидация не выполнена.",
+    "Сопоставление источника sdist с установленной библиотекой по версии/поведению, не воспроизведённая сборка.",
+    "События реальных долгих случаев и статистические выводы требуют отдельной сходимости."
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "status": "scoped_cli_cost_measured",
+  "check_id": "W2-C126",
+  "changed_protected_inputs": [],
+  "phase_timers": {
+    "import_seconds": 0.21782299999904353,
+    "main_seconds": 9.57990510000127,
+    "returncode": 1,
+    "measurements": {
+      "environment": {
+        "calls": 1,
+        "seconds_inclusive": 0.04161019999992277
+      },
+      "RunContext.__init__": {
+        "calls": 1,
+        "seconds_inclusive": 0.04205829999955313
+      },
+      "os.fsync": {
+        "calls": 99,
+        "seconds_inclusive": 6.832558099999005
+      },
+      "RunContext.save_code": {
+        "calls": 92,
+        "seconds_inclusive": 8.06859550000263
+      },
+      "RunContext.__enter__": {
+        "calls": 1,
+        "seconds_inclusive": 8.548508600000787
+      },
+      "schema": {
+        "calls": 1,
+        "seconds_inclusive": 0.06470699999954377
+      },
+      "validate_spec": {
+        "calls": 1,
+        "seconds_inclusive": 0.06506049999916286
+      },
+      "RunContext.__exit__": {
+        "calls": 1,
+        "seconds_inclusive": 0.6307051999992836
+      }
+    },
+    "scope": "inclusive вложенные времена; не суммировать",
+    "changes": "только обёртки perf_counter; все исходные операции вызываются"
+  },
+  "offline_rejection_runs": {
+    "cli_profile": {
+      "run_id": "W0-L1-20261102T082320Z-8f9e2b38",
+      "manifest_path": "runs/W0-L1-20261102T082320Z-8f9e2b38/manifest.json",
+      "manifest_sha256": "ca9b65b8f846ec5a01202ccd1539225b43794af58e9dbe00131c68676509977b",
+      "status": "failed",
+      "expected_rejection": true
+    },
+    "cli_plain": {
+      "run_id": "W0-L1-20261102T082516Z-57b8a70a",
+      "manifest_path": "runs/W0-L1-20261102T082516Z-57b8a70a/manifest.json",
+      "manifest_sha256": "934acca03272a9f53a8d7151f1d6c043c0257bd7fdef50d006af1b47455da0fb",
+      "status": "failed",
+      "expected_rejection": true
+    },
+    "phase_timers": {
+      "run_id": "W0-L1-20261102T082527Z-6c34d785",
+      "manifest_path": "runs/W0-L1-20261102T082527Z-6c34d785/manifest.json",
+      "manifest_sha256": "20a517cf43f149ffc73636b32da0202874954d629b134e101bc55b793c1dd5fd",
+      "status": "failed",
+      "expected_rejection": true
+    }
+  },
+  "measured_subprocess_seconds": 42.06100000000151,
+  "inherited_budget_reserve_seconds": 432,
+  "conservative_budget_used_seconds": 474.0610000000015,
+  "total_diagnostic_budget_seconds": 600,
+  "limitations": [
+    "Нет полного распределения времени 938 тестов.",
+    "Inclusive времена не складывать.",
+    "Cold cache/profiling overhead/I-O load не разделены.",
+    "cProfile подавляет SystemExit; успех CLI по его rc=0 не утверждается."
+  ]
+}

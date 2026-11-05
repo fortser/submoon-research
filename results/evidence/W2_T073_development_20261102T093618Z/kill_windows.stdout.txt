@@ -1,0 +1,120 @@
+.........FF......                                                        [100%]
+================================== FAILURES ===================================
+_________ test_owned_child_killed_at_snapshot_barrier[before_commit] __________
+
+synthetic_package = (WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna0/project'), ...ers/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna0/project/src/submoon_research'))
+barrier = 'before_commit'
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna0')
+
+    @pytest.mark.parametrize('barrier', ['before_commit', 'after_commit'])
+    def test_owned_child_killed_at_snapshot_barrier(synthetic_package, barrier, tmp_path):
+        root, package = synthetic_package
+        receipt = tmp_path / 'receipt.json'
+        child_script = r'''
+    import json, sys, time
+    from pathlib import Path
+    import submoon_research.execution as e
+    root, package, receipt, barrier = map(Path, sys.argv[1:])
+    e.__file__ = str(package/'execution.py')
+    r = e.RunContext(root, 'kill-test', output_mib=1)
+    original_copy = r._copy_code
+    original_write = e.write_json
+    count = [0]
+    def wait_here():
+        receipt.write_text(json.dumps({'folder': str(r.folder)}), encoding='utf-8')
+        deadline = time.monotonic()+15
+        while time.monotonic() < deadline:
+            time.sleep(.02)
+        raise RuntimeError('barrier deadline')
+    def copy(path, name):
+        result = original_copy(path, name)
+        count[0] += 1
+        if str(barrier) == 'before_commit' and count[0] == 1:
+            wait_here()
+        return result
+    def write(path, data):
+        result = original_write(path, data)
+        if (str(barrier) == 'after_commit' and path == r.folder/'manifest.json'
+                and data.get('initial_code_snapshot', {}).get('state') == 'complete'):
+            wait_here()
+        return result
+    r._copy_code = copy
+    e.write_json = write
+    with r:
+        (root/'body_started').write_text('unexpected', encoding='utf-8')
+    '''
+        process = subprocess.Popen([sys.executable, '-c', child_script, str(root), str(package),
+                                    str(receipt), barrier], stdin=subprocess.DEVNULL,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        try:
+            deadline = time.monotonic() + 12
+            while not receipt.exists() and process.poll() is None and time.monotonic() < deadline:
+                time.sleep(.02)
+>           assert receipt.exists(), 'child не достиг barrier'
+E           AssertionError: child не достиг barrier
+E           assert False
+E            +  where False = exists()
+E            +    where exists = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna0/receipt.json').exists
+
+tests\unit\test_provenance_batch.py:216: AssertionError
+__________ test_owned_child_killed_at_snapshot_barrier[after_commit] __________
+
+synthetic_package = (WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna1/project'), ...ers/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna1/project/src/submoon_research'))
+barrier = 'after_commit'
+tmp_path = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna1')
+
+    @pytest.mark.parametrize('barrier', ['before_commit', 'after_commit'])
+    def test_owned_child_killed_at_snapshot_barrier(synthetic_package, barrier, tmp_path):
+        root, package = synthetic_package
+        receipt = tmp_path / 'receipt.json'
+        child_script = r'''
+    import json, sys, time
+    from pathlib import Path
+    import submoon_research.execution as e
+    root, package, receipt, barrier = map(Path, sys.argv[1:])
+    e.__file__ = str(package/'execution.py')
+    r = e.RunContext(root, 'kill-test', output_mib=1)
+    original_copy = r._copy_code
+    original_write = e.write_json
+    count = [0]
+    def wait_here():
+        receipt.write_text(json.dumps({'folder': str(r.folder)}), encoding='utf-8')
+        deadline = time.monotonic()+15
+        while time.monotonic() < deadline:
+            time.sleep(.02)
+        raise RuntimeError('barrier deadline')
+    def copy(path, name):
+        result = original_copy(path, name)
+        count[0] += 1
+        if str(barrier) == 'before_commit' and count[0] == 1:
+            wait_here()
+        return result
+    def write(path, data):
+        result = original_write(path, data)
+        if (str(barrier) == 'after_commit' and path == r.folder/'manifest.json'
+                and data.get('initial_code_snapshot', {}).get('state') == 'complete'):
+            wait_here()
+        return result
+    r._copy_code = copy
+    e.write_json = write
+    with r:
+        (root/'body_started').write_text('unexpected', encoding='utf-8')
+    '''
+        process = subprocess.Popen([sys.executable, '-c', child_script, str(root), str(package),
+                                    str(receipt), barrier], stdin=subprocess.DEVNULL,
+                                   stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        try:
+            deadline = time.monotonic() + 12
+            while not receipt.exists() and process.poll() is None and time.monotonic() < deadline:
+                time.sleep(.02)
+>           assert receipt.exists(), 'child не достиг barrier'
+E           AssertionError: child не достиг barrier
+E           assert False
+E            +  where False = exists()
+E            +    where exists = WindowsPath('C:/Users/Taras/AppData/Local/Temp/pytest-of-Taras/pytest-437/test_owned_child_killed_at_sna1/receipt.json').exists
+
+tests\unit\test_provenance_batch.py:216: AssertionError
+=========================== short test summary info ===========================
+FAILED tests/unit/test_provenance_batch.py::test_owned_child_killed_at_snapshot_barrier[before_commit]
+FAILED tests/unit/test_provenance_batch.py::test_owned_child_killed_at_snapshot_barrier[after_commit]
+2 failed, 15 passed in 2.35s

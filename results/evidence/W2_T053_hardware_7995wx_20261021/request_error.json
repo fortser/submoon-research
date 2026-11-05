@@ -1,0 +1,6 @@
+{
+  "utc": "2026-10-21T11:35:47.008768+00:00",
+  "returncode": 1,
+  "message": "\nTraceback (most recent call last):\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\runpy.py\", line 196, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\runpy.py\", line 86, in _run_code\n    exec(code, run_globals)\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\vastai.EXE\\__main__.py\", line 7, in <module>\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\vast.py\", line 6684, in main\n    res = args.func(args)\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\vast.py\", line 2100, in create__instance\n    r = http_put(args, url,  headers=headers,json=json_blob)\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\vast.py\", line 349, in http_put\n    return http_request('PUT', args, req_url, headers, json)\n  File \"C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\lib\\site-packages\\vast.py\", line 322, in http_request\n    for i in range(0, args.retry):\nTypeError: 'str' object cannot be interpreted as an integer\n",
+  "further_requests": false
+}

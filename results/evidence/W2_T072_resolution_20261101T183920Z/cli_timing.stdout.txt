@@ -1,0 +1,23 @@
+============================= test session starts =============================
+platform win32 -- Python 3.10.6, pytest-9.1.1, pluggy-1.6.0 -- T:\test_python\submoon-research\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: T:\test_python\submoon-research
+configfile: pyproject.toml
+plugins: anyio-4.15.1
+collecting ... collected 2 items
+
+tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame] PASSED [ 50%]
+tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin] PASSED [100%]
+
+=================================== PASSES ====================================
+============================ slowest 10 durations =============================
+7.10s call     tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]
+6.89s call     tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame]
+0.00s setup    tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame]
+0.00s setup    tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]
+0.00s teardown tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame]
+0.00s teardown tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]
+=========================== short test summary info ===========================
+PASSED tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[rotating_frame]
+PASSED tests/integration/test_l1_acceptance.py::test_all_ten_mutations_rejected_by_cli[wrong_output_origin]
+============================= 2 passed in 14.18s ==============================

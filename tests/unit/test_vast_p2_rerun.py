@@ -59,8 +59,10 @@ def test_start_script_pcores_mode_pins_stand_and_fails_without_pcores():
     assert 'taskset' not in plain and 'PIN=""' in plain
     for script in (pinned, plain):
         assert 'diag_ias15_guard_dtdone.py' in script and 'seed_rows=$SEED' in script
-        if shutil.which('bash'):
-            assert subprocess.run(['bash', '-n'], input=script.encode(), check=False).returncode == 0
+        # Использовать тот же executable, который найден проверкой доступности.
+        bash = shutil.which('bash')
+        if bash:
+            assert subprocess.run([bash, '-n'], input=script.encode(), check=False, timeout=10).returncode == 0
 
 
 def test_running_stage_reports_actual_workers_pin_and_seed():

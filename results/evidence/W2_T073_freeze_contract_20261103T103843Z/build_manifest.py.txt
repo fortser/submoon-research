@@ -1,0 +1,60 @@
+"""Сохранить неизменяемые копии и SHA адресного исправления D051."""
+import hashlib
+import importlib.metadata
+import json
+import platform
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+root = Path(__file__).resolve().parents[1]
+out = root / 'results/evidence/W2_T073_freeze_contract_20261103T103843Z'
+source_names = [
+    'src/submoon_research/contracts/run_manifest.py',
+    'src/submoon_research/contracts/freeze.py',
+    'src/submoon_research/execution.py',
+    'src/submoon_research/provenance.py',
+    'src/submoon_research/tracking.py',
+    'tests/unit/test_run_manifest_freeze.py',
+    'tests/unit/test_w1_protocol.py',
+    'tests/unit/test_provenance_batch.py',
+    'tests/unit/test_provenance_execution.py',
+    'tests/unit/test_release_freeze.py',
+    'docs/tasks/W2_T073_freeze_contract_20261103.md',
+    'reports/analysis/W2_T073_freeze_contract_20261103.md',
+    'results/evidence/claims.csv',
+]
+sha = lambda data: hashlib.sha256(data).hexdigest()
+sources = {}
+for name in source_names:
+    data = (root / name).read_bytes()
+    target = out / 'sources' / (name + '.txt')
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open('xb') as stream:
+        stream.write(data)
+    sources[name] = sha(data)
+attempts = [json.loads(line) for line in (out / 'attempts.jsonl').read_text(encoding='utf-8').splitlines()]
+assert all(not row['stop_reason'] and not row['observed_survivors'] for row in attempts)
+assert all(row['returncode'] == (1 if row['attempt_id'] == 'red' else 0) for row in attempts)
+measured = sum(row['elapsed_seconds'] for row in attempts)
+assert 240 + measured < 600
+assert sources['src/submoon_research/execution.py'] == '221ff6323edfbcc33247ea8dcb979c74885a52dda2ded663cd0a4ee09f8a0f74'
+files = {p.relative_to(out).as_posix(): sha(p.read_bytes()) for p in sorted(out.rglob('*')) if p.is_file()}
+manifest = dict(
+    run_id=out.name, utc=datetime.now(timezone.utc).isoformat(), tracking_revision=712,
+    status='scoped_fix_passed_not_full_T073_admission', decision_ids=['W2-D050', 'W2-D051'],
+    check_id='W2-C130', issue_id='W2-I045', issue_status='fixed_not_independently_verified',
+    environment=dict(python=sys.version, executable=sys.executable, platform=platform.platform(),
+        packages={p: importlib.metadata.version(p) for p in ['pytest', 'pydantic', 'numpy', 'scipy', 'psutil', 'ruff']}),
+    budget_prior_reserve_seconds=240, measured_new_subprocess_seconds=measured,
+    accounted_subprocess_seconds=240+measured, budget_total_seconds=600,
+    peak_observed_windows_rss_bytes=max(row['peak_observed_rss_bytes'] for row in attempts),
+    linux_memory_limitations='Полный Linux RSS и OS memory quota не измерены/не обеспечены Windows sampling',
+    sources_sha256=sources, evidence_sha256=files,
+    smoke_run_id='L0-20261103T104432Z-15146b6e', independent_review=False,
+    full_pytest=False, scientific_admission=False,
+)
+with (out / 'manifest.json').open('x', encoding='utf-8') as stream:
+    json.dump(manifest, stream, ensure_ascii=False, indent=2)
+print(json.dumps(dict(measured_seconds=measured, accounted_seconds=240+measured,
+                     evidence_files=len(files), status=manifest['status']), ensure_ascii=False))

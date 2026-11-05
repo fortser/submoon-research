@@ -1,0 +1,10 @@
+F                                                                        [100%]
+================================== FAILURES ===================================
+___________ test_snapshot_output_budget_rejects_before_commit[True] ___________
+tests\unit\test_provenance_batch.py:354: in test_snapshot_output_budget_rejects_before_commit
+    pytest.fail('тело не должно запускаться при превышении бюджета')
+E   Failed: тело не должно запускаться при превышении бюджета
+=========================== short test summary info ===========================
+FAILED tests/unit/test_provenance_batch.py::test_snapshot_output_budget_rejects_before_commit[True]
+1 failed in 0.30s
+BUDGET_MUTATION_DETECTED= True

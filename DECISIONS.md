@@ -15,6 +15,7 @@
 | S0-D009 | S0 | accepted | Научный контекст: общая картина и полное досье выбранного этапа | [Запись](tracking/stages/S0/RECORDS.md#s0-d009) |
 | S0-D010 | S0 | accepted | Последовательность определяется проверенными продуктами | [Запись](tracking/stages/S0/RECORDS.md#s0-d010) |
 | S0-D011 | S0 | accepted | Оптимизация трекинга по аудиту 2026-10-13: минимальный набор без П3; блокировка журнала снята | [Запись](tracking/stages/S0/RECORDS.md#s0-d011) |
+| S0-D012 | S0 | accepted | Разрешено просить пользователя о более мощной модели при неопределённости | [Запись](tracking/stages/S0/RECORDS.md#s0-d012) |
 | W0-D001 | W0 | accepted | Локальный комплект статьи — первая точка аудита W0 | [Запись](tracking/stages/W0/RECORDS.md#w0-d001) |
 | W0-D002 | W0 | accepted | Разовое исключение для загрузки исходных условий до 12 МиБ | [Запись](tracking/stages/W0/RECORDS.md#w0-d002) |
 | W0-D003 | W0 | accepted | Разделить архивные входы и независимую постановку L1 | [Запись](tracking/stages/W0/RECORDS.md#w0-d003) |
@@ -64,3 +65,17 @@
 | W2-D035 | W2 | accepted | Instance 56229721 — личная станция пользователя; агентам не изменять и не удалять | [Запись](tracking/stages/W2/RECORDS.md#w2-d035) |
 | W2-D036 | W2 | accepted | Приёмка W2-P2-2a-56220810 архивным пакетом при ядре OpenBLAS сервера с допуском 1e-12 для производных float; генератор без BLAS | [Запись](tracking/stages/W2/RECORDS.md#w2-d036) |
 | W2-D037 | W2 | accepted | Разрешена одна локальная диагностика B в WSL до 90 минут без повторов | [Запись](tracking/stages/W2/RECORDS.md#w2-d037) |
+| W2-D038 | W2 | accepted | Единый полный знаменатель: unresolved — отдельная категория, доли W1 с границами по неизвестным исходам | [Запись](tracking/stages/W2/RECORDS.md#w2-d038) |
+| W2-D039 | W2 | accepted | B проектируется и как контроль, и как маршрут продолжения high-e (гибрид); запасной выход — только контроль | [Запись](tracking/stages/W2/RECORDS.md#w2-d039) |
+| W2-D040 | W2 | accepted | Разрешён короткий контроль W2-P014 шаг 1: свежие старты G/GF в системе центра масс из снимка C072 | [Запись](tracking/stages/W2/RECORDS.md#w2-d040) |
+| W2-D041 | W2 | accepted | Принято исправление старта B: вычитание скорости центра масс массивных тел (W2-P014 шаг 2) | [Запись](tracking/stages/W2/RECORDS.md#w2-d041) |
+| W2-D042 | W2 | accepted | Новое прямое разрешение аппаратного теста найденной радаром 9975WX | [Запись](tracking/stages/W2/RECORDS.md#w2-d042) |
+| W2-D043 | W2 | accepted | Сообщение пользователя о находке радара — разрешение одной аппаратной аренды без пересогласования | [Запись](tracking/stages/W2/RECORDS.md#w2-d043) |
+| W2-D044 | W2 | accepted | Разрешена одна B144 аренда прежней 9975WX до $8 и 8 часов | [Запись](tracking/stages/W2/RECORDS.md#w2-d044) |
+| W2-D045 | W2 | accepted | Ворота G-B (отказ B) закрыты на разработочном уровне с явными оговорками | [Запись](tracking/stages/W2/RECORDS.md#w2-d045) |
+| W2-D046 | W2 | accepted | Принят план Фазы 3 (W2-P015): high-e — в Фазу 2, Япет canonical 0037 — до AVX-512, разрешены шаги 3.0–3.1 | [Запись](tracking/stages/W2/RECORDS.md#w2-d046) |
+| W2-D047 | W2 | accepted | K3: несходимость физических меток обязательна; чувствительность только времени — отдельная диагностика | [Запись](tracking/stages/W2/RECORDS.md#w2-d047) |
+| W2-D048 | W2 | accepted | Научная проверка оснований расчётов в дополнение к техническому аудиту | [Запись](tracking/stages/W2/RECORDS.md#w2-d048) |
+| W2-D049 | W2 | accepted | Независимый review F1/F2 отложен пользователем; продолжать изолированную разработку | [Запись](tracking/stages/W2/RECORDS.md#w2-d049) |
+| W2-D051 | W2 | accepted | T073: отдельный контракт допуска RunContext 0.3 и подключение к freeze | [Запись](tracking/stages/W2/RECORDS.md#w2-d051) |
+| W2-D050 | W2 | accepted | Пакетировать только начальный code-snapshot; ранний pending и отдельный commit до тела запуска | [Запись](tracking/stages/W2/RECORDS.md#w2-d050) |

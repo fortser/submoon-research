@@ -2,7 +2,9 @@
 
 Сценарий задаётся approval['scenario']: 'p2_1' (по умолчанию, прежний стенд admission_p2_horizons)
 или 'p2_2a' (W2-T019: гейты, железо, базовый прогон с автоматическим решением
-baseline_gate_p2_2.py, полный стенд admission_p2_2.py со сроком и стоп-файлом, приёмка на сервере).
+baseline_gate_p2_2.py, полный стенд admission_p2_2.py со сроком и стоп-файлом, приёмка на сервере),
+или 'b144' (W2-T050: 144 архивные B-единицы P2-2a на 100/1000 лет текущим B — гейты, железо и AVX-512,
+точные архивные старты, замер скорости с решением GO/NO-GO, один прогон b144_regress.py со сроком).
 
 Запуск глобальным Python Windows с установленными vastai и paramiko (как vast_w2.py);
 SSH-ключ ~/.ssh/vast_agent. Ключи API на сервер не копируются и в файлы не пишутся.
@@ -59,7 +61,7 @@ STOP_FILE = '/workspace/p2_stop'
 SEED = WORK/'seed_jobs.jsonl'
 SEED_INFO = WORK/'seed_info.json'
 DEFAULT_RUN_DEADLINE_HOURS = 13.5
-SCENARIOS = {'p2_1': 'W2-P2-1', 'p2_2a': 'W2-P2-2a'}
+SCENARIOS = {'p2_1': 'W2-P2-1', 'p2_2a': 'W2-P2-2a', 'b144': 'W2-B144'}
 # Полный P2-2a (W2-P006) и базовый прогон (W2-T019): параметры стенда и приёмщика.
 P2_2A_FULL = '--per-cell 128 --b-per-cell 16 --unit-start 0 --years 1 10 100 1000 --b-years 100 1000'
 P2_2A_BASELINE = '--per-cell 4 --b-per-cell 4 --unit-start 0 --years 1 10 --b-years 1'
@@ -68,6 +70,10 @@ P2_2A_GATE_TESTS = ('tests/unit/test_compiled_dop853.py tests/unit/test_admissio
                     'tests/unit/test_high_e_rule.py tests/unit/test_horizon_independence.py '
                     'tests/unit/test_p2_2_stand.py tests/unit/test_verify_p2_2_run.py '
                     'tests/unit/test_baseline_gate_p2_2.py')
+# W2-T050: гейты сценария b144 — путь B, старт без дрейфа, версия checkpoint, исполнитель серии.
+B144_GATE_TESTS = ('tests/unit/test_ias15_cm_start.py tests/unit/test_native_ias15_guard.py '
+                   'tests/unit/test_horizon_independence.py tests/unit/test_events_shared_samples.py '
+                   'tests/unit/test_ias15_horizon_clip.py tests/unit/test_b144_regress.py')
 
 
 def scenario_of(record):
@@ -104,6 +110,15 @@ def approval():
                 raise ValueError(f'Для сценария p2_2a в approval нужен {key}')
         if value.get('seed'):
             raise ValueError('seed применим только к сценарию p2_1')
+    if scenario_of(value) == 'b144':
+        for key in ('min_workers', 'run_deadline_hours', 'expected_b_fingerprint', 'reference_sha256'):
+            if not value.get(key):
+                raise ValueError(f'Для сценария b144 в approval нужен {key}')
+        for key in ('expected_b_fingerprint', 'reference_sha256'):
+            if not re.fullmatch(r'[0-9a-f]{64}', str(value[key])):
+                raise ValueError(f'{key}: нужен полный SHA-256')
+        if value.get('seed') or value.get('pcores_only'):
+            raise ValueError('seed и pcores_only не применимы к сценарию b144')
     return value
 
 
@@ -395,6 +410,8 @@ def make_seed():
 def _start_script(rental):
     if scenario_of(rental) == 'p2_2a':
         return _start_script_p2_2a(rental)
+    if scenario_of(rental) == 'b144':
+        return _start_script_b144(rental)
     iid = int(rental['instance_id'])
     workers = _workers(rental['offer'])
     run_dir = f'runs/W2-P2-1-{iid}'
@@ -516,6 +533,51 @@ echo "done exit=$EXIT accept=$ACC $(date -u +%FT%TZ)" > $STATUS
 '''
 
 
+def _start_script_b144(rental):
+    """W2-T050 (W2-P014 шаг 4): гейты → железо и AVX-512 → точные архивные старты (legacy, SkylakeX) →
+    замер скорости с решением GO/NO-GO → один прогон 288 заданий B со сроком и стоп-файлом.
+    Несовпадение хотя бы одной архивной идентичности — FAILED inputs, расчёта нет."""
+    iid = int(rental['instance_id'])
+    workers = _workers(rental['offer'])
+    run_dir = run_dir_of(rental)
+    logs = f'runs/W2-B144-logs-{iid}'
+    deadline = rental['run_deadline_utc']
+    min_workers = int(rental['min_workers'])
+    margin = float(rental.get('benchmark_margin', 1.25))
+    expected = rental['expected_b_fingerprint']
+    reference = rental['reference_sha256']
+    for value in (expected, reference):
+        if not re.fullmatch(r'[0-9a-f]{64}', str(value)):
+            raise ValueError('b144: нужен полный SHA-256')
+    return f'''#!/bin/bash
+{_SETUP_BLOCK}export W2_REMOTE_EXECUTION=1 W2_INSTANCE_ID={iid}
+rm -f {STOP_FILE}
+echo "gates $(date -u +%FT%TZ)" > $STATUS
+.venv/bin/python -c "import rebound, reboundx" || fail reboundx
+.venv/bin/python -m pytest -q {B144_GATE_TESTS} || fail pytest
+.venv/bin/python -m ruff check src scripts tests || fail ruff
+mkdir -p {logs}
+{{ date -u +%FT%TZ; lscpu; echo; nproc; cat /sys/fs/cgroup/cpu.max; cat /sys/fs/cgroup/memory.max; grep -E 'MemTotal|MemAvailable' /proc/meminfo; df -h /workspace; python3 -c "import os; print('affinity', sorted(os.sched_getaffinity(0)))"; grep -m1 -o -w avx512f /proc/cpuinfo || echo 'no avx512f'; }} > {logs}/hardware.txt 2>&1
+{_HARDWARE_BLOCK}W={workers}
+if [ "$PHYS" -gt 0 ] && [ "$PHYS" -lt "$W" ]; then W=$PHYS; fi
+if [ -n "$QUOTA" ] && [ "$QUOTA" -gt 0 ] && [ "$QUOTA" -lt "$W" ]; then W=$QUOTA; fi
+if [ "$MEMW" -gt 0 ] && [ "$MEMW" -lt "$W" ]; then W=$MEMW; fi
+echo "hardware physical=$PHYS quota=${{QUOTA:-none}} mem_workers=$MEMW offer_limit={workers} workers=$W min_workers={min_workers}" >> {logs}/hardware.txt
+[ "$W" -ge {min_workers} ] || fail hardware
+grep -qw avx512f /proc/cpuinfo || fail avx512
+export OPENBLAS_CORETYPE=SkylakeX
+echo "inputs $(date -u +%FT%TZ)" > $STATUS
+.venv/bin/python -u scripts/b144_regress.py prepare --run-dir {run_dir} --expected-b {expected} --reference-sha256 {reference} > {logs}/prepare_stdout.log 2>&1 || fail inputs
+MSHA=$(sha256sum {run_dir}/manifest.json | cut -d' ' -f1)
+echo "benchmark $(date -u +%FT%TZ) workers=$W manifest=$MSHA" > $STATUS
+.venv/bin/python -u scripts/b144_regress.py benchmark --run-dir {run_dir} --manifest-sha256 $MSHA --deadline-utc {deadline} --workers $W --margin {margin} > {logs}/benchmark_stdout.log 2>&1 || fail benchmark
+echo "running $(date -u +%FT%TZ) workers=$W physical=$PHYS quota=${{QUOTA:-none}} offer_limit={workers} pin=none seed_rows=0 manifest=$MSHA deadline={deadline}" > $STATUS
+.venv/bin/python -u scripts/b144_regress.py run --run-dir {run_dir} --manifest-sha256 $MSHA --deadline-utc {deadline} --stop-file {STOP_FILE} --workers $W > {logs}/run_stdout.log 2>&1
+EXIT=$?
+echo "done exit=$EXIT accept=local $(date -u +%FT%TZ)" > $STATUS
+'''
+
+
 def deploy():
     rental = load(RENTAL)
     if not rental or rental.get('status') not in ('running', 'created'):
@@ -565,6 +627,11 @@ def deploy():
                 raise ValueError('pcores_only для p2_2a не поддержан')
             rental['min_workers'] = int(plan['min_workers'])
             rental['baseline_margin'] = float(plan.get('baseline_margin', 1.15))
+        if rental['scenario'] == 'b144':
+            rental['min_workers'] = int(plan['min_workers'])
+            rental['benchmark_margin'] = float(plan.get('benchmark_margin', 1.25))
+            rental['expected_b_fingerprint'] = plan['expected_b_fingerprint']
+            rental['reference_sha256'] = plan['reference_sha256']
         script = WORK/f'start_{rental["instance_id"]}.sh'
         script.write_text(_start_script(rental), encoding='utf-8', newline='\n')
         vw.put_if_missing_or_identical(client, sftp, script, '/workspace/p2_start.sh')
@@ -626,6 +693,11 @@ def status():
                 if scenario_of(rental) == 'p2_2a':
                     out['baseline_gate'] = vw.remote_command(
                         client, f'cat {run_dir}/baseline_gate.json 2>/dev/null || echo none', 20).strip()[:1500]
+                if scenario_of(rental) == 'b144':
+                    out['identity'] = vw.remote_command(
+                        client, f'head -c 700 {run_dir}/identity.json 2>/dev/null || echo none', 20).strip()[:700]
+                    out['benchmark'] = vw.remote_command(
+                        client, f'cat {run_dir}/benchmark.json 2>/dev/null || echo none', 20).strip()[:1500]
                 out['log_tail'] = vw.remote_command(client, f'tail -n 15 {rental.get("remote_log", "/dev/null")} 2>/dev/null', 20)[-2500:]
         except Exception as exc:
             out['ssh'] = type(exc).__name__
@@ -647,7 +719,7 @@ def wrapup():
     vw.WORK = WORK
     with vw.connection(info) as client:
         stage = vw.remote_command(client, 'cat /workspace/p2_status 2>/dev/null || echo none', 20).strip()
-        if not stage.startswith(('running', 'baseline')):  # baseline — только сценарий p2_2a
+        if not stage.startswith(('running', 'baseline', 'benchmark')):  # baseline — p2_2a, benchmark — b144
             print(json.dumps(dict(stage=stage, action='стоп-файл не нужен'), ensure_ascii=False))
             return
         vw.remote_command(client, f'touch {STOP_FILE}', 20)
@@ -747,9 +819,15 @@ def _extract_results(archive, iid, *, root=None, work=None, stamp=None, prefix='
     return stats
 
 
+# W2-D035: личная станция пользователя — агентам не изменять и не удалять ни при каких записях аренды.
+PROTECTED_INSTANCES = frozenset({56229721})
+
+
 def destroy():
     rental = load(RENTAL)
     iid = int(rental['instance_id'])
+    if iid in PROTECTED_INSTANCES:
+        raise RuntimeError(f'instance {iid} — личная станция пользователя (W2-D035): удаление запрещено')
     vw.cli('destroy', 'instance', iid)
     time.sleep(10)
     if any(int(x.get('id', -1)) == iid for x in vw.instances()):
@@ -778,6 +856,9 @@ def finish(partial=False):
     if scenario_of(rental) == 'p2_2a':
         print('Дальше локально в WSL (REBOUNDx): строгая приёмка выгруженного run — '
               f"verify_p2_2_run.py --run {run_dir_of(rental)} --expect-full --expect-decision-ready")
+    if scenario_of(rental) == 'b144':
+        print('Дальше локально в WSL: b144_regress.py analyze --run-dir '
+              f'{run_dir_of(rental)} --manifest-sha256 <SHA manifest.json> --output <новый файл>')
 
 
 def main(argv=None):

@@ -1,0 +1,13 @@
+{
+  "data_kind": "synthetic_reader_characterization",
+  "aggregate_executed": false,
+  "results": {
+    "legacy_0.2": "reached_aggregation_boundary_without_executing_it",
+    "complete_0.3": "reached_aggregation_boundary_without_executing_it",
+    "pending_0.3": "reached_aggregation_boundary_without_executing_it",
+    "missing_expected": "reached_aggregation_boundary_without_executing_it",
+    "wrong_count": "reached_aggregation_boundary_without_executing_it",
+    "failed_status": "reached_aggregation_boundary_without_executing_it",
+    "bad_artifact_sha": "ValueError: SHA-256 входа изменился: runs/synthetic-pilot/results/outcomes.json"
+  }
+}

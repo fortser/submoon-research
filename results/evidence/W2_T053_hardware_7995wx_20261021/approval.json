@@ -1,0 +1,22 @@
+{
+  "approval_ref": "user-20261021-hardware-7995wx-confirmed-repeat",
+  "approved": true,
+  "user_message": "Да, запятая. Разрешаю тебе повторную аренду и нагрузочный тест.",
+  "context": "Прямой ответ на предложение одной повторной попытки до $1 и 30 минут. Только аппаратный тест, без B144. Предыдущий 57038234 удалён без нагрузки; подготовленная repeat-попытка не создавалась.",
+  "owner": "pi-hw-repeat-exec-20261021",
+  "task_id": "W2-T053",
+  "run_id": "W2-hardware-7995wx-20261021-confirmed-repeat",
+  "offer_id": 54621118,
+  "machine_id": 153489,
+  "mode": "on-demand",
+  "disk_gb": 60,
+  "max_hourly_usd": 0.70,
+  "budget_usd": 1.0,
+  "max_test_minutes": 30,
+  "max_paid_attempts": 1,
+  "max_upload_gb": 0.01,
+  "max_download_gb": 0.01,
+  "image": "python:3.11-slim-bookworm",
+  "scientific_series_authorized": false,
+  "termination": "Непрерывное выполнение нагрузки, выгрузка с проверкой SHA, затем удаление только созданного инстанса. Не изменять 56229721. При блокере до завершения нагрузки сообщить пользователю и запросить указание, не создавать платный повтор. Лимиты не расширять."
+}

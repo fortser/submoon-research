@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "C:\\WINDOWS\\System32\\wsl.exe",
+    "-d",
+    "Ubuntu-24.04",
+    "--cd",
+    "/mnt/t/test_python/submoon-research",
+    "--exec",
+    "/usr/bin/timeout",
+    "--kill-after=2s",
+    "45s",
+    "/home/taras/venvs/submoon-w2/bin/python",
+    "-m",
+    "pytest",
+    "tests/unit/test_vast_p2_2a.py",
+    "tests/unit/test_vast_p2_b144.py",
+    "tests/unit/test_vast_p2_rerun.py",
+    "tests/unit/test_bash_syntax_selection.py",
+    "-q"
+  ],
+  "elapsed_seconds": 7.875,
+  "returncode": 0,
+  "windows_timed_out": false,
+  "linux_deadline_seconds": 45,
+  "linux_kill_after_seconds": 2,
+  "cleanup_scope": "ожидание собственного launcher; нет глобальной проверки Linux-процессов"
+}

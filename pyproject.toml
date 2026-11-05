@@ -16,6 +16,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = ["pytest", "ruff"]
 monitor = ["pystray>=0.19.5,<0.20", "Pillow>=10,<13"]
+hardware_trial = ["paramiko>=4,<6", "requests>=2.32,<3"]
 geometry = ["spiceypy"]
 observations = ["photutils", "reproject", "scikit-image", "pvl", "pds4_tools"]
 extended_physics = ["reboundx"]

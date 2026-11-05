@@ -1,0 +1,53 @@
+{
+  "M0": {
+    "old_selected_sha256": "95b0b08d4161d832898b621277db1cff08f934a721f48f863543544898010356",
+    "new_selected_sha256": "95b0b08d4161d832898b621277db1cff08f934a721f48f863543544898010356",
+    "equal": true,
+    "failure_equal": true
+  },
+  "MP": {
+    "old_selected_sha256": "a03cf97efca6bf9d32a7d7b462d3183f116ea85b4e2a3cfde323e935ff255e22",
+    "new_selected_sha256": "a03cf97efca6bf9d32a7d7b462d3183f116ea85b4e2a3cfde323e935ff255e22",
+    "equal": true,
+    "failure_equal": true
+  },
+  "MC": {
+    "old_selected_sha256": "6eaa2dbc93f8d8e8922cdcbf5a33d3e73afc63bee69bfb5bfc62df7501f8b2e6",
+    "new_selected_sha256": "6eaa2dbc93f8d8e8922cdcbf5a33d3e73afc63bee69bfb5bfc62df7501f8b2e6",
+    "equal": true,
+    "failure_equal": true
+  },
+  "MD": {
+    "old_selected_sha256": "95b0b08d4161d832898b621277db1cff08f934a721f48f863543544898010356",
+    "new_selected_sha256": "95b0b08d4161d832898b621277db1cff08f934a721f48f863543544898010356",
+    "equal": true,
+    "failure_equal": true
+  },
+  "MA": {
+    "old_selected_sha256": "8cbf66fb7b38267b07d106dca86e629edbac1463803981fde4c50755a89e58ff",
+    "new_selected_sha256": "8cbf66fb7b38267b07d106dca86e629edbac1463803981fde4c50755a89e58ff",
+    "equal": true,
+    "failure_equal": true
+  },
+  "G": {
+    "old_selected_sha256": "87a617fb25956f6be4f38e9bd18e0f129b60d30f0743216d0251ac84a8922204",
+    "new_selected_sha256": "87a617fb25956f6be4f38e9bd18e0f129b60d30f0743216d0251ac84a8922204",
+    "equal": true,
+    "failure_equal": true
+  },
+  "GF": {
+    "old_selected_sha256": "77573f3460b44ae6bb58e7e53fa5418666e3ee8ef023e401c6c58dca8cfb9a4f",
+    "new_selected_sha256": "77573f3460b44ae6bb58e7e53fa5418666e3ee8ef023e401c6c58dca8cfb9a4f",
+    "equal": true,
+    "failure_equal": true
+  },
+  "100_year_smoke": {
+    "ganymede:uniform_log_a:0002": true,
+    "himalia:canonical_volume:0010": true,
+    "ganymede:uniform_log_a:0000": true,
+    "himalia:uniform_a_e_cos_i_phases:0015": true,
+    "himalia:canonical_volume:0012": true,
+    "himalia:uniform_log_a:0014": true
+  },
+  "12_of_17": 12
+}

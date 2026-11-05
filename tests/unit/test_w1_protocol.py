@@ -139,7 +139,7 @@ def test_freeze_rejects_short_real_benchmark(tmp_path):
     import json
     from submoon_research.contracts.freeze import validate_freeze
     spec = W1Design(design_id='test', status='ready_for_freeze')
-    manifest = dict(status='completed', validation={'status': 'passed'},
+    manifest = dict(schema_version='0.2', status='completed', validation={'status': 'passed'},
         data_kind='real_nominal_cost_benchmark', resources={'integration_calls': 36},
         scientific_admission=dict(audited_physics=True, validated_generator=True,
                                   validated_dynamics=True, validated_events=True))

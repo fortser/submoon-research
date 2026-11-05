@@ -1,0 +1,9 @@
+.................................xxxxxx.......................           [100%]
+=========================== short test summary info ===========================
+XFAIL tests/unit/test_phase3_audit.py::test_k1_requires_complete_perturbation_grid - v1: число направлений/пустые масштабы не проверяются перед K1
+XFAIL tests/unit/test_phase3_audit.py::test_k1_cannot_ignore_available_contradictory_b - v1: единственная противоречащая строка B игнорируется как insufficient
+XFAIL tests/unit/test_phase3_audit.py::test_unknowns_alone_cannot_establish_k3[completed] - v1: unknown/failed считает сменой физического исхода
+XFAIL tests/unit/test_phase3_audit.py::test_unknowns_alone_cannot_establish_k3[failed] - v1: unknown/failed считает сменой физического исхода
+XFAIL tests/unit/test_phase3_audit.py::test_high_e_confidence_cap - v1: YAML требует уверенность high-e не выше medium, K3 возвращает high
+XFAIL tests/unit/test_phase3_audit.py::test_k3_distinguishes_time_only_from_label_nonconvergence - v1: K3 использует несходимость времени вместо несходимости метки (§6)
+56 passed, 2 deselected, 6 xfailed in 7.05s

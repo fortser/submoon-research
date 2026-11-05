@@ -1,0 +1,678 @@
+{
+ "schema": "w2-phase3-cases-v1",
+ "task": "W2-T061",
+ "plan": "W2-P015",
+ "decision": "W2-D046",
+ "created_utc": "2026-10-26T09:52:29Z",
+ "config_sha256": "3e6ebdaedd39110702e873d1cfa31f107acc69123e9e53d8df340832f968adbb",
+ "rules_version": "W2-PH3-rules-v1",
+ "convergence_sha256": "0b3886ef4007e59247d19288770be36befbdec36d62ea0c7727abd415fb49db5",
+ "controls": {
+  "chosen": {
+   "ganymede:host_contact": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "ganymede:operational_escape": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "himalia:host_contact": "himalia:uniform_log_a:0006",
+   "himalia:operational_escape": "himalia:uniform_a_e_cos_i_phases:0005",
+   "himalia:survived": "himalia:uniform_a_e_cos_i_phases:0015",
+   "iapetus:host_contact": "iapetus:uniform_log_a:0013",
+   "iapetus:operational_escape": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "iapetus:survived": "iapetus:uniform_a_e_cos_i_phases:0003"
+  },
+  "candidates": {
+   "ganymede:host_contact": 19,
+   "ganymede:operational_escape": 23,
+   "himalia:host_contact": 8,
+   "himalia:operational_escape": 20,
+   "himalia:survived": 5,
+   "iapetus:host_contact": 14,
+   "iapetus:operational_escape": 21,
+   "iapetus:survived": 2
+  },
+  "perturbed": {
+   "host_contact": "himalia:uniform_log_a:0006",
+   "operational_escape": "himalia:uniform_a_e_cos_i_phases:0005",
+   "survived": "himalia:uniform_a_e_cos_i_phases:0015"
+  },
+  "rule": {
+   "source": "144 единицы B144 на 1000 лет; исключены цели и отложенные",
+   "agreement": "одинаковая метка нового B (B144), D и T (P2-2a), не unresolved; для контакта/ухода max-min времени трёх методов <= 1 P0",
+   "cost_cap_b_wall_seconds": 300.0,
+   "pick_terminal": "наибольшее время события, затем наименьший номер единицы",
+   "pick_survived": "наименьший wall нового B, затем наименьший номер единицы",
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturbed_controls": "по одному на исход (контакт, уход, survived): терминальные — наибольшее время события среди выбранных, survived — наименьший wall B"
+  }
+ },
+ "deferred": {
+  "avx512_starts": [
+   "iapetus:canonical_volume:0037"
+  ],
+  "phase2_high_e": [
+   "iapetus:canonical_volume:0032",
+   "himalia:uniform_log_a:0035",
+   "iapetus:uniform_a_e_cos_i_phases:0057",
+   "himalia:uniform_log_a:0063",
+   "himalia:canonical_volume:0063",
+   "himalia:canonical_volume:0073",
+   "himalia:uniform_log_a:0077",
+   "himalia:uniform_a_e_cos_i_phases:0088",
+   "himalia:uniform_a_e_cos_i_phases:0099",
+   "himalia:uniform_log_a:0108",
+   "iapetus:uniform_log_a:0124",
+   "himalia:canonical_volume:0009",
+   "iapetus:canonical_volume:0008",
+   "iapetus:canonical_volume:0009",
+   "iapetus:uniform_log_a:0003"
+  ]
+ },
+ "cases": [
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+   "block": "P0",
+   "high_e": true,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "B",
+   "role": "target",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 828.0611539465813,
+     "wall": 6.733237980864942
+    },
+    "p2_2a_T": {
+     "label": "unresolved:high_e_prolonged",
+     "time_years": 501.61876891133323,
+     "wall": 7.547412580810487
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 360.5179720760388,
+     "wall": 61.366072861943394
+    },
+    "b144_new_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 167.13970275688916
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0013",
+   "block": "P0",
+   "high_e": true,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "B",
+   "role": "target",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "unresolved:high_e_prolonged",
+     "time_years": 11.44821491836337,
+     "wall": 0.04178397357463837
+    },
+    "p2_2a_T": {
+     "label": "unresolved:high_e_prolonged",
+     "time_years": 11.446572789266687,
+     "wall": 0.07789730606600642
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 63.39861612365544,
+     "wall": 4.995680496096611
+    },
+    "b144_new_B": {
+     "label": "operational_escape",
+     "time_years": 118.98711718584798,
+     "wall": 11.162385589443147
+    }
+   }
+  },
+  {
+   "orbit_id": "iapetus:canonical_volume:0006",
+   "block": "P0",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "Ts",
+   "dense_window_years": 30.0,
+   "role": "target",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 95.45056922126966,
+     "wall": 0.8859878601506352
+    },
+    "p2_2a_T": {
+     "label": "operational_escape",
+     "time_years": 77.0264133065435,
+     "wall": 1.378806171938777
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 48.81282503315671,
+     "wall": 8.577499686740339
+    },
+    "b144_new_B": {
+     "label": "operational_escape",
+     "time_years": 38.13037084314739,
+     "wall": 7.7390205236151814
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "block": "P1",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "Ts",
+   "role": "target",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 627.4617987321308,
+     "wall": 2.8992451750673354
+    },
+    "p2_2a_T": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 9.840919523034245
+    },
+    "p2_2a_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 116.26523069711402
+    },
+    "b144_new_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 127.41299930866808
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+   "block": "P1",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "Ts",
+   "role": "target",
+   "source": "regenerate",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 169.50323328721313,
+     "wall": 0.40747989201918244
+    },
+    "p2_2a_T": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 4.543974871747196
+    }
+   }
+  },
+  {
+   "orbit_id": "ganymede:uniform_log_a:0086",
+   "block": "P1",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "Ts",
+   "role": "target",
+   "source": "regenerate",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 1.0015015202794335,
+     "wall": 0.1051961942575872
+    },
+    "p2_2a_T": {
+     "label": "host_contact",
+     "time_years": 1.0371684281192635,
+     "wall": 0.19054847210645676
+    }
+   }
+  },
+  {
+   "orbit_id": "ganymede:canonical_volume:0126",
+   "block": "P1",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B",
+    "Bs",
+    "Be"
+   ],
+   "perturb_family": "Ts",
+   "b_horizon_fallback_years": 400.0,
+   "role": "target",
+   "source": "regenerate",
+   "context": {
+    "p2_2a_D": {
+     "label": "host_contact",
+     "time_years": 2.926402691140478,
+     "wall": 0.2711628549732268
+    },
+    "p2_2a_T": {
+     "label": "operational_escape",
+     "time_years": 351.3272473001726,
+     "wall": 55.12851291615516
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+   "block": "P1",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U"
+   ],
+   "perturb_family": "Ts",
+   "role": "target",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "host_contact",
+     "time_years": 212.89039252298033,
+     "wall": 64.08705308707431
+    },
+    "p2_2a_T": {
+     "label": "host_contact",
+     "time_years": 212.872917652804,
+     "wall": 135.15613310877234
+    },
+    "p2_2a_B": {
+     "label": "host_contact",
+     "time_years": 212.87266128124554,
+     "wall": 1906.423371464014
+    },
+    "b144_new_B": {
+     "label": "host_contact",
+     "time_years": 212.87293899051494,
+     "wall": 1937.840809925925
+    }
+   }
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+   "block": "P1",
+   "role": "control",
+   "control_group": "ganymede:host_contact",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": null,
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "host_contact",
+     "time_years": 0.16743911763883917,
+     "wall": 0.08153508324176073
+    },
+    "p2_2a_T": {
+     "label": "host_contact",
+     "time_years": 0.16743911841804335,
+     "wall": 0.1562644001096487
+    },
+    "p2_2a_B": {
+     "label": "host_contact",
+     "time_years": 0.1674391184211044,
+     "wall": 1.500821493100375
+    },
+    "b144_new_B": {
+     "label": "host_contact",
+     "time_years": 0.1674391184210465,
+     "wall": 1.5200189491733909
+    }
+   }
+  },
+  {
+   "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+   "block": "P1",
+   "role": "control",
+   "control_group": "ganymede:operational_escape",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": null,
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 0.05892965780525753,
+     "wall": 0.00723603181540966
+    },
+    "p2_2a_T": {
+     "label": "operational_escape",
+     "time_years": 0.05892965697300638,
+     "wall": 0.0134188923984766
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 0.058929656967394085,
+     "wall": 0.11495692608878016
+    },
+    "b144_new_B": {
+     "label": "operational_escape",
+     "time_years": 0.05892965696747266,
+     "wall": 0.12232638290151954
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0006",
+   "block": "P1",
+   "role": "control",
+   "control_group": "himalia:host_contact",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": "Ts",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "host_contact",
+     "time_years": 41.99444735113205,
+     "wall": 4.5110465050674975
+    },
+    "p2_2a_T": {
+     "label": "host_contact",
+     "time_years": 41.99449482312664,
+     "wall": 8.749046878423542
+    },
+    "p2_2a_B": {
+     "label": "host_contact",
+     "time_years": 41.994494667874555,
+     "wall": 125.09875353891402
+    },
+    "b144_new_B": {
+     "label": "host_contact",
+     "time_years": 41.99449550872841,
+     "wall": 131.3398362249136
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+   "block": "P1",
+   "role": "control",
+   "control_group": "himalia:operational_escape",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": "Ts",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 2.8418385582459798,
+     "wall": 0.013887672685086727
+    },
+    "p2_2a_T": {
+     "label": "operational_escape",
+     "time_years": 2.8418385725134367,
+     "wall": 0.014820363372564316
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 2.841838572923372,
+     "wall": 0.1647390890866518
+    },
+    "b144_new_B": {
+     "label": "operational_escape",
+     "time_years": 2.8418385706174853,
+     "wall": 0.18165972968563437
+    }
+   }
+  },
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "block": "P1",
+   "role": "control",
+   "control_group": "himalia:survived",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": "Ts",
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 3.9297618828713894
+    },
+    "p2_2a_T": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 7.891841320786625
+    },
+    "p2_2a_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 86.09734800597653
+    },
+    "b144_new_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 100.1607395010069
+    }
+   }
+  },
+  {
+   "orbit_id": "iapetus:uniform_log_a:0013",
+   "block": "P1",
+   "role": "control",
+   "control_group": "iapetus:host_contact",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": null,
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "host_contact",
+     "time_years": 30.542074878692947,
+     "wall": 10.562707933597267
+    },
+    "p2_2a_T": {
+     "label": "host_contact",
+     "time_years": 30.542079923320106,
+     "wall": 22.0727751981467
+    },
+    "p2_2a_B": {
+     "label": "host_contact",
+     "time_years": 30.54208001751827,
+     "wall": 231.50703888898715
+    },
+    "b144_new_B": {
+     "label": "host_contact",
+     "time_years": 30.542080080677763,
+     "wall": 241.7683445601724
+    }
+   }
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+   "block": "P1",
+   "role": "control",
+   "control_group": "iapetus:operational_escape",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": null,
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "operational_escape",
+     "time_years": 1.2464596833674173,
+     "wall": 0.014013536740094423
+    },
+    "p2_2a_T": {
+     "label": "operational_escape",
+     "time_years": 1.2464596794761678,
+     "wall": 0.023185113910585642
+    },
+    "p2_2a_B": {
+     "label": "operational_escape",
+     "time_years": 1.2464596794605245,
+     "wall": 0.25019081495702267
+    },
+    "b144_new_B": {
+     "label": "operational_escape",
+     "time_years": 1.2464596794531118,
+     "wall": 0.2692050910554826
+    }
+   }
+  },
+  {
+   "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+   "block": "P1",
+   "role": "control",
+   "control_group": "iapetus:survived",
+   "high_e": false,
+   "codes": [
+    "D",
+    "Ds",
+    "T",
+    "Ts",
+    "U",
+    "B"
+   ],
+   "perturb_family": null,
+   "source": "b144_units",
+   "context": {
+    "p2_2a_D": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 7.230264037847519
+    },
+    "p2_2a_T": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 14.670277269091457
+    },
+    "p2_2a_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 154.41684470511973
+    },
+    "b144_new_B": {
+     "label": "survived",
+     "time_years": 1000.0,
+     "wall": 148.58086236100644
+    }
+   }
+  }
+ ]
+}

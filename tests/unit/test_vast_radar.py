@@ -126,6 +126,19 @@ def test_single_episode_survives_restart_and_offer_id_change(cfg, store, tmp_pat
     assert '777' in r.findings.read_text(encoding='utf-8')
 
 
+def test_findings_explain_user_signal_authorization_not_autorental(cfg, store, tmp_path):
+    r = radar(cfg, store, tmp_path, [offer()])
+    r.probe(143224)
+    text = r.findings.read_text(encoding='utf-8')
+    assert cfg['trial_approval_ref'] == 'W2-D043'
+    assert cfg['max_paid_attempts'] == 1 and cfg['paid_retries'] == 0
+    assert cfg['automatic_rental'] is False
+    assert 'W2-D043' in text and 'без повторного согласования' in text
+    assert 'на сигнал' in text and 'Сам радар не арендует' in text
+    assert 'fast_trial_policy.md' in text
+    assert r.view()['paid_actions'] == 0
+
+
 def test_state_really_persists_on_disk(cfg, tmp_path):
     folder = tmp_path/'persist'
     db = Store(folder, now=NOW)

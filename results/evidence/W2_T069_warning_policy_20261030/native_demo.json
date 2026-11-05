@@ -1,0 +1,32 @@
+{
+  "synthetic": true,
+  "policy_prototype_only": true,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "ledger": {
+    "schema": "W2-warning-ledger-prototype-v1",
+    "policy_sha256": "62a5bac3dc1268e2b6a68492212eea357325fee9e094920ab2700df5a81bac8e",
+    "capture_complete": true,
+    "overflow": false,
+    "events": [
+      {
+        "category": "RuntimeWarning",
+        "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+        "phase": "cache",
+        "time": null
+      }
+    ],
+    "engine_status": "completed",
+    "assessment": {
+      "admissible": false,
+      "reasons": [
+        "warnings_present"
+      ],
+      "physical_outcome_policy": "unresolved"
+    }
+  },
+  "ledger_sha256": "559cdc7f25be9aec604b5463e373ea07f0fd8180284db080d2728f77b863f67f",
+  "engine_end": 2.0,
+  "module_sha256": "6f1b0c6a75c59d3f56fdbcb939a30b67e5eebd4664f5631544ef82f24d6b612f",
+  "capture_sha256": "ed85c957edbde8a2341c1e947dbca6537a5e29f2b7b5b71bb5e74a9fc308f4ca",
+  "limitation": "Только синтетический однопроцессный вызов cache.extend; не production capture."
+}

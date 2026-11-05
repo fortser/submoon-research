@@ -1,0 +1,25 @@
+{
+  "python": "3.10.6",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "final_input_recheck_files": 565,
+  "mismatches": [],
+  "files": {
+    "results/evidence/W2_T066_quality_20261030/b144.json": "d4b9b3d19961d15616b9b1edc9c213832c35ce3536a04a24a60b011a39793f7f",
+    "results/evidence/W2_T066_quality_20261030/b144.log": "186740aaf0ac47efa3147526f83e4e06ca20ea08af8b0c08d8e480359d0721a1",
+    "results/evidence/W2_T066_quality_20261030/comparison/analysis.json": "ac0ee1d4df83f3461256bb31e6f085e3124be1c27952ee8dd7166d882eea119d",
+    "results/evidence/W2_T066_quality_20261030/comparison/cases.csv": "6e04ec974aa9edafd911579bc0660ec242c368a8fe0a26ef7c963b9cb5d46f9f",
+    "results/evidence/W2_T066_quality_20261030/comparison.log": "d94e2e0d12cbb28c7c4fb81d2ff195e2a20c569b068f7c4a02b8edde9479a00f",
+    "results/evidence/W2_T066_quality_20261030/full_pytest.txt": "6aaddcf1e957f8d65d1392e7b81e6c10b2cfd4478203a0e90636e99505c61468",
+    "results/evidence/W2_T066_quality_20261030/independent.json": "f3fe8d84ef998852dcfa15d2ef369bfb42688b7c5f76a61c47a2476e1a90763f",
+    "results/evidence/W2_T066_quality_20261030/independent.log": "0aa4c6ae3c05c9830f6a058876773ee5c7cbc3a514d9b3bee0e27e19b98c24c9",
+    "results/evidence/W2_T066_quality_20261030/phase3/audit.json": "eefbcf6c3b1517b8552b7c7b5be394ca88d873c90a0d1227679d8b56575d1002",
+    "results/evidence/W2_T066_quality_20261030/phase3.log": "cc57d0e33f0c68ebf026bcf1934e4943f7078871905591b2f533b2e71e6bc88f",
+    "results/evidence/W2_T066_quality_20261030/pip_check.txt": "672aec65a45bed50e70229c70934a7eebf0462595c459b83023027645d57cccf",
+    "results/evidence/W2_T066_quality_20261030/profile_tests.txt": "02131f02fdbaf8a7b45707802cb5517101d63c593f21710017c238a60ef27939",
+    "results/evidence/W2_T066_quality_20261030/ruff.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_T066_quality_20261030/smoke.txt": "ce03cf2d41c4f1d76be170350730e1ec0d4899ad106cdb1948fc5c616cdd1735",
+    "results/evidence/W2_T066_quality_20261030/validate.txt": "ebbc6548f043948a10672a93c78743d5890f10ffc8128c7dede0f14ec0af3f4c",
+    "scripts/audit_w2_quality_20261030.py": "ca0f1133a76de0cfd70ad4d6a2c1e7db009786182cd9902fcbff3d59793f53f1",
+    "reports/analysis/W2_T066_quality_review_20261030.md": "7e3e225ba1ab7b4f05c60554488adfe8a45b76f9f9e0519c1716cd6a448915d4"
+  }
+}

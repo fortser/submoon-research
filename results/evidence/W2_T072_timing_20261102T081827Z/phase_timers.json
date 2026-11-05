@@ -1,0 +1,41 @@
+{
+  "import_seconds": 0.21782299999904353,
+  "main_seconds": 9.57990510000127,
+  "returncode": 1,
+  "measurements": {
+    "environment": {
+      "calls": 1,
+      "seconds_inclusive": 0.04161019999992277
+    },
+    "RunContext.__init__": {
+      "calls": 1,
+      "seconds_inclusive": 0.04205829999955313
+    },
+    "os.fsync": {
+      "calls": 99,
+      "seconds_inclusive": 6.832558099999005
+    },
+    "RunContext.save_code": {
+      "calls": 92,
+      "seconds_inclusive": 8.06859550000263
+    },
+    "RunContext.__enter__": {
+      "calls": 1,
+      "seconds_inclusive": 8.548508600000787
+    },
+    "schema": {
+      "calls": 1,
+      "seconds_inclusive": 0.06470699999954377
+    },
+    "validate_spec": {
+      "calls": 1,
+      "seconds_inclusive": 0.06506049999916286
+    },
+    "RunContext.__exit__": {
+      "calls": 1,
+      "seconds_inclusive": 0.6307051999992836
+    }
+  },
+  "scope": "inclusive вложенные времена; не суммировать",
+  "changes": "только обёртки perf_counter; все исходные операции вызываются"
+}

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-21T11:38:43.074335+00:00",
+  "credit_usd": 28.900498495376752,
+  "cli": "C:\\Users\\Taras\\AppData\\Local\\Programs\\Python\\Python310\\Scripts\\vastai.EXE",
+  "image": "python:3.11-slim-bookworm",
+  "passed": true
+}

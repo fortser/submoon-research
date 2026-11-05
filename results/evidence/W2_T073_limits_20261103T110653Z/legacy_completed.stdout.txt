@@ -1,0 +1,10 @@
+{
+  "run_id": "L0-20261101T184623Z-c3f2af79",
+  "manifest": "runs/L0-20261101T184623Z-c3f2af79/manifest.json",
+  "manifest_sha256": "74800c6f25e4d741c0284eec3c275c82f45ae5af8609c59e95f76b29b40d58e3",
+  "code_count": 90,
+  "artifacts_count": 100,
+  "status": "recorded_bytes_verified_read_only",
+  "initial_set_completeness": "not_proven_for_legacy",
+  "real_freeze_executed": false
+}

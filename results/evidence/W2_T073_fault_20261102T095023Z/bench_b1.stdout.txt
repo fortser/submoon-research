@@ -1,0 +1,1 @@
+{"mode": "batch", "entry_wall_seconds": 2.5348948999999266, "entry_cpu_seconds": 0.0625, "entry_counts": {"fsync": 4, "manifest": 2}, "paths_count": 50, "code_index_sha256": "db6cafd32021631c6fde330b70dda672dcc081393001ef9357fa00231d27004c", "snapshot_bytes": 21360}

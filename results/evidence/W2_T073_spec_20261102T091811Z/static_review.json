@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-02T09:29:23.053078+00:00",
+  "scope": "static_specification_only",
+  "baseline_path": "results/evidence/W2_T072_timing_20261102T081827Z/input_sha256.json",
+  "baseline_sha256": "3b7addaf89aa8c982e68ee96866302e10d90dfbce3114186bcf037b55249f0e5",
+  "changed_src_scripts_tests": [],
+  "reviewed_sha256": {
+    "src/submoon_research/execution.py": "813561bbdc13bf5777c3d130ed1561ee449137a0acfe5ec6259a3400ab19f804",
+    "src/submoon_research/tracking.py": "9d24cef3bfba9840d1cc38955c13c0d46ea0b2d96975d902dfe1ca82e257e23f",
+    "src/submoon_research/provenance.py": "3b58e76da12faff16659c5639414d409a79823c60cb834e22e2a7126816df520",
+    "src/submoon_research/contracts/freeze.py": "8b318bb04bcd97a3fcbbe39fd5e37d6e054b5619620550003f9e4f0dd2d9b3a2",
+    "tests/unit/test_provenance_execution.py": "dc1801392825bd8b0d2ac2aaf1cec6cd073b5ac284bbbfe064cbd6bc16d58814",
+    "tests/integration/test_l1_acceptance.py": "9050c9c4b33245480ccf0f10c3e62bf1f415044d63c740dec08135230cbea10a"
+  },
+  "specification_path": "docs/tasks/W2_T073_batched_provenance_20261102.md",
+  "specification_sha256": "2543d7d127a1a6f5bf45618b01088547abe52081300bae6f3182a934621e7868",
+  "observed_implementation": [
+    "save_code publishes manifest per file",
+    "atomic_text fsyncs temporary file then os.replace",
+    "source copies use write_bytes, no explicit per-copy fsync",
+    "no directory fsync in atomic_text"
+  ],
+  "proposed_contract": "D050: initial batch only; pending/complete marker; standalone save_code immediate",
+  "not_validated": [
+    "implementation",
+    "reader compatibility completeness",
+    "crash guarantees",
+    "performance gain",
+    "full pytest",
+    "power-loss durability"
+  ]
+}

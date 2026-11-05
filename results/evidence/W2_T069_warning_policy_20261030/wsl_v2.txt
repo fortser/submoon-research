@@ -1,0 +1,41 @@
+{
+  "synthetic": true,
+  "policy_prototype_only": true,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "ledger": {
+    "schema": "W2-warning-ledger-prototype-v1",
+    "policy_sha256": "e6cabc46c360b357a388c43107835d135268ee388677e193fe4eabdd8b758464",
+    "capture_complete": true,
+    "overflow": false,
+    "events": [
+      {
+        "category": "RuntimeWarning",
+        "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+        "phase": "cache",
+        "time": null
+      }
+    ],
+    "engine_status": "completed",
+    "assessment": {
+      "admissible": false,
+      "reasons": [
+        "warnings_present"
+      ],
+      "physical_outcome_policy": "unresolved"
+    }
+  },
+  "ledger_sha256": "1d7110c415d4caf7cb41a514e51b7a177d925a5ae6471bb8bc1974be8c166b2e",
+  "engine_end": 2.0,
+  "module_sha256": "1ebc065cc1e4afa0a29967ab4f06777005ef34919bc0cfb99e9a460688d2e03b",
+  "capture_sha256": "b5556a4ed6693c8c217161569b1975af220669e7595b54eb9be4449337c1ed3b",
+  "limitation": "Только синтетический однопроцессный вызов cache.extend; не production capture."
+}
+..............................                                           [100%]
+=============================== warnings summary ===============================
+tests/physics/test_w2_engines.py::test_engine_circular_and_restart_contract[hierarchical_cached]
+tests/physics/test_w2_engines.py::test_separate_process_restart_with_escape_history[hierarchical_cached]
+  /home/taras/venvs/submoon-w2/lib/python3.12/site-packages/rebound/simulation.py:264: RuntimeWarning: At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.
+    warnings.warn(msg[1:], RuntimeWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+30 passed, 2 warnings in 9.12s

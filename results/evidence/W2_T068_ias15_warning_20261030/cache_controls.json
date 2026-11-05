@@ -1,0 +1,163 @@
+{
+  "schema": "w2-t068-synthetic-controls-v1",
+  "synthetic": true,
+  "scientific_admission": false,
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "variants": [
+    {
+      "name": "one_static_unlimited",
+      "epsilon": 1e-13,
+      "max_step": null,
+      "n_massive": 1,
+      "steps": 10,
+      "final_time": 2.0,
+      "endpoint_residual_max": 0.0,
+      "ballistic_absolute_error": 0.0,
+      "warnings": [
+        {
+          "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+          "t_before": 0.8738100000000001,
+          "t_after": 2.0,
+          "proposed_dt": 2.62144,
+          "applied_max_dt": null,
+          "accepted_dt": 1.1261899999999998,
+          "particles": 1
+        }
+      ],
+      "final_absolute_state": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "one_static_max_0_05",
+      "epsilon": 1e-13,
+      "max_step": 0.05,
+      "n_massive": 1,
+      "steps": 46,
+      "final_time": 2.0,
+      "endpoint_residual_max": 0.0,
+      "ballistic_absolute_error": 0.0,
+      "warnings": [
+        {
+          "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+          "t_before": 0.15461000000000003,
+          "t_after": 0.20461000000000001,
+          "proposed_dt": 0.2,
+          "applied_max_dt": 0.05,
+          "accepted_dt": 0.05,
+          "particles": 1
+        }
+      ],
+      "final_absolute_state": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "one_static_max_0_2",
+      "epsilon": 1e-13,
+      "max_step": 0.2,
+      "n_massive": 1,
+      "steps": 17,
+      "final_time": 2.0,
+      "endpoint_residual_max": 0.0,
+      "ballistic_absolute_error": 0.0,
+      "warnings": [
+        {
+          "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+          "t_before": 0.41845000000000004,
+          "t_after": 0.61845,
+          "proposed_dt": 0.8,
+          "applied_max_dt": 0.2,
+          "accepted_dt": 0.2,
+          "particles": 1
+        }
+      ],
+      "final_absolute_state": [
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "one_drifting_unlimited",
+      "epsilon": 1e-13,
+      "max_step": null,
+      "n_massive": 1,
+      "steps": 10,
+      "final_time": 2.0,
+      "endpoint_residual_max": 0.0,
+      "ballistic_absolute_error": 0.0,
+      "warnings": [
+        {
+          "message": "At least 10 predictor corrector loops in IAS15 did not converge. This is typically an indication of the timestep being too large.",
+          "t_before": 0.8738100000000001,
+          "t_after": 2.0,
+          "proposed_dt": 2.62144,
+          "applied_max_dt": null,
+          "accepted_dt": 1.1261899999999998,
+          "particles": 1
+        }
+      ],
+      "final_absolute_state": [
+        [
+          0.2,
+          0.0,
+          0.0,
+          0.1,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    {
+      "name": "two_massive_unlimited",
+      "epsilon": 1e-13,
+      "max_step": null,
+      "n_massive": 2,
+      "steps": 10,
+      "final_time": 2.0,
+      "endpoint_residual_max": 1.614870043225305e-16,
+      "ballistic_absolute_error": null,
+      "warnings": [],
+      "final_absolute_state": [
+        [
+          0.001999418618999156,
+          4.266311517068462e-05,
+          0.0,
+          0.0019988371903504076,
+          6.399111963071204e-05,
+          0.0
+        ],
+        [
+          9.980005813810008,
+          0.6395733688482931,
+          0.0,
+          -0.01998837190350407,
+          0.3193600888036929,
+          0.0
+        ]
+      ]
+    }
+  ],
+  "script_sha256": "0cfc4e6f7bdebdd24d4b01de7083a119e59a06c844a6b2989a8a9dc5490c3de8"
+}

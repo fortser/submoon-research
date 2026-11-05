@@ -1,0 +1,313 @@
+...FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF.........                [100%]
+================================== FAILURES ===================================
+_____________ test_inconsistent_snapshot_rejected_by_freeze[None] _____________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot1] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot2] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot3] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot4] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot5] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot6] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot7] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot8] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot9] ___________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot10] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot11] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot12] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot13] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot14] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+__________ test_inconsistent_snapshot_rejected_by_freeze[snapshot15] __________
+tests\unit\test_run_manifest_freeze.py:108: in test_inconsistent_snapshot_rejected_by_freeze
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+_______________________ test_missing_snapshot_rejected ________________________
+tests\unit\test_run_manifest_freeze.py:115: in test_missing_snapshot_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+_________________ test_noncanonical_snapshot_paths_rejected[] _________________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat0\\pilot\\code'
+________________ test_noncanonical_snapshot_paths_rejected[.] _________________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   PermissionError: [Errno 13] Permission denied: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat1\\pilot\\code'
+______________ test_noncanonical_snapshot_paths_rejected[./a.py] ______________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+_____________ test_noncanonical_snapshot_paths_rejected[../a.py] ______________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat3\\pilot\\a.py'
+______________ test_noncanonical_snapshot_paths_rejected[/a.py] _______________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Путь вне проекта: /a.py'
+_____________ test_noncanonical_snapshot_paths_rejected[x//a.py] ______________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat5\\pilot\\code\\x\\a.py'
+____________ test_noncanonical_snapshot_paths_rejected[x/../a.py] _____________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   Failed: DID NOT RAISE ValueError
+_____________ test_noncanonical_snapshot_paths_rejected[x/./a.py] _____________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat7\\pilot\\code\\x\\a.py'
+________________ test_noncanonical_snapshot_paths_rejected[x/] ________________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat8\\pilot\\code\\x'
+_____________ test_noncanonical_snapshot_paths_rejected[C:/a.py] ______________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Путь вне проекта: pilot/code/C:/a.py'
+______________ test_noncanonical_snapshot_paths_rejected[C:a.py] ______________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Путь вне проекта: pilot/code/C:a.py'
+_____________ test_noncanonical_snapshot_paths_rejected[x\\a.py] ______________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat11\\pilot\\code\\x\\a.py'
+___________ test_noncanonical_snapshot_paths_rejected[a.py:stream] ____________
+tests\unit\test_run_manifest_freeze.py:128: in test_noncanonical_snapshot_paths_rejected
+    validate_freeze(tmp_path, publish())
+src\submoon_research\contracts\freeze.py:52: in validate_freeze
+    ledger.read((parent/'code'/path).as_posix())
+src\submoon_research\provenance.py:52: in read
+    data = path.read_bytes()
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1126: in read_bytes
+    with self.open(mode='rb') as f:
+C:\Users\Taras\AppData\Local\Programs\Python\Python310\lib\pathlib.py:1119: in open
+    return self._accessor.open(self, mode, buffering, encoding, errors,
+E   FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\Taras\\AppData\\Local\\Temp\\pytest-of-Taras\\pytest-445\\test_noncanonical_snapshot_pat12\\pilot\\code\\a.py:stream'
+_____________ test_noncanonical_snapshot_paths_rejected[a\x00.py] _____________
+tests\unit\test_run_manifest_freeze.py:127: in test_noncanonical_snapshot_paths_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: '_getfinalpathname: embedded null character in path'
+___________ test_unknown_version_does_not_fall_back_to_legacy[None] ___________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+___________ test_unknown_version_does_not_fall_back_to_legacy[0.1] ____________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+___________ test_unknown_version_does_not_fall_back_to_legacy[0.4] ____________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+___________ test_unknown_version_does_not_fall_back_to_legacy[0.3] ____________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+_________ test_unknown_version_does_not_fall_back_to_legacy[version4] _________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+_________ test_unknown_version_does_not_fall_back_to_legacy[version5] _________
+tests\unit\test_run_manifest_freeze.py:135: in test_unknown_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+______________ test_missing_version_does_not_fall_back_to_legacy ______________
+tests\unit\test_run_manifest_freeze.py:142: in test_missing_version_does_not_fall_back_to_legacy
+    with pytest.raises(ValueError, match='версия RunContext'):
+E   Failed: DID NOT RAISE ValueError
+___________ test_legacy_with_new_marker_is_not_silently_downgraded ____________
+tests\unit\test_run_manifest_freeze.py:149: in test_legacy_with_new_marker_is_not_silently_downgraded
+    with pytest.raises(ValueError, match='0.2'):
+E   Failed: DID NOT RAISE ValueError
+____________________ test_bad_code_index_rejected[index0] _____________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Нет полного provenance пилота'
+____________________ test_bad_code_index_rejected[index1] _____________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Нет полного provenance пилота'
+_____________________ test_bad_code_index_rejected[None] ______________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Нет полного provenance пилота'
+____________________ test_bad_code_index_rejected[index3] _____________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Неверный SHA-256: pilot/code/a.py'
+____________________ test_bad_code_index_rejected[index4] _____________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Неверный SHA-256: pilot/code/a.py'
+____________________ test_bad_code_index_rejected[index5] _____________________
+tests\unit\test_run_manifest_freeze.py:157: in test_bad_code_index_rejected
+    with pytest.raises(ValueError, match='snapshot 0.3'):
+E   AssertionError: Regex pattern did not match.
+E     Expected regex: 'snapshot 0.3'
+E     Actual message: 'Неверный SHA-256: pilot/code/a.py'
+=========================== short test summary info ===========================
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[None]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot1]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot2]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot3]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot4]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot5]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot6]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot7]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot8]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot9]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot10]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot11]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot12]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot13]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot14]
+FAILED tests/unit/test_run_manifest_freeze.py::test_inconsistent_snapshot_rejected_by_freeze[snapshot15]
+FAILED tests/unit/test_run_manifest_freeze.py::test_missing_snapshot_rejected
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[.]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[./a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[../a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[/a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[x//a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[x/../a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[x/./a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[x/]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[C:/a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[C:a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[x\\a.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[a.py:stream]
+FAILED tests/unit/test_run_manifest_freeze.py::test_noncanonical_snapshot_paths_rejected[a\x00.py]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[None]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[0.1]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[0.4]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[0.3]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[version4]
+FAILED tests/unit/test_run_manifest_freeze.py::test_unknown_version_does_not_fall_back_to_legacy[version5]
+FAILED tests/unit/test_run_manifest_freeze.py::test_missing_version_does_not_fall_back_to_legacy
+FAILED tests/unit/test_run_manifest_freeze.py::test_legacy_with_new_marker_is_not_silently_downgraded
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[index0]
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[index1]
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[None]
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[index3]
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[index4]
+FAILED tests/unit/test_run_manifest_freeze.py::test_bad_code_index_rejected[index5]
+45 failed, 12 passed in 2.54s

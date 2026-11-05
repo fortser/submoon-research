@@ -1,0 +1,23 @@
+{
+  "python": "3.10.6",
+  "platform": "Windows-10-10.0.19045-SP0",
+  "inputs_audit_sha256": "0febe080e713cca4ea7cd6530beb46b7a89aa3f3fcff9b6bb17d69769e236150",
+  "files": {
+    "results/evidence/W2_T067_k2_20261030/full_pytest.txt": "57ec19232f4d8016cfd430dd077fdd10edf5432591798f44efe589dcc284d3eb",
+    "results/evidence/W2_T067_k2_20261030/guard_tests.txt": "c7e04f0f03351f34e55312b64d14a0f19a29dd5050faf908bc1274fb2e495804",
+    "results/evidence/W2_T067_k2_20261030/restart_process.txt": "7477188a434784e0f3fd1976b5ede04cfd5c1ce0fe0da00c77ebeca82f5cd437",
+    "results/evidence/W2_T067_k2_20261030/restart_process_recheck.txt": "12d9d2868173a4c894d482ef2bf5e168d57e534452825c784054a4dacee20d95",
+    "results/evidence/W2_T067_k2_20261030/retrospective.json": "8b5a1f019b32333365a3f29ff7579075d6f9e2600c81db0df4ac48d09b3d436c",
+    "results/evidence/W2_T067_k2_20261030/retrospective.log": "5bc02eaac339f6c0b8c0c6a8c26cb340b6c43ad4044fbce9ae924093d710f0ff",
+    "results/evidence/W2_T067_k2_20261030/ruff.txt": "82b3e6a6c090a57601d22943bd23fca9218d1031dbe5a7b754092f9a156b4f18",
+    "results/evidence/W2_T067_k2_20261030/smoke.txt": "24ce5b083d5a3e48eccc3f29a4be7977fc20489288d1658da5c65ff99b12da15",
+    "results/evidence/W2_T067_k2_20261030/validate.txt": "4cf93c3bca29e6a918ff8f30f20fb3fa7704f307584b175ce08d1a2689c3b163",
+    "results/evidence/W2_T067_k2_20261030/windows_physics_tests.txt": "56fd69c781e981baa081808e7be0e77626dc52a04813c6397e3f56336aedc9f3",
+    "results/evidence/W2_T067_k2_20261030/wsl_environment.txt": "31a23e40b8bb798d7a6085553014b115c93b94f76bb8fff0eb04cf8e14422aef",
+    "reports/analysis/W2_T067_k2_targeted_20261030.md": "2e74c5b267efe20db5b5aea819bc63df942a326a694b239f7de4b95cd9e457d5",
+    "scripts/review_k2_guard_20261030.py": "f1a63d3217d5c52f95727fe9119b47a1e5b310942b5b9635d22c192d0b4a402a",
+    "src/submoon_research/diagnostics/convergence_k2_guard_v1.py": "e816530dac6ba52adb32bceb2fc661256c87aa48563140e2145f4b0d38bfbdd4",
+    "tests/unit/test_convergence_k2_guard_v1.py": "46e37167de005c9cfc8d72a02abf9269803854b3d3d2488b8afa6ed7d98ab4ec",
+    "tests/unit/test_w2_t067_compiled_restart_process.py": "c24a805c75c512eb6f9327687be53beec005df6ef8f1f44037c01bec523689f6"
+  }
+}

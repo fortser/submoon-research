@@ -1,0 +1,85 @@
+"""Адресные проверки D051; прежний бюджет T073 сохранён резервом."""
+import json
+import os
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+
+import psutil
+
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / 'results/evidence/W2_T073_freeze_contract_20261103T103843Z'
+name, limit = sys.argv[1], float(sys.argv[2])
+argv = [str(ROOT / '.venv/Scripts/python.exe'), *sys.argv[3:]]
+previous = [json.loads(s) for s in (OUT / 'attempts.jsonl').read_text(encoding='utf-8').splitlines()] if (OUT / 'attempts.jsonl').exists() else []
+# D051: 132 s прежних реестров + до 60 s C129 + консервативный резерв.
+prior_reserve = 240
+assert prior_reserve + sum(r['elapsed_seconds'] for r in previous) + limit + 5 <= 600
+assert shutil.disk_usage(ROOT).free >= 5*1024**3
+env = dict(os.environ, PYTHONIOENCODING='utf-8', PYTHONUNBUFFERED='1',
+           OMP_NUM_THREADS='1', OPENBLAS_NUM_THREADS='1', MKL_NUM_THREADS='1', NUMBA_NUM_THREADS='1')
+start = time.monotonic()
+record = dict(attempt_id=name, argv=argv, cwd=str(ROOT), utc=datetime.now(timezone.utc).isoformat(),
+              timeout_seconds=limit, prior_budget_reserve_seconds=prior_reserve)
+seen = {}
+peak = 0
+reason = None
+with (OUT / (name+'.stdout.txt')).open('xb') as stdout, (OUT / (name+'.stderr.txt')).open('xb') as stderr:
+    proc = subprocess.Popen(argv, cwd=ROOT, env=env, stdin=subprocess.DEVNULL, stdout=stdout, stderr=stderr)
+    parent = psutil.Process(proc.pid)
+    while proc.poll() is None:
+        try:
+            nodes = [parent, *parent.children(recursive=True)]
+        except psutil.NoSuchProcess:
+            nodes = []
+        rss = 0
+        for node in nodes:
+            try:
+                ident = (node.pid, node.create_time())
+                seen[ident] = dict(pid=node.pid, created=ident[1], ppid=node.ppid(),
+                                   name=node.name(), exe=node.exe())
+                rss += node.memory_info().rss
+            except psutil.NoSuchProcess:
+                pass
+        peak = max(peak, rss)
+        if time.monotonic()-start > limit:
+            reason = 'timeout'
+        elif peak > 2*1024**3:
+            reason = 'memory_limit'
+        elif sum(p.stat().st_size for p in OUT.rglob('*') if p.is_file()) > 256*1024**2:
+            reason = 'output_limit'
+        if reason:
+            # Ни IMAGE-wide kill, ни остановки чужих WSL. Только наблюдённые identity.
+            for (pid, created) in reversed(list(seen)):
+                try:
+                    node = psutil.Process(pid)
+                    if node.create_time() == created:
+                        node.kill()
+                except psutil.NoSuchProcess:
+                    pass
+            break
+        time.sleep(.02)
+    proc.wait(timeout=5)
+# Дать exit notifications завершиться, не скрывать оставшихся потомков.
+time.sleep(.1)
+survivors = []
+for (pid, created), info in seen.items():
+    try:
+        node = psutil.Process(pid)
+        if node.create_time() == created and node.is_running():
+            survivors.append(info)
+    except psutil.NoSuchProcess:
+        pass
+record.update(elapsed_seconds=time.monotonic()-start, returncode=proc.returncode,
+              timed_out=reason == 'timeout', stop_reason=reason, root_pid=proc.pid,
+              peak_observed_rss_bytes=peak, observed_processes=list(seen.values()),
+              observed_survivors=survivors,
+              cleanup_scope='наблюдаемые Windows identity; не общая гарантия всех потомков',
+              stdout_path=f'{name}.stdout.txt', stderr_path=f'{name}.stderr.txt')
+with (OUT / 'attempts.jsonl').open('a', encoding='utf-8') as f:
+    f.write(json.dumps(record, ensure_ascii=False)+'\n')
+print(json.dumps({k: record[k] for k in ('attempt_id', 'elapsed_seconds', 'returncode', 'stop_reason', 'observed_survivors')}, ensure_ascii=False))
+raise SystemExit(proc.returncode if not reason and not survivors else 124)

@@ -1,0 +1,37 @@
+{
+ "utc": "2026-10-24T09:45:32Z",
+ "jobs": [
+  {
+   "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+   "years": 100.0,
+   "status": "completed",
+   "wall": 8.88620386691764,
+   "archived_wall": 9.30528182676062
+  },
+  {
+   "orbit_id": "himalia:canonical_volume:0012",
+   "years": 100.0,
+   "status": "completed",
+   "wall": 10.525650215800852,
+   "archived_wall": 11.123728333972394
+  },
+  {
+   "orbit_id": "himalia:uniform_log_a:0014",
+   "years": 100.0,
+   "status": "completed",
+   "wall": 15.889473075047135,
+   "archived_wall": 16.90252136392519
+  }
+ ],
+ "wall_seconds": 16.32876862678677,
+ "workers": 32,
+ "remaining_s": 22911.759842395782,
+ "deadline_utc": "2026-10-24T16:07:24Z",
+ "ratio": 0.9462340233224696,
+ "predicted_longest_s": 13648.545414085587,
+ "predicted_total_worker_s": 81647.30506677303,
+ "predicted_wall_s": 13648.545414085587,
+ "with_margin_s": 17060.681767606984,
+ "margin": 1.25,
+ "verdict": "GO"
+}

@@ -1,0 +1,1591 @@
+{
+  "cases": [
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0011",
+      "role": "target",
+      "high_e": true,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K3",
+      "v2_confidence": "medium",
+      "flags": [
+        "high_e_confidence_capped"
+      ],
+      "label_nonconvergence": true,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "spread_p0": 1717.8439020494873,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "operational_escape": 3,
+            "survived": 7
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 4,
+          "spread_p0": 11294.370318633422,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "host_contact": 1,
+            "operational_escape": 3,
+            "survived": 6
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "spread_p0": 6229.374917208827,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "operational_escape": 5,
+            "survived": 5
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0013",
+      "role": "target",
+      "high_e": true,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K3",
+      "v2_confidence": "medium",
+      "flags": [
+        "high_e_confidence_capped"
+      ],
+      "label_nonconvergence": true,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 7,
+          "spread_p0": 382.74193960990124,
+          "max_shift_p0": 555.7365491077766,
+          "outcomes": {
+            "host_contact": 7,
+            "operational_escape": 3
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 4,
+          "spread_p0": 583.1418838249028,
+          "max_shift_p0": 612.5737393424487,
+          "outcomes": {
+            "host_contact": 4,
+            "operational_escape": 6
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "spread_p0": 1439.3572432698613,
+          "max_shift_p0": 744.5418628176128,
+          "outcomes": {
+            "host_contact": 5,
+            "operational_escape": 5
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "iapetus:canonical_volume:0006",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K4",
+      "v2_confidence": null,
+      "flags": [
+        "perturbations_incomplete_or_unknown"
+      ],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 2,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 685.7469177182417,
+          "max_shift_p0": 2151.8330178496462,
+          "outcomes": {
+            "operational_escape": 10
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 9,
+          "unknown": 1,
+          "physical_flips": 0,
+          "spread_p0": 774.0331725368037,
+          "max_shift_p0": 2187.711019151369,
+          "outcomes": {
+            "operational_escape": 9
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 9,
+          "unknown": 1,
+          "physical_flips": 0,
+          "spread_p0": 2633.6478921951652,
+          "max_shift_p0": 2277.945833789746,
+          "outcomes": {
+            "operational_escape": 9
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "himalia:canonical_volume:0012",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K4",
+      "v1_confidence": null,
+      "v2_class": "K4",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 6,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "spread_p0": 4704.823481223369,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "operational_escape": 3,
+            "survived": 7
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 8,
+          "unknown": 2,
+          "physical_flips": 2,
+          "spread_p0": 1729.2594015366558,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "operational_escape": 2,
+            "survived": 6
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 6,
+          "unknown": 4,
+          "physical_flips": 0,
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "survived": 6
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "ни один класс не выполнен полностью"
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0097",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K4",
+      "v2_confidence": null,
+      "flags": [
+        "perturbations_incomplete_or_unknown"
+      ],
+      "label_nonconvergence": true,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 1,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 1,
+          "spread_p0": 5156.232697427444,
+          "max_shift_p0": 4069.911851732906,
+          "outcomes": {
+            "operational_escape": 9,
+            "survived": 1
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 9,
+          "unknown": 1,
+          "physical_flips": 2,
+          "spread_p0": 2531.1644637816453,
+          "max_shift_p0": 1424.1960501048097,
+          "outcomes": {
+            "operational_escape": 7,
+            "survived": 2
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "spread_p0": 4862.424241014373,
+          "max_shift_p0": 3707.3238795934617,
+          "outcomes": {
+            "host_contact": 1,
+            "operational_escape": 8,
+            "survived": 1
+          }
+        }
+      },
+      "archive_b_present": false,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "ganymede:uniform_log_a:0086",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K4",
+      "v2_confidence": null,
+      "flags": [
+        "literal_k3_not_established"
+      ],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 1,
+          "spread_p0": 11.049714555549743,
+          "max_shift_p0": 10.156250471682316,
+          "outcomes": {
+            "host_contact": 1,
+            "operational_escape": 9
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 5,
+          "spread_p0": 101.12798681010186,
+          "max_shift_p0": 84.28641371339931,
+          "outcomes": {
+            "host_contact": 5,
+            "operational_escape": 5
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 6,
+          "spread_p0": 193.49024095578406,
+          "max_shift_p0": 126.2999771468978,
+          "outcomes": {
+            "host_contact": 6,
+            "operational_escape": 4
+          }
+        }
+      },
+      "archive_b_present": false,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "ganymede:canonical_volume:0126",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K3",
+      "v1_confidence": "high",
+      "v2_class": "K3",
+      "v2_confidence": "high",
+      "flags": [],
+      "label_nonconvergence": true,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "spread_p0": 72545.6467279975,
+          "max_shift_p0": 72757.42954808721,
+          "outcomes": {
+            "host_contact": 2,
+            "operational_escape": 8
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 2,
+          "spread_p0": 21492.908545150483,
+          "max_shift_p0": 21439.120356586176,
+          "outcomes": {
+            "host_contact": 2,
+            "operational_escape": 8
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 3,
+          "spread_p0": 457.5066865666215,
+          "max_shift_p0": 300.3087527710753,
+          "outcomes": {
+            "host_contact": 3,
+            "operational_escape": 7
+          }
+        }
+      },
+      "archive_b_present": false,
+      "v1_wrong": null,
+      "v1_reason": "малые возмущения меняют исход или время; лестница не сходится"
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0012",
+      "role": "target",
+      "high_e": false,
+      "v1_class": "K1",
+      "v1_confidence": "medium",
+      "v2_class": "K1",
+      "v2_confidence": "medium",
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 9.97828756103524e-07,
+          "max_shift_p0": 6.751025585823456e-07,
+          "outcomes": {
+            "host_contact": 10
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.00011861568074769076,
+          "max_shift_p0": 6.333038882295938e-05,
+          "outcomes": {
+            "host_contact": 10
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.011867713747647054,
+          "max_shift_p0": 0.0063384007545400625,
+          "outcomes": {
+            "host_contact": 10
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": [
+        "D"
+      ],
+      "v1_reason": "семейства сходятся, грубая ступень отличается, малые возмущения устойчивы"
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0014",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 0,
+        "missing": [
+          [
+            1e-12,
+            "+N"
+          ],
+          [
+            1e-12,
+            "+R"
+          ],
+          [
+            1e-12,
+            "+T"
+          ],
+          [
+            1e-12,
+            "-N"
+          ],
+          [
+            1e-12,
+            "-R"
+          ],
+          [
+            1e-12,
+            "-T"
+          ],
+          [
+            1e-12,
+            "I0"
+          ],
+          [
+            1e-12,
+            "I1"
+          ],
+          [
+            1e-12,
+            "I2"
+          ],
+          [
+            1e-12,
+            "I3"
+          ],
+          [
+            1e-10,
+            "+N"
+          ],
+          [
+            1e-10,
+            "+R"
+          ],
+          [
+            1e-10,
+            "+T"
+          ],
+          [
+            1e-10,
+            "-N"
+          ],
+          [
+            1e-10,
+            "-R"
+          ],
+          [
+            1e-10,
+            "-T"
+          ],
+          [
+            1e-10,
+            "I0"
+          ],
+          [
+            1e-10,
+            "I1"
+          ],
+          [
+            1e-10,
+            "I2"
+          ],
+          [
+            1e-10,
+            "I3"
+          ],
+          [
+            1e-08,
+            "+N"
+          ],
+          [
+            1e-08,
+            "+R"
+          ],
+          [
+            1e-08,
+            "+T"
+          ],
+          [
+            1e-08,
+            "-N"
+          ],
+          [
+            1e-08,
+            "-R"
+          ],
+          [
+            1e-08,
+            "-T"
+          ],
+          [
+            1e-08,
+            "I0"
+          ],
+          [
+            1e-08,
+            "I1"
+          ],
+          [
+            1e-08,
+            "I2"
+          ],
+          [
+            1e-08,
+            "I3"
+          ]
+        ],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": false
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-10": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-08": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "ganymede:uniform_a_e_cos_i_phases:0011",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 0,
+        "missing": [
+          [
+            1e-12,
+            "+N"
+          ],
+          [
+            1e-12,
+            "+R"
+          ],
+          [
+            1e-12,
+            "+T"
+          ],
+          [
+            1e-12,
+            "-N"
+          ],
+          [
+            1e-12,
+            "-R"
+          ],
+          [
+            1e-12,
+            "-T"
+          ],
+          [
+            1e-12,
+            "I0"
+          ],
+          [
+            1e-12,
+            "I1"
+          ],
+          [
+            1e-12,
+            "I2"
+          ],
+          [
+            1e-12,
+            "I3"
+          ],
+          [
+            1e-10,
+            "+N"
+          ],
+          [
+            1e-10,
+            "+R"
+          ],
+          [
+            1e-10,
+            "+T"
+          ],
+          [
+            1e-10,
+            "-N"
+          ],
+          [
+            1e-10,
+            "-R"
+          ],
+          [
+            1e-10,
+            "-T"
+          ],
+          [
+            1e-10,
+            "I0"
+          ],
+          [
+            1e-10,
+            "I1"
+          ],
+          [
+            1e-10,
+            "I2"
+          ],
+          [
+            1e-10,
+            "I3"
+          ],
+          [
+            1e-08,
+            "+N"
+          ],
+          [
+            1e-08,
+            "+R"
+          ],
+          [
+            1e-08,
+            "+T"
+          ],
+          [
+            1e-08,
+            "-N"
+          ],
+          [
+            1e-08,
+            "-R"
+          ],
+          [
+            1e-08,
+            "-T"
+          ],
+          [
+            1e-08,
+            "I0"
+          ],
+          [
+            1e-08,
+            "I1"
+          ],
+          [
+            1e-08,
+            "I2"
+          ],
+          [
+            1e-08,
+            "I3"
+          ]
+        ],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": false
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-10": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-08": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "himalia:uniform_log_a:0006",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K4",
+      "v1_confidence": null,
+      "v2_class": "K4",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 6.891174799385513e-08,
+          "max_shift_p0": 4.3321269805413326e-08,
+          "outcomes": {
+            "host_contact": 10
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 7.072181796790004e-06,
+          "max_shift_p0": 4.000637868373637e-06,
+          "outcomes": {
+            "host_contact": 10
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.0007061623571906199,
+          "max_shift_p0": 0.00039990354612840575,
+          "outcomes": {
+            "host_contact": 10
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "ни один класс не выполнен полностью"
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0005",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 2.8336612634183675e-08,
+          "max_shift_p0": 1.4491222208000834e-08,
+          "outcomes": {
+            "operational_escape": 10
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 2.8577764507295227e-06,
+          "max_shift_p0": 1.4303381619399297e-06,
+          "outcomes": {
+            "operational_escape": 10
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.00028588216742272445,
+          "max_shift_p0": 0.0001429803519792106,
+          "outcomes": {
+            "operational_escape": 10
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "himalia:uniform_a_e_cos_i_phases:0015",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": true,
+        "expected": 30,
+        "rows": 30,
+        "missing": [],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": true
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "survived": 10
+          }
+        },
+        "1e-10": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "survived": 10
+          }
+        },
+        "1e-08": {
+          "n": 10,
+          "known": 10,
+          "unknown": 0,
+          "physical_flips": 0,
+          "spread_p0": 0.0,
+          "max_shift_p0": 0.0,
+          "outcomes": {
+            "survived": 10
+          }
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "iapetus:uniform_log_a:0013",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 0,
+        "missing": [
+          [
+            1e-12,
+            "+N"
+          ],
+          [
+            1e-12,
+            "+R"
+          ],
+          [
+            1e-12,
+            "+T"
+          ],
+          [
+            1e-12,
+            "-N"
+          ],
+          [
+            1e-12,
+            "-R"
+          ],
+          [
+            1e-12,
+            "-T"
+          ],
+          [
+            1e-12,
+            "I0"
+          ],
+          [
+            1e-12,
+            "I1"
+          ],
+          [
+            1e-12,
+            "I2"
+          ],
+          [
+            1e-12,
+            "I3"
+          ],
+          [
+            1e-10,
+            "+N"
+          ],
+          [
+            1e-10,
+            "+R"
+          ],
+          [
+            1e-10,
+            "+T"
+          ],
+          [
+            1e-10,
+            "-N"
+          ],
+          [
+            1e-10,
+            "-R"
+          ],
+          [
+            1e-10,
+            "-T"
+          ],
+          [
+            1e-10,
+            "I0"
+          ],
+          [
+            1e-10,
+            "I1"
+          ],
+          [
+            1e-10,
+            "I2"
+          ],
+          [
+            1e-10,
+            "I3"
+          ],
+          [
+            1e-08,
+            "+N"
+          ],
+          [
+            1e-08,
+            "+R"
+          ],
+          [
+            1e-08,
+            "+T"
+          ],
+          [
+            1e-08,
+            "-N"
+          ],
+          [
+            1e-08,
+            "-R"
+          ],
+          [
+            1e-08,
+            "-T"
+          ],
+          [
+            1e-08,
+            "I0"
+          ],
+          [
+            1e-08,
+            "I1"
+          ],
+          [
+            1e-08,
+            "I2"
+          ],
+          [
+            1e-08,
+            "I3"
+          ]
+        ],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": false
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-10": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-08": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0010",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 0,
+        "missing": [
+          [
+            1e-12,
+            "+N"
+          ],
+          [
+            1e-12,
+            "+R"
+          ],
+          [
+            1e-12,
+            "+T"
+          ],
+          [
+            1e-12,
+            "-N"
+          ],
+          [
+            1e-12,
+            "-R"
+          ],
+          [
+            1e-12,
+            "-T"
+          ],
+          [
+            1e-12,
+            "I0"
+          ],
+          [
+            1e-12,
+            "I1"
+          ],
+          [
+            1e-12,
+            "I2"
+          ],
+          [
+            1e-12,
+            "I3"
+          ],
+          [
+            1e-10,
+            "+N"
+          ],
+          [
+            1e-10,
+            "+R"
+          ],
+          [
+            1e-10,
+            "+T"
+          ],
+          [
+            1e-10,
+            "-N"
+          ],
+          [
+            1e-10,
+            "-R"
+          ],
+          [
+            1e-10,
+            "-T"
+          ],
+          [
+            1e-10,
+            "I0"
+          ],
+          [
+            1e-10,
+            "I1"
+          ],
+          [
+            1e-10,
+            "I2"
+          ],
+          [
+            1e-10,
+            "I3"
+          ],
+          [
+            1e-08,
+            "+N"
+          ],
+          [
+            1e-08,
+            "+R"
+          ],
+          [
+            1e-08,
+            "+T"
+          ],
+          [
+            1e-08,
+            "-N"
+          ],
+          [
+            1e-08,
+            "-R"
+          ],
+          [
+            1e-08,
+            "-T"
+          ],
+          [
+            1e-08,
+            "I0"
+          ],
+          [
+            1e-08,
+            "I1"
+          ],
+          [
+            1e-08,
+            "I2"
+          ],
+          [
+            1e-08,
+            "I3"
+          ]
+        ],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": false
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-10": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-08": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    },
+    {
+      "orbit_id": "iapetus:uniform_a_e_cos_i_phases:0003",
+      "role": "control",
+      "high_e": false,
+      "v1_class": "K0",
+      "v1_confidence": null,
+      "v2_class": "K0",
+      "v2_confidence": null,
+      "flags": [],
+      "label_nonconvergence": false,
+      "perturbation_grid": {
+        "complete": false,
+        "expected": 30,
+        "rows": 0,
+        "missing": [
+          [
+            1e-12,
+            "+N"
+          ],
+          [
+            1e-12,
+            "+R"
+          ],
+          [
+            1e-12,
+            "+T"
+          ],
+          [
+            1e-12,
+            "-N"
+          ],
+          [
+            1e-12,
+            "-R"
+          ],
+          [
+            1e-12,
+            "-T"
+          ],
+          [
+            1e-12,
+            "I0"
+          ],
+          [
+            1e-12,
+            "I1"
+          ],
+          [
+            1e-12,
+            "I2"
+          ],
+          [
+            1e-12,
+            "I3"
+          ],
+          [
+            1e-10,
+            "+N"
+          ],
+          [
+            1e-10,
+            "+R"
+          ],
+          [
+            1e-10,
+            "+T"
+          ],
+          [
+            1e-10,
+            "-N"
+          ],
+          [
+            1e-10,
+            "-R"
+          ],
+          [
+            1e-10,
+            "-T"
+          ],
+          [
+            1e-10,
+            "I0"
+          ],
+          [
+            1e-10,
+            "I1"
+          ],
+          [
+            1e-10,
+            "I2"
+          ],
+          [
+            1e-10,
+            "I3"
+          ],
+          [
+            1e-08,
+            "+N"
+          ],
+          [
+            1e-08,
+            "+R"
+          ],
+          [
+            1e-08,
+            "+T"
+          ],
+          [
+            1e-08,
+            "-N"
+          ],
+          [
+            1e-08,
+            "-R"
+          ],
+          [
+            1e-08,
+            "-T"
+          ],
+          [
+            1e-08,
+            "I0"
+          ],
+          [
+            1e-08,
+            "I1"
+          ],
+          [
+            1e-08,
+            "I2"
+          ],
+          [
+            1e-08,
+            "I3"
+          ]
+        ],
+        "extra": [],
+        "duplicates": [],
+        "unknown": 0,
+        "base_known": false
+      },
+      "physical_sensitivity": {
+        "1e-12": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-10": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        },
+        "1e-08": {
+          "n": 0,
+          "known": 0,
+          "unknown": 0,
+          "physical_flips": null,
+          "spread_p0": null,
+          "max_shift_p0": null,
+          "outcomes": {}
+        }
+      },
+      "archive_b_present": true,
+      "v1_wrong": null,
+      "v1_reason": "грубая ступень совпадает с пределом: расхождение не воспроизвелось на этой платформе"
+    }
+  ],
+  "transitions": {
+    "K0->K0": 7,
+    "K1->K1": 1,
+    "K3->K3": 3,
+    "K3->K4": 3,
+    "K4->K4": 2
+  },
+  "confidence_changes": [
+    "iapetus:uniform_a_e_cos_i_phases:0011",
+    "himalia:canonical_volume:0013",
+    "iapetus:canonical_volume:0006",
+    "himalia:uniform_a_e_cos_i_phases:0097",
+    "ganymede:uniform_log_a:0086"
+  ],
+  "note": "v2 — неполный разработочный прототип; K0/K2 сохранены v1 и отдельно не подтверждены; общий выбор режима не пересчитан и не является допуском",
+  "schema": "w2-phase3-v1-v2-retrospective-v1",
+  "utc": "2026-10-30T11:08:51.325306+00:00",
+  "baseline_sha256": "0febe080e713cca4ea7cd6530beb46b7a89aa3f3fcff9b6bb17d69769e236150",
+  "inventory_sha256": "4d064711745f5a1f279ae68155e4f2fb4b674cadbdce7e6d5cc53a9d3c64b833",
+  "original_sha256": "31ddffa28878ffb30af49e2345ceadd12f52306046e07d7a289f7d38ea455ea9",
+  "source_sha256": {
+    "scripts/compare_phase3_v1_v2.py": "b457cb345f75f16fcf639cc7822b5a64191c185a4c529fdc2b70e5cf08ca0683",
+    "src/submoon_research/diagnostics/phase3_v2_input.py": "05d6e0aa461666d0026ff078b8588d7091e3ce579472fcd610916b6338ab9690",
+    "src/submoon_research/diagnostics/phase3_audit.py": "996f4c6a9cee92138b92a52e1a0ca61e830ab3d8f0feea5475ac90a9118abbed",
+    "src/submoon_research/diagnostics/convergence.py": "0b3886ef4007e59247d19288770be36befbdec36d62ea0c7727abd415fb49db5",
+    "src/submoon_research/diagnostics/convergence_v2_guard.py": "5c0af26eb688722b16937630ae1de8a9d7396f32be4fcdde1cdf2db6a9e8516f"
+  },
+  "python": "3.10.6",
+  "numpy": "2.2.6",
+  "input_rows": 439,
+  "runs": {
+    "P0": "runs/W2-PH3-P0-20261026T113011Z",
+    "P1": "runs/W2-PH3-P1-20261028T091305Z",
+    "perturb": "runs/W2-PH3-perturb-20261028T093615Z"
+  },
+  "decision": "W2-D047",
+  "production_allowed": false
+}

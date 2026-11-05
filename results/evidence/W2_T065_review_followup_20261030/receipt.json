@@ -1,0 +1,12 @@
+{
+  "review_run": "260c98cd-9124-4545-aeb9-7386fc3e7a59",
+  "review_type": "static_read_only",
+  "reviewer_tests_run": false,
+  "parent_tests": "56 passed, 6 xfailed, 2 deselected",
+  "files": {
+    "src/submoon_research/diagnostics/phase3_v2_input.py": "05d6e0aa461666d0026ff078b8588d7091e3ce579472fcd610916b6338ab9690",
+    "tests/unit/test_phase3_v2_input.py": "445eaede20183bb0f7d6418b14a400be4d65c04e0c0ffc65d724e7d9fadac4e6",
+    "tests/unit/test_phase3_v2_archive_review.py": "d6aa7974461255b177210649db15c0c1a1a4efa983bc363d95c1806881881186",
+    "reports/analysis/W2_T065_independent_review_followup_20261030.md": "a48d723670a85260aaaf2e49d7535703fa249b2840df56c753d5c5decbf244ab"
+  }
+}

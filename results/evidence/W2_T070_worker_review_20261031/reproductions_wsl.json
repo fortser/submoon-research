@@ -1,0 +1,37 @@
+{
+  "scope": "synthetic review probes, no production admission",
+  "python": "3.12.3 (main, Aug 31 2026, 10:18:26) [GCC 13.3.0]",
+  "reviewed_sha256": {
+    "src/submoon_research/diagnostics/warning_worker_demo.py": "66556698e3e8ed35382ba530698a37136af00cf5f7d6cb9cc4e19ed975229365",
+    "src/submoon_research/diagnostics/warning_contract_v1.py": "1ebc065cc1e4afa0a29967ab4f06777005ef34919bc0cfb99e9a460688d2e03b",
+    "tests/unit/test_warning_worker_demo.py": "55a97742be88d7d0eea208408d850a1fcb748fdf28efc65154c620fbe12c5abf",
+    "tests/unit/test_warning_contract_v1.py": "bcec3c249fd7491f3b85c736e89d77c61c46e21f5766650cbb44fb5f192b1cb7"
+  },
+  "results": {
+    "checkpoint_toctou": {
+      "pinned_warning_count": 1,
+      "returned_warning_count": 0,
+      "current_sha_matches_pin": false
+    },
+    "exclusive_publish_race": {
+      "owner": "this"
+    },
+    "boolean_warning_count": {
+      "admissible": true,
+      "outcome": "preserve_synthetic_outcome",
+      "reasons": []
+    },
+    "unbound_job_directory": {
+      "admissible": true,
+      "outcome": "preserve_synthetic_outcome",
+      "reasons": []
+    },
+    "malformed_parent_event": {
+      "accepted_events": [
+        {
+          "unexpected": "not a warning record"
+        }
+      ]
+    }
+  }
+}
